@@ -21,9 +21,13 @@ figcaption,
 
 // Previous/next chapter links at the bottom of each page: the muted grey
 // fails 4.5:1 on the dark theme.
+// Breadcrumbs (title area, and the top bar on narrow screens) have the same
+// problem. Selectors must be at least as specific as Quarto's own rules.
 .nav-page .nav-page-text,
-.quarto-title-breadcrumbs .breadcrumb-item,
-.quarto-title-breadcrumbs .breadcrumb-item a {
+.quarto-title-breadcrumbs .breadcrumb li.breadcrumb-item a,
+.quarto-title-breadcrumbs .breadcrumb li:last-of-type a,
+.quarto-secondary-nav nav.quarto-page-breadcrumbs,
+.quarto-secondary-nav nav.quarto-page-breadcrumbs .breadcrumb-item a {
   color: $body-color;
 }
 
