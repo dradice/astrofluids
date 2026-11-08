@@ -11,7 +11,7 @@ The notes are being prepared for the Spring 2027 semester. Chapters marked "in p
 - **One chapter per lecture topic.** The [Schedule](schedule.qmd) lists which chapter goes with each lecture.
 - **Everything is numbered by chapter.** Equation (9.14) is the fourteenth numbered equation of Chapter 9, and Exercise 8.4 is the fourth exercise of Chapter 8. When you ask a question about the notes, quote these numbers.
 - **In-class worksheets** appear near the end of each chapter, followed by the **exercises**. Homework assignments on Canvas list the exercises to solve, for example "Exercises 2.1, 7.3".
-- **Optional material** is collapsed under "Going further" boxes.
+- **Optional material** is set apart in boxes titled "Going further"; you can skip it on a first reading.
 
 ## Accessibility {.unnumbered}
 

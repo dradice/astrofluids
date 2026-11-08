@@ -5,7 +5,7 @@
 - One file per chapter, `chapters/<slug>.qmd`. Slugs have no numbers and are never renamed (they are the page URLs). The order lives only in `_quarto.yml`.
 - The chapter list, with each chapter's **label key**, lives in `tools/chapters.py`. Every label in a chapter starts with that key.
 - Each chapter starts with `# Title {#sec-<key>}`. Structure:
-  1. Body sections. Optional material goes in `::: {.callout-note collapse="true"}` boxes titled "Going further".
+  1. Body sections. Optional material goes in `::: {.callout-note}` boxes titled "Going further: ...". Do not use `collapse="true"`: Quarto's collapsible callouts cannot be opened with the keyboard and fail axe.
   2. `## In-class worksheet {#sec-<key>-worksheet}`
   3. `## Exercises {#sec-<key>-exercises}`
   4. `## Further reading {#sec-<key>-reading}`: textbook sections first [@clarke2007].
@@ -21,7 +21,7 @@
   $$ {#eq-continua-continuity}
   ```
 
-- **Every display equation gets a label** (`#eq-<key>-<name>`) so that it is numbered. Use descriptive names. Sequential names like `eq-sound-12` are acceptable for equations no one references yet.
+- **Every display equation gets a label** (`#eq-<key>-<name>`) so that it is numbered. Use descriptive names. Sequential names like `eq-sound-12` are acceptable for equations no one references yet; after inserting or moving equations, run `just renumber chapters/<slug>.qmd` so that the numbers match positions again (it also re-keys labels moved from another chapter and updates references book-wide).
 - Multi-line derivations use `\begin{aligned}...\end{aligned}` inside `$$`, with one label for the whole block.
 - **Equations inside solutions get no label.** Otherwise equation numbers would differ between the public and the solutions builds.
 - Macros are provided by `filters/macros.lua`. Do not define `\newcommand` in chapters.
@@ -46,7 +46,9 @@ Solution... (no equation labels in here)
 :::
 ```
 
-- The `.solution` class is what `tools/check-no-solutions.sh` looks for. Always use it.
+- The `.solution` class is what `tools/check-no-solutions.sh` looks for. Always use it. Quarto prints the "Solution." label itself.
+- Footnotes used inside a solution must be defined inside the same solution block (`just lint` checks this); otherwise their text is published with the page's footnotes.
+- Footnote names include the chapter key (`[^hydro-1]`), because the PDF combines all chapters into one document.
 - Exercises adapted from textbooks are rewritten in our own words and credited, e.g. "Adapted from @clarke2007, Problem 8." Never copy textbook wording.
 - Assumptions use `::: {#cnj-<key>-<name>}` with a `## Title` (rendered as "Assumption N.k").
 

@@ -22,6 +22,9 @@ jobs:
         with:
           version: 1.12.1
 
+      - name: Lint sources
+        run: python3 tools/lint.py
+
       - name: Render (public profile)
         run: quarto render
 

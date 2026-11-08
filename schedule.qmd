@@ -2,6 +2,8 @@
 
 Lecture schedule for Spring 2027 and the chapter that goes with each lecture. Lectures are on Tuesdays and Thursdays. Homework assignments and due dates are posted on Canvas.
 
+::: {.table-responsive}
+
 | Lecture | Date | Topic | Notes |
 |:--|:--|:--|:--|
 | 1 | Tue Jan 12 | Fluids as continua, continuity equation | @sec-continua |
@@ -37,3 +39,5 @@ Lecture schedule for Spring 2027 and the chapter that goes with each lecture. Le
 | 30 | Thu Apr 29 | Magnetorotational instability | @sec-mri |
 
 : Spring 2027 lectures and the corresponding chapters of these notes.
+
+:::

@@ -1,5 +1,357 @@
 # Sound Waves and the Doppler Effect {#sec-sound}
 
+## Oscillation Equation
+
+The equations of fluid mechanics are nonlinear and only few analytic solutions are known. However, significant insight into astrophysical systems can be obtained by considering small perturbations around a background flow. Typically the background is chosen to be a hydrostatic solution, e.g., the density profile of an atmosphere. However, this method can be applied to more general situations. This is the key working principle of *astroseismology*. Sound waves are also one of the key tools to learn about the early Universe, as they generate the baryonic-acoustics oscillations seen in the CMB.
+
+To set the stage, consider a gas flow with density, pressure, and velocity
+$$
+\rho_0 (t ; \mathcal{V}), \quad p_0 (t ; \mathcal{V}), \quad \vb{v}_0 (t
+; \mathcal{V}) .
+$$ {#eq-sound-1}
+We describe its perturbation in terms of a small displacement vector $\vb{\xi} (t ; \mathcal{V})$ describing the offset of each fluid element from its background state.
+
+![Lagrangian displacement of a fluid element from position $\vb{x}$ to position $\vb{x}+\vb{\xi}$.](../figures/sound-waves/lagrangian-displacement.svg){#fig-sound-displacement fig-alt="A fluid element drawn as a box at position x, where a quantity has the value q. A curved arrow labelled xi carries it to a second box at position x plus xi, where the quantity has the value q plus delta q. Next to the boxes is the relation q prime of x equals delta q minus xi dot gradient of q."}
+
+The density, pressure, and velocity *of each fluid element* change according to
+$$
+\rho (t ; \mathcal{V}) = \rho_0 (t ; \mathcal{V}) + \delta \rho (t ;
+\mathcal{V}), \quad p (t ; \mathcal{V}) = p_0 (t ; \mathcal{V}) + \delta p
+(t ; \mathcal{V}), \quad \vb{v} (t ; \mathcal{V}) =\vb{v}_0 (t ;
+\mathcal{V}) + \frac{\dd \vb{\xi} (t ; \mathcal{V})}{\dd t} .
+$$ {#eq-sound-2}
+The quantities with the $\delta$ in front are the Lagrangian perturbations[^sound-1]. The Eulerian perturbation of a quantity is given by
+$$
+q' (t, \vb{x}) = q_0 (t, \vb{x}-\vb{\xi}) + \delta q (t,
+\vb{x}) - q_0 (t, \vb{x}) = \delta q (t, \vb{x}) -\vb{\xi}
+\cdot \nabla q_0 .
+$$ {#eq-sound-3}
+The difference between Lagrangian and Eulerian perturbations, is that the Lagrangian perturbations are specific to individual fluid elements, while the Eulerian perturbations record the difference in the flow at a fixed position. This distinction turns out to be crucial when perturbing non-homogeneous backgrounds, for which $\nabla q_0 \neq 0$, as we will see later.
+
+For the moment, we consider an homogeneous medium in which $\rho_0$, $p_0$, and $\vb{v}_0 = 0$ are constant. We perturb it by displacing the fluid elements by a small amount $\vb{\xi}$ and let it evolve freely. How do the perturbations evolve? To find out, we need to insert the *Lagrangian* perturbations into the *Lagrangian* equations.
+
+The continuity equation reads
+$$
+\frac{\dd \rho}{\dd t} = - \rho \nabla \cdot \vb{v}
+\longrightarrow \frac{\dd (\rho_0 + \delta \rho )}{\dd t} = - (\rho_0
++ \delta \rho) \nabla \cdot \left( \frac{\dd \vb{\xi}}{\dd t}
+\right) .
+$$ {#eq-sound-4}
+Dropping quantities that are quadratic or higher order in the perturbation, we obtain
+$$
+\frac{\dd \delta \rho}{\dd t} = - \rho_0 \nabla \cdot \frac{\dd
+\vb{\xi}}{\dd t} \longrightarrow \boxed{\delta \rho = - \rho_0
+\nabla \cdot \vb{\xi}} .
+$$ {#eq-sound-continuity}
+To find the perturbed momentum equation, first note that
+$$
+\frac{\dd \vb{\xi}}{\dd t} = \frac{\partial \vb{\xi}}{\partial
+t} + (\vb{v} \cdot \nabla) \vb{\xi}= \frac{\partial
+\vb{\xi}}{\partial t} + (\vb{v}_0 \cdot \nabla) \vb{\xi}+ \left(
+\frac{\dd \vb{\xi}}{\dd t} \cdot \nabla \right) \vb{\xi}=
+\frac{\partial \vb{\xi}}{\partial t} + o (| \vb{\xi} |),
+$$ {#eq-sound-6}
+so
+$$
+\vb{v}= \frac{\partial \vb{\xi}}{\partial t}, \qquad \frac{\dd
+\vb{v}}{\dd t} = \frac{\partial \vb{v}}{\partial t} +
+(\vb{v}_0 \cdot \nabla) \vb{v}+ \left( \frac{\dd
+\vb{\xi}}{\dd t} \cdot \nabla \right) \vb{v}= \frac{\partial^2
+\vb{\xi}}{\partial t^2} + o (| \vb{\xi} |) .
+$$ {#eq-sound-7}
+The momentum equation becomes
+$$
+\rho \frac{\dd \vb{v}}{\dd t} = - \nabla p \rightarrow
+\frac{\partial^2 \vb{\xi}}{\partial t^2} = - \frac{1}{\rho_0} \nabla p =
+- \frac{1}{\rho_0} \nabla \delta p.
+$$ {#eq-sound-8}
+We will consider only the case of adiabatic perturbations, for which
+$$
+p = p (\rho) .
+$$ {#eq-sound-9}
+In other words, we are taking the pressure at constant entropy. For example, for an ideal-gas, we have already seen that for adiabatic processes
+$$
+p = (\Gamma - 1) \rho \varepsilon \longrightarrow p = K \rho^{\Gamma} .
+$$ {#eq-sound-10}
+with $K = (\Gamma - 1) \rho^{1 - \Gamma} \varepsilon$.
+
+In this case, we can use the chain rule to rewrite $\nabla \delta p$ in terms of $\nabla \delta \rho$:
+$$
+\frac{\partial^2 \vb{\xi}}{\partial t^2} = - \frac{1}{\rho_0}
+\frac{\dd p}{\dd \rho} \nabla \delta \rho = \frac{\dd p}{\dd
+\rho} \nabla \nabla \cdot \vb{\xi}.
+$$ {#eq-sound-11}
+Defining the *sound speed* $c_s = \sqrt{\dd p / \dd \rho}$, we obtain the **oscillation equation**:
+$$
+\boxed{\frac{\partial^2 \vb{\xi}}{\partial t^2} - c_s^2 \nabla
+\nabla \cdot \vb{\xi}= 0.}
+$$ {#eq-sound-oscillation}
+In general, the sound speed needs to be evaluated at constant entropy, that is
+$$
+\boxed{c_s = \sqrt{\left( \frac{\partial p}{\partial \rho} \right)_s} .}
+$$ {#eq-sound-13}
+
+::: {.callout-tip icon=false}
+## Example
+
+For an ideal-gas, with $p = (\Gamma - 1) \rho \varepsilon = \frac{\rho}{\mu} k_B T$, the pressure at constant entropy is
+$$
+c_s^2 = \left( \frac{\partial p}{\partial \rho} \right)_s = \Gamma K
+\rho^{\Gamma - 1} = (\Gamma - 1) \Gamma \varepsilon = \frac{\Gamma k_B
+T}{\mu} .
+$$ {#eq-sound-14}
+:::
+
+The oscillation @eq-sound-oscillation is the fundamental equation to describe sound waves. Taking the divergence on both sides and using @eq-sound-continuity, we find that the density perturbation $\delta \rho$ satisfies the wave equation:
+$$
+\frac{\partial^2 \delta \rho}{\partial t^2} - c_s^2 \nabla^2 \delta \rho =
+0.
+$$ {#eq-sound-15}
+To solve the oscillation equation, we consider the ansatz
+$$
+\vb{\xi}=\vb{\xi}_1 \exp [\ii (\vb{k} \cdot \vb{x}-
+\omega t)],
+$$ {#eq-sound-16}
+which describes a plane sound wave propagating in the direction $\vb{k}$ and having frequency $\omega$. $\vb{\xi}_1$ is the *polarization vector*, describing the way in which fluid elements oscillates as the wave propagates. Inserting this ansatz into @eq-sound-oscillation, we find
+$$
+\omega^2 \vb{\xi}_1 = c_s^2 \vb{k} (\vb{k} \cdot \vb{\xi}_1)
+.
+$$ {#eq-sound-17}
+This means that plane wave solutions to @eq-sound-oscillation exist only for specific choices of $\vb{\xi}_1, \omega$ and $\vb{k}$. This is an example of dispersion relation. We see that the RHS is parallel to $\vb{k}$, so solutions can exist only if $\vb{\xi}_1 \parallel \vb{k}$. This means that sound waves are longitudinal. This is opposite from electromagnetic waves in vacuum, in which the electric and magnetic fields oscillate in the plane perpendicular to the direction of propagation. Setting $\vb{\xi}_1 = \xi_1 \hat{\vb{k}}$, we find
+$$
+\omega^2 = c_s^2 k^2 .
+$$ {#eq-sound-18}
+This means that both phase and group velocity for sound waves is given by $c_s$
+$$
+v_{\operatorname{phase}} = \frac{\omega}{k} = c_s, \qquad v_{\operatorname{group}} =
+\frac{\dd \omega}{\dd k} = c_s .
+$$ {#eq-sound-19}
+This justifies the name *sound speed* for $c_s$.
+
+What happens to fluid elements when a sound wave passes through them? They are displaced along the direction of the wave. This causes a compression of the fluid. From @eq-sound-continuity, we find:
+$$
+\delta \rho = - \rho_0  (\vb{k} \cdot \vb{\xi}_1) e^{\ii
+(\vb{k} \cdot \vb{x}- \omega t)} .
+$$ {#eq-sound-20}
+
+::: {.callout-tip icon=false}
+## Example
+
+Consider a sound wave propagating along $z$ with wavelength $\lambda = 1$. Then $\vb{k}= k \left(\begin{array}{ccc} 0 & 0 & 1 \end{array}\right)^T$ and $\omega = c_s$. The only non-zero component of $\vb{\xi}$ is the $z$-component
+$$
+\xi_z = \xi_1 e^{\ii (z - c_s t)} = A \cos [k (z - c_s t)] + B \sin [k
+(z - c_s t)] \Longleftrightarrow \xi_1 = A - \ii B
+$$ {#eq-sound-21}
+The density perturbation is given by
+$$
+\frac{\delta \rho}{\rho_0} = - \frac{\partial \xi_z}{\partial z} = k \{ A
+\sin [k (z - c_s t)] - B \cos [k (z - c_s t)] \} .
+$$ {#eq-sound-22}
+:::
+
+## Wave Energy and Momentum
+
+Sound waves also transport energy and momentum. The deposition of energy by breaking waves is thought to play an important role in phenomena such as core-collapse supernovae, stellar eruptions, and the evolution of giant molecular clouds.
+
 ::: {.callout-note}
-This chapter is being ported from the 2025 lecture notes and expanded.
+## Going further: Normal Modes
+
+Before we can compute the energy carried by waves, we need to develop some general perturbation theory. In general, the oscillation equation takes the form
+$$
+\rho_0  \frac{\partial^2 \vb{\xi}}{\partial t^2} = \hat{\vb{F}}
+\vb{\xi},
+$$ {#eq-sound-oscillations-general}
+where $\hat{\vb{F}}$ is a differential operator. For example, for sound waves in an homogeneous medium $\hat{\vb{F}} \vb{\xi}= \nabla \nabla \cdot \vb{\xi}$. We can find a dispersion relation by looking for solutions such that
+$$
+\vb{\xi} (t, \vb{x}) =\vb{\eta} (\vb{x}) e^{- \ii
+\omega t} .
+$$ {#eq-sound-24}
+Inserting this ansatz in @eq-sound-oscillations-general, we find an eigenvalue problem
+$$
+- \omega^2 \rho_0 \vb{\eta} (\vb{x}) = \hat{\vb{F}}
+\vb{\eta} (\vb{x}) .
+$$ {#eq-sound-eigenvalue}
+In most applications, $\hat{\vb{F}}$ is self-adjoint:
+$$
+\int \vb{\zeta} (\vb{x}) \cdot \hat{\vb{F}} \vb{\xi}
+(\vb{x}) \rho_0 (\vb{x}) \dd^3 \vb{x}= \int \vb{\xi}
+(\vb{x}) \cdot \hat{\vb{F}} \vb{\zeta} (\vb{x}) \rho_0
+(\vb{x}) \dd^3 \vb{r}.
+$$ {#eq-sound-26}
+The general theory of linear operator then implies that @eq-sound-eigenvalue has an infinite set of eigenvalues $\{ \omega_n \}$ and eigenfunctions $\{ \vb{\eta}_n \}$ and that any perturbation (not just plain waves) can be written as an infinite superposition of elementary solutions:
+$$
+\vb{\xi} (t, \vb{x}) = \sum_n \vb{\eta}_n (\vb{x}) e^{-
+i \omega_n t} .
+$$ {#eq-sound-superposition-principle}
+The quantities $\vb{\eta}_n (\vb{x})$ are also called the *normal modes of oscillations*. Note that the normal modes need not be countable. For example, for sound waves in an homogeneous infinite medium all positive sound frequencies $\omega$ are allowed. In this case, @eq-sound-superposition-principle takes the form of an integral. For plane waves in an homogeneous medium, @eq-sound-superposition-principle is just the Fourier transform:
+$$
+\vb{\xi} (t, \vb{x}) = \int \dd^3 \vb{k}\vb{\eta}
+(\vb{k}) e^{\ii \vb{k} \cdot \vb{x}} e^{- \ii c_s kt} .
+$$ {#eq-sound-28}
+However, when we consider sound waves in a finite medium, for example a star of a given radius, the requirement that standing wave solutions have a wavelength that is an integer fraction of the dimension of the star, makes the frequencies $\{ \omega_n \}$ quantized.
+
+::: {.callout-tip icon=false}
+:::
+
+## Example
+
+Consider a rigid, cylindrical pipe of length $L$ filled with gas at constant density and temperature. The ends of the pipe are sealed. The displacement equation for sound waves propagating in the pipe is
+$$
+\left\{\begin{array}{ll}
+\partial_t^2 \xi (t, z) = c_s^2 \partial_z^2 \xi (t, z), & 0 < z < L,\\
+\xi (t, 0) = \xi (t, L) = 0. &
+\end{array}\right.
+$$ {#eq-sound-29}
+If we look for solutions in the form $\xi (t, z) = \eta (z) e^{\ii \omega t}$, we find the eigenvalue problem
+$$
+\left\{\begin{array}{ll}
+\partial_z^2 \eta (z) + \left( \frac{\omega}{c_s} \right)^2 \eta (z) =
+0, & 0 < z < L\\
+\eta (0) = \eta (L) = 0. &
+\end{array}\right.
+$$ {#eq-sound-30}
+This equation is just the equation for an harmonic oscillator. The general solution is
+$$
+\eta (z) = A \cos (\kappa z) + B \sin (\kappa z), \qquad \kappa =
+\frac{\omega}{c_s} .
+$$ {#eq-sound-31}
+However, not all solutions satisfy the boundary conditions. To satisfy the boundary conditions, we require
+$$
+A = 0, \qquad \kappa = \frac{n \pi}{L} \Longrightarrow \omega = c_s
+\left( \frac{n \pi}{L} \right), \quad n = 1, 2, \ldots
+$$ {#eq-sound-32}
+The first few normal modes are plotted below.
+
+![Normal modes for gas in a cylindrical pipe.](../figures/sound-waves/normal-modes.svg){#fig-sound-normal-modes fig-alt="Plot of sin(n pi z over L) for n from 1 to 5, for z between 0 and L. All curves vanish at both ends of the pipe; mode n has n half-wavelengths between the ends and n minus 1 nodes in between. Each mode has its own line style and colour."}
+
+This means that all sound waves propagating along the pipe are in the form
+$$
+\xi (t, z) = \sum_{n = 1}^{\infty} \left[ A_n \sin \left( \frac{n \pi c_s
+t}{L} \right) + B_n \cos \left( \frac{n \pi c_s t}{L} \right) \right] \sin
+\left( \frac{n \pi z}{L} \right),
+$$ {#eq-sound-33}
+where $A_n, B_n$ are determined by the initial conditions $\xi (t = 0, z)$.
+:::
+
+::: {.callout-note}
+## Going further: Work Integral
+
+We might be tempted to define the energy density of a wave in the general form $\vb{\xi} (t, \vb{x}) =\vb{\eta} (\vb{x}) e^{\ii \omega t}$ as
+$$
+K_{\operatorname{wave}} = \frac{1}{2} \rho_0  \left\langle \left| \frac{\partial
+\vb{\xi}}{\partial t } \right|^2 \right\rangle = \frac{1}{2} \rho_0  |
+\vb{\eta} |^2  \langle | \omega \sin (\omega t) |^2 \rangle =
+\frac{\omega}{4} \rho_0  | \vb{\eta} |^2,
+$$ {#eq-sound-wave-kinetic-energy}
+where $\langle \cdot \rangle$ denotes averaging over a period $T = 2 \pi / \omega$ of the wave. @eq-sound-wave-kinetic-energy is the kinetic energy associated with the wave. However, it turns out that the kinetic energy is just one portion of the wave energy.
+
+The energy of the wave is related to $\xi^2$, so it cannot be computed directly from linear theory. However, we can use a trick:
+
+1.  adiabatically perturb the system to create a wave with an external force;
+
+2.  compute the work done by the external force on the system.
+
+To achieve this we add a source term to the oscillation equation:
+$$
+\rho_0  \frac{\partial^2 \vb{\xi}}{\partial t^2} = \hat{\vb{F}}
+\vb{\xi}+\vb{F}_{\operatorname{ext}} (t) .
+$$ {#eq-sound-oscillation-forced}
+Suppose we want to excite the mode $\vb{\xi} (t, \vb{x}) =\vb{\eta} (\vb{x}) e^{- \ii \omega t}$, where $\vb{\eta}$ is such that $\hat{\vb{F}} \vb{\eta}= - \rho_0 \omega^2 \vb{\eta}$. Then we can take $\vb{F}_{\operatorname{ext}} (t) = F_0 e^{\gamma t} \vb{\eta} (\vb{x})$, where $F_0$ is chosen so that for $t \lesssim 0$, $\vb{\xi} (t, \vb{x}) = e^{\gamma t} \vb{\eta} (\vb{x})$. Inserting this into the oscillation equation yields
+$$
+\rho_0  \frac{\partial^2 \vb{\xi}}{\partial t^2} = \rho_0 \gamma^2
+e^{\gamma t} \vb{\eta}= e^{\gamma t}  \hat{\vb{F}}
+\vb{\eta}+ F_0 e^{\gamma t} \vb{\eta}= (- \rho_0 \omega^2 + F_0)
+e^{\gamma t} \vb{\eta}.
+$$ {#eq-sound-36}
+We can solve for $F_0$ to find that
+$$
+F_0 = \rho_0  (\omega^2 + \gamma^2) .
+$$ {#eq-sound-37}
+The work done by the external force per unit volume is given by the *work integral*
+$$
+W = \int_{- \infty}^0 \dd t \frac{\partial \vb{\xi}}{\partial t}
+\cdot \vb{F}_{\operatorname{ext}} = \int_{- \infty}^0 \dd t \rho_0 \gamma
+(\gamma^2 + \omega^2) e^{2 \gamma t} \vb{\eta} \cdot \vb{\eta}=
+\rho_0  | \vb{\eta} |^2  \int_{- \infty}^0 \dd t \gamma (\gamma^2 +
+\omega^2) e^{2 \gamma t},
+$$ {#eq-sound-38}
+where we have used the fact that $\vb{\eta}$ is time independent. The last integral can be computed analytically, so the previous expression yields
+$$
+W = \rho_0  | \vb{\eta} |^2  \left( \frac{\gamma^2}{2} +
+\frac{\omega^2}{2} \right) .
+$$ {#eq-sound-39}
+The energy of the wave is obtained in the limit in which $\gamma \downarrow 0$:
+$$
+\boxed{E_{\operatorname{wave}} = \frac{\omega}{2} \rho_0  | \vb{\eta} |^2
+.}
+$$ {#eq-sound-40}
+Note that $E_{\operatorname{wave}} = 2 K_{\operatorname{wave}}$, meaning that half of the wave energy is potential energy. For example, for a sound wave with $\vb{\eta}=\vb{A} \cos (\vb{k} \cdot \vb{x})$, the mean energy density (averaging over one wave-length) is
+$$
+E_{\operatorname{wave}} = \frac{\omega}{4} \rho_0 A^2 .
+$$ {#eq-sound-41}
+It is possible to compute the linear momentum $\vb{P}_{\operatorname{wave}}$ carried by waves in a similar way. One finds
+$$
+\boxed{\vb{P}_{\operatorname{wave}} = \frac{\vb{k}}{\omega}
+E_{\operatorname{wave}} .}
+$$ {#eq-sound-42}
+
+## In-class worksheets {#sec-sound-worksheet}
+
+### Sound waves
+
+Consider an ideal gas with
+$$
+p = (\Gamma - 1) \rho \varepsilon = \frac{\rho}{\mu} k_B T.
+$$ {#eq-sound-ws1}
+What is the sound speed $c_s$ as a function of $\rho$ and $T$?
+
+Show that
+$$
+\vb{\xi}= f (z - c_s t)  \hat{\vb{z}}
+$$ {#eq-sound-ws2}
+is a solution of
+$$
+\frac{\partial^2 \vb{\xi}}{\partial t^2} - c_s^2 \nabla \nabla \cdot
+\vb{\xi}= 0.
+$$ {#eq-sound-ws3}
+Sketch the solution for different times if $f (x) = e^{- x^2 / 2}$.
+
+### The Doppler effect
+
+Consider an initially homogeneous flow with
+$$
+\rho = \rho_0 = \operatorname{const}, \qquad p = p_0 = \operatorname{const}, \qquad
+\vb{v}=\vb{v}_0 = \operatorname{const} .
+$$ {#eq-sound-dws1}
+Introduce a small perturbation in the form of a Lagrangian displacement $\vb{\xi}$.
+
+1.  Show that the Lagrangian density perturbation is given by
+    $$
+    \delta \rho = - \rho_0 \nabla \cdot \vb{\xi}.
+    $$ {#eq-sound-dws2}
+
+2.  Use the results from part 1) to show that the oscillation equation reads
+    $$
+    \left[ \frac{\partial}{\partial t} + (\vb{v}_0 \cdot \nabla)
+    \right]^2 \vb{\xi}= - c_s^2 \nabla \nabla \cdot \vb{\xi}.
+    $$ {#eq-sound-dws3}
+
+3.  Introduce the ansatz $\vb{\xi}=\vb{\eta}e^{\ii (\vb{k} \cdot \vb{x}- \omega t)}$ and show that the dispersion relation is
+    $$
+    \omega_{\pm} =\vb{v}_0 \cdot \vb{k} \pm c_s k.
+    $$ {#eq-sound-dws4}
+    What is the physical meaning of the $\pm$ solutions?
+
+4.  Consider a sound wave propagating in the direction of the flow. Let $\omega_0 = c_s k$ be the frequency of sound in the fluid frame. Show that the frequency of sound in the lab frame is
+    $$
+    \omega = \omega_0  \left( 1 + \frac{v}{c_s} \cos \theta \right),
+    $$ {#eq-sound-dws5}
+    where $\cos \theta$ is the angle between the direction in which sound propagates and $\vb{v}_0$.
+
+## Further reading {#sec-sound-reading}
+
+- @clarke2007, Sections 6.1 and 6.3.
+
+[^sound-1]: I use the common convention of denoting with $\delta q$ the Lagrangian perturbations of a quantity $q$ and with $q'$ the Eulerian perturbations. The same convention is used in Kulsrud, but Clarcke & Carswell use $\Delta q$ for Lagrangian perturbation and $\delta q$ for Eulerian perturbation.
+
 :::

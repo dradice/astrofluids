@@ -16,7 +16,9 @@ just html               # HTML only (faster); `just pdf` for the PDF only
 just solutions          # instructor build with solutions -> _book-solutions/
 just publish "message"  # commit everything and push; GitHub Actions deploys the site
 just deploys            # status of the latest deploys
-just tm2tex notes/15-mri  # export an old TeXmacs file to LaTeX
+just lint               # check labels, references, fig-alt, solution blocks
+just renumber chapters/x.qmd  # tidy eq-<key>-<n> labels after moving or inserting equations
+just convert notes/15-mri mri mri out.qmd  # convert an old TeXmacs file to a Quarto draft
 ```
 
 Each recipe is a one-line Quarto, git, or shell command; see the `justfile`.
@@ -37,7 +39,7 @@ The pre-commit hook (`just setup`) blocks PDFs, spreadsheets, Word files, TeXmac
 | `figures/<slug>/`, `figures-src/<slug>/` | Published figures; their editable sources and scripts |
 | `code/<slug>/` | Public scripts and data used in chapters and worksheets |
 | `solutions/code/` | Solution scripts (only in the solutions build) |
-| `tools/` | Chapter list, solution-leak check, git hooks |
+| `tools/` | `tm2qmd.py` (TeXmacs converter), `lint.py`, `renumber.py`, `chapters.py` (chapter list), solution-leak check, git hooks |
 | `justfile` | Shortcuts for common commands (`just` lists them) |
 | `styles/` | Theme customizations |
 

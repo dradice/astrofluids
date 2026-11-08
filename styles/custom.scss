@@ -31,10 +31,31 @@ figcaption,
   color: $body-color;
 }
 
+// Section numbers in the table of contents: muted grey is just under 4.5:1.
+#TOC .header-section-number,
+.header-section-number {
+  color: inherit;
+}
+
+// Long URLs (e.g. DOIs in the bibliography) must wrap on phones (WCAG 1.4.10).
+.csl-entry,
+.csl-entry a {
+  overflow-wrap: anywhere;
+}
+
+// Figures are drawn dark-on-transparent; keep them on white in dark mode.
+.quarto-figure img,
+figure img {
+  background-color: #fff;
+}
+
 // Long display equations scroll inside their own box on narrow screens
 // instead of forcing the whole page to scroll sideways (WCAG 1.4.10).
+// MathJax sets an inline min-width on numbered equations; override it.
 mjx-container[display="true"] {
   overflow-x: auto;
   overflow-y: hidden;
   max-width: 100%;
+  min-width: 0 !important;
+  position: relative; // so the equation-number column scrolls with it
 }

@@ -18,8 +18,12 @@ setup:
 preview file="":
     quarto preview {{file}}
 
+# Check conventions: equation labels, references, fig-alt, solution blocks
+lint *files:
+    python3 tools/lint.py {{files}}
+
 # Build the public site and PDF into _book/, then check that no solutions leaked
-build:
+build: lint
     quarto render
     bash tools/check-no-solutions.sh _book
 
@@ -47,6 +51,15 @@ tm2tex name outdir="/tmp/tm2tex":
         -c "$(realpath {{outdir}})/$(basename {{name}}).tm" \
            "$(realpath {{outdir}})/$(basename {{name}}).tex" -q
     @echo "-> {{outdir}}/$(basename {{name}}).tex (drawings exported as PDFs next to it)"
+
+# Convert an old TeXmacs file to a Quarto draft (e.g. just convert notes/15-mri mri mri out.qmd)
+convert name key slug output:
+    python3 tools/tm2qmd.py "{{old}}/{{name}}.tm" --key {{key}} --slug {{slug}} -o {{output}}
+
+# Re-key and renumber eq-<key>-<n> labels after moving/inserting equations (updates refs book-wide)
+renumber +files:
+    python3 tools/renumber.py {{files}}
+    python3 tools/lint.py
 
 # Create stubs for chapters listed in tools/chapters.py that don't exist yet
 stubs:
