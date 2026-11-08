@@ -6,22 +6,24 @@ The notes are a [Quarto](https://quarto.org) book. Each chapter has its own in-c
 
 ## Building
 
-Requires Quarto ≥ 1.12 (Typst is bundled) and `rsvg-convert` (package `librsvg2-bin`).
+Requires Quarto ≥ 1.12 (Typst is bundled), `rsvg-convert` (package `librsvg2-bin`), and optionally [`just`](https://github.com/casey/just) for the shortcuts in the `justfile`. Run `just` to list them:
 
 ```bash
-quarto preview                      # live preview while writing
-quarto render                       # public build -> _book/ (HTML + PDF)
-quarto render --profile solutions   # instructor build with solutions -> _book-solutions/
-bash tools/check-no-solutions.sh    # verify that _book/ contains no solutions
+just setup              # once after cloning: enable the pre-commit hook
+just preview            # live preview while writing (or: just preview chapters/mri.qmd)
+just build              # public build -> _book/ (HTML + PDF), then check for leaked solutions
+just html               # HTML only (faster); `just pdf` for the PDF only
+just solutions          # instructor build with solutions -> _book-solutions/
+just publish "message"  # commit everything and push; GitHub Actions deploys the site
+just deploys            # status of the latest deploys
+just tm2tex notes/15-mri  # export an old TeXmacs file to LaTeX
 ```
+
+Each recipe is a one-line Quarto, git, or shell command; see the `justfile`.
 
 Pushing to `main` builds and deploys the public site via GitHub Actions (`.github/workflows/publish.yml`). The deploy fails if any solution content is found in the public build.
 
-After cloning, enable the pre-commit hook. It blocks PDFs, spreadsheets, Word files, TeXmacs sources, and files larger than 5 MB:
-
-```bash
-git config core.hooksPath tools/hooks
-```
+The pre-commit hook (`just setup`) blocks PDFs, spreadsheets, Word files, TeXmacs sources, and files larger than 5 MB.
 
 ## Layout
 
@@ -31,11 +33,12 @@ git config core.hooksPath tools/hooks
 | `_quarto-solutions.yml` | Profile for the instructor build with solutions |
 | `index.qmd`, `schedule.qmd` | Preface; lecture-to-chapter schedule |
 | `chapters/`, `appendices/` | One `.qmd` per chapter |
-| `filters/macros.lua` | Format-aware math macros (`\vb`, `\dd`, `\ii`, `\ee`) |
+| `filters/macros.lua` | Math macros (`\vb`, `\dd`, `\ii`, `\ee`) for HTML and PDF |
 | `figures/<slug>/`, `figures-src/<slug>/` | Published figures; their editable sources and scripts |
 | `code/<slug>/` | Public scripts and data used in chapters and worksheets |
 | `solutions/code/` | Solution scripts (only in the solutions build) |
 | `tools/` | Chapter list, solution-leak check, git hooks |
+| `justfile` | Shortcuts for common commands (`just` lists them) |
 | `styles/` | Theme customizations |
 
 Writing conventions are in [STYLE.md](STYLE.md).

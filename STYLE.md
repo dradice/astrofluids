@@ -25,7 +25,7 @@
 - Multi-line derivations use `\begin{aligned}...\end{aligned}` inside `$$`, with one label for the whole block.
 - **Equations inside solutions get no label.** Otherwise equation numbers would differ between the public and the solutions builds.
 - Macros are provided by `filters/macros.lua`. Do not define `\newcommand` in chapters.
-  - `\vb{v}`, `\vb{\xi}`: vectors, upright bold, Latin and Greek.
+  - `\vb{v}`, `\vb{\xi}`: vectors in bold. Latin letters are upright (`\mathbf`); Greek letters use `\boldsymbol` (bold italic), as in the LaTeX `physics` package.
   - `\dd`, `\ii`, `\ee`: upright d, i, e.
 
   To add a macro, edit the tables at the top of the filter.
