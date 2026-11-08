@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" width="600" height="350"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Qualitative picture of the magnetorotational instability</title>
+  <desc id="desc">Left, the meridional plane: a vertical magnetic field line is bent so
+  that fluid element A is displaced inward and fluid element B outward. Right, the
+  orbital plane: A on an inner orbit and B on an outer orbit, joined by the stretched
+  field line; arrows show A moving faster along its orbit than B.</desc>
+  <!-- Redrawn from the 2025 TeXmacs figure (15-mri). Hand-written SVG; also editable
+       in Inkscape. White background so the figure stays readable in dark mode. -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7"
+            orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10" fill="none" stroke="context-stroke" stroke-width="1.6"/>
+    </marker>
+    <marker id="arrow-black" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7"
+            orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10" fill="none" stroke="#000" stroke-width="1.6"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7"
+            orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10" fill="none" stroke="#1f4fbf" stroke-width="1.6"/>
+    </marker>
+  </defs>
+  <rect width="600" height="350" fill="#fff"/>
+
+  <g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif" font-size="17"
+     fill="#000">
+
+    <!-- ===== Left panel: meridional plane ===== -->
+    <!-- axes -->
+    <line x1="22" y1="62" x2="22" y2="14" stroke="#000" stroke-width="1.3" marker-end="url(#arrow-black)"/>
+    <line x1="12" y1="52" x2="62" y2="52" stroke="#000" stroke-width="1.3" marker-end="url(#arrow-black)"/>
+    <text x="8" y="18" font-style="italic">z</text>
+    <text x="58" y="70" font-style="italic">R</text>
+
+    <!-- perturbed field line -->
+    <path d="M 140 292
+             C 146 240, 142 192, 118 184
+             C 92 176, 94 166, 122 156
+             L 168 138
+             C 196 127, 186 117, 160 114
+             C 132 110, 134 64, 140 24"
+          fill="none" stroke="#1f4fbf" stroke-width="2.4" marker-end="url(#arrow-blue)"/>
+    <text x="153" y="44" font-weight="bold" fill="#1f4fbf">B</text>
+
+    <!-- fluid elements -->
+    <circle cx="97" cy="171" r="4.5" fill="#000"/>
+    <text x="72" y="190" font-style="italic">A</text>
+    <circle cx="183" cy="124" r="4.5" fill="#000"/>
+    <text x="196" y="128" font-style="italic">B</text>
+
+    <text x="110" y="335" font-family="sans-serif" font-size="15" text-anchor="middle">Meridional plane</text>
+
+    <!-- ===== Right panel: orbital plane ===== -->
+    <!-- orbits: arcs of circles centred at (300, 168) -->
+    <path d="M 381.8 90.0 A 113 113 0 0 1 381.8 246.0" fill="none" stroke="#000" stroke-width="1.4"/>
+    <path d="M 521.5 10.0 A 272 272 0 0 1 521.5 326.0" fill="none" stroke="#000" stroke-width="1.4"/>
+
+    <!-- stretched field line between A and B -->
+    <line x1="455" y1="128" x2="513" y2="207" stroke="#1f4fbf" stroke-width="2.4"/>
+
+    <!-- orbital motion: A (inner, faster) and B (outer, slower) -->
+    <path d="M 455 128 A 160 160 0 0 0 422.6 65.2" fill="none" stroke="#000" stroke-width="1.8"
+          marker-end="url(#arrow-black)"/>
+    <path d="M 513 207 A 216.5 216.5 0 0 0 511.8 123.0" fill="none" stroke="#000" stroke-width="1.8"
+          marker-end="url(#arrow-black)"/>
+
+    <circle cx="455" cy="128" r="4.5" fill="#000"/>
+    <text x="432" y="150" font-style="italic">A</text>
+    <circle cx="513" cy="207" r="4.5" fill="#000"/>
+    <text x="506" y="230" font-style="italic">B</text>
+
+    <!-- radial direction -->
+    <line x1="410" y1="290" x2="458" y2="290" stroke="#000" stroke-width="1.3" marker-end="url(#arrow-black)"/>
+    <text x="454" y="310" font-style="italic">R</text>
+
+    <text x="450" y="335" font-family="sans-serif" font-size="15" text-anchor="middle">Orbital plane</text>
+  </g>
+</svg>

@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -53,9 +72,9 @@ ul.task-list li input[type="checkbox"] {
 <script id="quarto-axe-checker-options" type="text/plain">dHJ1ZQ==</script>
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-800b11630bf338edcf57ee6e71b118bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-83a5da6beb6086fc7710ea45e3176b24.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-800b11630bf338edcf57ee6e71b118bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-1b98dd23240c9c19cf7f5804f818ede7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -84,6 +103,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -520,8 +568,17 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#qualitative-picture" id="toc-qualitative-picture" class="nav-link active" data-scroll-target="#qualitative-picture"><span class="header-section-number">27.1</span> Qualitative Picture</a></li>
+  <li><a href="#detailed-calculation" id="toc-detailed-calculation" class="nav-link" data-scroll-target="#detailed-calculation"><span class="header-section-number">27.2</span> Detailed Calculation</a></li>
+  <li><a href="#sec-mri-worksheet" id="toc-sec-mri-worksheet" class="nav-link" data-scroll-target="#sec-mri-worksheet"><span class="header-section-number">27.3</span> In-class worksheet</a></li>
+  <li><a href="#sec-mri-reading" id="toc-sec-mri-reading" class="nav-link" data-scroll-target="#sec-mri-reading"><span class="header-section-number">27.4</span> Further reading</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
@@ -546,21 +603,206 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>The magnetorotational instability (MRI) was first discovered in the context of plasma fusion reactors by <span class="citation" data-cites="velikhov1959">Velikhov (<a href="#ref-velikhov1959" role="doc-biblioref">1959</a>)</span> and <span class="citation" data-cites="chandrasekhar1961">Chandrasekhar (<a href="#ref-chandrasekhar1961" role="doc-biblioref">1961</a>)</span> and then rediscovered in the context of accretion disks by <span class="citation" data-cites="balbus1991">Balbus and Hawley (<a href="#ref-balbus1991" role="doc-biblioref">1991</a>)</span>. This is the instability thought to be responsible for the <span class="math inline">\(\alpha\)</span>-viscosity in many astrophysical systems: from X-ray binaries to AGN disks. It is one of the most important, among the many instabilities operating in plasmas, so we will cover it in detail in these notes.</p>
+<p>It was long known that a way to transport angular momentum in the disk is through magnetic stresses, that is the <span class="math inline">\(B_r B_{\theta} / 4 \pi\)</span> term in the momentum equation. However, to explain the observed luminosities from accretion disks, the magnetic stresses must be similar in magnitude to the pressure in the disk <span class="math inline">\(p\)</span> (the proportionality constant being the <span class="math inline">\(\alpha\)</span>-viscosity coefficient). Given a small component of the field in the radial direction, flux freezing can grow <span class="math inline">\(B_{\theta}\)</span> linearly in time. However, since <span class="math inline">\(B_r\)</span> is small, this mechanism can transport angular momentum efficiently only if <span class="math inline">\(B_{\theta}^2 \gg p\)</span>. Such a strong toroidal field cannot be contained in the disk. The requirement for the magnetic stresses to do the job of transporting angular momentum is that <span class="math inline">\(B_r^2 \approx B_{\theta}^2 \approx 4 \pi \rho c_s^2\)</span>. Detailed simulations have shown that MRI is a mechanism that naturally produces the required field strengths over a short timescale.</p>
+<section id="qualitative-picture" class="level2" data-number="27.1">
+<h2 data-number="27.1" class="anchored" data-anchor-id="qualitative-picture"><span class="header-section-number">27.1</span> Qualitative Picture</h2>
+<div id="fig-mri-mechanism" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two-panel sketch. Left, the meridional plane with R to the right and z up: a vertical magnetic field line is bent so that fluid element A is displaced inward, to smaller R, and fluid element B outward. Right, the orbital plane: A sits on an inner circular orbit and B on an outer one, joined by the stretched field line; curved arrows show both moving along their orbits, with A's arrow longer because inner orbits are faster.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mri-mechanism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/mri/mri-mechanism.svg" class="img-fluid figure-img" alt="Two-panel sketch. Left, the meridional plane with R to the right and z up: a vertical magnetic field line is bent so that fluid element A is displaced inward, to smaller R, and fluid element B outward. Right, the orbital plane: A sits on an inner circular orbit and B on an outer one, joined by the stretched field line; curved arrows show both moving along their orbits, with A's arrow longer because inner orbits are faster.">
 </div>
-<div class="callout-title-container flex-fill">
-Note
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mri-mechanism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;27.1: Qualitative description of the magnetorotational instability transporting angular momentum between fluid elements <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. <em>Left panel:</em> meridional view. <em>Right panel:</em> orbital plane.
+</figcaption>
+</figure>
 </div>
+<p>Consider an accretion disk with Keplerian angular velocity profile <span id="eq-mri-1"><span class="math display">\[
+\Omega (R) = \Omega_0  \left( \frac{R_0}{R} \right)^{3 / 2},
+\tag{27.1}\]</span></span> initially threaded by a vertical magnetic field <span class="math inline">\(B_0 \hat{\mathbf{z}}\)</span>. Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be two fluid elements connected by a magnetic field line (initially vertical) and displace their positions according to <span class="math inline">\(\xi_r = \epsilon \cos k z\)</span>, as shown in <a href="#fig-mri-mechanism" class="quarto-xref">Figure&nbsp;<span>27.1</span></a>. The fluid elements <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> immediately accelerate to match the local angular velocity. However, as a result of the change in angular velocity, a toroidal component of the field, <span class="math inline">\(B_{\theta}\)</span> is generated by the stretching of the original field line.</p>
+<p>The magnetic tension then creates an attractive force between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, which has the effect of transporting angular momentum from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>. This causes <span class="math inline">\(A\)</span> to lose angular momentum and sink further inwards, while <span class="math inline">\(B\)</span> gains angular momentum and starts moving outwards. In turn, because the angular velocity decreases with radius, <span class="math inline">\(A\)</span> increases its angular velocity, while <span class="math inline">\(B\)</span> slows down, further separating the two points. This in turn enhances the magnetic tension force. The cycle we have just described is unstable, so the initial perturbation grows exponentially in time, until the system becomes nonlinear.</p>
+<p>The mechanism we have just described involves the magnetic tension force, so it is natural to expect a characteristic growth rate of <span id="eq-mri-2"><span class="math display">\[
+\gamma \approx kv_A, \qquad v_A = \frac{B_z}{\sqrt{4 \pi \rho}} .
+\tag{27.2}\]</span></span> In our derivation, we have assumed the field to be sufficiently weak, so that the displaced fluid elements can acquire the angular velocity of their surroundings. This should be valid as long as <span id="eq-mri-3"><span class="math display">\[
+\omega_A = kv_A \lesssim \Omega .
+\tag{27.3}\]</span></span> We will find that the exact condition for instability is <span class="math inline">\(kv_A &lt; \sqrt{3} \Omega\)</span>, so the maximum growth rate is achieved by taking <span class="math inline">\(k\)</span> sufficiently large, so that <span class="math inline">\(\gamma \approx kv_A \approx \Omega\)</span>. This is a very short timescale: the MRI grows over the orbital time scale! Moreover, the growth rate is independent of the field strength, as long as <span class="math inline">\(v_A\)</span> is not so large that the required <span class="math inline">\(k\)</span> to satisfy <span class="math inline">\(kv_A &lt; \sqrt{3} \Omega\)</span> corresponds to perturbation with characteristic size larger than the vertical size of the disk.</p>
+</section>
+<section id="detailed-calculation" class="level2" data-number="27.2">
+<h2 data-number="27.2" class="anchored" data-anchor-id="detailed-calculation"><span class="header-section-number">27.2</span> Detailed Calculation</h2>
+<p>The starting point is the Euler equation, which we write in the usual form in cylindrical coordinates <span class="math inline">\((R, \theta, z)\)</span>: <span id="eq-mri-4"><span class="math display">\[
+\rho \left[ \frac{\partial \mathbf{v}}{\partial t} + (\mathbf{v} \cdot
+\nabla) \mathbf{v} \right] = - \nabla \left( p + \frac{B^2}{8 \pi} \right) +
+\frac{(\mathbf{B} \cdot \nabla) \mathbf{B}}{4 \pi} +\mathbf{g} \rho .
+\tag{27.4}\]</span></span> We consider a disk that is Keplerian and threaded by a vertical magnetic field: <span id="eq-mri-5"><span class="math display">\[
+\mathbf{v}= R \Omega \hat{\boldsymbol{\theta}} +\mathbf{u}, \qquad \mathbf{B}=
+B_0  \hat{\mathbf{z}} +\mathbf{b}, \qquad p + \frac{B^2}{8 \pi} = P_0 + P.
+\tag{27.5}\]</span></span> We will treat <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{b}\)</span> as (small) Eulerian perturbations. We will only consider modes that are axisymmetric (no <span class="math inline">\(\theta\)</span> dependence) and incompressible <span id="eq-mri-6"><span class="math display">\[
+\nabla \cdot \mathbf{u}= \frac{1}{R}  \frac{\partial (Ru_r)}{\partial R} +
+\frac{\partial u_z}{\partial z} = 0.
+\tag{27.6}\]</span></span> To leading order in <span class="math inline">\(\mathbf{u}\)</span> (using Kepler’s law) <span id="eq-mri-7"><span class="math display">\[
+\begin{alignedat}{2}
+(\mathbf{v} \cdot \nabla) \mathbf{v} &amp;{}\rightarrow{} &amp;&amp; (R \Omega)
+\hat{\boldsymbol{\theta}} \cdot \nabla \mathbf{u}+\mathbf{u} \cdot \nabla (R
+\Omega \hat{\boldsymbol{\theta}}) =  \\
+&amp; &amp;&amp; - 2 \Omega u_{\theta}  \hat{\mathbf{R}} + \left( R \frac{\mathrm{d}
+\Omega}{\mathrm{d} R} + 2 \Omega \right) u_R \hat{\boldsymbol{\theta}} = \\
+&amp; &amp;&amp; \frac{1}{2} \Omega u_R  \hat{\boldsymbol{\theta}} - 2 \Omega u_{\theta}
+\hat{\mathbf{R}} .
+\end{alignedat}
+\tag{27.7}\]</span></span> Similarly, <span id="eq-mri-8"><span class="math display">\[
+\begin{alignedat}{2}
+(\mathbf{B} \cdot \nabla) \mathbf{B} &amp;{}\rightarrow{} &amp;&amp; B_0  \hat{\mathbf{z}}
+\cdot \nabla \mathbf{b}+\mathbf{b} \cdot \nabla (B_0  \hat{\mathbf{z}}) =
+\\
+&amp; &amp;&amp; B_0  \dfrac{\partial b_R}{\partial z}  \hat{\mathbf{R}} + B_0
+\frac{\partial b_{\theta}}{\partial z}  \hat{\boldsymbol{\theta}} + B_0
+\frac{\partial b_z}{\partial z}  \hat{\mathbf{z}} .
+\end{alignedat}
+\tag{27.8}\]</span></span> So the linearized momentum equation reads <span id="eq-mri-9"><span class="math display">\[
+\frac{\partial \mathbf{u}}{\partial t} + \frac{1}{2} \Omega u_R
+\hat{\boldsymbol{\theta}} - 2 \Omega u_{\theta}  \hat{\mathbf{R}} = -
+\frac{1}{\rho} \nabla P + B_0  \dfrac{\partial b_R}{\partial z}
+\hat{\mathbf{R}} + B_0  \frac{\partial b_{\theta}}{\partial z}
+\hat{\boldsymbol{\theta}} + B_0  \frac{\partial b_z}{\partial z}
+\hat{\mathbf{z}} .
+\tag{27.9}\]</span></span> The induction equation can be linearized in a similar way: <span id="eq-mri-10"><span class="math display">\[
+\begin{alignedat}{2}
+\nabla \times (\mathbf{v} \times \mathbf{B}) &amp;{}\rightarrow{} &amp;&amp; \nabla \times
+[(R \Omega \hat{\boldsymbol{\theta}}) \times (b_R  \hat{\mathbf{R}} + b_{\theta}
+\hat{\boldsymbol{\theta}} + b_z  \hat{\mathbf{z}}) + (u_R  \hat{\mathbf{R}} +
+u_{\theta}  \hat{\boldsymbol{\theta}} + u_z  \hat{\mathbf{z}}) \times (B_0
+\hat{\mathbf{z}})] =  \\
+&amp; &amp;&amp; \nabla \times [- R \Omega b_R  \hat{\mathbf{z}} + R \Omega b_z
+\hat{\mathbf{R}} - u_R B_0  \hat{\boldsymbol{\theta}} + u_{\theta} B_0
+\hat{\mathbf{R}}] =  \\
+&amp; &amp;&amp; \nabla \times [ (R \Omega b_z + u_{\theta} B_0)  \hat{\mathbf{R}} -
+u_R B_0  \hat{\boldsymbol{\theta}} - R \Omega b_R  \hat{\mathbf{z}}] = \\
+&amp; &amp;&amp; \left( \frac{\partial u_R}{\partial z} B_0 \right)  \hat{\mathbf{R}} +
+\left( R \Omega \frac{\partial b_z}{\partial z} + \frac{\partial
+u_{\theta}}{\partial z} B_0 - \frac{3}{2} \Omega b_R + \Omega \frac{\partial
+(Rb_R)}{\partial R} \right)  \hat{\boldsymbol{\theta}} - \frac{1}{R}  \left[
+\frac{\partial (Ru_R B_0)}{\partial R} \right]  \hat{\mathbf{z}} =
+\\
+&amp; &amp;&amp; \left( \frac{\partial u_R}{\partial z} B_0 \right)  \hat{\mathbf{R}} +
+\left( \frac{\partial u_{\theta}}{\partial z} B_0 - \frac{3}{2} \Omega b_R
+\right)  \hat{\boldsymbol{\theta}} - \frac{1}{R}  \left[ \frac{\partial (Ru_R
+B_0)}{\partial R} \right]  \hat{\mathbf{z}} .
+\end{alignedat}
+\tag{27.10}\]</span></span> In the last equation we have also used the condition that <span class="math inline">\(\nabla \cdot \mathbf{b}= 0\)</span>.</p>
+<p>We will consider a small patch of the disk, so that we can use the Fourier (WKB) ansatz: <span id="eq-mri-11"><span class="math display">\[
+\mathbf{u}=\mathbf{u}_0 e^{\lambda t + \mathrm{i} (k_R R + k_z z)}, \qquad
+\mathbf{b}=\mathbf{b}_0 e^{\lambda t + \mathrm{i} (k_R R + k_z z)}
+\tag{27.11}\]</span></span> with the additional assumption that <span class="math inline">\(k_z \gg k_R\)</span>. Substituting this into the linearized equations of motions yields <span id="eq-mri-12"><span class="math display">\[
+\begin{alignedat}{2}
+\lambda u_r - 2 \Omega u_{\theta} &amp;{}={} &amp;&amp; - \mathrm{i} k_R  \frac{P}{\rho} +
+\frac{\mathrm{i} k_z B_0 b_r}{4 \pi \rho},  \\
+\lambda u_{\theta} + \frac{\Omega}{2} u_r &amp;{}={} &amp;&amp; \frac{\mathrm{i} k_z B_0
+b_{\theta}}{4 \pi \rho}, \\
+\lambda u_z &amp;{}={} &amp;&amp; - \mathrm{i} k_z  \frac{P}{\rho} + \frac{\mathrm{i} k_z B_0 b_z}{4
+\pi \rho} .
+\end{alignedat}
+\tag{27.12}\]</span></span> We can eliminate <span class="math inline">\(P / \rho\)</span> from the last equation and insert it into the first to obtain (in the limit <span class="math inline">\(k_z \gg k_R\)</span>): <span id="eq-mri-13"><span class="math display">\[
+\lambda u_r - 2 \Omega u_{\theta} = \mathrm{i} k_z  \frac{B_0 b_r}{4 \pi \rho} .
+\tag{27.13}\]</span></span> The linearized induction equation yields <span id="eq-mri-14"><span class="math display">\[
+\begin{alignedat}{2}
+\lambda b_R &amp;{}={} &amp;&amp; \mathrm{i} k_z B_0 u_R  \\
+\lambda b_{\theta} &amp;{}={} &amp;&amp; - \frac{3}{2} \Omega b_R + \mathrm{i} k_z B_0
+u_{\theta} .
+\end{alignedat}
+\tag{27.14}\]</span></span> Eliminating <span class="math inline">\(b_R\)</span> in the second equation yields <span id="eq-mri-15"><span class="math display">\[
+\lambda b_{\theta} = - \frac{3}{2}  \frac{\mathrm{i} k_z B_0 \Omega}{\lambda}
+u_R + \mathrm{i} k_z B_0 u_{\theta} .
+\tag{27.15}\]</span></span> Eliminating <span class="math inline">\(b_{\theta}\)</span> and <span class="math inline">\(b_R\)</span> in the momentum equations above and introducing <span class="math inline">\(\omega_A^2 = k_z^2 B_0^2 / 4 \pi \rho\)</span> yields <span id="eq-mri-momentum-reduced"><span class="math display">\[
+\begin{alignedat}{2}
+(\lambda^2 + \omega_A^2) u_R &amp;{}={} &amp;&amp; 2 \lambda \Omega u_{\theta},  \\
+(\lambda^2 + \omega_A^2) u_{\theta} &amp;{}={} &amp;&amp; \left( - \frac{\lambda}{2} \Omega
++ \frac{3}{2}  \frac{\omega_A^2 \Omega}{\lambda} \right) u_R .
+\end{alignedat}
+\tag{27.16}\]</span></span> Introducing <span id="eq-mri-17"><span class="math display">\[
+\mu^2 = \lambda^2 + \omega_A^2,
+\tag{27.17}\]</span></span> the dispersion relation becomes <span id="eq-mri-18"><span class="math display">\[
+f (\mu^2) = \mu^4 + \Omega^2 \mu^2 - 4 \Omega^2 \omega_A^2 = 0.
+\tag{27.18}\]</span></span> The instability is present when the second root of <span class="math inline">\(f (\mu^2)\)</span> occurs for <span class="math inline">\(\mu^2 &gt; \omega_A^2\)</span>. This occurs if <span id="eq-mri-condition"><span class="math display">\[
+f (\omega_A^2) = \omega_A^4 - 3 \Omega^2 \omega_A^2 &lt; 0 \Longrightarrow
+\boxed{\frac{k_z B_0}{\sqrt{4 \pi \rho}} = \omega_A &lt; \sqrt{3} \Omega .}
+\tag{27.19}\]</span></span> We find that if <span class="math inline">\(k_z\)</span> is sufficiently small (sufficiently large wavelength of the perturbation), then the mode is unstable. However, if the background field is too large, then the condition in <a href="#eq-mri-condition" class="quarto-xref">Equation&nbsp;<span>27.19</span></a> might only be satisfied for <span class="math inline">\(k_z\)</span> that corresponds to modes larger than the disk size, so the system is stable.</p>
+<p>The growth rate of the instability is found by solving the dispersion relation to find <span id="eq-mri-20"><span class="math display">\[
+\lambda^2 = \frac{\Omega}{2}  \left( - \Omega + \sqrt{\Omega^2 + 16
+\omega_A^2} \right) - \omega_A^2,
+\tag{27.20}\]</span></span> which is maximized when <span id="eq-mri-21"><span class="math display">\[
+\omega_A = \frac{\sqrt{15}}{4} \Omega \approx \Omega,
+\tag{27.21}\]</span></span> which corresponds to <span id="eq-mri-22"><span class="math display">\[
+k_{\max} \approx \frac{\sqrt{4 \pi \rho}}{B_0} \Omega .
+\tag{27.22}\]</span></span> The growth rate of the most unstable mode is <span id="eq-mri-23"><span class="math display">\[
+\boxed{\lambda_{\max} = \frac{3}{4} \Omega .}
+\tag{27.23}\]</span></span> It is instructive to check the limit of our analysis when <span class="math inline">\(B_0 \rightarrow 0\)</span>, which corresponds to <span class="math inline">\(\omega_A \rightarrow 0\)</span>. If <span class="math inline">\(\omega_A \equiv 0\)</span>, then <a href="#eq-mri-momentum-reduced" class="quarto-xref">Equation&nbsp;<span>27.16</span></a> reduces to <span id="eq-mri-24"><span class="math display">\[
+\lambda^2 u_R = - \Omega^2 u_R, \qquad \lambda^2 u_{\theta} = - \Omega^2
+u_{\theta} .
+\tag{27.24}\]</span></span> That is the perturbations oscillate with the epicyclic frequency <span class="math inline">\(\Omega\)</span>.</p>
+<p>In the limit of <span class="math inline">\(0 &lt; \omega_A \ll \Omega\)</span> (long wavelength perturbations, or weak magnetic field), we can drop all the <span class="math inline">\(\omega_A\)</span> terms in <a href="#eq-mri-momentum-reduced" class="quarto-xref">Equation&nbsp;<span>27.16</span></a>, with the exception of the term multiplied by <span class="math inline">\(\Omega\)</span> to obtain <span id="eq-mri-25"><span class="math display">\[
+\begin{alignedat}{2}
+\lambda^2 u_R &amp;{}={} &amp;&amp; 2 \lambda \Omega u_{\theta},  \\
+\lambda^2 u_{\theta} &amp;{}={} &amp;&amp; \left( - \frac{\lambda}{2} \Omega + \frac{3}{2}
+\frac{\omega_A^2 \Omega}{\lambda} \right) u_R .
+\end{alignedat}
+\tag{27.25}\]</span></span> Eliminating <span class="math inline">\(u_{\theta}\)</span>, we obtain: <span id="eq-mri-26"><span class="math display">\[
+\lambda^2 u_R = \left( \frac{3 \omega_A^2 \Omega^2}{\lambda^2} - \Omega^2
+\right) u_R,
+\tag{27.26}\]</span></span> which has unstable solutions with <span class="math inline">\(\lambda^2 &gt; 0\)</span> as long as <span class="math inline">\(\omega_A &gt; 0\)</span>.</p>
+</section>
+<section id="sec-mri-worksheet" class="level2" data-number="27.3">
+<h2 data-number="27.3" class="anchored" data-anchor-id="sec-mri-worksheet"><span class="header-section-number">27.3</span> In-class worksheet</h2>
+<p>There is a simple mechanical equivalent of the magnetorotational instability (MRI) in a disk with vertical magnetic field. This model is concerned with two particles of mass <span class="math inline">\(m\)</span> orbiting a central object with angular velocity <span class="math inline">\(\Omega = \Omega (R)\)</span> (not necessarily Keplerian). The particles are connected by a spring with spring constant <span class="math inline">\(mK\)</span>, as shown in <a href="#fig-mri-spring" class="quarto-xref">Figure&nbsp;<span>27.2</span></a>.</p>
+<div id="fig-mri-spring" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A central object on the left and a dashed circular orbit of radius R around it. On the orbit, two masses m, drawn as dots, are joined by a spring that passes through their common centre of mass. Local axes are drawn at the centre of mass: x points radially outward and y along the orbit.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mri-spring-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/mri/spring-model.svg" class="img-fluid figure-img" alt="A central object on the left and a dashed circular orbit of radius R around it. On the orbit, two masses m, drawn as dots, are joined by a spring that passes through their common centre of mass. Local axes are drawn at the centre of mass: x points radially outward and y along the orbit.">
 </div>
-<div class="callout-body-container callout-body">
-<p>This chapter is being ported from the 2025 lecture notes.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mri-spring-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;27.2: Mechanical analogue of the magnetorotational instability: two masses connected by a spring, orbiting a central object.
+</figcaption>
+</figure>
 </div>
-</div>
+<p>The coordinates <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> denote the displacement of one of the two masses from the common center of mass.</p>
+<ol type="1">
+<li><p>Assuming <span class="math inline">\(0 \leq x, y \ll R\)</span>, show that the displacement satisfies the differential equations <span id="eq-mri-ws1"><span class="math display">\[
+\begin{alignedat}{2}
+\ddot{x} - 2 \Omega \dot{y} &amp;{}={} &amp;&amp; - \left( K + \frac{\mathrm{d}
+\Omega^2}{\mathrm{d} \log R} \right) x, \\
+\ddot{y} + 2 \Omega \dot{x} &amp;{}={} &amp;&amp; - Ky.
+\end{alignedat}
+\tag{27.27}\]</span></span> Note that these are the same equations as those obtained for the MRI in a disk threaded by a vertical magnetic field, <span class="math inline">\(k_R = 0\)</span>, and <span class="math inline">\(K = (v_A k_z)^2 = \omega_A^2\)</span>.</p></li>
+<li><p>Look for solutions in the form <span class="math inline">\(x (t) = x_0 e^{\lambda t},\)</span> <span class="math inline">\(y (t) = y_0 e^{\lambda t}\)</span>. Find <span class="math inline">\(\lambda\)</span>.</p></li>
+<li><p>Under what conditions is the system unstable?</p></li>
+</ol>
+</section>
+<section id="sec-mri-reading" class="level2" data-number="27.4">
+<h2 data-number="27.4" class="anchored" data-anchor-id="sec-mri-reading"><span class="header-section-number">27.4</span> Further reading</h2>
+<ul>
+<li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Chapter 13, for the MHD equations used here.</li>
+<li><span class="citation" data-cites="balbus1991">Balbus and Hawley (<a href="#ref-balbus1991" role="doc-biblioref">1991</a>)</span>, the paper that established the MRI as the origin of turbulence in accretion disks.</li>
+<li><span class="citation" data-cites="balbus1998">Balbus and Hawley (<a href="#ref-balbus1998" role="doc-biblioref">1998</a>)</span>, a comprehensive review of the MRI and angular-momentum transport in disks.</li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-balbus1991" class="csl-entry" role="listitem">
+Balbus, Steven A., and John F. Hawley. 1991. <span>“A Powerful Local Shear Instability in Weakly Magnetized Disks. <span>I</span>. Linear Analysis.”</span> <em>The Astrophysical Journal</em> 376: 214–33. <a href="https://doi.org/10.1086/170270">https://doi.org/10.1086/170270</a>.
+</div>
+<div id="ref-balbus1998" class="csl-entry" role="listitem">
+Balbus, Steven A., and John F. Hawley. 1998. <span>“Instability, Turbulence, and Enhanced Transport in Accretion Disks.”</span> <em>Reviews of Modern Physics</em> 70: 1–53. <a href="https://doi.org/10.1103/RevModPhys.70.1">https://doi.org/10.1103/RevModPhys.70.1</a>.
+</div>
+<div id="ref-chandrasekhar1961" class="csl-entry" role="listitem">
+Chandrasekhar, S. 1961. <em>Hydrodynamic and Hydromagnetic Stability</em>. Clarendon Press.
+</div>
+<div id="ref-clarke2007" class="csl-entry" role="listitem">
+Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dynamics</em>. Cambridge University Press.
+</div>
+<div id="ref-velikhov1959" class="csl-entry" role="listitem">
+Velikhov, E. P. 1959. <span>“Stability of an Ideally Conducting Liquid Flowing Between Cylinders Rotating in a Magnetic Field.”</span> <em>Soviet Physics JETP</em> 9: 995.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

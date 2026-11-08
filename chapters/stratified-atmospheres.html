@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -53,9 +72,9 @@ ul.task-list li input[type="checkbox"] {
 <script id="quarto-axe-checker-options" type="text/plain">dHJ1ZQ==</script>
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-800b11630bf338edcf57ee6e71b118bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-83a5da6beb6086fc7710ea45e3176b24.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-800b11630bf338edcf57ee6e71b118bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-1b98dd23240c9c19cf7f5804f818ede7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -84,6 +103,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -520,8 +568,17 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#waves-in-isothermal-atmospheres" id="toc-waves-in-isothermal-atmospheres" class="nav-link active" data-scroll-target="#waves-in-isothermal-atmospheres"><span class="header-section-number">10.1</span> Waves in Isothermal Atmospheres</a></li>
+  <li><a href="#sec-strat-worksheet" id="toc-sec-strat-worksheet" class="nav-link" data-scroll-target="#sec-strat-worksheet"><span class="header-section-number">10.2</span> In-class worksheet</a></li>
+  <li><a href="#sec-strat-exercises" id="toc-sec-strat-exercises" class="nav-link" data-scroll-target="#sec-strat-exercises"><span class="header-section-number">10.3</span> Exercises</a></li>
+  <li><a href="#sec-strat-reading" id="toc-sec-strat-reading" class="nav-link" data-scroll-target="#sec-strat-reading"><span class="header-section-number">10.4</span> Further reading</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
@@ -546,21 +603,188 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="waves-in-isothermal-atmospheres" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="waves-in-isothermal-atmospheres"><span class="header-section-number">10.1</span> Waves in Isothermal Atmospheres</h2>
+<p>Consider a stratified, static, isothermal atmosphere. We assume constant acceleration <span class="math inline">\(g\)</span> in the negative <span class="math inline">\(z\)</span> direction. The hydrostatic equilibrium equations are <span id="eq-strat-1"><span class="math display">\[
+\begin{alignedat}{2}
+\partial_z p_0 = - \rho_0 g, &amp;{}\qquad{} &amp;&amp; p = a^2 \rho,
+\end{alignedat}
+\tag{10.1}\]</span></span> where <span class="math inline">\(a = \sqrt{\frac{kT}{\mu}}\)</span> is the isothermal sound speed.</p>
+<p>Combining these two we find <span id="eq-strat-2"><span class="math display">\[
+\partial_z \rho_0 = - \frac{g}{a ^2} \rho_0 \Longrightarrow \rho_0 =
+\tilde{\rho} e^{- z / H} .
+\tag{10.2}\]</span></span> <span class="math inline">\(H = a^2 / g\)</span> is called the scale-high of the atmosphere and has units of a length.</p>
+<p>We want to study the propagation of waves in this atmosphere. The continuity equation still gives <span id="eq-strat-3"><span class="math display">\[
+\delta \rho = - \rho_0 \nabla \cdot \boldsymbol{\xi}.
+\tag{10.3}\]</span></span> and the velocity perturbation is <span id="eq-strat-4"><span class="math display">\[
+\mathbf{v}' = \delta \mathbf{v}- (\boldsymbol{\xi} \cdot \nabla) \mathbf{v}_0 =
+\delta \mathbf{v}= \frac{\mathrm{d} \boldsymbol{\xi}}{\mathrm{d} t} = \frac{\partial
+\boldsymbol{\xi}}{\partial t} + (\mathbf{v}_0 \cdot \nabla) \boldsymbol{\xi}=
+\frac{\partial \boldsymbol{\xi}}{\partial t} .
+\tag{10.4}\]</span></span> The sound speed is given by <span id="eq-strat-5"><span class="math display">\[
+c_s^2 = \left( \frac{\partial p}{\partial \rho} \right)_s = \Gamma a^2 .
+\tag{10.5}\]</span></span> Which implies that <span class="math inline">\(\delta p = \Gamma a^2 \delta \rho\)</span> for adiabatic perturbations. However, <span id="eq-strat-6"><span class="math display">\[
+p' \overset{!}{=} \Gamma a^2 \rho',
+\tag{10.6}\]</span></span> instead we have <span id="eq-strat-eulerian-pressure"><span class="math display">\[
+\delta p = \Gamma a^2 \delta \rho \Longrightarrow (p' +\boldsymbol{\xi} \cdot
+\nabla p_0) = \Gamma a^2 \delta \rho \Longrightarrow p' = \Gamma a^2 \delta
+\rho + g \rho_0 \xi_z .
+\tag{10.7}\]</span></span> The momentum equation reads <span id="eq-strat-8"><span class="math display">\[
+\rho \frac{\mathrm{d} \mathbf{v}}{\mathrm{d} t} = - \nabla p - g \rho
+\hat{\mathbf{z}} .
+\tag{10.8}\]</span></span> Setting <span class="math inline">\(\mathbf{v}=\mathbf{v}'\)</span>, <span class="math inline">\(p = p_0 + p'\)</span>, and <span class="math inline">\(\rho = \rho_0 + \rho'\)</span> yields <span id="eq-strat-9"><span class="math display">\[
+\rho_0  \frac{\partial^2 \boldsymbol{\xi}}{\partial t^2} = - \nabla p_0 - g
+\rho_0  \hat{\mathbf{z}} - \nabla p' - g \rho'  \hat{\mathbf{z}} +
+\operatorname{HOT} .
+\tag{10.9}\]</span></span> The first two terms on the RHS cancel out. Dropping the higher order terms we find <span id="eq-strat-euler-in-progress"><span class="math display">\[
+\rho_0  \frac{\partial^2 \boldsymbol{\xi}}{\partial t^2} = - \Gamma a^2 \nabla
+\delta \rho + g \frac{\rho_0}{H} \xi_z  \hat{\mathbf{z}} - g \rho_0 \nabla
+\xi_z - g \left( \delta \rho + \frac{\rho_0}{H} \xi_z  \right)
+\hat{\mathbf{z}},
+\tag{10.10}\]</span></span> where we have used <a href="#eq-strat-eulerian-pressure" class="quarto-xref">Equation&nbsp;<span>10.7</span></a> and <span id="eq-strat-11"><span class="math display">\[
+\rho' = \delta \rho - (\boldsymbol{\xi} \cdot \nabla) \rho_0 = \delta r +
+\frac{\rho_0}{H} \xi_z .
+\tag{10.11}\]</span></span> The second and last term on the RHS of <a href="#eq-strat-euler-in-progress" class="quarto-xref">Equation&nbsp;<span>10.10</span></a> cancel out leaving <span id="eq-strat-12"><span class="math display">\[
+\rho_0  \frac{\partial^2 \boldsymbol{\xi}}{\partial t^2} = - \Gamma a^2 \nabla
+\delta \rho - g \rho_0 \nabla \xi_z - g \delta \rho \hat{\mathbf{z}} .
+\tag{10.12}\]</span></span> Using the fact that <span id="eq-strat-13"><span class="math display">\[
+\nabla \delta \rho = \nabla (- \rho_0 \nabla \cdot \boldsymbol{\xi}) = - \rho_0
+\nabla \nabla \cdot \boldsymbol{\xi}- \nabla \rho_0 \nabla \cdot \boldsymbol{\xi}= -
+\rho_0 \nabla \nabla \cdot \boldsymbol{\xi}+ \frac{\rho_0}{H} \nabla \cdot
+\boldsymbol{\xi} \hat{\mathbf{z}},
+\tag{10.13}\]</span></span> We obtain <span id="eq-strat-14"><span class="math display">\[
+\rho_0  \frac{\partial^2 \boldsymbol{\xi}}{\partial t^2} = + \Gamma a^2 \rho_0
+\nabla \nabla \cdot \boldsymbol{\xi}- \rho_0 \Gamma g \nabla \cdot \boldsymbol{\xi}
+\hat{\mathbf{z}} - g \rho_0 \nabla \xi_z + g \rho_0 \nabla \cdot
+\boldsymbol{\xi} \hat{\mathbf{z}} .
+\tag{10.14}\]</span></span> This can be simplified to <span id="eq-strat-oscillation-stratified"><span class="math display">\[
+\boxed{ \frac{\partial^2 \boldsymbol{\xi}}{\partial t^2} = c_s^2  \left(
+\nabla \nabla \cdot \boldsymbol{\xi}- \frac{a^2}{c_s^2}  \frac{1}{H} \nabla
+\xi_z \right) - \frac{(c_s^2 - a^2)}{H} \nabla \cdot \boldsymbol{\xi}
+\hat{\mathbf{z}} .}
+\tag{10.15}\]</span></span> We are going to analyze the consequences of this equation shortly. Before we do that, we show that this equation reduces to Eq. (6.31) of <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span> in the limit of vertical oscillations in the <span class="math inline">\(z\)</span> direction. To do that, we take the divergence of <a href="#eq-strat-oscillation-stratified" class="quarto-xref">Equation&nbsp;<span>10.15</span></a> to obtain <span id="eq-strat-16"><span class="math display">\[
+\begin{alignedat}{2}
+\frac{\partial^2 \delta \rho}{\partial t^2} &amp;{}={} &amp;&amp; c_s^2  \left( \nabla^2
+\delta \rho + \frac{\delta \rho}{H^2} \right) + g \rho_0 \nabla^2 \xi_z -
+\frac{(c_s^2 - a^2)}{H}  \left( \partial_z \delta \rho + \frac{\delta
+\rho}{H} \right) \\
+&amp;{}={} &amp;&amp; c_s^2 \nabla^2 \delta \rho - \frac{c_s^2}{H} \partial_z \delta \rho +
+\frac{a^2}{H} \rho_0 \nabla^2 \xi_z + \frac{a^2}{H} \partial_z \delta \rho +
+a^2  \frac{\delta \rho}{H^2} .
+\end{alignedat}
+\tag{10.16}\]</span></span> Assuming that <span class="math inline">\(\delta \rho = \delta \rho (t, z)\)</span> and <span class="math inline">\(\boldsymbol{\xi}= \xi_z \hat{\mathbf{z}}\)</span>, we obtain, <span id="eq-strat-oscillation-book"><span class="math display">\[
+\frac{\partial^2 \delta \rho}{\partial t^2} - c_s^2  \frac{\partial^2 \delta
+\rho}{\partial z^2} - \frac{c_s^2}{H}  \frac{\partial \delta \rho}{\partial
+z} = 0,
+\tag{10.17}\]</span></span> where we have used the fact that <span id="eq-strat-18"><span class="math display">\[
+\nabla^2 \xi_z = \partial_z^2 \xi_z = \partial_z  \left( - \frac{\delta
+\rho}{\rho_0} \right) = - \frac{\partial_z \delta \rho}{\rho_0} -
+\frac{\delta \rho}{\rho_0 H} .
+\tag{10.18}\]</span></span> <a href="#eq-strat-oscillation-book" class="quarto-xref">Equation&nbsp;<span>10.17</span></a> is identical to Eq. (6.31) of <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>. It describes the propagation of density modes in a stratified atmosphere, but neglects an entirely different class of modes that have <span class="math inline">\(\boldsymbol{\xi}\)</span> in the z-direction, but propagate in the xy-plane.</p>
+<p>As before, we look for traveling wave solutions <span id="eq-strat-19"><span class="math display">\[
+\boldsymbol{\xi}=\boldsymbol{\eta}e^{\mathrm{i} (\mathbf{k} \cdot \mathbf{x}- \omega t)}
+.
+\tag{10.19}\]</span></span> Inserting this into <a href="#eq-strat-oscillation-stratified" class="quarto-xref">Equation&nbsp;<span>10.15</span></a> we obtain <span id="eq-strat-20"><span class="math display">\[
+\boxed{\omega^2 \boldsymbol{\eta}= c_s^2  \left( \mathbf{k} \cdot
+\boldsymbol{\eta}+ \mathrm{i} \frac{a^2}{c_s^2}  \frac{1}{H} \eta_z \right)
+\mathbf{k}+ \mathrm{i} \frac{(c_s^2 - a^2)}{H} \mathbf{k} \cdot \boldsymbol{\eta}
+\hat{\mathbf{z}} .}
+\tag{10.20}\]</span></span></p>
+<ul>
+<li><p>In the limit of <span class="math inline">\(H \gg a^2 k / \omega^2\)</span>, that is, in the limit in which the wavelength of perturbations is much smaller than the scale height of the atmosphere, we recover the dispersion relation for waves in a homogeneous medium, namely <span class="math inline">\(\omega^2 = c_s k^2\)</span>, as expected.</p></li>
+<li><p>Purely horizontal waves, with <span class="math inline">\(\boldsymbol{\eta}, \mathbf{k} \perp \hat{\mathbf{z}}\)</span> cannot satisfy the dispersion relation, unless <span class="math inline">\(c_s = a\)</span>, that is for isothermal as opposed to adiabatic perturbations. Physically this means that density fluctuations become buoyant, so they acquire a <span class="math inline">\(k_z \neq 0\)</span> component in their wave vector.</p></li>
+<li><p>Waves with <span class="math inline">\(\boldsymbol{\eta} \parallel \mathbf{k} \parallel \hat{\mathbf{z}}\)</span> satisfy the dispersion relation simplifies to <span id="eq-strat-dispersion-relation-stratified"><span class="math display">\[
+\omega^2 = c_s^2  \left( k^2 + \mathrm{i} \frac{1}{H} k \right)
+\Longrightarrow k_{1, 2} = - \frac{\mathrm{i}}{2 H} \pm \sqrt{\left(
+\frac{\omega}{c_s} \right)^2 - \left( \frac{1}{2 H} \right)^2} .
+\tag{10.21}\]</span></span> These are the so called pressure or p-modes of the atmosphere. They are the generalization of sound waves.</p>
+<ul>
+<li><p>If <span class="math inline">\(H \gg \frac{c_s}{\omega}\)</span>, then the dispersion relation for p-modes can be approximated as: <span id="eq-strat-22"><span class="math display">\[
+k_{1, 2} \approx - \frac{\mathrm{i}}{2 H} \pm \frac{\omega}{c_s} .
+\tag{10.22}\]</span></span> In this case the displacement grows exponentially with height: <span id="eq-strat-xiz-stratified-atmosphere"><span class="math display">\[
+\xi_z = \eta_z e^{\mathrm{i} (\mathbf{k} \cdot \mathbf{x}- \omega t)} =
+\eta_z \exp \left[ \mathrm{i} \omega \left( \pm \frac{z}{c_s} - t \right)
+\right] \exp \left( \frac{z}{2 H} \right) .
+\tag{10.23}\]</span></span> This means that waves propagating vertically along an isothermal atmosphere eventually become nonlinear and will experience wave-breaking. Note that the density fluctuation remains finite: <span id="eq-strat-24"><span class="math display">\[
+\delta \rho = - \rho_0 \nabla \cdot \boldsymbol{\xi}= - \tilde{\rho} \eta_z
+\left( \frac{\mathrm{i} \omega}{c_s} + \frac{1}{2 H} \right) \exp \left[
+\mathrm{i} \omega \left( \frac{z}{c_s} - t \right) \right] \exp \left( -
+\frac{z}{2 H} \right) .
+\tag{10.24}\]</span></span></p></li>
+<li><p>If <span class="math inline">\(H \ll \frac{c_s}{\omega}\)</span>, then the solution describes one of two global oscillation modes of the atmosphere: <span id="eq-strat-25"><span class="math display">\[
+k_{1, 2} \approx - \frac{\mathrm{i}}{H}, 0 \qquad \Longrightarrow \qquad
+[\xi_z]_{1, 2} = \eta  e^{\mathrm{i} \omega t}, \eta_z e^{z / H} e^{\mathrm{i}
+\omega t} .
+\tag{10.25}\]</span></span></p></li>
+</ul></li>
+<li><p>Let us now consider the case of perturbations with horizontal displacement. We can align the <span class="math inline">\(x\)</span>-axis with <span class="math inline">\(\boldsymbol{\eta}\)</span>, meaning that <span class="math inline">\(\boldsymbol{\eta}= \eta \hat{\mathbf{x}}\)</span>. In this case, the dispersion relation becomes <span id="eq-strat-g-modes"><span class="math display">\[
+\omega^2 \eta \hat{\mathbf{x}} = c_s^2  (k_x \eta) \mathbf{k}+ \mathrm{i}
+\frac{(c_s^2 - a^2)}{H} k_x \eta \hat{\mathbf{z}} .
+\tag{10.26}\]</span></span> This means that there are two components of <span class="math inline">\(\mathbf{k}= \left(\begin{array}{ccc} k_x &amp; 0 &amp; k_z \end{array}\right)\)</span>. The x-component of <a href="#eq-strat-g-modes" class="quarto-xref">Equation&nbsp;<span>10.26</span></a> is <span id="eq-strat-27"><span class="math display">\[
+\omega^2 = c_s^2 k_x^2 \Longrightarrow k_x = \pm \frac{\omega}{c_s} .
+\tag{10.27}\]</span></span> The <span class="math inline">\(z\)</span>-component of <a href="#eq-strat-g-modes" class="quarto-xref">Equation&nbsp;<span>10.26</span></a> is <span id="eq-strat-28"><span class="math display">\[
+k_z = - \mathrm{i} \left( 1 - \frac{a^2}{c_s^2} \right)  \frac{1}{H} .
+\tag{10.28}\]</span></span> The corresponding displacement is <span id="eq-strat-29"><span class="math display">\[
+\boldsymbol{\xi} (t, \mathbf{x}) = \eta \exp \left[ \mathrm{i} \omega \left( \pm
+\frac{x}{c_s} - t \right) \right] \exp \left[ \left( 1 - \frac{a^2}{c_s^2}
+\right)  \frac{z}{H} \right]  \hat{\mathbf{x}} .
+\tag{10.29}\]</span></span> Note that, as in the previous case, the density fluctuations <span class="math inline">\(\delta \rho\)</span> remain finite. These are the so called (internal) gravity-modes or g-modes of the atmosphere. In the limit in which <span class="math inline">\(c_s \rightarrow a\)</span>, that is <span class="math inline">\(\Gamma \rightarrow 1\)</span> (isothermal perturbations), these type of waves reduce to horizontal sound waves.</p></li>
+</ul>
+</section>
+<section id="sec-strat-worksheet" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="sec-strat-worksheet"><span class="header-section-number">10.2</span> In-class worksheet</h2>
+<p>We consider small disturbances in a plane parallel, isothermal atmosphere. We will assume <span class="math inline">\(z\)</span> to be the vertical direction and <span class="math inline">\(g\)</span> to be the gravitational acceleration, assumed to be constant and towards the negative <span class="math inline">\(z\)</span> direction. Let <span class="math inline">\(a = \sqrt{k_B T / \mu}\)</span> be the isothermal sound speed.</p>
+<ol type="1">
+<li><p>Show that the static background density <span class="math inline">\(\rho_0\)</span> satisfies <span id="eq-strat-ws1"><span class="math display">\[
+\rho_0 (z) = \tilde{\rho} e^{- z / H},
+\tag{10.30}\]</span></span> where <span class="math inline">\(H = a^2 / g\)</span> is the scale height of the atmosphere.</p></li>
+<li><p>Let <span class="math inline">\(\delta \rho\)</span> and <span class="math inline">\(\rho'\)</span> be the Lagrangian and Eulerian perturbations of the density. Show that <span id="eq-strat-ws2"><span class="math display">\[
+\rho' = \delta \rho + \frac{\rho_0}{H} \xi_z .
+\tag{10.31}\]</span></span></p></li>
+<li><p>Let <span class="math inline">\(p'\)</span> be the Eulerian pressure perturbation. Show that <span id="eq-strat-ws3"><span class="math display">\[
+p' = c_s^2 \delta \rho + g \rho_0 \xi_z,
+\tag{10.32}\]</span></span> where <span class="math inline">\(c_s^2 = \Gamma a^2\)</span> is the square of the sound speed and <span class="math inline">\(\xi_z\)</span> is the <span class="math inline">\(z\)</span>-component of the displacement.</p></li>
+<li><p>Use the results from the previous two points to show that <span id="eq-strat-ws4"><span class="math display">\[
+\rho_0  \frac{\partial^2 \boldsymbol{\xi}}{\partial t^2} = - c_s^2 \nabla
+\delta \rho - g \rho_0 \nabla \xi_z - g \delta \rho \hat{\mathbf{z}} .
+\tag{10.33}\]</span></span></p></li>
+</ol>
+</section>
+<section id="sec-strat-exercises" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="sec-strat-exercises"><span class="header-section-number">10.3</span> Exercises</h2>
+<div id="exr-strat-polytropic" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10.1 (Waves in a polytropic atmosphere)</strong></span> An isentropic atmosphere sits in a uniform gravitational field <span class="math inline">\(g\)</span>, with pressure <span class="math inline">\(p_0 = A \rho_0^{1 + 1/n}\)</span> and <span class="math inline">\(A\)</span> constant. Let <span class="math inline">\(x\)</span> be the depth below the top of the atmosphere, and suppose that the unperturbed density is <span class="math inline">\(\rho_0 = (kx)^n\)</span> with <span class="math inline">\(k\)</span> constant.</p>
+<ol type="1">
+<li><p>Show that hydrostatic equilibrium requires <span class="math inline">\(g = Ak (1 + n)\)</span>.</p></li>
+<li><p>Perturb the atmosphere with a small vertical velocity <span class="math inline">\(u\)</span>, taken positive upward, together with adiabatic perturbations <span class="math inline">\(p' \ll p_0\)</span> of the pressure and <span class="math inline">\(\rho' \ll \rho_0\)</span> of the density. Show that <span class="math inline">\(p' = (gx / n) \rho'\)</span>.</p></li>
+<li><p>Show that the linearized continuity and momentum equations are <span id="eq-strat-poly-continuity"><span class="math display">\[
+\frac{\partial \rho'}{\partial t} - u \frac{\partial \rho_0}{\partial x} - \rho_0 \frac{\partial u}{\partial x} = 0
+\tag{10.34}\]</span></span> and <span id="eq-strat-poly-momentum"><span class="math display">\[
+\frac{\partial u}{\partial t} + \left( \frac{\rho'}{\rho_0} \right) g - \frac{g}{n \rho_0} \frac{\partial (x \rho')}{\partial x} = 0.
+\tag{10.35}\]</span></span></p></li>
+<li><p>For <span class="math inline">\(n = 1/2\)</span>, combine these equations to show that <span id="eq-strat-poly-wave"><span class="math display">\[
+\frac{\partial^2 u}{\partial t^2} = 2 gx \frac{\partial^2 u}{\partial x^2} + 3 g \frac{\partial u}{\partial x} .
+\tag{10.36}\]</span></span></p></li>
+<li><p>Look for solutions <span class="math inline">\(u (t, x) = u_1 (x) e^{\mathrm{i} \omega t}\)</span> and change variable to <span class="math inline">\(\tau = (2 x / g)^{1/2}\)</span>. Show that <a href="#eq-strat-poly-wave" class="quarto-xref">Equation&nbsp;<span>10.36</span></a> becomes <span id="eq-strat-poly-tau"><span class="math display">\[
+\frac{1}{\tau} \frac{\mathrm{d}^2}{\mathrm{d} \tau^2} (\tau u_1) + \omega^2 u_1 = 0.
+\tag{10.37}\]</span></span> Find the solution that stays finite at <span class="math inline">\(x = 0\)</span> and interpret it physically.</p></li>
+</ol>
+<p>Adapted from <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Problem 22.</p>
 </div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This chapter is being ported from the 2025 lecture notes and expanded.</p>
-</div>
-</div>
+</section>
+<section id="sec-strat-reading" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="sec-strat-reading"><span class="header-section-number">10.4</span> Further reading</h2>
+<ul>
+<li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Section 6.2.</li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-clarke2007" class="csl-entry" role="listitem">
+Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dynamics</em>. Cambridge University Press.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
