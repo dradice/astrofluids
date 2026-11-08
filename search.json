@@ -1,0 +1,360 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Astrophysical Fluid Dynamics",
+    "section": "",
+    "text": "Preface\nThese are the lecture notes for ASTRO 442, an introduction to the fluid dynamics and magnetohydrodynamics of astrophysical systems. They are written to be self-contained: the textbook, Clarke and Carswell’s Principles of Astrophysical Fluid Dynamics (Clarke and Carswell 2007), is optional further reading. Each chapter ends with pointers to the relevant sections of the textbook.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use-these-notes",
+    "href": "index.html#how-to-use-these-notes",
+    "title": "Astrophysical Fluid Dynamics",
+    "section": "How to use these notes",
+    "text": "How to use these notes\n\nOne chapter per lecture topic. The Schedule lists which chapter goes with each lecture.\nEverything is numbered by chapter. Equation (9.14) is the fourteenth numbered equation of Chapter 9, and Exercise 8.4 is the fourth exercise of Chapter 8. When you ask a question about the notes, quote these numbers.\nIn-class worksheets appear near the end of each chapter, followed by the exercises. Homework assignments on Canvas list the exercises to solve, for example “Exercises 2.1, 7.3”.\nOptional material is collapsed under “Going further” boxes.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#accessibility",
+    "href": "index.html#accessibility",
+    "title": "Astrophysical Fluid Dynamics",
+    "section": "Accessibility",
+    "text": "Accessibility\nThese notes are designed to meet the Web Content Accessibility Guidelines (WCAG) 2.1, level AA. Mathematics is rendered with MathJax, which supports screen readers, speech, and braille, and lets you explore an equation term by term: click on an equation or focus it with the keyboard, then use the arrow keys. Every figure has a text description.\nIf something in these notes is not accessible to you, please let me know.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "Astrophysical Fluid Dynamics",
+    "section": "License",
+    "text": "License\nThe text and figures are licensed under CC BY-NC-SA 4.0. Code is licensed under the MIT license. The source is on GitHub.\n\n\n\n\nClarke, Cathie, and Bob Carswell. 2007. Principles of Astrophysical Fluid Dynamics. Cambridge University Press.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "Lecture schedule for Spring 2027 and the chapter that goes with each lecture. Lectures are on Tuesdays and Thursdays. Homework assignments and due dates are posted on Canvas.\n\nSpring 2027 lectures and the corresponding chapters of these notes.\n\n\n\n\n\n\n\n\nLecture\nDate\nTopic\nNotes\n\n\n\n\n1\nTue Jan 12\nFluids as continua, continuity equation\n1  Fluids as Continua\n\n\n2\nThu Jan 14\nEnergy equation, thermodynamics\n2  Thermodynamics Refresher\n\n\n3\nTue Jan 19\nCore-collapse supernovae\n3  Core-Collapse Supernovae\n\n\n4\nThu Jan 21\nVector calculus\nAppendix A — Vector Calculus\n\n\n5\nTue Jan 26\nEuler equation; Eulerian and Lagrangian descriptions\n4  The Euler Equation, 5  Eulerian and Lagrangian Descriptions\n\n\n6\nThu Jan 28\nConservation laws\n6  Conservation Laws\n\n\n7\nTue Feb 2\nGravitational potential\n7  The Gravitational Potential\n\n\n8\nThu Feb 4\nHydrostatic equilibrium, virial theorem, star formation\n8  Hydrostatic Equilibrium and the Virial Theorem\n\n\n9\nTue Feb 9\nSound waves, acoustic power\n9  Sound Waves and the Doppler Effect\n\n\n10\nThu Feb 11\nDoppler effect\n9  Sound Waves and the Doppler Effect\n\n\n11\nTue Feb 16\nSound waves in stratified media\n10  Waves in Stratified Atmospheres\n\n\n12\nThu Feb 18\nShocks and shock adiabatics\n11  Shock Waves\n\n\n13\nTue Feb 23\nRadiative shocks\n12  Radiative Shocks\n\n\n14\nThu Feb 25\nBlast waves\n13  Blast Waves\n\n\n15\nTue Mar 2\nMidterm I\n\n\n\n16\nThu Mar 4\nStellar winds and spherical accretion\n14  Stellar Winds and Spherical Accretion\n\n\n\nMar 9–11\nSpring break\n\n\n\n17\nTue Mar 16\nFluid instabilities I\n15  Fluid Instabilities I: Convection\n\n\n18\nThu Mar 18\nFluid instabilities II\n16  Fluid Instabilities II: Rayleigh–Taylor and Kelvin–Helmholtz\n\n\n19\nTue Mar 23\nIntroduction to plasma\n22  Introduction to Plasma\n\n\n20\nThu Mar 25\nMidterm II\n\n\n\n21\nTue Mar 30\nFluid instabilities III\n17  Fluid Instabilities III: Thermal and Gravitational Instabilities\n\n\n22\nThu Apr 1\nDiffusion and viscous flows\n18  Diffusion and Viscous Flows\n\n\n23\nTue Apr 6\nAccretion disks I\n19  Accretion Disks I: Structure and Viscous Evolution\n\n\n24\nThu Apr 8\nAccretion disks II\n20  Accretion Disks II: Steady Disks and Spectra\n\n\n25\nTue Apr 13\nTurbulence\n21  Turbulence\n\n\n26\nThu Apr 15\nMHD equations\n23  The MHD Equations\n\n\n27\nTue Apr 20\nFlux freezing\n24  Flux Freezing\n\n\n28\nThu Apr 22\nMagnetic tension\n25  Magnetic Tension and Hydromagnetic Equilibria\n\n\n29\nTue Apr 27\nMHD waves\n26  MHD Waves\n\n\n30\nThu Apr 29\nMagnetorotational instability\n27  The Magnetorotational Instability",
+    "crumbs": [
+      "Schedule"
+    ]
+  },
+  {
+    "objectID": "chapters/fluids-as-continua.html",
+    "href": "chapters/fluids-as-continua.html",
+    "title": "1  Fluids as Continua",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is being ported from the 2025 lecture notes.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Fluids as Continua</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/thermodynamics.html",
+    "href": "chapters/thermodynamics.html",
+    "title": "2  Thermodynamics Refresher",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is being ported from the 2025 lecture notes.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Thermodynamics Refresher</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/supernovae.html",
+    "href": "chapters/supernovae.html",
+    "title": "3  Core-Collapse Supernovae",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is being ported from the 2025 lecture notes.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Core-Collapse Supernovae</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/euler-equation.html",
+    "href": "chapters/euler-equation.html",
+    "title": "4  The Euler Equation",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is being ported from the 2025 lecture notes.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>The Euler Equation</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/eulerian-lagrangian.html",
+    "href": "chapters/eulerian-lagrangian.html",
+    "title": "5  Eulerian and Lagrangian Descriptions",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is being ported from the 2025 lecture notes.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Eulerian and Lagrangian Descriptions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/conservation-laws.html",
+    "href": "chapters/conservation-laws.html",
+    "title": "6  Conservation Laws",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is being ported from the 2025 lecture notes.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Conservation Laws</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/gravitational-potential.html",
+    "href": "chapters/gravitational-potential.html",
+    "title": "7  The Gravitational Potential",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is in preparation.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>The Gravitational Potential</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/hydrostatic-equilibrium.html",
+    "href": "chapters/hydrostatic-equilibrium.html",
+    "title": "8  Hydrostatic Equilibrium and the Virial Theorem",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is being ported from the 2025 lecture notes and expanded.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Hydrostatic Equilibrium and the Virial Theorem</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/sound-waves.html",
+    "href": "chapters/sound-waves.html",
+    "title": "9  Sound Waves and the Doppler Effect",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is being ported from the 2025 lecture notes and expanded.",
+    "crumbs": [
+      "Waves, Shocks, and Outflows",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Sound Waves and the Doppler Effect</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/stratified-atmospheres.html",
+    "href": "chapters/stratified-atmospheres.html",
+    "title": "10  Waves in Stratified Atmospheres",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is being ported from the 2025 lecture notes and expanded.",
+    "crumbs": [
+      "Waves, Shocks, and Outflows",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Waves in Stratified Atmospheres</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/shock-waves.html",
+    "href": "chapters/shock-waves.html",
+    "title": "11  Shock Waves",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is in preparation.",
+    "crumbs": [
+      "Waves, Shocks, and Outflows",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Shock Waves</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/radiative-shocks.html",
+    "href": "chapters/radiative-shocks.html",
+    "title": "12  Radiative Shocks",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is in preparation.",
+    "crumbs": [
+      "Waves, Shocks, and Outflows",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Radiative Shocks</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/blast-waves.html",
+    "href": "chapters/blast-waves.html",
+    "title": "13  Blast Waves",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is in preparation.",
+    "crumbs": [
+      "Waves, Shocks, and Outflows",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Blast Waves</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/winds-and-accretion.html",
+    "href": "chapters/winds-and-accretion.html",
+    "title": "14  Stellar Winds and Spherical Accretion",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is in preparation.",
+    "crumbs": [
+      "Waves, Shocks, and Outflows",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Stellar Winds and Spherical Accretion</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/instabilities-convection.html",
+    "href": "chapters/instabilities-convection.html",
+    "title": "15  Fluid Instabilities I: Convection",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is in preparation.",
+    "crumbs": [
+      "Instabilities, Viscosity, Disks, and Turbulence",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Fluid Instabilities I: Convection</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/instabilities-rt-kh.html",
+    "href": "chapters/instabilities-rt-kh.html",
+    "title": "16  Fluid Instabilities II: Rayleigh–Taylor and Kelvin–Helmholtz",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is in preparation.",
+    "crumbs": [
+      "Instabilities, Viscosity, Disks, and Turbulence",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Fluid Instabilities II: Rayleigh–Taylor and Kelvin–Helmholtz</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/instabilities-thermal-gravitational.html",
+    "href": "chapters/instabilities-thermal-gravitational.html",
+    "title": "17  Fluid Instabilities III: Thermal and Gravitational Instabilities",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is in preparation.",
+    "crumbs": [
+      "Instabilities, Viscosity, Disks, and Turbulence",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Fluid Instabilities III: Thermal and Gravitational Instabilities</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/viscous-flows.html",
+    "href": "chapters/viscous-flows.html",
+    "title": "18  Diffusion and Viscous Flows",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is in preparation.",
+    "crumbs": [
+      "Instabilities, Viscosity, Disks, and Turbulence",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Diffusion and Viscous Flows</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/accretion-disks-structure.html",
+    "href": "chapters/accretion-disks-structure.html",
+    "title": "19  Accretion Disks I: Structure and Viscous Evolution",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is in preparation.",
+    "crumbs": [
+      "Instabilities, Viscosity, Disks, and Turbulence",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Accretion Disks I: Structure and Viscous Evolution</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/accretion-disks-spectra.html",
+    "href": "chapters/accretion-disks-spectra.html",
+    "title": "20  Accretion Disks II: Steady Disks and Spectra",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is in preparation.",
+    "crumbs": [
+      "Instabilities, Viscosity, Disks, and Turbulence",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Accretion Disks II: Steady Disks and Spectra</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/turbulence.html",
+    "href": "chapters/turbulence.html",
+    "title": "21  Turbulence",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is being ported from the 2025 lecture notes.",
+    "crumbs": [
+      "Instabilities, Viscosity, Disks, and Turbulence",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Turbulence</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/plasma.html",
+    "href": "chapters/plasma.html",
+    "title": "22  Introduction to Plasma",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is being ported from the 2025 lecture notes.",
+    "crumbs": [
+      "Plasma and Magnetohydrodynamics",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Introduction to Plasma</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/mhd-equations.html",
+    "href": "chapters/mhd-equations.html",
+    "title": "23  The MHD Equations",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is being ported from the 2025 lecture notes.",
+    "crumbs": [
+      "Plasma and Magnetohydrodynamics",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>The MHD Equations</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/flux-freezing.html",
+    "href": "chapters/flux-freezing.html",
+    "title": "24  Flux Freezing",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is being ported from the 2025 lecture notes.",
+    "crumbs": [
+      "Plasma and Magnetohydrodynamics",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Flux Freezing</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/magnetic-tension.html",
+    "href": "chapters/magnetic-tension.html",
+    "title": "25  Magnetic Tension and Hydromagnetic Equilibria",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is being ported from the 2025 lecture notes.",
+    "crumbs": [
+      "Plasma and Magnetohydrodynamics",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Magnetic Tension and Hydromagnetic Equilibria</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/mhd-waves.html",
+    "href": "chapters/mhd-waves.html",
+    "title": "26  MHD Waves",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is being ported from the 2025 lecture notes.",
+    "crumbs": [
+      "Plasma and Magnetohydrodynamics",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>MHD Waves</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/mri.html",
+    "href": "chapters/mri.html",
+    "title": "27  The Magnetorotational Instability",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is being ported from the 2025 lecture notes.",
+    "crumbs": [
+      "Plasma and Magnetohydrodynamics",
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>The Magnetorotational Instability</span>"
+    ]
+  },
+  {
+    "objectID": "appendices/vector-calculus.html",
+    "href": "appendices/vector-calculus.html",
+    "title": "Appendix A — Vector Calculus",
+    "section": "",
+    "text": "Note\n\n\n\nThis chapter is in preparation.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Vector Calculus</span>"
+    ]
+  }
+]
