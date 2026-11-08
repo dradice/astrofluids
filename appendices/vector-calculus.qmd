@@ -1,0 +1,5 @@
+# Vector Calculus {#sec-vec}
+
+::: {.callout-note}
+This chapter is in preparation.
+:::

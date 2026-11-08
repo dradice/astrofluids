@@ -1,0 +1,5 @@
+# Sound Waves and the Doppler Effect {#sec-sound}
+
+::: {.callout-note}
+This chapter is being ported from the 2025 lecture notes and expanded.
+:::

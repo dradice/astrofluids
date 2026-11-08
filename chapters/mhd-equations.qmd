@@ -1,0 +1,5 @@
+# The MHD Equations {#sec-mhd}
+
+::: {.callout-note}
+This chapter is being ported from the 2025 lecture notes.
+:::

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Refuse to commit file types that should never be in this public repo:
+# PDFs (course packs, papers, old notes), spreadsheets and Word files
+# (rosters, grades, accommodation letters), and TeXmacs sources.
+# Also refuse files larger than 5 MB.
+# Enabled with:  git config core.hooksPath tools/hooks
+set -euo pipefail
+status=0
+while IFS= read -r -d '' f; do
+  case "$f" in
+    *.pdf|*.PDF|*.ods|*.xls|*.xlsx|*.doc|*.docx|*.tm|*.tm~)
+      echo "pre-commit: refusing to commit '$f' (blocked file type)" >&2
+      status=1 ;;
+  esac
+  if [ -f "$f" ] && [ "$(stat -c %s "$f")" -gt 5242880 ]; then
+    echo "pre-commit: refusing to commit '$f' (larger than 5 MB)" >&2
+    status=1
+  fi
+done < <(git diff --cached --name-only --diff-filter=ACMR -z)
+exit $status

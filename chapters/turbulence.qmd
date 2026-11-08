@@ -1,0 +1,5 @@
+# Turbulence {#sec-turb}
+
+::: {.callout-note}
+This chapter is being ported from the 2025 lecture notes.
+:::

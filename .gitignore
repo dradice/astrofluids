@@ -1,0 +1,20 @@
+# Quarto build output and caches
+/.quarto/
+/_book/
+/_book-solutions/
+/_freeze/
+*_files/
+/*.typ
+/index.pdf
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Editors / OS
+*~
+.DS_Store
+.vscode/
+
+**/*.quarto_ipynb

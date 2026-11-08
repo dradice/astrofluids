@@ -1,0 +1,5 @@
+# Hydrostatic Equilibrium and the Virial Theorem {#sec-hydro}
+
+::: {.callout-note}
+This chapter is being ported from the 2025 lecture notes and expanded.
+:::

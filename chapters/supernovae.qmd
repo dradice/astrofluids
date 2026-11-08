@@ -1,0 +1,5 @@
+# Core-Collapse Supernovae {#sec-sn}
+
+::: {.callout-note}
+This chapter is being ported from the 2025 lecture notes.
+:::

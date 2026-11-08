@@ -1,0 +1,5 @@
+# MHD Waves {#sec-mhdwaves}
+
+::: {.callout-note}
+This chapter is being ported from the 2025 lecture notes.
+:::

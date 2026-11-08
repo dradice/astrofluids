@@ -1,0 +1,5 @@
+# Instructor build with solutions:  quarto render --profile solutions
+# Content inside  ::: {.content-visible when-profile="solutions"}  is included
+# only in this build. The output is git-ignored and never published.
+project:
+  output-dir: _book-solutions

@@ -1,0 +1,5 @@
+# The Gravitational Potential {#sec-grav}
+
+::: {.callout-note}
+This chapter is in preparation.
+:::

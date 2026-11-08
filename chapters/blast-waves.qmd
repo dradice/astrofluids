@@ -1,0 +1,5 @@
+# Blast Waves {#sec-blast}
+
+::: {.callout-note}
+This chapter is in preparation.
+:::

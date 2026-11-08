@@ -1,0 +1,5 @@
+# Diffusion and Viscous Flows {#sec-visc}
+
+::: {.callout-note}
+This chapter is in preparation.
+:::

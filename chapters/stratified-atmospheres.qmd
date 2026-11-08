@@ -1,0 +1,5 @@
+# Waves in Stratified Atmospheres {#sec-strat}
+
+::: {.callout-note}
+This chapter is being ported from the 2025 lecture notes and expanded.
+:::

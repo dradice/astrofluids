@@ -1,0 +1,5 @@
+# Magnetic Tension and Hydromagnetic Equilibria {#sec-tension}
+
+::: {.callout-note}
+This chapter is being ported from the 2025 lecture notes.
+:::

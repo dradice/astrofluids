@@ -1,0 +1,5 @@
+# Shock Waves {#sec-shock}
+
+::: {.callout-note}
+This chapter is in preparation.
+:::
