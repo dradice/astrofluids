@@ -5,7 +5,7 @@ These are the lecture notes for ASTRO 442, an introduction to the fluid dynamics
 ::: {.callout-important}
 ## Work in progress
 
-I am in the process of importing my lecture notes from previous years. Once all chapters have been imported, the material will be revised and corrected in a second step, with added examples and clarifications. Until then, you may find typos, errors, and rough edges: please let me know when you spot one.
+I am in the process of importing my lecture notes from previous years. Once all chapters have been imported, the material will be revised and corrected in a second step, with added examples and clarifications. Until then, you may find typos, errors, and rough edges.
 
 Chapters marked "in preparation" will be completed before the corresponding lecture; see the [Schedule](schedule.qmd).
 :::
