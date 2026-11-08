@@ -23,6 +23,7 @@
 
 - **Every display equation gets a label** (`#eq-<key>-<name>`) so that it is numbered. Use descriptive names. Sequential names like `eq-sound-12` are acceptable for equations no one references yet; after inserting or moving equations, run `just renumber chapters/<slug>.qmd` so that the numbers match positions again (it also re-keys labels moved from another chapter and updates references book-wide).
 - Multi-line derivations use `\begin{aligned}...\end{aligned}` inside `$$`, with one label for the whole block.
+- **Long equations.** MathJax breaks long single-line equations automatically, but it does not break rows of a derivation well. Keep every row under roughly 450 px, so that it fits the text column on a laptop (about 530 px there). If the left-hand side is long, put it on its own row and indent the following rows (`& \quad = ...`, continuation rows `& \qquad\qquad + ...`). Inside `\left( ... \right)` you cannot break a row; use `\biggl( ... \biggr)` instead.
 - **Equations inside solutions get no label.** Otherwise equation numbers would differ between the public and the solutions builds.
 - Macros are provided by `filters/macros.lua`. Do not define `\newcommand` in chapters.
   - `\vb{v}`, `\vb{\xi}`: vectors in bold. Latin letters are upright (`\mathbf`); Greek letters use `\boldsymbol` (bold italic), as in the LaTeX `physics` package.
@@ -61,6 +62,7 @@ Solution... (no equation labels in here)
 - Every figure has a caption and `fig-alt`. The alt text describes the content; it is never LaTeX source. Decorative images use `fig-alt=""`.
 - Refer to figures as `@fig-...`, never "the figure above".
 - Editable sources (Inkscape SVG, Python scripts) go in `figures-src/<slug>/`.
+- **Size:** draw figures so that their labels display at the size of the body text (about 19 px). For an SVG, set `width`/`height` equal to the `viewBox` size and use `font-size` around 19–20. Hand-written SVGs should have a `<title>`, a `<desc>`, real `<text>` labels, and a white background (see `figures/mri/`).
 - Never rely on colour alone: also use line styles or labels. Graphical elements need at least 3:1 contrast.
 - Images from other sources need a compatible license and a credit line in the caption.
 

@@ -1,0 +1,11 @@
+<script>
+  // MathJax 4 configuration (Quarto loads MathJax without one).
+  // Long display equations are broken across lines to fit the text column
+  // instead of scrolling sideways; the CSS scroll box remains as a fallback.
+  window.MathJax = {
+    output: {
+      displayOverflow: "linebreak",
+      linebreaks: { inline: true, width: "100%" }
+    }
+  };
+</script>

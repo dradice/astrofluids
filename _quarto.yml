@@ -72,6 +72,7 @@ crossref:
 format:
   html:
     html-math-method: mathjax
+    include-in-header: styles/mathjax.html
     theme:
       light: [cosmo, styles/custom.scss]
       dark: [darkly, styles/custom.scss]

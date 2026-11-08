@@ -161,7 +161,7 @@ $$
 \rho_0  \frac{\partial^2 \vb{\xi}}{\partial t^2} = \hat{\vb{F}}
 \vb{\xi},
 $$ {#eq-sound-oscillations-general}
-where $\hat{\vb{F}}$ is a differential operator. For example, for sound waves in an homogeneous medium $\hat{\vb{F}} \vb{\xi}= \nabla \nabla \cdot \vb{\xi}$. We can find a dispersion relation by looking for solutions such that
+where $\hat{\vb{F}}$ is a differential operator. For example, for sound waves in a homogeneous medium $\hat{\vb{F}} \vb{\xi}= \nabla \nabla \cdot \vb{\xi}$. We can find a dispersion relation by looking for solutions such that
 $$
 \vb{\xi} (t, \vb{x}) =\vb{\eta} (\vb{x}) e^{- \ii
 \omega t} .
@@ -176,14 +176,14 @@ $$
 \int \vb{\zeta} (\vb{x}) \cdot \hat{\vb{F}} \vb{\xi}
 (\vb{x}) \rho_0 (\vb{x}) \dd^3 \vb{x}= \int \vb{\xi}
 (\vb{x}) \cdot \hat{\vb{F}} \vb{\zeta} (\vb{x}) \rho_0
-(\vb{x}) \dd^3 \vb{r}.
+(\vb{x}) \dd^3 \vb{x}.
 $$ {#eq-sound-26}
-The general theory of linear operator then implies that @eq-sound-eigenvalue has an infinite set of eigenvalues $\{ \omega_n \}$ and eigenfunctions $\{ \vb{\eta}_n \}$ and that any perturbation (not just plain waves) can be written as an infinite superposition of elementary solutions:
+The general theory of linear operators then implies that @eq-sound-eigenvalue has an infinite set of eigenvalues $\{ \omega_n \}$ and eigenfunctions $\{ \vb{\eta}_n \}$ and that any perturbation (not just plane waves) can be written as an infinite superposition of elementary solutions:
 $$
 \vb{\xi} (t, \vb{x}) = \sum_n \vb{\eta}_n (\vb{x}) e^{-
 i \omega_n t} .
 $$ {#eq-sound-superposition-principle}
-The quantities $\vb{\eta}_n (\vb{x})$ are also called the *normal modes of oscillations*. Note that the normal modes need not be countable. For example, for sound waves in an homogeneous infinite medium all positive sound frequencies $\omega$ are allowed. In this case, @eq-sound-superposition-principle takes the form of an integral. For plane waves in an homogeneous medium, @eq-sound-superposition-principle is just the Fourier transform:
+The quantities $\vb{\eta}_n (\vb{x})$ are also called the *normal modes of oscillations*. Note that the normal modes need not be countable. For example, for sound waves in a homogeneous infinite medium all positive sound frequencies $\omega$ are allowed. In this case, @eq-sound-superposition-principle takes the form of an integral. For plane waves in a homogeneous medium, @eq-sound-superposition-principle is just the Fourier transform:
 $$
 \vb{\xi} (t, \vb{x}) = \int \dd^3 \vb{k}\vb{\eta}
 (\vb{k}) e^{\ii \vb{k} \cdot \vb{x}} e^{- \ii c_s kt} .
@@ -191,8 +191,6 @@ $$ {#eq-sound-28}
 However, when we consider sound waves in a finite medium, for example a star of a given radius, the requirement that standing wave solutions have a wavelength that is an integer fraction of the dimension of the star, makes the frequencies $\{ \omega_n \}$ quantized.
 
 ::: {.callout-tip icon=false}
-:::
-
 ## Example
 
 Consider a rigid, cylindrical pipe of length $L$ filled with gas at constant density and temperature. The ends of the pipe are sealed. The displacement equation for sound waves propagating in the pipe is
@@ -210,7 +208,7 @@ $$
 \eta (0) = \eta (L) = 0. &
 \end{array}\right.
 $$ {#eq-sound-30}
-This equation is just the equation for an harmonic oscillator. The general solution is
+This equation is just the equation for a harmonic oscillator. The general solution is
 $$
 \eta (z) = A \cos (\kappa z) + B \sin (\kappa z), \qquad \kappa =
 \frac{\omega}{c_s} .
@@ -220,7 +218,7 @@ $$
 A = 0, \qquad \kappa = \frac{n \pi}{L} \Longrightarrow \omega = c_s
 \left( \frac{n \pi}{L} \right), \quad n = 1, 2, \ldots
 $$ {#eq-sound-32}
-The first few normal modes are plotted below.
+The first few normal modes are plotted in @fig-sound-normal-modes.
 
 ![Normal modes for gas in a cylindrical pipe.](../figures/sound-waves/normal-modes.svg){#fig-sound-normal-modes fig-alt="Plot of sin(n pi z over L) for n from 1 to 5, for z between 0 and L. All curves vanish at both ends of the pipe; mode n has n half-wavelengths between the ends and n minus 1 nodes in between. Each mode has its own line style and colour."}
 
@@ -231,6 +229,7 @@ t}{L} \right) + B_n \cos \left( \frac{n \pi c_s t}{L} \right) \right] \sin
 \left( \frac{n \pi z}{L} \right),
 $$ {#eq-sound-33}
 where $A_n, B_n$ are determined by the initial conditions $\xi (t = 0, z)$.
+:::
 :::
 
 ::: {.callout-note}
@@ -295,6 +294,8 @@ $$
 E_{\operatorname{wave}} .}
 $$ {#eq-sound-42}
 
+:::
+
 ## In-class worksheets {#sec-sound-worksheet}
 
 ### Sound waves
@@ -352,6 +353,4 @@ Introduce a small perturbation in the form of a Lagrangian displacement $\vb{\xi
 
 - @clarke2007, Sections 6.1 and 6.3.
 
-[^sound-1]: I use the common convention of denoting with $\delta q$ the Lagrangian perturbations of a quantity $q$ and with $q'$ the Eulerian perturbations. The same convention is used in Kulsrud, but Clarcke & Carswell use $\Delta q$ for Lagrangian perturbation and $\delta q$ for Eulerian perturbation.
-
-:::
+[^sound-1]: I use the common convention of denoting with $\delta q$ the Lagrangian perturbations of a quantity $q$ and with $q'$ the Eulerian perturbations. The same convention is used in @kulsrud2005, but @clarke2007 use $\Delta q$ for Lagrangian perturbation and $\delta q$ for Eulerian perturbation.

@@ -2,8 +2,12 @@
 
 These are the lecture notes for ASTRO 442, an introduction to the fluid dynamics and magnetohydrodynamics of astrophysical systems. They are written to be self-contained: the textbook, Clarke and Carswell's *Principles of Astrophysical Fluid Dynamics* [@clarke2007], is optional further reading. Each chapter ends with pointers to the relevant sections of the textbook.
 
-::: {.callout-note}
-The notes are being prepared for the Spring 2027 semester. Chapters marked "in preparation" will be completed before the corresponding lecture; see the [Schedule](schedule.qmd).
+::: {.callout-important}
+## Work in progress
+
+I am in the process of importing my lecture notes from previous years. Once all chapters have been imported, the material will be revised and corrected in a second step, with added examples and clarifications. Until then, you may find typos, errors, and rough edges: please let me know when you spot one.
+
+Chapters marked "in preparation" will be completed before the corresponding lecture; see the [Schedule](schedule.qmd).
 :::
 
 ## How to use these notes {.unnumbered}

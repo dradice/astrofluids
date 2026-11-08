@@ -4,9 +4,7 @@
 
 Consider a stratified, static, isothermal atmosphere. We assume constant acceleration $g$ in the negative $z$ direction. The hydrostatic equilibrium equations are
 $$
-\begin{alignedat}{2}
-\partial_z p_0 = - \rho_0 g, &{}\qquad{} && p = a^2 \rho,
-\end{alignedat}
+\partial_z p_0 = - \rho_0 g, \qquad p = a^2 \rho,
 $$ {#eq-strat-1}
 where $a = \sqrt{\frac{kT}{\mu}}$ is the isothermal sound speed.
 
@@ -72,36 +70,36 @@ $$
 $$ {#eq-strat-12}
 Using the fact that
 $$
-\nabla \delta \rho = \nabla (- \rho_0 \nabla \cdot \vb{\xi}) = - \rho_0
-\nabla \nabla \cdot \vb{\xi}- \nabla \rho_0 \nabla \cdot \vb{\xi}= -
-\rho_0 \nabla \nabla \cdot \vb{\xi}+ \frac{\rho_0}{H} \nabla \cdot
-\vb{\xi} \hat{\vb{z}},
+\begin{aligned}
+\nabla \delta \rho &= \nabla (- \rho_0 \nabla \cdot \vb{\xi}) \\
+&= - \rho_0 \nabla \nabla \cdot \vb{\xi}- \nabla \rho_0 \nabla \cdot \vb{\xi} \\
+&= - \rho_0 \nabla \nabla \cdot \vb{\xi}+ \frac{\rho_0}{H} \nabla \cdot \vb{\xi} \hat{\vb{z}},
+\end{aligned}
 $$ {#eq-strat-13}
 We obtain
 $$
-\rho_0  \frac{\partial^2 \vb{\xi}}{\partial t^2} = + \Gamma a^2 \rho_0
-\nabla \nabla \cdot \vb{\xi}- \rho_0 \Gamma g \nabla \cdot \vb{\xi}
-\hat{\vb{z}} - g \rho_0 \nabla \xi_z + g \rho_0 \nabla \cdot
-\vb{\xi} \hat{\vb{z}} .
+\begin{aligned}
+\rho_0 \frac{\partial^2 \vb{\xi}}{\partial t^2} = {}& \Gamma a^2 \rho_0 \nabla \nabla \cdot \vb{\xi}- \rho_0 \Gamma g \nabla \cdot \vb{\xi} \hat{\vb{z}} \\
+& - g \rho_0 \nabla \xi_z + g \rho_0 \nabla \cdot \vb{\xi} \hat{\vb{z}} .
+\end{aligned}
 $$ {#eq-strat-14}
 This can be simplified to
 $$
-\boxed{ \frac{\partial^2 \vb{\xi}}{\partial t^2} = c_s^2  \left(
-\nabla \nabla \cdot \vb{\xi}- \frac{a^2}{c_s^2}  \frac{1}{H} \nabla
-\xi_z \right) - \frac{(c_s^2 - a^2)}{H} \nabla \cdot \vb{\xi}
-\hat{\vb{z}} .}
+\boxed{
+\begin{aligned}
+\frac{\partial^2 \vb{\xi}}{\partial t^2} = {}& c_s^2 \left( \nabla \nabla \cdot \vb{\xi}- \frac{a^2}{c_s^2} \frac{1}{H} \nabla \xi_z \right) \\
+& - \frac{(c_s^2 - a^2)}{H} \nabla \cdot \vb{\xi} \hat{\vb{z}} .
+\end{aligned}
+}
 $$ {#eq-strat-oscillation-stratified}
 We are going to analyze the consequences of this equation shortly. Before we do that, we show that this equation reduces to Eq. (6.31) of @clarke2007 in the limit of vertical oscillations in the $z$ direction. To do that, we take the divergence of @eq-strat-oscillation-stratified to obtain
 $$
-\begin{alignedat}{2}
-\frac{\partial^2 \delta \rho}{\partial t^2} &{}={} && c_s^2  \left( \nabla^2
-\delta \rho + \frac{\delta \rho}{H^2} \right) + g \rho_0 \nabla^2 \xi_z -
-\frac{(c_s^2 - a^2)}{H}  \left( \partial_z \delta \rho + \frac{\delta
-\rho}{H} \right) \\
-&{}={} && c_s^2 \nabla^2 \delta \rho - \frac{c_s^2}{H} \partial_z \delta \rho +
-\frac{a^2}{H} \rho_0 \nabla^2 \xi_z + \frac{a^2}{H} \partial_z \delta \rho +
-a^2  \frac{\delta \rho}{H^2} .
-\end{alignedat}
+\begin{aligned}
+\frac{\partial^2 \delta \rho}{\partial t^2} &= c_s^2 \left( \nabla^2 \delta \rho + \frac{\delta \rho}{H^2} \right) + g \rho_0 \nabla^2 \xi_z \\
+&\qquad - \frac{(c_s^2 - a^2)}{H} \left( \partial_z \delta \rho + \frac{\delta \rho}{H} \right) \\
+&= c_s^2 \nabla^2 \delta \rho - \frac{c_s^2}{H} \partial_z \delta \rho + \frac{a^2}{H} \rho_0 \nabla^2 \xi_z \\
+&\qquad + \frac{a^2}{H} \partial_z \delta \rho + a^2 \frac{\delta \rho}{H^2} .
+\end{aligned}
 $$ {#eq-strat-16}
 Assuming that $\delta \rho = \delta \rho (t, z)$ and $\vb{\xi}= \xi_z \hat{\vb{z}}$, we obtain,
 $$
@@ -124,10 +122,12 @@ $$
 $$ {#eq-strat-19}
 Inserting this into @eq-strat-oscillation-stratified we obtain
 $$
-\boxed{\omega^2 \vb{\eta}= c_s^2  \left( \vb{k} \cdot
-\vb{\eta}+ \ii \frac{a^2}{c_s^2}  \frac{1}{H} \eta_z \right)
-\vb{k}+ \ii \frac{(c_s^2 - a^2)}{H} \vb{k} \cdot \vb{\eta}
-\hat{\vb{z}} .}
+\boxed{
+\begin{aligned}
+\omega^2 \vb{\eta} = {}& c_s^2 \left( \vb{k} \cdot \vb{\eta}+ \ii \frac{a^2}{c_s^2} \frac{1}{H} \eta_z \right) \vb{k} \\
+& + \ii \frac{(c_s^2 - a^2)}{H} \vb{k} \cdot \vb{\eta} \hat{\vb{z}} .
+\end{aligned}
+}
 $$ {#eq-strat-20}
 
 - In the limit of $H \gg a^2 k / \omega^2$, that is, in the limit in which the wavelength of perturbations is much smaller than the scale height of the atmosphere, we recover the dispersion relation for waves in a homogeneous medium, namely $\omega^2 = c_s k^2$, as expected.

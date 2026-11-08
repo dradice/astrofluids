@@ -78,28 +78,20 @@ $$
 $$ {#eq-mri-9}
 The induction equation can be linearized in a similar way:
 $$
-\begin{alignedat}{2}
-\nabla \times (\vb{v} \times \vb{B}) &{}\rightarrow{} && \nabla \times
-[(R \Omega \hat{\vb{\theta}}) \times (b_R  \hat{\vb{R}} + b_{\theta}
-\hat{\vb{\theta}} + b_z  \hat{\vb{z}}) + (u_R  \hat{\vb{R}} +
-u_{\theta}  \hat{\vb{\theta}} + u_z  \hat{\vb{z}}) \times (B_0
-\hat{\vb{z}})] =  \\
-& && \nabla \times [- R \Omega b_R  \hat{\vb{z}} + R \Omega b_z
-\hat{\vb{R}} - u_R B_0  \hat{\vb{\theta}} + u_{\theta} B_0
-\hat{\vb{R}}] =  \\
-& && \nabla \times [ (R \Omega b_z + u_{\theta} B_0)  \hat{\vb{R}} -
-u_R B_0  \hat{\vb{\theta}} - R \Omega b_R  \hat{\vb{z}}] = \\
-& && \left( \frac{\partial u_R}{\partial z} B_0 \right)  \hat{\vb{R}} +
-\left( R \Omega \frac{\partial b_z}{\partial z} + \frac{\partial
-u_{\theta}}{\partial z} B_0 - \frac{3}{2} \Omega b_R + \Omega \frac{\partial
-(Rb_R)}{\partial R} \right)  \hat{\vb{\theta}} - \frac{1}{R}  \left[
-\frac{\partial (Ru_R B_0)}{\partial R} \right]  \hat{\vb{z}} =
-\\
-& && \left( \frac{\partial u_R}{\partial z} B_0 \right)  \hat{\vb{R}} +
-\left( \frac{\partial u_{\theta}}{\partial z} B_0 - \frac{3}{2} \Omega b_R
-\right)  \hat{\vb{\theta}} - \frac{1}{R}  \left[ \frac{\partial (Ru_R
-B_0)}{\partial R} \right]  \hat{\vb{z}} .
-\end{alignedat}
+\begin{aligned}
+& \nabla \times (\vb{v} \times \vb{B}) \\
+& \quad \rightarrow \nabla \times \bigl[(R \Omega \hat{\vb{\theta}}) \times (b_R \hat{\vb{R}} + b_{\theta} \hat{\vb{\theta}} + b_z \hat{\vb{z}}) \\
+& \qquad\qquad + (u_R \hat{\vb{R}} + u_{\theta} \hat{\vb{\theta}} + u_z \hat{\vb{z}}) \times (B_0 \hat{\vb{z}})\bigr] \\
+& \quad = \nabla \times [- R \Omega b_R \hat{\vb{z}} + R \Omega b_z \hat{\vb{R}} \\
+& \qquad\qquad - u_R B_0 \hat{\vb{\theta}} + u_{\theta} B_0 \hat{\vb{R}}] \\
+& \quad = \nabla \times [ (R \Omega b_z + u_{\theta} B_0) \hat{\vb{R}} \\
+& \qquad\qquad - u_R B_0 \hat{\vb{\theta}} - R \Omega b_R \hat{\vb{z}}] \\
+& \quad = \left( \frac{\partial u_R}{\partial z} B_0 \right) \hat{\vb{R}} + \biggl( R \Omega \frac{\partial b_z}{\partial z} + \frac{\partial u_{\theta}}{\partial z} B_0 \\
+& \qquad\qquad - \frac{3}{2} \Omega b_R + \Omega \frac{\partial (Rb_R)}{\partial R} \biggr) \hat{\vb{\theta}} \\
+& \qquad\qquad - \frac{1}{R} \left[ \frac{\partial (Ru_R B_0)}{\partial R} \right] \hat{\vb{z}} \\
+& \quad = \left( \frac{\partial u_R}{\partial z} B_0 \right) \hat{\vb{R}} + \left( \frac{\partial u_{\theta}}{\partial z} B_0 - \frac{3}{2} \Omega b_R \right) \hat{\vb{\theta}} \\
+& \qquad\qquad - \frac{1}{R} \left[ \frac{\partial (Ru_R B_0)}{\partial R} \right] \hat{\vb{z}} .
+\end{aligned}
 $$ {#eq-mri-10}
 In the last equation we have also used the condition that $\nabla \cdot \vb{b}= 0$.
 
@@ -219,6 +211,43 @@ The coordinates $x$ and $y$ denote the displacement of one of the two masses fro
 2.  Look for solutions in the form $x (t) = x_0 e^{\lambda t},$ $y (t) = y_0 e^{\lambda t}$. Find $\lambda$.
 
 3.  Under what conditions is the system unstable?
+
+::: {.content-visible when-profile="solutions"}
+::: {.solution}
+1.  Work in a frame that rotates with the angular velocity $\Omega = \Omega(R)$ of the centre of mass, which moves on a circular orbit of radius $R$. Write the position of the mass as $R + x$ in the radial direction and $y$ along the orbit, so that its polar coordinates are $(R + x, \Omega t + y/R)$. Without the spring, the radial and azimuthal equations of motion in the inertial frame are
+    $$
+    \ddot{r} - r \dot{\phi}^2 = - r \Omega^2(r), \qquad r \ddot{\phi} + 2 \dot{r} \dot{\phi} = 0,
+    $$
+    where $r \Omega^2(r)$ is the gravitational acceleration that keeps circular orbits at radius $r$. To first order in $x, y \ll R$,
+    $$
+    \ddot{x} - x \Omega^2 - 2 \Omega \dot{y} = - x \Omega^2 - x R \frac{\dd \Omega^2}{\dd R},
+    \qquad
+    \ddot{y} + 2 \Omega \dot{x} = 0 .
+    $$
+    The spring adds a restoring force per unit mass $-K (x, y)$ towards the centre of mass (the factor relating the displacement from the centre of mass to the spring's extension is absorbed in $K$). Adding it gives the equations in the statement, with $R \, \dd \Omega^2 / \dd R = \dd \Omega^2 / \dd \log R$.
+
+2.  Let $D = \dd \Omega^2 / \dd \log R$. Substituting $x = x_0 e^{\lambda t}$, $y = y_0 e^{\lambda t}$ gives the linear system
+    $$
+    (\lambda^2 + K + D) \, x_0 - 2 \Omega \lambda \, y_0 = 0, \qquad
+    2 \Omega \lambda \, x_0 + (\lambda^2 + K) \, y_0 = 0,
+    $$
+    which has non-trivial solutions only if its determinant vanishes:
+    $$
+    \lambda^4 + (2 K + \kappa^2) \lambda^2 + K (K + D) = 0,
+    \qquad \kappa^2 = 4 \Omega^2 + D ,
+    $$
+    where $\kappa$ is the epicyclic frequency. Hence
+    $$
+    \lambda^2 = \frac{1}{2} \left[ - (2 K + \kappa^2) \pm \sqrt{\kappa^4 + 16 K \Omega^2} \right] .
+    $$
+
+3.  The discriminant $\kappa^4 + 16 K \Omega^2$ is positive, so both roots for $\lambda^2$ are real. Their sum, $-(2K + \kappa^2)$, is negative for a disk with $\kappa^2 > 0$, so a positive root (a growing mode) exists if and only if their product is negative, $K (K + D) < 0$:
+    $$
+    0 < K < - \frac{\dd \Omega^2}{\dd \log R} .
+    $$
+    The system is unstable when the angular velocity decreases outward and the spring is weak enough. For a Keplerian disk $\dd \Omega^2 / \dd \log R = - 3 \Omega^2$, so the condition is $K = \omega_A^2 < 3 \Omega^2$, the same as @eq-mri-condition. The largest growth rate, $\lambda = \frac{3}{4} \Omega$, is reached for $K = \frac{15}{16} \Omega^2$, as for the MRI.
+:::
+:::
 
 ## Further reading {#sec-mri-reading}
 

@@ -205,8 +205,11 @@ def split_cells(row):
 
 
 def eqnarray_to_alignedat(body):
+    rows = split_rows(body)
+    if len(rows) == 1:  # a single row needs no alignment (and MathJax can
+        return " ".join(c.strip() for c in split_cells(rows[0]))  # line-break it)
     out = []
-    for row in split_rows(body):
+    for row in rows:
         cells = [c.strip() for c in split_cells(row)]
         if len(cells) == 3:
             lhs, rel, rhs = cells
@@ -474,10 +477,16 @@ def postprocess(md, key, eqs, figs, kind):
         h = re.match(r"^(#+)\s+\(\\\*\)\s*(.*?)\s*(\{[^}]*\})?\s*$", lines[i])
         if h:
             level = len(h.group(1))
-            j = i + 1
+            j, depth = i + 1, 0
             while j < len(lines):
+                # headings inside nested divs (e.g. an Example box) do not
+                # end the section
+                if re.match(r"^:{3,}\s*\{", lines[j]):
+                    depth += 1
+                elif re.match(r"^:{3,}\s*$", lines[j]):
+                    depth -= 1
                 h2 = re.match(r"^(#+)\s", lines[j])
-                if h2 and len(h2.group(1)) <= level:
+                if h2 and depth == 0 and len(h2.group(1)) <= level:
                     break
                 j += 1
             out.append('::: {.callout-note}')

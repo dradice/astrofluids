@@ -15,7 +15,8 @@ where $V$ is a volume that encloses the whole gas cloud. The time derivative of 
 $$
 \begin{alignedat}{2}
 \frac{\dd I}{\dd t} &{}={} && \frac{1}{2}  \int_V \frac{\partial
-\rho}{\partial t} r^2 \dd V = - \frac{1}{2} \int_V \nabla \cdot (\rho
+\rho}{\partial t} r^2 \dd V \\
+&{}={} && - \frac{1}{2} \int_V \nabla \cdot (\rho
 \vb{v}) r^2 \dd V \\
 &{}={} && - \frac{1}{2} \int_V \nabla \cdot (\rho \vb{v}r^2) \dd V +
 \frac{1}{2}  \int_V \rho \vb{v} \cdot \nabla r^2 \dd V.
@@ -35,16 +36,13 @@ Here, we have used the fact that $\nabla r =\vb{r}/ r$.
 
 The second time derivative of $I$ is
 $$
-\begin{alignedat}{2}
-\frac{\dd^2 I}{\dd t^2} &{}={} && \int_V \frac{\partial (\rho
-\vb{v})}{\partial t} \cdot \vb{r} \dd V = - \int_V \rho \nabla
-\Psi \cdot \vb{r} \dd V - \int_V \nabla \cdot [\rho \vb{v}
-\otimes \vb{v}+ p\vb{I}] \cdot \vb{r} \dd V \\
-&{}={} && - \int_V \rho \nabla \Psi \cdot \vb{r} \dd V - \int_V \nabla
-\cdot [\rho (\vb{v} \cdot \vb{r}) \vb{v}+ p\vb{r}] \dd V
-+ \int_V [\rho \vb{v} \otimes \vb{v}+ p\vb{I}] : \nabla
-\vb{r} \dd V.
-\end{alignedat}
+\begin{aligned}
+\frac{\dd^2 I}{\dd t^2} &= \int_V \frac{\partial (\rho \vb{v})}{\partial t} \cdot \vb{r} \dd V \\
+&= - \int_V \rho \nabla \Psi \cdot \vb{r} \dd V \\
+&\qquad - \int_V \nabla \cdot [\rho \vb{v} \otimes \vb{v}+ p\vb{I}] \cdot \vb{r} \dd V \\
+&= - \int_V \rho \nabla \Psi \cdot \vb{r} \dd V - \int_V \nabla \cdot [\rho (\vb{v} \cdot \vb{r}) \vb{v}+ p\vb{r}] \dd V \\
+&\qquad + \int_V [\rho \vb{v} \otimes \vb{v}+ p\vb{I}] : \nabla \vb{r} \dd V.
+\end{aligned}
 $$ {#eq-hydro-6}
 Where the notation $\vb{A}: \vb{B}$ denotes the inner product between two tensors:
 $$
@@ -61,11 +59,9 @@ B_{z x} & B_{z y} & B_{z z}
 $$ {#eq-hydro-7}
 Once again, we can drop the total divergence terms, since they vanish due to Gauss' theorem, to find
 $$
-\begin{alignedat}{2}
-\frac{\dd^2 I}{\dd t^2} &{}={} && - \int_V \rho \nabla \Psi \cdot
+\frac{\dd^2 I}{\dd t^2} = - \int_V \rho \nabla \Psi \cdot
 \vb{r} \dd V + \int_V [\rho \vb{v} \otimes \vb{v}+
 p\vb{I}] : \nabla \vb{r} \dd V.
-\end{alignedat}
 $$ {#eq-hydro-virial-base}
 The second term in the RHS is simpler than it looks, because
 $$
@@ -99,49 +95,36 @@ $$
 $$ {#eq-hydro-12}
 Inserting this into the first term in the RHS of @eq-hydro-virial-base yields
 $$
-\begin{alignedat}{2}
-\int_V \rho \nabla \Psi \cdot \vb{r} \dd \vb{r} &{}={} && - \int_V
+\int_V \rho \nabla \Psi \cdot \vb{r} \dd \vb{r} = - \int_V
 \dd \vb{r} \rho (\vb{r}) \nabla_{\vb{r}} \int_V \dd
 \vb{r}'  \frac{G \rho (\vb{r}')}{ | \vb{r}-\vb{r}' |} \cdot
 \vb{r},
-\end{alignedat}
 $$ {#eq-hydro-derivative-of-potential}
 where we have used the notation $\nabla_{\vb{r}}$ to remind ourselves that the derivatives are computed with respect to the unprimed position $\vb{r}$. In particular, note that $\rho (\vb{r}')$ in the integral is not affected by the derivative, since it is a function of $\vb{r}'$ and not of $\vb{r}$. The only term that we need to differentiate is the denominator:
 $$
-\begin{alignedat}{2}
-\nabla_{\vb{r}}  \frac{1}{| \vb{r}-\vb{r}' |} &{}={} && \nabla_{\vb{r}}  \frac{1}{\sqrt{(x - x')^2 + (y - y')^2 + (z - z')^2}}
-\\
-&{}={} && \frac{- 1}{[(x - x')^2 + (y - y')^2 + (z - z')^2]^{3 / 2}}
-\left(\begin{array}{c}
+\begin{aligned}
+& \nabla_{\vb{r}} \frac{1}{| \vb{r}-\vb{r}' |} \\
+& \quad = \nabla_{\vb{r}} \frac{1}{\sqrt{(x - x')^2 + (y - y')^2 + (z - z')^2}} \\
+& \quad = \frac{- 1}{[(x - x')^2 + (y - y')^2 + (z - z')^2]^{3 / 2}} \\
+& \qquad\quad \times \left(\begin{array}{c}
 x - x' \\
 y - y' \\
 z - z'
 \end{array}\right) \\
-&{}={} && - \frac{\vb{r}-\vb{r}'}{| \vb{r}-\vb{r}' |^3} .
-\end{alignedat}
+& \quad = - \frac{\vb{r}-\vb{r}'}{| \vb{r}-\vb{r}' |^3} .
+\end{aligned}
 $$ {#eq-hydro-diff-one-over-r}
 Inserting the last expression into @eq-hydro-derivative-of-potential, we obtain
 $$
-\begin{alignedat}{2}
-\int_V \rho \nabla \Psi \cdot \vb{r} \dd \vb{r} &{}={} && \int_V
-\dd \vb{r} \int_V \dd \vb{r}'  \frac{G \rho (\vb{r}') \rho
-(\vb{r}) }{ | \vb{r}-\vb{r}' |^3} (\vb{r}-\vb{r}') \cdot
-\vb{r}.  \\
-&{}={} && \int_V \dd \vb{r} \int_V \dd \vb{r}'  \frac{G \rho
-(\vb{r}') \rho (\vb{r}) }{ | \vb{r}-\vb{r}' |^3}
-(\vb{r}-\vb{r}') \cdot (\vb{r}-\vb{r}') + \int_V \dd
-\vb{r} \int_V \dd \vb{r}' \frac{G \rho (\vb{r}') \rho
-(\vb{r}) }{ | \vb{r}-\vb{r}' |^3} (\vb{r}-\vb{r}') \cdot
-\vb{r}'  \\
-&{}={} && \int_V \dd \vb{r} \int_V \dd \vb{r}'  \frac{G \rho
-(\vb{r}') \rho (\vb{r}) }{| \vb{r}-\vb{r}' |} + \int_V
-\dd \vb{r}' \rho (\vb{r}')  \int_V \dd \vb{r} \frac{G \rho
-(\vb{r}) }{ | \vb{r}-\vb{r}' |^3} (\vb{r}-\vb{r}') \cdot
-\vb{r}'  \\
-&{}={} && - \int_V \dd \vb{r} \Psi (\vb{r}) \rho (\vb{r}) -
-\int_V \rho (\vb{r}') \nabla_{\vb{r}'} \Psi (\vb{r}') \cdot
-\vb{r}' \dd \vb{r}' .
-\end{alignedat}
+\begin{aligned}
+& \int_V \rho \nabla \Psi \cdot \vb{r} \dd \vb{r} \\
+& \quad = \int_V \dd \vb{r} \int_V \dd \vb{r}' \frac{G \rho (\vb{r}') \rho (\vb{r}) }{ | \vb{r}-\vb{r}' |^3} (\vb{r}-\vb{r}') \cdot \vb{r} \\
+& \quad = \int_V \dd \vb{r} \int_V \dd \vb{r}' \frac{G \rho (\vb{r}') \rho (\vb{r}) }{ | \vb{r}-\vb{r}' |^3} (\vb{r}-\vb{r}') \cdot (\vb{r}-\vb{r}') \\
+& \qquad\qquad + \int_V \dd \vb{r} \int_V \dd \vb{r}' \frac{G \rho (\vb{r}') \rho (\vb{r}) }{ | \vb{r}-\vb{r}' |^3} (\vb{r}-\vb{r}') \cdot \vb{r}' \\
+& \quad = \int_V \dd \vb{r} \int_V \dd \vb{r}' \frac{G \rho (\vb{r}') \rho (\vb{r}) }{| \vb{r}-\vb{r}' |} \\
+& \qquad + \int_V \dd \vb{r}' \rho (\vb{r}') \int_V \dd \vb{r} \frac{G \rho (\vb{r}) }{ | \vb{r}-\vb{r}' |^3} (\vb{r}-\vb{r}') \cdot \vb{r}' \\
+& \quad = - \int_V \dd \vb{r} \Psi (\vb{r}) \rho (\vb{r}) - \int_V \rho (\vb{r}') \nabla_{\vb{r}'} \Psi (\vb{r}') \cdot \vb{r}' \dd \vb{r}' .
+\end{aligned}
 $$ {#eq-hydro-expansion-of-grad-potential}
 We have used the fact that (note the difference in sign compared to @eq-hydro-diff-one-over-r)
 $$
