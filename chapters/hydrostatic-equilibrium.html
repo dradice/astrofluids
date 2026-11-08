@@ -102,6 +102,17 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script>
+  // MathJax 4 configuration (Quarto loads MathJax without one).
+  // Long display equations are broken across lines to fit the text column
+  // instead of scrolling sideways; the CSS scroll box remains as a fallback.
+  window.MathJax = {
+    output: {
+      displayOverflow: "linebreak",
+      linebreaks: { inline: true, width: "100%" }
+    }
+  };
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -615,7 +626,8 @@ I = \frac{1}{2} \int_V \rho (\mathbf{r}) r^2 \mathrm{d} V,
 \tag{8.2}\]</span></span> where <span class="math inline">\(V\)</span> is a volume that encloses the whole gas cloud. The time derivative of <span class="math inline">\(I\)</span> is (using the continuity equation) <span id="eq-hydro-3"><span class="math display">\[
 \begin{alignedat}{2}
 \frac{\mathrm{d} I}{\mathrm{d} t} &amp;{}={} &amp;&amp; \frac{1}{2}  \int_V \frac{\partial
-\rho}{\partial t} r^2 \mathrm{d} V = - \frac{1}{2} \int_V \nabla \cdot (\rho
+\rho}{\partial t} r^2 \mathrm{d} V \\
+&amp;{}={} &amp;&amp; - \frac{1}{2} \int_V \nabla \cdot (\rho
 \mathbf{v}) r^2 \mathrm{d} V \\
 &amp;{}={} &amp;&amp; - \frac{1}{2} \int_V \nabla \cdot (\rho \mathbf{v}r^2) \mathrm{d} V +
 \frac{1}{2}  \int_V \rho \mathbf{v} \cdot \nabla r^2 \mathrm{d} V.
@@ -628,16 +640,13 @@ I = \frac{1}{2} \int_V \rho (\mathbf{r}) r^2 \mathrm{d} V,
 r^2 \mathrm{d} V = \int_V \rho \mathbf{v} \cdot \mathbf{r} \mathrm{d} V.
 \tag{8.5}\]</span></span> Here, we have used the fact that <span class="math inline">\(\nabla r =\mathbf{r}/ r\)</span>.</p>
 <p>The second time derivative of <span class="math inline">\(I\)</span> is <span id="eq-hydro-6"><span class="math display">\[
-\begin{alignedat}{2}
-\frac{\mathrm{d}^2 I}{\mathrm{d} t^2} &amp;{}={} &amp;&amp; \int_V \frac{\partial (\rho
-\mathbf{v})}{\partial t} \cdot \mathbf{r} \mathrm{d} V = - \int_V \rho \nabla
-\Psi \cdot \mathbf{r} \mathrm{d} V - \int_V \nabla \cdot [\rho \mathbf{v}
-\otimes \mathbf{v}+ p\mathbf{I}] \cdot \mathbf{r} \mathrm{d} V \\
-&amp;{}={} &amp;&amp; - \int_V \rho \nabla \Psi \cdot \mathbf{r} \mathrm{d} V - \int_V \nabla
-\cdot [\rho (\mathbf{v} \cdot \mathbf{r}) \mathbf{v}+ p\mathbf{r}] \mathrm{d} V
-+ \int_V [\rho \mathbf{v} \otimes \mathbf{v}+ p\mathbf{I}] : \nabla
-\mathbf{r} \mathrm{d} V.
-\end{alignedat}
+\begin{aligned}
+\frac{\mathrm{d}^2 I}{\mathrm{d} t^2} &amp;= \int_V \frac{\partial (\rho \mathbf{v})}{\partial t} \cdot \mathbf{r} \mathrm{d} V \\
+&amp;= - \int_V \rho \nabla \Psi \cdot \mathbf{r} \mathrm{d} V \\
+&amp;\qquad - \int_V \nabla \cdot [\rho \mathbf{v} \otimes \mathbf{v}+ p\mathbf{I}] \cdot \mathbf{r} \mathrm{d} V \\
+&amp;= - \int_V \rho \nabla \Psi \cdot \mathbf{r} \mathrm{d} V - \int_V \nabla \cdot [\rho (\mathbf{v} \cdot \mathbf{r}) \mathbf{v}+ p\mathbf{r}] \mathrm{d} V \\
+&amp;\qquad + \int_V [\rho \mathbf{v} \otimes \mathbf{v}+ p\mathbf{I}] : \nabla \mathbf{r} \mathrm{d} V.
+\end{aligned}
 \tag{8.6}\]</span></span> Where the notation <span class="math inline">\(\mathbf{A}: \mathbf{B}\)</span> denotes the inner product between two tensors: <span id="eq-hydro-7"><span class="math display">\[
 \mathbf{A}: \mathbf{B}= \sum_{i = 1}^3 \sum_{k = 1}^3 A_{i k} B_{k i} =
 \operatorname{Trace} \left[ \left(\begin{array}{ccc}
@@ -650,11 +659,9 @@ B_{y x} &amp; B_{y y} &amp; B_{y z}\\
 B_{z x} &amp; B_{z y} &amp; B_{z z}
 \end{array}\right) \right] .
 \tag{8.7}\]</span></span> Once again, we can drop the total divergence terms, since they vanish due to Gauss’ theorem, to find <span id="eq-hydro-virial-base"><span class="math display">\[
-\begin{alignedat}{2}
-\frac{\mathrm{d}^2 I}{\mathrm{d} t^2} &amp;{}={} &amp;&amp; - \int_V \rho \nabla \Psi \cdot
+\frac{\mathrm{d}^2 I}{\mathrm{d} t^2} = - \int_V \rho \nabla \Psi \cdot
 \mathbf{r} \mathrm{d} V + \int_V [\rho \mathbf{v} \otimes \mathbf{v}+
 p\mathbf{I}] : \nabla \mathbf{r} \mathrm{d} V.
-\end{alignedat}
 \tag{8.8}\]</span></span> The second term in the RHS is simpler than it looks, because <span id="eq-hydro-9"><span class="math display">\[
 \nabla \mathbf{r}= \left(\begin{array}{ccc}
 \partial_x x &amp; \partial_x y &amp; \partial_x z\\
@@ -677,45 +684,32 @@ p\mathbf{I}] : \nabla \mathbf{r} \mathrm{d} V.
 \Psi (\mathbf{r}) = - \int_V \frac{G \rho (\mathbf{r}')}{ |
 \mathbf{r}-\mathbf{r}' |} \mathrm{d} \mathbf{r}' .
 \tag{8.12}\]</span></span> Inserting this into the first term in the RHS of <a href="#eq-hydro-virial-base" class="quarto-xref">Equation&nbsp;<span>8.8</span></a> yields <span id="eq-hydro-derivative-of-potential"><span class="math display">\[
-\begin{alignedat}{2}
-\int_V \rho \nabla \Psi \cdot \mathbf{r} \mathrm{d} \mathbf{r} &amp;{}={} &amp;&amp; - \int_V
+\int_V \rho \nabla \Psi \cdot \mathbf{r} \mathrm{d} \mathbf{r} = - \int_V
 \mathrm{d} \mathbf{r} \rho (\mathbf{r}) \nabla_{\mathbf{r}} \int_V \mathrm{d}
 \mathbf{r}'  \frac{G \rho (\mathbf{r}')}{ | \mathbf{r}-\mathbf{r}' |} \cdot
 \mathbf{r},
-\end{alignedat}
 \tag{8.13}\]</span></span> where we have used the notation <span class="math inline">\(\nabla_{\mathbf{r}}\)</span> to remind ourselves that the derivatives are computed with respect to the unprimed position <span class="math inline">\(\mathbf{r}\)</span>. In particular, note that <span class="math inline">\(\rho (\mathbf{r}')\)</span> in the integral is not affected by the derivative, since it is a function of <span class="math inline">\(\mathbf{r}'\)</span> and not of <span class="math inline">\(\mathbf{r}\)</span>. The only term that we need to differentiate is the denominator: <span id="eq-hydro-diff-one-over-r"><span class="math display">\[
-\begin{alignedat}{2}
-\nabla_{\mathbf{r}}  \frac{1}{| \mathbf{r}-\mathbf{r}' |} &amp;{}={} &amp;&amp; \nabla_{\mathbf{r}}  \frac{1}{\sqrt{(x - x')^2 + (y - y')^2 + (z - z')^2}}
-\\
-&amp;{}={} &amp;&amp; \frac{- 1}{[(x - x')^2 + (y - y')^2 + (z - z')^2]^{3 / 2}}
-\left(\begin{array}{c}
+\begin{aligned}
+&amp; \nabla_{\mathbf{r}} \frac{1}{| \mathbf{r}-\mathbf{r}' |} \\
+&amp; \quad = \nabla_{\mathbf{r}} \frac{1}{\sqrt{(x - x')^2 + (y - y')^2 + (z - z')^2}} \\
+&amp; \quad = \frac{- 1}{[(x - x')^2 + (y - y')^2 + (z - z')^2]^{3 / 2}} \\
+&amp; \qquad\quad \times \left(\begin{array}{c}
 x - x' \\
 y - y' \\
 z - z'
 \end{array}\right) \\
-&amp;{}={} &amp;&amp; - \frac{\mathbf{r}-\mathbf{r}'}{| \mathbf{r}-\mathbf{r}' |^3} .
-\end{alignedat}
+&amp; \quad = - \frac{\mathbf{r}-\mathbf{r}'}{| \mathbf{r}-\mathbf{r}' |^3} .
+\end{aligned}
 \tag{8.14}\]</span></span> Inserting the last expression into <a href="#eq-hydro-derivative-of-potential" class="quarto-xref">Equation&nbsp;<span>8.13</span></a>, we obtain <span id="eq-hydro-expansion-of-grad-potential"><span class="math display">\[
-\begin{alignedat}{2}
-\int_V \rho \nabla \Psi \cdot \mathbf{r} \mathrm{d} \mathbf{r} &amp;{}={} &amp;&amp; \int_V
-\mathrm{d} \mathbf{r} \int_V \mathrm{d} \mathbf{r}'  \frac{G \rho (\mathbf{r}') \rho
-(\mathbf{r}) }{ | \mathbf{r}-\mathbf{r}' |^3} (\mathbf{r}-\mathbf{r}') \cdot
-\mathbf{r}.  \\
-&amp;{}={} &amp;&amp; \int_V \mathrm{d} \mathbf{r} \int_V \mathrm{d} \mathbf{r}'  \frac{G \rho
-(\mathbf{r}') \rho (\mathbf{r}) }{ | \mathbf{r}-\mathbf{r}' |^3}
-(\mathbf{r}-\mathbf{r}') \cdot (\mathbf{r}-\mathbf{r}') + \int_V \mathrm{d}
-\mathbf{r} \int_V \mathrm{d} \mathbf{r}' \frac{G \rho (\mathbf{r}') \rho
-(\mathbf{r}) }{ | \mathbf{r}-\mathbf{r}' |^3} (\mathbf{r}-\mathbf{r}') \cdot
-\mathbf{r}'  \\
-&amp;{}={} &amp;&amp; \int_V \mathrm{d} \mathbf{r} \int_V \mathrm{d} \mathbf{r}'  \frac{G \rho
-(\mathbf{r}') \rho (\mathbf{r}) }{| \mathbf{r}-\mathbf{r}' |} + \int_V
-\mathrm{d} \mathbf{r}' \rho (\mathbf{r}')  \int_V \mathrm{d} \mathbf{r} \frac{G \rho
-(\mathbf{r}) }{ | \mathbf{r}-\mathbf{r}' |^3} (\mathbf{r}-\mathbf{r}') \cdot
-\mathbf{r}'  \\
-&amp;{}={} &amp;&amp; - \int_V \mathrm{d} \mathbf{r} \Psi (\mathbf{r}) \rho (\mathbf{r}) -
-\int_V \rho (\mathbf{r}') \nabla_{\mathbf{r}'} \Psi (\mathbf{r}') \cdot
-\mathbf{r}' \mathrm{d} \mathbf{r}' .
-\end{alignedat}
+\begin{aligned}
+&amp; \int_V \rho \nabla \Psi \cdot \mathbf{r} \mathrm{d} \mathbf{r} \\
+&amp; \quad = \int_V \mathrm{d} \mathbf{r} \int_V \mathrm{d} \mathbf{r}' \frac{G \rho (\mathbf{r}') \rho (\mathbf{r}) }{ | \mathbf{r}-\mathbf{r}' |^3} (\mathbf{r}-\mathbf{r}') \cdot \mathbf{r} \\
+&amp; \quad = \int_V \mathrm{d} \mathbf{r} \int_V \mathrm{d} \mathbf{r}' \frac{G \rho (\mathbf{r}') \rho (\mathbf{r}) }{ | \mathbf{r}-\mathbf{r}' |^3} (\mathbf{r}-\mathbf{r}') \cdot (\mathbf{r}-\mathbf{r}') \\
+&amp; \qquad\qquad + \int_V \mathrm{d} \mathbf{r} \int_V \mathrm{d} \mathbf{r}' \frac{G \rho (\mathbf{r}') \rho (\mathbf{r}) }{ | \mathbf{r}-\mathbf{r}' |^3} (\mathbf{r}-\mathbf{r}') \cdot \mathbf{r}' \\
+&amp; \quad = \int_V \mathrm{d} \mathbf{r} \int_V \mathrm{d} \mathbf{r}' \frac{G \rho (\mathbf{r}') \rho (\mathbf{r}) }{| \mathbf{r}-\mathbf{r}' |} \\
+&amp; \qquad + \int_V \mathrm{d} \mathbf{r}' \rho (\mathbf{r}') \int_V \mathrm{d} \mathbf{r} \frac{G \rho (\mathbf{r}) }{ | \mathbf{r}-\mathbf{r}' |^3} (\mathbf{r}-\mathbf{r}') \cdot \mathbf{r}' \\
+&amp; \quad = - \int_V \mathrm{d} \mathbf{r} \Psi (\mathbf{r}) \rho (\mathbf{r}) - \int_V \rho (\mathbf{r}') \nabla_{\mathbf{r}'} \Psi (\mathbf{r}') \cdot \mathbf{r}' \mathrm{d} \mathbf{r}' .
+\end{aligned}
 \tag{8.15}\]</span></span> We have used the fact that (note the difference in sign compared to <a href="#eq-hydro-diff-one-over-r" class="quarto-xref">Equation&nbsp;<span>8.14</span></a>) <span id="eq-hydro-16"><span class="math display">\[
 \nabla_{\mathbf{r}'}  \frac{1}{| \mathbf{r}-\mathbf{r}' |} =
 \frac{\mathbf{r}-\mathbf{r}'}{| \mathbf{r}-\mathbf{r}' |^3} .

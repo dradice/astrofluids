@@ -102,6 +102,17 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script>
+  // MathJax 4 configuration (Quarto loads MathJax without one).
+  // Long display equations are broken across lines to fit the text column
+  // instead of scrolling sideways; the CSS scroll box remains as a fallback.
+  window.MathJax = {
+    output: {
+      displayOverflow: "linebreak",
+      linebreaks: { inline: true, width: "100%" }
+    }
+  };
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -666,28 +677,20 @@ B_0  \hat{\mathbf{z}} +\mathbf{b}, \qquad p + \frac{B^2}{8 \pi} = P_0 + P.
 \hat{\boldsymbol{\theta}} + B_0  \frac{\partial b_z}{\partial z}
 \hat{\mathbf{z}} .
 \tag{27.9}\]</span></span> The induction equation can be linearized in a similar way: <span id="eq-mri-10"><span class="math display">\[
-\begin{alignedat}{2}
-\nabla \times (\mathbf{v} \times \mathbf{B}) &amp;{}\rightarrow{} &amp;&amp; \nabla \times
-[(R \Omega \hat{\boldsymbol{\theta}}) \times (b_R  \hat{\mathbf{R}} + b_{\theta}
-\hat{\boldsymbol{\theta}} + b_z  \hat{\mathbf{z}}) + (u_R  \hat{\mathbf{R}} +
-u_{\theta}  \hat{\boldsymbol{\theta}} + u_z  \hat{\mathbf{z}}) \times (B_0
-\hat{\mathbf{z}})] =  \\
-&amp; &amp;&amp; \nabla \times [- R \Omega b_R  \hat{\mathbf{z}} + R \Omega b_z
-\hat{\mathbf{R}} - u_R B_0  \hat{\boldsymbol{\theta}} + u_{\theta} B_0
-\hat{\mathbf{R}}] =  \\
-&amp; &amp;&amp; \nabla \times [ (R \Omega b_z + u_{\theta} B_0)  \hat{\mathbf{R}} -
-u_R B_0  \hat{\boldsymbol{\theta}} - R \Omega b_R  \hat{\mathbf{z}}] = \\
-&amp; &amp;&amp; \left( \frac{\partial u_R}{\partial z} B_0 \right)  \hat{\mathbf{R}} +
-\left( R \Omega \frac{\partial b_z}{\partial z} + \frac{\partial
-u_{\theta}}{\partial z} B_0 - \frac{3}{2} \Omega b_R + \Omega \frac{\partial
-(Rb_R)}{\partial R} \right)  \hat{\boldsymbol{\theta}} - \frac{1}{R}  \left[
-\frac{\partial (Ru_R B_0)}{\partial R} \right]  \hat{\mathbf{z}} =
-\\
-&amp; &amp;&amp; \left( \frac{\partial u_R}{\partial z} B_0 \right)  \hat{\mathbf{R}} +
-\left( \frac{\partial u_{\theta}}{\partial z} B_0 - \frac{3}{2} \Omega b_R
-\right)  \hat{\boldsymbol{\theta}} - \frac{1}{R}  \left[ \frac{\partial (Ru_R
-B_0)}{\partial R} \right]  \hat{\mathbf{z}} .
-\end{alignedat}
+\begin{aligned}
+&amp; \nabla \times (\mathbf{v} \times \mathbf{B}) \\
+&amp; \quad \rightarrow \nabla \times \bigl[(R \Omega \hat{\boldsymbol{\theta}}) \times (b_R \hat{\mathbf{R}} + b_{\theta} \hat{\boldsymbol{\theta}} + b_z \hat{\mathbf{z}}) \\
+&amp; \qquad\qquad + (u_R \hat{\mathbf{R}} + u_{\theta} \hat{\boldsymbol{\theta}} + u_z \hat{\mathbf{z}}) \times (B_0 \hat{\mathbf{z}})\bigr] \\
+&amp; \quad = \nabla \times [- R \Omega b_R \hat{\mathbf{z}} + R \Omega b_z \hat{\mathbf{R}} \\
+&amp; \qquad\qquad - u_R B_0 \hat{\boldsymbol{\theta}} + u_{\theta} B_0 \hat{\mathbf{R}}] \\
+&amp; \quad = \nabla \times [ (R \Omega b_z + u_{\theta} B_0) \hat{\mathbf{R}} \\
+&amp; \qquad\qquad - u_R B_0 \hat{\boldsymbol{\theta}} - R \Omega b_R \hat{\mathbf{z}}] \\
+&amp; \quad = \left( \frac{\partial u_R}{\partial z} B_0 \right) \hat{\mathbf{R}} + \biggl( R \Omega \frac{\partial b_z}{\partial z} + \frac{\partial u_{\theta}}{\partial z} B_0 \\
+&amp; \qquad\qquad - \frac{3}{2} \Omega b_R + \Omega \frac{\partial (Rb_R)}{\partial R} \biggr) \hat{\boldsymbol{\theta}} \\
+&amp; \qquad\qquad - \frac{1}{R} \left[ \frac{\partial (Ru_R B_0)}{\partial R} \right] \hat{\mathbf{z}} \\
+&amp; \quad = \left( \frac{\partial u_R}{\partial z} B_0 \right) \hat{\mathbf{R}} + \left( \frac{\partial u_{\theta}}{\partial z} B_0 - \frac{3}{2} \Omega b_R \right) \hat{\boldsymbol{\theta}} \\
+&amp; \qquad\qquad - \frac{1}{R} \left[ \frac{\partial (Ru_R B_0)}{\partial R} \right] \hat{\mathbf{z}} .
+\end{aligned}
 \tag{27.10}\]</span></span> In the last equation we have also used the condition that <span class="math inline">\(\nabla \cdot \mathbf{b}= 0\)</span>.</p>
 <p>We will consider a small patch of the disk, so that we can use the Fourier (WKB) ansatz: <span id="eq-mri-11"><span class="math display">\[
 \mathbf{u}=\mathbf{u}_0 e^{\lambda t + \mathrm{i} (k_R R + k_z z)}, \qquad

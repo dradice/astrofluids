@@ -102,6 +102,17 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script>
+  // MathJax 4 configuration (Quarto loads MathJax without one).
+  // Long display equations are broken across lines to fit the text column
+  // instead of scrolling sideways; the CSS scroll box remains as a fallback.
+  window.MathJax = {
+    output: {
+      displayOverflow: "linebreak",
+      linebreaks: { inline: true, width: "100%" }
+    }
+  };
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -606,9 +617,7 @@ window.Quarto = {
 <section id="waves-in-isothermal-atmospheres" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="waves-in-isothermal-atmospheres"><span class="header-section-number">10.1</span> Waves in Isothermal Atmospheres</h2>
 <p>Consider a stratified, static, isothermal atmosphere. We assume constant acceleration <span class="math inline">\(g\)</span> in the negative <span class="math inline">\(z\)</span> direction. The hydrostatic equilibrium equations are <span id="eq-strat-1"><span class="math display">\[
-\begin{alignedat}{2}
-\partial_z p_0 = - \rho_0 g, &amp;{}\qquad{} &amp;&amp; p = a^2 \rho,
-\end{alignedat}
+\partial_z p_0 = - \rho_0 g, \qquad p = a^2 \rho,
 \tag{10.1}\]</span></span> where <span class="math inline">\(a = \sqrt{\frac{kT}{\mu}}\)</span> is the isothermal sound speed.</p>
 <p>Combining these two we find <span id="eq-strat-2"><span class="math display">\[
 \partial_z \rho_0 = - \frac{g}{a ^2} \rho_0 \Longrightarrow \rho_0 =
@@ -648,30 +657,30 @@ p' \overset{!}{=} \Gamma a^2 \rho',
 \rho_0  \frac{\partial^2 \boldsymbol{\xi}}{\partial t^2} = - \Gamma a^2 \nabla
 \delta \rho - g \rho_0 \nabla \xi_z - g \delta \rho \hat{\mathbf{z}} .
 \tag{10.12}\]</span></span> Using the fact that <span id="eq-strat-13"><span class="math display">\[
-\nabla \delta \rho = \nabla (- \rho_0 \nabla \cdot \boldsymbol{\xi}) = - \rho_0
-\nabla \nabla \cdot \boldsymbol{\xi}- \nabla \rho_0 \nabla \cdot \boldsymbol{\xi}= -
-\rho_0 \nabla \nabla \cdot \boldsymbol{\xi}+ \frac{\rho_0}{H} \nabla \cdot
-\boldsymbol{\xi} \hat{\mathbf{z}},
+\begin{aligned}
+\nabla \delta \rho &amp;= \nabla (- \rho_0 \nabla \cdot \boldsymbol{\xi}) \\
+&amp;= - \rho_0 \nabla \nabla \cdot \boldsymbol{\xi}- \nabla \rho_0 \nabla \cdot \boldsymbol{\xi} \\
+&amp;= - \rho_0 \nabla \nabla \cdot \boldsymbol{\xi}+ \frac{\rho_0}{H} \nabla \cdot \boldsymbol{\xi} \hat{\mathbf{z}},
+\end{aligned}
 \tag{10.13}\]</span></span> We obtain <span id="eq-strat-14"><span class="math display">\[
-\rho_0  \frac{\partial^2 \boldsymbol{\xi}}{\partial t^2} = + \Gamma a^2 \rho_0
-\nabla \nabla \cdot \boldsymbol{\xi}- \rho_0 \Gamma g \nabla \cdot \boldsymbol{\xi}
-\hat{\mathbf{z}} - g \rho_0 \nabla \xi_z + g \rho_0 \nabla \cdot
-\boldsymbol{\xi} \hat{\mathbf{z}} .
+\begin{aligned}
+\rho_0 \frac{\partial^2 \boldsymbol{\xi}}{\partial t^2} = {}&amp; \Gamma a^2 \rho_0 \nabla \nabla \cdot \boldsymbol{\xi}- \rho_0 \Gamma g \nabla \cdot \boldsymbol{\xi} \hat{\mathbf{z}} \\
+&amp; - g \rho_0 \nabla \xi_z + g \rho_0 \nabla \cdot \boldsymbol{\xi} \hat{\mathbf{z}} .
+\end{aligned}
 \tag{10.14}\]</span></span> This can be simplified to <span id="eq-strat-oscillation-stratified"><span class="math display">\[
-\boxed{ \frac{\partial^2 \boldsymbol{\xi}}{\partial t^2} = c_s^2  \left(
-\nabla \nabla \cdot \boldsymbol{\xi}- \frac{a^2}{c_s^2}  \frac{1}{H} \nabla
-\xi_z \right) - \frac{(c_s^2 - a^2)}{H} \nabla \cdot \boldsymbol{\xi}
-\hat{\mathbf{z}} .}
+\boxed{
+\begin{aligned}
+\frac{\partial^2 \boldsymbol{\xi}}{\partial t^2} = {}&amp; c_s^2 \left( \nabla \nabla \cdot \boldsymbol{\xi}- \frac{a^2}{c_s^2} \frac{1}{H} \nabla \xi_z \right) \\
+&amp; - \frac{(c_s^2 - a^2)}{H} \nabla \cdot \boldsymbol{\xi} \hat{\mathbf{z}} .
+\end{aligned}
+}
 \tag{10.15}\]</span></span> We are going to analyze the consequences of this equation shortly. Before we do that, we show that this equation reduces to Eq. (6.31) of <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span> in the limit of vertical oscillations in the <span class="math inline">\(z\)</span> direction. To do that, we take the divergence of <a href="#eq-strat-oscillation-stratified" class="quarto-xref">Equation&nbsp;<span>10.15</span></a> to obtain <span id="eq-strat-16"><span class="math display">\[
-\begin{alignedat}{2}
-\frac{\partial^2 \delta \rho}{\partial t^2} &amp;{}={} &amp;&amp; c_s^2  \left( \nabla^2
-\delta \rho + \frac{\delta \rho}{H^2} \right) + g \rho_0 \nabla^2 \xi_z -
-\frac{(c_s^2 - a^2)}{H}  \left( \partial_z \delta \rho + \frac{\delta
-\rho}{H} \right) \\
-&amp;{}={} &amp;&amp; c_s^2 \nabla^2 \delta \rho - \frac{c_s^2}{H} \partial_z \delta \rho +
-\frac{a^2}{H} \rho_0 \nabla^2 \xi_z + \frac{a^2}{H} \partial_z \delta \rho +
-a^2  \frac{\delta \rho}{H^2} .
-\end{alignedat}
+\begin{aligned}
+\frac{\partial^2 \delta \rho}{\partial t^2} &amp;= c_s^2 \left( \nabla^2 \delta \rho + \frac{\delta \rho}{H^2} \right) + g \rho_0 \nabla^2 \xi_z \\
+&amp;\qquad - \frac{(c_s^2 - a^2)}{H} \left( \partial_z \delta \rho + \frac{\delta \rho}{H} \right) \\
+&amp;= c_s^2 \nabla^2 \delta \rho - \frac{c_s^2}{H} \partial_z \delta \rho + \frac{a^2}{H} \rho_0 \nabla^2 \xi_z \\
+&amp;\qquad + \frac{a^2}{H} \partial_z \delta \rho + a^2 \frac{\delta \rho}{H^2} .
+\end{aligned}
 \tag{10.16}\]</span></span> Assuming that <span class="math inline">\(\delta \rho = \delta \rho (t, z)\)</span> and <span class="math inline">\(\boldsymbol{\xi}= \xi_z \hat{\mathbf{z}}\)</span>, we obtain, <span id="eq-strat-oscillation-book"><span class="math display">\[
 \frac{\partial^2 \delta \rho}{\partial t^2} - c_s^2  \frac{\partial^2 \delta
 \rho}{\partial z^2} - \frac{c_s^2}{H}  \frac{\partial \delta \rho}{\partial
@@ -685,10 +694,12 @@ z} = 0,
 \boldsymbol{\xi}=\boldsymbol{\eta}e^{\mathrm{i} (\mathbf{k} \cdot \mathbf{x}- \omega t)}
 .
 \tag{10.19}\]</span></span> Inserting this into <a href="#eq-strat-oscillation-stratified" class="quarto-xref">Equation&nbsp;<span>10.15</span></a> we obtain <span id="eq-strat-20"><span class="math display">\[
-\boxed{\omega^2 \boldsymbol{\eta}= c_s^2  \left( \mathbf{k} \cdot
-\boldsymbol{\eta}+ \mathrm{i} \frac{a^2}{c_s^2}  \frac{1}{H} \eta_z \right)
-\mathbf{k}+ \mathrm{i} \frac{(c_s^2 - a^2)}{H} \mathbf{k} \cdot \boldsymbol{\eta}
-\hat{\mathbf{z}} .}
+\boxed{
+\begin{aligned}
+\omega^2 \boldsymbol{\eta} = {}&amp; c_s^2 \left( \mathbf{k} \cdot \boldsymbol{\eta}+ \mathrm{i} \frac{a^2}{c_s^2} \frac{1}{H} \eta_z \right) \mathbf{k} \\
+&amp; + \mathrm{i} \frac{(c_s^2 - a^2)}{H} \mathbf{k} \cdot \boldsymbol{\eta} \hat{\mathbf{z}} .
+\end{aligned}
+}
 \tag{10.20}\]</span></span></p>
 <ul>
 <li><p>In the limit of <span class="math inline">\(H \gg a^2 k / \omega^2\)</span>, that is, in the limit in which the wavelength of perturbations is much smaller than the scale height of the atmosphere, we recover the dispersion relation for waves in a homogeneous medium, namely <span class="math inline">\(\omega^2 = c_s k^2\)</span>, as expected.</p></li>

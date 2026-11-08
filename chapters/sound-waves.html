@@ -102,6 +102,17 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script>
+  // MathJax 4 configuration (Quarto loads MathJax without one).
+  // Long display equations are broken across lines to fit the text column
+  // instead of scrolling sideways; the CSS scroll box remains as a fallback.
+  window.MathJax = {
+    output: {
+      displayOverflow: "linebreak",
+      linebreaks: { inline: true, width: "100%" }
+    }
+  };
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -575,6 +586,8 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#oscillation-equation" id="toc-oscillation-equation" class="nav-link active" data-scroll-target="#oscillation-equation"><span class="header-section-number">9.1</span> Oscillation Equation</a></li>
   <li><a href="#wave-energy-and-momentum" id="toc-wave-energy-and-momentum" class="nav-link" data-scroll-target="#wave-energy-and-momentum"><span class="header-section-number">9.2</span> Wave Energy and Momentum</a></li>
+  <li><a href="#sec-sound-worksheet" id="toc-sec-sound-worksheet" class="nav-link" data-scroll-target="#sec-sound-worksheet"><span class="header-section-number">9.3</span> In-class worksheets</a></li>
+  <li><a href="#sec-sound-reading" id="toc-sec-sound-reading" class="nav-link" data-scroll-target="#sec-sound-reading"><span class="header-section-number">9.4</span> Further reading</a></li>
   </ul>
 </nav>
     </div>
@@ -741,7 +754,7 @@ v_{\operatorname{phase}} = \frac{\omega}{k} = c_s, \qquad v_{\operatorname{group
 <p>Before we can compute the energy carried by waves, we need to develop some general perturbation theory. In general, the oscillation equation takes the form <span id="eq-sound-oscillations-general"><span class="math display">\[
 \rho_0  \frac{\partial^2 \boldsymbol{\xi}}{\partial t^2} = \hat{\mathbf{F}}
 \boldsymbol{\xi},
-\tag{9.23}\]</span></span> where <span class="math inline">\(\hat{\mathbf{F}}\)</span> is a differential operator. For example, for sound waves in an homogeneous medium <span class="math inline">\(\hat{\mathbf{F}} \boldsymbol{\xi}= \nabla \nabla \cdot \boldsymbol{\xi}\)</span>. We can find a dispersion relation by looking for solutions such that <span id="eq-sound-24"><span class="math display">\[
+\tag{9.23}\]</span></span> where <span class="math inline">\(\hat{\mathbf{F}}\)</span> is a differential operator. For example, for sound waves in a homogeneous medium <span class="math inline">\(\hat{\mathbf{F}} \boldsymbol{\xi}= \nabla \nabla \cdot \boldsymbol{\xi}\)</span>. We can find a dispersion relation by looking for solutions such that <span id="eq-sound-24"><span class="math display">\[
 \boldsymbol{\xi} (t, \mathbf{x}) =\boldsymbol{\eta} (\mathbf{x}) e^{- \mathrm{i}
 \omega t} .
 \tag{9.24}\]</span></span> Inserting this ansatz in <a href="#eq-sound-oscillations-general" class="quarto-xref">Equation&nbsp;<span>9.23</span></a>, we find an eigenvalue problem <span id="eq-sound-eigenvalue"><span class="math display">\[
@@ -751,29 +764,24 @@ v_{\operatorname{phase}} = \frac{\omega}{k} = c_s, \qquad v_{\operatorname{group
 \int \boldsymbol{\zeta} (\mathbf{x}) \cdot \hat{\mathbf{F}} \boldsymbol{\xi}
 (\mathbf{x}) \rho_0 (\mathbf{x}) \mathrm{d}^3 \mathbf{x}= \int \boldsymbol{\xi}
 (\mathbf{x}) \cdot \hat{\mathbf{F}} \boldsymbol{\zeta} (\mathbf{x}) \rho_0
-(\mathbf{x}) \mathrm{d}^3 \mathbf{r}.
-\tag{9.26}\]</span></span> The general theory of linear operator then implies that <a href="#eq-sound-eigenvalue" class="quarto-xref">Equation&nbsp;<span>9.25</span></a> has an infinite set of eigenvalues <span class="math inline">\(\{ \omega_n \}\)</span> and eigenfunctions <span class="math inline">\(\{ \boldsymbol{\eta}_n \}\)</span> and that any perturbation (not just plain waves) can be written as an infinite superposition of elementary solutions: <span id="eq-sound-superposition-principle"><span class="math display">\[
+(\mathbf{x}) \mathrm{d}^3 \mathbf{x}.
+\tag{9.26}\]</span></span> The general theory of linear operators then implies that <a href="#eq-sound-eigenvalue" class="quarto-xref">Equation&nbsp;<span>9.25</span></a> has an infinite set of eigenvalues <span class="math inline">\(\{ \omega_n \}\)</span> and eigenfunctions <span class="math inline">\(\{ \boldsymbol{\eta}_n \}\)</span> and that any perturbation (not just plane waves) can be written as an infinite superposition of elementary solutions: <span id="eq-sound-superposition-principle"><span class="math display">\[
 \boldsymbol{\xi} (t, \mathbf{x}) = \sum_n \boldsymbol{\eta}_n (\mathbf{x}) e^{-
 i \omega_n t} .
-\tag{9.27}\]</span></span> The quantities <span class="math inline">\(\boldsymbol{\eta}_n (\mathbf{x})\)</span> are also called the <em>normal modes of oscillations</em>. Note that the normal modes need not be countable. For example, for sound waves in an homogeneous infinite medium all positive sound frequencies <span class="math inline">\(\omega\)</span> are allowed. In this case, <a href="#eq-sound-superposition-principle" class="quarto-xref">Equation&nbsp;<span>9.27</span></a> takes the form of an integral. For plane waves in an homogeneous medium, <a href="#eq-sound-superposition-principle" class="quarto-xref">Equation&nbsp;<span>9.27</span></a> is just the Fourier transform: <span id="eq-sound-28"><span class="math display">\[
+\tag{9.27}\]</span></span> The quantities <span class="math inline">\(\boldsymbol{\eta}_n (\mathbf{x})\)</span> are also called the <em>normal modes of oscillations</em>. Note that the normal modes need not be countable. For example, for sound waves in a homogeneous infinite medium all positive sound frequencies <span class="math inline">\(\omega\)</span> are allowed. In this case, <a href="#eq-sound-superposition-principle" class="quarto-xref">Equation&nbsp;<span>9.27</span></a> takes the form of an integral. For plane waves in a homogeneous medium, <a href="#eq-sound-superposition-principle" class="quarto-xref">Equation&nbsp;<span>9.27</span></a> is just the Fourier transform: <span id="eq-sound-28"><span class="math display">\[
 \boldsymbol{\xi} (t, \mathbf{x}) = \int \mathrm{d}^3 \mathbf{k}\boldsymbol{\eta}
 (\mathbf{k}) e^{\mathrm{i} \mathbf{k} \cdot \mathbf{x}} e^{- \mathrm{i} c_s kt} .
 \tag{9.28}\]</span></span> However, when we consider sound waves in a finite medium, for example a star of a given radius, the requirement that standing wave solutions have a wavelength that is an integer fraction of the dimension of the star, makes the frequencies <span class="math inline">\(\{ \omega_n \}\)</span> quantized.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-empty-content callout-titled">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+<span class="screen-reader-only">Tip</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
-
-</div>
-</div>
-<section id="example-2" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="example-2"><span class="header-section-number">9.3</span> Example</h2>
 <p>Consider a rigid, cylindrical pipe of length <span class="math inline">\(L\)</span> filled with gas at constant density and temperature. The ends of the pipe are sealed. The displacement equation for sound waves propagating in the pipe is <span id="eq-sound-29"><span class="math display">\[
 \left\{\begin{array}{ll}
 \partial_t^2 \xi (t, z) = c_s^2 \partial_z^2 \xi (t, z), &amp; 0 &lt; z &lt; L,\\
@@ -785,13 +793,13 @@ Tip
 0, &amp; 0 &lt; z &lt; L\\
 \eta (0) = \eta (L) = 0. &amp;
 \end{array}\right.
-\tag{9.30}\]</span></span> This equation is just the equation for an harmonic oscillator. The general solution is <span id="eq-sound-31"><span class="math display">\[
+\tag{9.30}\]</span></span> This equation is just the equation for a harmonic oscillator. The general solution is <span id="eq-sound-31"><span class="math display">\[
 \eta (z) = A \cos (\kappa z) + B \sin (\kappa z), \qquad \kappa =
 \frac{\omega}{c_s} .
 \tag{9.31}\]</span></span> However, not all solutions satisfy the boundary conditions. To satisfy the boundary conditions, we require <span id="eq-sound-32"><span class="math display">\[
 A = 0, \qquad \kappa = \frac{n \pi}{L} \Longrightarrow \omega = c_s
 \left( \frac{n \pi}{L} \right), \quad n = 1, 2, \ldots
-\tag{9.32}\]</span></span> The first few normal modes are plotted below.</p>
+\tag{9.32}\]</span></span> The first few normal modes are plotted in <a href="#fig-sound-normal-modes" class="quarto-xref">Figure&nbsp;<span>9.2</span></a>.</p>
 <div id="fig-sound-normal-modes" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Plot of sin(n pi z over L) for n from 1 to 5, for z between 0 and L. All curves vanish at both ends of the pipe; mode n has n half-wavelengths between the ends and n minus 1 nodes in between. Each mode has its own line style and colour.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sound-normal-modes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -807,7 +815,8 @@ Figure&nbsp;9.2: Normal modes for gas in a cylindrical pipe.
 t}{L} \right) + B_n \cos \left( \frac{n \pi c_s t}{L} \right) \right] \sin
 \left( \frac{n \pi z}{L} \right),
 \tag{9.33}\]</span></span> where <span class="math inline">\(A_n, B_n\)</span> are determined by the initial conditions <span class="math inline">\(\xi (t = 0, z)\)</span>.</p>
-</section>
+</div>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -859,10 +868,13 @@ E_{\operatorname{wave}} = \frac{\omega}{4} \rho_0 A^2 .
 \boxed{\mathbf{P}_{\operatorname{wave}} = \frac{\mathbf{k}}{\omega}
 E_{\operatorname{wave}} .}
 \tag{9.42}\]</span></span></p>
-<section id="sec-sound-worksheet" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="sec-sound-worksheet"><span class="header-section-number">9.4</span> In-class worksheets</h2>
-<section id="sound-waves" class="level3" data-number="9.4.1">
-<h3 data-number="9.4.1" class="anchored" data-anchor-id="sound-waves"><span class="header-section-number">9.4.1</span> Sound waves</h3>
+</div>
+</div>
+</section>
+<section id="sec-sound-worksheet" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="sec-sound-worksheet"><span class="header-section-number">9.3</span> In-class worksheets</h2>
+<section id="sound-waves" class="level3" data-number="9.3.1">
+<h3 data-number="9.3.1" class="anchored" data-anchor-id="sound-waves"><span class="header-section-number">9.3.1</span> Sound waves</h3>
 <p>Consider an ideal gas with <span id="eq-sound-ws1"><span class="math display">\[
 p = (\Gamma - 1) \rho \varepsilon = \frac{\rho}{\mu} k_B T.
 \tag{9.43}\]</span></span> What is the sound speed <span class="math inline">\(c_s\)</span> as a function of <span class="math inline">\(\rho\)</span> and <span class="math inline">\(T\)</span>?</p>
@@ -873,8 +885,8 @@ p = (\Gamma - 1) \rho \varepsilon = \frac{\rho}{\mu} k_B T.
 \boldsymbol{\xi}= 0.
 \tag{9.45}\]</span></span> Sketch the solution for different times if <span class="math inline">\(f (x) = e^{- x^2 / 2}\)</span>.</p>
 </section>
-<section id="the-doppler-effect" class="level3" data-number="9.4.2">
-<h3 data-number="9.4.2" class="anchored" data-anchor-id="the-doppler-effect"><span class="header-section-number">9.4.2</span> The Doppler effect</h3>
+<section id="the-doppler-effect" class="level3" data-number="9.3.2">
+<h3 data-number="9.3.2" class="anchored" data-anchor-id="the-doppler-effect"><span class="header-section-number">9.3.2</span> The Doppler effect</h3>
 <p>Consider an initially homogeneous flow with <span id="eq-sound-dws1"><span class="math display">\[
 \rho = \rho_0 = \operatorname{const}, \qquad p = p_0 = \operatorname{const}, \qquad
 \mathbf{v}=\mathbf{v}_0 = \operatorname{const} .
@@ -896,26 +908,26 @@ p = (\Gamma - 1) \rho \varepsilon = \frac{\rho}{\mu} k_B T.
 </ol>
 </section>
 </section>
-<section id="sec-sound-reading" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="sec-sound-reading"><span class="header-section-number">9.5</span> Further reading</h2>
+<section id="sec-sound-reading" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="sec-sound-reading"><span class="header-section-number">9.4</span> Further reading</h2>
 <ul>
 <li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Sections 6.1 and 6.3.</li>
 </ul>
-</section>
-</div>
-</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-clarke2007" class="csl-entry" role="listitem">
 Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dynamics</em>. Cambridge University Press.
 </div>
+<div id="ref-kulsrud2005" class="csl-entry" role="listitem">
+Kulsrud, Russell M. 2005. <em>Plasma Physics for Astrophysics</em>. Princeton University Press.
+</div>
 </div>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>I use the common convention of denoting with <span class="math inline">\(\delta q\)</span> the Lagrangian perturbations of a quantity <span class="math inline">\(q\)</span> and with <span class="math inline">\(q'\)</span> the Eulerian perturbations. The same convention is used in Kulsrud, but Clarcke &amp; Carswell use <span class="math inline">\(\Delta q\)</span> for Lagrangian perturbation and <span class="math inline">\(\delta q\)</span> for Eulerian perturbation.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>I use the common convention of denoting with <span class="math inline">\(\delta q\)</span> the Lagrangian perturbations of a quantity <span class="math inline">\(q\)</span> and with <span class="math inline">\(q'\)</span> the Eulerian perturbations. The same convention is used in <span class="citation" data-cites="kulsrud2005">Kulsrud (<a href="#ref-kulsrud2005" role="doc-biblioref">2005</a>)</span>, but <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span> use <span class="math inline">\(\Delta q\)</span> for Lagrangian perturbation and <span class="math inline">\(\delta q\)</span> for Eulerian perturbation.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
