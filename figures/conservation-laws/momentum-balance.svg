@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="330" viewBox="0 0 440 330" role="img" aria-labelledby="t d" font-family="'STIX Two Text','Times New Roman',serif" font-size="20">
+  <title id="t">Momentum balance in a fixed region</title>
+  <desc id="d">A closed region Omega bounded by a surface with outward normal n. Labels give the total momentum in the region, the momentum flux through the boundary, minus rho (v dot n) v dA, and the pressure force, minus p n dA.</desc>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#000" stroke-width="1.6"/>
+    </marker>
+  </defs>
+  <rect width="440" height="330" fill="#fff"/>
+  <path d="M 12,20 C 60,8 190,18 250,62 C 290,92 335,120 345,148 C 350,185 290,225 240,262 C 200,290 130,320 60,306 C 18,296 6,150 12,20 Z" fill="none" stroke="#000" stroke-width="2.5"/>
+  <line x1="268" y1="228" x2="318" y2="266" stroke="#000" stroke-width="1.8" marker-end="url(#ah)"/>
+  <line x1="40" y1="258" x2="72" y2="214" stroke="#000" stroke-width="1.8" marker-end="url(#ah)"/>
+  <g fill="#000">
+    <text x="36" y="52">∂Ω</text>
+    <text x="128" y="112">∫<tspan font-size="14" dy="6">Ω</tspan><tspan dy="-6" dx="3"><tspan font-style="italic">ρ</tspan> <tspan font-weight="bold">v</tspan> d<tspan font-style="italic">V</tspan></tspan></text>
+    <text x="52" y="172">−<tspan font-style="italic">ρ</tspan>(<tspan font-weight="bold">v</tspan>·<tspan font-weight="bold">n</tspan>) <tspan font-weight="bold">v</tspan> d<tspan font-style="italic">A</tspan></text>
+    <text x="80" y="200">−<tspan font-style="italic">p</tspan> <tspan font-weight="bold">n</tspan> d<tspan font-style="italic">A</tspan></text>
+    <text x="140" y="270">Ω</text>
+    <text x="322" y="282" font-weight="bold">n</text>
+  </g>
+</svg>

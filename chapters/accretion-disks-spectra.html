@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -95,6 +114,35 @@ ul.task-list li input[type="checkbox"] {
   };
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -465,7 +513,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magnetohydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magneto­hydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
       <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
@@ -525,8 +573,16 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#sec-diskspec-worksheet" id="toc-sec-diskspec-worksheet" class="nav-link active" data-scroll-target="#sec-diskspec-worksheet"><span class="header-section-number">20.1</span> In-class worksheet</a></li>
+  <li><a href="#sec-diskspec-exercises" id="toc-sec-diskspec-exercises" class="nav-link" data-scroll-target="#sec-diskspec-exercises"><span class="header-section-number">20.2</span> Exercises</a></li>
+  <li><a href="#sec-diskspec-reading" id="toc-sec-diskspec-reading" class="nav-link" data-scroll-target="#sec-diskspec-reading"><span class="header-section-number">20.3</span> Further reading</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
@@ -564,8 +620,46 @@ Note
 <p>This chapter is in preparation.</p>
 </div>
 </div>
+<section id="sec-diskspec-worksheet" class="level2" data-number="20.1">
+<h2 data-number="20.1" class="anchored" data-anchor-id="sec-diskspec-worksheet"><span class="header-section-number">20.1</span> In-class worksheet</h2>
+<ol type="1">
+<li><p><strong>Viscous instability in accretion disks.</strong> The equation describing the evolution of the surface density <span class="math inline">\(\Sigma\)</span> in an accretion disk is given by <span id="eq-diskspec-1"><span class="math display">\[
+\partial_t \Sigma = \frac{3}{R} \partial_R  [R^{1 / 2} \partial_R (\nu
+\Sigma R^{1 / 2})] .
+\tag{20.1}\]</span></span> Assume that the viscosity <span class="math inline">\(\nu\)</span> is in the form <span class="math inline">\(\nu = \nu (\Sigma, R)\)</span>.</p>
+<ol type="1">
+<li><p>Introduce the quantity <span class="math inline">\(\mu = \nu \Sigma\)</span> and consider a small perturbation <span class="math inline">\(\delta \Sigma\)</span> in the surface density of the disk. Find the equation describing the evolution of the corresponding perturbation <span class="math inline">\(\delta \mu\)</span> of <span class="math inline">\(\mu\)</span>.</p></li>
+<li><p>Under what condition is the disk stable?</p></li>
+</ol></li>
+</ol>
+</section>
+<section id="sec-diskspec-exercises" class="level2" data-number="20.2">
+<h2 data-number="20.2" class="anchored" data-anchor-id="sec-diskspec-exercises"><span class="header-section-number">20.2</span> Exercises</h2>
+<div id="exr-diskspec-spectrum" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 20.1 (Accretion-disk spectrum)</strong></span> Model an accretion disk as a set of concentric rings <span class="math inline">\(i = 1, 2, \ldots, N\)</span>, each with median radius <span class="math inline">\(R_i\)</span> and radial extent <span class="math inline">\(\Delta R\)</span>. Let the disk extend from an inner radius <span class="math inline">\(R_{\operatorname{in}}\)</span> to an outer radius <span class="math inline">\(R_{\operatorname{out}}\)</span> and the temperature be <span id="eq-diskspec-2"><span class="math display">\[
+T (R) = T_{\operatorname{in}}  \left( \frac{R_{\operatorname{in}}}{R} \right)^{3 / 4} .
+\tag{20.2}\]</span></span> Assume that the <span class="math inline">\(i\)</span>th ring emits as a blackbody with a fixed temperature <span class="math inline">\(T_i = T (R_i)\)</span> <span id="eq-diskspec-3"><span class="math display">\[
+B_{\nu} (T) = \frac{2 h \nu^3}{c^2}  \frac{1}{e^{h \nu / kT} - 1},
+\tag{20.3}\]</span></span> where <span class="math inline">\(h\)</span> is Planck constant, <span class="math inline">\(c\)</span> the speed of light, and <span class="math inline">\(k\)</span> the Boltzmann constant.</p>
+<ol type="1">
+<li><p>Write a code to compute and plot the emergent spectrum from a single ring at radius <span class="math inline">\(R_i\)</span>. Plot the emergent spectrum for several radii. You can work in units in which <span class="math inline">\(k = h = c = 1\)</span>. You can take <span class="math inline">\(T_{\operatorname{in}} = 1\)</span> in these units.</p></li>
+<li><p>Write a code to compute the emergent spectrum from the full disk by summing up the contribution from each ring. Plot the resulting spectrum and discuss its physical interpretation. Verify that the spectrum approximately scales as <span class="math inline">\(\nu^{1 / 3}\)</span> for <span class="math inline">\(T_{\operatorname{in}} \lesssim \nu \lesssim T_{\operatorname{out}}\)</span>. You can work in the same units as in the previous point. Additionally assume that <span class="math inline">\(R_{\operatorname{out}} / R_{\operatorname{in}} = 200\)</span>.</p></li>
+</ol>
+</div>
+</section>
+<section id="sec-diskspec-reading" class="level2" data-number="20.3">
+<h2 data-number="20.3" class="anchored" data-anchor-id="sec-diskspec-reading"><span class="header-section-number">20.3</span> Further reading</h2>
+<ul>
+<li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Chapter 12 (accretion discs).</li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-clarke2007" class="csl-entry" role="listitem">
+Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dynamics</em>. Cambridge University Press.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

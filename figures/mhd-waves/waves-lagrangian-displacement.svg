@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 440" width="620" height="440" role="img" aria-labelledby="lag-t lag-d">
+<title id="lag-t">Lagrangian displacement of a fluid element</title>
+<desc id="lag-d">A small square fluid element at position x, where a quantity has the value q, is displaced by the vector xi, shown as a curved arrow, to the position x plus xi, where the quantity has the value q plus delta q. The Eulerian perturbation at x is q'(x) = delta q minus xi dot nabla q.</desc>
+<defs><marker id="ah-k" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#000" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker></defs>
+<rect width="620" height="440" fill="#fff"/>
+<g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif">
+<rect x="18" y="300" width="125" height="110" fill="none" stroke="#000" stroke-width="2"/>
+<text x="80" y="365" text-anchor="middle" font-size="22" font-style="normal" font-weight="bold" fill="#000">x</text>
+<text x="158" y="405" text-anchor="start" font-size="22" font-style="italic" font-weight="normal" fill="#000">q</text>
+<rect x="300" y="18" width="125" height="110" fill="none" stroke="#000" stroke-width="2"/>
+<text x="362" y="88" text-anchor="middle" font-size="22" font-style="normal" font-weight="bold" fill="#000">x + ξ</text>
+<text x="450" y="88" text-anchor="start" font-size="22" font-style="italic" font-weight="normal" fill="#000">q + δq</text>
+<path d="M 75 280 C 105 185 190 110 292 82" fill="none" stroke="#000" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ah-k)" />
+<text x="225" y="200" text-anchor="start" font-size="24" font-style="normal" font-weight="bold" fill="#000">ξ</text>
+<text x="238" y="360" text-anchor="start" font-size="22" font-style="italic" font-weight="normal" fill="#000">q′(x) = δq − ξ·∇q</text>
+</g>
+</svg>

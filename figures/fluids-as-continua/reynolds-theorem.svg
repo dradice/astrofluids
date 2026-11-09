@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 430" width="560" height="430"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Rate of change of the volume of a comoving region</title>
+  <desc id="desc">A closed region Omega drawn with a thick outline and, displaced slightly outward, a thin outline of
+  the same region a short time later. Arrows labelled n point along the outward normal to the boundary and arrows
+  labelled v show the velocity of the boundary. The sliver between the two outlines is labelled dV of order v dot n dt.</desc>
+  <!-- Redrawn from the 2025 TeXmacs figure (01-fluid-as-continua). -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7"
+            orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10" fill="none" stroke="#000" stroke-width="1.6"/>
+    </marker>
+  </defs>
+  <rect width="560" height="430" fill="#fff"/>
+  <!-- region at time t + dt (thin), then region at time t (thick, filled white) -->
+  <path d="M 55 85 C 55 20 130 12 250 14 C 400 16 520 40 540 110 C 548 160 520 210 495 250 C 460 320 420 395 340 396 C 250 398 150 330 100 250 C 70 200 55 150 55 85 Z" transform="translate(-42 24)" fill="none" stroke="#000" stroke-width="1.6"/>
+  <path d="M 55 85 C 55 20 130 12 250 14 C 400 16 520 40 540 110 C 548 160 520 210 495 250 C 460 320 420 395 340 396 C 250 398 150 330 100 250 C 70 200 55 150 55 85 Z" fill="#fff" stroke="#000" stroke-width="3.4"/>
+  <g fill="none" stroke="#000" stroke-width="1.6" marker-end="url(#arrow)">
+    <path d="M 508 96 L 450 138"/>
+    <path d="M 96 262 L 56 292"/>
+    <path d="M 478 308 L 520 330"/>
+  </g>
+  <g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif" font-size="20" fill="#000">
+    <text x="412" y="150" font-weight="bold">v</text>
+    <text x="524" y="352" font-weight="bold">n</text>
+    <text x="90" y="220">d<tspan font-style="italic">V</tspan> ~ <tspan font-weight="bold">v</tspan> · <tspan font-weight="bold">n</tspan> d<tspan font-style="italic">t</tspan></text>
+    <text x="300" y="340" font-style="italic">Ω</text>
+  </g>
+</svg>

@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -95,6 +114,35 @@ ul.task-list li input[type="checkbox"] {
   };
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -465,7 +513,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magnetohydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magneto­hydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
       <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
@@ -525,8 +573,16 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#sec-conv-worksheet" id="toc-sec-conv-worksheet" class="nav-link active" data-scroll-target="#sec-conv-worksheet"><span class="header-section-number">15.1</span> In-class worksheet</a></li>
+  <li><a href="#sec-conv-exercises" id="toc-sec-conv-exercises" class="nav-link" data-scroll-target="#sec-conv-exercises"><span class="header-section-number">15.2</span> Exercises</a></li>
+  <li><a href="#sec-conv-reading" id="toc-sec-conv-reading" class="nav-link" data-scroll-target="#sec-conv-reading"><span class="header-section-number">15.3</span> Further reading</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
@@ -564,8 +620,37 @@ Note
 <p>This chapter is in preparation.</p>
 </div>
 </div>
+<section id="sec-conv-worksheet" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="sec-conv-worksheet"><span class="header-section-number">15.1</span> In-class worksheet</h2>
+<ol type="1">
+<li>Is an isothermal atmosphere stable against convection? Why?</li>
+</ol>
+</section>
+<section id="sec-conv-exercises" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="sec-conv-exercises"><span class="header-section-number">15.2</span> Exercises</h2>
+<div id="exr-conv-thin-disk" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 15.1 (Vertical structure and convective stability of a thin disk)</strong></span> A thin disk of gas orbits an object of mass <span class="math inline">\(M\)</span>. In the vertical (<span class="math inline">\(z\)</span>) direction, the disk is held up by a balance between the pressure gradient and the <span class="math inline">\(z\)</span>-component of the gravitational force exerted by the central object.</p>
+<ol type="1">
+<li><p>Write down the equation of hydrostatic equilibrium in the <span class="math inline">\(z\)</span>-direction.</p></li>
+<li><p>Suppose that the density profile is <span class="math inline">\(\rho (z) \propto (z_m^2 - z^2)^2\)</span>. Determine the corresponding pressure profile and the polytropic index <span class="math inline">\(n\)</span> of the disk.</p></li>
+<li><p>Is the disk stable against convection if it consists of ionized hydrogen?</p></li>
+</ol>
+<p>Adapted from <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Problem 40.</p>
+</div>
+</section>
+<section id="sec-conv-reading" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="sec-conv-reading"><span class="header-section-number">15.3</span> Further reading</h2>
+<ul>
+<li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Chapter 10 (fluid instabilities).</li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-clarke2007" class="csl-entry" role="listitem">
+Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dynamics</em>. Cambridge University Press.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

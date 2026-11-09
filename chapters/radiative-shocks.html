@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -95,6 +114,35 @@ ul.task-list li input[type="checkbox"] {
   };
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -465,7 +513,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magnetohydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magneto­hydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
       <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
@@ -525,8 +573,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#sec-radshock-exercises" id="toc-sec-radshock-exercises" class="nav-link active" data-scroll-target="#sec-radshock-exercises"><span class="header-section-number">12.1</span> Exercises</a></li>
+  <li><a href="#sec-radshock-reading" id="toc-sec-radshock-reading" class="nav-link" data-scroll-target="#sec-radshock-reading"><span class="header-section-number">12.2</span> Further reading</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
@@ -564,8 +619,32 @@ Note
 <p>This chapter is in preparation.</p>
 </div>
 </div>
+<section id="sec-radshock-exercises" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="sec-radshock-exercises"><span class="header-section-number">12.1</span> Exercises</h2>
+<div id="exr-radshock-colliding-clouds" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12.1 (Colliding clouds)</strong></span> Two identical clouds, each of radius <span class="math inline">\(3 \times 10^{18} \operatorname{cm}\)</span> and temperature <span class="math inline">\(10\mathrm{K}\)</span>, collide with each other at a relative velocity of <span class="math inline">\(4 \times 10^5 \operatorname{cm} \mathrm{s}^{- 1}\)</span>.</p>
+<ol type="1">
+<li><p><em>Estimate</em> the time <span class="math inline">\(t_{\operatorname{coll}}\)</span> that each cloud needs to run entirely into the shock.</p></li>
+<li><p>The shocked gas cools at a rate <span class="math inline">\(\dot{Q} = 10^{- 3} \operatorname{erg} \cdot \mathrm{s}^{- 1} \cdot \mathrm{g}^{- 1}\)</span>. Decide whether the shock is approximately adiabatic or isothermal.</p></li>
+<li><p>Suppose the collision produces an isothermal shock. How thick is the shocked layer, <span class="math inline">\(x\)</span>, at the moment when the whole of each cloud has been shocked?</p></li>
+<li><p>At later times the layer settles into a structure that can be approximated by a hydrostatic isothermal slab with column density <span class="math inline">\(10^{- 2} \mathrm{g} \operatorname{cm}^{- 2}\)</span>. In this hydrostatic structure, what fraction of the clouds’ mass lies within the thickness <span class="math inline">\(x\)</span>? Neglect edge effects and variations of the column density across the plane of the slab. <span class="citation" data-cites="clarke2007">(Hint. The density profile of an isothermal slab is given in <a href="#ref-clarke2007" role="doc-biblioref">Clarke and Carswell 2007, sec. 5.2</a>.)</span></p></li>
+</ol>
+<p>Adapted from <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Problem 24.</p>
+</div>
+</section>
+<section id="sec-radshock-reading" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="sec-radshock-reading"><span class="header-section-number">12.2</span> Further reading</h2>
+<ul>
+<li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Chapter 7 (supersonic flows).</li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-clarke2007" class="csl-entry" role="listitem">
+Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dynamics</em>. Cambridge University Press.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

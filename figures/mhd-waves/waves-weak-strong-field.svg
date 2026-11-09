@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" width="720" height="300" role="img" aria-labelledby="lim-t lim-d">
+<title id="lim-t">Slow and fast magnetosonic waves for weak and strong fields</title>
+<desc id="lim-d">Two panels with axes x up, z right and y to the lower left, B0 along z and k in the xz-plane at 45 degrees from z. Left, weak field (c_s much larger than v_A): the fast displacement lies close to k, slightly steeper, and the slow displacement points up and to the left, nearly perpendicular to k. Right, strong field (v_A much larger than c_s): the fast displacement is close to the x axis, almost perpendicular to B0, and the slow displacement is nearly parallel to B0. In both panels the Alfvén displacement points along y.</desc>
+<defs><marker id="ah-k" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#000" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker></defs>
+<rect width="720" height="300" fill="#fff"/>
+<g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif">
+<text x="185" y="28" text-anchor="middle" font-size="20" font-style="italic" font-weight="normal" fill="#000">c<tspan dy="5.0" font-size="14.4" font-style="normal">s</tspan><tspan dy="-5"> ≫ v</tspan><tspan dy="5" font-size="14.4" font-style="normal">A</tspan></text>
+<line x1="130.0" y1="40.0" x2="130.0" y2="220.0" stroke="#000" stroke-width="1.5"/>
+<line x1="85.0" y1="175.0" x2="320.0" y2="175.0" stroke="#000" stroke-width="1.5"/>
+<line x1="130.0" y1="175.0" x2="84.0" y2="244.0" stroke="#000" stroke-width="1.5"/>
+<text x="142" y="52" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">x</text>
+<text x="324" y="197" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">z</text>
+<text x="78.0" y="264.0" text-anchor="end" font-size="20" font-style="italic" font-weight="normal" fill="#000">y</text>
+<line x1="130.0" y1="175.0" x2="270.0" y2="175.0" stroke="#000" stroke-width="3.0" marker-end="url(#ah-k)"/>
+<text x="248" y="161" text-anchor="start" font-size="22" font-style="normal" font-weight="bold" fill="#000">B<tspan dy="5.0" font-size="15.8" font-style="normal">0</tspan></text>
+<line x1="130.0" y1="175.0" x2="179.5" y2="125.5" stroke="#000" stroke-width="3.0" marker-end="url(#ah-k)"/>
+<text x="189.49747468305833" y="135.50252531694167" text-anchor="start" font-size="22" font-style="normal" font-weight="bold" fill="#000">k</text>
+<line x1="130.0" y1="175.0" x2="181.6" y2="77.9" stroke="#000" stroke-width="3.0" marker-end="url(#ah-k)"/>
+<text x="191.641871906448" y="81.87576478551804" text-anchor="start" font-size="22" font-style="normal" font-weight="bold" fill="#000">ξ<tspan dy="5.0" font-size="15.8" font-style="normal">f</tspan></text>
+<line x1="130.0" y1="175.0" x2="56.4" y2="132.5" stroke="#000" stroke-width="3.0" marker-end="url(#ah-k)"/>
+<text x="46.3878406783227" y="128.5" text-anchor="end" font-size="22" font-style="normal" font-weight="bold" fill="#000">ξ<tspan dy="5.0" font-size="15.8" font-style="normal">s</tspan></text>
+<line x1="130.0" y1="175.0" x2="92.8" y2="224.6" stroke="#000" stroke-width="3.0" marker-end="url(#ah-k)"/>
+<text x="96.79991139377492" y="246.59993354520753" text-anchor="start" font-size="22" font-style="normal" font-weight="bold" fill="#000">ξ<tspan dy="5.0" font-size="15.8" font-style="normal">A</tspan></text>
+<text x="545" y="28" text-anchor="middle" font-size="20" font-style="italic" font-weight="normal" fill="#000">v<tspan dy="5.0" font-size="14.4" font-style="normal">A</tspan><tspan dy="-5"> ≫ c</tspan><tspan dy="5" font-size="14.4" font-style="normal">s</tspan></text>
+<line x1="490.0" y1="40.0" x2="490.0" y2="220.0" stroke="#000" stroke-width="1.5"/>
+<line x1="445.0" y1="175.0" x2="680.0" y2="175.0" stroke="#000" stroke-width="1.5"/>
+<line x1="490.0" y1="175.0" x2="444.0" y2="244.0" stroke="#000" stroke-width="1.5"/>
+<text x="502" y="52" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">x</text>
+<text x="684" y="197" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">z</text>
+<text x="438.0" y="264.0" text-anchor="end" font-size="20" font-style="italic" font-weight="normal" fill="#000">y</text>
+<line x1="490.0" y1="175.0" x2="630.0" y2="175.0" stroke="#000" stroke-width="3.0" marker-end="url(#ah-k)"/>
+<text x="608" y="161" text-anchor="start" font-size="22" font-style="normal" font-weight="bold" fill="#000">B<tspan dy="5.0" font-size="15.8" font-style="normal">0</tspan></text>
+<line x1="490.0" y1="175.0" x2="539.5" y2="125.5" stroke="#000" stroke-width="3.0" marker-end="url(#ah-k)"/>
+<text x="549.4974746830583" y="135.50252531694167" text-anchor="start" font-size="22" font-style="normal" font-weight="bold" fill="#000">k</text>
+<line x1="490.0" y1="175.0" x2="509.1" y2="66.7" stroke="#000" stroke-width="3.0" marker-end="url(#ah-k)"/>
+<text x="519.1012995433623" y="70.67114716865711" text-anchor="start" font-size="22" font-style="normal" font-weight="bold" fill="#000">ξ<tspan dy="5.0" font-size="15.8" font-style="normal">f</tspan></text>
+<line x1="490.0" y1="175.0" x2="574.0" y2="188.3" stroke="#000" stroke-width="3.0" marker-end="url(#ah-k)"/>
+<text x="581.9535089505868" y="214.2969295284196" text-anchor="start" font-size="22" font-style="normal" font-weight="bold" fill="#000">ξ<tspan dy="5.0" font-size="15.8" font-style="normal">s</tspan></text>
+<line x1="490.0" y1="175.0" x2="452.8" y2="224.6" stroke="#000" stroke-width="3.0" marker-end="url(#ah-k)"/>
+<text x="456.7999113937749" y="246.59993354520753" text-anchor="start" font-size="22" font-style="normal" font-weight="bold" fill="#000">ξ<tspan dy="5.0" font-size="15.8" font-style="normal">A</tspan></text>
+</g>
+</svg>

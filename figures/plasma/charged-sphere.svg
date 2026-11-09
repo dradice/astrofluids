@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="300" viewBox="0 0 420 300">
+<title>Force on an electron outside a charged sphere</title>
+<desc>A grey sphere labelled q, with an electron e located up and to the left of it and an arrow F pointing from the electron towards the sphere.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#000" stroke-width="1.6"/></marker></defs>
+<rect width="420" height="300" fill="#fff"/>
+<circle cx="270" cy="170" r="105" fill="#ddd" stroke="#000" stroke-width="1.5"/>
+<g font-family="serif" font-size="20" fill="#000">
+<text x="262" y="182" font-style="italic">q</text>
+<text x="38" y="30" font-style="italic">e</text>
+<text x="40" y="100" font-weight="bold">F</text>
+</g>
+<circle cx="50" cy="45" r="3.5" fill="#000"/>
+<path d="M52 47 L125 95" stroke="#000" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+</svg>

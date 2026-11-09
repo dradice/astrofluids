@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -95,6 +114,35 @@ ul.task-list li input[type="checkbox"] {
   };
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -277,7 +325,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/plasma.html">Plasma and Magnetohydrodynamics</a></li><li class="breadcrumb-item"><a href="../chapters/mhd-waves.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">MHD Waves</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/plasma.html">Plasma and Magneto­hydrodynamics</a></li><li class="breadcrumb-item"><a href="../chapters/mhd-waves.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">MHD Waves</span></a></li></ol></nav>
         <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -465,7 +513,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magnetohydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magneto­hydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
       <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
@@ -525,14 +573,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#waves-in-a-homogeneous-plasma" id="toc-waves-in-a-homogeneous-plasma" class="nav-link active" data-scroll-target="#waves-in-a-homogeneous-plasma"><span class="header-section-number">26.1</span> Waves in a Homogeneous Plasma</a></li>
+  <li><a href="#families-of-mhd-waves" id="toc-families-of-mhd-waves" class="nav-link" data-scroll-target="#families-of-mhd-waves"><span class="header-section-number">26.2</span> Families of MHD Waves</a></li>
+  <li><a href="#effect-of-propagation-direction" id="toc-effect-of-propagation-direction" class="nav-link" data-scroll-target="#effect-of-propagation-direction"><span class="header-section-number">26.3</span> Effect of Propagation Direction</a></li>
+  <li><a href="#weak-and-strong-field-limits" id="toc-weak-and-strong-field-limits" class="nav-link" data-scroll-target="#weak-and-strong-field-limits"><span class="header-section-number">26.4</span> Weak and Strong Field Limits</a></li>
+  <li><a href="#shock-waves" id="toc-shock-waves" class="nav-link" data-scroll-target="#shock-waves"><span class="header-section-number">26.5</span> Shock Waves</a></li>
+  <li><a href="#sec-mhdwaves-worksheet" id="toc-sec-mhdwaves-worksheet" class="nav-link" data-scroll-target="#sec-mhdwaves-worksheet"><span class="header-section-number">26.6</span> In-class worksheet</a></li>
+  <li><a href="#sec-mhdwaves-exercises" id="toc-sec-mhdwaves-exercises" class="nav-link" data-scroll-target="#sec-mhdwaves-exercises"><span class="header-section-number">26.7</span> Exercises</a></li>
+  <li><a href="#sec-mhdwaves-reading" id="toc-sec-mhdwaves-reading" class="nav-link" data-scroll-target="#sec-mhdwaves-reading"><span class="header-section-number">26.8</span> Further reading</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/plasma.html">Plasma and Magnetohydrodynamics</a></li><li class="breadcrumb-item"><a href="../chapters/mhd-waves.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">MHD Waves</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/plasma.html">Plasma and Magneto­hydrodynamics</a></li><li class="breadcrumb-item"><a href="../chapters/mhd-waves.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">MHD Waves</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-mhdwaves" class="quarto-section-identifier"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">MHD Waves</span></span></h1>
 </div>
@@ -551,21 +612,342 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>Waves play a very important role in the dynamics of magnetized plasmas. Particle-wave interaction with the interstellar medium regulates the propagation of cosmic rays in the galaxy. In strong MHD turbulence, the non-linear interaction between Alfvén waves acts as the main driver of the turbulence cascade. Torsional Alfvén waves extract angular momentum from proto-stellar cores allowing them to collapse and form stars. These are just a few examples. In these notes, we discuss the phenomenology of waves in compressible MHD.</p>
+<section id="waves-in-a-homogeneous-plasma" class="level2" data-number="26.1">
+<h2 data-number="26.1" class="anchored" data-anchor-id="waves-in-a-homogeneous-plasma"><span class="header-section-number">26.1</span> Waves in a Homogeneous Plasma</h2>
+<p>We consider a homogeneous plasma described by the ideal-MHD equations with <span id="eq-mhdwaves-1"><span class="math display">\[
+\rho_0 = \operatorname{const}, \qquad \mathbf{v}_0 = 0, \qquad \mathbf{B}_0 = B_0
+\hat{\mathbf{z}} .
+\tag{26.1}\]</span></span> We proceed in the same way as when we derived the dispersion relation for sound waves in unmagnetized media (<a href="sound-waves.html" class="quarto-xref"><span>Chapter 9</span></a>). However, as we will see shortly, the phenomenology of MHD waves is significantly more complex than that of sound waves. As before, we introduce a perturbation with a Lagrangian displacement <span class="math inline">\(\boldsymbol{\xi}\)</span>, shown in <a href="#fig-mhdwaves-lagrangian" class="quarto-xref">Figure&nbsp;<span>26.1</span></a>.</p>
+<div id="fig-mhdwaves-lagrangian" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A small square fluid element at position x, where a quantity has the value q, is displaced by the vector xi, drawn as a curved arrow, to the position x plus xi, where the quantity has the value q plus delta q. The Eulerian perturbation at x is q prime of x equals delta q minus xi dot nabla q.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mhdwaves-lagrangian-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/mhd-waves/waves-lagrangian-displacement.svg" class="img-fluid figure-img" alt="A small square fluid element at position x, where a quantity has the value q, is displaced by the vector xi, drawn as a curved arrow, to the position x plus xi, where the quantity has the value q plus delta q. The Eulerian perturbation at x is q prime of x equals delta q minus xi dot nabla q.">
 </div>
-<div class="callout-title-container flex-fill">
-Note
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mhdwaves-lagrangian-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;26.1: Lagrangian displacement of a fluid element from position <span class="math inline">\(\mathbf{x}\)</span> to position <span class="math inline">\(\mathbf{x}+\boldsymbol{\xi}\)</span>.
+</figcaption>
+</figure>
 </div>
+<p>The pressure and density perturbations in the Lagrangian frame are <span id="eq-mhdwaves-2"><span class="math display">\[
+\delta \rho = - \rho_0 \nabla \cdot \boldsymbol{\xi}, \qquad \delta p =
+\frac{\Gamma p_0}{\rho_0} \delta \rho = - \Gamma p_0 \nabla \cdot
+\boldsymbol{\xi}.
+\tag{26.2}\]</span></span> The magnetic field perturbations can be computed from the linearized induction equation: <span id="eq-mhdwaves-3"><span class="math display">\[
+\frac{\partial \delta \mathbf{B}}{\partial t} = \nabla \times \left(
+\frac{\partial \boldsymbol{\xi}}{\partial t} \times \mathbf{B}_0 \right)
+\Longrightarrow \delta \mathbf{B}= \nabla \times (\boldsymbol{\xi} \times
+\mathbf{B}_0) .
+\tag{26.3}\]</span></span> The linearized momentum equation becomes (note that the unperturbed current vanishes <span class="math inline">\(\mathbf{j}_0 = 0\)</span>): <span id="eq-mhdwaves-4"><span class="math display">\[
+\rho \frac{\mathrm{d} \mathbf{v}}{\mathrm{d} t} = - \nabla p +\mathbf{j} \times
+\mathbf{B} \Longrightarrow \rho_0  \frac{\partial^2 \boldsymbol{\xi}}{\partial
+t^2} = - \nabla \delta p + \delta \mathbf{j} \times \mathbf{B}_0 .
+\tag{26.4}\]</span></span> The perturbed current is <span id="eq-mhdwaves-5"><span class="math display">\[
+\delta \mathbf{j}= \frac{1}{4 \pi} \nabla \times \delta \mathbf{B}=
+\frac{1}{4 \pi} \nabla \times [\nabla \times (\boldsymbol{\xi} \times
+\mathbf{B}_0)],
+\tag{26.5}\]</span></span> so putting everything together we get the oscillation equation <span id="eq-mhdwaves-6"><span class="math display">\[
+\boxed{
+\begin{aligned}
+\rho_0  \frac{\partial^2 \boldsymbol{\xi}}{\partial t^2} = {} &amp; \Gamma p_0
+\nabla (\nabla \cdot \boldsymbol{\xi}) \\
+&amp; + \frac{1}{4 \pi} \{ \nabla \times
+[\nabla \times (\boldsymbol{\xi} \times \mathbf{B}_0)] \} \times \mathbf{B}_0 .
+\end{aligned}}
+\tag{26.6}\]</span></span> Of course, if <span class="math inline">\(\mathbf{B}_0\)</span>=0, this equation reduces to the equation for sound waves. All the new physics is in the last term on the RHS. To derive a dispersion relation, we take the usual ansatz <span id="eq-mhdwaves-7"><span class="math display">\[
+\boldsymbol{\xi} (t, \mathbf{x}) =\boldsymbol{\xi}_1 e^{\mathrm{i} (\mathbf{k} \cdot
+\mathbf{x}- \omega t)},
+\tag{26.7}\]</span></span> which we plug into the oscillation equation. This yields <span id="eq-mhdwaves-8"><span class="math display">\[
+\begin{aligned}
+- \rho_0 \omega^2 \boldsymbol{\xi}_1 = {} &amp; - \Gamma p_0 \mathbf{k} (\mathbf{k} \cdot
+\boldsymbol{\xi}_1) \\
+&amp; - \frac{1}{4 \pi}  \{ \mathbf{k} \times [\mathbf{k} \times
+(\boldsymbol{\xi}_1 \times \mathbf{B}_0)] \} \times \mathbf{B}_0 .
+\end{aligned}
+\tag{26.8}\]</span></span> As expected from the general perturbation theory, the oscillation equation give rise to an eigenvalue problem in the form <span id="eq-mhdwaves-eigenvalue-problem"><span class="math display">\[
+- \rho_0 \omega^2 \boldsymbol{\xi}_1 =\mathbf{F} (\mathbf{k}) \boldsymbol{\xi}_1,
+\tag{26.9}\]</span></span> where <span class="math inline">\(\mathbf{F} (\mathbf{k})\)</span> is a matrix. This equation has solutions with <span class="math inline">\(\boldsymbol{\xi}_1 \neq 0\)</span> if and only if <span id="eq-mhdwaves-10"><span class="math display">\[
+\det [\mathbf{F} (\mathbf{k}) + \rho_0 \omega^2 \mathbf{I}] = 0.
+\tag{26.10}\]</span></span> The last equation is defines the dispersion relation <span class="math inline">\(\omega = \omega (\mathbf{k})\)</span>. The eigenvectors of <span class="math inline">\(\mathbf{F} (\mathbf{k})\)</span> define the polarization vector <span class="math inline">\(\boldsymbol{\xi}_1\)</span> of the wave.</p>
+</section>
+<section id="families-of-mhd-waves" class="level2" data-number="26.2">
+<h2 data-number="26.2" class="anchored" data-anchor-id="families-of-mhd-waves"><span class="header-section-number">26.2</span> Families of MHD Waves</h2>
+<p>In general, there are three solutions to the eigenvalue problem <a href="#eq-mhdwaves-eigenvalue-problem" class="quarto-xref">Equation&nbsp;<span>26.9</span></a>, corresponding to three different modes. In the unmagnetized case, the three modes are degenerate (in a uniform medium), so we find only sound waves. In the magnetized case, there are always three types of waves: Alfvén waves, slow-, and fast-magnetosonic waves. We consider these separately below.</p>
+<section id="alfvén-waves" class="level3" data-number="26.2.1">
+<h3 data-number="26.2.1" class="anchored" data-anchor-id="alfvén-waves"><span class="header-section-number">26.2.1</span> Alfvén Waves</h3>
+<p>We consider at first the situation depicted in <a href="#fig-mhdwaves-alfven-geometry" class="quarto-xref">Figure&nbsp;<span>26.2</span></a>:</p>
+<ul>
+<li><p><span class="math inline">\(\mathbf{B}_0\)</span> is along <span class="math inline">\(z\)</span></p></li>
+<li><p><span class="math inline">\(\mathbf{k}\)</span> is in the <span class="math inline">\(x z\)</span>-plane</p></li>
+<li><p><span class="math inline">\(\boldsymbol{\xi}\)</span> is along <span class="math inline">\(y\)</span></p></li>
+</ul>
+<p>Note that <span class="math inline">\(\mathbf{k} \cdot \boldsymbol{\xi}= 0\)</span>, meaning that <span class="math inline">\(\delta \rho = \delta p = 0\)</span>.</p>
+<div id="fig-mhdwaves-alfven-geometry" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Axes: x up, z to the right, y towards the lower left. The background field B0 lies along z. The wave vector k lies in the xz-plane at an angle theta from z; the unit vector k-perp is perpendicular to k in the same plane. The displacement xi points along y, perpendicular to both k and B0.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mhdwaves-alfven-geometry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/mhd-waves/waves-alfven-geometry.svg" class="img-fluid figure-img" alt="Axes: x up, z to the right, y towards the lower left. The background field B0 lies along z. The wave vector k lies in the xz-plane at an angle theta from z; the unit vector k-perp is perpendicular to k in the same plane. The displacement xi points along y, perpendicular to both k and B0.">
 </div>
-<div class="callout-body-container callout-body">
-<p>This chapter is being ported from the 2025 lecture notes.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mhdwaves-alfven-geometry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;26.2: Geometry of the Alfvén wave: <span class="math inline">\(\mathbf{B}_0\)</span> along <span class="math inline">\(z\)</span>, <span class="math inline">\(\mathbf{k}\)</span> in the <span class="math inline">\(xz\)</span>-plane at an angle <span class="math inline">\(\theta\)</span> from <span class="math inline">\(\mathbf{B}_0\)</span>, and displacement <span class="math inline">\(\boldsymbol{\xi}\)</span> along <span class="math inline">\(y\)</span>.
+</figcaption>
+</figure>
 </div>
+<p>To compute the Lorentz force we proceed as follows. First we note that <span id="eq-mhdwaves-11"><span class="math display">\[
+\boldsymbol{\xi} \times \mathbf{B}_0 {= \xi_y}  B_0  \hat{\mathbf{x}} .
+\tag{26.11}\]</span></span> Next, we compute the magnetic field perturbation as <span id="eq-mhdwaves-12"><span class="math display">\[
+\mathbf{k} \times (\boldsymbol{\xi} \times \mathbf{B}_0) = k \xi_y B_0 \cos
+\theta \hat{\mathbf{y}} = \delta \mathbf{B}.
+\tag{26.12}\]</span></span> The current is given by <span id="eq-mhdwaves-13"><span class="math display">\[
+\mathbf{k} \times [\mathbf{k} \times (\boldsymbol{\xi} \times \mathbf{B}_0)] = -
+k^2 \xi_y B_0 \cos \theta \hat{\mathbf{k}}_{\perp} = 4 \pi \delta
+\mathbf{j}.
+\tag{26.13}\]</span></span> Finally, the Lorentz force is <span id="eq-mhdwaves-14"><span class="math display">\[
+4 \pi \delta \mathbf{j} \times \mathbf{B}_0 = k^2 B_0^2 \cos^2 \theta \xi_y
+\hat{\mathbf{y}} = (\mathbf{k} \cdot \mathbf{B}_0)^2 \boldsymbol{\xi}.
+\tag{26.14}\]</span></span> So <span class="math inline">\(\boldsymbol{\xi}\)</span> evolves as a mass attached to an elastic spring with spring constant <span class="math inline">\((\mathbf{k} \cdot \mathbf{B}_0)^2\)</span>. In formulas, <span id="eq-mhdwaves-15"><span class="math display">\[
+\begin{aligned}
+- \rho_0 \omega^2 \xi_y &amp;= \tfrac{1}{4 \pi} k^2 B_0^2 \cos^2 \theta \xi_y \\
+\Longrightarrow \quad &amp; \boxed{\omega = \pm \frac{B_0}{\sqrt{4 \pi \rho_0}} k
+\cos \theta = kv_A \cos \theta .}
+\end{aligned}
+\tag{26.15}\]</span></span> This type of waves are called Alfvén waves from Alfvén <span class="citation" data-cites="alfven1942">(<a href="#ref-alfven1942" role="doc-biblioref">1942</a>)</span> (Physics Nobel Prize in 1970). Some comments are in order.</p>
+<ol type="1">
+<li><p>If &nbsp;<span class="math inline">\(\theta = 0\)</span>, these waves propagate along the field lines with velocity (Alfvén velocity): <span id="eq-mhdwaves-16"><span class="math display">\[
+v_A = \frac{B_0}{\sqrt{4 \pi \rho_0}} .
+\tag{26.16}\]</span></span> If <span class="math inline">\(\theta &gt; 0\)</span>, the waves can still propagate (as long as <span class="math inline">\(\theta \neq 90^{\circ}\)</span> or <span class="math inline">\(270^{\circ}\)</span>), but at a reduced speed.</p></li>
+<li><p>The displacement <span class="math inline">\(\boldsymbol{\xi}\)</span> is perpendicular to the background field <span class="math inline">\(\mathbf{B}_0\)</span>, so these waves are transverse. More precisely, Alfvén waves behave as transverse waves in an elastic string (the magnetic field). Indeed, the restoring force for these waves is magnetic tension.</p></li>
+<li><p>As already mentioned <span class="math inline">\(\delta \rho = \delta p = 0\)</span> for these waves. As such, Alfvén waves are incompressible and exist also in incompressible flows.</p></li>
+</ol>
+<p>Although we have derived Alfvén waves as small perturbations, it turns out that Alfvén waves are an exact solution to the full non-linear equations. This means that MHD flows can support arbitrarily strong waves.</p>
+</section>
+<section id="magnetosonic-waves" class="level3" data-number="26.2.2">
+<h3 data-number="26.2.2" class="anchored" data-anchor-id="magnetosonic-waves"><span class="header-section-number">26.2.2</span> Magnetosonic Waves</h3>
+<p>We consider at first the situation depicted in <a href="#fig-mhdwaves-magnetosonic-geometry" class="quarto-xref">Figure&nbsp;<span>26.3</span></a>:</p>
+<ul>
+<li><p><span class="math inline">\(\mathbf{B}_0\)</span> is along <span class="math inline">\(z\)</span></p></li>
+<li><p><span class="math inline">\(\mathbf{k}\)</span> is in the <span class="math inline">\(x z\)</span>-plane</p></li>
+<li><p><span class="math inline">\(\boldsymbol{\xi}\)</span> is also in the <span class="math inline">\(x z\)</span>-plane</p></li>
+</ul>
+<p>Note that <span class="math inline">\(\delta p, \delta \rho\)</span> are no longer necessarily zero.</p>
+<div id="fig-mhdwaves-magnetosonic-geometry" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Same axes as for the Alfvén wave: x up, z to the right, y towards the lower left, B0 along z, k in the xz-plane at an angle theta from z and k-perp perpendicular to it. The displacement xi now lies in the xz-plane, pointing slightly below the z axis.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mhdwaves-magnetosonic-geometry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/mhd-waves/waves-magnetosonic-geometry.svg" class="img-fluid figure-img" alt="Same axes as for the Alfvén wave: x up, z to the right, y towards the lower left, B0 along z, k in the xz-plane at an angle theta from z and k-perp perpendicular to it. The displacement xi now lies in the xz-plane, pointing slightly below the z axis.">
 </div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mhdwaves-magnetosonic-geometry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;26.3: Geometry of the magnetosonic wave: <span class="math inline">\(\mathbf{B}_0\)</span> along <span class="math inline">\(z\)</span>, <span class="math inline">\(\mathbf{k}\)</span> in the <span class="math inline">\(xz\)</span>-plane at an angle <span class="math inline">\(\theta\)</span> from <span class="math inline">\(\mathbf{B}_0\)</span>, and displacement <span class="math inline">\(\boldsymbol{\xi}\)</span> also in the <span class="math inline">\(xz\)</span>-plane.
+</figcaption>
+</figure>
+</div>
+<p>We can compute the current using the following vector identity <span id="eq-mhdwaves-17"><span class="math display">\[
+\mathbf{a} \times (\mathbf{b} \times \mathbf{c}) =\mathbf{b} (\mathbf{a}
+\cdot \mathbf{c}) -\mathbf{c} (\mathbf{a} \cdot \mathbf{b})
+\tag{26.17}\]</span></span> and the fact that <span class="math inline">\(\mathbf{k} \perp \boldsymbol{\xi} \times \mathbf{B}_0\)</span>, since the latter is in the <span class="math inline">\(y\)</span>-direction, we can write <span id="eq-mhdwaves-18"><span class="math display">\[
+\mathbf{k} \times [\mathbf{k} \times (\boldsymbol{\xi} \times \mathbf{B}_0)]
+=\mathbf{k} [\mathbf{k} \cdot (\boldsymbol{\xi} \times \mathbf{B}_0)] - k^2
+(\boldsymbol{\xi} \times \mathbf{B}_0) = - k^2 (\boldsymbol{\xi} \times
+\mathbf{B}_0) .
+\tag{26.18}\]</span></span> Plugging this into the expression for the Lorentz force gives <span id="eq-mhdwaves-19"><span class="math display">\[
+\delta \mathbf{j} \times \mathbf{B}_0 = \frac{1}{4 \pi}  \{ \mathbf{k}
+\times [\mathbf{k} \times (\boldsymbol{\xi} \times \mathbf{B}_0)] \} \times
+\mathbf{B}_0 = - \frac{k^2}{4 \pi}  (\boldsymbol{\xi} \times \mathbf{B}_0)
+\times \mathbf{B}_0 = - \frac{k^2 B_0^2 \xi_x}{4 \pi}  \hat{\mathbf{x}} .
+\tag{26.19}\]</span></span> The pressure force is <span id="eq-mhdwaves-20"><span class="math display">\[
+- \Gamma p_0 \mathbf{k} (\mathbf{k} \cdot \boldsymbol{\xi}) = - k^2 \Gamma p_0
+(\xi_x \sin \theta + \xi_z \cos \theta)  (\sin \theta \hat{\mathbf{x}} +
+\cos \theta \hat{\mathbf{z}}) .
+\tag{26.20}\]</span></span> Using <span class="math inline">\(c_s^2 = \Gamma p_0 / \rho_0\)</span> and <span class="math inline">\(v_A = B_0 / \sqrt{4 \pi \rho_0}\)</span>, we find <span id="eq-mhdwaves-eigenvalue-magnetosonic"><span class="math display">\[
+\omega^2  \left(\begin{array}{c}
+\xi_x\\
+\xi_z
+\end{array}\right) = k^2 \left(\begin{array}{cc}
+c_s^2 \sin^2 \theta + v_A^2 &amp; c_s^2 \sin \theta \cos \theta\\
+c_s^2 \sin \theta \cos \theta &amp; c_s^2 \cos^2 \theta
+\end{array}\right) \left(\begin{array}{c}
+\xi_x\\
+\xi_z
+\end{array}\right) .
+\tag{26.21}\]</span></span> The dispersion relation is (after a long calculation): <span id="eq-mhdwaves-22"><span class="math display">\[
+\boxed{
+\begin{aligned}
+\left( \frac{\omega}{k} \right)^2 = {} &amp; \frac{v_A^2 + c_s^2}{2} \\
+&amp; \pm \frac{1}{2} \sqrt{(v_A^2 - c_s^2)^2 + 4 c_s^2 v_A^2 \sin^2 \theta} .
+\end{aligned}}
+\tag{26.22}\]</span></span> So there are two solutions and two corresponding polarization vectors <span class="math inline">\(\boldsymbol{\xi}_s\)</span> and <span class="math inline">\(\boldsymbol{\xi}_f\)</span>. Note that <span class="math inline">\(\boldsymbol{\xi}_s \perp \boldsymbol{\xi}_f\)</span>, since the matrix <span class="math inline">\(\mathbf{F} (\mathbf{k})\)</span> in <a href="#eq-mhdwaves-eigenvalue-magnetosonic" class="quarto-xref">Equation&nbsp;<span>26.21</span></a> is self-adjoint. Conventionally, <span class="math inline">\(\boldsymbol{\xi}_s\)</span> is taken to be the polarization corresponding to the smaller group velocity. This is the so-called slow magnetosonic wave. Conversely, <span class="math inline">\(\boldsymbol{\xi}_f\)</span> is called the fast magnetosonic wave. As we will see shortly, these have a mixed character of sound and magnetic waves.</p>
+</section>
+</section>
+<section id="effect-of-propagation-direction" class="level2" data-number="26.3">
+<h2 data-number="26.3" class="anchored" data-anchor-id="effect-of-propagation-direction"><span class="header-section-number">26.3</span> Effect of Propagation Direction</h2>
+<p>We can get additional insight into the nature of the three modes by considering the properties of waves propagating along the magnetic field lines, or perpendicular to them. The general case will turn out to be intermediate between these two limits.</p>
+<section id="parallel-propagating-waves-theta-0" class="level3" data-number="26.3.1">
+<h3 data-number="26.3.1" class="anchored" data-anchor-id="parallel-propagating-waves-theta-0"><span class="header-section-number">26.3.1</span> Parallel Propagating Waves (<span class="math inline">\(\theta = 0\)</span>)</h3>
+<p>Let us consider the case of waves propagating along the background magnetic field lines, that is <span class="math inline">\(\theta = 0\)</span>. In this case, the dispersion relation for Alfvén, slow, and fast modes are <span id="eq-mhdwaves-23"><span class="math display">\[
+\left( \frac{\omega}{k} \right)^2 = v_A^2, \qquad \left( \frac{\omega}{k}
+\right)^2 = \frac{1}{2}  [v_A^2 + c_s^2 \pm |v_A^2 - c_s^2 |] .
+\tag{26.23}\]</span></span> There are two different cases, depending on whether <span class="math inline">\(v_A &gt; c_s\)</span> or <span class="math inline">\(v_A &lt; c_s\)</span>, shown in <a href="#fig-mhdwaves-parallel" class="quarto-xref">Figure&nbsp;<span>26.4</span></a>.</p>
+<div id="fig-mhdwaves-parallel" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two panels with axes x up, z right and y to the lower left; B0 and k both lie along z. Left, for v_A greater than c_s: the fast mode is polarized along x, the slow mode along z and the Alfvén mode along y, with omega_s squared equal to c_s squared k squared and omega_f squared equal to omega_A squared equal to v_A squared. Right, for v_A less than c_s the fast and slow modes exchange polarizations: the slow mode is along x and the fast mode along z, with omega_f squared equal to c_s squared k squared and omega_s squared equal to omega_A squared equal to v_A squared.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mhdwaves-parallel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/mhd-waves/waves-parallel-polarization.svg" class="img-fluid figure-img" alt="Two panels with axes x up, z right and y to the lower left; B0 and k both lie along z. Left, for v_A greater than c_s: the fast mode is polarized along x, the slow mode along z and the Alfvén mode along y, with omega_s squared equal to c_s squared k squared and omega_f squared equal to omega_A squared equal to v_A squared. Right, for v_A less than c_s the fast and slow modes exchange polarizations: the slow mode is along x and the fast mode along z, with omega_f squared equal to c_s squared k squared and omega_s squared equal to omega_A squared equal to v_A squared.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mhdwaves-parallel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;26.4: Polarization diagram for MHD waves propagating along the background magnetic field.
+</figcaption>
+</figure>
+</div>
+<ul>
+<li><p>If <span class="math inline">\(v_A &gt; c_s\)</span>, then</p>
+<ul>
+<li><p>The slow mode polarization is along the magnetic field, the mode propagate at speed <span class="math inline">\(c_s\)</span> and its restoring force is pressure.</p></li>
+<li><p>Fast and Alfvén modes are orthogonal to the magnetic field and to each other and both have the character of Alfvén waves propagating with speed <span class="math inline">\(v_A\)</span>. Magnetic tension is their restoring force.</p></li>
+</ul></li>
+<li><p>If <span class="math inline">\(v_A &lt; c_s\)</span>, then the situation is similar as before, but slow and fast mode exchange character: the fast mode is now a sound wave, while the slow mode is an Alfvén wave.</p></li>
+</ul>
+</section>
+<section id="perpendicularly-propagating-waves-theta-90circ" class="level3" data-number="26.3.2">
+<h3 data-number="26.3.2" class="anchored" data-anchor-id="perpendicularly-propagating-waves-theta-90circ"><span class="header-section-number">26.3.2</span> Perpendicularly Propagating Waves (<span class="math inline">\(\theta = 90^{\circ}\)</span>)</h3>
+<p>Let us consider the case of waves propagating perpendicular to the field lines. In this case, Alfvén and slow modes cannot propagate (they have <span class="math inline">\(\omega_{A, s} = 0\)</span>). The fast-magnetosonic wave satisfies the dispersion relation <span id="eq-mhdwaves-24"><span class="math display">\[
+\left( \frac{\omega}{k} \right)^2 = v_A^2 + c_s^2 .
+\tag{26.24}\]</span></span> In this case <span class="math inline">\(\boldsymbol{\xi}_f\)</span> is parallel to <span class="math inline">\(\mathbf{k}\)</span>. The restoring force for the mode is the sum of both magnetic tension and pressure, which explains why this mode is called the “magnetosonic” mode.</p>
+</section>
+<section id="friedrichs-diagrams" class="level3" data-number="26.3.3">
+<h3 data-number="26.3.3" class="anchored" data-anchor-id="friedrichs-diagrams"><span class="header-section-number">26.3.3</span> Friedrichs Diagrams</h3>
+<p>Friedrichs diagrams show the propagation velocity of the different MHD modes as a function of a generic propagation angle <span class="math inline">\(\theta\)</span>. The special cases of <span class="math inline">\(\theta = 0, 90^{\circ}\)</span> discussed above correspond to the <span class="math inline">\(x\)</span>- and <span class="math inline">\(y\)</span>-axis in <a href="#fig-mhdwaves-friedrichs" class="quarto-xref">Figure&nbsp;<span>26.5</span></a>. In general, slow and fast modes have a mixed character between sound waves and Alfvén waves.</p>
+<div id="fig-mhdwaves-friedrichs" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two polar plots of the phase speeds of the slow (solid), Alfvén (dashed) and fast (dotted) modes as a function of the angle from the magnetic field (0 degrees to the right). Left, v_A greater than c_s: the fast mode is almost circular with radius about 2.2, the Alfvén mode is a pair of lobes reaching 2 along the field and the slow mode a pair of smaller lobes reaching 1. Right, v_A less than c_s: the fast mode is again almost circular, and the Alfvén and slow modes are two nearly identical lobes reaching 1 along the field.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mhdwaves-friedrichs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/mhd-waves/waves-friedrichs-diagrams.svg" class="img-fluid figure-img" alt="Two polar plots of the phase speeds of the slow (solid), Alfvén (dashed) and fast (dotted) modes as a function of the angle from the magnetic field (0 degrees to the right). Left, v_A greater than c_s: the fast mode is almost circular with radius about 2.2, the Alfvén mode is a pair of lobes reaching 2 along the field and the slow mode a pair of smaller lobes reaching 1. Right, v_A less than c_s: the fast mode is again almost circular, and the Alfvén and slow modes are two nearly identical lobes reaching 1 along the field.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mhdwaves-friedrichs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;26.5: Friedrichs Diagrams for ideal-MHD.
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="weak-and-strong-field-limits" class="level2" data-number="26.4">
+<h2 data-number="26.4" class="anchored" data-anchor-id="weak-and-strong-field-limits"><span class="header-section-number">26.4</span> Weak and Strong Field Limits</h2>
+<p>Finally, it is also instructive to compare slow- and fast-magnetosonic waves in the limits of weak magnetic field (<span class="math inline">\(c_s \gg v_A\)</span>) and strong magnetic field <span class="math inline">\((v_A \gg c_s)\)</span>, as illustrated in <a href="#fig-mhdwaves-limits" class="quarto-xref">Figure&nbsp;<span>26.6</span></a>. Note that when <span class="math inline">\(v_A\)</span> becomes a sizable fraction of the speed of light, we can no longer use Newtonian MHD, because the displacement current becomes important. In this limit, one needs to use the (significantly more complex) equations of relativistic magnetohydrodynamics.</p>
+<div id="fig-mhdwaves-limits" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two panels with axes x up, z right and y to the lower left, B0 along z and k in the xz-plane at 45 degrees from z. Left, weak field (c_s much larger than v_A): the fast displacement lies close to k, slightly steeper, and the slow displacement points up and to the left, nearly perpendicular to k. Right, strong field (v_A much larger than c_s): the fast displacement is close to the x axis, almost perpendicular to B0, and the slow displacement is nearly parallel to B0. In both panels the Alfvén displacement points along y.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mhdwaves-limits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/mhd-waves/waves-weak-strong-field.svg" class="img-fluid figure-img" alt="Two panels with axes x up, z right and y to the lower left, B0 along z and k in the xz-plane at 45 degrees from z. Left, weak field (c_s much larger than v_A): the fast displacement lies close to k, slightly steeper, and the slow displacement points up and to the left, nearly perpendicular to k. Right, strong field (v_A much larger than c_s): the fast displacement is close to the x axis, almost perpendicular to B0, and the slow displacement is nearly parallel to B0. In both panels the Alfvén displacement points along y.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mhdwaves-limits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;26.6: Slow and fast magnetosonic waves in the limits of weak (<em>left panel</em>) and strong (<em>right panel</em>) magnetic fields.
+</figcaption>
+</figure>
+</div>
+<ul>
+<li><p><em>Left panel:</em> the fast mode is <span class="math inline">\(\sim\)</span> a sound wave and the slow mode is nearly perpendicular to <span class="math inline">\(\mathbf{k}\)</span>.</p></li>
+<li><p><em>Right panel:</em> the fast mode is <span class="math inline">\(\sim\)</span> an Alfvén wave and the slow mode is nearly parallel to <span class="math inline">\(\mathbf{B}_0\)</span>.</p></li>
+</ul>
+</section>
+<section id="shock-waves" class="level2" data-number="26.5">
+<h2 data-number="26.5" class="anchored" data-anchor-id="shock-waves"><span class="header-section-number">26.5</span> Shock Waves</h2>
+<p>As for non-magnetized gasses, MHD waves can steepen into shock waves. Alfvén waves can steepen into <em>rotational discontinuities</em>, in which the magnetic field direction suddenly changes across an interface. Slow- and fast-magnetosonic waves can give rise to (slow and fast) shocks and rarefaction waves. The theory of MHD shocks is very complex and beyond the scope of this course. A good overview is given in Bazer and Ericson <span class="citation" data-cites="bazer1959">(<a href="#ref-bazer1959" role="doc-biblioref">1959</a>)</span>. It is important to be aware of that, even in the case of shocks propagating along magnetic field lines, MHD effects can be important. For example, hydrodynamics shocks can split into a slow and a fast shock, separated by a region in which a perpendicular component of the <span class="math inline">\(B\)</span>-field is created. These are sometimes called <em>switch on</em> and <em>switch off</em> discontinuities.</p>
+<p>We treat in detail only one case that is relevant for the interstellar medium: a shock propagating in an isothermal flow with perpendicular magnetic field, as illustrated in <a href="#fig-mhdwaves-shock" class="quarto-xref">Figure&nbsp;<span>26.7</span></a>.</p>
+<div id="fig-mhdwaves-shock" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A vertical line marks the shock. The gas ahead of it (right) has density rho1, velocity u1 and field B1; the gas behind it (left) has density rho2, velocity u2 and field B2. The magnetic field points out of the page on both sides, and the flow u moves leftwards through the shock. The gas is isothermal, p equals a squared rho.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mhdwaves-shock-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/mhd-waves/waves-isothermal-shock.svg" class="img-fluid figure-img" alt="A vertical line marks the shock. The gas ahead of it (right) has density rho1, velocity u1 and field B1; the gas behind it (left) has density rho2, velocity u2 and field B2. The magnetic field points out of the page on both sides, and the flow u moves leftwards through the shock. The gas is isothermal, p equals a squared rho.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mhdwaves-shock-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;26.7: Isothermal shock propagating in a medium with perpendicular magnetic field.
+</figcaption>
+</figure>
+</div>
+<p>The shock conditions for the shock shown in <a href="#fig-mhdwaves-shock" class="quarto-xref">Figure&nbsp;<span>26.7</span></a> are: <span id="eq-mhdwaves-25"><span class="math display">\[
+[\![ \rho u ]\!] = 0, \quad [\![ Bu ]\!] = 0,
+\quad \left[\!\left[ p + \rho u^2 + \frac{B^2}{8 \pi} \right]\!\right]
+= 0,
+\tag{26.25}\]</span></span> where <span class="math inline">\([\![ \cdot ]\!]\)</span> denotes the jump across the shock.</p>
+<p>We remind that, in the absence of a magnetic field, the compression factor of an isothermal shock is <span id="eq-mhdwaves-26"><span class="math display">\[
+\frac{\rho_2}{\rho_1} = \left( \frac{u_1}{a} \right)^2,
+\tag{26.26}\]</span></span> which can become arbitrarily large for large upstream Mach numbers. This is dramatically different when a magnetic field is present, as long as it is sufficiently strong: <span id="eq-mhdwaves-27"><span class="math display">\[
+u_1 \gg v_A = \frac{B_1}{\sqrt{4 \pi \rho_1}} \gg a.
+\tag{26.27}\]</span></span> In this case, from <span class="math inline">\([\![ \rho u ]\!] = [\![ Bu ]\!] = 0\)</span>, we conclude that <span id="eq-mhdwaves-28"><span class="math display">\[
+\frac{B_1}{\rho_1} = \frac{B_2}{\rho_2} .
+\tag{26.28}\]</span></span> From the conservation of momentum, we have (using <span class="math inline">\(u_1 \gg v_{A, 1} \gg a\)</span>) <span id="eq-mhdwaves-29"><span class="math display">\[
+\begin{aligned}
+\frac{\rho_2}{\rho_1} &amp;= \frac{a^2 + u_1^2 + \frac{1}{2} v_A^2}{a^2 + u_2^2 +
+\frac{B_2^2}{8 \pi \rho_2}} \\
+&amp;\approx \frac{u_1^2}{a^2 + u_2^2 +
+\frac{B_2^2}{8 \pi \rho_2^2} \rho_2} \\
+&amp;= \frac{u_1^2}{a^2 + u_2^2 +
+\frac{B_1^2}{8 \pi \rho_1}  \frac{\rho_2}{\rho_1}} \\
+&amp;\approx \frac{u_1^2}{\frac{v_A^2}{2}  \frac{\rho_2}{\rho_1}} .
+\end{aligned}
+\tag{26.29}\]</span></span> Solving for <span class="math inline">\(\rho_2 / \rho_1\)</span>, we obtain <span id="eq-mhdwaves-30"><span class="math display">\[
+\boxed{\frac{\rho_2}{\rho_1} = \sqrt{2}  \frac{u_1}{v_A} .}
+\tag{26.30}\]</span></span> This shows that the compression ratio now scales with the Alfvénic Mach number, instead of the Mach number squared, of the upstream gas. This is another example showing that magnetic fields play an important role in the dynamics of the interstellar medium and in star formation.</p>
+</section>
+<section id="sec-mhdwaves-worksheet" class="level2" data-number="26.6">
+<h2 data-number="26.6" class="anchored" data-anchor-id="sec-mhdwaves-worksheet"><span class="header-section-number">26.6</span> In-class worksheet</h2>
+<p><strong>Fast Magnetosonic Waves.</strong> Consider a homogeneous plasma described by the ideal-MHD equations with <span id="eq-mhdwaves-ws1"><span class="math display">\[
+\rho_0 = \mathrm{const}, \qquad \mathbf{v}_0 = 0, \qquad \mathbf{B}_0 =
+B_0  \hat{\mathbf{z}} .
+\tag{26.31}\]</span></span></p>
+<ol type="1">
+<li><p>Introduce a small perturbation in the form of a displacement <span class="math inline">\(\boldsymbol{\xi} (t, \mathbf{x})\)</span> of the fluid elements and show that the oscillation equation is <span id="eq-mhdwaves-two"><span class="math display">\[
+\begin{aligned}
+&amp; \rho_0  \frac{\partial^2 \boldsymbol{\xi}}{\partial t^2} = \Gamma p_0 \nabla
+(\nabla \cdot \boldsymbol{\xi}) \\
+&amp; \quad + \frac{1}{4 \pi} \{ \nabla \times [\nabla
+\times (\boldsymbol{\xi} \times \mathbf{B}_0)] \} \times \mathbf{B}_0 .
+\end{aligned}
+\tag{26.32}\]</span></span></p></li>
+<li><p>Introduce the ansatz <span class="math inline">\(\boldsymbol{\xi} (t, \mathbf{x}) = e^{\mathrm{i} (\mathbf{k} \cdot \mathbf{x}- \omega t)}\)</span> and show that <a href="#eq-mhdwaves-two" class="quarto-xref">Equation&nbsp;<span>26.32</span></a> reduces to <span id="eq-mhdwaves-ws3"><span class="math display">\[
+\begin{aligned}
+&amp; - \rho_0 \omega^2 \boldsymbol{\xi}_1 = - \Gamma p_0 \mathbf{k} (\mathbf{k}
+\cdot \boldsymbol{\xi}_1) \\
+&amp; \quad - \frac{1}{4 \pi}  \{ \mathbf{k} \times
+[\mathbf{k} \times (\boldsymbol{\xi}_1 \times \mathbf{B}_0)] \} \times
+\mathbf{B}_0 .
+\end{aligned}
+\tag{26.33}\]</span></span> [Hint. Use <span class="math inline">\(\partial_t \rightarrow \mathrm{i} \omega\)</span> and <span class="math inline">\(\nabla \rightarrow \mathrm{i} \mathbf{k}\)</span>.]</p></li>
+<li><p>Consider waves with <span class="math inline">\(\mathbf{k} \parallel \hat{\mathbf{x}}\)</span> and <span class="math inline">\(\boldsymbol{\xi} \parallel \mathbf{k}\)</span>. Find the dispersion relation <span class="math inline">\(\omega = \omega (\mathbf{k})\)</span> and compute group and phase velocities for these waves.</p></li>
+</ol>
+</section>
+<section id="sec-mhdwaves-exercises" class="level2" data-number="26.7">
+<h2 data-number="26.7" class="anchored" data-anchor-id="sec-mhdwaves-exercises"><span class="header-section-number">26.7</span> Exercises</h2>
+<div id="exr-mhdwaves-torsional-alfven" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 26.1 (Torsional Alfvén waves)</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Show that in cylindrical coordinates the toroidal Alfvén wave <span id="eq-mhdwaves-hw1"><span class="math display">\[
+\begin{aligned}
+\mathbf{v} &amp;= \epsilon v_A g (R) f (z - v_A t)  \hat{\boldsymbol{\phi}}, \\
+\mathbf{B} &amp;= B_0  \hat{\mathbf{z}} - \epsilon B_0 g (R) f (z - v_A t)
+\hat{\boldsymbol{\phi}},
+\end{aligned}
+\tag{26.34}\]</span></span> satisfies the ideal-MHD equations to order <span class="math inline">\(\epsilon\)</span>, where <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are arbitrary functions.</p></li>
+<li><p>Consider a region filled with uniform plasma at rest and introduce an infinitely conducting, thin disk of radius <span class="math inline">\(a\)</span> at the origin in the <span class="math inline">\(x y\)</span>-plane. Suddenly the disk starts rotating with the small constant angular velocity <span class="math inline">\(\omega\)</span>. Use the above solution and the condition that the tangential velocity at the disk is continuous to show that at any later time <span class="math inline">\(t\)</span> all the plasma with <span class="math inline">\(R &lt; a\)</span>, <span class="math inline">\(| z | &lt; v_A t\)</span> is rotating with angular velocity <span class="math inline">\(\omega\)</span> and that the rest of the plasma is still at rest.</p></li>
+<li><p>If the disk has surface density <span class="math inline">\(\Sigma\)</span>, how long will it be before it “starts” to slow down?</p></li>
+</ol>
+</div>
+</section>
+<section id="sec-mhdwaves-reading" class="level2" data-number="26.8">
+<h2 data-number="26.8" class="anchored" data-anchor-id="sec-mhdwaves-reading"><span class="header-section-number">26.8</span> Further reading</h2>
+<ul>
+<li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Chapter 13 (plasmas).</li>
+<li><ol class="example" type="1">
+<li></li>
+</ol></li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-alfven1942" class="csl-entry" role="listitem">
+Alfvén, H. 1942. <span>“Existence of Electromagnetic-Hydrodynamic Waves.”</span> <em>Nature</em> 150: 405–6. <a href="https://doi.org/10.1038/150405d0">https://doi.org/10.1038/150405d0</a>.
+</div>
+<div id="ref-bazer1959" class="csl-entry" role="listitem">
+Bazer, J., and W. B. Ericson. 1959. <span>“Hydromagnetic Shocks.”</span> <em>The Astrophysical Journal</em> 129: 758. <a href="https://doi.org/10.1086/146673">https://doi.org/10.1086/146673</a>.
+</div>
+<div id="ref-clarke2007" class="csl-entry" role="listitem">
+Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dynamics</em>. Cambridge University Press.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

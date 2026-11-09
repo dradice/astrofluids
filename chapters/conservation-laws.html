@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -95,6 +114,35 @@ ul.task-list li input[type="checkbox"] {
   };
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -465,7 +513,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magnetohydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magneto­hydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
       <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
@@ -525,8 +573,19 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#momentum-equation-in-conservation-form" id="toc-momentum-equation-in-conservation-form" class="nav-link active" data-scroll-target="#momentum-equation-in-conservation-form"><span class="header-section-number">6.1</span> Momentum equation in conservation form</a></li>
+  <li><a href="#energy-equation" id="toc-energy-equation" class="nav-link" data-scroll-target="#energy-equation"><span class="header-section-number">6.2</span> Energy equation</a></li>
+  <li><a href="#heat-conduction" id="toc-heat-conduction" class="nav-link" data-scroll-target="#heat-conduction"><span class="header-section-number">6.3</span> Heat conduction</a></li>
+  <li><a href="#sec-conserv-worksheet" id="toc-sec-conserv-worksheet" class="nav-link" data-scroll-target="#sec-conserv-worksheet"><span class="header-section-number">6.4</span> In-class worksheet</a></li>
+  <li><a href="#sec-conserv-exercises" id="toc-sec-conserv-exercises" class="nav-link" data-scroll-target="#sec-conserv-exercises"><span class="header-section-number">6.5</span> Exercises</a></li>
+  <li><a href="#sec-conserv-reading" id="toc-sec-conserv-reading" class="nav-link" data-scroll-target="#sec-conserv-reading"><span class="header-section-number">6.6</span> Further reading</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
@@ -551,21 +610,255 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="momentum-equation-in-conservation-form" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="momentum-equation-in-conservation-form"><span class="header-section-number">6.1</span> Momentum equation in conservation form</h2>
+<p>In this lecture, we wish to reformulate the hydrodynamics equation in a way that makes conservation of momentum and energy manifest. These equations will also be useful later on, when we discuss shock waves. We start with the equation for the momentum.</p>
+<p>The starting point is the velocity equation, which reads <span id="eq-conserv-1"><span class="math display">\[
+\rho \left[ \frac{\partial \mathbf{v}}{\partial t} + (\mathbf{v} \cdot
+\nabla) \mathbf{v} \right] = \nabla \cdot \mathbf{T}+ \rho \mathbf{g}.
+\tag{6.1}\]</span></span> We can bring <span class="math inline">\(\rho\)</span> inside the time derivative at the price of including new terms to the equation: <span id="eq-conserv-2"><span class="math display">\[
+\rho \frac{\partial \mathbf{v}}{\partial t} + \rho (\mathbf{v} \cdot \nabla)
+\mathbf{v} = \frac{\partial (\rho \mathbf{v})}{\partial t} -\mathbf{v}
+\frac{\partial \rho}{\partial t} + \rho (\mathbf{v} \cdot \nabla) \mathbf{v}
+\tag{6.2}\]</span></span> Using the continuity equation (<a href="eulerian-lagrangian.html#eq-lagrange-16" class="quarto-xref">Equation&nbsp;<span>5.16</span></a>) we find <span id="eq-conserv-3"><span class="math display">\[
+\begin{aligned}
+\rho \frac{\partial \mathbf{v}}{\partial t} + \rho (\mathbf{v} \cdot \nabla)
+\mathbf{v} &amp;= \frac{\partial (\rho \mathbf{v})}{\partial t} +\mathbf{v}
+\nabla \cdot (\rho \mathbf{v}) \\
+&amp;\qquad + \rho (\mathbf{v} \cdot \nabla) \mathbf{v}.
+\end{aligned}
+\tag{6.3}\]</span></span> Let’s write down explicitly the last two terms in Cartesian coordinates: <span id="eq-conserv-4"><span class="math display">\[
+\begin{aligned}
+&amp; \mathbf{v} \nabla \cdot (\rho \mathbf{v}) + \rho (\mathbf{v} \cdot \nabla)
+\mathbf{v} \\
+&amp; \quad = \mathbf{v} [\partial_x  (\rho v_x) + \partial_y  (\rho v_y)
++ \partial_z  (\rho v_z)] \\
+&amp; \qquad\qquad + \rho v_x \partial_x \mathbf{v}+ \rho v_y \partial_y \mathbf{v}+
+\rho v_z \partial_z \mathbf{v} \\
+&amp; \quad = \partial_x  (\rho v_x \mathbf{v}) + \partial_y  (\rho v_y \mathbf{v})
++ \partial_z  (\rho v_z \mathbf{v})  \\
+&amp; \quad = \nabla \cdot [\rho \mathbf{v} \otimes \mathbf{v}],
+\end{aligned}
+\tag{6.4}\]</span></span> where we have recognized the second to last line as being the divergence of the tensor <span id="eq-conserv-5"><span class="math display">\[
+\mathbf{v} \otimes \mathbf{v} := \left(\begin{array}{ccc}
+v_x v_x &amp; v_x v_y &amp; v_x v_z\\
+v_y v_x &amp; v_y v_y &amp; v_y v_z\\
+v_z v_x &amp; v_z v_y &amp; v_z v_z
+\end{array}\right) .
+\tag{6.5}\]</span></span> Putting everything together we can write the momentum equation <span id="eq-conserv-6"><span class="math display">\[
+\frac{\partial (\rho \mathbf{v})}{\partial t} + \nabla \cdot [\rho
+\mathbf{v} \otimes \mathbf{v}-\mathbf{T}] = \rho \mathbf{g}.
+\tag{6.6}\]</span></span> In the special case in which <span class="math inline">\(\mathbf{T}= - p\mathbf{I}\)</span> we obtain <span id="eq-conserv-ch6-eq-momentum"><span class="math display">\[
+\boxed{\frac{\partial (\rho \mathbf{v})}{\partial t} + \nabla \cdot
+[\rho \mathbf{v} \otimes \mathbf{v}+ p\mathbf{I}] = \rho \mathbf{g}.}
+\tag{6.7}\]</span></span> The meaning of this equation is more clear if we integrate over some fixed region <span class="math inline">\(\Omega\)</span> (not moving with the flow): <span id="eq-conserv-8"><span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d} t} \int_{\Omega} \rho \mathbf{v} \mathrm{d} V +
+\int_{\Omega} \nabla \cdot [\rho \mathbf{v} \otimes \mathbf{v}+ p\mathbf{I}]
+\mathrm{d} V = \int_{\Omega} \rho \mathbf{g} \mathrm{d} V.
+\tag{6.8}\]</span></span> Moving the second term to the RHS and using the divergence theorem, we find <span id="eq-conserv-ch6-eq-momentum-integral"><span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d} t} \int_{\Omega} \rho \mathbf{v} \mathrm{d} V = -
+\int_{\partial \Omega} [\rho (\mathbf{v} \cdot \mathbf{n}) \mathbf{v}+
+p\mathbf{n}] \mathrm{d} A + \int_{\Omega} \rho \mathbf{g} \mathrm{d} V,
+\tag{6.9}\]</span></span> where <span class="math inline">\(\partial \Omega\)</span> is the surface bounding <span class="math inline">\(\Omega\)</span> and <span class="math inline">\(\mathbf{n}\)</span> its outward directed normal.</p>
+<div id="fig-conserv-momentum-balance" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A closed region Omega bounded by a surface with outward normal n. Labels inside give the total momentum in the region, the momentum flux through the boundary, minus rho times v dot n times v dA, and the pressure force on the boundary, minus p n dA.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-conserv-momentum-balance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/conservation-laws/momentum-balance.svg" class="img-fluid figure-img" alt="A closed region Omega bounded by a surface with outward normal n. Labels inside give the total momentum in the region, the momentum flux through the boundary, minus rho times v dot n times v dA, and the pressure force on the boundary, minus p n dA.">
 </div>
-<div class="callout-title-container flex-fill">
-Note
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-conserv-momentum-balance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.1: Diagram illustrating the balance of momentum in <span class="math inline">\(\Omega\)</span>.
+</figcaption>
+</figure>
 </div>
+<p>In words, <a href="#eq-conserv-ch6-eq-momentum-integral" class="quarto-xref">Equation&nbsp;<span>6.9</span></a> states that the total momentum in some region changes due to the action of volumetric forces and because of the flux of momentum across the boundary. For example, if we take <span class="math inline">\(\Omega\)</span> to be the region with <span class="math inline">\(x &gt; 0\)</span> and neglect gravity, then <span class="math inline">\(\partial \Omega\)</span> is the <span class="math inline">\(y z\)</span>-plane and <a href="#eq-conserv-ch6-eq-momentum-integral" class="quarto-xref">Equation&nbsp;<span>6.9</span></a> becomes: <span id="eq-conserv-10"><span class="math display">\[
+\begin{aligned}
+&amp; \frac{\mathrm{d}}{\mathrm{d} t}  \int_{x &gt; 0} \rho \left(\begin{array}{c}
+v_x\\
+v_y\\
+v_z
+\end{array}\right) \mathrm{d} x \mathrm{d} y \mathrm{d} z \\
+&amp; \quad = \int_{x = 0} \biggl[ \rho v_x
+\left(\begin{array}{c}
+v_x\\
+v_y\\
+v_z
+\end{array}\right) + p \left(\begin{array}{c}
+1\\
+0\\
+0
+\end{array}\right) \biggr] \mathrm{d} y \mathrm{d} z.
+\end{aligned}
+\tag{6.10}\]</span></span> Note that the pressure across the <span class="math inline">\(x = 0\)</span> surface only influences the <span class="math inline">\(x\)</span>-component of the velocity.</p>
+<p>The last equation also gives the alternative interpretation of pressure we were after. We see that in the RHS the pressure has the same effect as the term <span class="math inline">\(\rho v_x v_x\)</span>. This term describes the flow of momentum through the <span class="math inline">\(y z\)</span>-plane and is also called the <strong>ram pressure</strong>. This suggests that we can think of pressure not only as force per unit area, but also as a flux of momentum per unit area.</p>
+</section>
+<section id="energy-equation" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="energy-equation"><span class="header-section-number">6.2</span> Energy equation</h2>
+<p>The energy equation reads <span id="eq-conserv-ch6-eq-energy-lagrangian"><span class="math display">\[
+\rho \frac{\mathrm{d} \varepsilon}{\mathrm{d} t} = \rho \dot{q} - p \nabla \cdot
+\mathbf{v}.
+\tag{6.11}\]</span></span> We can expand the advective derivative in <a href="#eq-conserv-ch6-eq-energy-lagrangian" class="quarto-xref">Equation&nbsp;<span>6.11</span></a> to obtain the energy equation in the Eulerian frame: <span id="eq-conserv-12"><span class="math display">\[
+\rho \frac{\partial \varepsilon}{\partial t} + \rho (\mathbf{v} \cdot
+\nabla) \varepsilon = \rho \dot{q} - p \nabla \cdot \mathbf{v}.
+\tag{6.12}\]</span></span> Using a similar approach to what we have done before with the momentum equation, we bring the density into the time derivative to find <span id="eq-conserv-ch6-eq-energy-eulerian"><span class="math display">\[
+\frac{\partial (\rho \varepsilon)}{\partial t} + \nabla \cdot (\rho
+\varepsilon \mathbf{v}) = \rho \dot{q} - p \nabla \cdot \mathbf{v}.
+\tag{6.13}\]</span></span> The form of this equation is similar to that of the Eulerian continuity equation and to the momentum equation above. They are all examples of <strong>balance laws</strong>: equations describing the conservation of some quantity. A balance law reads: <span id="eq-conserv-ch6-eq-balance"><span class="math display">\[
+\frac{\partial q}{\partial t} + \nabla \cdot \mathbf{F}= s,
+\tag{6.14}\]</span></span> where <span class="math inline">\(q\)</span>, <span class="math inline">\(\mathbf{F}\)</span>, and <span class="math inline">\(s\)</span> are called the conservative quantities, the fluxes, and the sources of the balance law, respectively. If <span class="math inline">\(s = 0\)</span>, then <a href="#eq-conserv-ch6-eq-balance" class="quarto-xref">Equation&nbsp;<span>6.14</span></a> is said to be a <strong>conservation law</strong>. The name balance law is more clear if we convert the equation to integral form by integrating it over a fixed volume <span class="math inline">\(\Omega\)</span>: <span id="eq-conserv-15"><span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d} t} \int_{\Omega} q \mathrm{d} V + \int_{\Omega} \nabla
+\cdot \mathbf{F} \mathrm{d} V = \int_{\Omega} s \mathrm{d} V.
+\tag{6.15}\]</span></span> Using Gauss’ theorem, we obtain <span id="eq-conserv-16"><span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d} t} \int_{\Omega} q \mathrm{d} V = \int_{\Omega} s \mathrm{d} V
+- \int_{\partial \Omega} \mathbf{F} \cdot \mathbf{n} \mathrm{d} A.
+\tag{6.16}\]</span></span> This equation signifies that the total amount of a quantity <span class="math inline">\(q\)</span> in the volume <span class="math inline">\(\Omega\)</span> changes by the amount of <span class="math inline">\(q\)</span> that flows in/out through the boundary <span class="math inline">\(\partial \Omega\)</span>, plus the amount of <span class="math inline">\(q\)</span> created/destroyed by the source/sink term <span class="math inline">\(s\)</span> (see <a href="#fig-conserv-balance-law" class="quarto-xref">Figure&nbsp;<span>6.2</span></a>). Equations in the form of <a href="#eq-conserv-ch6-eq-balance" class="quarto-xref">Equation&nbsp;<span>6.14</span></a> are also said to be in <strong>conservation form</strong>.</p>
+<div id="fig-conserv-balance-law" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A closed region Omega with boundary and outward normal n contains the quantity q. Three flux lines F cross the boundary, entering or leaving the region.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-conserv-balance-law-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/conservation-laws/balance-law.svg" class="img-fluid figure-img" alt="A closed region Omega with boundary and outward normal n contains the quantity q. Three flux lines F cross the boundary, entering or leaving the region.">
 </div>
-<div class="callout-body-container callout-body">
-<p>This chapter is being ported from the 2025 lecture notes.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-conserv-balance-law-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.2: Graphical illustration of a balance law.
+</figcaption>
+</figure>
 </div>
+<p>At this point, one might ask in what sense <a href="#eq-conserv-ch6-eq-energy-eulerian" class="quarto-xref">Equation&nbsp;<span>6.13</span></a> describes the conservation of the energy in the fluid. First, this equation does not contain any terms describing the work done on the system by external forces. Second, <span class="math inline">\(\varepsilon\)</span> is only part of the energy in the flow: we are not including kinetic and potential energy. The issue is that <a href="#eq-conserv-ch6-eq-energy-eulerian" class="quarto-xref">Equation&nbsp;<span>6.13</span></a> only describes the evolution of the internal energy. Mechanical work done by gravity, or other forces, can only directly affect the mechanical energy of the fluid (its kinetic energy). The conversion between mechanical and kinetic energy is operated by the pdV term. We postpone for the moment the issue of the gravitational energy of the system, which will turn out to be more complex than expected, to focus on the interplay between kinetic and internal energy.</p>
+<p>To derive an equation for the kinetic energy, we start from the Euler equation <span id="eq-conserv-17"><span class="math display">\[
+\rho \frac{\partial \mathbf{v}}{\partial t} + \rho (\mathbf{v} \cdot \nabla)
+\mathbf{v}= - \nabla p +\mathbf{f}.
+\tag{6.17}\]</span></span> We multiply this equation by <span class="math inline">\(\mathbf{v}\)</span> to find <span id="eq-conserv-18"><span class="math display">\[
+\frac{1}{2} \rho \left[ \frac{\partial v^2}{\partial t} + (\mathbf{v} \cdot
+\nabla) v^2 \right] = - \nabla p \cdot \mathbf{v}+\mathbf{f} \cdot
+\mathbf{v}.
+\tag{6.18}\]</span></span> Once again, we can use the continuity equation to bring <span class="math inline">\(\rho\)</span> inside the time derivative to find <span id="eq-conserv-ch6-eq-kinene-eulerian"><span class="math display">\[
+\frac{\partial \left( \frac{1}{2} \rho v^2 \right)}{\partial t} + \nabla
+\cdot \left( \tfrac{1}{2} \rho v^2 \mathbf{v} \right) = - \mathbf{v} \cdot \nabla
+p+\mathbf{f} \cdot \mathbf{v}.
+\tag{6.19}\]</span></span> Using the identity <span id="eq-conserv-20"><span class="math display">\[
+\nabla \cdot (p\mathbf{v}) =\mathbf{v} \cdot \nabla p + p \nabla \cdot
+\mathbf{v},
+\tag{6.20}\]</span></span> we can rewrite this equation as <span id="eq-conserv-21"><span class="math display">\[
+\frac{\partial \left( \frac{1}{2} \rho v^2 \right)}{\partial t} + \nabla
+\cdot \left[ \left( \tfrac{1}{2} \rho v^2 + p \right) \mathbf{v} \right] = p
+\nabla \cdot \mathbf{v}+\mathbf{f} \cdot \mathbf{v}
+\tag{6.21}\]</span></span> This is the wanted equation for the kinetic energy. We notice two things. First, this equation shows that pressure can be interpreted also as an energy density. Second, this equation has the same pdV term as the internal energy equation, but with opposite sign! This is the term describing the conversion of internal energy into kinetic energy and vice versa. Also note that the work done by external forces appears in the kinetic energy equation, but heating and cooling terms do not.</p>
+<p>Adding <a href="#eq-conserv-ch6-eq-kinene-eulerian" class="quarto-xref">Equation&nbsp;<span>6.19</span></a> to <a href="#eq-conserv-ch6-eq-energy-eulerian" class="quarto-xref">Equation&nbsp;<span>6.13</span></a> gives the equation describing conservation of the total energy (internal + kinetic): <span id="eq-conserv-ch6-eq-energy-total"><span class="math display">\[
+\boxed{
+\begin{aligned}
+&amp;\frac{\partial \left[ \rho \left( \frac{1}{2} v^2 + \varepsilon
+\right) \right]}{\partial t} + \nabla \cdot \left[ \left(
+\tfrac{1}{2} \rho v^2 + \rho \varepsilon + p \right) \mathbf{v}
+\right] \\
+&amp;\qquad = \rho \dot{q} +\mathbf{f} \cdot \mathbf{v}.
+\end{aligned}}
+\tag{6.22}\]</span></span> This shows that the total energy in the fluid is conserved in absence of external forces and heating/cooling. If <span class="math inline">\(\mathbf{f}\)</span> is a conservative force, it is possible to rewrite the energy equation in a way that is manifestly conservative by including the potential inside the time derivative.</p>
+</section>
+<section id="heat-conduction" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="heat-conduction"><span class="header-section-number">6.3</span> Heat conduction</h2>
+<p>Heat conduction can be included in <a href="#eq-conserv-ch6-eq-energy-total" class="quarto-xref">Equation&nbsp;<span>6.22</span></a> by adding a heat flux <span class="math inline">\(\mathbf{q}\)</span>: <span id="eq-conserv-23"><span class="math display">\[
+\begin{aligned}
+&amp;\frac{\partial \left[ \rho \left( \frac{1}{2} v^2 + \varepsilon \right)
+\right]}{\partial t} \\
+&amp;\qquad + \nabla \cdot \left[ \left( \tfrac{1}{2} \rho
+v^2 + \rho \varepsilon + p \right) \mathbf{v}+\mathbf{q} \right] \\
+&amp;\qquad = \rho \dot{q} +\mathbf{f} \cdot \mathbf{v}.
+\end{aligned}
+\tag{6.23}\]</span></span> In most astrophysical applications, heat conduction is mediated by photons and can be approximated as <span id="eq-conserv-ch6-eq-heat-flux"><span class="math display">\[
+\mathbf{q}= - \frac{c}{3 \rho \kappa_R} \nabla (aT^4),
+\tag{6.24}\]</span></span> where <span class="math inline">\(c\)</span> is the speed of light, <span class="math inline">\(a\)</span> the radiation constant, and <span class="math inline">\(\kappa_R\)</span> is the so-called <em>Rosseland mean opacity</em>. The radiation constant is <span id="eq-conserv-25"><span class="math display">\[
+a = 7.5657 \times 10^{- 15} \mathrm{erg} \cdot \operatorname{cm}^{- 3} \cdot
+\mathrm{K}^{- 4},
+\tag{6.25}\]</span></span> so the term in parenthesis is an energy density. Indeed, it is the energy density of radiation for a black body: <span id="eq-conserv-26"><span class="math display">\[
+u_{\operatorname{rad}} = aT^4 .
+\tag{6.26}\]</span></span> The opacity has units of <span class="math inline">\(\operatorname{cm}^2 \mathrm{g}^{- 1}\)</span>, so <span class="math inline">\(\ell = 1 / \rho \kappa_R\)</span> has units of a length. Indeed, <span class="math inline">\(\ell\)</span> is the photon mean free path. Combining these two facts, we can write <a href="#eq-conserv-ch6-eq-heat-flux" class="quarto-xref">Equation&nbsp;<span>6.24</span></a> as <span id="eq-conserv-ch6-eq-fick-law"><span class="math display">\[
+\mathbf{q}= - \frac{1}{3} \ell c \nabla u_{\operatorname{rad}} = -\mathcal{D} \nabla
+u_{\operatorname{rad}} .
+\tag{6.27}\]</span></span> This is a special case of Fick’s law of diffusion: <span id="eq-conserv-28"><span class="math display">\[
+\textbf{diffusive flux} = -\mathcal{D} \nabla \left(
+\text{density of quantity being diffused} \right) .
+\tag{6.28}\]</span></span> The diffusion coefficient has units of <span id="eq-conserv-29"><span class="math display">\[
+[\mathcal{D}] = \operatorname{cm}^2 \cdot \mathrm{s}^{- 1} .
+\tag{6.29}\]</span></span> If energy due to radiation was advected with velocity <span class="math inline">\(\mathbf{v}_{\operatorname{eff}}\)</span>, then <span id="eq-conserv-30"><span class="math display">\[
+\mathbf{q}= u_{\operatorname{rad}} \mathbf{v}_{\operatorname{eff}} .
+\tag{6.30}\]</span></span> Comparing this to <a href="#eq-conserv-ch6-eq-fick-law" class="quarto-xref">Equation&nbsp;<span>6.27</span></a>, suggests that <span id="eq-conserv-31"><span class="math display">\[
+v_{\operatorname{eff}} \sim \left( \frac{\ell}{3 L} \right) c,
+\tag{6.31}\]</span></span> where <span class="math inline">\(L\)</span> is the radiation energy density scale-height: <span id="eq-conserv-32"><span class="math display">\[
+L = \frac{u_{\operatorname{rad}}}{| \nabla u_{\operatorname{rad}} |} .
+\tag{6.32}\]</span></span> In the interior of stars <span class="math inline">\(L \gg \ell\)</span>, so the radiation diffusion timescale is very long compared with the light crossing time of the star. Close to their surface <span class="math inline">\(L \lesssim \ell / 3\)</span> and <a href="#eq-conserv-ch6-eq-fick-law" class="quarto-xref">Equation&nbsp;<span>6.27</span></a> predicts that radiant energy propagates faster than the speed of light. This is a symptom that the diffusion approximation breaks down. More in general, the transport of energy by radiation can be described using <a href="#eq-conserv-ch6-eq-heat-flux" class="quarto-xref">Equation&nbsp;<span>6.24</span></a> only if photons and matter are in local thermodynamic equilibrium. If the diffusion approximation cannot be used, matter and radiation need to be treated separately using the equations of radiation-hydrodynamics<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+</section>
+<section id="sec-conserv-worksheet" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="sec-conserv-worksheet"><span class="header-section-number">6.4</span> In-class worksheet</h2>
+<ol type="1">
+<li><p>Show that the equation for energy conservation in the Eulerian frame can be written as <span id="eq-conserv-ws1"><span class="math display">\[
+\frac{\partial (\rho \varepsilon)}{\partial t} + \nabla \cdot (\rho
+\varepsilon \mathbf{v}) = \rho \dot{q} - p \nabla \cdot \mathbf{v}.
+\tag{6.33}\]</span></span> Discuss the physical meaning of each term.</p></li>
+<li><p><em>Ram pressure.</em> Consider the flow around a rigid body <span class="math inline">\(\Omega\)</span>, as shown in <a href="#fig-conserv-flow-past-body" class="quarto-xref">Figure&nbsp;<span>6.3</span></a>.</p>
+<div id="fig-conserv-flow-past-body" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Four streamlines flow from left to right around a shaded rigid body Omega. A second outline just outside the body marks its boundary, labeled boundary of Omega.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-conserv-flow-past-body-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/conservation-laws/flow-past-body.svg" class="img-fluid figure-img" alt="Four streamlines flow from left to right around a shaded rigid body Omega. A second outline just outside the body marks its boundary, labeled boundary of Omega.">
 </div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-conserv-flow-past-body-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.3: Flow past a rigid body.
+</figcaption>
+</figure>
+</div>
+<ol type="1">
+<li><p>Use the divergence theorem and the momentum equation to show that the total force acting on the body is <span id="eq-conserv-momentum"><span class="math display">\[
+\mathbf{F}= \int_{\partial \Omega} [\rho (\mathbf{v} \cdot \mathbf{n})
+\mathbf{v}+ p\mathbf{n}] \mathrm{d} A.
+\tag{6.34}\]</span></span></p></li>
+<li><p>Assume that <span class="math inline">\(p \approx \operatorname{const}\)</span> and that the flow in the wake of the body is slower than on the front. What kind of force does the body experience?</p></li>
+</ol></li>
+</ol>
+</section>
+<section id="sec-conserv-exercises" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="sec-conserv-exercises"><span class="header-section-number">6.5</span> Exercises</h2>
+<div id="exr-conserv-angular-momentum" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.1 (Angular momentum)</strong></span> The angular momentum of a fluid element of mass <span class="math inline">\(\mathcal{M}\)</span> is <span class="math inline">\(\mathcal{M}\mathbf{r} \times \mathbf{v}\)</span>, so the angular momentum density for a fluid is (upon division by <span class="math inline">\(\mathcal{V}\)</span>): <span id="eq-conserv-angular-density"><span class="math display">\[
+\mathbf{j}= \rho \mathbf{r} \times \mathbf{v}.
+\tag{6.35}\]</span></span></p>
+<ol type="1">
+<li><p>Starting from the momentum equation, derive a Lagrangian equation for the evolution of <span class="math inline">\(\mathbf{r} \times \mathbf{v}\)</span>.</p></li>
+<li><p>Show that, in absence of external forces, <span class="math inline">\(\mathbf{j}\)</span> satisfies the conservation law <span id="eq-conserv-angular-conservation"><span class="math display">\[
+\frac{\partial \mathbf{j}}{\partial t} + \nabla \cdot [\mathbf{j}
+\otimes \mathbf{v}+ p\mathbf{R}] = 0,
+\tag{6.36}\]</span></span> where <span id="eq-conserv-angular-R"><span class="math display">\[
+\mathbf{R}= \left(\begin{array}{ccc}
+0 &amp; - z &amp; y\\
+z &amp; 0 &amp; - x\\
+- y &amp; x &amp; 0
+\end{array}\right) .
+\tag{6.37}\]</span></span> [Hint. Write out explicitly the expression <span class="math inline">\(\mathbf{r} \times \nabla p\)</span>.]</p></li>
+<li><p>Consider a fluid that is subject to an external force per unit volume <span class="math inline">\(\mathbf{f}\)</span>. How does <span id="eq-conserv-angular-total"><span class="math display">\[
+\mathbf{J}= \int \mathbf{j} \mathrm{d} V
+\tag{6.38}\]</span></span> evolve with time?</p></li>
+</ol>
+</div>
+</section>
+<section id="sec-conserv-reading" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="sec-conserv-reading"><span class="header-section-number">6.6</span> Further reading</h2>
+<ul>
+<li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Chapter 2 (the fluid equations) and Chapter 4 (the energy equation).</li>
+<li>1 for the equations of radiation hydrodynamics.</li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-clarke2007" class="csl-entry" role="listitem">
+Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dynamics</em>. Cambridge University Press.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><ol class="example" type="1">
+<li></li>
+</ol>
+<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

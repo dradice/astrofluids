@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -95,6 +114,35 @@ ul.task-list li input[type="checkbox"] {
   };
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -465,7 +513,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magnetohydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magneto­hydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
       <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
@@ -525,8 +573,17 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#internal-stresses" id="toc-internal-stresses" class="nav-link active" data-scroll-target="#internal-stresses"><span class="header-section-number">4.1</span> Internal stresses</a></li>
+  <li><a href="#eulers-equation" id="toc-eulers-equation" class="nav-link" data-scroll-target="#eulers-equation"><span class="header-section-number">4.2</span> Euler’s equation</a></li>
+  <li><a href="#sec-euler-worksheet" id="toc-sec-euler-worksheet" class="nav-link" data-scroll-target="#sec-euler-worksheet"><span class="header-section-number">4.3</span> In-class worksheet</a></li>
+  <li><a href="#sec-euler-reading" id="toc-sec-euler-reading" class="nav-link" data-scroll-target="#sec-euler-reading"><span class="header-section-number">4.4</span> Further reading</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
@@ -551,21 +608,128 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
+<section id="internal-stresses" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="internal-stresses"><span class="header-section-number">4.1</span> Internal stresses</h2>
+<p>Up to this point we have described the motion of fluids in which the velocity field is prescribed, or known. Now we derive the equation of motion for fluids. The acceleration of a fluid element <span class="math inline">\(\mathcal{V}\)</span> with mass <span class="math inline">\(\mathcal{M}\)</span> is given by Newton’s law: <span id="eq-euler-newton-law"><span class="math display">\[
+\mathcal{M} \frac{\mathrm{d} \mathbf{v}}{\mathrm{d} t} =\mathbf{F},
+\tag{4.1}\]</span></span> where <span class="math inline">\(\mathbf{F}\)</span> is the sum of all forces (the net force) acting on <span class="math inline">\(\mathcal{V}\)</span>. To derive an equation that does not explicitly make reference to the fluid elements, we can divide <a href="#eq-euler-newton-law" class="quarto-xref">Equation&nbsp;<span>4.1</span></a> by the volume of <span class="math inline">\(\mathcal{V}\)</span> to find <span id="eq-euler-2"><span class="math display">\[
+\rho \frac{\mathrm{d} \mathbf{v}}{\mathrm{d} t} =\mathbf{f},
+\tag{4.2}\]</span></span> where <span class="math inline">\(\mathbf{f}\)</span> is the force per unit volume acting on the fluid: <span id="eq-euler-3"><span class="math display">\[
+[\mathbf{f}] = \operatorname{dyn} \operatorname{cm}^{- 3} =\mathrm{g} \operatorname{cm}^{- 2}
+\mathrm{s}^{- 2},
+\tag{4.3}\]</span></span> where “<span class="math inline">\(\operatorname{dyn}\)</span>” (dyne) is the unit of force in CGS units: <span id="eq-euler-4"><span class="math display">\[
+1 \operatorname{dyn} = 1\mathrm{g} \operatorname{cm} \mathrm{s}^{- 2} .
+\tag{4.4}\]</span></span> There are two type of forces that can act on a fluid element: external and internal forces. In astrophysical applications, gravity is the most common external force. The force per unit volume (<strong>body force</strong>) due to gravity is <span id="eq-euler-5"><span class="math display">\[
+\mathbf{f}_g = \rho \mathbf{g}= - \rho \nabla \Psi,
+\tag{4.5}\]</span></span> where <span class="math inline">\(\mathbf{g}\)</span> is the gravitational acceleration and <span class="math inline">\(\Psi\)</span> is the gravitational potential. The internal forces are due to the interaction of <span class="math inline">\(\mathcal{V}\)</span> with other fluid elements.</p>
+<p>Consider a container with water at rest on the surface of the Earth. The container has been left undisturbed for sufficiently long time that the velocity of all fluid elements is zero. Let <span class="math inline">\(\mathcal{V}\)</span> be a fluid element of water somewhere away from the edge of the container. Clearly, <span class="math inline">\(\mathcal{V}\)</span> is subject to the force of gravity. Since <span class="math inline">\(\mathcal{V}\)</span> is not in contact with the container, the gravitational force cannot be balanced by a contact force with the walls of the container. Instead, the force on <span class="math inline">\(\mathcal{V}\)</span> must be balanced by a force exchanged by <span class="math inline">\(\mathcal{V}\)</span> with the neighboring fluid elements. This show that the equation of motion of a fluid must include the acceleration due to its internal forces. What is their nature?</p>
+<p>We consider an infinitesimal fluid element <span class="math inline">\(\mathcal{V}\)</span> in a fluid at rest, as illustrated in <a href="#fig-euler-pressure-gradient" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>. We can take the origin of the coordinate system to be the center of <span class="math inline">\(\mathcal{V}\)</span> and its extent in the three directions to be <span class="math inline">\(\mathrm{d} x\)</span>, <span class="math inline">\(\mathrm{d} y\)</span>, and <span class="math inline">\(\mathrm{d} z\)</span>. We also take the gravitational acceleration <span class="math inline">\(\mathbf{g}\)</span> to be in the <span class="math inline">\(z\)</span>-direction.</p>
+<div id="fig-euler-pressure-gradient" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A square fluid element V at rest. A pressure force of magnitude p dA pushes inward on each of the four faces drawn, perpendicular to the face, and a gravity force rho g points down from the center of the element. The x axis points right and the z axis points down.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-euler-pressure-gradient-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/euler-equation/pressure-gradient.svg" class="img-fluid figure-img" alt="A square fluid element V at rest. A pressure force of magnitude p dA pushes inward on each of the four faces drawn, perpendicular to the face, and a gravity force rho g points down from the center of the element. The x axis points right and the z axis points down.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-euler-pressure-gradient-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: Force diagram for a fluid element in a static water container.
+</figcaption>
+</figure>
+</div>
+<p>The fluid element is subject to forces applied by the rest of the fluid to its six square faces and to the force of gravity, which we can take to be applied to its center of mass, as shown in <a href="#fig-euler-pressure-gradient" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>. Our goal is to determine these forces. Even for a fluid at rest, in principle, these surface forces can have many possible magnitudes and directions, as long as the net force and torque acting on <span class="math inline">\(\mathcal{V}\)</span> vanish. We cannot make much progress without knowing more about the nature of the fluid.</p>
+<p>However, there is a class of fluids, known as <strong>perfect fluids</strong>, for which the internal forces are particularly simple. In a perfect fluid the surface forces are assumed to be always directed along the perpendicular to each face (as is the case in <a href="#fig-euler-pressure-gradient" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>). The problem of finding the internal forces thus reduces to that of finding a scalar quantity, called the <strong>pressure</strong>, that gives the magnitude of the force per unit area across each face of the fluid element: <span id="eq-euler-6"><span class="math display">\[
+p = \text{``force per unit area''} \qquad [\operatorname{dyn} \operatorname{cm}^{- 2}] .
+\tag{4.6}\]</span></span> In particular, for a perfect fluid the force exerted by the fluid on an infinitesimal surface with outward-directed area element <span class="math inline">\(\mathrm{d} \mathbf{A}\)</span> is <span id="eq-euler-7"><span class="math display">\[
+\mathrm{d} \mathbf{F}= - p \mathrm{d} \mathbf{A}.
+\tag{4.7}\]</span></span> In most cases the pressure is positive <span class="math inline">\(p &gt; 0\)</span>, so a fluid element, or equivalently an object immersed in a fluid, is subject to compression.</p>
+<p>The concept of perfect fluid is an idealization of reality, but, in practice, liquids and gases can be considered as perfect fluids to very good approximation in most situations. More in general, because the force needs to transform under basis change in the same way as a vector, it can be shown internal forces can be written as <span id="eq-euler-8"><span class="math display">\[
+\mathrm{d} \mathbf{F}=\mathbf{T} \mathrm{d} \mathbf{A},
+\tag{4.8}\]</span></span> where <span class="math inline">\(\mathbf{T}\)</span> is a matrix that depends on the properties of the fluid, the so-called <strong>stress tensor</strong> of the fluid. The perfect fluid is the special case of this general theory in which <span id="eq-euler-9"><span class="math display">\[
+\mathbf{T}= - p\mathbf{I},
+\tag{4.9}\]</span></span> where <span class="math inline">\(\mathbf{I}\)</span> is the identity matrix. We will encounter examples of non-perfect fluids later in the course.</p>
+</section>
+<section id="eulers-equation" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="eulers-equation"><span class="header-section-number">4.2</span> Euler’s equation</h2>
+<p>We can now consider the net acceleration of the fluid element in the vertical direction. There are three forces to consider: the force of gravity, and the forces at the bottom and at the top of <span class="math inline">\(\mathcal{V}\)</span>. The forces from the side do not contribute, since they are orthogonal to the <span class="math inline">\(z\)</span>-direction. Putting everything together we find: <span id="eq-euler-10"><span class="math display">\[
+\mathcal{M} \frac{\mathrm{d} v_z}{\mathrm{d} t} = - \left[ p \left( z =
+\tfrac{\mathrm{d} z}{2} \right) - p \left( z = - \tfrac{\mathrm{d} z}{2} \right)
+\right] \mathrm{d} A +\mathcal{M}g_z,
+\tag{4.10}\]</span></span> where <span class="math inline">\(\mathrm{d} A = \mathrm{d} x \mathrm{d} y\)</span>, and <span class="math inline">\(\mathcal{M}= \rho V = \rho \mathrm{d} x \mathrm{d} y \mathrm{d} z\)</span>. Dividing both terms by <span class="math inline">\(V\)</span> gives <span id="eq-euler-acceleration-balance-vertical"><span class="math display">\[
+\rho \frac{\mathrm{d} v_z}{\mathrm{d} t} = - \frac{1}{\mathrm{d} z}  \left[ p \left( z =
+\tfrac{\mathrm{d} z}{2} \right) - p \left( z = - \tfrac{\mathrm{d} z}{2} \right)
+\right] + \rho g_z = - \partial_z p + \rho g_z .
+\tag{4.11}\]</span></span> A similar derivation can be done for the momentum balance in the <span class="math inline">\(x\)</span>- and <span class="math inline">\(y\)</span>-directions to find <span id="eq-euler-12"><span class="math display">\[
+\rho \frac{\mathrm{d} \mathbf{v}}{\mathrm{d} t} = - \nabla p + \rho \mathbf{g}.
+\tag{4.12}\]</span></span> In the more general case, in which we consider an arbitrary volume force applied onto the fluid, we obtain the so-called Euler, or momentum equation for a perfect fluid: <span id="eq-euler"><span class="math display">\[
+\boxed{\rho \frac{\mathrm{d} \mathbf{v}}{\mathrm{d} t} = - \nabla p
++\mathbf{f}.}
+\tag{4.13}\]</span></span> Note: it is the <em>gradient</em> of the pressure, and not the pressure directly that determines the mechanical response of the fluid. We will see that this has important implications in a number of situations.</p>
+<p>In the case of non perfect fluids, <a href="#eq-euler" class="quarto-xref">Equation&nbsp;<span>4.13</span></a> becomes <span id="eq-euler-general"><span class="math display">\[
+\rho \frac{\mathrm{d} \mathbf{v}}{\mathrm{d} t} = \nabla \cdot
+\mathbf{T}+\mathbf{f},
+\tag{4.14}\]</span></span> where we have introduced the divergence of a tensor, defined to be a vector with components <span id="eq-euler-15"><span class="math display">\[
+\nabla \cdot \mathbf{T}  = \left(\begin{array}{c}
+\partial_x T_{x x} + \partial_y T_{x y} + \partial_z T_{x z}\\
+\partial_x T_{y x} + \partial_y T_{y y} + \partial_z T_{y z}\\
+\partial_x T_{z x} + \partial_y T_{z y} + \partial_z T_{z z}
+\end{array}\right) .
+\tag{4.15}\]</span></span> The momentum <a href="#eq-euler-general" class="quarto-xref">Equation&nbsp;<span>4.14</span></a> holds even for solids, which can rarely be described as perfect fluids, but for which the stress tensor can also be defined.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Tip</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This chapter is being ported from the 2025 lecture notes.</p>
+<p>Consider a liquid at rest (<span class="math inline">\(\mathbf{v}= 0\)</span>) in a tank and subject to gravity. The tank is not pressurized, so the surface of the liquid is at the atmospheric pressure <span class="math inline">\(p_0\)</span>, in order to be in mechanical equilibrium with the air. Assume that the tank is sufficiently shallow, so that <span class="math inline">\(\rho = \operatorname{const}\)</span>. What is the pressure at the bottom of the tank?</p>
+<p>We can take <span class="math inline">\(z\)</span> to be the vertical coordinate, <span class="math inline">\(z = 0\)</span> being the surface of the surface of the liquid and <span class="math inline">\(z = d &gt; 0\)</span> being the bottom. The force balance in the <span class="math inline">\(z\)</span>-direction is <span id="eq-euler-16"><span class="math display">\[
+\partial_z p = \rho g,
+\tag{4.16}\]</span></span> where <span class="math inline">\(g &gt; 0\)</span> is the acceleration constant<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Integrating this equation, we find <span id="eq-euler-17"><span class="math display">\[
+p (z) = p_0 + \int_0^z \rho g \mathrm{d} z = p_0 + \rho gz.
+\tag{4.17}\]</span></span> The pressure at the bottom of the tank is <span class="math inline">\(p_0 + \rho gd\)</span>.</p>
 </div>
 </div>
+<p>Let’s recap our situation. We have started with the continuity equation (<a href="fluids-as-continua.html#eq-continua-12" class="quarto-xref">Equation&nbsp;<span>1.12</span></a>), which describes the evolution of the density <span class="math inline">\(\rho\)</span> given the velocity <span class="math inline">\(\mathbf{v}\)</span>. To find the velocity we have derived an equation of motion for it, Euler’s equation, which however involves yet another quantity: the pressure. We are still not able to predict the evolution of a fluid, unless we have a way to compute its pressure. This should not be surprising, because so far we have not introduced any equation that tells us <em>which</em> fluid is being considered: water and interstellar gas behave very differently, even though they satisfy the same equations. Their different dynamics is results of the fact that they have different pressures. In general, the pressure for a fluid depends on its density, temperature or entropy, and composition <span id="eq-euler-18"><span class="math display">\[
+p = p (\rho, T, \{ Y_i \}) .
+\tag{4.18}\]</span></span> This is the so-called <strong>equation of state</strong> for the matter. As such, to close the system we will need a new equation for temperature, in addition to the equation of state. There are some special cases, however, in which the pressure can be taken to be a function of only the density: <span id="eq-euler-19"><span class="math display">\[
+p = p (\rho) .
+\tag{4.19}\]</span></span> In this case we say that the equation of state is <strong>barotropic</strong>. Some important cases that we will encounter in our course are</p>
+<ul>
+<li><p>pressureless fluids, in which <span class="math inline">\(p = 0\)</span>;</p></li>
+<li><p>isothermal gases, in which <span class="math inline">\(p = c_s^2 \rho\)</span>, where <span class="math inline">\(c_s &gt; 0\)</span> is a constant, which we will see is equal to the speed of sound in the gas;</p></li>
+<li><p>polytropic gases, in which <span class="math inline">\(p = K \rho^{\Gamma}\)</span>, where <span class="math inline">\(K\)</span> and <span class="math inline">\(\Gamma\)</span> are some known positive constants.</p></li>
+</ul>
+<p>The pressureless approximation can sometimes be employed for highly supersonic flows, or in cases in which the gas is not collisional: dark matter, or dust can be approximated as pressureless fluids in certain cases. The isothermal and polytropic equations of state hold when temperature or entropy are constant in the gas, so the equation of state becomes barotropic. We will discuss this in more detail later.</p>
+</section>
+<section id="sec-euler-worksheet" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="sec-euler-worksheet"><span class="header-section-number">4.3</span> In-class worksheet</h2>
+<ol type="1">
+<li><p>Consider an incompressible liquid (<span class="math inline">\(\rho \equiv \operatorname{const}\)</span>) at rest in a tank of height <span class="math inline">\(h\)</span> and subject to gravity. The tank is not pressurized, so the surface of the liquid is at atmospheric pressure <span class="math inline">\(p_0\)</span>. What is the pressure at the bottom of the tank?</p></li>
+<li><p>Core-collapse supernovae are triggered when the Iron core of a massive star exceeds the Chandrasekhar mass. Initially, the core is in hydrostatic equilibrium: <span id="eq-euler-hydrostatic-equilibrium"><span class="math display">\[
+\partial_r p = - \frac{GM}{r^2} \rho,
+\tag{4.20}\]</span></span> where <span class="math inline">\(M = M (r)\)</span> is the enclosed mass. After the core becomes unstable, it starts to contract. Show that, if <span class="math inline">\(\Gamma \lesssim 5 / 3\)</span>, and if the collapse is homologous and adiabatic, then the Iron core remains close to hydrostatic equilibrium as it contracts, meaning that <a href="#eq-euler-hydrostatic-equilibrium" class="quarto-xref">Equation&nbsp;<span>4.20</span></a> remains approximately true. In reality, the flow is no longer adiabatic, once it becomes supersonic, so the homologous collapse only describes the region with <span class="math inline">\(v &lt; c_s\)</span>.</p></li>
+</ol>
+</section>
+<section id="sec-euler-reading" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="sec-euler-reading"><span class="header-section-number">4.4</span> Further reading</h2>
+<ul>
+<li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Chapter 2 (the fluid equations, including the equation of motion).</li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-clarke2007" class="csl-entry" role="listitem">
+Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dynamics</em>. Cambridge University Press.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Note that we are taking <span class="math inline">\(z\)</span> to be increasing towards the bottom of the tank.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

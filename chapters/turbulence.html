@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -95,6 +114,35 @@ ul.task-list li input[type="checkbox"] {
   };
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -465,7 +513,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magnetohydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magneto­hydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
       <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
@@ -525,8 +573,20 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#what-is-turbulence" id="toc-what-is-turbulence" class="nav-link active" data-scroll-target="#what-is-turbulence"><span class="header-section-number">21.1</span> What is Turbulence?</a></li>
+  <li><a href="#kolmogorovs-theory" id="toc-kolmogorovs-theory" class="nav-link" data-scroll-target="#kolmogorovs-theory"><span class="header-section-number">21.2</span> Kolmogorov’s Theory</a></li>
+  <li><a href="#shredding-of-clouds-in-a-turbulent-flow" id="toc-shredding-of-clouds-in-a-turbulent-flow" class="nav-link" data-scroll-target="#shredding-of-clouds-in-a-turbulent-flow"><span class="header-section-number">21.3</span> Shredding of Clouds in a Turbulent Flow</a></li>
+  <li><a href="#turbulence-modeling-reynolds-stress" id="toc-turbulence-modeling-reynolds-stress" class="nav-link" data-scroll-target="#turbulence-modeling-reynolds-stress"><span class="header-section-number">21.4</span> Turbulence Modeling: Reynolds Stress</a></li>
+  <li><a href="#sec-turb-worksheet" id="toc-sec-turb-worksheet" class="nav-link" data-scroll-target="#sec-turb-worksheet"><span class="header-section-number">21.5</span> In-class worksheet</a></li>
+  <li><a href="#sec-turb-exercises" id="toc-sec-turb-exercises" class="nav-link" data-scroll-target="#sec-turb-exercises"><span class="header-section-number">21.6</span> Exercises</a></li>
+  <li><a href="#sec-turb-reading" id="toc-sec-turb-reading" class="nav-link" data-scroll-target="#sec-turb-reading"><span class="header-section-number">21.7</span> Further reading</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
@@ -551,21 +611,265 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="what-is-turbulence" class="level2" data-number="21.1">
+<h2 data-number="21.1" class="anchored" data-anchor-id="what-is-turbulence"><span class="header-section-number">21.1</span> What is Turbulence?</h2>
+<p>Turbulence is the chaotic, complex motion observed in fluids across all scales, from the chaotic motion of quark gluon plasma at scales of (fm scale) to the motion of gas in the intercluster medium (Mpc scale). Turbulence plays an important role in many terrestrial and astrophysical flows. For example, turbulence in the interstellar medium is thought to generate overdensities that eventually grow up to become stars. Turbulence also shapes the evolution and death of stars. Turbulent flows efficiently mix fluid: think of the way in which milk and coffee mix once turbulence is generated with a spoon. Turbulent flows also efficiently dissipate kinetic energy and develop large <em>effective</em> shear viscosity, e.g., triggering angular momentum transport.</p>
+<div id="fig-turb-davinci" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Pen-and-ink drawing of a deluge: a turbulent mass of water and air drawn as a tangle of curling vortices of many different sizes, from large swirls down to small eddies.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-turb-davinci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/turbulence/da-vinci-turbulence.jpg" class="img-fluid figure-img" alt="Pen-and-ink drawing of a deluge: a turbulent mass of water and air drawn as a tangle of curling vortices of many different sizes, from large swirls down to small eddies.">
 </div>
-<div class="callout-title-container flex-fill">
-Note
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-turb-davinci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;21.1: Study of turbulence by Leonardo da Vinci (ca. 1510), Royal Collection Trust (public domain).
+</figcaption>
+</figure>
 </div>
+<p>Despite its importance for a number of applications, including many of practical, industrial impact, and despite the fact that turbulence has been studied for more than 500 years, we still lack a rigorous theory of turbulence. The closest thing we have to a theory is Kolmogorov’s 1941 theory (K41). These notes contain an introductory-level description of K41 and some example applications. For a more in depth description, I would recommend Landau-Lifshitz Vol. 6 <span class="citation" data-cites="landau1987">(<a href="#ref-landau1987" role="doc-biblioref">Landau and Lifshitz 1987</a>)</span> and Pope, <em>Turbulent Flows</em>, 2000 <span class="citation" data-cites="pope2000">(<a href="#ref-pope2000" role="doc-biblioref">Pope 2000</a>)</span>.</p>
+</section>
+<section id="kolmogorovs-theory" class="level2" data-number="21.2">
+<h2 data-number="21.2" class="anchored" data-anchor-id="kolmogorovs-theory"><span class="header-section-number">21.2</span> Kolmogorov’s Theory</h2>
+<p>Fluid motion is driven by external forces, such as gravity, which have a characteristic scale <span class="math inline">\(\ell_0\)</span> comparable to the size of the system of interest. For example, for a star <span class="math inline">\(\ell_0 \sim R\)</span> the star radius. Kolmogorov’s theory starting point is to decompose the flow velocity in some patch of the fluid <span class="math inline">\(\mathbf{v}\)</span> into a mean flow <span class="math inline">\(\langle \mathbf{v} \rangle\)</span> and a fluctuating component <span class="math inline">\(\mathbf{v}'\)</span>, not necessarily assumed to be small. The theory then assumes that, if the size <span class="math inline">\(\ell\)</span> of the region under consideration is sufficiently small, <span class="math inline">\(\ell \ll \ell_0\)</span>, <span class="math inline">\(\mathbf{v}'\)</span> is <em>universal</em>, at least in a statistical sense, meaning that it does not depend on the particular system, but that is set by the equations of motion.</p>
+<p>To keep our notation simple, we set <span class="math inline">\(\langle \mathbf{v} \rangle = 0\)</span>, meaning that <span class="math inline">\(\mathbf{v}' =\mathbf{v}\)</span>. Note that we can always set <span class="math inline">\(\langle \mathbf{v} \rangle = 0\)</span> by working in the appropriate reference frame, so this is not a restriction on the theory we are developing. We are also going to assume that the flow is incompressible, which is typically a good assumption away from shocks and over a sufficiently small region. The flow is then described by the Navier-Stokes equations <span id="eq-turb-navier-stokes"><span class="math display">\[
+\partial_t \mathbf{v}+ (\mathbf{v} \cdot \nabla) \mathbf{v}=\mathbf{g}-
+\frac{\nabla p}{\rho} + \nu \nabla^2 \mathbf{v}, \qquad \nabla \cdot
+\mathbf{v}= 0,
+\tag{21.1}\]</span></span> where <span class="math inline">\(\mathbf{g}\)</span> is some external acceleration field, typically gravity in astrophysical applications.</p>
+<p>The equation for the evolution of the kinetic energy is obtained by multiplying <a href="#eq-turb-navier-stokes" class="quarto-xref">Equation&nbsp;<span>21.1</span></a> by <span class="math inline">\(\mathbf{v}\)</span>: <span id="eq-turb-kinetic-energy-full"><span class="math display">\[
+\frac{1}{2}  [\partial_t v^2 + (\mathbf{v} \cdot \nabla) v^2] =\mathbf{g}
+\cdot \mathbf{v}- \frac{1}{\rho} \nabla p \cdot \mathbf{v}+ \nu \nabla^2
+\mathbf{v} \cdot \mathbf{v}.
+\tag{21.2}\]</span></span> Consider, the first term on the RHS, representing the work done by the external force on the flow. If <span class="math inline">\(\ell \ll \ell_0\)</span>, then we can take <span class="math inline">\(\mathbf{g} \sim \operatorname{const}\)</span> over this region and <span id="eq-turb-3"><span class="math display">\[
+\langle \mathbf{g} \cdot \mathbf{v} \rangle \sim \mathbf{g} \cdot \langle
+\mathbf{v} \rangle = 0.
+\tag{21.3}\]</span></span> This suggests that the evolution of <span class="math inline">\(v\)</span> for <span class="math inline">\(\ell \ll \ell_0\)</span> is independent on the details of the external force <span class="math inline">\(\mathbf{g}\)</span>, so <span class="math inline">\(v\)</span> can be universal. Of course, if <span class="math inline">\(\ell \sim \ell_0\)</span>, then <span class="math inline">\(\langle \mathbf{g} \cdot \mathbf{v} \rangle &gt; 0\)</span> in general, meaning that kinetic energy is injected at the scale <span class="math inline">\(\ell_0\)</span> by gravity and then evolves according to <a href="#eq-turb-kinetic-energy-full" class="quarto-xref">Equation&nbsp;<span>21.2</span></a>.</p>
+<p>Let’s now consider the role of pressure (note that <span class="math inline">\(\rho = \operatorname{const}\)</span>): <span id="eq-turb-4"><span class="math display">\[
+\langle \nabla p \cdot \mathbf{v} \rangle = \frac{1}{V} \int_V \nabla p
+\cdot \mathbf{v} \mathrm{d} V = \frac{1}{V} \int_V [\nabla \cdot (p
+\mathbf{v}) - p \nabla \cdot \mathbf{v}] \mathrm{d} V = \frac{1}{V} \oint_S
+p\mathbf{v} \cdot \mathbf{n} \mathrm{d} S = 0.
+\tag{21.4}\]</span></span> In the last equation we have assumed that <span class="math inline">\(\mathbf{v}\)</span> is isotropic (no preferred direction), so <span class="math inline">\(\mathbf{v} \cdot \mathbf{n}\)</span> is zero on average.</p>
+<p>In a similar way, we can rewrite the average of the last term in the RHS of <a href="#eq-turb-kinetic-energy-full" class="quarto-xref">Equation&nbsp;<span>21.2</span></a> as <span id="eq-turb-5"><span class="math display">\[
+\int_V \nabla^2 \mathbf{v} \cdot \mathbf{v} \mathrm{d} V = \oint_S \mathbf{n}
+\cdot (\nabla \mathbf{v}\mathbf{v}) \mathrm{d} S - \int_V \nabla \mathbf{v}:
+\nabla \mathbf{v} \mathrm{d} V = - \int_V | \nabla \mathbf{v} |^2 \mathrm{d} V .
+\tag{21.5}\]</span></span> This means that we can simplify the kinetic energy equation to read <span id="eq-turb-kinetic-energy"><span class="math display">\[
+\partial_t v^2 = 2\mathbf{g} \cdot \mathbf{v}- (\mathbf{v} \cdot \nabla) v^2
+- 2 \nu | \nabla \mathbf{v} |^2 .
+\tag{21.6}\]</span></span> As already mentioned, the first term on the RHS is responsible for energy injection. The last term describes kinetic energy <em>dissipation</em>. We can estimate this term as <span id="eq-turb-dissipation-estimate"><span class="math display">\[
+\nu | \nabla \mathbf{v} |^2 \sim \nu \left( \frac{v (\ell)}{\ell} \right)^2,
+\tag{21.7}\]</span></span> where <span class="math inline">\(v (\ell)\)</span> is the characteristic velocity fluctuation on a length scale <span class="math inline">\(\ell\)</span>: <span id="eq-turb-8"><span class="math display">\[
+v (\ell) = \langle | \mathbf{v} (\mathbf{x}+\mathbf{l}) -\mathbf{v}
+(\mathbf{x}) | \rangle = \frac{1}{V} \int_V | \mathbf{v}
+(\mathbf{x}+\mathbf{l}) -\mathbf{v} (\mathbf{x}) | \mathrm{d}^3 \mathbf{x}.
+\tag{21.8}\]</span></span> We use the notation <span class="math inline">\(A \sim B\)</span> to signify that two quantities, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, are equal up to factors of order unity.</p>
+<p>The quantity on the RHS of <a href="#eq-turb-dissipation-estimate" class="quarto-xref">Equation&nbsp;<span>21.7</span></a> has units of power per unit mass, as expected since it represents the decay rate of energy of the specific (per unit mass) kinetic energy. <a href="#eq-turb-dissipation-estimate" class="quarto-xref">Equation&nbsp;<span>21.7</span></a> suggests that the energy is dissipated at a scale <span class="math inline">\(\ell_d\)</span> (the dissipation or Kolmogorov scale) at which the dissipation rate is equal to the mean power of the global flow: <span id="eq-turb-ratio-of-scales-1"><span class="math display">\[
+\nu \left( \frac{v (\ell_d)}{\ell_d} \right)^2 \sim \frac{v^3
+(\ell_0)}{\ell_0} \Longrightarrow \ell_d \sim \ell_0  \left[
+\frac{\nu}{\ell_0 v (\ell_0)} \right]^{1 / 2}  \left[ \frac{v (\ell_d)}{v
+(\ell_0)} \right] = \frac{\ell_0}{\operatorname{Re}^{1 / 2}}  \left[ \frac{v
+(\ell_d)}{v (\ell_0)} \right] .
+\tag{21.9}\]</span></span> In the previous equation, we have introduced the Reynolds number <span id="eq-turb-10"><span class="math display">\[
+\operatorname{Re} = \frac{\ell_0 v (\ell_0)}{\nu} .
+\tag{21.10}\]</span></span> Experimental observations of fluids in pipes suggest that turbulence sets in when <span class="math inline">\(\operatorname{Re} \gtrsim 10^3\)</span>. In astrophysical situations, <span class="math inline">\(\operatorname{Re}\)</span> can be much larger. For example, in the interstellar medium <span class="math inline">\(\operatorname{Re} \sim 10^8\)</span>. In neutron star mergers we contend with flows having <span class="math inline">\(\operatorname{Re} \sim 10^{15}\)</span>. Consequently, <a href="#eq-turb-ratio-of-scales-1" class="quarto-xref">Equation&nbsp;<span>21.9</span></a> implies that <span class="math inline">\(\ell_d \ll \ell_0\)</span> for turbulent flows.</p>
+<p>Summarizing, in our analysis of <a href="#eq-turb-kinetic-energy" class="quarto-xref">Equation&nbsp;<span>21.6</span></a> we have found that kinetic energy is injected at large scale <span class="math inline">\(\ell_0\)</span> (first term on the RHS) and dissipated at the dissipation scale <span class="math inline">\(\ell_d \ll \ell\)</span> (last term on the RHS). This means that there is range of scales <span class="math inline">\(\ell_d \ll \ell \ll \ell_0\)</span>, the so-called <em>inertial range</em>, in which the dynamics is dominated by the nonlinear term <span class="math inline">\((\mathbf{v} \cdot \nabla) v^2\)</span>. We can estimate it as <span id="eq-turb-11"><span class="math display">\[
+(\mathbf{v} \cdot \nabla) v^2 \sim \frac{v^3 (\ell)}{\ell} .
+\tag{21.11}\]</span></span> Note that the non-linear term is different from the other two in that there are no scales linked to it, so we assume that it is independent on the scale <span class="math inline">\(\ell\)</span>, as long as <span class="math inline">\(\ell_d \ll \ell \ll \ell_0\)</span>: <span id="eq-turb-kolmogorov-scaling"><span class="math display">\[
+\frac{v^3 (\ell)}{\ell} \sim \operatorname{const} \Longrightarrow \boxed{v
+(\ell) \sim v (\ell_0)  \left( \frac{\ell}{\ell_0} \right)^{1 / 3}} .
+\tag{21.12}\]</span></span> This assumption is key to the theory of turbulence and is called Kolmogorov’s second similarity hypothesis<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. This is an assumption that has been verified many times through direct numerical simulations and experiments. Often this hypothesis is formulated in terms of the Fourier transform of <span class="math inline">\(v^2 (\ell) :\)</span> <span id="eq-turb-13"><span class="math display">\[
+E (k) = \int e^{\mathrm{i} k \ell} v^2 (\ell) \mathrm{d} \ell .
+\tag{21.13}\]</span></span> If <span class="math inline">\(v (\ell) \sim \ell^{1 / 3}\)</span>, dimensional analysis shows <span class="math inline">\(E (k) \sim k^{- 5 / 3}\)</span>. A comparison between data and theory over more than 10 orders of magnitude in scale is shown in <a href="#fig-turb-voyager" class="quarto-xref">Figure&nbsp;<span>21.2</span></a>, which collects data on turbulence in the local ISM recorded by the Voyager 1 mission. Deviations from the Kolmogorov scaling only appear at very small scales, when plasma kinetic effects become important.</p>
+<div id="fig-turb-voyager" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Log-log plot of the electron-density turbulence power spectrum against wavenumber q in inverse metres, over almost 20 orders of magnitude in q. Data points from different observations, including Voyager 1 at the high-wavenumber end, follow a single dashed straight line, the Kolmogorov power law with slope minus 11 thirds, labelled P_3N = 10 to the minus 2.79 times (m q) to the minus 11 thirds. Small deviations appear only at the largest wavenumbers, near the ion and electron scales marked at the top.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-turb-voyager-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/turbulence/voyager-spectrum.png" class="img-fluid figure-img" alt="Log-log plot of the electron-density turbulence power spectrum against wavenumber q in inverse metres, over almost 20 orders of magnitude in q. Data points from different observations, including Voyager 1 at the high-wavenumber end, follow a single dashed straight line, the Kolmogorov power law with slope minus 11 thirds, labelled P_3N = 10 to the minus 2.79 times (m q) to the minus 11 thirds. Small deviations appear only at the largest wavenumbers, near the ion and electron scales marked at the top.">
 </div>
-<div class="callout-body-container callout-body">
-<p>This chapter is being ported from the 2025 lecture notes.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-turb-voyager-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;21.2: Turbulence spectrum measured by Voyager 1 (points) and Kolmogorov spectrum (dashed). From <span class="citation" data-cites="lee2019">Lee and Lee (<a href="#ref-lee2019" role="doc-biblioref">2019</a>)</span>; © Springer Nature, reproduced for non-commercial educational use and not covered by the license of these notes.
+</figcaption>
+</figure>
 </div>
+<p>A physical interpretation of the K41 model is given by the Richardson cascade (which actually predates K41). In this model, energy is injected at large scale by <span class="math inline">\(\mathbf{g}\)</span> and dissipated at small scales by the viscosity. The nonlinear term <span class="math inline">\((\mathbf{v} \cdot \nabla) v^2\)</span> couples different scales and is responsible for the transport of energy from large scale to small scale, as illustrated in <a href="#fig-turb-richardson" class="quarto-xref">Figure&nbsp;<span>21.3</span></a>.</p>
+<div id="fig-turb-richardson" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Rows of eddies of decreasing size: a few large eddies of size l0 at the top, then more and more eddies of sizes r l0, r squared l0, r cubed l0, down to the dissipation scale eta. Arrows on the right show energy injected at the rate epsilon at the top, a constant flux of energy epsilon from large to small scales, and dissipation of energy at the rate epsilon at the bottom.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-turb-richardson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/turbulence/richardson-cascade.svg" class="img-fluid figure-img" alt="Rows of eddies of decreasing size: a few large eddies of size l0 at the top, then more and more eddies of sizes r l0, r squared l0, r cubed l0, down to the dissipation scale eta. Arrows on the right show energy injected at the rate epsilon at the top, a constant flux of energy epsilon from large to small scales, and dissipation of energy at the rate epsilon at the bottom.">
 </div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-turb-richardson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;21.3: The Richardson cascade. Redrawn after <span class="citation" data-cites="frisch1995">Frisch (<a href="#ref-frisch1995" role="doc-biblioref">1995</a>)</span>.
+</figcaption>
+</figure>
+</div>
+<p>The main mechanisms for the transport of energy are vortex stretching and shear (Kelvin-Helmholtz) instabilities. It is possible to show that <span class="math inline">\(v^3 (\ell) / \ell \sim \operatorname{const}\)</span> implies that, in steady state, the flux of energy across scales is constant.</p>
+<p>We can interpret <span class="math inline">\(v^3 (\ell) / \ell\)</span> as a term that controls the kinetic energy dissipation: <span id="eq-turb-14"><span class="math display">\[
+\frac{v^3 (\ell)}{\ell} = \frac{v^2 (\ell)}{\tau}, \qquad \tau =
+\frac{\ell}{v (\ell)},
+\tag{21.14}\]</span></span> where <span class="math inline">\(\tau\)</span> is the eddy turnover time, the time over which the specific kinetic energy <span class="math inline">\(v^2 (\ell)\)</span> is dissipated. To see this, notice that for <span class="math inline">\(\ell_d \ll \ell \ll \ell_0\)</span>, <a href="#eq-turb-kinetic-energy" class="quarto-xref">Equation&nbsp;<span>21.6</span></a> reduces to <span id="eq-turb-15"><span class="math display">\[
+\boxed{\frac{\mathrm{d} v^2 (\ell)}{\mathrm{d} t} \sim - \frac{v^2 (\ell)}{\tau}
+.}
+\tag{21.15}\]</span></span> The constancy of <span class="math inline">\(v^3 (\ell) / \ell\)</span> implies that <strong>the rate at which turbulence dissipates kinetic energy is independent on <span class="math inline">\(\nu\)</span></strong> or on the detailed form of the physical processes responsible for dissipation! Instead, it is set by the dynamics at large scale. In other words, when kinetic energy is injected by mechanical work at large scale in a turbulent flow, turbulence efficiently transports this energy to small scales (generating large velocity gradients) at which point it is dissipated. This is the reason why turbulence theory applies equally well to the flow of water around the propeller of a ship and to the motion of rarefied gas in the intergalactic medium. This finding also justifies turbulence modeling approaches used in simulations.</p>
+<p>With Kolmogorov’s second similarity law, we can provide a better estimate for <span class="math inline">\(\ell_d\)</span>. Using <a href="#eq-turb-kolmogorov-scaling" class="quarto-xref">Equation&nbsp;<span>21.12</span></a> into <a href="#eq-turb-ratio-of-scales-1" class="quarto-xref">Equation&nbsp;<span>21.9</span></a>, we can eliminate <span class="math inline">\(v (\ell_d)\)</span> to find <span id="eq-turb-16"><span class="math display">\[
+\boxed{\ell_d \sim \left( \frac{\nu}{\ell_0 v (\ell_0)} \right)^{3 / 4}
+\ell_0} \sim \ell_d = \operatorname{Re}^{- 3 / 4} \ell_0 .
+\tag{21.16}\]</span></span> This shows that the scale separation in developed turbulence can be enormous. The cost of a direct numerical simulation scales as <span id="eq-turb-17"><span class="math display">\[
+\operatorname{cost} \sim \left( \frac{\ell_0}{\ell_d} \right)^4 \sim \operatorname{Re}^3,
+\tag{21.17}\]</span></span> which makes it impossible to directly simulate very turbulent flows. Direct numerical simulations cannot probe regimes with <span class="math inline">\(\operatorname{Re} \gtrsim 10^4\)</span>. To study flows with higher Reynolds numbers, it is necessary to give up the idea of simulating all scales in the flow and instead resort to modeling the dynamics below the numerical grid scale using turbulence theory.</p>
+<p>Before we discuss some applications of Kolmogorov’s theory, it is worth mentioning its limitations. Astrophysical flows are often supersonic and highly magnetized. Compressibility and magnetic fields can have a profound role on the turbulent cascade. Shocks can directly dissipate energy from large scale to small scales. Magnetic fields can give rise to <em>inverse cascade</em> whereby small magnetic field structure self-organize into large scale ordered fields (<em>turbulent dynamo process</em>). The study of compressible, magnetized turbulence is still an active area of research and beyond the scope of this course. However, even for compressible, magnetized flows, Kolmogorov’s theory provides a good starting point and can often be applied directly.</p>
+</section>
+<section id="shredding-of-clouds-in-a-turbulent-flow" class="level2" data-number="21.3">
+<h2 data-number="21.3" class="anchored" data-anchor-id="shredding-of-clouds-in-a-turbulent-flow"><span class="header-section-number">21.3</span> Shredding of Clouds in a Turbulent Flow</h2>
+<p>Consider a spherical supernova remnant of radius <span class="math inline">\(R\)</span> immersed in the turbulent interstellar medium. We want to compute the evolution of <span class="math inline">\(R\)</span> with time. We will consider three cases, illustrated in <a href="#fig-turb-cloud" class="quarto-xref">Figure&nbsp;<span>21.4</span></a>.</p>
+<div id="fig-turb-cloud" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Three rows, each showing a grey circular cloud, an arrow, and the cloud afterwards. In case A small random flows act inside the cloud, which ends slightly deformed. In case B eddies stretch the cloud into a strongly distorted shape. In case C a single large-scale flow carries the cloud, which keeps its shape.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-turb-cloud-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/turbulence/cloud-distortion.svg" class="img-fluid figure-img" alt="Three rows, each showing a grey circular cloud, an arrow, and the cloud afterwards. In case A small random flows act inside the cloud, which ends slightly deformed. In case B eddies stretch the cloud into a strongly distorted shape. In case C a single large-scale flow carries the cloud, which keeps its shape.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-turb-cloud-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;21.4: Distortion of a cloud in a turbulent medium. The three different cases are <span class="math inline">\(R \sim \ell_d\)</span> (case A), <span class="math inline">\(\ell_d \ll R \ll \ell_0\)</span> (case B), and <span class="math inline">\(R \sim \ell_0\)</span> (case C).
+</figcaption>
+</figure>
+</div>
+<p>If <span class="math inline">\(R \sim \ell_d\)</span> the particles in the cloud will undergo Brownian random motion, so, as in the case of the random diffusion of photons, we have <span class="math inline">\(R \sim t^{1 / 2}\)</span>. If <span class="math inline">\(R \sim \ell_0\)</span>, then the cloud is primarily advected by the mean flow. The edges of the cloud will still experience random diffusion, so <span class="math inline">\(R \sim t^{1 / 2}\)</span>.</p>
+<p>The more interesting case is when <span class="math inline">\(\ell_d \ll R \ll \ell_0\)</span>. In this case, the cloud undergoes rapid distortion: <span id="eq-turb-18"><span class="math display">\[
+\frac{\mathrm{d} R}{\mathrm{d} t} \sim v \sim R^{1 / 3} \Longrightarrow \frac{\mathrm{d}
+R^2}{\mathrm{d} t} \sim Rv \sim R^{4 / 3} .
+\tag{21.18}\]</span></span> This is <em>Richardson’s 4/3-law</em>. We can use the second Kolmogorov similarity hypothesis to find the time dependence for <span class="math inline">\(R\)</span>: <span id="eq-turb-19"><span class="math display">\[
+v (R) \sim v (\ell_0)  \left( \frac{R}{\ell_0} \right)^{1 / 3}
+\Longrightarrow R^{- 2 / 3} \sim \frac{v (R)}{R}  \frac{\ell_0^{1 / 3}}{v
+(\ell_0)} \Longrightarrow R \sim \left( \frac{R}{v (R)} \right)^{3 / 2} \sim
+t^{3 / 2} .
+\tag{21.19}\]</span></span> Turbulence significantly accelerates the mixing of new elements produced in supernovae with the interstellar medium, where they can subsequently form new stars, planets, and people. Turbulence is essential for life to develop in the Universe.</p>
+</section>
+<section id="turbulence-modeling-reynolds-stress" class="level2" data-number="21.4">
+<h2 data-number="21.4" class="anchored" data-anchor-id="turbulence-modeling-reynolds-stress"><span class="header-section-number">21.4</span> Turbulence Modeling: Reynolds Stress</h2>
+<p>Directly simulating turbulent flows is impossible, so one of the goals of turbulence theory is to develop effective strategies to deal with unresolved turbulence in simulations. Commonly used models are the Reynolds averaged Navier-Stokes (RANS) and Large-Eddy Simulations (LES) frameworks. Without going into the details, both approaches are based on the general idea of coarse graining the fluid equations. That is we replace <span class="math inline">\(\mathbf{v}\)</span> with a suitable average <span class="math inline">\(\bar{\mathbf{v}}\)</span> and try to come up with equations for it. If we coarse grain the Navier-Stokes equations, we find: <span id="eq-turb-20"><span class="math display">\[
+\partial_t \mathbf{v}+ \nabla \cdot (\mathbf{v} \otimes \mathbf{v}+ p)
+=\mathbf{g}+ \nu \nabla^2 \mathbf{v} \longrightarrow \partial_t
+\overline{\mathbf{v}} + \nabla \cdot \overline{(\mathbf{v} \otimes
+\mathbf{v}+ p)} = \overline{\mathbf{g}} + \nu \nabla^2 \overline{\mathbf{v}}
+.
+\tag{21.20}\]</span></span> These equations are exact, but unfortunately not closed, because we do not have a way to compute <span class="math inline">\(\overline{\mathbf{v} \otimes \mathbf{v}}\)</span> from <span class="math inline">\(\bar{\mathbf{v}}\)</span>. This is the so-called turbulence closure problem. To work around this, we define the <em>Reynolds stress tensor</em> <span id="eq-turb-21"><span class="math display">\[
+\mathbf{R}= \overline{\mathbf{v} \otimes \mathbf{v}} - \overline{\mathbf{v}}
+\otimes \overline{\mathbf{v}}
+\tag{21.21}\]</span></span> and the momentum equation becomes: <span id="eq-turb-momentum-averaged"><span class="math display">\[
+\partial_t  \overline{\mathbf{v}} + \nabla \cdot (\overline{\mathbf{v}}
+\otimes \overline{\mathbf{v}} +\mathbf{R}+ \overline{p}) =
+\overline{\mathbf{g}} + \nu \nabla^2 \overline{\mathbf{v}} .
+\tag{21.22}\]</span></span> <a href="#eq-turb-momentum-averaged" class="quarto-xref">Equation&nbsp;<span>21.22</span></a> is the momentum equation for a fluid that has velocity equal to <span class="math inline">\(\overline{\mathbf{v}}\)</span>, pressure <span class="math inline">\(\overline{p}\)</span>, and a new component of the stress tensor <span class="math inline">\(\mathbf{R}\)</span>. Because, <span class="math inline">\(\overline{\mathbf{v}}\)</span> is some average of the true velocity, <a href="#eq-turb-momentum-averaged" class="quarto-xref">Equation&nbsp;<span>21.22</span></a> can be solved on a coarse computational mesh. The problem of modeling turbulence is now reduced to that of finding a good model for <span class="math inline">\(\mathbf{R}\)</span>. There are many such models in the literature.</p>
+<p>The simplest model, which is also the most commonly used for astrophysical applications, is the <em>turbulent viscosity</em> or Smagorinsky model. Accordingly, one takes <span id="eq-turb-23"><span class="math display">\[
+\mathbf{R}= - \frac{1}{2} \nu_T  (\nabla \mathbf{v}+ \nabla^T \mathbf{v}) .
+\tag{21.23}\]</span></span> With this choice, <a href="#eq-turb-momentum-averaged" class="quarto-xref">Equation&nbsp;<span>21.22</span></a> becomes <span id="eq-turb-momentum-averaged-2"><span class="math display">\[
+\partial_t  \overline{\mathbf{v}} + \nabla \cdot (\overline{\mathbf{v}}
+\otimes \overline{\mathbf{v}} + \overline{p}) = \overline{\mathbf{g}} + (\nu
++ \nu_T) \nabla^2 \overline{\mathbf{v}} .
+\tag{21.24}\]</span></span> That is turbulence is described simply as a dissipative process and <span class="math inline">\(\nu_T\)</span> is an effective turbulent viscosity. The turbulent viscosity, in turn, is often obtained using dimensional analysis arguments: <span id="eq-turb-25"><span class="math display">\[
+\nu_T = \ell_{\operatorname{mix}} V,
+\tag{21.25}\]</span></span> where <span class="math inline">\(\ell_{\operatorname{mix}}\)</span> is a characteristic length, also called the <em>mixing length</em>, and <span class="math inline">\(V\)</span> is a characteristic velocity. For example, in accretion disk theory, <span class="math inline">\(V = c_s\)</span> and <span class="math inline">\(\ell_{\operatorname{mix}}\)</span> is taken to be proportional to the scale-height of the disk <span class="math inline">\(H\)</span>: <span id="eq-turb-26"><span class="math display">\[
+\ell_{\operatorname{mix}} = \alpha H = \alpha \frac{c_s}{\Omega} \Longrightarrow
+\nu_T = \alpha \frac{c_s^2}{\Omega},
+\tag{21.26}\]</span></span> where <span class="math inline">\(\Omega\)</span> is the angular velocity of the flow. This is the so-called <span class="math inline">\(\alpha\)</span>-viscosity model.</p>
+<p>For shear flows along <span class="math inline">\(x\)</span> with shear in the <span class="math inline">\(y\)</span>-direction, one can use the velocity gradient instead of <span class="math inline">\(V\)</span>: <span id="eq-turb-27"><span class="math display">\[
+\nu_T = \ell_{\operatorname{mix}}^2  \left( \frac{\partial \overline{v_x}}{\partial
+y} \right) .
+\tag{21.27}\]</span></span> For industrial applications, a popular strategy is to solve additional equations for <span class="math inline">\(\partial_t \mathbf{R}\)</span>, with coefficients calibrated to experimental (wind tunnel) results. More sophisticated “subgrid” models have also been proposed for astrophysical applications, but their detailed description is beyond the scope of this course. See <span class="citation" data-cites="brandenburg2011">Brandenburg and Nordlund (<a href="#ref-brandenburg2011" role="doc-biblioref">2011</a>)</span> for more information.</p>
+<p>Another popular approach is the Implicit Large-Eddy Simulations (ILES) method, in which <span class="math inline">\(\mathbf{R}\)</span> is not included explicitly in the equations. Instead, a numerical scheme is chosen that has a numerical viscosity <span class="math inline">\(\nu_{\operatorname{num}} \approx \nu_T\)</span>. This approach is often effective, but ILES simulations need to be accompanied by careful resolution studies to assess their reliability, because accurate results can only be obtained if a sufficient portion of the inertial range is resolved by the simulations.</p>
+<div id="fig-turb-federrath" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Journal cover showing a slice of gas density from a turbulence simulation: filaments and sheets of dense gas in bright orange and yellow, separated by low-density regions in purple, with a highly irregular, multi-scale structure.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-turb-federrath-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/turbulence/federrath-cover.png" class="img-fluid figure-img" alt="Journal cover showing a slice of gas density from a turbulence simulation: filaments and sheets of dense gas in bright orange and yellow, separated by low-density regions in purple, with a highly irregular, multi-scale structure.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-turb-federrath-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;21.5: Density in a high-resolution simulation of compressible turbulence in the interstellar medium <span class="citation" data-cites="federrath2021">(<a href="#ref-federrath2021" role="doc-biblioref">Federrath et al. 2021</a>)</span>, as shown on the cover of <em>Nature Astronomy</em>, April 2021. © Springer Nature, reproduced for non-commercial educational use and not covered by the license of these notes.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-turb-worksheet" class="level2" data-number="21.5">
+<h2 data-number="21.5" class="anchored" data-anchor-id="sec-turb-worksheet"><span class="header-section-number">21.5</span> In-class worksheet</h2>
+<p><strong>Turbulence in Core-Collapse Supernovae.</strong> We construct here a simplified model showing the role of turbulence in aiding shock revival in core-collapse supernovae.</p>
+<ol type="1">
+<li><p>Consider a steady accretion shock near the protoneutron star. Assume that the in-falling material is cold and that the velocity downstream of the shock is small. Show that the Rankine–Hugoniot conditions simplifies to <span id="eq-turb-ws1"><span class="math display">\[
+p_2 \approx \rho_1 v_1^2, \qquad \frac{\rho_2}{\rho_1} = \frac{\Gamma +
+1}{\Gamma - 1},
+\tag{21.28}\]</span></span> where all quantities have their usual meaning.</p></li>
+<li><p>Find the equilibrium pressure <span class="math inline">\(p_2\)</span> needed to support the accretion shock at a fixed radius <span class="math inline">\(r_s\)</span>, given the mass of the protoneutron star <span class="math inline">\(M\)</span>, and the accretion rate <span class="math inline">\(\dot{M}\)</span>.</p></li>
+<li><p>Consider angular averages of the flow, e.g., <span id="eq-turb-ws2"><span class="math display">\[
+\langle \mathbf{v} \rangle = \frac{1}{4 \pi} \oint \mathbf{v} \mathrm{d}
+\Omega .
+\tag{21.29}\]</span></span> Decompose the velocity downstream of the shock as the sum of an average (laminar) component <span class="math inline">\(\langle \mathbf{v} \rangle\)</span> and a turbulent fluctuating component <span class="math inline">\(\delta \mathbf{v}\)</span>, <span class="math inline">\(\mathbf{v}= \langle \mathbf{v} \rangle + \delta \mathbf{v}\)</span>. Assume that <span class="math inline">\(\rho\)</span> depends only on radius, so that <span class="math inline">\(\langle \rho \mathbf{v} \rangle = \rho \langle \mathbf{v} \rangle\)</span>. Define the Reynolds stress as <span id="eq-turb-ws3"><span class="math display">\[
+\mathbf{R}= \langle \delta \mathbf{v} \otimes \delta \mathbf{v} \rangle
+.
+\tag{21.30}\]</span></span> Show that the conservation of momentum across the shock can be written as <span id="eq-turb-ws4"><span class="math display">\[
+\rho_2  \langle v_2 \rangle^2 + \rho_2 R_{r r} + p_2 = \rho_1 v_1^2 .
+\tag{21.31}\]</span></span></p></li>
+<li><p>Define the specific turbulent kinetic energy as <span id="eq-turb-ws5"><span class="math display">\[
+\varepsilon_{\operatorname{turb}} = \frac{1}{2}  | \delta \mathbf{v} |^2 =
+\frac{1}{2}  (R_{\operatorname{rr}} + R_{\theta \theta} + R_{\phi \phi}) .
+\tag{21.32}\]</span></span> Assume that <span class="math inline">\(R_{\operatorname{rr}} = R_{\theta \theta} + R_{\phi \phi}\)</span> and show that with this definition <a href="#eq-turb-ws4" class="quarto-xref">Equation&nbsp;<span>21.31</span></a> can be written as <span id="eq-turb-ws6"><span class="math display">\[
+\begin{aligned}
+&amp; \rho_2  \langle v_2 \rangle^2 \\
+&amp; \quad + \rho_2  [(\Gamma_{\operatorname{turb}} - 1)
+\varepsilon_{\operatorname{turb}} + (\Gamma - 1) \varepsilon_2] \\
+&amp; \quad = \rho_1 u_1^2 .
+\end{aligned}
+\tag{21.33}\]</span></span> What is the effective adiabatic index of turbulence <span class="math inline">\(\Gamma_{\operatorname{turb}}\)</span>?</p></li>
+<li><p>At early times, before the turbulence develop, the accretion shock is stalled at a radius <span class="math inline">\(r_s\)</span>. What happens to the shock, once turbulence develops?</p></li>
+</ol>
+</section>
+<section id="sec-turb-exercises" class="level2" data-number="21.6">
+<h2 data-number="21.6" class="anchored" data-anchor-id="sec-turb-exercises"><span class="header-section-number">21.6</span> Exercises</h2>
+<div id="exr-turb-random-walks" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 21.1 (Brownian and Lévy random walks)</strong></span> Consider the random walk of a particle. At each step <span class="math inline">\(i\)</span> a particle at position <span class="math inline">\(\mathbf{x}_i\)</span> jumps to position <span id="eq-turb-random-walk"><span class="math display">\[
+\mathbf{x}_{i + 1} =\mathbf{x}_i + R_i \mathbf{d}_i,
+\tag{21.34}\]</span></span> where <span class="math inline">\(\mathbf{d}_i\)</span> is a random direction on the sphere (uniform in <span class="math inline">\(\phi\)</span> and <span class="math inline">\(\cos \theta\)</span>) and <span class="math inline">\(R_i\)</span> is either</p>
+<ol type="1">
+<li><p>a fixed constant (Brownian random walk); or</p></li>
+<li><p>it has a Pareto distribution <span class="math inline">\(p (R) \sim R^{- 1 - \beta}\)</span>, for a given <span class="math inline">\(\beta\)</span> (Lévy random walk).</p></li>
+</ol>
+<p>The Brownian random walk can be used to model ordinary diffusion process, while Lévy random walks can be used to model effective diffusion and mixing in a turbulent flow (superdiffusion).</p>
+<p>Write a code to simulate random Brownian and Lévy random walks with <span class="math inline">\(\beta = 2 / 3\)</span>, then construct averages of the traveled distance <span class="math inline">\(D_N = | \mathbf{x}_N -\mathbf{x}_0 |\)</span> as a function of <span class="math inline">\(N\)</span> for the two.</p>
+<p>Show that <span class="math inline">\(D_N \sim N^{\gamma}\)</span> and estimate <span class="math inline">\(\gamma\)</span> in the two cases. Compare the results with the predictions from Kolmogorov theory for diffusion in a turbulent flow (<span class="math inline">\(R \sim t^{3 / 2}\)</span>).</p>
+<p>[You can use <code>numpy.random.uniform</code> and <code>numpy.random.pareto</code> to generate <span class="math inline">\(R_i\)</span> and <span class="math inline">\(\mathbf{d}_i\)</span>.]</p>
+</div>
+</section>
+<section id="sec-turb-reading" class="level2" data-number="21.7">
+<h2 data-number="21.7" class="anchored" data-anchor-id="sec-turb-reading"><span class="header-section-number">21.7</span> Further reading</h2>
+<ul>
+<li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Chapter 14 (introduction to turbulence).</li>
+<li><span class="citation" data-cites="landau1987">Landau and Lifshitz (<a href="#ref-landau1987" role="doc-biblioref">1987</a>)</span> and <span class="citation" data-cites="pope2000">Pope (<a href="#ref-pope2000" role="doc-biblioref">2000</a>)</span>.</li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-brandenburg2011" class="csl-entry" role="listitem">
+Brandenburg, Axel, and Åke Nordlund. 2011. <span>“Astrophysical Turbulence Modeling.”</span> <em>Reports on Progress in Physics</em> 74: 046901. <a href="https://doi.org/10.1088/0034-4885/74/4/046901">https://doi.org/10.1088/0034-4885/74/4/046901</a>.
+</div>
+<div id="ref-clarke2007" class="csl-entry" role="listitem">
+Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dynamics</em>. Cambridge University Press.
+</div>
+<div id="ref-federrath2021" class="csl-entry" role="listitem">
+Federrath, Christoph, Ralf S. Klessen, Luigi Iapichino, and James R. Beattie. 2021. <span>“The Sonic Scale of Interstellar Turbulence.”</span> <em>Nature Astronomy</em> 5: 365–71. <a href="https://doi.org/10.1038/s41550-020-01282-z">https://doi.org/10.1038/s41550-020-01282-z</a>.
+</div>
+<div id="ref-frisch1995" class="csl-entry" role="listitem">
+Frisch, Uriel. 1995. <em>Turbulence: The Legacy of a. N. Kolmogorov</em>. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9781139170666">https://doi.org/10.1017/CBO9781139170666</a>.
+</div>
+<div id="ref-landau1987" class="csl-entry" role="listitem">
+Landau, L. D., and E. M. Lifshitz. 1987. <em>Fluid Mechanics</em>. 2nd ed. Vol. 6. Course of Theoretical Physics. Pergamon Press.
+</div>
+<div id="ref-lee2019" class="csl-entry" role="listitem">
+Lee, K. H., and L. C. Lee. 2019. <span>“Interstellar Turbulence Spectrum from in Situ Observations of <span>Voyager 1</span>.”</span> <em>Nature Astronomy</em> 3: 154–59. <a href="https://doi.org/10.1038/s41550-018-0650-6">https://doi.org/10.1038/s41550-018-0650-6</a>.
+</div>
+<div id="ref-pope2000" class="csl-entry" role="listitem">
+Pope, Stephen B. 2000. <em>Turbulent Flows</em>. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511840531">https://doi.org/10.1017/CBO9780511840531</a>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>The first Kolmogorov similarity hypothesis concerns the universality of the flow at the dissipation scale. This is not relevant to astrophysical applications, because astrophysical plasmas become collisionless at small scale, i.e., they do not behave like a fluid anymore. However, as we will see later, Kolmogorov’s theory still applies for <span class="math inline">\(\ell \gg \ell_d\)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

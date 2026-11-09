@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 430" width="700" height="430" role="img" aria-labelledby="recon-t recon-d">
+<title id="recon-t">Explosive reconnection between two plates</title>
+<desc id="recon-d">Panel (a): two grey conducting plates, one above the other, a distance 2D apart. Two field lines B (blue) are anchored on the plates and bowed towards each other, separated by a gap l; black arrows labelled f show the external force that stretches them. The horizontal extent of each arc is D. Panel (b): after reconnection the field lines are straight, running between the plates, and arrows labelled v show the plasma moving outwards.</desc>
+<defs><marker id="ah-k" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#000" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker><marker id="ah-1f4fbf" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#1f4fbf" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker></defs>
+<rect width="700" height="430" fill="#fff"/>
+<g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif">
+<text x="258" y="22" text-anchor="middle" font-size="18" font-style="italic" font-weight="normal" fill="#000">(a)</text>
+<rect x="187" y="40" width="142" height="22" fill="#d9d9d9" stroke="#000" stroke-width="1.6"/>
+<rect x="187" y="338" width="142" height="22" fill="#d9d9d9" stroke="#000" stroke-width="1.6"/>
+<path d="M 313 61 C 301 130 281 142 258 142 C 235 142 215 130 205 61" fill="none" stroke="#1f4fbf" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ah-1f4fbf)" />
+<path d="M 205 338 C 215 270 235 190 258 190 C 281 190 301 270 311 338" fill="none" stroke="#1f4fbf" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ah-1f4fbf)" />
+<line x1="258.0" y1="85.0" x2="258.0" y2="125.0" stroke="#000" stroke-width="1.5" marker-end="url(#ah-k)"/>
+<line x1="258.0" y1="255.0" x2="258.0" y2="205.0" stroke="#000" stroke-width="1.5" marker-end="url(#ah-k)"/>
+<text x="272" y="85" text-anchor="start" font-size="20" font-style="normal" font-weight="bold" fill="#000">f</text>
+<text x="295" y="228" text-anchor="start" font-size="22" font-style="normal" font-weight="bold" fill="#1f4fbf">B</text>
+<line x1="167.0" y1="190.0" x2="167.0" y2="338.0" stroke="#000" stroke-width="1.5"/>
+<line x1="160.0" y1="190.0" x2="174.0" y2="190.0" stroke="#000" stroke-width="1.5"/>
+<line x1="160.0" y1="338.0" x2="174.0" y2="338.0" stroke="#000" stroke-width="1.5"/>
+<text x="148" y="270" text-anchor="middle" font-size="22" font-style="italic" font-weight="normal" fill="#000">ℓ</text>
+<line x1="205.0" y1="395.0" x2="258.0" y2="395.0" stroke="#000" stroke-width="1.5"/>
+<line x1="205.0" y1="388.0" x2="205.0" y2="402.0" stroke="#000" stroke-width="1.5"/>
+<line x1="258.0" y1="388.0" x2="258.0" y2="402.0" stroke="#000" stroke-width="1.5"/>
+<text x="231" y="417" text-anchor="middle" font-size="22" font-style="italic" font-weight="normal" fill="#000">D</text>
+<text x="542" y="22" text-anchor="middle" font-size="18" font-style="italic" font-weight="normal" fill="#000">(b)</text>
+<rect x="471" y="40" width="142" height="22" fill="#d9d9d9" stroke="#000" stroke-width="1.6"/>
+<rect x="471" y="338" width="142" height="22" fill="#d9d9d9" stroke="#000" stroke-width="1.6"/>
+<line x1="488.0" y1="337.0" x2="488.0" y2="62.0" stroke="#1f4fbf" stroke-width="2.4" marker-end="url(#ah-1f4fbf)"/>
+<line x1="591.0" y1="62.0" x2="591.0" y2="337.0" stroke="#1f4fbf" stroke-width="2.4" marker-end="url(#ah-1f4fbf)"/>
+<line x1="450.0" y1="62.0" x2="450.0" y2="338.0" stroke="#000" stroke-width="1.5"/>
+<line x1="443.0" y1="62.0" x2="457.0" y2="62.0" stroke="#000" stroke-width="1.5"/>
+<line x1="443.0" y1="338.0" x2="457.0" y2="338.0" stroke="#000" stroke-width="1.5"/>
+<text x="432" y="205" text-anchor="end" font-size="22" font-style="italic" font-weight="normal" fill="#000">2D</text>
+<line x1="535.0" y1="205.0" x2="492.0" y2="205.0" stroke="#000" stroke-width="1.5" marker-end="url(#ah-k)"/>
+<line x1="548.0" y1="205.0" x2="590.0" y2="205.0" stroke="#000" stroke-width="1.5" marker-end="url(#ah-k)"/>
+<text x="542" y="188" text-anchor="middle" font-size="20" font-style="normal" font-weight="bold" fill="#000">v</text>
+</g>
+</svg>

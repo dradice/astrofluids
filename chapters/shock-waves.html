@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -95,6 +114,35 @@ ul.task-list li input[type="checkbox"] {
   };
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -465,7 +513,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magnetohydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magneto­hydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
       <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
@@ -525,8 +573,16 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#sec-shock-worksheet" id="toc-sec-shock-worksheet" class="nav-link active" data-scroll-target="#sec-shock-worksheet"><span class="header-section-number">11.1</span> In-class worksheet</a></li>
+  <li><a href="#sec-shock-exercises" id="toc-sec-shock-exercises" class="nav-link" data-scroll-target="#sec-shock-exercises"><span class="header-section-number">11.2</span> Exercises</a></li>
+  <li><a href="#sec-shock-reading" id="toc-sec-shock-reading" class="nav-link" data-scroll-target="#sec-shock-reading"><span class="header-section-number">11.3</span> Further reading</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
@@ -564,8 +620,86 @@ Note
 <p>This chapter is in preparation.</p>
 </div>
 </div>
+<section id="sec-shock-worksheet" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="sec-shock-worksheet"><span class="header-section-number">11.1</span> In-class worksheet</h2>
+<section id="shock-waves-i" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="shock-waves-i"><span class="header-section-number">11.1.1</span> Shock waves I</h3>
+<ol type="1">
+<li><p>Consider a shock wave in an ideal gas with adiabatic index <span class="math inline">\(\Gamma\)</span>. Let <span class="math inline">\(\rho_1, p_1\)</span>, and <span class="math inline">\(T_1\)</span> be the upstream (unshocked) gas density, pressure, and temperature. Let <span class="math inline">\(\rho_2, p_2,\)</span>and <span class="math inline">\(T_2\)</span> be the corresponding downstream (post-shock) quantities.</p>
+<ol type="1">
+<li><p>Show that the ratio of downstream to upstream temperature across the shock is <span id="eq-shock-1"><span class="math display">\[
+\frac{T_2}{T_1} = \frac{p_2}{p_1}  \frac{(\Gamma + 1) p_1 + (\Gamma - 1)
+p_2}{(\Gamma - 1) p_1 + (\Gamma + 1) p_2} .
+\tag{11.1}\]</span></span></p></li>
+<li><p>If <span class="math inline">\(T_2 = 4 T_1\)</span>, what are <span class="math inline">\(p_2\)</span> and <span class="math inline">\(\rho_2\)</span> as a function of <span class="math inline">\(\rho_1, p_1,\)</span> and <span class="math inline">\(T_1\)</span>?</p></li>
+</ol></li>
+</ol>
+</section>
+<section id="shock-waves-ii" class="level3" data-number="11.1.2">
+<h3 data-number="11.1.2" class="anchored" data-anchor-id="shock-waves-ii"><span class="header-section-number">11.1.2</span> Shock waves II</h3>
+<ol type="1">
+<li><p>The Bullet Cluster (1E 0657-56) consists of two colliding clusters of galaxies. The name comes from the characteristic shape of a shock formed by the interaction of the gas from the two clusters, which is visible in X-ray. The image in <a href="#fig-shock-bullet-xray" class="quarto-xref">Figure&nbsp;<span>11.1</span></a> has been obtained with the Chandra X-ray space telescope.</p>
+<div id="fig-shock-bullet-xray" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Grayscale X-ray image of the Bullet Cluster, with right ascension from about 104.75 to 104.55 degrees and declination from about minus 55.9 to minus 56.0 degrees, and a 1 megaparsec scale bar. A broad diffuse cloud of X-ray emission fills the centre; on its right side a small, dense bright clump, the bullet, is followed by a sharp edge, the bow shock, ahead of it to the right.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shock-bullet-xray-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/shock-waves/bullet-cluster-chandra-markevitch2002.png" class="img-fluid figure-img" alt="Grayscale X-ray image of the Bullet Cluster, with right ascension from about 104.75 to 104.55 degrees and declination from about minus 55.9 to minus 56.0 degrees, and a 1 megaparsec scale bar. A broad diffuse cloud of X-ray emission fills the centre; on its right side a small, dense bright clump, the bullet, is followed by a sharp edge, the bow shock, ahead of it to the right.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shock-bullet-xray-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.1: Chandra/ACIS 0.5–5 keV image of the Bullet Cluster. From <span class="citation" data-cites="markevitch2002">Markevitch et al. (<a href="#ref-markevitch2002" role="doc-biblioref">2002</a>)</span>; © The American Astronomical Society, reproduced for non-commercial educational use and not covered by the license of these notes.
+</figcaption>
+</figure>
+</div>
+<p>This data can be fitted to infer the following parameters for the upstream and downstream electron density and temperature: <span id="eq-shock-2"><span class="math display">\[
+\begin{gathered}
+n_1 = 3.7 \times 10^{- 3} \operatorname{cm}^{- 3}, \quad T_1 = 9.3 \times 10^7
+\mathrm{K}, \\
+n_2 = 9.3 \cdot 10^{- 3} \operatorname{cm}^{- 3}, \quad T_2 =
+2.2 \cdot 10^8 \mathrm{K}.
+\end{gathered}
+\tag{11.2}\]</span></span> Estimate</p>
+<ol type="1">
+<li><p>the Mach number of the shock (defined as the Mach number of the upstream flow);</p></li>
+<li><p>the relative velocity of approach of the two clusters of galaxies.</p></li>
+</ol></li>
+</ol>
+</section>
+</section>
+<section id="sec-shock-exercises" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="sec-shock-exercises"><span class="header-section-number">11.2</span> Exercises</h2>
+<div id="exr-shock-piston" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 11.1 (Piston-driven shock)</strong></span> A piston drives a strong shock wave through a cold gas that is initially at rest; similar considerations are used to describe young supernova remnants. The piston moves at speed <span class="math inline">\(v_p\)</span> and has a mass per unit surface area <span class="math inline">\(\sigma M_p\)</span>. The gas follows a gamma-law equation of state <span id="eq-shock-3"><span class="math display">\[
+p = (\Gamma - 1) \rho \varepsilon .
+\tag{11.3}\]</span></span></p>
+<ol type="1">
+<li><p>Express the shock speed <span class="math inline">\(s\)</span>, and the downstream density <span class="math inline">\(\rho_2\)</span> and pressure <span class="math inline">\(p_2\)</span>, in terms of the upstream density <span class="math inline">\(\rho_1\)</span>. Keep <span class="math inline">\(\Gamma\)</span> general (do not set <span class="math inline">\(\Gamma = 5/3\)</span>) and do not use the expression for <span class="math inline">\(s\)</span> given by Kulsrud, which contains a typo.</p></li>
+<li><p>Calculate the work that the piston does on the gas and estimate when the piston begins to decelerate. Compare the mass of the piston with the mass of the gas that the shock has swept up by that time. For this estimate, take the piston velocity to stay constant until the piston has lost a significant fraction of its kinetic energy.</p></li>
+</ol>
+<p>Adapted from <span class="citation" data-cites="kulsrud2005">Kulsrud (<a href="#ref-kulsrud2005" role="doc-biblioref">2005</a>)</span>, Problem 4.6.</p>
+</div>
+</section>
+<section id="sec-shock-reading" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="sec-shock-reading"><span class="header-section-number">11.3</span> Further reading</h2>
+<ul>
+<li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Chapter 7 (supersonic flows).</li>
+<li><span class="citation" data-cites="landau1987">Landau and Lifshitz (<a href="#ref-landau1987" role="doc-biblioref">1987</a>)</span>, Sections 84–89 (shock waves).</li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-clarke2007" class="csl-entry" role="listitem">
+Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dynamics</em>. Cambridge University Press.
+</div>
+<div id="ref-kulsrud2005" class="csl-entry" role="listitem">
+Kulsrud, Russell M. 2005. <em>Plasma Physics for Astrophysics</em>. Princeton University Press.
+</div>
+<div id="ref-landau1987" class="csl-entry" role="listitem">
+Landau, L. D., and E. M. Lifshitz. 1987. <em>Fluid Mechanics</em>. 2nd ed. Vol. 6. Course of Theoretical Physics. Pergamon Press.
+</div>
+<div id="ref-markevitch2002" class="csl-entry" role="listitem">
+Markevitch, M., A. H. Gonzalez, L. David, et al. 2002. <span>“A Textbook Example of a Bow Shock in the Merging Galaxy Cluster 1E 0657–56.”</span> <em>The Astrophysical Journal</em> 567 (1): L27–31. <a href="https://doi.org/10.1086/339619">https://doi.org/10.1086/339619</a>.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

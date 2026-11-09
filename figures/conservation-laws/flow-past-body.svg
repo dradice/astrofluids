@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="280" viewBox="0 0 460 280" role="img" aria-labelledby="t d" font-family="'STIX Two Text','Times New Roman',serif" font-size="20">
+  <title id="t">Flow past a rigid body</title>
+  <desc id="d">Four streamlines flow from left to right around a shaded rigid body Omega. A second outline just outside the body marks its boundary, labeled boundary of Omega.</desc>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#000" stroke-width="1.6"/>
+    </marker>
+  </defs>
+  <rect width="460" height="280" fill="#fff"/>
+  <g fill="none" stroke="#000" stroke-width="1.8" marker-end="url(#ah)">
+    <path d="M 5,112 C 50,70 100,18 190,10 C 280,6 360,9 398,9"/>
+    <path d="M 32,157 C 70,90 120,56 190,48 C 270,45 340,56 380,55 C 410,53 430,50 440,48"/>
+    <path d="M 40,230 C 150,248 300,242 370,190 C 405,160 405,100 438,70"/>
+    <path d="M 80,272 C 200,262 330,240 395,190 C 420,170 440,150 456,128"/>
+  </g>
+  <path d="M 66,148 C 82,100 140,68 205,66 C 270,66 335,68 370,82 C 388,92 385,108 360,132 C 310,175 240,190 190,196 C 130,200 70,185 66,148 Z" fill="#d0d0d0" stroke="#000" stroke-width="1.8"/>
+  <path d="M 57,150 C 75,95 140,60 205,58 C 280,57 345,60 374,78 C 396,92 392,114 366,140 C 316,184 244,200 190,204 C 125,208 52,192 57,150 Z" fill="none" stroke="#1f4fd0" stroke-width="1.8"/>
+  <text x="240" y="224" fill="#1f4fd0">∂Ω</text>
+  <text x="142" y="132">Ω</text>
+</svg>

@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -95,6 +114,35 @@ ul.task-list li input[type="checkbox"] {
   };
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -465,7 +513,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magnetohydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magneto­hydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
       <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
@@ -525,8 +573,16 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#sec-blast-worksheet" id="toc-sec-blast-worksheet" class="nav-link active" data-scroll-target="#sec-blast-worksheet"><span class="header-section-number">13.1</span> In-class worksheet</a></li>
+  <li><a href="#sec-blast-exercises" id="toc-sec-blast-exercises" class="nav-link" data-scroll-target="#sec-blast-exercises"><span class="header-section-number">13.2</span> Exercises</a></li>
+  <li><a href="#sec-blast-reading" id="toc-sec-blast-reading" class="nav-link" data-scroll-target="#sec-blast-reading"><span class="header-section-number">13.3</span> Further reading</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
@@ -564,8 +620,92 @@ Note
 <p>This chapter is in preparation.</p>
 </div>
 </div>
+<section id="sec-blast-worksheet" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="sec-blast-worksheet"><span class="header-section-number">13.1</span> In-class worksheet</h2>
+<ol type="1">
+<li><p><strong>Atmospheric explosion.</strong> These are experimental measurements of the expansion of a blast wave due to an atmospheric explosion.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(t (\operatorname{ms})\)</span></th>
+<th style="text-align: right;">0.09</th>
+<th style="text-align: right;">0.24</th>
+<th style="text-align: right;">0.38</th>
+<th style="text-align: right;">0.52</th>
+<th style="text-align: right;">0.66</th>
+<th style="text-align: right;">0.80</th>
+<th style="text-align: right;">0.94</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(R (\mathrm{m})\)</span></td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">77</td>
+</tr>
+</tbody>
+</table>
+<p>This data is plotted for your convenience in <a href="#fig-blast-fireball" class="quarto-xref">Figure&nbsp;<span>13.1</span></a> (log-log scale). The data file <a href="https://github.com/dradice/astrofluids/blob/main/code/blast-waves/fireball.dat"><code>fireball.dat</code></a> and the plotting script <a href="https://github.com/dradice/astrofluids/blob/main/code/blast-waves/fireball.py"><code>fireball.py</code></a> are available in the repository.</p>
+<div id="fig-blast-fireball" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Log-log plot of the blast-wave radius R in metres against time t in milliseconds. Seven black points rise from 24 m at 0.09 ms to 77 m at 0.94 ms, with the slope decreasing at later times.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-blast-fireball-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/blast-waves/fireball-data.svg" class="img-fluid figure-img" alt="Log-log plot of the blast-wave radius R in metres against time t in milliseconds. Seven black points rise from 24 m at 0.09 ms to 77 m at 0.94 ms, with the slope decreasing at later times.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blast-fireball-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.1: Radius of the blast wave as a function of time for the atmospheric explosion (log-log scale).
+</figcaption>
+</figure>
+</div>
+<ol type="1">
+<li><p>Argue that the radius of the shock should scale as <span class="math inline">\(R = \xi_0 \rho_1^{\alpha} E^{\beta} t^{\gamma}\)</span>, where <span class="math inline">\(\rho_1\)</span> is the atmospheric density, <span class="math inline">\(E\)</span> is the explosion energy, <span class="math inline">\(t\)</span> is the time, and <span class="math inline">\(\xi_0\)</span> is a dimensionless parameter of order one. Is this ansatz supported by the data? Compute <span class="math inline">\(\alpha, \beta, \gamma\)</span>.</p></li>
+<li><p>Show that the shock expansion speed is <span id="eq-blast-1"><span class="math display">\[
+U_{\operatorname{sh}} = \frac{2}{5}  \frac{r_{\operatorname{sh}}}{t} .
+\tag{13.1}\]</span></span></p></li>
+<li><p><em>Estimate</em> the explosion energy <span class="math inline">\(E\)</span>. You can assume <span class="math inline">\(\rho_1 = 1.25 \times 10^{- 3} \mathrm{g} \operatorname{cm}^{- 3}\)</span> for the density of the atmosphere.</p></li>
+<li><p>Estimate the temperature of the fireball 1 ms after the explosion. Use <span class="math inline">\(\Gamma = \frac{7}{5}\)</span> and <span class="math inline">\(\mu = 28 m_p\)</span> for air. Is this estimate an upper limit or a lower limit?</p></li>
+</ol></li>
+</ol>
+</section>
+<section id="sec-blast-exercises" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="sec-blast-exercises"><span class="header-section-number">13.2</span> Exercises</h2>
+<div id="exr-blast-ionized-cavities" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 13.1 (Ionized cavities around star clusters)</strong></span> A cluster of ionizing stars with total luminosity <span class="math inline">\(L\)</span> clears out a cavity in the interstellar medium, which has an undisturbed density <span class="math inline">\(\rho_0\)</span>.</p>
+<ol type="1">
+<li><p>Use the similarity-solution method to find how the cavity radius <span class="math inline">\(r\)</span> grows with time <span class="math inline">\(t\)</span>. [Hint. Take <span class="math inline">\(r \propto L^{\alpha} \rho_0^{\beta} t^{\gamma}\)</span> and determine <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>, <span class="math inline">\(\gamma\)</span>.]</p></li>
+<li><p>Such bubbles stall once their expansion speed becomes comparable to the sound speed of the interstellar medium. Show that the area covered by a stalled bubble is proportional to <span class="math inline">\(L\)</span>. Use this to discuss how the porosity of the interstellar medium (the fraction of the galaxy’s area, seen from above the disk, that is covered by stalled bubbles) depends on the way in which ionizing stars of a given total luminosity are grouped into clusters.</p></li>
+<li><p>Suppose the galactic disk can be approximated by a uniform-density gas slab with a sharp edge at height <span class="math inline">\(z\)</span>. Discuss how clusters with small <span class="math inline">\(L\)</span> and clusters with large <span class="math inline">\(L\)</span> behave differently.</p></li>
+</ol>
+<p>Adapted from <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Problem 28.</p>
+</div>
+</section>
+<section id="sec-blast-reading" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="sec-blast-reading"><span class="header-section-number">13.3</span> Further reading</h2>
+<ul>
+<li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Chapter 8 (blast waves).</li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-clarke2007" class="csl-entry" role="listitem">
+Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dynamics</em>. Cambridge University Press.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

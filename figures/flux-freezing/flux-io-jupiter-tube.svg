@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 470" width="700" height="470" role="img" aria-labelledby="io-t io-d">
+<title id="io-t">Magnetic flux tube connecting Io and Jupiter</title>
+<desc id="io-d">View of Jupiter (circle) and the circular orbit of Io, seen from above the rotation axis. A thick blue flux tube joins Io to its foot on Jupiter, which is displaced by a longitude difference delta-phi (dashed lines) from the direction to Earth. Radio emission from the foot is beamed in a cone, drawn as two rays at an angle mu on either side of the direction perpendicular to the field; a downward arrow marks the direction to Earth.</desc>
+<defs><marker id="ah-k" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#000" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker></defs>
+<rect width="700" height="470" fill="#fff"/>
+<g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif">
+<circle cx="300.0" cy="200.0" r="190" fill="none" stroke="#000" stroke-width="1.5"/>
+<circle cx="485.8" cy="160.5" r="8" fill="#000" stroke="#000" stroke-width="1.6"/>
+<text x="499.8480441394231" y="166.49677874462571" text-anchor="start" font-size="20" font-style="normal" font-weight="normal" fill="#000">Io</text>
+<text x="260" y="46" text-anchor="middle" font-size="20" font-style="normal" font-weight="normal" fill="#000">Io's orbit</text>
+<line x1="476.8" y1="162.5" x2="351.5" y2="215.1" stroke="#1f4fbf" stroke-width="5"/>
+<circle cx="300.0" cy="200.0" r="52" fill="#fff" stroke="#000" stroke-width="2"/>
+<circle cx="349.5" cy="216.1" r="6" fill="#1f4fbf" stroke="#1f4fbf" stroke-width="1.6"/>
+<circle cx="300.0" cy="200.0" r="3" fill="#000" stroke="#000" stroke-width="1.6"/>
+<text x="292" y="136" text-anchor="middle" font-size="20" font-style="normal" font-weight="normal" fill="#000">Jupiter</text>
+<line x1="300.0" y1="200.0" x2="300.0" y2="350.0" stroke="#000" stroke-width="1.5" stroke-dasharray="7 5"/>
+<line x1="300.0" y1="200.0" x2="349.5" y2="216.1" stroke="#000" stroke-width="1.5" stroke-dasharray="7 5"/>
+<path d="M 300 234 A 34 34 0 0 0 332.3 210.5" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ah-k)" />
+<text x="308" y="274" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">Δφ</text>
+<line x1="349.5" y1="216.1" x2="439.6" y2="302.6" stroke="#000" stroke-width="1.5" marker-end="url(#ah-k)"/>
+<line x1="349.5" y1="216.1" x2="345.5" y2="341.0" stroke="#000" stroke-width="1.5" marker-end="url(#ah-k)"/>
+<line x1="349.5" y1="216.1" x2="396.6" y2="331.8" stroke="#000" stroke-width="1.2" stroke-dasharray="3 4"/>
+<path d="M 407.2 271.5 A 80 80 0 0 1 346.9 296.0" fill="none" stroke="#000" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" />
+<text x="395.1872733846242" y="312.67704171945144" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">μ</text>
+<text x="419.454938847348" y="88.06888370749726" text-anchor="middle" font-size="20" font-style="normal" font-weight="normal" fill="#000">foot of Io's</text>
+<text x="419.454938847348" y="110.06888370749726" text-anchor="middle" font-size="20" font-style="normal" font-weight="normal" fill="#000">flux tube</text>
+<line x1="405.5" y1="122.1" x2="355.5" y2="204.1" stroke="#000" stroke-width="1.2" marker-end="url(#ah-k)"/>
+<line x1="630.0" y1="300.0" x2="630.0" y2="430.0" stroke="#000" stroke-width="7" marker-end="url(#ah-k)"/>
+<text x="630" y="458" text-anchor="middle" font-size="20" font-style="normal" font-weight="normal" fill="#000">to Earth</text>
+</g>
+</svg>

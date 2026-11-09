@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -95,6 +114,35 @@ ul.task-list li input[type="checkbox"] {
   };
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -277,7 +325,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/plasma.html">Plasma and Magnetohydrodynamics</a></li><li class="breadcrumb-item"><a href="../chapters/magnetic-tension.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Magnetic Tension and Hydromagnetic Equilibria</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/plasma.html">Plasma and Magneto­hydrodynamics</a></li><li class="breadcrumb-item"><a href="../chapters/magnetic-tension.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Magnetic Tension and Hydromagnetic Equilibria</span></a></li></ol></nav>
         <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -465,7 +513,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magnetohydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magneto­hydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
       <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
@@ -525,14 +573,23 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#magnetic-tension-force" id="toc-magnetic-tension-force" class="nav-link active" data-scroll-target="#magnetic-tension-force"><span class="header-section-number">25.1</span> Magnetic Tension Force</a></li>
+  <li><a href="#hydromagnetic-equilibria" id="toc-hydromagnetic-equilibria" class="nav-link" data-scroll-target="#hydromagnetic-equilibria"><span class="header-section-number">25.2</span> Hydromagnetic Equilibria</a></li>
+  <li><a href="#sec-tension-worksheet" id="toc-sec-tension-worksheet" class="nav-link" data-scroll-target="#sec-tension-worksheet"><span class="header-section-number">25.3</span> In-class worksheet</a></li>
+  <li><a href="#sec-tension-reading" id="toc-sec-tension-reading" class="nav-link" data-scroll-target="#sec-tension-reading"><span class="header-section-number">25.4</span> Further reading</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/plasma.html">Plasma and Magnetohydrodynamics</a></li><li class="breadcrumb-item"><a href="../chapters/magnetic-tension.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Magnetic Tension and Hydromagnetic Equilibria</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/plasma.html">Plasma and Magneto­hydrodynamics</a></li><li class="breadcrumb-item"><a href="../chapters/magnetic-tension.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Magnetic Tension and Hydromagnetic Equilibria</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-tension" class="quarto-section-identifier"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Magnetic Tension and Hydromagnetic Equilibria</span></span></h1>
 </div>
@@ -551,21 +608,235 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
+<p>Up to now we have been primarily concerned with the consequences of the induction equation (Faraday’s law). We have seen that, in the ideal-MHD limit, the magnetic field lines are frozen in the flow and explored some of the consequences of this fact. Now, we consider the feedback of the magnetic field on the plasma, that is the impact of the <span class="math inline">\(\mathbf{j} \times \mathbf{B}\)</span> term in the momentum equation.</p>
+<section id="magnetic-tension-force" class="level2" data-number="25.1">
+<h2 data-number="25.1" class="anchored" data-anchor-id="magnetic-tension-force"><span class="header-section-number">25.1</span> Magnetic Tension Force</h2>
+<p>A first somewhat obvious, but important remark is that the magnetic force <span class="math inline">\(\mathbf{j} \times \mathbf{B}\)</span> is always perpendicular to the magnetic field. In other words, there is no impediment to the plasma flow along field lines. On the other hand, the field might resist or drive plasma motion perpendicular to the field lines. The latter, in turn, causes the field lines to move, in accordance with the induction equation. It is important to keep this in mind, because we are now going to rewrite the Lorentz force in a form in which this constraint is not manifest. Using the vector identity <span id="eq-tension-1"><span class="math display">\[
+\nabla (\mathbf{A} \cdot \mathbf{B}) =\mathbf{A} \times (\nabla \times
+\mathbf{B}) +\mathbf{B} \times (\nabla \times \mathbf{A}) + (\mathbf{A}
+\cdot \nabla) \mathbf{B}+ (\mathbf{B} \cdot \nabla) \mathbf{A}
+\tag{25.1}\]</span></span> and Ampere’s law (<span class="math inline">\(4 \pi \mathbf{j}= \nabla \times \mathbf{B}\)</span>), we can rewrite the Lorentz force as <span id="eq-tension-lorentz-force"><span class="math display">\[
+\mathbf{j} \times \mathbf{B}= \frac{(\nabla \times \mathbf{B}) \times
+\mathbf{B}}{4 \pi} = \frac{(\mathbf{B} \cdot \nabla) \mathbf{B}}{4 \pi} -
+\nabla \frac{B^2}{8 \pi} .
+\tag{25.2}\]</span></span> The second term is often improperly referred to as the magnetic pressure, because it is reminiscent of the <span class="math inline">\(- \nabla p\)</span> term in the momentum equation, while the first term is improperly referred to as magnetic tension. However, remember that magnetic pressure is only effective perpendicular to the field lines, as we have already remarked. To better understand the nature of the Lorentz force in MHD, we factor <span id="eq-tension-3"><span class="math display">\[
+\mathbf{B}= B \hat{\mathbf{b}},
+\tag{25.3}\]</span></span> where <span class="math inline">\(\hat{\mathbf{b}}\)</span> is a unit vector. Accordingly, we can write <span id="eq-tension-4"><span class="math display">\[
+\begin{aligned}
+(\mathbf{B} \cdot \nabla) \mathbf{B} &amp;= B (\hat{\mathbf{b}} \cdot \nabla)
+(B \hat{\mathbf{b}}) \\
+&amp;= B^2  (\hat{\mathbf{b}} \cdot \nabla) \hat{\mathbf{b}}
++ B \hat{\mathbf{b}}  (\hat{\mathbf{b}} \cdot \nabla) B \\
+&amp;= B^2  (\hat{\mathbf{b}} \cdot \nabla)  \hat{\mathbf{b}} + \frac{1}{2}
+\hat{\mathbf{b}}  (\hat{\mathbf{b}} \cdot \nabla) B^2 .
+\end{aligned}
+\tag{25.4}\]</span></span> The last term on the RHS is, apart from a factor 2, the projection of <span class="math inline">\(\nabla B^2\)</span> parallel to <span class="math inline">\(\mathbf{B}\)</span>: <span id="eq-tension-5"><span class="math display">\[
+[\hat{\mathbf{b}}  (\hat{\mathbf{b}} \cdot \nabla) B^2]_i = \sum_{j = 1}^3
+\hat{b}_i  \hat{b}_j \partial_j  (B^2) = [(\hat{\mathbf{b}} \otimes
+\hat{\mathbf{b}}) \nabla (B^2)]_i = : \nabla_{\parallel} B^2 .
+\tag{25.5}\]</span></span> Plugging this back into <a href="#eq-tension-lorentz-force" class="quarto-xref">Equation&nbsp;<span>25.2</span></a> yields <span id="eq-tension-lorentz-force-decomposed"><span class="math display">\[
+\mathbf{j} \times \mathbf{B}= \frac{B^2}{4 \pi}  (\hat{\mathbf{b}} \cdot
+\nabla)  \hat{\mathbf{b}} - [\mathbf{I}- \hat{\mathbf{b}} \otimes
+\hat{\mathbf{b}}]  \frac{\nabla B^2}{8 \pi} = \frac{B^2}{4 \pi}
+(\hat{\mathbf{b}} \cdot \nabla)  \hat{\mathbf{b}} - \nabla_{\perp}
+\frac{B^2}{8 \pi} .
+\tag{25.6}\]</span></span> The last term is the component of <span class="math inline">\(\nabla (B^2 / 8 \pi)\)</span> perpendicular to the field lines. This is the correct form of the magnetic pressure, while the first term on the RHS is the proper form of the magnetic tension.</p>
+<p>We remark that <span class="math inline">\(u_B = B^2 / 8 \pi\)</span> is the energy in the magnetic field, so the magnetic pressure force is <span id="eq-tension-7"><span class="math display">\[
+p_B = (\Gamma_B - 1) u_B,
+\tag{25.7}\]</span></span> with an effective adiabatic index <span class="math inline">\(\Gamma_B = 2\)</span>. For ionized hydrogen <span class="math inline">\(\Gamma = 5 / 3\)</span>, so magnetic energy is more effective at resisting compression than gas internal energy. Of course, magnetic pressure can only resist compression perpendicular to the field lines.</p>
+<p>To understand the meaning of the first term on the RHS of <a href="#eq-tension-lorentz-force-decomposed" class="quarto-xref">Equation&nbsp;<span>25.6</span></a>, note that <span id="eq-tension-8"><span class="math display">\[
+(\hat{\mathbf{b}} \cdot \nabla)  \hat{\mathbf{b}} =\boldsymbol{\kappa},
+\tag{25.8}\]</span></span> where <span class="math inline">\(1 / | \boldsymbol{\kappa} |\)</span> is the curvature radius of the field lines. That is <span class="math inline">\(\boldsymbol{\kappa}= 0\)</span> for straight field lines. For a circular field line, <span class="math inline">\(1 / | \boldsymbol{\kappa} |\)</span> is the radius of the circle spanned by the line. This means that the magnetic field lines back-react on the plasma as if they were elastic springs with spring constant <span class="math inline">\(B^2 / 4 \pi\)</span>.</p>
+<p>Summarizing, we find that there are two components of the Lorentz force. The first is the magnetic pressure, according to which the magnetic field lines resist being bundled together. The second is the magnetic tension, according to which the magnetic field lines resist bending. This situation is illustrated in <a href="#fig-tension-pressure-tension" class="quarto-xref">Figure&nbsp;<span>25.1</span></a>.</p>
+<div id="fig-tension-pressure-tension" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Left panel: a bundle of field lines pointing out of the page, drawn as circled dots with unit vector b-hat; four arrows pointing diagonally outward show the magnetic pressure force, minus the perpendicular gradient of B squared over 8 pi. Right panel: a curved field line in blue with direction b-hat; an arrow from the curve towards its centre of curvature shows the tension force B squared over 4 pi times (b-hat dot nabla) b-hat.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tension-pressure-tension-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/magnetic-tension/tension-pressure-tension.svg" class="img-fluid figure-img" alt="Left panel: a bundle of field lines pointing out of the page, drawn as circled dots with unit vector b-hat; four arrows pointing diagonally outward show the magnetic pressure force, minus the perpendicular gradient of B squared over 8 pi. Right panel: a curved field line in blue with direction b-hat; an arrow from the curve towards its centre of curvature shows the tension force B squared over 4 pi times (b-hat dot nabla) b-hat.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tension-pressure-tension-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;25.1: <em>Left panel:</em> effect of the magnetic pressure force. <em>Right panel:</em> effect of the magnetic tension force.
+</figcaption>
+</figure>
+</div>
+<p>As we have already anticipated (see <a href="mhd-equations.html#eq-mhd-22" class="quarto-xref">Equation&nbsp;<span>23.22</span></a>), the Lorentz force can be rewritten as the divergence of the magnetic stresses: <span id="eq-tension-9"><span class="math display">\[
+\frac{(\mathbf{B} \cdot \nabla) \mathbf{B}}{4 \pi} - \nabla \frac{B^2}{8
+\pi} = \nabla \cdot \left[ \frac{\mathbf{B} \otimes \mathbf{B}}{4 \pi} -
+\frac{B^2}{8 \pi} \mathbf{I} \right] =: \nabla \cdot
+\mathbf{T}_{\operatorname{EM}} .
+\tag{25.9}\]</span></span> The derivation is conceptually simple, although it requires some tedious vector calculus calculations. Including both fluid <span class="math inline">\(\mathbf{T}\)</span> and magnetic stresses, the Euler equation reads: <span id="eq-tension-10"><span class="math display">\[
+\rho \frac{\mathrm{d} \mathbf{v}}{\mathrm{d} t} = \nabla \cdot
+[\mathbf{T}+\mathbf{T}_{\operatorname{EM}}] .
+\tag{25.10}\]</span></span> For an ideal fluid <span class="math inline">\(\mathbf{T}= - p\mathbf{I}\)</span>, however shear and bulk viscosity can also be included in <span class="math inline">\(\mathbf{T}\)</span> to obtain the viscous MHD equations. In conservation form, the momentum equation reads <span id="eq-tension-11"><span class="math display">\[
+\frac{\partial (\rho \mathbf{v})}{\partial t} + \nabla \cdot [\rho
+\mathbf{v} \otimes \mathbf{v}-\mathbf{T}-\mathbf{T}_{\operatorname{EM}}] = 0,
+\tag{25.11}\]</span></span> where <span class="math inline">\(\mathbf{R}= - \rho \mathbf{v} \otimes \mathbf{v}\)</span> are the Reynolds stresses or inertial forces<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Tip</span>Example: Solar prominence
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This chapter is being ported from the 2025 lecture notes.</p>
+<p>Solar prominences are plasma arches which rise above the Solar photo-sphere and are supported by the magnetic tension, as illustrated by <a href="#fig-tension-prominence-photo" class="quarto-xref">Figure&nbsp;<span>25.2</span></a> and <a href="#fig-tension-prominence" class="quarto-xref">Figure&nbsp;<span>25.3</span></a>.</p>
+<div id="fig-tension-prominence-photo" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Ultraviolet image of the edge of the Sun, glowing orange, with a huge arch of bright plasma looping out from the surface into the dark sky. A small picture of the Earth is shown for scale; the arch is many times larger than the Earth.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tension-prominence-photo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/magnetic-tension/solar-prominence-nasa.jpg" class="img-fluid figure-img" alt="Ultraviolet image of the edge of the Sun, glowing orange, with a huge arch of bright plasma looping out from the surface into the dark sky. A small picture of the Earth is shown for scale; the arch is many times larger than the Earth.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tension-prominence-photo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;25.2: Solar prominence in UV. Credit: NASA (<a href="https://www.nasa.gov/image-article/what-solar-prominence/">What is a solar prominence?</a>); not covered by the license of these notes.
+</figcaption>
+</figure>
+</div>
+<div id="fig-tension-prominence" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A grey ellipse, the prominence, inside a rectangular control volume V above the curved Solar photosphere. Blue magnetic field lines rise from the photosphere, arch over the prominence and come back down, entering the volume above and at the sides of the prominence. The gravitational acceleration g points down, towards the photosphere.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tension-prominence-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/magnetic-tension/tension-prominence-forces.svg" class="img-fluid figure-img" alt="A grey ellipse, the prominence, inside a rectangular control volume V above the curved Solar photosphere. Blue magnetic field lines rise from the photosphere, arch over the prominence and come back down, entering the volume above and at the sides of the prominence. The gravitational acceleration g points down, towards the photosphere.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tension-prominence-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;25.3: Force diagram for a Solar prominence.
+</figcaption>
+</figure>
+</div>
+<p>To understand how prominences are supported against gravity, let us consider the balance of forces on the region in the volume <span class="math inline">\(V\)</span> with boundary surface <span class="math inline">\(S\)</span>: <span id="eq-tension-12"><span class="math display">\[
+\begin{aligned}
+0 &amp;= \frac{\mathrm{d}}{\mathrm{d} t} \int_V \rho \mathbf{v} \mathrm{d} V \\
+&amp;= \int_V \nabla \cdot [\rho \mathbf{v} \otimes
+\mathbf{v}-\mathbf{T}-\mathbf{T}_{\operatorname{EM}}] \mathrm{d} V + \int_V \rho
+\mathbf{g} \mathrm{d} V \\
+&amp;= \int_S \rho \mathbf{v}\mathbf{v} \cdot \mathrm{d} \mathbf{S}- \int_S
+\left( p + \frac{B^2}{8 \pi} \right) \mathrm{d} \mathbf{S} \\
+&amp; \quad + \int_S \frac{\mathbf{B}}{4 \pi} \mathbf{B} \cdot \mathrm{d} \mathbf{S}+ \int_V \rho
+\mathbf{g} \mathrm{d} V.
+\end{aligned}
+\tag{25.12}\]</span></span> The main force balancing gravity is the magnetic tension, arising from the <span class="math inline">\(\mathbf{B}\mathbf{B} \cdot \mathrm{d} \mathbf{S}\)</span> term. Notice that, <span class="math inline">\(\mathbf{B} \cdot \mathrm{d} \mathbf{S}\)</span> is negative on the left, where <span class="math inline">\(\mathbf{B}\)</span> points down, giving a net force in the vertical direction. Similarly, <span class="math inline">\(\mathbf{B} \cdot \mathrm{d} \mathbf{S}\)</span> is positive on the right giving a force along <span class="math inline">\(\mathbf{B}\)</span>, which points up. Magnetic pressure force, arising from the squeezing of the field lines below the prominence also contribute, but is subdominant.</p>
+<p>The attentive reader might have noticed the <span class="math inline">\(\mathbf{B}\mathbf{B} \cdot \mathrm{d} \mathbf{S}\)</span> term always contribute a force in the direction of <span class="math inline">\(\mathbf{B}\)</span> with magnitude <span class="math inline">\(B^2 \hat{\mathbf{b}} \cdot \mathrm{d} \mathbf{S}\)</span>. How can this be possible? We have previously commented on the fact that magnetic forces are always perpendicular to <span class="math inline">\(\mathbf{B}\)</span>. The issue here is that this terms represents the net force from magnetic tension over <span class="math inline">\(V\)</span> and not the force in a specific point and the net force over an extended region average can be parallel to the net magnetic field. In other words, we should not confuse the force on individual fluid elements, which is always perpendicular to <span class="math inline">\(\mathbf{B}\)</span>, to the net force experienced over a control volume, which does not have to be in any particular direction a priori.</p>
 </div>
 </div>
+</section>
+<section id="hydromagnetic-equilibria" class="level2" data-number="25.2">
+<h2 data-number="25.2" class="anchored" data-anchor-id="hydromagnetic-equilibria"><span class="header-section-number">25.2</span> Hydromagnetic Equilibria</h2>
+<p>Consider the hydrostatic equilibrium of a plane-parallel, magnetized atmosphere in a vertical gravitational potential <span class="math inline">\(\Psi\)</span>, as illustrated in <a href="#fig-tension-atmosphere" class="quarto-xref">Figure&nbsp;<span>25.4</span></a>. This equilibrium configuration could be representative of the disk in a spiral galaxy, or of the photo-sphere of the Sun.</p>
+<div id="fig-tension-atmosphere" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Axes y (horizontal) and z (vertical). Three horizontal green lines represent the magnetic field B(y, z), parallel to the y axis. Blue dots represent the gas, which is denser at the bottom than at the top. A blue arrow pointing down is labelled minus nabla Psi, the direction of gravity.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tension-atmosphere-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/magnetic-tension/tension-atmosphere.svg" class="img-fluid figure-img" alt="Axes y (horizontal) and z (vertical). Three horizontal green lines represent the magnetic field B(y, z), parallel to the y axis. Blue dots represent the gas, which is denser at the bottom than at the top. A blue arrow pointing down is labelled minus nabla Psi, the direction of gravity.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tension-atmosphere-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;25.4: Force diagram for a plane-parallel magnetized atmosphere.
+</figcaption>
+</figure>
+</div>
+<p>The force-balance equation for hydromagnetic equilibrium is <span id="eq-tension-13"><span class="math display">\[
+- \nabla p - \rho \nabla \Psi + \frac{1}{4 \pi} (\nabla \times \mathbf{B})
+\times \mathbf{B}= 0.
+\tag{25.13}\]</span></span> We will make two simplifying assumptions.</p>
+<ol type="1">
+<li><p>The gas is isothermal, so <span class="math inline">\(p = a^2 \rho\)</span>. This means that, in absence of magnetic fields, <span id="eq-tension-14"><span class="math display">\[
+\rho (z) = \tilde{\rho} \exp (- \Psi / a^2) .
+\tag{25.14}\]</span></span></p></li>
+<li><p>We assume that the magnetic field is planar and does not depend on <span class="math inline">\(x\)</span>, meaning that <span id="eq-tension-15"><span class="math display">\[
+\mathbf{B}= B_y (y, z)  \hat{\mathbf{y}} + B_z (y, z)  \hat{\mathbf{z}} .
+\tag{25.15}\]</span></span> This means that there exist a vector potential <span class="math inline">\(\mathbf{A}= A (y, z) \hat{\mathbf{x}}\)</span> such that <span class="math inline">\(\nabla \times \mathbf{A}=\mathbf{B}\)</span>. In particular, <span id="eq-tension-16"><span class="math display">\[
+B_y = \partial_z A, \quad B_z = - \partial_y A \qquad \Longleftrightarrow
+\qquad \mathbf{B}= \nabla A \times \hat{\mathbf{x}} .
+\tag{25.16}\]</span></span> Note that <span class="math inline">\(\mathbf{A} \perp \mathbf{B}\)</span> and <span class="math inline">\(\mathbf{A}= \operatorname{const}\)</span> on the magnetic field lines, so the isocontours of <span class="math inline">\(A (y, z)\)</span> are the field lines.</p></li>
+</ol>
+<p>To compute the Lorentz force we use <span id="eq-tension-17"><span class="math display">\[
+\nabla \times \mathbf{B}= \nabla \times (\nabla \times \mathbf{A}) = -
+\nabla^2 \mathbf{A}+ \nabla (\nabla \cdot \mathbf{A}) = - \hat{\mathbf{x}}
+\nabla^2 A.
+\tag{25.17}\]</span></span> and <span id="eq-tension-18"><span class="math display">\[
+(\nabla \times \mathbf{B}) \times \mathbf{B}= - (\nabla^2 A)
+\hat{\mathbf{x}} \times (- \hat{\mathbf{x}} \times \nabla A) = - (\nabla^2
+A) \nabla A.
+\tag{25.18}\]</span></span> For reasons that will be more clear later, we rewrite <span id="eq-tension-19"><span class="math display">\[
+\nabla p + \rho \nabla \Psi = e^{- \Psi / a^2} \nabla q, \qquad q = pe^{\Psi
+/ a^2} .
+\tag{25.19}\]</span></span> The force equation finally reduces to <span id="eq-tension-20"><span class="math display">\[
+\boxed{- \frac{1}{4 \pi} (\nabla^2 A) \nabla A = e^{- \Psi / a^2} \nabla
+q.}
+\tag{25.20}\]</span></span> The last equation shows that <span class="math inline">\(\nabla q \parallel \nabla A\)</span>, which means that <span class="math inline">\(q = q (A)\)</span>. One can then find equilibrium configuration by specifying <span class="math inline">\(q = q (A)\)</span>, which encodes the amount of matter enclosed by the field lines <span class="math inline">\(A\)</span> and <span class="math inline">\(A + \mathrm{d} A\)</span>, and solving the resulting equation for <span class="math inline">\(A\)</span>. We shall not follow this line of reasoning here, instead we will make two more simplifying assumption, following <span class="citation" data-cites="parker1966">Parker (<a href="#ref-parker1966" role="doc-biblioref">1966</a>)</span>.</p>
+<ol type="1">
+<li><p>We assume that the magnetic field lines are parallel, <span class="math inline">\(\mathbf{B}= B (z) \hat{\mathbf{y}}\)</span>.</p></li>
+<li><p>We assume that the ratio of gas to magnetic pressure is constant <span id="eq-tension-21"><span class="math display">\[
+\frac{B^2}{8 \pi p} = \alpha_0 .
+\tag{25.21}\]</span></span></p></li>
+</ol>
+<p>With these simplifications, the equation for equilibrium becomes <span id="eq-tension-22"><span class="math display">\[
+(1 + \alpha_0)  \frac{\mathrm{d} p}{\mathrm{d} z} = - \frac{p}{a^2}  \frac{\mathrm{d}
+\Psi}{\mathrm{d} z} .
+\tag{25.22}\]</span></span> Apart from the additional factor <span class="math inline">\(\alpha_0\)</span>, this is the usual equation for hydrostatic equilibrium of a plane-parallel isothermal atmosphere. The solution is <span id="eq-tension-23"><span class="math display">\[
+p (z) = p_0 \exp \left( - \frac{\Psi (z)}{(1 + \alpha_0) a^2} \right),
+\qquad B (z) = B_0 \exp \left( - \frac{\Psi (z)}{2 (1 + \alpha_0) a^2}
+\right) .
+\tag{25.23}\]</span></span> Remarkably, this solution turns out to be unstable for any <span class="math inline">\(\alpha_0 &gt; 0\)</span> to long-wavelength perturbations, the so-called <em>Parker instability</em> <span class="citation" data-cites="parker1966">(<a href="#ref-parker1966" role="doc-biblioref">Parker 1966</a>)</span>. This is demonstrated in the MHD simulations shown in <a href="#fig-tension-parker" class="quarto-xref">Figure&nbsp;<span>25.5</span></a>.</p>
+<div id="fig-tension-parker" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Three panels showing horizontal magnetic field lines in a vertical slice of a stratified atmosphere at three times. In the first panel the field lines are straight and horizontal. In the second they start to bend, rising in the middle. In the third they form a large arch, with velocity arrows showing gas sliding down along the field lines into the valleys on either side.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tension-parker-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/magnetic-tension/parker-instability-matsumoto1992.png" class="img-fluid figure-img" alt="Three panels showing horizontal magnetic field lines in a vertical slice of a stratified atmosphere at three times. In the first panel the field lines are straight and horizontal. In the second they start to bend, rising in the middle. In the third they form a large arch, with velocity arrows showing gas sliding down along the field lines into the valleys on either side.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tension-parker-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;25.5: Development of the Parker instability in 3D MHD simulations, at three times. From <span class="citation" data-cites="matsumoto1992">Matsumoto and Shibata (<a href="#ref-matsumoto1992" role="doc-biblioref">1992</a>)</span>; © Astronomical Society of Japan, reproduced for non-commercial educational use and not covered by the license of these notes.
+</figcaption>
+</figure>
+</div>
+<p>Imagine starting from a plane parallel field, like in the left-most panel in the figure, and adding a small bend to the field lines. The fluid elements in the region with inclined field lines (solid lines in the figure) are still supported by the thermal pressure, but the magnetic pressure they experience is diminished, since the magnetic pressure can only act perpendicular to the field lines. As a result, they slide along the field lines and gain gravitational potential energy in the process. This is shown in the middle panel (the arrows denote the fluid velocity). As the mass loading on the field line decreases, its central part, which is still parallel to the <span class="math inline">\(y\)</span>-axis, finds itself with higher pressure than the surrounding and starts to raise. This instability is responsible, for example, for the emergence of flux tubes from the Solar photo-sphere, giving rise to the type of prominence we have discussed previously.</p>
+<p>In the case of the Solar corona, the field lines at the foot of the prominences are anchored in the outer convection layers of the Sun. The motion of plasma in this region moves the field lines in random ways and builds enormous tension in the field. When field lines of opposite polarities find themselves sufficiently close they can annihilate in a so-called <em>reconnection event</em>. This suddenly releases the magnetic tension and generates Solar flares and coronal mass ejections. Solar eruptions can significantly impact satellites and space communication and can be hazardous for astronauts. The prediction of Solar eruptions using ground- and space-based observations, in conjunction with MHD simulations, is a field of its own: <em>space weather modeling</em>.</p>
+</section>
+<section id="sec-tension-worksheet" class="level2" data-number="25.3">
+<h2 data-number="25.3" class="anchored" data-anchor-id="sec-tension-worksheet"><span class="header-section-number">25.3</span> In-class worksheet</h2>
+<p><strong>Explosive Reconnection.</strong> Plasma is contained in a region bounded by two perfectly conducting plates. Two magnetic flux tubes are anchored on the plates and stretched by the application of an external force <span class="math inline">\(\mathbf{f}\)</span> as shown in panel (a) of <a href="#fig-tension-reconnection" class="quarto-xref">Figure&nbsp;<span>25.6</span></a>.</p>
+<div id="fig-tension-reconnection" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Panel (a): two grey conducting plates, one above the other, a distance 2D apart. Two field lines B in blue are anchored on the plates and bowed towards each other, with height l; black arrows labelled f show the external force that stretches them, and the horizontal extent of each arc is D. Panel (b): after reconnection the field lines run straight between the plates, and arrows labelled v show the plasma moving outwards.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tension-reconnection-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/magnetic-tension/tension-reconnection.svg" class="img-fluid figure-img" alt="Panel (a): two grey conducting plates, one above the other, a distance 2D apart. Two field lines B in blue are anchored on the plates and bowed towards each other, with height l; black arrows labelled f show the external force that stretches them, and the horizontal extent of each arc is D. Panel (b): after reconnection the field lines run straight between the plates, and arrows labelled v show the plasma moving outwards.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tension-reconnection-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;25.6: Explosive reconnection of two magnetic flux tubes anchored on conducting plates: (a) before and (b) after reconnection.
+</figcaption>
+</figure>
+</div>
+<p>When <span class="math inline">\(\ell \approx D\)</span>, the field lines reconnect and snap to a new configuration shown in panel (b). This process releases energy stored in the magnetic tension of the field to accelerate the plasma to a velocity <span class="math inline">\(\mathbf{v}\)</span>, which reaches a maximum when the field lines are perfectly straight. Assume that the ideal-MHD approximation holds at all times, except when reconnection takes place.</p>
+<ol type="1">
+<li><p>Show that, apart from geometric factors of order unity, the force per unit volume necessary to hold the field lines in place with <span class="math inline">\(\ell \approx D\)</span> is <span id="eq-tension-ws1"><span class="math display">\[
+| \mathbf{f} | \approx \frac{B^2}{4 \pi}  \frac{\ell}{D^2} .
+\tag{25.24}\]</span></span></p></li>
+<li><p>Show that the maximum velocity of the plasma after the reconnection event is <span id="eq-tension-ws2"><span class="math display">\[
+v \approx v_A,
+\tag{25.25}\]</span></span> where <span class="math inline">\(v_A\)</span> is the Alfvén velocity <span id="eq-tension-ws3"><span class="math display">\[
+v_A = \frac{B}{\sqrt{4 \pi \rho}} .
+\tag{25.26}\]</span></span></p></li>
+</ol>
+</section>
+<section id="sec-tension-reading" class="level2" data-number="25.4">
+<h2 data-number="25.4" class="anchored" data-anchor-id="sec-tension-reading"><span class="header-section-number">25.4</span> Further reading</h2>
+<ul>
+<li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Chapter 13 (plasmas).</li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-clarke2007" class="csl-entry" role="listitem">
+Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dynamics</em>. Cambridge University Press.
+</div>
+<div id="ref-matsumoto1992" class="csl-entry" role="listitem">
+Matsumoto, R., and K. Shibata. 1992. <span>“Three-Dimensional <span>MHD</span> Simulation of the <span>Parker</span> Instability in Galactic Gas Disks and the Solar Atmosphere.”</span> <em>Publications of the Astronomical Society of Japan</em> 44: 167–75. <a href="https://doi.org/10.1093/pasj/44.3.167">https://doi.org/10.1093/pasj/44.3.167</a>.
+</div>
+<div id="ref-parker1966" class="csl-entry" role="listitem">
+Parker, E. N. 1966. <span>“The Dynamical State of the Interstellar Gas and Field.”</span> <em>The Astrophysical Journal</em> 145: 811. <a href="https://doi.org/10.1086/148828">https://doi.org/10.1086/148828</a>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Note that these are not real forces, they only appear due to the difference between the Eulerian and Lagrangian frames.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

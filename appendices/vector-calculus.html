@@ -94,6 +94,35 @@ ul.task-list li input[type="checkbox"] {
   };
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -464,7 +493,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magnetohydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magneto­hydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
       <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
@@ -524,8 +553,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#sec-vec-worksheet" id="toc-sec-vec-worksheet" class="nav-link active" data-scroll-target="#sec-vec-worksheet"><span class="header-section-number">A.1</span> In-class worksheet</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
@@ -563,8 +598,57 @@ Note
 <p>This chapter is in preparation.</p>
 </div>
 </div>
+<section id="sec-vec-worksheet" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="sec-vec-worksheet"><span class="header-section-number">A.1</span> In-class worksheet</h2>
+<ol type="1">
+<li><p>Compute the gradient of the function <span id="eq-vec-1"><span class="math display">\[
+f (x, y, z) = \frac{x}{\sqrt{x^2 + y^2 + z^2}} .
+\tag{A.1}\]</span></span></p></li>
+<li><p>Consider the vector field <span id="eq-vec-2"><span class="math display">\[
+\mathbf{E}= \hat{\mathbf{r}} = \left(\begin{array}{c}
+\frac{x}{\sqrt{x^2 + y^2 + z^2}}\\
+\frac{y}{\sqrt{x^2 + y^2 + z^2}}\\
+\frac{z}{\sqrt{x^2 + y^2 + z^2}}
+\end{array}\right) .
+\tag{A.2}\]</span></span> Compute</p>
+<ol type="1">
+<li><p>the gradient <span id="eq-vec-3"><span class="math display">\[
+\nabla \mathbf{E}= \left(\begin{array}{ccc}
+\partial_x E_x &amp; \partial_x E_y &amp; \partial_x E_z\\
+\partial_y E_x &amp; \partial_y E_y &amp; \partial_y E_z\\
+\partial_z E_x &amp; \partial_z E_y &amp; \partial_z E_z
+\end{array}\right) ;
+\tag{A.3}\]</span></span></p></li>
+<li><p><span class="math inline">\(\nabla \cdot \mathbf{E}\)</span>;</p></li>
+<li><p><span class="math inline">\(\nabla \times \mathbf{E}\)</span>.</p></li>
+</ol></li>
+<li><p>Prove that <span id="eq-vec-4"><span class="math display">\[
+\nabla \cdot \nabla f = \nabla^2 f = \frac{\partial^2 f}{\partial x^2} +
+\frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2} .
+\tag{A.4}\]</span></span></p></li>
+<li><p>The divergence of a tensor field <span id="eq-vec-5"><span class="math display">\[
+\mathbf{T}= \left(\begin{array}{ccc}
+T_{x x} &amp; T_{x y} &amp; T_{x z}\\
+T_{y x} &amp; T_{y y} &amp; T_{y z}\\
+T_{z x} &amp; T_{z y} &amp; T_{z z}
+\end{array}\right)
+\tag{A.5}\]</span></span> is defined as <span id="eq-vec-6"><span class="math display">\[
+\nabla \cdot \mathbf{T}= \left(\begin{array}{c}
+\partial_x T_{x x} + \partial_y T_{x y} + \partial_z T_{x z}\\
+\partial_x T_{y x} + \partial_y T_{y y} + \partial_z T_{y z}\\
+\partial_x T_{z x} + \partial_y T_{z y} + \partial_z T_{z z}
+\end{array}\right) .
+\tag{A.6}\]</span></span> Prove that <span id="eq-vec-7"><span class="math display">\[
+\nabla \cdot (p\mathbf{I}) = \nabla \cdot \left(\begin{array}{ccc}
+p &amp;  &amp; \\
+&amp; p &amp; \\
+&amp;  &amp; p
+\end{array}\right) = \nabla p.
+\tag{A.7}\]</span></span></p></li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

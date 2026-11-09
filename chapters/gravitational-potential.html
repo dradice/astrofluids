@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -95,6 +114,35 @@ ul.task-list li input[type="checkbox"] {
   };
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -465,7 +513,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magnetohydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magneto­hydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
       <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
@@ -525,8 +573,16 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#sec-grav-worksheet" id="toc-sec-grav-worksheet" class="nav-link active" data-scroll-target="#sec-grav-worksheet"><span class="header-section-number">7.1</span> In-class worksheet</a></li>
+  <li><a href="#sec-grav-exercises" id="toc-sec-grav-exercises" class="nav-link" data-scroll-target="#sec-grav-exercises"><span class="header-section-number">7.2</span> Exercises</a></li>
+  <li><a href="#sec-grav-reading" id="toc-sec-grav-reading" class="nav-link" data-scroll-target="#sec-grav-reading"><span class="header-section-number">7.3</span> Further reading</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
@@ -564,8 +620,73 @@ Note
 <p>This chapter is in preparation.</p>
 </div>
 </div>
+<section id="sec-grav-worksheet" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="sec-grav-worksheet"><span class="header-section-number">7.1</span> In-class worksheet</h2>
+<ol type="1">
+<li><p><strong>Gravitational binding energy.</strong></p>
+<ol type="1">
+<li><p>Consider a spherically-symmetric body of mass <span class="math inline">\(M\)</span> and radius <span class="math inline">\(R\)</span>. How much work <span class="math inline">\(\mathrm{d} W\)</span> is required to carry the outer shell of mass <span class="math inline">\(m = 4 \pi \rho R^2 \mathrm{d} \ell\)</span> to infinity?</p></li>
+<li><p>Show that the gravitational binding energy of a spherical body with constant density, mass <span class="math inline">\(M\)</span> and radius <span class="math inline">\(R\)</span> is <span id="eq-grav-1"><span class="math display">\[
+\Omega = - \frac{3 GM^2}{5 R} .
+\tag{7.1}\]</span></span></p></li>
+<li><p>The iron core of a massive star has a mass <span class="math inline">\(M = 1.4 M_{\odot}\)</span> and radius <span class="math inline">\(R \approx 5000 \operatorname{km}\)</span> collapses to form a protoneutron star with a radius <span class="math inline">\(R \approx 10 \operatorname{km}\)</span>. How much gravitational energy is liberated in the process?</p></li>
+</ol></li>
+</ol>
+</section>
+<section id="sec-grav-exercises" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="sec-grav-exercises"><span class="header-section-number">7.2</span> Exercises</h2>
+<div id="exr-grav-homologous" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 7.1 (Homologous collapse and the Friedmann equation)</strong></span> A homogeneous gas sphere is collapsing under its self-gravity. Assume the velocity to be given by <span id="eq-grav-2"><span class="math display">\[
+\mathbf{v} (t, \mathbf{r}) = H (t) \mathbf{r},
+\tag{7.2}\]</span></span> where <span class="math inline">\(\mathbf{r}\)</span> is the displacement of the fluid element from the center of the cloud.</p>
+<ol type="1">
+<li><p>Argue that the density remains constant throughout the sphere (although it is changing with time) and show that the momentum equation implies <span id="eq-grav-3"><span class="math display">\[
+\dot{H} (t) + H (t)^2 = - \frac{4 \pi G \rho (t)}{3} .
+\tag{7.3}\]</span></span> Assume the gas to be described by a barotropic EOS <span class="math inline">\(p = p (\rho)\)</span>.</p></li>
+<li><p>Introduce the scale factor <span class="math inline">\(a (t)\)</span> defined so that <span id="eq-grav-4"><span class="math display">\[
+\frac{\dot{a} (t)}{a (t)} = H (t) .
+\tag{7.4}\]</span></span> Show that <span id="eq-grav-5"><span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d} t} \left( H^2 a^2 - \frac{8 \pi}{3} G \rho a^2
+\right) = 2 Ha^2  \left( \dot{H} + H^2 + \frac{4 \pi G}{3} \rho \right)
+= 0
+\tag{7.5}\]</span></span> and show that this implies that the dynamics is described by Friedmann equation <span id="eq-grav-6"><span class="math display">\[
+\dot{a} (t)^2 - \frac{8 \pi G \rho (t)}{3} a (t)^2 = - k,
+\tag{7.6}\]</span></span> where <span class="math inline">\(k\)</span> is a constant of motion.</p></li>
+<li><p>Show that <span class="math inline">\(\rho (t) \propto a (t)^{- 3}\)</span> using the continuity equation. Use this to cast the Friedmann equation into the equation of a particle rolling down an effective potential <span id="eq-grav-7"><span class="math display">\[
+\frac{1}{2}  \dot{a} (t)^2 + U_{\operatorname{eff}} (a) =\mathcal{E}.
+\tag{7.7}\]</span></span> Sketch a graph for <span class="math inline">\(\rho (t)\)</span> and <span class="math inline">\(a (t)\)</span> as a function of time.</p></li>
+</ol>
+</div>
+<div id="exr-grav-free-fall" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 7.2 (Free fall onto a point mass and a uniform sphere)</strong></span> A particle is released from rest at a distance <span class="math inline">\(R_0\)</span> from the centre of a body of mass <span class="math inline">\(M\)</span>. In each of the two cases listed below, find</p>
+<ol type="1">
+<li><p>the initial acceleration of the particle, and</p></li>
+<li><p>the time the particle takes to fall to the centre.</p></li>
+</ol>
+<p>The two cases are:</p>
+<ol type="1">
+<li><p>the body is a point mass;</p></li>
+<li><p>the body is a uniform sphere of radius <span class="math inline">\(R_0\)</span>.</p></li>
+</ol>
+<p>Adapted from <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Problem 9.</p>
+</div>
+<div id="exr-grav-cluster-collapse" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 7.3 (Collapse of a stellar cluster)</strong></span> A cluster consists initially of stars at rest, distributed in a uniform sphere. Find how long it takes a star to reach the center as a function of its initial radius in the cluster and comment on your results.</p>
+</div>
+</section>
+<section id="sec-grav-reading" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="sec-grav-reading"><span class="header-section-number">7.3</span> Further reading</h2>
+<ul>
+<li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Chapter 3 (gravitation).</li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-clarke2007" class="csl-entry" role="listitem">
+Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dynamics</em>. Cambridge University Press.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -95,6 +114,35 @@ ul.task-list li input[type="checkbox"] {
   };
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -465,7 +513,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magnetohydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magneto­hydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
       <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
@@ -525,8 +573,16 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#sec-disk-worksheet" id="toc-sec-disk-worksheet" class="nav-link active" data-scroll-target="#sec-disk-worksheet"><span class="header-section-number">19.1</span> In-class worksheet</a></li>
+  <li><a href="#sec-disk-exercises" id="toc-sec-disk-exercises" class="nav-link" data-scroll-target="#sec-disk-exercises"><span class="header-section-number">19.2</span> Exercises</a></li>
+  <li><a href="#sec-disk-reading" id="toc-sec-disk-reading" class="nav-link" data-scroll-target="#sec-disk-reading"><span class="header-section-number">19.3</span> Further reading</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
@@ -564,8 +620,123 @@ Note
 <p>This chapter is in preparation.</p>
 </div>
 </div>
+<section id="sec-disk-worksheet" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="sec-disk-worksheet"><span class="header-section-number">19.1</span> In-class worksheet</h2>
+<ol type="1">
+<li><p>Cylindrical coordinates <span class="math inline">\((R, \phi, z)\)</span> are defined as follows <span id="eq-disk-1"><span class="math display">\[
+x = R \cos \phi, \qquad y = R \sin \phi, \qquad z = z.
+\tag{19.1}\]</span></span> The unit vectors in the <span class="math inline">\(R, \phi\)</span>, and <span class="math inline">\(z\)</span> direction are <span id="eq-disk-2"><span class="math display">\[
+\begin{gathered}
+\hat{\mathbf{R}} = \frac{1}{\sqrt{x^2 + y^2}}  \left(\begin{array}{c}
+x\\
+y\\
+0
+\end{array}\right), \\
+\hat{\boldsymbol{\phi}} = \frac{1}{\sqrt{x^2 +
+y^2}}  \left(\begin{array}{c}
+- y\\
+x\\
+0
+\end{array}\right), \\
+\hat{\mathbf{z}} = \left(\begin{array}{c}
+0\\
+0\\
+1
+\end{array}\right) .
+\end{gathered}
+\tag{19.2}\]</span></span></p>
+<ol type="1">
+<li><p>Given the fluid velocity written as <span class="math inline">\(\mathbf{v}= v_R \hat{\mathbf{R}} + v_{\phi} \hat{\boldsymbol{\phi}} + v_z \hat{\mathbf{z}}\)</span>, find its Cartesian components <span class="math inline">\(v_x, v_y,\)</span> and <span class="math inline">\(v_z\)</span>.</p></li>
+<li><p>Use the chain rule for derivative to show that <span id="eq-disk-3"><span class="math display">\[
+\frac{\partial}{\partial R} = \frac{x}{R}  \frac{\partial}{\partial x}
++ \frac{y}{R}  \frac{\partial}{\partial y}, \qquad
+\frac{\partial}{\partial \phi} = - y \frac{\partial}{\partial x} + x
+\frac{\partial}{\partial y} .
+\tag{19.3}\]</span></span></p></li>
+<li><p>Using the results from the previous points show that <span id="eq-disk-4"><span class="math display">\[
+\nabla \cdot \mathbf{v}= \frac{1}{R}  \frac{\partial (Rv_R)}{\partial
+R} + \frac{1}{R}  \frac{\partial v_{\phi}}{\partial \phi} +
+\frac{\partial v_z}{\partial z} .
+\tag{19.4}\]</span></span></p></li>
+<li><p>Conclude that the continuity equation in cylindrical coordinates is <span id="eq-disk-5"><span class="math display">\[
+\frac{\partial \rho}{\partial t} + \frac{1}{R}  \left[ \frac{\partial
+(\rho Rv_R)}{\partial R} + \frac{\partial (\rho v_{\phi})}{\partial
+\phi} \right] + \frac{\partial (\rho v_z)}{\partial z} = 0.
+\tag{19.5}\]</span></span></p></li>
+</ol></li>
+</ol>
+</section>
+<section id="sec-disk-exercises" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="sec-disk-exercises"><span class="header-section-number">19.2</span> Exercises</h2>
+<div id="exr-disk-alpha" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 19.1 (α-disks: scale height, viscosity, Reynolds number)</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Consider gas in an accretion disk that is in hydrostatic equilibrium in the vertical direction, with the vertical pressure gradient balancing the vertical component of the gravitational acceleration due to the central object. Show that the angular frequency of rotation <span class="math inline">\(\Omega\)</span>, the sound speed <span class="math inline">\(c_s\)</span>, and the vertical scale height <span class="math inline">\(H\)</span> of the disk satisfy <span class="math inline">\(c_s \sim H \Omega\)</span>.</p></li>
+<li><p>Suppose now that the <span class="math inline">\(R \phi\)</span> component of the viscous stress tensor equals a factor <span class="math inline">\(\alpha\)</span> times the thermal pressure. Show that (i) <span class="math inline">\(\nu \sim \alpha c_s H\)</span> and (ii) the Reynolds number is <span class="math inline">\(\operatorname{Re} \sim \frac{1}{\alpha} \left( \frac{R}{H} \right)^2\)</span>.</p></li>
+</ol>
+<p>Adapted from <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Problem 47.</p>
+</div>
+<div id="exr-disk-similarity" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 19.2 (Similarity form of the disk equation)</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Show that the viscous evolution equation of a Keplerian accretion disk, <span id="eq-disk-evolution"><span class="math display">\[
+\frac{\partial \Sigma}{\partial t} = \frac{3}{R}
+\frac{\partial}{\partial R} \left[ R^{1 / 2}  \frac{\partial}{\partial
+R} (\nu \Sigma R^{1 / 2}) \right],
+\tag{19.6}\]</span></span> can be recast as <span id="eq-disk-similarity-form"><span class="math display">\[
+\frac{\partial S}{\partial t} = \frac{\partial^2 Y}{\partial X^2},
+\tag{19.7}\]</span></span> with <span class="math inline">\(S = \Sigma R^{3 / 2}\)</span>, <span class="math inline">\(Y = 3 \nu \Sigma R^{1 / 2}\)</span>, and <span class="math inline">\(X = 2 R^{1 / 2}\)</span>.</p></li>
+<li><p>Obtain also a partial differential equation for <span class="math inline">\(S (t, X)\)</span> when <span class="math inline">\(Y = Y_0 + \beta (S - S_0)\)</span>, where <span class="math inline">\(Y_0\)</span>, <span class="math inline">\(S_0\)</span>, and <span class="math inline">\(\beta\)</span> are constants.</p></li>
+<li><p>Describe how <span class="math inline">\(S\)</span> evolves in the two cases (a) <span class="math inline">\(\beta &gt; 0\)</span> and (b) <span class="math inline">\(\beta &lt; 0\)</span>.</p></li>
+</ol>
+<p>Adapted from <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Problem 49.</p>
+</div>
+<div id="exr-disk-numerical" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 19.3 (Numerical evolution of an accretion disk)</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Show that <a href="#eq-disk-evolution" class="quarto-xref">Equation&nbsp;<span>19.6</span></a> can be written as <span id="eq-disk-diffusion"><span class="math display">\[
+\frac{\partial S}{\partial T} = \frac{\partial^2 (SX^{- 2})}{\partial
+X^2},
+\tag{19.8}\]</span></span> where <span class="math inline">\(S\)</span> and <span class="math inline">\(X\)</span> are defined as in <a href="#exr-disk-similarity" class="quarto-xref">Exercise&nbsp;<span>19.2</span></a> and <span class="math inline">\(T = 12 \nu t\)</span>.</p></li>
+<li><p>To solve <a href="#eq-disk-diffusion" class="quarto-xref">Equation&nbsp;<span>19.8</span></a> numerically, introduce a grid <span id="eq-disk-grid"><span class="math display">\[
+\{ (T_n, X_k) = (n \Delta T, X_{\min} + k \Delta X) : n = 0, 1, \ldots,
+N_T, k = 0, 1, \ldots N_X \},
+\tag{19.9}\]</span></span> where <span class="math inline">\(\Delta T\)</span>, <span class="math inline">\(X_{\min}\)</span>, and <span class="math inline">\(\Delta X\)</span> are fixed parameters. Let <span class="math inline">\(S^n_k\)</span> be the approximation of <span class="math inline">\(S\)</span> at <span class="math inline">\((T_n, X_k)\)</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Then <span class="math inline">\(S_k^n\)</span> for <span class="math inline">\(k = 1, \ldots, N_X - 1\)</span> can be written as <span id="eq-disk-finite-differencing"><span class="math display">\[
+\frac{S^{n + 1}_k - S^n_k}{\Delta T} = \frac{S^{n + 1}_{k + 1} X_{k +
+1}^{- 2} - 2 S^{n + 1}_k X_k^{- 2} + S^{n + 1}_{k - 1} X_{k - 1}^{-
+2}}{\Delta X^2} .
+\tag{19.10}\]</span></span> The boundary conditions for this problem are <span id="eq-disk-boundary"><span class="math display">\[
+S_0 = S_{N_X} = 0,
+\tag{19.11}\]</span></span> corresponding to Dirichlet boundary condition for <span class="math inline">\(S\)</span>.</p>
+<p>Show that <a href="#eq-disk-finite-differencing" class="quarto-xref">Equation&nbsp;<span>19.10</span></a> can be written as <span id="eq-disk-heat-numerical"><span class="math display">\[
+(I - \Delta TA) \mathbf{S}^{n + 1} =\mathbf{S}^n,
+\tag{19.12}\]</span></span> where <span class="math inline">\(\mathbf{S}^n = (S_0^n, S_1^n, \ldots, S^n_{N_X - 1})\)</span> is a vector of values, <span class="math inline">\(I\)</span> is the identity matrix, and <span class="math inline">\(A\)</span> is a tridiagonal matrix. Find the explicit form of <span class="math inline">\(A\)</span>.</p></li>
+<li><p>Write code to evolve in time the density in the disk by repeatedly solving <a href="#eq-disk-heat-numerical" class="quarto-xref">Equation&nbsp;<span>19.12</span></a> starting from some initial condition <span class="math inline">\(\mathbf{S}^0\)</span>. You can use <code>scipy.linalg.solve_banded</code> to solve the linear equations.</p></li>
+<li><p>Consider as initial conditions <span id="eq-disk-initial"><span class="math display">\[
+S (t = 0, X) = e^{- (X - 10)^2},
+\tag{19.13}\]</span></span> with <span class="math inline">\(X_{\min} = 1\)</span>. Plot the numerical solutions at successive times. Interpret the results in a few sentences.</p></li>
+</ol>
+</div>
+</section>
+<section id="sec-disk-reading" class="level2" data-number="19.3">
+<h2 data-number="19.3" class="anchored" data-anchor-id="sec-disk-reading"><span class="header-section-number">19.3</span> Further reading</h2>
+<ul>
+<li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Chapter 12 (accretion discs).</li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-clarke2007" class="csl-entry" role="listitem">
+Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dynamics</em>. Cambridge University Press.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Note that the <span class="math inline">\(n\)</span> in <span class="math inline">\(S^n_k\)</span> is an index and not a power.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

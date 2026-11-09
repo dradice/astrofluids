@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" width="640" height="520"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Random walk of a photon in the supernova ejecta</title>
+  <desc id="desc">A photon starts at the point S and takes seven straight steps r1 to r7 of different lengths and
+  directions, ending at the point E. A thick arrow labelled R joins the start S to the end E and shows the net
+  displacement.</desc>
+  <!-- Redrawn from the 2025 TeXmacs figure (03-supernovae). -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8"
+            orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10" fill="none" stroke="#000" stroke-width="1.6"/>
+    </marker>
+    <marker id="arrow-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
+            orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10" fill="none" stroke="#000" stroke-width="2.2"/>
+    </marker>
+  </defs>
+  <rect width="640" height="520" fill="#fff"/>
+  <g fill="none" stroke="#000" stroke-width="1.6" marker-end="url(#arrow)">
+    <path d="M 146 455 L 36 307"/>
+    <path d="M 23 293 L 169 197"/>
+    <path d="M 180 188 L 352 243"/>
+    <path d="M 375 240 L 316 64"/>
+    <path d="M 311 58 L 508 89"/>
+    <path d="M 520 85 L 531 240"/>
+    <path d="M 540 255 L 613 380"/>
+  </g>
+  <path d="M 146 455 L 613 378" fill="none" stroke="#000" stroke-width="3.4" marker-end="url(#arrow-thick)"/>
+  <circle cx="146" cy="455" r="6.5" fill="#000"/>
+  <g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif" font-size="22" fill="#000">
+    <g font-weight="bold"><text x="14" y="400">r<tspan font-size="15" dy="5">1</tspan></text>
+    <text x="48" y="210">r<tspan font-size="15" dy="5">2</tspan></text>
+    <text x="220" y="260">r<tspan font-size="15" dy="5">3</tspan></text>
+    <text x="378" y="150">r<tspan font-size="15" dy="5">4</tspan></text>
+    <text x="410" y="38">r<tspan font-size="15" dy="5">5</tspan></text>
+    <text x="555" y="170">r<tspan font-size="15" dy="5">6</tspan></text>
+    <text x="582" y="305">r<tspan font-size="15" dy="5">7</tspan></text>
+    <text x="360" y="468">R</text></g>
+    <text x="100" y="490" font-style="italic">S</text>
+    <text x="575" y="410" font-style="italic">E</text>
+  </g>
+</svg>
