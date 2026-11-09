@@ -7,12 +7,12 @@ These are the lecture notes for ASTRO 442, an introduction to the fluid dynamics
 
 I am in the process of importing my lecture notes from previous years. Once all chapters have been imported, the material will be revised and corrected in a second step, with added examples and clarifications. Until then, you may find typos, errors, and rough edges.
 
-Chapters marked "in preparation" will be completed before the corresponding lecture; see the [Schedule](schedule.qmd).
+Chapters marked "in preparation" will be completed before the corresponding lecture.
 :::
 
 ## How to use these notes {.unnumbered}
 
-- **One chapter per lecture topic.** The [Schedule](schedule.qmd) lists which chapter goes with each lecture.
+- **One chapter per lecture topic.** Canvas lists which chapter goes with each lecture.
 - **Everything is numbered by chapter.** Equation (9.14) is the fourteenth numbered equation of Chapter 9, and Exercise 8.4 is the fourth exercise of Chapter 8. When you ask a question about the notes, quote these numbers.
 - **In-class worksheets** appear near the end of each chapter, followed by the **exercises**. Homework assignments on Canvas list the exercises to solve, for example "Exercises 2.1, 7.3".
 - **Optional material** is set apart in boxes titled "Going further"; you can skip it on a first reading.
@@ -22,6 +22,10 @@ Chapters marked "in preparation" will be completed before the corresponding lect
 These notes are designed to meet the Web Content Accessibility Guidelines (WCAG) 2.1, level AA. Mathematics is rendered with MathJax, which supports screen readers, speech, and braille, and lets you explore an equation term by term: click on an equation or focus it with the keyboard, then use the arrow keys. Every figure has a text description.
 
 If something in these notes is not accessible to you, please let me know.
+
+## Use of AI {.unnumbered}
+
+These notes are my own work. I used AI tools, Anthropic's Claude Opus and Claude Sonnet models, to convert them from my original lecture notes to their current format, to generate diagrams, and to review them.
 
 ## License {.unnumbered}
 

@@ -87,7 +87,7 @@ def make_stubs():
 
 
 def print_yaml():
-    lines = ["  chapters:", "    - index.qmd", "    - schedule.qmd"]
+    lines = ["  chapters:", "    - index.qmd"]
     for part, cs in PARTS:
         lines.append(f'    - part: "{part}"')
         lines.append("      chapters:")

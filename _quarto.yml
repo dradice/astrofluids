@@ -17,7 +17,6 @@ book:
   # Edit tools/chapters.py, not this block, then paste the output here.
   chapters:
     - index.qmd
-    - schedule.qmd
     - part: "Foundations"
       chapters:
         - chapters/fluids-as-continua.qmd
@@ -82,3 +81,4 @@ format:
   typst:
     papersize: us-letter
     toc: true
+    include-before-body: styles/pdf.typ
