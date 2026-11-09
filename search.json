@@ -14,7 +14,7 @@
     "href": "index.html#how-to-use-these-notes",
     "title": "Astrophysical Fluid Dynamics",
     "section": "How to use these notes",
-    "text": "How to use these notes\n\nOne chapter per lecture topic. The Schedule lists which chapter goes with each lecture.\nEverything is numbered by chapter. Equation (9.14) is the fourteenth numbered equation of Chapter 9, and Exercise 8.4 is the fourth exercise of Chapter 8. When you ask a question about the notes, quote these numbers.\nIn-class worksheets appear near the end of each chapter, followed by the exercises. Homework assignments on Canvas list the exercises to solve, for example “Exercises 2.1, 7.3”.\nOptional material is set apart in boxes titled “Going further”; you can skip it on a first reading.",
+    "text": "How to use these notes\n\nOne chapter per lecture topic. Canvas lists which chapter goes with each lecture.\nEverything is numbered by chapter. Equation (9.14) is the fourteenth numbered equation of Chapter 9, and Exercise 8.4 is the fourth exercise of Chapter 8. When you ask a question about the notes, quote these numbers.\nIn-class worksheets appear near the end of each chapter, followed by the exercises. Homework assignments on Canvas list the exercises to solve, for example “Exercises 2.1, 7.3”.\nOptional material is set apart in boxes titled “Going further”; you can skip it on a first reading.",
     "crumbs": [
       "Preface"
     ]
@@ -30,6 +30,16 @@
     ]
   },
   {
+    "objectID": "index.html#use-of-ai",
+    "href": "index.html#use-of-ai",
+    "title": "Astrophysical Fluid Dynamics",
+    "section": "Use of AI",
+    "text": "Use of AI\nThese notes are my own work. I used AI tools, Anthropic’s Claude Opus and Claude Sonnet models, to convert them from my original lecture notes to their current format, to generate diagrams, and to review them.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
     "objectID": "index.html#license",
     "href": "index.html#license",
     "title": "Astrophysical Fluid Dynamics",
@@ -37,16 +47,6 @@
     "text": "License\nThe text and figures are licensed under CC BY-NC-SA 4.0. Code is licensed under the MIT license. The source is on GitHub.\n\n\n\n\nClarke, Cathie, and Bob Carswell. 2007. Principles of Astrophysical Fluid Dynamics. Cambridge University Press.",
     "crumbs": [
       "Preface"
-    ]
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Schedule",
-    "section": "",
-    "text": "Lecture schedule for Spring 2027 and the chapter that goes with each lecture. Lectures are on Tuesdays and Thursdays. Homework assignments and due dates are posted on Canvas.\n\n\nSpring 2027 lectures and the corresponding chapters of these notes.\n\n\n\n\n\n\n\n\nLecture\nDate\nTopic\nNotes\n\n\n\n\n1\nTue Jan 12\nFluids as continua, continuity equation\n1  Fluids as Continua\n\n\n2\nThu Jan 14\nEnergy equation, thermodynamics\n2  Thermodynamics Refresher\n\n\n3\nTue Jan 19\nCore-collapse supernovae\n3  Core-Collapse Supernovae\n\n\n4\nThu Jan 21\nVector calculus\nAppendix A — Vector Calculus\n\n\n5\nTue Jan 26\nEuler equation; Eulerian and Lagrangian descriptions\n4  The Euler Equation, 5  Eulerian and Lagrangian Descriptions\n\n\n6\nThu Jan 28\nConservation laws\n6  Conservation Laws\n\n\n7\nTue Feb 2\nGravitational potential\n7  The Gravitational Potential\n\n\n8\nThu Feb 4\nHydrostatic equilibrium, virial theorem, star formation\n8  Hydrostatic Equilibrium and the Virial Theorem\n\n\n9\nTue Feb 9\nSound waves, acoustic power\n9  Sound Waves and the Doppler Effect\n\n\n10\nThu Feb 11\nDoppler effect\n9  Sound Waves and the Doppler Effect\n\n\n11\nTue Feb 16\nSound waves in stratified media\n10  Waves in Stratified Atmospheres\n\n\n12\nThu Feb 18\nShocks and shock adiabatics\n11  Shock Waves\n\n\n13\nTue Feb 23\nRadiative shocks\n12  Radiative Shocks\n\n\n14\nThu Feb 25\nBlast waves\n13  Blast Waves\n\n\n15\nTue Mar 2\nMidterm I\n\n\n\n16\nThu Mar 4\nStellar winds and spherical accretion\n14  Stellar Winds and Spherical Accretion\n\n\n\nMar 9–11\nSpring break\n\n\n\n17\nTue Mar 16\nFluid instabilities I\n15  Fluid Instabilities I: Convection\n\n\n18\nThu Mar 18\nFluid instabilities II\n16  Fluid Instabilities II: Rayleigh–Taylor and Kelvin–Helmholtz\n\n\n19\nTue Mar 23\nIntroduction to plasma\n22  Introduction to Plasma\n\n\n20\nThu Mar 25\nMidterm II\n\n\n\n21\nTue Mar 30\nFluid instabilities III\n17  Fluid Instabilities III: Thermal and Gravitational Instabilities\n\n\n22\nThu Apr 1\nDiffusion and viscous flows\n18  Diffusion and Viscous Flows\n\n\n23\nTue Apr 6\nAccretion disks I\n19  Accretion Disks I: Structure and Viscous Evolution\n\n\n24\nThu Apr 8\nAccretion disks II\n20  Accretion Disks II: Steady Disks and Spectra\n\n\n25\nTue Apr 13\nTurbulence\n21  Turbulence\n\n\n26\nThu Apr 15\nMHD equations\n23  The MHD Equations\n\n\n27\nTue Apr 20\nFlux freezing\n24  Flux Freezing\n\n\n28\nThu Apr 22\nMagnetic tension\n25  Magnetic Tension and Hydromagnetic Equilibria\n\n\n29\nTue Apr 27\nMHD waves\n26  MHD Waves\n\n\n30\nThu Apr 29\nMagnetorotational instability\n27  The Magnetorotational Instability",
-    "crumbs": [
-      "Schedule"
     ]
   },
   {
