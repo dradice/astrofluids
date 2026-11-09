@@ -44,7 +44,7 @@ book:
         - chapters/accretion-disks-structure.qmd
         - chapters/accretion-disks-spectra.qmd
         - chapters/turbulence.qmd
-    - part: "Plasma and Magnetohydrodynamics"
+    - part: "Plasma and Magneto\u00ADhydrodynamics"
       chapters:
         - chapters/plasma.qmd
         - chapters/mhd-equations.qmd

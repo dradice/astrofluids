@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 375" width="700" height="375" role="img" aria-labelledby="toy-t toy-d">
+<title id="toy-t">Toy model of the Io-Jupiter interaction</title>
+<desc id="toy-d">Two thick horizontal walls at y = plus and minus D, between which a conductor of half-width d (the region between the two blue lines) moves to the right with velocity v. A magnetic field line B0 comes in from above, anchored in the walls, and is dragged by the conductor into a bent shape extending a distance L in the x direction. A current j points out of the page inside the conductor.</desc>
+<defs><marker id="ah-k" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#000" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker><marker id="ah-1f4fbf" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#1f4fbf" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker></defs>
+<rect width="700" height="375" fill="#fff"/>
+<g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif">
+<line x1="180.0" y1="72.0" x2="615.0" y2="72.0" stroke="#000" stroke-width="3.2"/>
+<line x1="180.0" y1="290.0" x2="615.0" y2="290.0" stroke="#000" stroke-width="3.2"/>
+<line x1="180.0" y1="137.0" x2="615.0" y2="137.0" stroke="#1f4fbf" stroke-width="3.2"/>
+<line x1="180.0" y1="224.0" x2="615.0" y2="224.0" stroke="#1f4fbf" stroke-width="3.2"/>
+<line x1="147.0" y1="72.0" x2="147.0" y2="290.0" stroke="#000" stroke-width="1.5"/>
+<line x1="140.0" y1="72.0" x2="154.0" y2="72.0" stroke="#000" stroke-width="1.5"/>
+<line x1="140.0" y1="290.0" x2="154.0" y2="290.0" stroke="#000" stroke-width="1.5"/>
+<text x="100" y="190" text-anchor="middle" font-size="22" font-style="italic" font-weight="normal" fill="#1f4fbf">2D</text>
+<line x1="268.0" y1="224.0" x2="268.0" y2="137.0" stroke="#000" stroke-width="1.5" marker-end="url(#ah-k)" marker-start="url(#ah-k)"/>
+<text x="228" y="188" text-anchor="middle" font-size="22" font-style="italic" font-weight="normal" fill="#1f4fbf">2d</text>
+<circle cx="310.0" cy="181.0" r="15" fill="none" stroke="#0b6e0b" stroke-width="1.6"/>
+<circle cx="310" cy="181" r="5.2" fill="#0b6e0b"/>
+<text x="326" y="250" text-anchor="start" font-size="24" font-style="normal" font-weight="bold" fill="#007a7a">j</text>
+<line x1="360.0" y1="181.0" x2="515.0" y2="181.0" stroke="#1f4fbf" stroke-width="1.5"/>
+<line x1="360.0" y1="173.0" x2="360.0" y2="189.0" stroke="#1f4fbf" stroke-width="1.5"/>
+<line x1="515.0" y1="173.0" x2="515.0" y2="189.0" stroke="#1f4fbf" stroke-width="1.5"/>
+<text x="437" y="218" text-anchor="middle" font-size="22" font-style="italic" font-weight="normal" fill="#1f4fbf">L</text>
+<line x1="353.0" y1="72.0" x2="353.0" y2="20.0" stroke="#000" stroke-width="1.6" marker-end="url(#ah-k)"/>
+<line x1="398.0" y1="72.0" x2="398.0" y2="20.0" stroke="#000" stroke-width="1.6" marker-end="url(#ah-k)"/>
+<text x="420" y="36" text-anchor="start" font-size="24" font-style="normal" font-weight="bold" fill="#000">B<tspan dy="5.0" font-size="17.3" font-style="normal">0</tspan></text>
+<path d="M 353 72 L 480 142 Q 545 181 480 220 L 353 290 L 353 345" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 398 72 L 500 130 Q 553 165 548 181 Q 545 200 500 224 L 398 290 L 398 345" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="592.0" y1="181.0" x2="655.0" y2="181.0" stroke="#1f4fbf" stroke-width="1.7" marker-end="url(#ah-1f4fbf)"/>
+<text x="672" y="205" text-anchor="middle" font-size="24" font-style="normal" font-weight="bold" fill="#1f4fbf">v</text>
+<line x1="48.0" y1="355.0" x2="48.0" y2="270.0" stroke="#000" stroke-width="1.5"/>
+<line x1="38.0" y1="322.0" x2="128.0" y2="322.0" stroke="#000" stroke-width="1.5"/>
+<text x="18" y="290" text-anchor="start" font-size="22" font-style="italic" font-weight="normal" fill="#000">y</text>
+<text x="110" y="350" text-anchor="start" font-size="22" font-style="italic" font-weight="normal" fill="#000">x</text>
+</g>
+</svg>

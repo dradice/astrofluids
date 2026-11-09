@@ -3,3 +3,114 @@
 ::: {.callout-note}
 This chapter is in preparation.
 :::
+
+## In-class worksheet {#sec-visc-worksheet}
+
+1.  Core-collapse supernovae inject metals, such as oxygen, in the interstellar medium (ISM). After the supernova remnant has stalled its expansion, the diffusion of these elements throughout the galaxy can be modeled through an advection-diffusion equation:
+    $$
+    \frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vb{v}) = \nabla
+    \cdot (\mu \nabla \rho),
+    $$ {#eq-visc-advection-diffusion}
+    where $\rho$ is the mass density of the newly synthesized elements, $\vb{v}$ is the local velocity of the ISM, and $\mu$ is a diffusion coefficient.
+
+    1.  Show that, under suitable assumptions,
+        $$
+        \frac{\dd}{\dd t} \int_V \rho \dd^3 \vb{r}= 0.
+        $$ {#eq-visc-2}
+
+    2.  Assume that $\vb{v}= \operatorname{const}$, $\mu = \operatorname{const} > 0$, and look for solutions in the form
+        $$
+        \rho (t, \vb{x}) = \rho_0 e^{\ii (\vb{k} \cdot \vb{x}-
+        \omega t)} .
+        $$ {#eq-visc-ansatz}
+        Sketch the solution for different times and give a physical interpretation of the results.
+
+    3.  How do the results change if $\mu < 0$?
+
+    4.  Show that @eq-visc-advection-diffusion can be written as
+        $$
+        \frac{\partial \rho}{\partial t} + \nabla \cdot \left[ \rho \left(
+        \vb{v}- \mu \frac{\nabla \rho}{\rho} \right)  \right] = 0.
+        $$ {#eq-visc-4}
+        Interpret the term in round bracket as an effective propagation velocity $\vb{v}_{\operatorname{eff}}$. How does $\vb{v}_{\operatorname{eff}}$ depend on the wave number $\vb{k}$ if $\rho$ is as in @eq-visc-ansatz?
+
+## Exercises {#sec-visc-exercises}
+
+::: {#exr-visc-vortex}
+## Steady viscous vortex
+
+Consider a steady-state, axisymmetric solution of the incompressible, viscous, Navier-Stokes equations in cylindrical coordinates $(R, \theta, z)$ in the form
+$$
+v_R = - \alpha R, \qquad v_{\theta} = \frac{\Gamma}{2 \pi R} g (R), \qquad
+v_z = 2 \alpha z,
+$$ {#eq-visc-vortex-ansatz}
+where $\alpha > 0$ and $\Gamma > 0$ are given constants, while $g (R)$ is a function satisfying
+$$
+\lim_{R \rightarrow 0} g (R) = 0, \qquad \lim_{R \rightarrow \infty} g (R)
+= 1.
+$$ {#eq-visc-vortex-limits}
+Let $\nu > 0$ be the kinematic viscosity.
+
+1.  Show that the flow is incompressible.
+
+2.  Derive an equation for $g (R)$ assuming the flow to be steady state.
+
+3.  Compute the vorticity $\vb{\omega}$ of the flow.
+:::
+
+::: {.content-visible when-profile="solutions"}
+::: {.solution}
+1.  The divergence in cylindrical coordinate is
+    $$
+    \nabla \cdot \vb{v} = \frac{1}{R} \partial_R  (Rv_R) + \frac{1}{R}
+    \partial_{\theta} v_{\theta} + \partial_z v_z = - 2 \alpha + 0 + 2 \alpha
+    = 0.
+    $$
+
+2.  The $\theta$ component of the momentum equation reads (assuming steady state)
+    $$
+    v_R \partial_R v_{\theta} + \frac{v_{\theta}}{R} \partial_{\theta}
+    v_{\theta} + v_z \partial_z v_{\theta} + \frac{v_R v_{\theta}}{R} = -
+    \frac{1}{\rho R} \partial_{\theta} p + \nu \left( \frac{1}{R} \partial_R
+    (R \partial_R v_{\theta}) + \frac{2}{R^2} \partial_{\theta} v_R -
+    \frac{v_{\theta}}{R^2} \right) .
+    $$
+    After some simplifications we obtain
+    $$
+    Rg'' (R) + \left( \frac{R^2 \alpha}{\nu} - 1 \right) g' (R) = 0.
+    $$
+    We make the change of variable $g' (R) = h (R)$ to obtain
+    $$
+    h' (R) = \left( \frac{1}{R} - \frac{\alpha R}{\nu} \right) h (R) .
+    $$
+    This equation can be solved using separation of variables to find
+    $$
+    h (R) = CR \exp \left( - \frac{\alpha R^2}{2 \nu} \right),
+    $$
+    where $C$ is an arbitrary constant, to be fixed using the boundary conditions later. $g (R)$ can be obtained by integrating the last expression and imposing the boundary conditions to find
+    $$
+    g (R) = \left[ 1 - \exp \left( - \frac{\alpha R^2}{2 \nu} \right) \right]
+    .
+    $$
+
+3.  The vorticity can be computed as
+    $$
+    \begin{alignedat}{2}
+    \vb{\omega} &{}={} && \nabla \times \vb{v} \\
+    &{}={} && \left[ \frac{1}{R} \partial_{\theta} v_z - \partial_z v_{\theta}
+    \right]  \hat{\vb{R}} + [\partial_z v_R - \partial_R v_z]
+    \hat{\vb{\theta}} + \left[ \frac{1}{R} \partial_R  (Rv_{\theta}) -
+    \frac{1}{R} \partial_{\theta} v_R \right] \hat{\vb{z}} .
+    \end{alignedat}
+    $$
+    The only non-zero component is $\omega_z$:
+    $$
+    \omega_z = \frac{\Gamma g' (R)}{2 \pi R} = \left( \frac{\alpha \Gamma}{2
+    \pi \nu} \right) \exp \left( - \frac{\alpha R^2}{2 \nu} \right) .
+    $$
+:::
+:::
+
+## Further reading {#sec-visc-reading}
+
+- @clarke2007, Chapter 11 (viscous flows).

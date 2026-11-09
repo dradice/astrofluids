@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" width="760" height="300" role="img" aria-labelledby="pt-t pt-d">
+<title id="pt-t">Magnetic pressure and magnetic tension forces</title>
+<desc id="pt-d">Left panel: a bundle of field lines pointing out of the page (circled dots, with unit vector b-hat); four arrows pointing diagonally outward show the magnetic pressure force, minus the perpendicular gradient of B squared over 8 pi. Right panel: a curved field line (blue) with direction b-hat; an arrow from the curve towards its centre of curvature shows the tension force B squared over 4 pi times (b-hat dot nabla) b-hat.</desc>
+<defs><marker id="ah-k" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#000" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker><marker id="ah-1f4fbf" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#1f4fbf" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker></defs>
+<rect width="760" height="300" fill="#fff"/>
+<g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif">
+<circle cx="150.0" cy="165.0" r="9" fill="none" stroke="#000" stroke-width="1.6"/>
+<circle cx="150" cy="165" r="3.1" fill="#000"/>
+<circle cx="85.0" cy="165.0" r="9" fill="none" stroke="#000" stroke-width="1.6"/>
+<circle cx="85" cy="165" r="3.1" fill="#000"/>
+<circle cx="215.0" cy="165.0" r="9" fill="none" stroke="#000" stroke-width="1.6"/>
+<circle cx="215" cy="165" r="3.1" fill="#000"/>
+<circle cx="150.0" cy="100.0" r="9" fill="none" stroke="#000" stroke-width="1.6"/>
+<circle cx="150" cy="100" r="3.1" fill="#000"/>
+<circle cx="150.0" cy="230.0" r="9" fill="none" stroke="#000" stroke-width="1.6"/>
+<circle cx="150" cy="230" r="3.1" fill="#000"/>
+<line x1="124.0" y1="139.0" x2="70.0" y2="85.0" stroke="#000" stroke-width="1.6" marker-end="url(#ah-k)"/>
+<line x1="176.0" y1="139.0" x2="230.0" y2="85.0" stroke="#000" stroke-width="1.6" marker-end="url(#ah-k)"/>
+<line x1="124.0" y1="191.0" x2="70.0" y2="245.0" stroke="#000" stroke-width="1.6" marker-end="url(#ah-k)"/>
+<line x1="176.0" y1="191.0" x2="230.0" y2="245.0" stroke="#000" stroke-width="1.6" marker-end="url(#ah-k)"/>
+<text x="232" y="173" text-anchor="start" font-size="22" font-style="normal" font-weight="bold" fill="#000">b̂</text>
+<text x="48" y="52" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">−∇<tspan dy="5.0" font-size="14.4" font-style="normal">⊥</tspan><tspan dy="-5"> B</tspan><tspan dy="-8" font-size="14.4" font-style="normal">2</tspan><tspan dy="8">/8π</tspan></text>
+<path d="M 455 265 C 455 190 480 120 620 115" fill="none" stroke="#1f4fbf" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ah-1f4fbf)" />
+<text x="595" y="150" text-anchor="start" font-size="22" font-style="normal" font-weight="bold" fill="#1f4fbf">b̂</text>
+<line x1="490.0" y1="160.0" x2="590.0" y2="260.0" stroke="#000" stroke-width="1.5" marker-end="url(#ah-k)"/>
+<text x="600" y="243" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">(B<tspan dy="-8.0" font-size="14.4" font-style="normal">2</tspan><tspan dy="8">/4π) (b̂·∇) b̂</tspan></text>
+</g>
+</svg>

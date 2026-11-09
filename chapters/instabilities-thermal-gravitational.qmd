@@ -3,3 +3,53 @@
 ::: {.callout-note}
 This chapter is in preparation.
 :::
+
+## Exercises {#sec-tginst-exercises}
+
+::: {#exr-tginst-slab}
+## Thermal balance of a slab
+
+A slab of gas held together by its own gravity is heated by cosmic rays, at a constant rate per unit mass. It cools by optically thin thermal bremsstrahlung, with a cooling rate per unit mass proportional to $\rho T^{1 / 2}$.
+
+1.  Using the discussion of thermal instability in @clarke2007 (Section 10.4), analyse the thermal stability of the slab.
+
+2.  Is the slab stable against the Rayleigh–Taylor instability (see @sec-rtkh)?
+
+Adapted from @clarke2007, Problem 36.
+:::
+
+::: {.content-visible when-profile="solutions"}
+::: {.solution}
+1.  The net cooling rate is:
+    $$
+    \dot{Q} = A \rho T^{1 / 2} - C.
+    $$
+    We can use the Field criterion for instability:
+    $$
+    \left. \frac{\partial \dot{Q}}{\partial T} \right|_p =
+    \frac{\partial}{\partial T}  \left[ A \frac{\mu p}{k_B} T^{- 1 / 2}
+    \right] = - \tfrac{1}{2} A \frac{\mu p}{k_B} T^{- 3 / 2} < 0,
+    $$
+    so the slab is unstable to the thermal instability.
+
+2.  Thermal equilibrium implies:
+    $$
+    \dot{Q} = 0 \Longrightarrow T = \left( \frac{C}{A \rho} \right)^2 .
+    $$
+    So the pressure is
+    $$
+    p = \frac{\rho}{\mu} k_B T = K \frac{1}{\rho} .
+    $$
+    Hydrostatic equilibrium yields:
+    $$
+    - \rho g = \frac{\dd p}{\dd z} = - \frac{K}{\rho^2} \frac{\dd
+    \rho}{\dd z} \Longrightarrow \frac{\dd \rho}{\dd z} = K^{- 1}
+    \rho^3 g,
+    $$
+    where we have taken $z$ to be increasing upwards, so that $g > 0$. The last equation implies that the density increases upwards, the slab is also unstable to the Rayleigh-Taylor instability.
+:::
+:::
+
+## Further reading {#sec-tginst-reading}
+
+- @clarke2007, Chapter 10 (fluid instabilities).

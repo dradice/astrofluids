@@ -3,3 +3,133 @@
 ::: {.callout-note}
 This chapter is in preparation.
 :::
+
+## In-class worksheet {#sec-wind-worksheet}
+
+1.  The radial velocity $v$ for an isothermal wind with isothermal sound speed $a$ satisfies the equation
+    $$
+    (v^2 - a^2)  \frac{v'}{v} = \frac{2 a^2}{r} - \frac{GM}{r^2} .
+    $$ {#eq-wind-1}
+    Find the acceleration of the wind at the sonic point
+    $$
+    r_c = \frac{GM}{2 a^2} .
+    $$ {#eq-wind-2}
+
+## Exercises {#sec-wind-exercises}
+
+::: {#exr-wind-radiation-driven}
+## Radiation-driven winds
+
+Consider an isothermal steady stellar wind. Radiation pressure in optically thin conditions produces an additional force per unit mass that can be parameterized as
+$$
+f = \frac{A}{r^2},
+$$ {#eq-wind-3}
+where $A > 0$.
+
+1.  Show that the momentum equation becomes
+    $$
+    (v^2 - a^2)  \frac{1}{v}  \frac{\dd v}{\dd r} = \frac{2 a^2}{r} -
+    \frac{GM}{r^2} + \frac{A}{r^2},
+    $$ {#eq-wind-4}
+    where $a$ is the isothermal sound speed.
+
+2.  Assuming $A < GM$, how does the structure of the wind change?
+
+3.  How does the radial profile of the velocity change if $A > GM$? Give a physical interpretation of the results.
+:::
+
+::: {.content-visible when-profile="solutions"}
+::: {.solution}
+1.  The momentum equation becomes
+    $$
+    vv' + \frac{a^2 \rho'}{\rho} = \frac{A - GM}{r^2} = -
+    \frac{GM_{\operatorname{eff}}}{r^2},
+    $$
+    where the effective mass is $M_{\operatorname{eff}} = A / G - M$. Proceeding as for the isothermal stellar wind in the lecture notes, we find
+    $$
+    (v^2 - a^2)  \frac{1}{v}  \frac{\dd v}{\dd r} = \frac{2 a^2}{r} -
+    \frac{GM}{r^2} + \frac{A}{r^2} .
+    $$
+
+2.  If $A < GM$, then $M_{\operatorname{eff}} > 0$. The main difference is that the sonic point is now at
+    $$
+    r_s = \frac{GM_{\operatorname{eff}}}{2 a^2} .
+    $$
+    As long as $r_s > r_0$, the stellar radius, the wind solution does not change qualitatively. If $r_s < r_0$, then there is no sonic point, which means that the wind never becomes supersonic.
+
+3.  If $A > GM$, then $M_{\operatorname{eff}} < 0$, then
+    $$
+    (v^2 - a^2)  \frac{v'}{v} = \frac{2 a^2}{r} + \frac{G | M_{\operatorname{eff}}
+    |}{r^2} > 0.
+    $$
+    If the wind is subsonic at its base, then $v < a$ everywhere and $v' / v < 0$, meaning that the wind decelerates. This result is counter-intuitive, because it shows that with the inclusion of a radial force, the wind is actually decelerated. What is happening is that, with the inclusion of an external force, the hydrostatic equilibrium acquires a more shallow density profile. In other words, the wind becomes more dense and slows down.
+:::
+:::
+
+::: {#exr-wind-bondi}
+## Isothermal Bondi accretion
+
+Far from a star of mass $M$ located at the origin, isothermal gas has pressure $p_{\infty} = a^2 \rho_{\infty}$ and density $\rho_{\infty}$. This gas is steadily accreted onto the star.
+
+1.  Find the accretion rate, assuming that the gas remains isothermal. At what radius does the infalling gas reach the sound speed?
+
+2.  Let $a = 10^5 \operatorname{cm} /\mathrm{s}$ and $n_{\infty} = 10^3$ hydrogen molecules $\operatorname{cm}^{- 3}$, and take the mass of the hydrogen atom to be $1.66 \times 10^{- 24} \mathrm{g}$. Express this radius in units of the solar radius $R_{\odot} = 7 \times 10^{10} \operatorname{cm}$.
+
+3.  Calculate the time that a star of mass $M$ needs to double its mass.
+
+Adapted from @clarke2007, Problem 30.
+:::
+
+::: {.content-visible when-profile="solutions"}
+::: {.solution}
+1.  The infalling gas is described by
+    $$
+    \dot{M} = 4 \pi r^2 \rho v = \operatorname{const}, \qquad vv' + \frac{a^2
+    \rho'}{\rho} = - \frac{GM}{r^2},
+    $$
+    where the prime denotes the radial derivative.
+
+    The first equation yields
+    $$
+    0 = 2 r \rho v + r^2 \rho' v + r^2 \rho v' \Longrightarrow
+    \frac{\rho'}{\rho} = - \frac{2}{r} - \frac{v'}{v} .
+    $$
+    Plugging this into the velocity equation, we obtain
+    $$
+    \frac{v'}{v}  (v^2 - a^2) = \frac{2 a^2}{r} - \frac{GM}{r^2} .
+    $$
+    This is the same equation we obtained for the stellar wind. The sonic point is at
+    $$
+    r_s = \frac{GM}{2 a^2} .
+    $$
+
+2.  The radius does not depend on the density at large distance, but only on the mass of the star
+    $$
+    r_s \approx 10^5 R_{\odot}  \left( \frac{M}{M_{\odot}} \right) .
+    $$
+
+3.  The velocity is given by
+    $$
+    v \exp \left( - \frac{v^2}{2 a^2} \right) = a \left( \frac{r_s}{r}
+    \right)^2 \exp \left( - \frac{2 r_s}{r} + \frac{3}{2} \right) .
+    $$
+    For $r \gg r_c$, we have $v \ll a$ and
+    $$
+    v_{\infty} = a \left( \frac{r_c}{r} \right)^2 e^{3 / 2} .
+    $$
+    The accretion rate is
+    $$
+    \dot{M} = 4 \pi r^2 v \rho = 4 \pi ar_s^2 \rho_{\infty} e^{3 / 2} .
+    $$
+    So the time required to double the mass is
+    $$
+    4 \pi ar_s^2 \rho_{\infty} e^{3 / 2} t = M \Longrightarrow t = \frac{M}{4
+    \pi ar_s^2 \rho_{\infty} e^{3 / 2}} = 1.5 \times 10^8 \operatorname{years} \left(
+    \frac{M_{\odot}}{M} \right) .
+    $$
+:::
+:::
+
+## Further reading {#sec-wind-reading}
+
+- @clarke2007, Chapter 9 (Bernoulli's equation).

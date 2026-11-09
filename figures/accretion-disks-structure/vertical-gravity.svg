@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" width="400" height="220" role="img" aria-labelledby="vertgrav-t vertgrav-d">
+<title id="vertgrav-t">Vertical component of the gravitational acceleration in a disk</title>
+<desc id="vertgrav-d">A right triangle with a horizontal leg of length R along the disk midplane, a vertical leg of height z, and the hypotenuse of length r pointing to the central object at the left. A fluid element, drawn as a small square at the top of the vertical leg, feels the gravitational acceleration g directed along the hypotenuse towards the central object; its vertical component g_z points down.</desc>
+<defs><marker id="ah-k" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#000" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker></defs>
+<rect width="400" height="220" fill="#fff"/>
+<g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif">
+<line x1="50.0" y1="180.0" x2="320.0" y2="180.0" stroke="#000" stroke-width="1.6"/>
+<line x1="320.0" y1="180.0" x2="320.0" y2="95.0" stroke="#000" stroke-width="1.6"/>
+<line x1="50.0" y1="180.0" x2="320.0" y2="95.0" stroke="#000" stroke-width="1.6"/>
+<rect x="303" y="78" width="34" height="34" fill="none" stroke="#000" stroke-width="2.4"/>
+<line x1="320.0" y1="95.0" x2="196.0" y2="134.0" stroke="#000" stroke-width="2.6" marker-end="url(#ah-k)"/>
+<line x1="320.0" y1="95.0" x2="320.0" y2="147.0" stroke="#000" stroke-width="2.6" marker-end="url(#ah-k)"/>
+<text x="245" y="98" text-anchor="middle" font-size="20" font-style="normal" font-weight="bold" fill="#000">g</text>
+<text x="296" y="145" text-anchor="middle" font-size="20" font-style="italic" font-weight="normal" fill="#000">g<tspan dy="5.0" font-size="14.4" font-style="normal">z</tspan></text>
+<text x="335" y="145" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">z</text>
+<text x="170" y="134" text-anchor="middle" font-size="20" font-style="italic" font-weight="normal" fill="#000">r</text>
+<text x="185" y="207" text-anchor="middle" font-size="20" font-style="italic" font-weight="normal" fill="#000">R</text>
+</g>
+</svg>

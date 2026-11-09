@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="500" viewBox="0 0 780 500">
+<title>Distortion of a cloud in a turbulent medium</title>
+<desc>Three rows. In case A the cloud radius is comparable to the dissipation scale and small random flows act inside the cloud, which ends as a slightly deformed blob. In case B the cloud is much larger than the dissipation scale but much smaller than the driving scale, eddies stretch it into a strongly distorted shape. In case C the cloud is comparable to the driving scale and a single large-scale flow carries it along without deforming it.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#0b3d91" stroke-width="1.6"/></marker>
+<marker id="ak" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#000" stroke-width="1.8"/></marker>
+</defs>
+<rect width="780" height="500" fill="#fff"/>
+<g font-family="serif" font-size="20" font-style="italic" fill="#000">
+<text x="62" y="75">2R</text>
+<text x="22" y="126">A</text>
+<text x="22" y="282">B</text>
+<text x="22" y="438">C</text>
+</g>
+<!-- scale bar for 2R -->
+<g stroke="#000" stroke-width="1.5" fill="none"><path d="M75 90 V180 M67 90 H83 M67 180 H83"/></g>
+<!-- row A -->
+<g stroke="#000" stroke-width="1.5">
+<circle cx="157" cy="135" r="51" fill="#cfcfcf"/>
+</g>
+<g fill="none" stroke="#0b3d91" stroke-width="1.5" marker-end="url(#ah)">
+<path d="M105 100 C125 110 140 118 135 130 C132 140 125 128 135 118 C140 112 142 108 140 102"/>
+<path d="M158 76 C160 100 175 95 205 85"/>
+<path d="M135 135 C145 118 160 118 165 120 C155 130 152 130 150 135"/>
+<path d="M120 150 C140 148 148 152 145 165"/>
+<path d="M166 170 C163 155 170 148 180 150 C175 150 185 148 195 155"/>
+<path d="M176 140 C175 128 178 122 185 118"/>
+</g>
+<path d="M310 135 Q410 70 515 135" fill="none" stroke="#000" stroke-width="1.8" marker-end="url(#ak)"/>
+<path d="M630 130 C625 115 630 80 635 82 C655 80 668 76 685 88 C700 100 715 110 722 122 C725 140 712 170 690 180 C670 190 650 170 640 155 C635 145 625 140 630 130 Z" fill="#cfcfcf" stroke="#000" stroke-width="1.5" transform="translate(0,0)"/>
+<!-- row B -->
+<circle cx="157" cy="290" r="51" fill="#cfcfcf" stroke="#000" stroke-width="1.5"/>
+<g fill="none" stroke="#0b3d91" stroke-width="1.5" marker-end="url(#ah)">
+<path d="M90 228 C150 245 175 270 150 305 C135 325 105 340 90 350"/>
+<path d="M222 335 C185 310 185 290 190 270 C190 245 165 215 165 205"/>
+<path d="M220 222 C195 245 195 275 215 300 C228 318 240 330 250 335"/>
+</g>
+<path d="M310 290 Q410 225 515 290" fill="none" stroke="#000" stroke-width="1.8" marker-end="url(#ak)"/>
+<path d="M585 288 C610 300 640 290 650 270 C660 245 645 235 660 215 C680 200 700 225 725 255 C745 275 740 300 700 300 C670 300 665 310 680 335 C690 355 705 360 690 370 C660 365 600 340 585 320 C580 305 600 300 600 295 C590 292 580 292 585 288 Z" fill="#cfcfcf" stroke="#000" stroke-width="1.5" transform="translate(0,-10) scale(1,1)"/>
+<!-- row C -->
+<circle cx="157" cy="435" r="51" fill="#cfcfcf" stroke="#000" stroke-width="1.5"/>
+<path d="M260 380 C190 440 130 450 55 447" fill="none" stroke="#0b3d91" stroke-width="1.5" marker-end="url(#ah)"/>
+<path d="M310 435 Q410 370 515 435" fill="none" stroke="#000" stroke-width="1.8" marker-end="url(#ak)"/>
+<circle cx="625" cy="445" r="51" fill="#cfcfcf" stroke="#000" stroke-width="1.5"/>
+</svg>

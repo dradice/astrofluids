@@ -1,5 +1,144 @@
 # The Euler Equation {#sec-euler}
 
-::: {.callout-note}
-This chapter is being ported from the 2025 lecture notes.
+## Internal stresses
+
+Up to this point we have described the motion of fluids in which the velocity field is prescribed, or known. Now we derive the equation of motion for fluids. The acceleration of a fluid element $\mathcal{V}$ with mass $\mathcal{M}$ is given by Newton's law:
+$$
+\mathcal{M} \frac{\dd \vb{v}}{\dd t} =\vb{F},
+$$ {#eq-euler-newton-law}
+where $\vb{F}$ is the sum of all forces (the net force) acting on $\mathcal{V}$. To derive an equation that does not explicitly make reference to the fluid elements, we can divide @eq-euler-newton-law by the volume of $\mathcal{V}$ to find
+$$
+\rho \frac{\dd \vb{v}}{\dd t} =\vb{f},
+$$ {#eq-euler-2}
+where $\vb{f}$ is the force per unit volume acting on the fluid:
+$$
+[\vb{f}] = \operatorname{dyn} \operatorname{cm}^{- 3} =\mathrm{g} \operatorname{cm}^{- 2}
+\mathrm{s}^{- 2},
+$$ {#eq-euler-3}
+where "$\operatorname{dyn}$" (dyne) is the unit of force in CGS units:
+$$
+1 \operatorname{dyn} = 1\mathrm{g} \operatorname{cm} \mathrm{s}^{- 2} .
+$$ {#eq-euler-4}
+There are two type of forces that can act on a fluid element: external and internal forces. In astrophysical applications, gravity is the most common external force. The force per unit volume (**body force**) due to gravity is
+$$
+\vb{f}_g = \rho \vb{g}= - \rho \nabla \Psi,
+$$ {#eq-euler-5}
+where $\vb{g}$ is the gravitational acceleration and $\Psi$ is the gravitational potential. The internal forces are due to the interaction of $\mathcal{V}$ with other fluid elements.
+
+Consider a container with water at rest on the surface of the Earth. The container has been left undisturbed for sufficiently long time that the velocity of all fluid elements is zero. Let $\mathcal{V}$ be a fluid element of water somewhere away from the edge of the container. Clearly, $\mathcal{V}$ is subject to the force of gravity. Since $\mathcal{V}$ is not in contact with the container, the gravitational force cannot be balanced by a contact force with the walls of the container. Instead, the force on $\mathcal{V}$ must be balanced by a force exchanged by $\mathcal{V}$ with the neighboring fluid elements. This show that the equation of motion of a fluid must include the acceleration due to its internal forces. What is their nature?
+
+We consider an infinitesimal fluid element $\mathcal{V}$ in a fluid at rest, as illustrated in @fig-euler-pressure-gradient. We can take the origin of the coordinate system to be the center of $\mathcal{V}$ and its extent in the three directions to be $\dd x$, $\dd y$, and $\dd z$. We also take the gravitational acceleration $\vb{g}$ to be in the $z$-direction.
+
+![Force diagram for a fluid element in a static water container.](../figures/euler-equation/pressure-gradient.svg){#fig-euler-pressure-gradient fig-alt="A square fluid element V at rest. A pressure force of magnitude p dA pushes inward on each of the four faces drawn, perpendicular to the face, and a gravity force rho g points down from the center of the element. The x axis points right and the z axis points down."}
+
+The fluid element is subject to forces applied by the rest of the fluid to its six square faces and to the force of gravity, which we can take to be applied to its center of mass, as shown in @fig-euler-pressure-gradient. Our goal is to determine these forces. Even for a fluid at rest, in principle, these surface forces can have many possible magnitudes and directions, as long as the net force and torque acting on $\mathcal{V}$ vanish. We cannot make much progress without knowing more about the nature of the fluid.
+
+However, there is a class of fluids, known as **perfect fluids**, for which the internal forces are particularly simple. In a perfect fluid the surface forces are assumed to be always directed along the perpendicular to each face (as is the case in @fig-euler-pressure-gradient). The problem of finding the internal forces thus reduces to that of finding a scalar quantity, called the **pressure**, that gives the magnitude of the force per unit area across each face of the fluid element:
+$$
+p = \text{``force per unit area''} \qquad [\operatorname{dyn} \operatorname{cm}^{- 2}] .
+$$ {#eq-euler-6}
+In particular, for a perfect fluid the force exerted by the fluid on an infinitesimal surface with outward-directed area element $\dd \vb{A}$ is
+$$
+\dd \vb{F}= - p \dd \vb{A}.
+$$ {#eq-euler-7}
+In most cases the pressure is positive $p > 0$, so a fluid element, or equivalently an object immersed in a fluid, is subject to compression.
+
+The concept of perfect fluid is an idealization of reality, but, in practice, liquids and gases can be considered as perfect fluids to very good approximation in most situations. More in general, because the force needs to transform under basis change in the same way as a vector, it can be shown internal forces can be written as
+$$
+\dd \vb{F}=\vb{T} \dd \vb{A},
+$$ {#eq-euler-8}
+where $\vb{T}$ is a matrix that depends on the properties of the fluid, the so-called **stress tensor** of the fluid. The perfect fluid is the special case of this general theory in which
+$$
+\vb{T}= - p\vb{I},
+$$ {#eq-euler-9}
+where $\vb{I}$ is the identity matrix. We will encounter examples of non-perfect fluids later in the course.
+
+## Euler's equation
+
+We can now consider the net acceleration of the fluid element in the vertical direction. There are three forces to consider: the force of gravity, and the forces at the bottom and at the top of $\mathcal{V}$. The forces from the side do not contribute, since they are orthogonal to the $z$-direction. Putting everything together we find:
+$$
+\mathcal{M} \frac{\dd v_z}{\dd t} = - \left[ p \left( z =
+\tfrac{\dd z}{2} \right) - p \left( z = - \tfrac{\dd z}{2} \right)
+\right] \dd A +\mathcal{M}g_z,
+$$ {#eq-euler-10}
+where $\dd A = \dd x \dd y$, and $\mathcal{M}= \rho V = \rho \dd x \dd y \dd z$. Dividing both terms by $V$ gives
+$$
+\rho \frac{\dd v_z}{\dd t} = - \frac{1}{\dd z}  \left[ p \left( z =
+\tfrac{\dd z}{2} \right) - p \left( z = - \tfrac{\dd z}{2} \right)
+\right] + \rho g_z = - \partial_z p + \rho g_z .
+$$ {#eq-euler-acceleration-balance-vertical}
+A similar derivation can be done for the momentum balance in the $x$- and $y$-directions to find
+$$
+\rho \frac{\dd \vb{v}}{\dd t} = - \nabla p + \rho \vb{g}.
+$$ {#eq-euler-12}
+In the more general case, in which we consider an arbitrary volume force applied onto the fluid, we obtain the so-called Euler, or momentum equation for a perfect fluid:
+$$
+\boxed{\rho \frac{\dd \vb{v}}{\dd t} = - \nabla p
++\vb{f}.}
+$$ {#eq-euler}
+Note: it is the *gradient* of the pressure, and not the pressure directly that determines the mechanical response of the fluid. We will see that this has important implications in a number of situations.
+
+In the case of non perfect fluids, @eq-euler becomes
+$$
+\rho \frac{\dd \vb{v}}{\dd t} = \nabla \cdot
+\vb{T}+\vb{f},
+$$ {#eq-euler-general}
+where we have introduced the divergence of a tensor, defined to be a vector with components
+$$
+\nabla \cdot \vb{T}  = \left(\begin{array}{c}
+\partial_x T_{x x} + \partial_y T_{x y} + \partial_z T_{x z}\\
+\partial_x T_{y x} + \partial_y T_{y y} + \partial_z T_{y z}\\
+\partial_x T_{z x} + \partial_y T_{z y} + \partial_z T_{z z}
+\end{array}\right) .
+$$ {#eq-euler-15}
+The momentum @eq-euler-general holds even for solids, which can rarely be described as perfect fluids, but for which the stress tensor can also be defined.
+
+::: {.callout-tip icon=false}
+## Example
+
+Consider a liquid at rest ($\vb{v}= 0$) in a tank and subject to gravity. The tank is not pressurized, so the surface of the liquid is at the atmospheric pressure $p_0$, in order to be in mechanical equilibrium with the air. Assume that the tank is sufficiently shallow, so that $\rho = \operatorname{const}$. What is the pressure at the bottom of the tank?
+
+We can take $z$ to be the vertical coordinate, $z = 0$ being the surface of the surface of the liquid and $z = d > 0$ being the bottom. The force balance in the $z$-direction is
+$$
+\partial_z p = \rho g,
+$$ {#eq-euler-16}
+where $g > 0$ is the acceleration constant[^euler-1]. Integrating this equation, we find
+$$
+p (z) = p_0 + \int_0^z \rho g \dd z = p_0 + \rho gz.
+$$ {#eq-euler-17}
+The pressure at the bottom of the tank is $p_0 + \rho gd$.
 :::
+
+Let's recap our situation. We have started with the continuity equation (@eq-continua-12), which describes the evolution of the density $\rho$ given the velocity $\vb{v}$. To find the velocity we have derived an equation of motion for it, Euler's equation, which however involves yet another quantity: the pressure. We are still not able to predict the evolution of a fluid, unless we have a way to compute its pressure. This should not be surprising, because so far we have not introduced any equation that tells us *which* fluid is being considered: water and interstellar gas behave very differently, even though they satisfy the same equations. Their different dynamics is results of the fact that they have different pressures. In general, the pressure for a fluid depends on its density, temperature or entropy, and composition
+$$
+p = p (\rho, T, \{ Y_i \}) .
+$$ {#eq-euler-18}
+This is the so-called **equation of state** for the matter. As such, to close the system we will need a new equation for temperature, in addition to the equation of state. There are some special cases, however, in which the pressure can be taken to be a function of only the density:
+$$
+p = p (\rho) .
+$$ {#eq-euler-19}
+In this case we say that the equation of state is **barotropic**. Some important cases that we will encounter in our course are
+
+- pressureless fluids, in which $p = 0$;
+
+- isothermal gases, in which $p = c_s^2 \rho$, where $c_s > 0$ is a constant, which we will see is equal to the speed of sound in the gas;
+
+- polytropic gases, in which $p = K \rho^{\Gamma}$, where $K$ and $\Gamma$ are some known positive constants.
+
+The pressureless approximation can sometimes be employed for highly supersonic flows, or in cases in which the gas is not collisional: dark matter, or dust can be approximated as pressureless fluids in certain cases. The isothermal and polytropic equations of state hold when temperature or entropy are constant in the gas, so the equation of state becomes barotropic. We will discuss this in more detail later.
+
+## In-class worksheet {#sec-euler-worksheet}
+
+1.  Consider an incompressible liquid ($\rho \equiv \operatorname{const}$) at rest in a tank of height $h$ and subject to gravity. The tank is not pressurized, so the surface of the liquid is at atmospheric pressure $p_0$. What is the pressure at the bottom of the tank?
+
+2.  Core-collapse supernovae are triggered when the Iron core of a massive star exceeds the Chandrasekhar mass. Initially, the core is in hydrostatic equilibrium:
+    $$
+    \partial_r p = - \frac{GM}{r^2} \rho,
+    $$ {#eq-euler-hydrostatic-equilibrium}
+    where $M = M (r)$ is the enclosed mass. After the core becomes unstable, it starts to contract. Show that, if $\Gamma \lesssim 5 / 3$, and if the collapse is homologous and adiabatic, then the Iron core remains close to hydrostatic equilibrium as it contracts, meaning that @eq-euler-hydrostatic-equilibrium remains approximately true. In reality, the flow is no longer adiabatic, once it becomes supersonic, so the homologous collapse only describes the region with $v < c_s$.
+
+## Further reading {#sec-euler-reading}
+
+- @clarke2007, Chapter 2 (the fluid equations, including the equation of motion).
+
+[^euler-1]: Note that we are taking $z$ to be increasing towards the bottom of the tank.

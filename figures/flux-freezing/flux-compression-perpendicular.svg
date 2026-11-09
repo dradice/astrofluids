@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 360" width="700" height="360" role="img" aria-labelledby="perp-t perp-d">
+<title id="perp-t">Compression of a flux tube across the field</title>
+<desc id="perp-d">A wide horizontal flux tube of cross-section A_1 with a magnetic field B_1 along its axis. Arrows v above and below it point towards the axis: the tube is squeezed from the sides into a much thinner tube of cross-section A_2 below, whose field B_2 is stronger, shown by a longer arrow.</desc>
+<defs><marker id="ah-k" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#000" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker><marker id="ah-1f4fbf" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#1f4fbf" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker></defs>
+<rect width="700" height="360" fill="#fff"/>
+<g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif">
+<line x1="150.0" y1="38.0" x2="680.0" y2="38.0" stroke="#000" stroke-width="1.6"/>
+<line x1="150.0" y1="162.0" x2="680.0" y2="162.0" stroke="#000" stroke-width="1.6"/>
+<ellipse cx="150.0" cy="100.0" rx="24.0" ry="62.0" transform="rotate(0.0 150.0 100.0)" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<line x1="205.0" y1="100.0" x2="340.0" y2="100.0" stroke="#1f4fbf" stroke-width="2.4" marker-end="url(#ah-1f4fbf)"/>
+<text x="350" y="128" text-anchor="start" font-size="24" font-style="normal" font-weight="bold" fill="#1f4fbf">B<tspan dy="5.0" font-size="17.3" font-style="normal">1</tspan></text>
+<text x="60" y="106" text-anchor="middle" font-size="20" font-style="italic" font-weight="normal" fill="#000">A<tspan dy="5.0" font-size="14.4" font-style="normal">1</tspan></text>
+<line x1="420.0" y1="8.0" x2="420.0" y2="32.0" stroke="#000" stroke-width="2" marker-end="url(#ah-k)"/>
+<text x="436" y="28" text-anchor="start" font-size="20" font-style="normal" font-weight="bold" fill="#000">v</text>
+<line x1="420.0" y1="250.0" x2="420.0" y2="200.0" stroke="#000" stroke-width="2" marker-end="url(#ah-k)"/>
+<text x="436" y="232" text-anchor="start" font-size="20" font-style="normal" font-weight="bold" fill="#000">v</text>
+<line x1="150.0" y1="278.0" x2="680.0" y2="278.0" stroke="#000" stroke-width="1.6"/>
+<line x1="150.0" y1="322.0" x2="680.0" y2="322.0" stroke="#000" stroke-width="1.6"/>
+<ellipse cx="150.0" cy="300.0" rx="9.0" ry="22.0" transform="rotate(0.0 150.0 300.0)" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<line x1="190.0" y1="300.0" x2="570.0" y2="300.0" stroke="#1f4fbf" stroke-width="2.4" marker-end="url(#ah-1f4fbf)"/>
+<text x="585" y="308" text-anchor="start" font-size="24" font-style="normal" font-weight="bold" fill="#1f4fbf">B<tspan dy="5.0" font-size="17.3" font-style="normal">2</tspan></text>
+<text x="60" y="306" text-anchor="middle" font-size="20" font-style="italic" font-weight="normal" fill="#000">A<tspan dy="5.0" font-size="14.4" font-style="normal">2</tspan></text>
+</g>
+</svg>

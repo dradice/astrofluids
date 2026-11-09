@@ -3,3 +3,46 @@
 ::: {.callout-note}
 This chapter is in preparation.
 :::
+
+## In-class worksheet {#sec-diskspec-worksheet}
+
+1.  **Viscous instability in accretion disks.** The equation describing the evolution of the surface density $\Sigma$ in an accretion disk is given by
+    $$
+    \partial_t \Sigma = \frac{3}{R} \partial_R  [R^{1 / 2} \partial_R (\nu
+    \Sigma R^{1 / 2})] .
+    $$ {#eq-diskspec-1}
+    Assume that the viscosity $\nu$ is in the form $\nu = \nu (\Sigma, R)$.
+
+    1.  Introduce the quantity $\mu = \nu \Sigma$ and consider a small perturbation $\delta \Sigma$ in the surface density of the disk. Find the equation describing the evolution of the corresponding perturbation $\delta \mu$ of $\mu$.
+
+    2.  Under what condition is the disk stable?
+
+## Exercises {#sec-diskspec-exercises}
+
+::: {#exr-diskspec-spectrum}
+## Accretion-disk spectrum
+
+Model an accretion disk as a set of concentric rings $i = 1, 2, \ldots, N$, each with median radius $R_i$ and radial extent $\Delta R$. Let the disk extend from an inner radius $R_{\operatorname{in}}$ to an outer radius $R_{\operatorname{out}}$ and the temperature be
+$$
+T (R) = T_{\operatorname{in}}  \left( \frac{R_{\operatorname{in}}}{R} \right)^{3 / 4} .
+$$ {#eq-diskspec-2}
+Assume that the $i$th ring emits as a blackbody with a fixed temperature $T_i = T (R_i)$
+$$
+B_{\nu} (T) = \frac{2 h \nu^3}{c^2}  \frac{1}{e^{h \nu / kT} - 1},
+$$ {#eq-diskspec-3}
+where $h$ is Planck constant, $c$ the speed of light, and $k$ the Boltzmann constant.
+
+1.  Write a code to compute and plot the emergent spectrum from a single ring at radius $R_i$. Plot the emergent spectrum for several radii. You can work in units in which $k = h = c = 1$. You can take $T_{\operatorname{in}} = 1$ in these units.
+
+2.  Write a code to compute the emergent spectrum from the full disk by summing up the contribution from each ring. Plot the resulting spectrum and discuss its physical interpretation. Verify that the spectrum approximately scales as $\nu^{1 / 3}$ for $T_{\operatorname{in}} \lesssim \nu \lesssim T_{\operatorname{out}}$. You can work in the same units as in the previous point. Additionally assume that $R_{\operatorname{out}} / R_{\operatorname{in}} = 200$.
+:::
+
+::: {.content-visible when-profile="solutions"}
+::: {.solution}
+See [`disk-spectrum.py`](https://github.com/dradice/astrofluids/blob/main/solutions/code/accretion-disks-spectra/disk-spectrum.py) for the implementation.
+:::
+:::
+
+## Further reading {#sec-diskspec-reading}
+
+- @clarke2007, Chapter 12 (accretion discs).

@@ -114,7 +114,7 @@ def lint(files):
                 refs.append((r, f"{rel}:{i+1}"))
 
         # figures
-        for m in re.finditer(r"!\[[^\]]*\]\([^)]*\)(\{[^}]*\})?", text):
+        for m in re.finditer(r"!\[(?:[^\[\]]|\[[^\]]*\](?:\([^)]*\))?)*\]\([^)]*\)(\{[^}]*\})?", text):
             line_no = text.count("\n", 0, m.start()) + 1
             attrs = m.group(1) or ""
             if "fig-alt=" not in attrs:

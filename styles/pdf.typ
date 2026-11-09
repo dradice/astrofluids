@@ -46,8 +46,11 @@
   // `numbering: none` must be set (not only overridden below) so that the inner
   // equation does not step the equation counter.
   set math.equation(numbering: none)
-  show math.equation.where(block: true): eq => math.equation(
-    block: false, numbering: none, math.display(eq.body))
+  // Size the inline equation by its actual ink (fractions etc.), not by the line
+  // height; otherwise the box border cuts through tall content.
+  set text(top-edge: "bounds", bottom-edge: "bounds")
+  show math.equation.where(block: true): eq => box(inset: (x: 2pt, y: 3pt), math.equation(
+    block: false, numbering: none, math.display(eq.body)))
   it
 }
 
@@ -55,3 +58,38 @@
 // orange-book centres all figures (`show figure: set align(center)`), which overrides
 // theorion's left alignment of exercise frames (they are figures of kind "exercise").
 #show figure.where(kind: "exercise"): set align(start)
+
+// 4. Figure size.
+// The SVG figures are drawn for the web, with labels at about 20 px so that they match
+// the body text there; at their natural size in the PDF (1 px = 0.75 pt) the labels are
+// ~15 pt against 10 pt body text, and most figures fill the whole text width. Scale SVGs
+// to 65% of their natural size, and cap every image at 70% of the text width (raster
+// images have no meaningful natural size).
+#show image: it => layout(size => {
+  let m = measure(it)
+  let is-svg = type(it.source) == str and lower(it.source).ends-with(".svg")
+  let target = if is-svg { m.width * 0.65 } else { m.width }
+  target = calc.min(target, size.width * 0.7)
+  if m.width > 0pt and target < m.width {
+    scale(target / m.width * 100%, reflow: true, it)
+  } else {
+    it
+  }
+})
+
+// 5. References to chapters.
+// orange-book numbers chapters as "9." (with a period, for the chapter headings), so
+// references print "Chapter 9." in the middle of a sentence. Drop the trailing period.
+#show ref: it => {
+  let el = it.element
+  if el == none or el.func() != heading or el.level != 1 or el.numbering == none {
+    return it
+  }
+  context {
+    let nums = counter(heading).at(el.location())
+    let n = if type(el.numbering) == str { numbering(el.numbering, ..nums) } else { (el.numbering)(..nums) }
+    if type(n) == str { n = n.trim(".", at: end) }
+    let sup = if it.supplement == auto { el.supplement } else { it.supplement }
+    link(el.location(), [#sup~#n])
+  }
+}

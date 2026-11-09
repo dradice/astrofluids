@@ -3,3 +3,218 @@
 ::: {.callout-note}
 This chapter is in preparation.
 :::
+
+## In-class worksheet {#sec-grav-worksheet}
+
+1.  **Gravitational binding energy.**
+
+    1.  Consider a spherically-symmetric body of mass $M$ and radius $R$. How much work $\dd W$ is required to carry the outer shell of mass $m = 4 \pi \rho R^2 \dd \ell$ to infinity?
+
+    2.  Show that the gravitational binding energy of a spherical body with constant density, mass $M$ and radius $R$ is
+        $$
+        \Omega = - \frac{3 GM^2}{5 R} .
+        $$ {#eq-grav-1}
+
+    3.  The iron core of a massive star has a mass $M = 1.4 M_{\odot}$ and radius $R \approx 5000 \operatorname{km}$ collapses to form a protoneutron star with a radius $R \approx 10 \operatorname{km}$. How much gravitational energy is liberated in the process?
+
+## Exercises {#sec-grav-exercises}
+
+::: {#exr-grav-homologous}
+## Homologous collapse and the Friedmann equation
+
+A homogeneous gas sphere is collapsing under its self-gravity. Assume the velocity to be given by
+$$
+\vb{v} (t, \vb{r}) = H (t) \vb{r},
+$$ {#eq-grav-2}
+where $\vb{r}$ is the displacement of the fluid element from the center of the cloud.
+
+1.  Argue that the density remains constant throughout the sphere (although it is changing with time) and show that the momentum equation implies
+    $$
+    \dot{H} (t) + H (t)^2 = - \frac{4 \pi G \rho (t)}{3} .
+    $$ {#eq-grav-3}
+    Assume the gas to be described by a barotropic EOS $p = p (\rho)$.
+
+2.  Introduce the scale factor $a (t)$ defined so that
+    $$
+    \frac{\dot{a} (t)}{a (t)} = H (t) .
+    $$ {#eq-grav-4}
+    Show that
+    $$
+    \frac{\dd}{\dd t} \left( H^2 a^2 - \frac{8 \pi}{3} G \rho a^2
+    \right) = 2 Ha^2  \left( \dot{H} + H^2 + \frac{4 \pi G}{3} \rho \right)
+    = 0
+    $$ {#eq-grav-5}
+    and show that this implies that the dynamics is described by Friedmann equation
+    $$
+    \dot{a} (t)^2 - \frac{8 \pi G \rho (t)}{3} a (t)^2 = - k,
+    $$ {#eq-grav-6}
+    where $k$ is a constant of motion.
+
+3.  Show that $\rho (t) \propto a (t)^{- 3}$ using the continuity equation. Use this to cast the Friedmann equation into the equation of a particle rolling down an effective potential
+    $$
+    \frac{1}{2}  \dot{a} (t)^2 + U_{\operatorname{eff}} (a) =\mathcal{E}.
+    $$ {#eq-grav-7}
+    Sketch a graph for $\rho (t)$ and $a (t)$ as a function of time.
+:::
+
+::: {.content-visible when-profile="solutions"}
+::: {.solution}
+1.  The continuity equation reads
+    $$
+    \frac{1}{\rho}  \frac{\dd \rho}{\dd t} = - \nabla \cdot \vb{v}=
+    - 3 H (t) \Longrightarrow \frac{\dot{\rho}}{\rho} = - 3 H (t),
+    $$
+    so if $\rho = \operatorname{const}$ at the initial time it remains constant at all times (the RHS does not depend on the position).
+
+    The momentum equation reads
+    $$
+    \frac{\dd \vb{v}}{\dd t} = - \frac{G\mathcal{M} (r)}{r^2}
+    \hat{\vb{r}},
+    $$
+    note that the pressure gradient vanishes because
+    $$
+    \nabla p = \frac{\dd p}{\dd \rho} \nabla \rho = 0.
+    $$
+    The term on the RHS can be simplified as
+    $$
+    \mathcal{M} (r) = \frac{4}{3} \pi \rho r^3 \Longrightarrow
+    \frac{G\mathcal{M} (r)}{r^2} \hat{\vb{r}} = \frac{4}{3} \pi \rho r
+    \hat{\vb{r}} = \frac{4}{3} \pi \rho \vb{r}.
+    $$
+    The LHS of the momentum equation reads
+    $$
+    \frac{\dd}{\dd t}  [H (t) \vb{r}] = \dot{H} (t) \vb{r}+ H
+    (t)  \dot{\vb{r}} = \dot{H} (t) \vb{r}+ H (t) \vb{v}=
+    [\dot{H} (t) + H^2 (t)] \vb{r}.
+    $$
+    Combining everything, we find that
+    $$
+    \dot{H} (t) + H^2 (t) = - \frac{4 \pi G \rho (t)}{3} .
+    $$
+
+2.  The derivative
+    $$
+    \begin{alignedat}{2}
+    \frac{\dd}{\dd t} \left( H^2 a^2 - \frac{8 \pi}{3} G \rho a^2
+    \right) &{}={} && 2 H \dot{H} a^2 + 2 H^2  \dot{a} a - \frac{8 \pi}{3} G
+    \dot{\rho} a^2 - \frac{16 \pi}{3} \rho a \dot{a} \\
+    &{}={} && 2 Ha^2  \left( \dot{H} + H^2 + \frac{4 \pi G}{3} \rho \right) = 0.
+    \end{alignedat}
+    $$
+    This implies that
+    $$
+    H^2 - \frac{8 \pi G \rho}{3} = - \frac{k}{a^2} .
+    $$
+    Multiplying both terms by $a^2$ and using the definition of the scale factor, we find
+    $$
+    \dot{a}^2 - \frac{8 \pi G \rho}{3} a^2 = - k.
+    $$
+
+3.  The continuity equation can be written in terms of the scale factor as
+    $$
+    \frac{\dot{\rho}}{\rho} = - 3 \frac{\dot{a}}{a} \Longrightarrow
+    \frac{\dd \rho}{\rho} = - 3 \frac{\dd a}{a} \Longrightarrow \rho =
+    \rho_0 \left( \frac{a_0}{a} \right)^3 .
+    $$
+    Inserting this into Friedmann equation we find
+    $$
+    \dot{a}^2 - \frac{8 \pi G \rho_0 a_0^3}{3}  \frac{1}{a} = - k.
+    $$
+    This equation can be written in the form
+    $$
+    \frac{1}{2}  \dot{a}^2 + U_{\operatorname{eff}} (a) =\mathcal{E}= - \frac{k}{2},
+    \qquad U_{\operatorname{eff}} (a) = - \frac{4 \pi G \rho_0 a_0^3}{3}  \frac{1}{a}
+    \sim - \frac{1}{a} .
+    $$
+
+    ![Effective potential (left) and sketch of the evolution of $\rho$ and $a$ with time (right).](../figures/gravitational-potential/homologous-collapse.svg){#fig-grav-homologous fig-alt="Left: the effective potential U_eff(a), proportional to minus 1/a, rising towards zero as a grows, with the horizontal line of constant energy E below zero and an arrow showing the point moving to smaller a. Right: the scale factor a decreases to zero in a finite time while the density rho grows without bound."}
+:::
+:::
+
+::: {#exr-grav-free-fall}
+## Free fall onto a point mass and a uniform sphere
+
+A particle is released from rest at a distance $R_0$ from the centre of a body of mass $M$. In each of the two cases listed below, find
+
+1.  the initial acceleration of the particle, and
+
+2.  the time the particle takes to fall to the centre.
+
+The two cases are:
+
+1.  the body is a point mass;
+
+2.  the body is a uniform sphere of radius $R_0$.
+
+Adapted from @clarke2007, Problem 9.
+:::
+
+::: {.content-visible when-profile="solutions"}
+::: {.solution}
+The initial acceleration is the same in both cases and equal to $- GM / R^2_0$.
+
+1.  We can find the time to infall using separation of variables:
+    $$
+    \frac{\dd r}{\dd t} = v (r) \Longrightarrow T = \int_{R_0}^0
+    \frac{\dd r}{v (r)} = - \int_0^{R_0} \frac{\dd r}{v (r)}
+    $$
+    where $v (r)$ is given by conservation of energy:
+    $$
+    v (r) = - \sqrt{\frac{2 GM}{r} - \frac{2 GM}{R_0}} = - \sqrt{2 GM \left(
+    \frac{R_0 - r}{rR_0} \right)} .
+    $$
+    The integral can be evaluate to give
+    $$
+    T = \int_0^{R_0} \sqrt{\frac{rR_0}{2 GM (R_0 - r)}} = \sqrt{\frac{R_0^3}{2
+    GM}}  \int_0^1 \sqrt{\frac{\xi}{1 - \xi}} \dd \xi = \frac{\pi}{2
+    \sqrt{2}}  \sqrt{\frac{R_0^3}{GM}} .
+    $$
+    The last integral was evaluated using the change of variables $\xi = \cos^2 \theta$, which gives
+    $$
+    \int_0^1 \sqrt{\frac{\xi}{1 - \xi}} \dd \xi = 2 \int_0^{\pi / 2}
+    \cos^2 \theta \dd \theta = \frac{\pi}{2} .
+    $$
+
+2.  In this case, the acceleration is given by the enclosed mass:
+    $$
+    \frac{\dd^2 r}{\dd t^2} = - \frac{GM (r)}{r^2} = - \frac{GM}{R_0^3}
+    r.
+    $$
+    In the previous equation we have used
+    $$
+    M (r) = M \left( \frac{r}{R_0} \right)^3 .
+    $$
+    The solution is in the form
+    $$
+    r (t) = R_0 \cos \left( \frac{\pi t}{2 T} \right) .
+    $$
+    Plugging this into the differential equation and solving for $T$ gives
+    $$
+    T = \frac{\pi}{2}  \sqrt{\frac{R_0^3}{GM}} .
+    $$
+    This is a factor $\sqrt{2}$ longer time than for the case in which the mass is concentrated in a point, as could have been expected.
+:::
+:::
+
+::: {#exr-grav-cluster-collapse}
+## Collapse of a stellar cluster
+
+A cluster consists initially of stars at rest, distributed in a uniform sphere. Find how long it takes a star to reach the center as a function of its initial radius in the cluster and comment on your results.
+:::
+
+::: {.content-visible when-profile="solutions"}
+::: {.solution}
+Consider a cluster of stars with initial radius $R$ and mass $M$ and star at initial position $r (0) = R_0$. As all the stars are infalling towards the center, the mass enclosed by a sphere of radius $r (t)$ remains constant for all times and is equal to
+$$
+M_0 = M \left( \frac{R_0}{R} \right)^3
+$$
+To find the time needed for the star to arrive at the center, we can use the free-fall time of the point-mass case in @exr-grav-free-fall, with $M$ replaced by $M_0$, to find
+$$
+T = \pi \sqrt{\frac{R^3}{8 GM}} .
+$$
+Note that all the stars arrive at the center at the same time, independently of their initial radius. Perhaps, this should not surprise us, because we have already solved this problem in a slightly different form in @exr-grav-homologous (homologous collapse)!
+:::
+:::
+## Further reading {#sec-grav-reading}
+
+- @clarke2007, Chapter 3 (gravitation).

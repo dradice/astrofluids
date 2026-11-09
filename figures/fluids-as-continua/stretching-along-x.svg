@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 330" width="620" height="330"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Fluid element stretching along the x-direction</title>
+  <desc id="desc">A cube of side dx seen in perspective. A dashed arrow points right at the left face, labelled
+  with the velocity v_x at x equal to minus dx over 2. A solid arrow points right of the right face, labelled with
+  the velocity v_x at x equal to dx over 2. A dot marks the centre of the element.</desc>
+  <!-- Redrawn from the 2025 TeXmacs figure (01-fluid-as-continua). -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7"
+            orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10" fill="none" stroke="#000" stroke-width="1.6"/>
+    </marker>
+  </defs>
+  <rect width="620" height="330" fill="#fff"/>
+  <g fill="none" stroke="#000" stroke-width="1.6">
+    <!-- front face and visible edges -->
+    <path d="M 10 100 H 290 V 320 H 10 Z"/>
+    <path d="M 10 100 L 105 10 H 385 L 290 100"/>
+    <path d="M 385 10 V 235 L 290 320"/>
+    <!-- hidden edges -->
+    <path d="M 10 320 L 105 235 H 385" stroke-dasharray="8 6"/>
+    <path d="M 105 10 V 170" stroke-dasharray="8 6"/>
+    <!-- velocity arrows -->
+    <path d="M 55 170 H 190" stroke-dasharray="8 6" marker-end="url(#arrow)"/>
+    <path d="M 415 170 H 540" marker-end="url(#arrow)"/>
+  </g>
+  <circle cx="215" cy="170" r="4.5" fill="#000"/>
+  <g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif" font-size="20" fill="#000">
+    <text x="30" y="218"><tspan font-style="italic">v</tspan><tspan font-size="14" dy="5" font-style="italic">x</tspan><tspan dy="-5">(</tspan><tspan font-style="italic">x</tspan> = −d<tspan font-style="italic">x</tspan>/2)</text>
+    <text x="400" y="145"><tspan font-style="italic">v</tspan><tspan font-size="14" dy="5" font-style="italic">x</tspan><tspan dy="-5">(</tspan><tspan font-style="italic">x</tspan> = d<tspan font-style="italic">x</tspan>/2)</text>
+    <text x="115" y="296">d<tspan font-style="italic">x</tspan></text>
+  </g>
+</svg>

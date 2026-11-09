@@ -1,5 +1,535 @@
 # Flux Freezing {#sec-flux}
 
-::: {.callout-note}
-This chapter is being ported from the 2025 lecture notes.
+Flux-freezing is an important phenomenon in highly conducting plasmas. In these notes, we derive flux-freezing in ideal magnetohydrodynamics (MHD), however it is important to remark that flux-freezing also applies beyond ideal MHD, at least in an approximate way. We also discuss the role of flux freezing in the context of some important astrophysical systems. The key equation we will consider is the induction equation (or Faraday's Law), which reads (when $\eta = \operatorname{const}$, see @eq-mhd-19):
+$$
+\frac{\partial \vb{B}}{\partial t} = \nabla \times (\vb{v} \times
+\vb{B}) + \frac{c \eta}{4 \pi} \nabla^2 \vb{B}.
+$$ {#eq-flux-1}
+
+## The Ideal-MHD Limit
+
+Let $L$ and $V$ be characteristic length and velocity scales for the plasma. We can introduce the dimensionless time and space coordinates and velocity
+$$
+\hat{t} = t \frac{V}{L}, \qquad \hat{x} = \frac{x}{L}, \qquad
+\hat{\vb{v}} = \frac{\vb{v}}{V} .
+$$ {#eq-flux-2}
+Faraday's law can be written as
+$$
+\frac{V}{L}  \frac{\partial \vb{B}}{\partial \hat{t}} = \frac{V}{L}
+\hat{\nabla} \times (\hat{\vb{v}} \times \vb{B}) + \frac{c \eta}{4
+\pi L^2}  \hat{\nabla}^2 \vb{B}.
+$$ {#eq-flux-3}
+That is
+$$
+\frac{\partial \vb{B}}{\partial \hat{t}} = \hat{\nabla} \times
+(\hat{\vb{v}} \times \vb{B}) + \left( \frac{c \eta}{4 \pi LV}
+\right)  \hat{\nabla}^2 \vb{B}= \hat{\nabla} \times (\hat{\vb{v}}
+\times \vb{B}) + \frac{1}{\mathrm{R}_M}  \hat{\nabla}^2 \vb{B}.
+$$ {#eq-flux-4}
+We have introduced the *magnetic Reynolds number*
+$$
+\mathrm{R}_M = \frac{LV}{c \eta / 4 \pi} .
+$$ {#eq-flux-5}
+The magnetic Reynolds number measures the relative importance of advection and resistivity in the evolution of the magnetic field. It is analogous to the "usual" Reynolds number, which measures the ratio of inertial to viscous forces in a fluid. When $\mathrm{R}_M \gg 1$, we say that we are in the *ideal-MHD limit*.
+
+In the ideal-MHD limit, the Faraday law simplifies to
+$$
+\frac{\partial \vb{B}}{\partial t} = \nabla \times (\vb{v} \times
+\vb{B}) \Longrightarrow \frac{\partial \vb{B}}{\partial t} + \nabla
+\times (\vb{B} \times \vb{v}) = 0.
+$$ {#eq-flux-6}
+Remarkably this is identical to the vorticity equation for a barotropic fluid:
+$$
+\frac{\partial \vb{\omega}}{\partial t} + \nabla \times (\vb{\omega}
+\times \vb{v}) = 0.
+$$ {#eq-flux-7}
+The analogy between vorticity and magnetic field plays an important role in our understanding of MHD phenomena such as dynamos and is sometimes known as the Batchelor's analogy.
+
+We remember that the vorticity satisfies Kelvin's circulation theorem, which states that the circulation of the flux of the vorticity across a material surface bounded by a curve $C (t)$ (moving with the fluid) is conserved:
+$$
+\frac{\dd \Gamma (t)}{\dd t} = \oint_{C (t)} \vb{\omega} \cdot
+\dd \vb{A}= 0.
+$$ {#eq-flux-8}
+By analogy, we find that the magnetic flux across any surface co-moving with the flow is constant in ideal-MHD:
+$$
+\boxed{\frac{\dd \Phi (t)}{\dd t} = \oint_{C (t)} \vb{B} \cdot
+\dd \vb{A}= 0.}
+$$ {#eq-flux-9}
+This fact is called **flux freezing** and is one of the most important properties of MHD. To understand this consider a magnetic flux tube. As the name suggests, a flux tube is an imaginary bundle of magnetic field lines dragged by the plasma. This is illustrated in @fig-flux-tube.
+
+![Effect of flux freezing.](../figures/flux-freezing/flux-tube.svg){#fig-flux-tube fig-alt="A curved flux tube with a blue field line along its axis, followed by an arrow to the same tube after it has been carried by the flow: it is now more strongly bent and narrower, and the field line is still inside it."}
+
+Consider the surface bounding the flux tube on the sides. This surface is such that the magnetic flux across it is zero, since there is no component of the field perpendicular to it. If we let this surface move with the plasma velocity, the flux freezing condition requires the magnetic field to deform to stay always parallel to it, as illustrated in @fig-flux-tube. In other words, **the magnetic field is dragged by the plasma as if it was painted on the fluid elements.** As we will see shortly, flux freezing has other important consequences.
+
+At the microscopic level, the reason why flux freezing occurs in strongly-magnetized plasmas is that the charged particles are "stuck" to the magnetic field lines[^flux-1]. Another way to think about flux freezing is in terms of induced currents. In order for the magnetic field lines to drift with respect to the plasma with velocity $\vb{v}_d$, one would need to induce an electric field (in the plasma frame)
+$$
+\vb{E}' = \frac{\vb{v}_d \times \vb{B}}{c}
+$$ {#eq-flux-10}
+which corresponds to a current $\vb{j}' =\vb{E}' / \eta$. However, $\eta \rightarrow 0$ in the ideal-MHD limit, meaning that an infinite current is required to cause the field lines to slip.
+
+### Magnetic Field Amplification
+
+Flux freezing also implies that, if a flux tube is compressed by the flow, then its magnetic field intensity is amplified. To see this, consider the situation illustrated in @fig-flux-compression-perpendicular.
+
+![Field amplification from the compression of a magnetic flux tube: a wide tube of cross-section $A_1$ and field $\vb{B}_1$ is squeezed from the sides by a velocity $\vb{v}$ into a thinner tube of cross-section $A_2$ and field $\vb{B}_2$. Redrawn after @kulsrud2005.](../figures/flux-freezing/flux-compression-perpendicular.svg){#fig-flux-compression-perpendicular fig-alt="A wide horizontal flux tube of cross-section A1 with a blue arrow B1 along its axis. Arrows labelled v above and below it point towards the axis. Below, the same tube squeezed into a much thinner tube of cross-section A2, with a longer blue arrow B2 along its axis."}
+
+When a flux tube is compressed and its area changes from $A_1$ to $A_2$, the B-field strength needs to change in such a way so that the magnetic flux remains unchanged:
+$$
+A_1 B_1 = A_2 B_2 .
+$$ {#eq-flux-11}
+So the magnetic field strength must be amplified:
+$$
+B_2 = \frac{A_1}{A_2} B_1 .
+$$ {#eq-flux-12}
+It is instructive to compare this with the rate at which the plasma density is changed during the same process. In this case, the quantity that is conserved is the mass of the plasma in the flux tube, so
+$$
+\rho A \ell = \operatorname{const} \Longrightarrow \rho_1 A_1 \ell = \rho_2 A_2 \ell
+\Longrightarrow \rho_2 = \frac{A_1}{A_2} \rho_1 .
+$$ {#eq-flux-13}
+In this situation, we find that the ratio of magnetic field strength to density in the plasma stays constant:
+$$
+\frac{B}{\rho} = \operatorname{const} .
+$$ {#eq-flux-14}
+Things are very different if the magnetic flux tube is compressed in the direction parallel to the magnetic field, as illustrated in @fig-flux-compression-parallel.
+
+![Compression along a flux tube.](../figures/flux-freezing/flux-compression-parallel.svg){#fig-flux-compression-parallel fig-alt="A horizontal flux tube of length l and cross-section A with the magnetic field B pointing along its axis to the right. Arrows labelled v at both ends point inwards: the tube is compressed along the field and its cross-section does not change."}
+
+In this case, the density of the plasma changes according to
+$$
+\rho A \ell = \operatorname{const} \Longrightarrow \frac{\rho_2}{\rho_1} =
+\frac{\ell_1}{\ell_2} .
+$$ {#eq-flux-15}
+However, $B$ remains constant, because the cross-section of the flux tube, $A$, is unchanged.
+
+::: {.callout-tip icon=false}
+## Example: Stellar collapse
+
+The core of a massive star $r_1 \sim 10^{11} \mathrm{cm}$ collapses to form a neutron star $r_2 \sim 10^6 \mathrm{cm}$.
+
+- By what factor does the magnetic field increase?
+
+- By what factor does the density increase?
+
+- If the initial field is $B_1 \sim 100\mathrm{G}$, what will be the field of the neutron star?
+
+**Answer.** The density evolves according to $\rho r^3 = \operatorname{const}$, while the magnetic field evolves according to $Br^2 = \operatorname{const}$ (assuming the field to be approximately radial), this means that
+$$
+B_2 = \left( \frac{r_1}{r_2} \right)^2 B_1, \qquad \rho_2 = \left(
+\frac{r_1}{r_2} \right)^3 \rho_1, \qquad B \sim \rho^{2 / 3} .
+$$ {#eq-flux-16}
+For example, an initial field of $100\mathrm{G}$ is amplified to $10^{12} \mathrm{G}$ as result of the collapse of the star. The strong amplification of the magnetic field during the collapse of a star is the reason why neutron stars have extremely strong magnetic fields, up to $10^{15} \mathrm{G}$.
 :::
+
+### Resistive Evolution
+
+If the resistivity is finite, $\eta > 0$, then the magnetic field lines are not stuck to the plasma, but can drift. To understand how this process operates, we consider the evolution of a magnetic field under the sole influence of Ohmic diffusion:
+$$
+\frac{\partial \vb{B}}{\partial t} = \frac{\eta c}{4 \pi} \nabla^2
+\vb{B}.
+$$ {#eq-flux-b-field-diffusion}
+If the typical curvature radius of the field lines is $L$, then we can approximate the previous equation as
+$$
+\frac{\partial B}{\partial t} \sim \frac{\eta c}{4 \pi L^2} B =
+\frac{1}{T_{\operatorname{decay}}} B, \qquad T_{\operatorname{decay}} = \frac{4 \pi
+L^2}{\eta c} .
+$$ {#eq-flux-18}
+For many astrophysical applications $L$ is very large, so $T_{\operatorname{decay}}$ is very long. We will put actual numbers for $\eta$ and $L$ when we discuss the problem of star formation below. If the magnetic field has more than one characteristic scale, then the smaller scales will be dissipated more rapidly by the resistivity. This has the effect of "smoothing" the field lines. To quantify this,  we can use the Fourier transform. Accordingly, we represent the magnetic field as a superposition of plane waves
+$$
+\vb{B} (t, \vb{x}) = \int \dd^3 \vb{k}
+\hat{\vb{B}}_{\vb{k}} (t) e^{\ii \vb{k} \cdot \vb{x}},
+\qquad \hat{\vb{B}}_{\vb{k}} = \frac{1}{2 \pi} \int \dd^3
+\vb{x}\vb{B} (t, \vb{x}) e^{- \ii \vb{k} \cdot
+\vb{x}} .
+$$ {#eq-flux-b-field-fourier}
+Note that the $\vb{k}= 0$ mode of the B-field corresponds to the average value of the field:
+$$
+\hat{\vb{B}}_0 = \frac{1}{2 \pi} \int \dd^3 \vb{x}\vb{B} (t,
+\vb{x}) = \frac{1}{2 \pi} \langle \vb{B} \rangle .
+$$ {#eq-flux-20}
+Inserting @eq-flux-b-field-fourier into @eq-flux-b-field-diffusion, we obtain:
+$$
+\int \dd^3 \vb{k}e^{\ii \vb{k} \cdot \vb{x}}  \left[
+\frac{\dd \hat{\vb{B}}_{\vb{k}}}{\dd t} + \frac{\eta ck^2}{4
+\pi}  \hat{\vb{B}}_{\vb{k}} \right] = 0
+$$ {#eq-flux-21}
+The integral can be zero only if all the infinite quantities in the square parenthesis are zero:
+$$
+\frac{\dd \hat{\vb{B}}_{\vb{k}}}{\dd t} = - \frac{\eta ck^2}{4
+\pi}  \hat{\vb{B}}_{\vb{k}} .
+$$ {#eq-flux-22}
+So we have transformed @eq-flux-b-field-diffusion into a simple system having an infinite number of decoupled equations, with solutions
+$$
+\hat{\vb{B}}_{\vb{k}} (t) = \hat{\vb{B}}_{\vb{k}} (0) \exp
+\left( - \frac{\eta ck^2}{4 \pi} t \right) .
+$$ {#eq-flux-23}
+We can see that different modes of the B-field decay exponentially and that large $k$ modes are damped exponentially more quickly than smaller $k$ modes. On the other hand, the $k = 0$ mode is not affected at all and stays constant for all times. This means that the action of the resistivity is not really to make the field decay, but rather to straighten out all field lines, as illustrated in @fig-flux-resistive-smoothing.
+
+![Evolution of the magnetic field under the effect of resistivity.](../figures/flux-freezing/flux-resistive-smoothing.svg){#fig-flux-resistive-smoothing fig-alt="Three snapshots of one magnetic field line pointing upwards, with arrows labelled t between them. At first the line is bent and has small-scale wiggles; then the wiggles are gone and only a smooth large-scale bend remains; finally the line is straight."}
+
+## Star Formation
+
+One situation in which flux freezing must be violated is star formation. Consider the collapse of a region of a molecular cloud to form a star. If flux freezing were to hold, using the same approach as for the stellar collapse example, we would find
+$$
+\begin{array}{clcc}
+\rho : & 10^{- 24} \mathrm{g} \mathrm{cm}^{- 3} & \longrightarrow &
+1\mathrm{g} \cdot \mathrm{cm}^{- 3}\\
+B : & 10^{- 6} \mathrm{G} & \longrightarrow & 10^{10} \mathrm{G}
+\end{array}
+$$ {#eq-flux-24}
+That is, the protostar would be embedded with a pulsar-like magnetic field. This is actually impossible. Indeed, the gravitational binding energy of the protostar would be
+$$
+\Omega \sim - \frac{3 GM^2}{5 R} \sim 2 \cdot 10^{48} M_1^2 \mathrm{erg},
+$$ {#eq-flux-25}
+where $M_1$ is the protostar mass in solar masses. The energy density in the magnetic field would be
+$$
+U_B \sim \frac{4}{3} \pi R^3 \cdot \frac{1}{8 \pi} B^2 \sim 5 \cdot 10^{51}
+\mathrm{erg} \gg \Omega !
+$$ {#eq-flux-26}
+The protostar would be unbound, meaning that the magnetic stresses would tear it apart. In reality, the magnetic field tension halts the collapse of an ideal-MHD cloud well before these levels of magnetic field strength can be achieved. Obviously, Nature has a way to form stars from magnetized clouds, so how does it defeat flux freezing?
+
+It turns out that resistivity is not sufficient to do the trick. The resistivity of ionized hydrogen plasma depends weakly on density and can be approximated as [@kulsrud2005]
+$$
+\frac{\eta c}{4 \pi} \approx \frac{0.42 \cdot 10^7}{T_{\operatorname{eV}}^{3 / 2}}
+\mathrm{cm}^2 /\mathrm{s}.
+$$ {#eq-flux-27}
+For a star $T_{\operatorname{eV}} \approx 10^2$ and $L \sim R_{\odot} \sim 10^{11} \mathrm{cm}$ so the decay time is
+$$
+T_{\operatorname{decay}} = \frac{L^2}{\eta c / 4 \pi} \sim 10^{18} \mathrm{s} \sim
+30 \mathrm{Gyr} .
+$$ {#eq-flux-28}
+This is longer than the age of the Universe, so resistivity is clearly not sufficient to release the magnetic tension and allow stars to form.
+
+The mechanism currently thought to be responsible for the drift between magnetic fields and the plasma is *ambipolar diffusion*. The details go beyond the scope of this course, but the key observation is that molecular clouds are only weakly ionized. The neutral component of the gas is not affected by the Lorentz force, so it can flow perpendicular to field lines. The Lorentz force on the ions, on the other hand, is orders of magnitude larger than gravity, so the ions are stuck on the field lines. The mutual friction between ions and neutrals has the effect of regulating the rate of collapse and determines the time for the formation of protostars. This physics is illustrated in @fig-flux-ambipolar-diffusion.
+
+![Ambipolar diffusion.](../figures/flux-freezing/flux-ambipolar-diffusion.svg){#fig-flux-ambipolar-diffusion fig-alt="A roughly circular region of neutral gas, drawn as a wavy circle, containing a few ions drawn as dots. Two magnetic field lines labelled B cross the region from bottom to top, bowing inwards; the ions are stuck on the field lines while the neutrals can move across them."}
+
+Magnetic fields do not just regulate the collapse of clouds into protostars. They also play a key role enabling it. Indeed, magnetic fields allow the protostar to lose angular momentum and prevent the gas from getting stuck at the centrifugal barrier. This happens because the collapsing cloud forces a large column of gas, parallel to the mean magnetic field, to corotate with it. This allows the forming protostar to dissipate angular momentum. We explore this in a more quantitative way in the homework.
+
+## Io and Jupiter
+
+The unipolar-inductor model for the interaction between Jupiter and its moon Io is one of the early successes of plasma astrophysics. This model has also been adopted to explain a variety of other astrophysical systems, including the launching of electromagnetic waves by black holes moving through plasma. The main idea of this model is that the motion of a conductor, in this case Io, in an external magnetic field, in this case Jupiter's field, generates an electric current.
+
+The original motivation for this model was the discovery in the 60's of radio flares from Jupiter in phase with the rise and setting of Io. More precisely, Jupiter has a rotation period of about 10 hours, while Io has an orbital period of about 43 hours. Radio flares are preferentially detected when Io has a longitude of $90^{\circ}$ or $240^{\circ}$ with respect to Jupiter, as shown in @fig-flux-duncan, taken from @duncan1965.
+
+![Number of radio bursts detected from Jupiter as a function of the phase of Io. From @duncan1965; © Elsevier, reproduced for non-commercial educational use and not covered by the license of these notes.](../figures/flux-freezing/duncan1965-io-phase.png){#fig-flux-duncan fig-alt="Histogram of the number of radio bursts against the phase of Io, from 0 to 360 degrees. The counts are low at most phases, with a tall narrow peak near 90 degrees and a broader peak around 230 to 250 degrees."}
+
+In 1969, Goldreich and Lynden-Bell [@goldreich1969io] proposed a model to explain:
+
+1.  the mechanism generating the radiation;
+
+2.  the reason for the phase difference between the rising and setting of Io and the radiation bursts.
+
+We explain this model in a qualitative way and then build a semi-quantitative simplified model below.
+
+Io is primarily composed of silicates and iron, so it has a good electrical conductivity. This means that there is no electric field inside Io, in Io's frame of reference, and the magnetic field lines of Jupiter are stuck to it (flux freezing). However, because in Jupiter's frame of reference Io completes a revolution every 13 hours, the field lines cannot be frozen everywhere, otherwise the magnetic energy in the magnetosphere would grow without bound[^flux-2]. This means that the field lines must slip somewhere. It turns out that this happens in Jupiter's atmosphere, where the gas resistivity is the highest, due to the presence of a neutral gas. The geometry of the magnetic flux tube connecting Jupiter and Io is illustrated in @fig-flux-io-jupiter-tube.
+
+![Magnetic flux tube connecting Io and Jupiter. Redrawn after @goldreich1969io.](../figures/flux-freezing/flux-io-jupiter-tube.svg){#fig-flux-io-jupiter-tube fig-alt="Jupiter and Io's circular orbit seen from above the rotation axis. A thick blue line joins Io to the foot of its flux tube on Jupiter. Dashed lines from Jupiter's centre to the foot and to the direction of Earth enclose the angle delta-phi. Two arrows leaving the foot, at an angle mu on either side of a dotted line perpendicular to the flux tube, show the beamed radio emission, and a large arrow points to Earth."}
+
+The slippage of the field lines on Jupiter's surface drives a current along the flux tube connecting the planet to the moon. Electrons gyrate in the field lines producing cyclotron radiation, which is beamed primarily in the direction perpendicular to the field lines, explaining the offset between Io's rises and settings and the radio bursts. This is illustrated in more detail in @fig-flux-io-footprint.
+
+![Left panel: footprint of the magnetic-flux tube connecting Io and Jupiter on Jupiter's atmosphere. Right panel: cross-section of the magnetic-flux tube connecting Jupiter and Io and direction in which the current $I$ flows between the planet and the moon. Redrawn after @goldreich1969io.](../figures/flux-freezing/flux-io-footprint.svg){#fig-flux-io-footprint fig-alt="Left: an ellipse with semi-axes X along x and Y along y, surrounded by a thin shaded boundary layer of width 2 epsilon, with blue field lines passing above and below it. Right: Jupiter of radius R_J with a vertical rotation axis, Io at distance a, and a thin loop of two field lines from the planet at angle theta_i from the axis out to Io, with arrows labelled I showing the current flowing out along one side and back along the other."}
+
+A strong electric field is created in the direction perpendicular to the $B$-field, in the $Y$-direction shown in the figure. The potential difference across the flux tube is $\Delta \Phi \sim 10^8 \mathrm{V}$[^flux-3]. However, the motion of electrons perpendicular to the field lines is suppressed by the Lorentz force, so a current is driven along the field lines, through the moon, and back to the planet, as shown in the right panel of @fig-flux-io-footprint. The current intensity is $I \sim 10^6 \mathrm{amp}$, which is sufficient to produce cyclotron and synchrotron radiation.
+
+Here, we consider a toy model in which we see how the electric field is created by the slippage of the field lines. We consider a conductor moving in an external B-field anchored in a wall with infinite conductivity, as shown in @fig-flux-toy-model.
+
+![Toy model for the Io and Jupiter problem.](../figures/flux-freezing/flux-toy-model.svg){#fig-flux-toy-model fig-alt="Two thick horizontal walls at y equal to plus and minus D, with a conductor of half-width d, the region between two blue lines, moving to the right with velocity v. A magnetic field line, anchored in the walls and initially vertical (B0), is dragged by the conductor into a bent shape extending a distance L in the x direction. A current j points out of the page inside the conductor."}
+
+In our analogy, the conductor is Jupiter's atmosphere, while the wall represents Io. We imagine that initially the field is vertical and the conductor is at rest. At $t = 0$, we start moving the conductor with velocity $\vb{v}$ in the $x$-direction. The field is dragged up to a distance $L$ and then starts to slip, realizing the configuration shown in @fig-flux-toy-model.
+
+There is no external electric field, so the electric field in the frame of the conductor is
+$$
+\vb{E}' =\vb{E}+ \frac{\vb{v} \times \vb{B}}{c} =
+\frac{\vb{v} \times \vb{B}}{c} = \frac{v_x B_y}{c}
+\hat{\vb{z}},
+$$ {#eq-flux-29}
+and the associated current is $\vb{j}= \sigma \left( \frac{\vb{v} \times \vb{B}}{c} \right) = \sigma \frac{v_x B_y}{c} \hat{\vb{z}}$. The current is responsible for the creation of the $x$-component of the $B$-field (setting $\eta = 1 / \sigma$):
+$$
+\nabla \times \vb{B}= 4 \pi \vb{j} \Longrightarrow - \partial_y B_x
+= 4 \pi j_z \Longrightarrow B_x = - 4 \pi j_z y = - \frac{4 \pi}{\eta c} v_x
+B_y y.
+$$ {#eq-flux-30}
+On the other hand, from the geometry of the system, we have:
+$$
+B_x = \left. \frac{B_y L}{D} \right|_{y = d} \Longrightarrow L = \frac{v_x
+Dd}{\eta c / 4 \pi} = v_x T_{\operatorname{decay}} .
+$$ {#eq-flux-31}
+
+This shows the two key features of the system. The relative motion of the conductor and the walls generates an electric field (a consequence of Faraday's Law). The electric field drives a current in the system. The current, in turn, causes the field lines to bend and slip (from Ampere's Law).
+
+::: {.callout-note}
+## Going further: Pulsars
+
+Pulsars were discovered by Jocelyn Bell in 1967. It was later realized that pulsars are rotating neutron stars endowed with strong magnetic fields. In 1969, Goldreich and Julian [@goldreich1969pulsar] developed the first model of a pulsar. Like the unipolar induction model, Goldreich and Julian's model applies to a variety of astrophysical systems and shows another key physical effect associated with flux freezing. Namely, the fact that rotating neutron stars fill their surroundings with a dense plasma, creating the so called magnetosphere.
+
+![Schematic illustration of a pulsar magnetosphere. Redrawn after @goldreich1969pulsar.](../figures/flux-freezing/flux-pulsar-magnetosphere.svg){#fig-flux-pulsar fig-alt="Half of an aligned pulsar magnetosphere with the star at the lower left. Closed field lines form a hatched co-rotating magnetosphere reaching the dashed vertical light cylinder. Open field lines from the polar cap, within angle theta-0 of the rotation axis, run out into the wind zone; the upper one carries electrons, the lower one protons, and the critical line lies between them. A thin dashed line with minus and plus signs ends where the critical line meets the light cylinder."}
+
+In this model, shown in @fig-flux-pulsar, we neglect the misalignment between magnetic North pole and rotational axis, which would be needed to produce the pulsated emission. However, this model contains all required physical ingredients. We assume at first that the pulsar is a neutron star with a dipole magnetic field in vacuum. The magnetic field is then given by
+$$
+\vb{B}= B_0  \left( \tfrac{R}{r} \right)^3  (2 \cos \theta
+\hat{\vb{r}} + \sin \theta \hat{\vb{\theta}}) .
+$$ {#eq-flux-32}
+The angular velocity of the star is given by
+$$
+\vb{\Omega}= \Omega \hat{\vb{z}}, \qquad \hat{\vb{z}} = \cos
+\theta \hat{\vb{r}} - \sin \theta \hat{\vb{\theta}} .
+$$ {#eq-flux-33}
+In the previous equation $\hat{\vb{z}}$ is the unit vector in the $z$-direction. Since neutron stars are essentially perfect conductors, there should be no electric field in their frame $\vb{E}' = 0$. This means that in the inertial frame there is an electric field inside the star given by
+$$
+\vb{E}= - \frac{\vb{v} \times \vb{B}}{c} = - \frac{1}{c}
+(\vb{\Omega} \times \vb{r}) \times \vb{B}= \frac{B_0 \Omega
+r}{c}  \left( \frac{R}{r} \right)^3 (\sin^2 \theta \hat{\vb{r}} - 2 \cos
+\theta \sin \theta \hat{\vb{\theta}}) .
+$$ {#eq-flux-34}
+In the previous equation we have used the fact that
+$$
+\vb{\Omega} \times \vb{r}= \Omega r \sin \theta
+\hat{\vb{\varphi}}
+$$ {#eq-flux-35}
+and
+$$
+\hat{\vb{\varphi}} \times (2 \cos \theta \hat{\vb{r}} + \sin \theta
+\hat{\vb{\theta}}) = 2 \cos \theta \hat{\vb{\theta}} - \sin \theta
+\hat{\vb{r}} .
+$$ {#eq-flux-36}
+If there is vacuum in the exterior (and assuming axisymmetry), then the external electric potential is
+$$
+\Phi (r, \theta) = \sum_{\ell = 0}^{\infty} \frac{\phi_{\ell}}{r^{\ell + 1}}
+P_{\ell} (\cos \theta), \qquad r > R
+$$ {#eq-flux-37}
+where $\phi_{\ell}$ are fixed by the fact that the perpendicular component of the electric field should be continuous on the surface of the star[^flux-4]
+$$
+[\![ \vb{E}_{\perp} ]\!] = 0 \Longrightarrow E_{\theta} (r =
+R) = \frac{1}{R} \partial_{\theta} \Phi (r = R) .
+$$ {#eq-flux-e-field-bc}
+If the external field is quadrupolar, meaning that
+$$
+\Phi (r, \theta) = \frac{\phi_2}{r^3} P_2 (\cos \theta),
+$$ {#eq-flux-39}
+then @eq-flux-e-field-bc implies
+$$
+\boxed{\Phi = - \frac{2 B_0 \Omega R^5}{3 cr^3} P_2 (\cos \theta) .}
+$$ {#eq-flux-40}
+So we find that there is an enormous electrostatic potential at the surface of the star:
+$$
+\Phi \approx 2 \times 10^{13}  (B_{12} R^2_6 / P) \mathrm{statV} \approx 5
+\times 10^{15}  (B_{12} R^2_6 / P) \mathrm{V}.
+$$ {#eq-flux-41}
+For example, the ratio of electrostatic to gravitational force is
+$$
+\frac{| \vb{F}_{\operatorname{EM}} |}{| \vb{F}_{\mathrm{G}} |} \sim
+\frac{\Phi e}{\frac{GM}{R} m} = \left\{\begin{array}{ll}
+5 \times 10^7, & \text{protons},\\
+8 \times 10^{10}, & \text{electrons} .
+\end{array}\right. \gg 1.
+$$ {#eq-flux-42}
+The electromagnetic forces are strong enough to pull charges out of the surface of the neutron star and fill all the region around it with plasma. The field is so strong that electron-positron cascade production is triggered once the first particles are extracted. This is the so-called *magnetosphere*. The magnetosphere creates currents that to leading order short out the electric potential to infinity.
+
+In the extreme conditions found in pulsar or black-hole magnetospheres, the electromagnetic energy density is so large compared to the plasma inertia that the plasma is forced to move in such a way as to cancel the Lorentz force. In other words, electrons, positrons, and ions can only flow along $B$-field lines and the induced currents are such that the electric field is shorted out. This is the so-called *force-free electrodynamics* approximation:
+$$
+\vb{E} \cdot \vb{B}= 0,  \vb{E}+ \frac{1}{c} \vb{v}
+\times \vb{B}= 0.
+$$ {#eq-flux-43}
+From the first condition, if the system is axisymmetric, we have that
+$$
+\vb{E}= E_0  \hat{\vb{\phi}} \times \vb{B} \Longrightarrow
+\vb{E}= - \frac{\Omega r \sin \theta}{c}  \hat{\vb{\phi}} \times
+\vb{B}.
+$$ {#eq-flux-44}
+From the last two equations, we find
+$$
+0 = \frac{1}{c}  (\vb{v}- \Omega r \sin \theta) \times \vb{B}
+\Longrightarrow \vb{v}= \Omega r \sin \theta \hat{\vb{\phi}}
++\vb{v}_d  \hat{\vb{B}} .
+$$ {#eq-flux-45}
+So the plasma velocity has two components. The plasma is forced to co-rotate with the pulsar (first term in the first equation). However, when $\Omega r \sin \theta \geq c$, the drift velocity $\vb{v}_d$ of plasma along the field lines must be non-zero so that $| \vb{v} | < c$. The region at which $\Omega r \sin \theta = c$ is called the light cylinder. It is the boundary of the region in which magnetic field lines can be closed. Outside the light cylinder, the $B$-field lines bend and reach infinity so that plasma can flow away from/to the pulsar (depending on its charge) creating a current.
+
+The plasma charge density is given by Gauss' law of electrodynamics:
+$$
+q = \frac{\nabla \cdot \vb{E}}{4 \pi} .
+$$ {#eq-flux-46}
+Note that
+$$
+4 \pi q = \nabla \cdot \vb{E}= \nabla \cdot \left[ - \frac{1}{c}
+\vb{v} \times \vb{B} \right] = - \frac{1}{c} \vb{B} \cdot
+(\nabla \times \vb{v}) + \frac{1}{c} \vb{v} \cdot (\nabla \times
+\vb{B}) .
+$$ {#eq-flux-47}
+This can be computed using
+$$
+\nabla \times \vb{v}= \nabla \times (\vb{\Omega} \times
+\vb{r}) =\vb{\Omega} (\nabla \cdot \vb{r}) -
+(\vb{\Omega} \cdot \nabla) \vb{r}= 2\vb{\Omega}
+$$ {#eq-flux-48}
+and
+$$
+\nabla \times \vb{B}= 4 \pi \vb{j}= 4 \pi q \frac{\vb{v}}{c}
+$$ {#eq-flux-49}
+So the charge density is
+$$
+4 \pi q = - \frac{2}{c} \vb{B} \cdot \vb{\Omega}+ 4 \pi q
+\frac{v^2}{c^2} \Longrightarrow q_{\operatorname{GJ}} = - \frac{\vb{\Omega}
+\cdot \vb{B}}{2 \pi c}  \frac{1}{1 - v^2 / c^2} .
+$$ {#eq-flux-50}
+Note that $\vb{\Omega} \cdot \vb{B}$ changes sign across a critical line in the magnetosphere. This means that there is charge separation in the magnetosphere.
+
+The *minimum* electron number density is the so-called Goldreich-Julian density
+$$
+n_{\operatorname{GJ}} = \frac{q_{\operatorname{GJ}}}{e} = 10^{10}  (B_{12} / P) \mathrm{cm}^{-
+3} .
+$$ {#eq-flux-51}
+This is $\sim 10$ orders of magnitude larger than the typical density of electrons in the ISM. More recent theoretical models show that the plasma number density can be several orders of magnitude larger than the Goldreich-Julian density. This is because the plasma is rich of electron-positron pairs and $n_{\operatorname{GJ}}$ only measures the *net* density of charges. For example, see @fig-flux-philippov.
+
+![$\log (n / n_{\operatorname{GJ}})$ in a particle-in-cell simulation with approximate treatment of pair creation. Coherent plasma waves are thought to be responsible for the production of the radio pulses. From @philippov2015; © The American Astronomical Society, reproduced for non-commercial educational use and not covered by the license of these notes.](../figures/flux-freezing/philippov2015-pic.png){#fig-flux-philippov fig-alt="Two colour maps, of electron density and of positron density, in the plane containing the rotation axis of a pulsar, out to a few light-cylinder radii. The densities, in units of the Goldreich–Julian density, are highest near the star and along a thin current sheet that extends outward from the equator beyond the light cylinder, and are lower in the polar regions."}
+
+:::
+
+## In-class worksheet {#sec-flux-worksheet}
+
+**Spherical Collapse.** A spherical distribution of plasma (a star or a molecular cloud) is endowed with a dipolar magnetic field, as shown in @fig-flux-dipole.
+
+![Dipolar magnetic field of a sphere.](../figures/flux-freezing/flux-dipole-sphere.svg){#fig-flux-dipole fig-alt="Field lines of a dipole around a sphere with north (N) and south (S) poles on the vertical axis. Outside the sphere the lines leave at S, loop around the equator and enter at N; arrows show that direction."}
+
+The sphere contracts from an initial radius $R_0$ to a new radius $R_1 < R_0$.
+
+1.  How do the gravitational binding energy $\Omega$ and the magnetic energy $U_B$ change?
+
+2.  In the process of forming a neutron star, an object with mass $M \sim 10^{34} \mathrm{g}$ contracts from an initial radius $R_0 \sim 10^{11} \mathrm{cm}$ to $R_1 \sim 10^6 \mathrm{cm}$. By what factor is the magnetic field amplified? If the typical magnetic field strength for a star is $B \sim 100\mathrm{G}$, what is the field strength expected for a neutron star?
+
+3.  Gas in a molecular cloud with density $\rho \sim 10^{- 24} \mathrm{g}/ \mathrm{cm}^3$ and typical magnetic field $B \sim 1 \mu \mathrm{G}$ contracts to form a star with $\rho \sim 1\mathrm{g}/ \mathrm{cm}^3$. What is the strength of the resulting field if flux freezing holds?
+
+## Exercises {#sec-flux-exercises}
+
+::: {#exr-flux-alfven-wave}
+## Flux freezing in an Alfvén wave
+
+Consider a small-amplitude disturbance in a homogeneous plasma in a uniform magnetic field $\vb{B}$ in the $z$-direction. Set $\rho = \mathrm{const}$ and $p = \mathrm{const}$, and
+$$
+\vb{v}= \epsilon v_A \sin (kz - \omega t)  \hat{\vb{x}}, \qquad
+\vb{B}= B_0  \hat{\vb{z}} - \epsilon B_0 \sin (kz - \omega t)
+\hat{\vb{x}} .
+$$ {#eq-flux-hw1}
+
+1.  Show that, if $\omega = kv_A$ and $v_A = B_0 / \sqrt{4 \pi \rho}$, then these equations satisfy the ideal-MHD equations to first order in $\epsilon$ (neglecting all terms of order $\epsilon^2$ and higher).
+
+2.  Calculate the displacement current and show that it is small compared to $4 \pi j$, if $v_A \ll c$.
+
+3.  Calculate the resistive correction to $\vb{B}$ and show that it is small if $\omega T_{\operatorname{decay}} \gg 1$, where $T_{\operatorname{decay}} = 4 \pi / (k^2 \eta c)$.
+
+4.  Find the equation for the magnetic field lines to order $\epsilon$ by integrating
+    $$
+    \frac{\dd x}{\dd z} = \frac{B_x}{B_0}
+    $$ {#eq-flux-hw2}
+    and show that we get the same equation from the displacement of the fluid
+    $$
+    x (z, t) = \int v_x \dd t
+    $$ {#eq-flux-hw3}
+    assuming flux freezing of the lines in the plasma.
+:::
+
+::: {.content-visible when-profile="solutions"}
+::: {.solution}
+1.  The ideal-MHD equations are
+    $$
+    \begin{alignedat}{2}
+    \frac{1}{\rho}  \frac{\dd \rho}{\dd t} = - \nabla \cdot \vb{v}, & && \frac{\partial \vb{B}}{\partial t} = \nabla \times (\vb{v}
+    \times \vb{B}), \\
+    \rho \frac{\dd \vb{v}}{\dd t} =\vb{j} \times \vb{B}-
+    \nabla p, & && \nabla \times \vb{B}= 4 \pi \vb{j}.
+    \end{alignedat}
+    $$
+    The continuity equation is satisfied, since $\nabla \cdot \vb{v}= 0$.
+
+    The $x$-component of the induction (of Faraday) equation becomes
+    $$
+    \epsilon B_0 \omega \cos (kz - \omega t) = \epsilon B_0 v_A k \cos (kz -
+    \omega t) .
+    $$
+    This is satisfied if $\omega = kv_A$. The other components of the induction equation vanish at first order in $\epsilon$.
+
+    The current is
+    $$
+    4 \pi \vb{j}= \nabla \times \vb{B}= \left(\begin{array}{c}
+    \partial_y B_z - \partial_z B_y\\
+    \partial_z B_x - \partial_x B_z\\
+    \partial_x B_y - \partial_y B_x
+    \end{array}\right) = \left(\begin{array}{c}
+    0\\
+    - \epsilon B_0 k \cos (kz - \omega t)\\
+    0
+    \end{array}\right) .
+    $$
+    To linear order in $\epsilon$ we can write
+    $$
+    \rho \frac{\dd \vb{v}}{\dd t} = \rho \frac{\partial
+    \vb{v}}{\partial t},
+    $$
+    since $(\vb{v} \cdot \nabla) \vb{v}= O (\epsilon^2) .$
+
+    The only nonzero component of the momentum equation (to first order in $\epsilon$) is the $x$-component:
+    $$
+    - \rho \epsilon v_A \omega \cos (kz - \omega t) = - \frac{1}{4 \pi}
+    \epsilon B_0^2 k \cos (kz - \omega t) .
+    $$
+    Using $\omega = kv_A$, we find
+    $$
+    v_A^2 = \frac{B_0^2}{4 \pi \rho} .
+    $$
+
+2.  The electric field is given by
+    $$
+    \vb{E}= - \frac{\vb{v} \times \vb{B}}{c} = \epsilon
+    \frac{v_A}{c} B_0 \sin (kz - \omega t)  \hat{\vb{y}} .
+    $$
+    The displacement current is given by
+    $$
+    \frac{1}{c}  \frac{\partial \vb{E}}{\partial t} = - \epsilon
+    \frac{v_A}{c^2} \omega B_0 \cos (kz - \omega t)  \hat{\vb{y}} .
+    $$
+    So, using $\omega = kv_A$, we obtain
+    $$
+    \left| \frac{1}{c}  \frac{\partial \vb{E}}{\partial t} \right| / | 4
+    \pi \vb{j} | = \left( \frac{v_A}{c} \right)^2 .
+    $$
+
+3.  The resistive correction is (in the $x$-direction)
+    $$
+    \left[ \frac{\eta c}{4 \pi} \nabla^2 \vb{B} \right]_x = \frac{\eta
+    c}{4 \pi} \epsilon B_0 k^2 \sin (kz - \omega t) .
+    $$
+    In comparison, the $\nabla \times (\vb{v} \times \vb{B})$ term in the induction equation is
+    $$
+    \epsilon B_0 \omega \cos (kz - \omega t),
+    $$
+    so resistive effects can be neglected as long as
+    $$
+    \frac{k^2}{\omega}  \frac{\eta c}{4 \pi} \ll 1 \Longleftrightarrow \omega
+    T_{\operatorname{decay}} \gg 1.
+    $$
+
+4.  The lines of force satisfy (to leading order)
+    $$
+    \frac{\dd x}{\dd z} = \frac{B_x}{B_0} = \epsilon \sin (kz - \omega
+    t) \Longrightarrow x (t, z) = - \frac{\epsilon}{k} \cos (kz - \omega t) .
+    $$
+    If we integrate the velocity we find
+    $$
+    x (t, z) = \int v_x (t, z) \dd t = \epsilon v_A  \int \sin (kz -
+    \omega t) \dd t = - \frac{\epsilon v_A}{\omega} \cos (kz - \omega t) .
+    $$
+    The two agree because $kv_A = \omega$.
+:::
+:::
+
+## Further reading {#sec-flux-reading}
+
+- @clarke2007, Chapter 13 (plasmas).
+- @kulsrud2005.
+
+[^flux-1]: More precisely they are forced to undergo cyclotron motion along the field lines by the Lorentz force.
+
+[^flux-2]: Imagine a single flux tube wound around Jupiter multiple times. The magnetic flux in the tube must be conserved, so the intensity of the field is constant. However, as the flux tube is wound around, more and more of the magnetosphere is filled by the coils of the flux tube, so the integrated magnetic energy ($B^2 / 8 \pi$) grows linearly with time over the winding timescale.
+
+[^flux-3]: Note that in Goldreich & Lynden-Bell paper the results are quoted in statVolts. Here, we have converted them to SI Volts.
+
+[^flux-4]: In other words, we are matching the interior solution with the exterior solution.

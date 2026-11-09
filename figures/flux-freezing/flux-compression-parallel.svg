@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 190" width="700" height="190" role="img" aria-labelledby="para-t para-d">
+<title id="para-t">Compression of a flux tube along the field</title>
+<desc id="para-d">A horizontal flux tube of length l and cross-section A, with the magnetic field B pointing along its axis to the right. Arrows v at both ends point inwards: the tube is squeezed along the field and the cross-section does not change.</desc>
+<defs><marker id="ah-k" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#000" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker><marker id="ah-1f4fbf" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#1f4fbf" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker></defs>
+<rect width="700" height="190" fill="#fff"/>
+<g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif">
+<line x1="150.0" y1="38.0" x2="530.0" y2="38.0" stroke="#000" stroke-width="1.6"/>
+<line x1="150.0" y1="122.0" x2="530.0" y2="122.0" stroke="#000" stroke-width="1.6"/>
+<ellipse cx="150.0" cy="80.0" rx="21.0" ry="42.0" transform="rotate(0.0 150.0 80.0)" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<ellipse cx="530.0" cy="80.0" rx="21.0" ry="42.0" transform="rotate(0.0 530.0 80.0)" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<line x1="150.0" y1="80.0" x2="460.0" y2="80.0" stroke="#1f4fbf" stroke-width="2.4" marker-end="url(#ah-1f4fbf)"/>
+<text x="474" y="88" text-anchor="start" font-size="24" font-style="normal" font-weight="bold" fill="#1f4fbf">B</text>
+<text x="152" y="115" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">A</text>
+<text x="340.0" y="165" text-anchor="middle" font-size="20" font-style="italic" font-weight="normal" fill="#000">ℓ</text>
+<line x1="25.0" y1="80.0" x2="100.0" y2="80.0" stroke="#000" stroke-width="2" marker-end="url(#ah-k)"/>
+<line x1="675.0" y1="80.0" x2="600.0" y2="80.0" stroke="#000" stroke-width="2" marker-end="url(#ah-k)"/>
+<text x="62" y="38" text-anchor="middle" font-size="20" font-style="normal" font-weight="bold" fill="#000">v</text>
+<text x="640" y="38" text-anchor="middle" font-size="20" font-style="normal" font-weight="bold" fill="#000">v</text>
+</g>
+</svg>

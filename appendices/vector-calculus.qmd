@@ -3,3 +3,64 @@
 ::: {.callout-note}
 This chapter is in preparation.
 :::
+
+## In-class worksheet {#sec-vec-worksheet}
+
+1.  Compute the gradient of the function
+    $$
+    f (x, y, z) = \frac{x}{\sqrt{x^2 + y^2 + z^2}} .
+    $$ {#eq-vec-1}
+
+2.  Consider the vector field
+    $$
+    \vb{E}= \hat{\vb{r}} = \left(\begin{array}{c}
+    \frac{x}{\sqrt{x^2 + y^2 + z^2}}\\
+    \frac{y}{\sqrt{x^2 + y^2 + z^2}}\\
+    \frac{z}{\sqrt{x^2 + y^2 + z^2}}
+    \end{array}\right) .
+    $$ {#eq-vec-2}
+    Compute
+
+    1.  the gradient
+        $$
+        \nabla \vb{E}= \left(\begin{array}{ccc}
+        \partial_x E_x & \partial_x E_y & \partial_x E_z\\
+        \partial_y E_x & \partial_y E_y & \partial_y E_z\\
+        \partial_z E_x & \partial_z E_y & \partial_z E_z
+        \end{array}\right) ;
+        $$ {#eq-vec-3}
+
+    2.  $\nabla \cdot \vb{E}$;
+
+    3.  $\nabla \times \vb{E}$.
+
+3.  Prove that
+    $$
+    \nabla \cdot \nabla f = \nabla^2 f = \frac{\partial^2 f}{\partial x^2} +
+    \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2} .
+    $$ {#eq-vec-4}
+
+4.  The divergence of a tensor field
+    $$
+    \vb{T}= \left(\begin{array}{ccc}
+    T_{x x} & T_{x y} & T_{x z}\\
+    T_{y x} & T_{y y} & T_{y z}\\
+    T_{z x} & T_{z y} & T_{z z}
+    \end{array}\right)
+    $$ {#eq-vec-5}
+    is defined as
+    $$
+    \nabla \cdot \vb{T}= \left(\begin{array}{c}
+    \partial_x T_{x x} + \partial_y T_{x y} + \partial_z T_{x z}\\
+    \partial_x T_{y x} + \partial_y T_{y y} + \partial_z T_{y z}\\
+    \partial_x T_{z x} + \partial_y T_{z y} + \partial_z T_{z z}
+    \end{array}\right) .
+    $$ {#eq-vec-6}
+    Prove that
+    $$
+    \nabla \cdot (p\vb{I}) = \nabla \cdot \left(\begin{array}{ccc}
+    p &  & \\
+    & p & \\
+    &  & p
+    \end{array}\right) = \nabla p.
+    $$ {#eq-vec-7}

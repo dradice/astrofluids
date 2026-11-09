@@ -1,5 +1,248 @@
 # Eulerian and Lagrangian Descriptions {#sec-lagrange}
 
-::: {.callout-note}
-This chapter is being ported from the 2025 lecture notes.
+## Motivation
+
+Up to this point, we have considered the equation of motion for individual fluid elements. This is the so-called Lagrangian description of fluid mechanics. However, there are many problems in which it is more convenient to work with equations that describe the density, velocity, and temperature of the fluid at a specific point in space, and not for individual fluid elements. In other words, we want to solve for $\rho (t, \vb{x})$ and $\vb{v} (t, \vb{x})$, as opposed to $\rho (t ; \mathcal{V})$ and $\vb{v} (t ; \mathcal{V})$. This is the so-called Eulerian approach.
+
+As motivation, we consider a celestial body of mass $M$, for example a planet or a star, that is accreting matter at a constant rate $\dot{M}$. $M$ and $\dot{M}$ are unknown, but we know density and velocity of the fluid at a given radius $r_0$ from space resolved detection of an emission line. How can we estimate $M$ and $\dot{M}$? We assume the in-falling matter to have no angular momentum, so that the flow is radial. We also neglect radiation pressure and fluid pressure ($p = 0$). We will consider the more general case in which pressure forces are included later in the course. However, we remark that the pressureless approximation provides an accurate description of the flow when it is highly supersonic (close to the surface of the accretor).
+
+The equations of motion for the gas (assuming spherical symmetry) are
+$$
+\frac{1}{\rho}  \frac{\dd \rho}{\dd t} = - \frac{1}{r^2} \partial_r
+(r^2 v), \qquad \frac{\dd v}{\dd t} = - \frac{GM}{r^2} .
+$$ {#eq-lagrange-ch4-dust}
+In the new language we have just introduced, these are the Lagrangian equations of motion. That is, they describe the density and velocity of each fluid element. Note that, even though the problem describes a steady state system, we cannot drop the time derivatives, because each individual fluid element is not stationary, but it is in free fall.
+
+Consider a fluid element that starts at rest at large distance from the accretor. Since the fluid elements are not subject to any force beside gravity, they are in free fall
+$$
+v = - \sqrt{\frac{2 GM}{r}} .
+$$ {#eq-lagrange-2}
+Inserting this into the continuity equation yields:
+$$
+\frac{1}{\rho}  \frac{\dd \rho}{\dd t} = \frac{3 \sqrt{2 GM}}{2 r^{3 /
+2}} .
+$$ {#eq-lagrange-3}
+Here, we need to be careful, because in the Lagrangian framework $r = r (t)$, since we are traveling with each fluid element. So, before we can solve the continuity equation, we need to find $r$ as solution of
+$$
+\frac{\dd r}{\dd t} = - \sqrt{\frac{2 GM}{r}} .
+$$ {#eq-lagrange-4}
+This equation can be solved analytically assuming the initial radius to be $r (0) = r_0$, but its solution is rather complex:
+$$
+r (t) = \left( - \frac{3 \sqrt{2 GM} t}{2} + r_0^{3 / 2} \right)^{2 / 3} .
+$$ {#eq-lagrange-ch4-ff-radius}
+Plugging this back into the continuity equation, we find
+$$
+\frac{1}{\rho}  \frac{\dd \rho}{\dd t} = - \frac{3 \sqrt{2 GM}}{3
+\sqrt{2 GM} t - 2 r_0^{3 / 2}} .
+$$ {#eq-lagrange-6}
+This can be solved with initial conditions $\rho (0) = \rho_0$ to yield
+$$
+\rho (t) = \frac{2 r_0^{3 / 2} \rho_0}{2 r_0^{3 / 2} - 3 \sqrt{2 GM} t} .
+$$ {#eq-lagrange-ch4-ff-rhot}
+After all of this work, we still do not have $\rho$ as a function of radius: for that we need to solve $t$ from @eq-lagrange-ch4-ff-radius and plug the result back into @eq-lagrange-ch4-ff-rhot. We also need to relate $\rho_0$ to $\dot{M}$\... Wouldn't our lives have been much simpler if we could have solved directly for $\rho (t, r)$? Yes! As we will see shortly, this problem becomes trivial using the Eulerian formulation of fluid mechanics.
+
+## Advective derivative
+
+We leave for a moment the problem of the spherical accretion, to develop the general theory of the Eulerian formulation of fluid mechanics. Let $A (t ; \mathcal{V})$ be some quantity that is specific to a fluid element $\mathcal{V}$. For example, $A$ could be the density or the velocity of the fluid element $\mathcal{V}$. The same quantity, can also be thought of being a function of position:
+$$
+A (t, \vb{x}) := A \left( t ; \text{``fluid element at location
+$\vb{x}$ at time $t$''} \right) .
+$$ {#eq-lagrange-8}
+If the law of motion of each fluid elements are known, then it is possible to compute $A (t, \vb{x})$ from $A (t ; \mathcal{V})$. We have done this in the case of the homologously expanding flow (@sec-continua-homologous), when we needed to compute $v (t, r)$ given $v (t, p)$, where $p$ was the "label" we used to identify the fluid elements.
+
+Consider a fluid element $\mathcal{V}$ with world line $\vb{x} (t)$. Then, at time $t$
+$$
+A (t ; \mathcal{V}) = A (t, \vb{x} (t)) .
+$$ {#eq-lagrange-9}
+We can differentiate both sides with respect to $t$ to find
+$$
+\begin{aligned}
+& \frac{\dd A (t ; \mathcal{V})}{\dd t} =  \frac{\dd A (t,
+\vb{x} (t))}{\dd t}  \\
+& \quad = \frac{\partial A (t, \vb{x} (t))}{\partial t} + \biggl(
+\frac{\dd x}{\dd t} \partial_x + \frac{\dd y}{\dd t}
+\partial_y \\
+& \qquad\qquad + \frac{\dd z}{\dd t} \partial_z \biggr) A (t, \vb{x}
+(t))  \\
+& \quad = \frac{\partial A (t, \vb{x} (t))}{\partial t} + \left(
+\frac{\dd \vb{x}}{\dd t} \cdot \nabla \right) A (t, \vb{x}
+(t)) \\
+& \quad = \frac{\partial A (t, \vb{x} (t))}{\partial t} + (\vb{v} \cdot
+\nabla) A (t, \vb{x} (t)),
+\end{aligned}
+$$ {#eq-lagrange-advective-derivative-long}
+where we used the chain rule for differentiation and the definition of velocity. @eq-lagrange-advective-derivative-long gives us a way to relate the time derivative of a quantity defined with respect to fluid elements to the same quantity taken to be a function of spatial position and time. The reason why
+$$
+\frac{\dd A (t ; \mathcal{V})}{\dd t} \neq \frac{\partial A (t,
+\vb{x} (t))}{\partial t}
+$$ {#eq-lagrange-11}
+is that the partial derivative with respect to time considers the rate of change of $A$ at a fixed location, but there are *different* fluid elements crossing that location as a function of time. The operator $\frac{\dd}{\dd t}$ that we have used so far is called the **advective derivative**, because it represents the rate of change of a quantity measured when riding along a fluid element. @eq-lagrange-advective-derivative-long can be written more succinctly as
+$$
+\boxed{\frac{\dd A}{\dd t} = \frac{\partial A}{\partial t}
++\vb{v} \cdot \nabla A.}
+$$ {#eq-lagrange-12}
+To be mathematically precise, we should keep in mind that this relation represents the equivalence between two *different* mathematical operations performed on *different* objects. The $A$ on the LHS is a function of only time for a fixed fluid element $\mathcal{V}$, while the $A$ on the RHS is a function of position and time and is not specific to any single fluid element.
+
+## Eulerian formulation of fluid mechanics
+
+The Eulerian equations can be obtained from the Lagrangian equations by replacing all advective derivatives:
+$$
+\frac{\dd \rho}{\dd t} \rightarrow \frac{\partial \rho}{\partial t} +
+(\vb{v} \cdot \nabla) \rho, \qquad \frac{\dd \vb{v}}{\dd t}
+\rightarrow \frac{\partial \vb{v}}{\partial t} + (\vb{v} \cdot
+\nabla) \vb{v}.
+$$ {#eq-lagrange-13}
+
+The continuity equation becomes
+$$
+\frac{\partial \rho}{\partial t} + (\vb{v} \cdot \nabla) \rho + \rho
+\nabla \cdot \vb{v}= 0.
+$$ {#eq-lagrange-14}
+In Cartesian coordinates, we can expand all derivatives as
+$$
+\begin{aligned}
+& (\vb{v} \cdot \nabla) \rho + \rho \nabla \cdot \vb{v} \\
+& \quad = v_x
+\partial_x \rho + v_y \partial_y \rho + v_z \partial_z \rho \\
+& \qquad\qquad + \rho
+\partial_x v_x + \rho \partial_y v_y + \rho \partial_z v_z  \\
+& \quad = \partial_x (\rho v_x) + \partial_y  (\rho v_y) + \partial_z  (\rho
+v_z) \\
+& \quad = \nabla \cdot (\rho \vb{v}) .
+\end{aligned}
+$$ {#eq-lagrange-15}
+So the continuity equation can be written as
+$$
+\boxed{\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vb{v})
+= 0.}
+$$ {#eq-lagrange-16}
+
+The velocity equation can be written as
+$$
+\boxed{\rho \frac{\partial \vb{v}}{\partial t} + \rho (\vb{v}
+\cdot \nabla) \vb{v}=\vb{f}- \nabla p.}
+$$ {#eq-lagrange-17}
+
+## Pressure-less spherical accretion
+
+We are now ready to solve the problem of the spherical accretion of a pressure-less fluid that we have attempted to attack at the beginning of this chapter. Because the Eulerian equations deal with quantities as a function of position and time, all time derivatives vanish for a steady flow and we find:
+$$
+\partial_r  (r^2 \rho v) = 0, \qquad v \partial_r v = - \frac{GM}{r^2} .
+$$ {#eq-lagrange-18}
+The second equation can be written as
+$$
+\frac{1}{2} \partial_r  (v^2 ) = - \frac{GM}{r^2},
+$$ {#eq-lagrange-19}
+which can be integrated to give (for an in falling flow)
+$$
+v (r) = - \sqrt{\frac{2 GM}{r}} .
+$$ {#eq-lagrange-ch4-ff-vel}
+The continuity equation shows that
+$$
+r^2 \rho v = \operatorname{const} .
+$$ {#eq-lagrange-21}
+Apart from a $4 \pi$ factor, this is the accretion rate, because the inflow of mass across a surface of radius $r$ is (assuming spherical symmetry):
+$$
+\dot{M} = - \oint r^2 \rho v \dd \Omega = - 4 \pi r^2 \rho v.
+$$ {#eq-lagrange-22}
+So
+$$
+\rho (r) = - \frac{\dot{M}}{4 \pi r^2 v} = \frac{\dot{M}}{4 \pi \sqrt{2 GM}
+r^{3 / 2}} .
+$$ {#eq-lagrange-ch4-ff-rho}
+We can now solve for $M$ using @eq-lagrange-ch4-ff-vel and for $\dot{M}$ using @eq-lagrange-ch4-ff-rho. We leave this last step as an exercise for the reader.
+
+## Exercises {#sec-lagrange-exercises}
+
+::: {#exr-lagrange-frames}
+## Eulerian and Lagrangian frames
+
+A fluid is initially at rest. At time $t = 0^+$ the fluid starts to move. At time $t$ the position $\vb{x}= (x_1, x_2, x_3)$ of a fluid element initially located at $\vb{p}= (p_1, p_2, p_3)$ is
+$$
+\begin{alignedat}{2}
+x_1 &{}={} && \frac{1}{2}  (p_1 + p_2) e^t + \frac{1}{2}  (p_1 - p_2) e^{- t},
+\\
+x_2 &{}={} && \frac{1}{2}  (p_1 + p_2) e^t - \frac{1}{2}  (p_1 - p_2) e^{- t}, \\
+x_3 &{}={} && p_3 .
+\end{alignedat}
+$$ {#eq-lagrange-motion}
+
+1.  Find the initial position $(p_1, p_2, p_3)$ of a fluid element currently at $(x_1, x_2, x_3)$. \[You need to invert @eq-lagrange-motion to find $\vb{p}= \vb{p} (t, \vb{x})$.\]
+
+2.  Compute the velocity $\dot{\vb{x}} (t ; \vb{p})$ and acceleration $\ddot{\vb{x}} (t ; \vb{p})$ of the fluid elements.
+
+3.  Find the Eulerian velocity $\vb{v} (t, \vb{x}) = \dot{\vb{x}} [t ; \vb{p} (t, \vb{x})]$ and acceleration $\vb{a} (t, \vb{x}) = \ddot{\vb{x}} [t ; \vb{p} (t, \vb{x})]$.
+
+4.  Verify that $\vb{a}= \partial_t \vb{v}+ (\vb{v} \cdot \nabla) \vb{v}$.
 :::
+
+::: {.content-visible when-profile="solutions"}
+::: {.solution}
+Note that the motion is confined in a plane: $x_3 = p_3 = \operatorname{const}$.
+
+1.  Manipulating the first two of @eq-lagrange-motion, we obtain
+    $$
+    x_1 + x_2 = (p_1 + p_2) e^t, \qquad x_1 - x_2 = (p_1 - p_2) e^{- t},
+    $$
+    these can be solved for $p_1$ and $p_2$ as
+    $$
+    \begin{alignedat}{2}
+    p_1 &{}={} && \frac{1}{2} e^{- t}  (x_1 + x_2) + \frac{1}{2} e^t  (x_1 -
+    x_2), \\
+    p_2 &{}={} && \frac{1}{2} e^{- t}  (x_1 + x_2) - \frac{1}{2} e^t  (x_1 - x_2)
+    .
+    \end{alignedat}
+    $$
+
+2.  The Lagrangian velocity is given by
+    $$
+    \begin{alignedat}{2}
+    \dot{x}_1 (t) &{}={} && \frac{1}{2}  (p_1 + p_2) e^t - \frac{1}{2}  (p_1 -
+    p_2) e^{- t} = x_2 (t), \\
+    \dot{x}_2 (t) &{}={} && \frac{1}{2}  (p_1 + p_2) e^t + \frac{1}{2}  (p_1 -
+    p_2) e^{- t} = x_1 (t) .
+    \end{alignedat}
+    $$
+    The Lagrangian acceleration is given by
+    $$
+    \begin{alignedat}{2}
+    \ddot{x}_1 (t) &{}={} && \frac{1}{2}  (p_1 + p_2) e^t + \frac{1}{2}  (p_1 -
+    p_2) e^{- t} = x_1 (t), \\
+    \ddot{x}_2 (t) &{}={} && \frac{1}{2}  (p_1 + p_2) e^t - \frac{1}{2}  (p_1 -
+    p_2) e^{- t} = x_2 (t) .
+    \end{alignedat}
+    $$
+
+3.  From the previous point we have that
+    $$
+    \vb{v} (t, \vb{x}) = \left(\begin{array}{c}
+    x_2\\
+    x_1\\
+    0
+    \end{array}\right), \qquad \vb{a} (t, \vb{x}) =
+    \left(\begin{array}{c}
+    x_1\\
+    x_2\\
+    0
+    \end{array}\right) .
+    $$
+
+4.  Note that $\partial_t \vb{v}= 0$ and
+    $$
+    (\vb{v} \cdot \nabla) \vb{v}= (x_2 \partial_1 + x_1 \partial_2)
+    \vb{v}= \left(\begin{array}{c}
+    x_2 \partial_1 x_2 + x_1 \partial_2 x_2\\
+    x_2 \partial_1 x_1 + x_1 \partial_2 x_1\\
+    0
+    \end{array}\right) = \left(\begin{array}{c}
+    x_1\\
+    x_2\\
+    0
+    \end{array}\right) =\vb{a} (t, \vb{x}) .
+    $$
+:::
+:::
+
+## Further reading {#sec-lagrange-reading}
+
+- @clarke2007, Chapter 2 (the fluid equations).

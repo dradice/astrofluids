@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 280" width="520" height="280"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Blackbody enclosure with a movable piston</title>
+  <desc id="desc">A rectangular box with a hollow wall, open on the right, enclosing radiation with energy density e,
+  pressure p, temperature T and volume V. A shaded piston on the right side can slide; an arrow pointing right shows it
+  moving outward.</desc>
+  <!-- Redrawn from the 2025 TeXmacs figure (02-thermodynamics). -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7"
+            orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10" fill="none" stroke="#000" stroke-width="1.6"/>
+    </marker>
+  </defs>
+  <rect width="520" height="280" fill="#fff"/>
+  <g fill="none" stroke="#000" stroke-width="1.6">
+    <path d="M 410 20 H 20 V 260 H 410 V 242 H 38 V 38 H 410 Z"/>
+    <path d="M 320 38 V 242" stroke="none"/>
+    <path d="M 340 140 H 440" marker-end="url(#arrow)"/>
+  </g>
+  <rect x="320" y="38" width="20" height="204" fill="#9a9a9a" stroke="#000" stroke-width="1.6"/>
+  <g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif" font-size="20" font-style="italic" fill="#000">
+    <text x="95" y="146">e, p, T, V</text>
+  </g>
+</svg>

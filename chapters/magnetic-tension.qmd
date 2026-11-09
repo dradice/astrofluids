@@ -1,5 +1,217 @@
 # Magnetic Tension and Hydromagnetic Equilibria {#sec-tension}
 
-::: {.callout-note}
-This chapter is being ported from the 2025 lecture notes.
+Up to now we have been primarily concerned with the consequences of the induction equation (Faraday's law). We have seen that, in the ideal-MHD limit, the magnetic field lines are frozen in the flow and explored some of the consequences of this fact. Now, we consider the feedback of the magnetic field on the plasma, that is the impact of the $\vb{j} \times \vb{B}$ term in the momentum equation.
+
+## Magnetic Tension Force
+
+A first somewhat obvious, but important remark is that the magnetic force $\vb{j} \times \vb{B}$ is always perpendicular to the magnetic field. In other words, there is no impediment to the plasma flow along field lines. On the other hand, the field might resist or drive plasma motion perpendicular to the field lines. The latter, in turn, causes the field lines to move, in accordance with the induction equation. It is important to keep this in mind, because we are now going to rewrite the Lorentz force in a form in which this constraint is not manifest. Using the vector identity
+$$
+\nabla (\vb{A} \cdot \vb{B}) =\vb{A} \times (\nabla \times
+\vb{B}) +\vb{B} \times (\nabla \times \vb{A}) + (\vb{A}
+\cdot \nabla) \vb{B}+ (\vb{B} \cdot \nabla) \vb{A}
+$$ {#eq-tension-1}
+and Ampere's law ($4 \pi \vb{j}= \nabla \times \vb{B}$), we can rewrite the Lorentz force as
+$$
+\vb{j} \times \vb{B}= \frac{(\nabla \times \vb{B}) \times
+\vb{B}}{4 \pi} = \frac{(\vb{B} \cdot \nabla) \vb{B}}{4 \pi} -
+\nabla \frac{B^2}{8 \pi} .
+$$ {#eq-tension-lorentz-force}
+The second term is often improperly referred to as the magnetic pressure, because it is reminiscent of the $- \nabla p$ term in the momentum equation, while the first term is improperly referred to as magnetic tension. However, remember that magnetic pressure is only effective perpendicular to the field lines, as we have already remarked. To better understand the nature of the Lorentz force in MHD, we factor
+$$
+\vb{B}= B \hat{\vb{b}},
+$$ {#eq-tension-3}
+where $\hat{\vb{b}}$ is a unit vector. Accordingly, we can write
+$$
+\begin{aligned}
+(\vb{B} \cdot \nabla) \vb{B} &= B (\hat{\vb{b}} \cdot \nabla)
+(B \hat{\vb{b}}) \\
+&= B^2  (\hat{\vb{b}} \cdot \nabla) \hat{\vb{b}}
++ B \hat{\vb{b}}  (\hat{\vb{b}} \cdot \nabla) B \\
+&= B^2  (\hat{\vb{b}} \cdot \nabla)  \hat{\vb{b}} + \frac{1}{2}
+\hat{\vb{b}}  (\hat{\vb{b}} \cdot \nabla) B^2 .
+\end{aligned}
+$$ {#eq-tension-4}
+The last term on the RHS is, apart from a factor 2, the projection of $\nabla B^2$ parallel to $\vb{B}$:
+$$
+[\hat{\vb{b}}  (\hat{\vb{b}} \cdot \nabla) B^2]_i = \sum_{j = 1}^3
+\hat{b}_i  \hat{b}_j \partial_j  (B^2) = [(\hat{\vb{b}} \otimes
+\hat{\vb{b}}) \nabla (B^2)]_i = : \nabla_{\parallel} B^2 .
+$$ {#eq-tension-5}
+Plugging this back into @eq-tension-lorentz-force yields
+$$
+\vb{j} \times \vb{B}= \frac{B^2}{4 \pi}  (\hat{\vb{b}} \cdot
+\nabla)  \hat{\vb{b}} - [\vb{I}- \hat{\vb{b}} \otimes
+\hat{\vb{b}}]  \frac{\nabla B^2}{8 \pi} = \frac{B^2}{4 \pi}
+(\hat{\vb{b}} \cdot \nabla)  \hat{\vb{b}} - \nabla_{\perp}
+\frac{B^2}{8 \pi} .
+$$ {#eq-tension-lorentz-force-decomposed}
+The last term is the component of $\nabla (B^2 / 8 \pi)$ perpendicular to the field lines. This is the correct form of the magnetic pressure, while the first term on the RHS is the proper form of the magnetic tension.
+
+We remark that $u_B = B^2 / 8 \pi$ is the energy in the magnetic field, so the magnetic pressure force is
+$$
+p_B = (\Gamma_B - 1) u_B,
+$$ {#eq-tension-7}
+with an effective adiabatic index $\Gamma_B = 2$. For ionized hydrogen $\Gamma = 5 / 3$, so magnetic energy is more effective at resisting compression than gas internal energy. Of course, magnetic pressure can only resist compression perpendicular to the field lines.
+
+To understand the meaning of the first term on the RHS of @eq-tension-lorentz-force-decomposed, note that
+$$
+(\hat{\vb{b}} \cdot \nabla)  \hat{\vb{b}} =\vb{\kappa},
+$$ {#eq-tension-8}
+where $1 / | \vb{\kappa} |$ is the curvature radius of the field lines. That is $\vb{\kappa}= 0$ for straight field lines. For a circular field line, $1 / | \vb{\kappa} |$ is the radius of the circle spanned by the line. This means that the magnetic field lines back-react on the plasma as if they were elastic springs with spring constant $B^2 / 4 \pi$.
+
+Summarizing, we find that there are two components of the Lorentz force. The first is the magnetic pressure, according to which the magnetic field lines resist being bundled together. The second is the magnetic tension, according to which the magnetic field lines resist bending. This situation is illustrated in @fig-tension-pressure-tension.
+
+![*Left panel:* effect of the magnetic pressure force. *Right panel:* effect of the magnetic tension force.](../figures/magnetic-tension/tension-pressure-tension.svg){#fig-tension-pressure-tension fig-alt="Left panel: a bundle of field lines pointing out of the page, drawn as circled dots with unit vector b-hat; four arrows pointing diagonally outward show the magnetic pressure force, minus the perpendicular gradient of B squared over 8 pi. Right panel: a curved field line in blue with direction b-hat; an arrow from the curve towards its centre of curvature shows the tension force B squared over 4 pi times (b-hat dot nabla) b-hat."}
+
+As we have already anticipated (see @eq-mhd-22), the Lorentz force can be rewritten as the divergence of the magnetic stresses:
+$$
+\frac{(\vb{B} \cdot \nabla) \vb{B}}{4 \pi} - \nabla \frac{B^2}{8
+\pi} = \nabla \cdot \left[ \frac{\vb{B} \otimes \vb{B}}{4 \pi} -
+\frac{B^2}{8 \pi} \vb{I} \right] =: \nabla \cdot
+\vb{T}_{\operatorname{EM}} .
+$$ {#eq-tension-9}
+The derivation is conceptually simple, although it requires some tedious vector calculus calculations. Including both fluid $\vb{T}$ and magnetic stresses, the Euler equation reads:
+$$
+\rho \frac{\dd \vb{v}}{\dd t} = \nabla \cdot
+[\vb{T}+\vb{T}_{\operatorname{EM}}] .
+$$ {#eq-tension-10}
+For an ideal fluid $\vb{T}= - p\vb{I}$, however shear and bulk viscosity can also be included in $\vb{T}$ to obtain the viscous MHD equations. In conservation form, the momentum equation reads
+$$
+\frac{\partial (\rho \vb{v})}{\partial t} + \nabla \cdot [\rho
+\vb{v} \otimes \vb{v}-\vb{T}-\vb{T}_{\operatorname{EM}}] = 0,
+$$ {#eq-tension-11}
+where $\vb{R}= - \rho \vb{v} \otimes \vb{v}$ are the Reynolds stresses or inertial forces[^tension-1].
+
+::: {.callout-tip icon=false}
+## Example: Solar prominence
+
+Solar prominences are plasma arches which rise above the Solar photo-sphere and are supported by the magnetic tension, as illustrated by @fig-tension-prominence-photo and @fig-tension-prominence.
+
+![Solar prominence in UV. Credit: NASA ([What is a solar prominence?](https://www.nasa.gov/image-article/what-solar-prominence/)); not covered by the license of these notes.](../figures/magnetic-tension/solar-prominence-nasa.jpg){#fig-tension-prominence-photo fig-alt="Ultraviolet image of the edge of the Sun, glowing orange, with a huge arch of bright plasma looping out from the surface into the dark sky. A small picture of the Earth is shown for scale; the arch is many times larger than the Earth."}
+
+![Force diagram for a Solar prominence.](../figures/magnetic-tension/tension-prominence-forces.svg){#fig-tension-prominence fig-alt="A grey ellipse, the prominence, inside a rectangular control volume V above the curved Solar photosphere. Blue magnetic field lines rise from the photosphere, arch over the prominence and come back down, entering the volume above and at the sides of the prominence. The gravitational acceleration g points down, towards the photosphere."}
+
+To understand how prominences are supported against gravity, let us consider the balance of forces on the region in the volume $V$ with boundary surface $S$:
+$$
+\begin{aligned}
+0 &= \frac{\dd}{\dd t} \int_V \rho \vb{v} \dd V \\
+&= \int_V \nabla \cdot [\rho \vb{v} \otimes
+\vb{v}-\vb{T}-\vb{T}_{\operatorname{EM}}] \dd V + \int_V \rho
+\vb{g} \dd V \\
+&= \int_S \rho \vb{v}\vb{v} \cdot \dd \vb{S}- \int_S
+\left( p + \frac{B^2}{8 \pi} \right) \dd \vb{S} \\
+& \quad + \int_S \frac{\vb{B}}{4 \pi} \vb{B} \cdot \dd \vb{S}+ \int_V \rho
+\vb{g} \dd V.
+\end{aligned}
+$$ {#eq-tension-12}
+The main force balancing gravity is the magnetic tension, arising from the $\vb{B}\vb{B} \cdot \dd \vb{S}$ term. Notice that, $\vb{B} \cdot \dd \vb{S}$ is negative on the left, where $\vb{B}$ points down, giving a net force in the vertical direction. Similarly, $\vb{B} \cdot \dd \vb{S}$ is positive on the right giving a force along $\vb{B}$, which points up. Magnetic pressure force, arising from the squeezing of the field lines below the prominence also contribute, but is subdominant.
+
+The attentive reader might have noticed the $\vb{B}\vb{B} \cdot \dd \vb{S}$ term always contribute a force in the direction of $\vb{B}$ with magnitude $B^2 \hat{\vb{b}} \cdot \dd \vb{S}$. How can this be possible? We have previously commented on the fact that magnetic forces are always perpendicular to $\vb{B}$. The issue here is that this terms represents the net force from magnetic tension over $V$ and not the force in a specific point and the net force over an extended region average can be parallel to the net magnetic field. In other words, we should not confuse the force on individual fluid elements, which is always perpendicular to $\vb{B}$, to the net force experienced over a control volume, which does not have to be in any particular direction a priori.
 :::
+
+## Hydromagnetic Equilibria
+
+Consider the hydrostatic equilibrium of a plane-parallel, magnetized atmosphere in a vertical gravitational potential $\Psi$, as illustrated in @fig-tension-atmosphere. This equilibrium configuration could be representative of the disk in a spiral galaxy, or of the photo-sphere of the Sun.
+
+![Force diagram for a plane-parallel magnetized atmosphere.](../figures/magnetic-tension/tension-atmosphere.svg){#fig-tension-atmosphere fig-alt="Axes y (horizontal) and z (vertical). Three horizontal green lines represent the magnetic field B(y, z), parallel to the y axis. Blue dots represent the gas, which is denser at the bottom than at the top. A blue arrow pointing down is labelled minus nabla Psi, the direction of gravity."}
+
+The force-balance equation for hydromagnetic equilibrium is
+$$
+- \nabla p - \rho \nabla \Psi + \frac{1}{4 \pi} (\nabla \times \vb{B})
+\times \vb{B}= 0.
+$$ {#eq-tension-13}
+We will make two simplifying assumptions.
+
+1.  The gas is isothermal, so $p = a^2 \rho$. This means that, in absence of magnetic fields,
+    $$
+    \rho (z) = \tilde{\rho} \exp (- \Psi / a^2) .
+    $$ {#eq-tension-14}
+
+2.  We assume that the magnetic field is planar and does not depend on $x$, meaning that
+    $$
+    \vb{B}= B_y (y, z)  \hat{\vb{y}} + B_z (y, z)  \hat{\vb{z}} .
+    $$ {#eq-tension-15}
+    This means that there exist a vector potential $\vb{A}= A (y, z) \hat{\vb{x}}$ such that $\nabla \times \vb{A}=\vb{B}$. In particular,
+    $$
+    B_y = \partial_z A, \quad B_z = - \partial_y A \qquad \Longleftrightarrow
+    \qquad \vb{B}= \nabla A \times \hat{\vb{x}} .
+    $$ {#eq-tension-16}
+    Note that $\vb{A} \perp \vb{B}$ and $\vb{A}= \operatorname{const}$ on the magnetic field lines, so the isocontours of $A (y, z)$ are the field lines.
+
+To compute the Lorentz force we use
+$$
+\nabla \times \vb{B}= \nabla \times (\nabla \times \vb{A}) = -
+\nabla^2 \vb{A}+ \nabla (\nabla \cdot \vb{A}) = - \hat{\vb{x}}
+\nabla^2 A.
+$$ {#eq-tension-17}
+and
+$$
+(\nabla \times \vb{B}) \times \vb{B}= - (\nabla^2 A)
+\hat{\vb{x}} \times (- \hat{\vb{x}} \times \nabla A) = - (\nabla^2
+A) \nabla A.
+$$ {#eq-tension-18}
+For reasons that will be more clear later, we rewrite
+$$
+\nabla p + \rho \nabla \Psi = e^{- \Psi / a^2} \nabla q, \qquad q = pe^{\Psi
+/ a^2} .
+$$ {#eq-tension-19}
+The force equation finally reduces to
+$$
+\boxed{- \frac{1}{4 \pi} (\nabla^2 A) \nabla A = e^{- \Psi / a^2} \nabla
+q.}
+$$ {#eq-tension-20}
+The last equation shows that $\nabla q \parallel \nabla A$, which means that $q = q (A)$. One can then find equilibrium configuration by specifying $q = q (A)$, which encodes the amount of matter enclosed by the field lines $A$ and $A + \dd A$, and solving the resulting equation for $A$. We shall not follow this line of reasoning here, instead we will make two more simplifying assumption, following @parker1966.
+
+1.  We assume that the magnetic field lines are parallel, $\vb{B}= B (z) \hat{\vb{y}}$.
+
+2.  We assume that the ratio of gas to magnetic pressure is constant
+    $$
+    \frac{B^2}{8 \pi p} = \alpha_0 .
+    $$ {#eq-tension-21}
+
+With these simplifications, the equation for equilibrium becomes
+$$
+(1 + \alpha_0)  \frac{\dd p}{\dd z} = - \frac{p}{a^2}  \frac{\dd
+\Psi}{\dd z} .
+$$ {#eq-tension-22}
+Apart from the additional factor $\alpha_0$, this is the usual equation for hydrostatic equilibrium of a plane-parallel isothermal atmosphere. The solution is
+$$
+p (z) = p_0 \exp \left( - \frac{\Psi (z)}{(1 + \alpha_0) a^2} \right),
+\qquad B (z) = B_0 \exp \left( - \frac{\Psi (z)}{2 (1 + \alpha_0) a^2}
+\right) .
+$$ {#eq-tension-23}
+Remarkably, this solution turns out to be unstable for any $\alpha_0 > 0$ to long-wavelength perturbations, the so-called *Parker instability* [@parker1966]. This is demonstrated in the MHD simulations shown in @fig-tension-parker.
+
+![Development of the Parker instability in 3D MHD simulations, at three times. From @matsumoto1992; © Astronomical Society of Japan, reproduced for non-commercial educational use and not covered by the license of these notes.](../figures/magnetic-tension/parker-instability-matsumoto1992.png){#fig-tension-parker fig-alt="Three panels showing horizontal magnetic field lines in a vertical slice of a stratified atmosphere at three times. In the first panel the field lines are straight and horizontal. In the second they start to bend, rising in the middle. In the third they form a large arch, with velocity arrows showing gas sliding down along the field lines into the valleys on either side."}
+
+Imagine starting from a plane parallel field, like in the left-most panel in the figure, and adding a small bend to the field lines. The fluid elements in the region with inclined field lines (solid lines in the figure) are still supported by the thermal pressure, but the magnetic pressure they experience is diminished, since the magnetic pressure can only act perpendicular to the field lines. As a result, they slide along the field lines and gain gravitational potential energy in the process. This is shown in the middle panel (the arrows denote the fluid velocity). As the mass loading on the field line decreases, its central part, which is still parallel to the $y$-axis, finds itself with higher pressure than the surrounding and starts to raise. This instability is responsible, for example, for the emergence of flux tubes from the Solar photo-sphere, giving rise to the type of prominence we have discussed previously.
+
+In the case of the Solar corona, the field lines at the foot of the prominences are anchored in the outer convection layers of the Sun. The motion of plasma in this region moves the field lines in random ways and builds enormous tension in the field. When field lines of opposite polarities find themselves sufficiently close they can annihilate in a so-called *reconnection event*. This suddenly releases the magnetic tension and generates Solar flares and coronal mass ejections. Solar eruptions can significantly impact satellites and space communication and can be hazardous for astronauts. The prediction of Solar eruptions using ground- and space-based observations, in conjunction with MHD simulations, is a field of its own: *space weather modeling*.
+
+## In-class worksheet {#sec-tension-worksheet}
+
+**Explosive Reconnection.** Plasma is contained in a region bounded by two perfectly conducting plates. Two magnetic flux tubes are anchored on the plates and stretched by the application of an external force $\vb{f}$ as shown in panel (a) of @fig-tension-reconnection.
+
+![Explosive reconnection of two magnetic flux tubes anchored on conducting plates: (a) before and (b) after reconnection.](../figures/magnetic-tension/tension-reconnection.svg){#fig-tension-reconnection fig-alt="Panel (a): two grey conducting plates, one above the other, a distance 2D apart. Two field lines B in blue are anchored on the plates and bowed towards each other, with height l; black arrows labelled f show the external force that stretches them, and the horizontal extent of each arc is D. Panel (b): after reconnection the field lines run straight between the plates, and arrows labelled v show the plasma moving outwards."}
+
+When $\ell \approx D$, the field lines reconnect and snap to a new configuration shown in panel (b). This process releases energy stored in the magnetic tension of the field to accelerate the plasma to a velocity $\vb{v}$, which reaches a maximum when the field lines are perfectly straight. Assume that the ideal-MHD approximation holds at all times, except when reconnection takes place.
+
+1.  Show that, apart from geometric factors of order unity, the force per unit volume necessary to hold the field lines in place with $\ell \approx D$ is
+    $$
+    | \vb{f} | \approx \frac{B^2}{4 \pi}  \frac{\ell}{D^2} .
+    $$ {#eq-tension-ws1}
+
+2.  Show that the maximum velocity of the plasma after the reconnection event is
+    $$
+    v \approx v_A,
+    $$ {#eq-tension-ws2}
+    where $v_A$ is the Alfvén velocity
+    $$
+    v_A = \frac{B}{\sqrt{4 \pi \rho}} .
+    $$ {#eq-tension-ws3}
+
+## Further reading {#sec-tension-reading}
+
+- @clarke2007, Chapter 13 (plasmas).
+
+[^tension-1]: Note that these are not real forces, they only appear due to the difference between the Eulerian and Lagrangian frames.
