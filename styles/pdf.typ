@@ -54,10 +54,17 @@
   it
 }
 
-// 3. Exercises.
+// 3. Exercises and assumptions.
 // orange-book centres all figures (`show figure: set align(center)`), which overrides
 // theorion's left alignment of exercise frames (they are figures of kind "exercise").
 #show figure.where(kind: "exercise"): set align(start)
+// theorion replaces each frame by its bare body (`it => it.body`), so the frame's first
+// paragraph joins the surrounding text: when it follows another paragraph (e.g. the end
+// of the previous exercise) it gets the first-line indent of the body text. Wrap the
+// body in its own block, where the first paragraph is never indented. This rule takes
+// the place of theorion's, so it also sets the left alignment.
+#show figure.where(kind: "exercise"): it => block(width: 100%, breakable: true, align(start, it.body))
+#show figure.where(kind: "conjecture"): it => block(width: 100%, breakable: true, align(start, it.body))
 
 // 4. Figure size.
 // The SVG figures are drawn for the web, with labels at about 20 px so that they match
