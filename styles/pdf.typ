@@ -93,3 +93,37 @@
     link(el.location(), [#sup~#n])
   }
 }
+
+// 6. Part pages.
+// orange-book prints the part title and, at the bottom of the same page, a small table
+// of contents of the part (chapters and sections) in a narrow, unbreakable box. Our
+// parts have many sections, so the box is taller than the page: it runs off the top and
+// overlaps the title. Keep the title page as in the template (tinted page, part numeral
+// and title), and put the part's table of contents on the following page(s), at full
+// text width and breakable.
+#import "@preview/orange-book:0.7.1": part-state, part-counter, part-location, part-change, appendix-state, main-color-state, part-font-size-state, outline-small-depth-state, my-outline-small, large-text, outline-heading1, outline-heading2
+#let part(title) = {
+  pagebreak(to: "odd")
+  part-change.update(x => true)
+  part-state.update(x => title)
+  part-counter.step()
+  [
+    #context { let her = here(); part-location.update(x => her) }
+    #context {
+      let main-color = main-color-state.at(here())
+      let part-font-size = part-font-size-state.at(here())
+      set par(justify: false)
+      place(block(width: 100%, height: 100%, outset: (x: 3cm, bottom: 2.5cm, top: 3cm), fill: main-color.lighten(70%)))
+      place(top + right, text(fill: black, size: large-text, weight: "bold", box(width: 60%, part-state.get())))
+      place(top + left, text(fill: main-color, size: part-font-size, weight: "bold", part-counter.display("I")))
+    }
+  ]
+  pagebreak()
+  context {
+    let main-color = main-color-state.at(here())
+    let depth = outline-small-depth-state.at(here())
+    // my-outline-small wraps the outline in a box; unwrap it so that it can break.
+    show box: it => if it.has("body") and it.body.func() == outline { it.body } else { it }
+    block(width: 100%, breakable: true, my-outline-small(title, appendix-state, part-state, part-location, part-change, part-counter, main-color, textSize2: outline-heading1, textSize4: outline-heading2, depth: depth, width: 100%))
+  }
+}
