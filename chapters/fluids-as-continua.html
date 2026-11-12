@@ -612,95 +612,13 @@ window.Quarto = {
 
 <section id="fluid-elements" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="fluid-elements"><span class="header-section-number">1.1</span> Fluid elements</h2>
-<p>Astrophysical systems contain very large numbers of elementary particles. However, for most applications, we are only interested in the dynamics of the gas or plasma on scales that are large compared to the typical length scale of interaction between its constituents particles. In this context, it is convenient to treat matter as a continuum. That is, instead of keeping track of the momentum and position of each particle in the system, we describe it using equations for the evolution of macroscopic, average quantities.</p>
-<p>We imagine matter as being composed of <strong>fluid elements</strong>. These are parcels of gas, or plasma, that have a characteristic size that is much smaller than the scales in which we are interested, but that still contain a large enough number of fluid constituents, molecules, or ions, so that it makes sense to talk about their properties, such as temperature. In other words, we require a fluid element <span class="math inline">\(\mathcal{V}\)</span> to be a parcel of matter that can be considered to be in thermodynamic equilibrium. We will call <strong>fluid</strong> a system that is composed of fluid elements. As we will see later, the equations of motion for fluids do not explicitly depend on the size or shape of the fluid elements, so we will not attempt to define them more precisely. The only requirement is that fluid elements should exist. We will also discuss later what happens when the concept of fluid element breaks down. For the moment, we will assume that the system we are studying can be decomposed in fluid elements and we will derive equation of motion for these fluid elements.</p>
-<p>We define the <strong>number density</strong> of a fluid element <span class="math inline">\(\mathcal{V}\)</span> to be <span id="eq-continua-1"><span class="math display">\[
-n = \frac{\text{``number of particles in $\mathcal{V}$''}}{\text{``volume
-$\mathcal{V}$''}} \qquad [\operatorname{cm}^{- 3}] .
-\tag{1.1}\]</span></span> As the system evolves, the number of particles inside the volume element <span class="math inline">\(\mathcal{V}\)</span> remains constant, but the size of the volume changes, so <span class="math inline">\(n\)</span> depends on both <span class="math inline">\(\mathcal{V}\)</span> and the time <span class="math inline">\(t\)</span>.</p>
-<p>An associated concept is that of the <strong>mass density</strong> (or simply density) <span id="eq-continua-2"><span class="math display">\[
-\rho = \frac{\text{``mass contained in $\mathcal{V}$''}}{\text{``volume of
-$\mathcal{V}$''}} \qquad [\mathrm{g} \operatorname{cm}^{- 3}] .
-\tag{1.2}\]</span></span> If the gas is composed of identical particles of mass <span class="math inline">\(m\)</span>, then <span class="math inline">\(\rho = mn\)</span>. For mixtures with many constituents <span id="eq-continua-3"><span class="math display">\[
-\rho = \sum_{i = 1}^N m_i n_i = \sum_{i = 1}^N m_i Y_i n = \mu n,
-\tag{1.3}\]</span></span> where we have introduced the particle number fractions <span class="math inline">\(Y_i = n_i / n\)</span> and the mean molecular weight <span class="math inline">\(\mu\)</span>. We can also decompose <span class="math inline">\(\rho\)</span> in terms of the mass densities of the different species <span class="math inline">\(\rho_i = m_i n_i\)</span>: <span id="eq-continua-4"><span class="math display">\[
-\rho = \sum_{i = 1}^N \rho_i = \sum_{i = 1}^N X_i \rho .
-\tag{1.4}\]</span></span> The <span class="math inline">\(X_i = \rho_i / \rho\)</span> are the mass fractions. <span class="math inline">\(Y_i\)</span> measures the relative contribution of each species to the number density, while <span class="math inline">\(X_i\)</span> measures the relative contribution to the mass density. In general, <span class="math inline">\(X_i \neq Y_i\)</span>, unless all particle species have the same mass.</p>
-<p>We also assume that each element has fixed velocity <span id="eq-continua-5"><span class="math display">\[
-\mathbf{v}= \text{``velocity of $\mathcal{V}$''} \qquad [\operatorname{cm}
-\mathrm{s}^{- 1}]
-\tag{1.5}\]</span></span> and temperature <span id="eq-continua-6"><span class="math display">\[
-T = \text{``temperature of $\mathcal{V}$''} \qquad [\mathrm{K}] .
-\tag{1.6}\]</span></span> With these definitions in place, we are now ready to state explicitly the assumptions that we are making when we treat a gas or a plasma as a fluid. Consider region <span class="math inline">\(\mathcal{R}\)</span> filled with matter. We say that this system can be treated as a fluid if the following assumption holds.</p>
-<div id="cnj-continua-fluid" class="theorem conjecture">
-<p><span class="theorem-title"><strong>Assumption 1.1 (Fluid assumption)</strong></span> Every point <span class="math inline">\(P \in \mathcal{R}\)</span> belongs to one fluid element, with given values of density <span class="math inline">\(\rho\)</span>, composition <span class="math inline">\(\{ Y_i \}\)</span>, velocity <span class="math inline">\(\mathbf{v}\)</span>, and temperature <span class="math inline">\(T\)</span>.</p>
-</div>
-<p>This assumption tells us that it makes sense to say that there is a single value of density, temperature, and velocity at each point. This assumption is violated, for example, in systems in which different particle species move independently. Such systems can sometimes be described as <strong>multi-fluids</strong>, that is systems in which there are different kinds of fluid elements that interact with each other. Plasmas in weakly collisional regimes can sometimes be treated as multi-fluids. A gas of photons in vacuum, instead, cannot be treated as a (multi-)fluid, since at each point in space there are photons traveling in infinitely many different directions.</p>
-<p>The assumption also implies that sufficiently small parcels of material are in thermodynamic equilibrium, so that fluid elements have a well defined temperature. This is also called <strong>local thermodynamic equilibrium (LTE)</strong> condition. This condition is violated in some impulsive phenomena, such as in shock waves. Violations of LTE can sometimes be included in the fluid model. We will see two examples later: the effect of viscosity and heat conduction and the treatment of shocks. In other cases, it is necessary to describe non-LTE effects using a combination of fluid and non-fluid models. For example, to simulate the effect of cosmic rays on the dynamics of clouds in the interstellar medium it is necessary to solve separate equations for the cosmic rays, which cannot be treated as a fluid, and for the rest of the matter, for which the fluid approximation holds very well.</p>
-<p>It is important to note that whether or not the fluid assumption holds is not an absolute statement, but also depends on the time and length scale of interest. For example, the dynamics of dark matter in the Bullet cluster (<a href="#fig-continua-bullet-cluster" class="quarto-xref">Figure&nbsp;<span>1.1</span></a>) cannot be described using the fluid approximation. This is because dark matter does not flow with a single velocity. On the other hand, on cosmological scales, dark matter dynamics can be reasonably well described using a pressure-less fluid model: this is the so-called Zel’dovich approximation.</p>
-<div id="fig-continua-bullet-cluster" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Composite image of the Bullet cluster: a field of galaxies on a black background, with two pink regions of hot X-ray-emitting gas in the middle and two blue regions, showing where the dark matter is, on either side of them, ahead of the gas.">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-continua-bullet-cluster-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../figures/fluids-as-continua/bullet-cluster.jpg" class="img-fluid figure-img" alt="Composite image of the Bullet cluster: a field of galaxies on a black background, with two pink regions of hot X-ray-emitting gas in the middle and two blue regions, showing where the dark matter is, on either side of them, ahead of the gas.">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-continua-bullet-cluster-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1.1: The Bullet cluster is the product of the head-on collision of two galaxy clusters (optical data). The gas in the two clusters has interacted producing a shock-wave (X-ray data in red) and trails the two groups of galaxies. Dark matter (blue halos) does not interact, so the two dark matter clouds associated with the clusters have passed through each other. Image credit: ESA, used under the <a href="https://www.esa.int/ESA_Multimedia/Copyright_Notice_Images">ESA Standard Licence</a>; not covered by the license of these notes.
-</figcaption>
-</figure>
-</div>
-</section>
-<section id="the-continuity-equation" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="the-continuity-equation"><span class="header-section-number">1.2</span> The continuity equation</h2>
-<p>We now assume to have a system that can be described as a fluid. We wish to derive equations to predict how <span class="math inline">\(\rho\)</span>, <span class="math inline">\(\mathbf{v}\)</span>, and <span class="math inline">\(T\)</span> evolve for all fluid elements. To this aim, we will use three fundamental laws in classical physics: 1) the law of conservation of mass; 2) Newton’s second law; and 3) the first law of thermodynamics. The law of conservation of mass gives rise to the continuity equation, which we will now derive.</p>
-<div id="fig-continua-stretching-along-x" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A cube of side dx. A dashed arrow at the left face points to the right and is labelled with the velocity v_x at x equal to minus dx over 2; a longer solid arrow beyond the right face is labelled with v_x at x equal to dx over 2, showing that the element is stretched along x.">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-continua-stretching-along-x-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../figures/fluids-as-continua/stretching-along-x.svg" class="img-fluid figure-img" alt="A cube of side dx. A dashed arrow at the left face points to the right and is labelled with the velocity v_x at x equal to minus dx over 2; a longer solid arrow beyond the right face is labelled with v_x at x equal to dx over 2, showing that the element is stretched along x.">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-continua-stretching-along-x-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1.2: Fluid element stretching in the <span class="math inline">\(x\)</span>-direction.
-</figcaption>
-</figure>
-</div>
-<p>Consider the infinitesimal fluid element <span class="math inline">\(\mathcal{V}\)</span> shown in <a href="#fig-continua-stretching-along-x" class="quarto-xref">Figure&nbsp;<span>1.2</span></a>. Let <span class="math inline">\(\mathrm{d} x\)</span> be the size of the fluid element along the <span class="math inline">\(x\)</span>-direction at some time <span class="math inline">\(t\)</span>. Let <span class="math inline">\(v_x\)</span> be the <span class="math inline">\(x\)</span>-component of the velocity. If we take the origin to be the center of the fluid element, the velocity with which the left face is moving is <span class="math inline">\(v_x \left( - \tfrac{\mathrm{d} x}{2} \right)\)</span>, while the velocity of the right face is <span class="math inline">\(v_x \left( \tfrac{\mathrm{d} x}{2} \right)\)</span>. For the moment, we assume <span class="math inline">\(v_y = v_z = 0\)</span>. The initial volume of <span class="math inline">\(\mathcal{V}\)</span> is <span class="math inline">\(V = \mathrm{d} x \mathrm{d} y \mathrm{d} z\)</span>. At time <span class="math inline">\(t + \mathrm{d} t\)</span>, <span class="math inline">\(\mathcal{V}\)</span> is deformed and has volume <span id="eq-continua-7"><span class="math display">\[
-V' = \left( \mathrm{d} x + \left[ v_x \left( \tfrac{\mathrm{d} x}{2} \right) - v_x
-\left( - \tfrac{\mathrm{d} x}{2} \right) \right] \mathrm{d} t \right) \mathrm{d} y
-\mathrm{d} z = \left( \mathrm{d} x + \frac{\partial v_x}{\partial x} \mathrm{d} x \mathrm{d}
-t \right) \mathrm{d} y \mathrm{d} z,
-\tag{1.7}\]</span></span> so the relative rate in the change of volume of <span class="math inline">\(\mathcal{V}\)</span> is <span id="eq-continua-8"><span class="math display">\[
-\frac{1}{V}  \frac{\mathrm{d} V}{\mathrm{d} t} = \frac{1}{V}  \frac{V' - V}{\mathrm{d}
-t} = \frac{\partial v_x}{\partial x} .
-\tag{1.8}\]</span></span> In an analogous way, we can find the rate of change of an infinitesimal volume <span class="math inline">\(V\)</span> if <span class="math inline">\(v_y\)</span> and <span class="math inline">\(v_z\)</span> are nonzero: <span id="eq-continua-volume"><span class="math display">\[
-\frac{1}{V}  \frac{\mathrm{d} V}{\mathrm{d} t} = \frac{\partial v_x}{\partial x} +
-\frac{\partial v_y}{\partial y} + \frac{\partial v_z}{\partial z} = \nabla
-\cdot \mathbf{v}.
-\tag{1.9}\]</span></span> We have derived this equation for a cubical fluid element. However, it turns out that this equation holds in general. The extension of this result to finite (as opposed to infinitesimal) fluid elements is known as the <strong>Reynolds theorem</strong>, which states that</p>
-<p><span id="eq-continua-10"><span class="math display">\[
-\frac{\mathrm{d} V}{\mathrm{d} t} = \int_{\partial \Omega} \mathbf{v} \cdot
-\mathbf{n} \mathrm{d} S = \int_{\Omega} \nabla \cdot \mathbf{v} \mathrm{d} V,
-\tag{1.10}\]</span></span> where <span class="math inline">\(\Omega\)</span> is some extended region comoving with the flow, <span class="math inline">\(\partial \Omega\)</span> is the surface enclosing <span class="math inline">\(\Omega\)</span>, and <span class="math inline">\(\mathbf{n}\)</span> is the outwards pointing normal to it.</p>
-<p>A proof of this theorem is outside the scope of this course, but it can be found in any book on continuum mechanics. Its geometrical interpretation is illustrated in <a href="#fig-continua-reynolds-theorem" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>. The first equality means that the rate of change of the volume of <span class="math inline">\(\Omega\)</span> is equal to the surface integral of the component of the velocity normal to the volume. This makes sense, because the tangent part of the velocity does not alter the shape of the volume, but corresponds locally to a rotation, while the normal components corresponds to an expansion/contraction of <span class="math inline">\(\Omega\)</span>. The second equality follows from the Gauss divergence theorem. Because <span class="math inline">\(\nabla \cdot \mathbf{v}\)</span> determines the rate of change of the fluid element volumes, it is also called the <strong>expansion</strong>.</p>
-<div id="fig-continua-reynolds-theorem" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A closed region Omega with a thick outline, and the slightly displaced outline of the same region a short time later. Arrows labelled v show the velocity of the boundary and n the outward normal. The thin sliver between the two outlines has volume dV of order v dot n dt per unit area.">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-continua-reynolds-theorem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../figures/fluids-as-continua/reynolds-theorem.svg" class="img-fluid figure-img" alt="A closed region Omega with a thick outline, and the slightly displaced outline of the same region a short time later. Arrows labelled v show the velocity of the boundary and n the outward normal. The thin sliver between the two outlines has volume dV of order v dot n dt per unit area.">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-continua-reynolds-theorem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1.3: The instantaneous rate of change in the volume of a region is equal to the flux of the velocity field through its boundary.
-</figcaption>
-</figure>
-</div>
-<p>If we denote by <span class="math inline">\(\mathcal{M}\)</span> the mass of a fluid element <span class="math inline">\(\mathcal{V}\)</span>, and use the fact that <span class="math inline">\(\mathcal{M}\)</span> is conserved, then we find <span id="eq-continua-11"><span class="math display">\[
-\rho = \frac{\mathcal{M}}{V} \Longrightarrow \frac{\mathrm{d} \rho}{\mathrm{d} t} =
-- \frac{\mathcal{M}}{V^2}  \frac{\mathrm{d} V}{\mathrm{d} t} = -
-\frac{\mathcal{M}}{V}  \frac{1}{V}  \frac{\mathrm{d} V}{\mathrm{d} t} = - \rho
-\nabla \cdot \mathbf{v} .
-\tag{1.11}\]</span></span> We can rearrange the terms to obtain <span id="eq-continua-12"><span class="math display">\[
-\boxed{\frac{1}{\rho}  \frac{\mathrm{d} \rho}{\mathrm{d} t} = - \nabla \cdot
-\mathbf{v}}
-\tag{1.12}\]</span></span> This is the <strong>continuity equation</strong>. The first of the fundamental equations of motion for fluids. Note that this equation can also be written in terms of <span class="math inline">\(n\)</span>: <span id="eq-continua-13"><span class="math display">\[
-\frac{1}{n}  \frac{\mathrm{d} n}{\mathrm{d} t} = - \nabla \cdot \mathbf{v}.
-\tag{1.13}\]</span></span> The continuity equation also holds separately for the <span class="math inline">\(n_i\)</span> and <span class="math inline">\(\rho_i\)</span> of each species in the fluid, as long as there are no chemical reactions converting between the species, i.e., <span class="math inline">\(\dot{X}_i = \dot{Y}_i = 0\)</span>.</p>
+<p>Astrophysical systems contain very large numbers of elementary particles. However, for most applications, we are only interested in the dynamics of the gas or plasma on scales that are large compared to the typical length scale of interaction between its constituent particles. In this context, it is convenient to treat matter as a continuum. That is, instead of keeping track of the momentum and position of each particle in the system, we describe it using equations for the evolution of macroscopic, average quantities.</p>
+<p>We imagine matter as being composed of <strong>fluid elements</strong>. These are parcels of gas, or plasma, that have a characteristic size that is much smaller than the scales in which we are interested, but that still contain a large enough number of fluid constituents, molecules, or ions, so that it makes sense to talk about their properties, such as temperature. In other words, we require a fluid element <span class="math inline">\(\mathcal{V}\)</span> to be a parcel of matter that can be considered to be in thermodynamic equilibrium. We will call <strong>fluid</strong> a system that is composed of fluid elements. As we will see later, the equations of motion for fluids do not explicitly depend on the size or shape of the fluid elements, so we will not attempt to define them more precisely. The only requirement is that fluid elements should exist. We will also discuss later what happens when the concept of fluid element breaks down. For the moment, we will assume that the system we are studying can be decomposed in fluid elements and we will derive equations of motion for these fluid elements.</p>
+<p>How large should a fluid element be? The particles in a fluid element need to collide with each other frequently, so that they can exchange energy and momentum and reach thermodynamic equilibrium. The average distance traveled by a particle between two collisions is called the <strong>mean free path</strong> <span id="eq-continua-mean-free-path"><span class="math display">\[
+\lambda = \frac{1}{n \sigma},
+\tag{1.1}\]</span></span> where <span class="math inline">\(n\)</span> is the number density (<a href="#eq-continua-3" class="quarto-xref">Equation&nbsp;<span>1.3</span></a>) and <span class="math inline">\(\sigma\)</span> is the cross section for collisions. Fluid elements need to be much larger than <span class="math inline">\(\lambda\)</span>, but also much smaller than the length scale <span class="math inline">\(L\)</span> over which the properties of the system change. This is possible only if <span id="eq-continua-knudsen"><span class="math display">\[
+\lambda \ll L .
+\tag{1.2}\]</span></span> The ratio <span class="math inline">\(\lambda / L\)</span> is called the <strong>Knudsen number</strong>. In other words, the fluid approximation requires the Knudsen number to be small.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -711,7 +629,110 @@ Figure&nbsp;1.3: The instantaneous rate of change in the volume of a region is e
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A flow in which all fluid elements have the same velocity has <span class="math inline">\(\nabla \cdot \mathbf{v}= 0\)</span>, since <span class="math inline">\(\mathbf{v}\)</span> is a constant, so <span class="math inline">\(\rho = \operatorname{const}\)</span>.</p>
+<p>Consider a cloud of atomic hydrogen in the interstellar medium with number density <span class="math inline">\(n \sim 1\,\mathrm{cm^{-3}} = 10^{6}\,\mathrm{m^{-3}}\)</span>. The cross section for collisions between hydrogen atoms is <span class="math inline">\(\sigma \sim 10^{-19}\,\mathrm{m^2}\)</span>, so the mean free path is <span class="math inline">\(\lambda \sim 10^{13}\,\mathrm{m}\)</span>, or about <span class="math inline">\(70\,\mathrm{AU}\)</span>. This is much smaller than the typical size of interstellar clouds, <span class="math inline">\(L \sim 1\,\mathrm{pc} \approx 3 \times 10^{16}\,\mathrm{m}\)</span>. So <span class="math inline">\(\lambda / L \sim 3 \times 10^{-4}\)</span> and the cloud can be treated as a fluid.</p>
+</div>
+</div>
+<p>For plasmas, the mean free path does not tell the whole story. Magnetic fields force charged particles to gyrate around the field lines, so they cannot drift freely across the field lines even in the absence of collisions. For this reason, plasmas can sometimes be treated as fluids even when <span class="math inline">\(\lambda\)</span> is large. We will come back to this point in <a href="plasma.html" class="quarto-xref"><span>Chapter 22</span></a>.</p>
+<p>We define the <strong>number density</strong> of a fluid element <span class="math inline">\(\mathcal{V}\)</span> to be <span id="eq-continua-3"><span class="math display">\[
+n = \frac{\text{``number of particles in $\mathcal{V}$''}}{\text{``volume of
+$\mathcal{V}$''}} \qquad [\mathrm{m}^{- 3}] .
+\tag{1.3}\]</span></span> As the system evolves, the number of particles inside the volume element <span class="math inline">\(\mathcal{V}\)</span> remains constant, but the size of the volume changes, so <span class="math inline">\(n\)</span> depends on the fluid element and on time.</p>
+<p>An associated concept is that of the <strong>mass density</strong> (or simply density) <span id="eq-continua-4"><span class="math display">\[
+\rho = \frac{\text{``mass contained in $\mathcal{V}$''}}{\text{``volume of
+$\mathcal{V}$''}} \qquad [\mathrm{kg} \, \mathrm{m}^{- 3}] .
+\tag{1.4}\]</span></span> We use SI units in these notes, but we follow the astrophysical custom of quoting number densities in <span class="math inline">\(\mathrm{cm^{-3}}\)</span> and mass densities in <span class="math inline">\(\mathrm{g\,cm^{-3}}\)</span>, with <span class="math inline">\(1\,\mathrm{cm^{-3}} = 10^6\,\mathrm{m^{-3}}\)</span> and <span class="math inline">\(1\,\mathrm{g\,cm^{-3}} = 10^3\,\mathrm{kg\,m^{-3}}\)</span>. Note that we always convert them to SI before we use them in a formula. If the gas is composed of identical particles of mass <span class="math inline">\(m\)</span>, then <span class="math inline">\(\rho = mn\)</span>. For mixtures with many constituents <span id="eq-continua-5"><span class="math display">\[
+\rho = \sum_{i = 1}^N m_i n_i = \sum_{i = 1}^N m_i Y_i n = \mu m_u n,
+\tag{1.5}\]</span></span> where we have introduced the particle number fractions <span class="math inline">\(Y_i = n_i / n\)</span>, the atomic mass unit <span class="math inline">\(m_u \approx 1.66 \times 10^{-27}\,\mathrm{kg}\)</span>, and the <strong>mean molecular weight</strong> <span id="eq-continua-mu"><span class="math display">\[
+\mu = \sum_{i = 1}^N Y_i \frac{m_i}{m_u} ,
+\tag{1.6}\]</span></span> which is the average mass of the particles in units of <span class="math inline">\(m_u\)</span>. Note that <span class="math inline">\(\mu\)</span> is dimensionless. For example, <span class="math inline">\(\mu \approx 1\)</span> for atomic hydrogen, while <span class="math inline">\(\mu \approx 1/2\)</span> for fully ionized hydrogen, since there are one proton and one electron per atom. We can also decompose <span class="math inline">\(\rho\)</span> in terms of the mass densities of the different species <span class="math inline">\(\rho_i = m_i n_i\)</span>: <span id="eq-continua-7"><span class="math display">\[
+\rho = \sum_{i = 1}^N \rho_i = \sum_{i = 1}^N X_i \rho .
+\tag{1.7}\]</span></span> The <span class="math inline">\(X_i = \rho_i / \rho\)</span> are the mass fractions. <span class="math inline">\(Y_i\)</span> measures the relative contribution of each species to the number density, while <span class="math inline">\(X_i\)</span> measures the relative contribution to the mass density. In general, <span class="math inline">\(X_i \neq Y_i\)</span>, unless all particle species have the same mass.</p>
+<p>We also assume that each element has a well-defined velocity <span id="eq-continua-8"><span class="math display">\[
+\mathbf{v}= \text{``velocity of $\mathcal{V}$''} \qquad [\mathrm{m}
+\, \mathrm{s}^{- 1}]
+\tag{1.8}\]</span></span> and temperature <span id="eq-continua-9"><span class="math display">\[
+T = \text{``temperature of $\mathcal{V}$''} \qquad [\mathrm{K}] .
+\tag{1.9}\]</span></span> With these definitions in place, we are now ready to state explicitly the assumptions that we are making when we treat a gas or a plasma as a fluid. Consider region <span class="math inline">\(\mathcal{R}\)</span> filled with matter. We say that this system can be treated as a fluid if the following assumption holds.</p>
+<div id="cnj-continua-fluid" class="theorem conjecture">
+<p><span class="theorem-title"><strong>Assumption 1.1 (Fluid assumption)</strong></span> Every point <span class="math inline">\(P \in \mathcal{R}\)</span> belongs to one fluid element, with given values of density <span class="math inline">\(\rho\)</span>, composition <span class="math inline">\(\{ Y_i \}\)</span>, velocity <span class="math inline">\(\mathbf{v}\)</span>, and temperature <span class="math inline">\(T\)</span>.</p>
+</div>
+<p>This assumption tells us that it makes sense to say that there is a single value of density, temperature, and velocity at each point. This assumption is violated, for example, in systems in which different particle species move independently. Such systems can sometimes be described as <strong>multi-fluids</strong>, that is systems in which there are different kinds of fluid elements that interact with each other. Plasmas in weakly collisional regimes can sometimes be treated as multi-fluids. A gas of photons in vacuum, instead, cannot be treated as a (multi-)fluid, since at each point in space there are photons traveling in infinitely many different directions.</p>
+<p>The assumption also implies that sufficiently small parcels of material are in thermodynamic equilibrium, so that fluid elements have a well defined temperature. This is also called <strong>local thermodynamic equilibrium (LTE)</strong> condition. This condition is violated in some impulsive phenomena, such as in shock waves. Violations of LTE can sometimes be included in the fluid model. We will see two examples later: the effect of viscosity and heat conduction and the treatment of shocks. In other cases, it is necessary to describe non-LTE effects using a combination of fluid and non-fluid models. For example, to simulate the effect of cosmic rays on the dynamics of clouds in the interstellar medium it is necessary to solve separate equations for the cosmic rays, which cannot be treated as a fluid, and for the rest of the matter, for which the fluid approximation holds very well.</p>
+<p>It is important to note that whether or not the fluid assumption holds is not an absolute statement, but also depends on the time and length scale of interest. For example, the dynamics of dark matter in the Bullet cluster (<a href="#fig-continua-bullet-cluster" class="quarto-xref">Figure&nbsp;<span>1.1</span></a>) cannot be described using the fluid approximation. This is because dark matter does not flow with a single velocity. On the other hand, on cosmological scales, dark matter dynamics can be reasonably well described as a pressure-less fluid, as long as streams of dark matter do not cross. The Zel’dovich approximation is a famous application of this model.</p>
+<div id="fig-continua-bullet-cluster" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Composite image of the Bullet cluster: a field of galaxies on a black background, with two pink regions of hot X-ray-emitting gas in the middle and two blue regions, showing where the dark matter is, on either side of them, ahead of the gas.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-continua-bullet-cluster-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/fluids-as-continua/bullet-cluster.jpg" class="img-fluid figure-img" alt="Composite image of the Bullet cluster: a field of galaxies on a black background, with two pink regions of hot X-ray-emitting gas in the middle and two blue regions, showing where the dark matter is, on either side of them, ahead of the gas.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-continua-bullet-cluster-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.1: The Bullet cluster is the product of the head-on collision of two galaxy clusters (optical data). The gas in the two clusters has interacted producing a shock-wave (X-ray data in red) and trails the two groups of galaxies. Dark matter (blue halos) is nearly collisionless, so the two dark matter clouds associated with the clusters have passed through each other. Image credit: ESA, used under the <a href="https://www.esa.int/ESA_Multimedia/Copyright_Notice_Images">ESA Standard Licence</a>; not covered by the license of these notes.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="the-continuity-equation" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="the-continuity-equation"><span class="header-section-number">1.2</span> The continuity equation</h2>
+<p>We now consider a system that can be described as a fluid. We wish to derive equations to predict how <span class="math inline">\(\rho\)</span>, <span class="math inline">\(\mathbf{v}\)</span>, and <span class="math inline">\(T\)</span> evolve for all fluid elements. To this aim, we will use three fundamental laws in classical physics: 1) the law of conservation of mass; 2) Newton’s second law; and 3) the first law of thermodynamics. The law of conservation of mass gives rise to the continuity equation, which we will now derive.</p>
+<div id="fig-continua-stretching-along-x" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A cube of side dx. A dashed arrow at the left face points to the right and is labelled with the velocity v_x at x equal to minus dx over 2; a longer solid arrow beyond the right face is labelled with v_x at x equal to dx over 2, showing that the element is stretched along x.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-continua-stretching-along-x-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/fluids-as-continua/stretching-along-x.svg" class="img-fluid figure-img" alt="A cube of side dx. A dashed arrow at the left face points to the right and is labelled with the velocity v_x at x equal to minus dx over 2; a longer solid arrow beyond the right face is labelled with v_x at x equal to dx over 2, showing that the element is stretched along x.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-continua-stretching-along-x-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.2: Fluid element stretching in the <span class="math inline">\(x\)</span>-direction.
+</figcaption>
+</figure>
+</div>
+<p>Consider the infinitesimal fluid element <span class="math inline">\(\mathcal{V}\)</span> shown in <a href="#fig-continua-stretching-along-x" class="quarto-xref">Figure&nbsp;<span>1.2</span></a>. Let <span class="math inline">\(\mathrm{d} x\)</span> be the size of the fluid element along the <span class="math inline">\(x\)</span>-direction at some time <span class="math inline">\(t\)</span>. Let <span class="math inline">\(v_x\)</span> be the <span class="math inline">\(x\)</span>-component of the velocity. If we take the origin to be the center of the fluid element, the velocity with which the left face is moving is <span class="math inline">\(v_x \left( - \tfrac{\mathrm{d} x}{2} \right)\)</span>, while the velocity of the right face is <span class="math inline">\(v_x \left( \tfrac{\mathrm{d} x}{2} \right)\)</span>. For the moment, we assume <span class="math inline">\(v_y = v_z = 0\)</span>. The initial volume of <span class="math inline">\(\mathcal{V}\)</span> is <span class="math inline">\(V = \mathrm{d} x \mathrm{d} y \mathrm{d} z\)</span>. At time <span class="math inline">\(t + \mathrm{d} t\)</span>, <span class="math inline">\(\mathcal{V}\)</span> is deformed and has volume <span id="eq-continua-10"><span class="math display">\[
+V' = \left( \mathrm{d} x + \left[ v_x \left( \tfrac{\mathrm{d} x}{2} \right) - v_x
+\left( - \tfrac{\mathrm{d} x}{2} \right) \right] \mathrm{d} t \right) \mathrm{d} y
+\mathrm{d} z = \left( \mathrm{d} x + \frac{\partial v_x}{\partial x} \mathrm{d} x \mathrm{d}
+t \right) \mathrm{d} y \mathrm{d} z,
+\tag{1.10}\]</span></span> so the relative rate in the change of volume of <span class="math inline">\(\mathcal{V}\)</span> is <span id="eq-continua-11"><span class="math display">\[
+\frac{1}{V}  \frac{\mathrm{d} V}{\mathrm{d} t} = \frac{1}{V}  \frac{V' - V}{\mathrm{d}
+t} = \frac{\partial v_x}{\partial x} .
+\tag{1.11}\]</span></span> In an analogous way, we can find the rate of change of an infinitesimal volume <span class="math inline">\(V\)</span> if <span class="math inline">\(v_y\)</span> and <span class="math inline">\(v_z\)</span> are nonzero: <span id="eq-continua-volume"><span class="math display">\[
+\frac{1}{V}  \frac{\mathrm{d} V}{\mathrm{d} t} = \frac{\partial v_x}{\partial x} +
+\frac{\partial v_y}{\partial y} + \frac{\partial v_z}{\partial z} = \nabla
+\cdot \mathbf{v}.
+\tag{1.12}\]</span></span> We have derived this equation for a cubical fluid element. However, it turns out that this equation holds for infinitesimal fluid elements of any shape. The extension of this result to finite (as opposed to infinitesimal) regions is a special case of the <strong>Reynolds transport theorem</strong>, which states that <span id="eq-continua-13"><span class="math display">\[
+\frac{\mathrm{d} V_\Omega}{\mathrm{d} t} = \oint_{\partial \Omega} \mathbf{v} \cdot
+\mathbf{n} \mathrm{d} A = \int_{\Omega} \nabla \cdot \mathbf{v} \mathrm{d} V,
+\tag{1.13}\]</span></span> where <span class="math inline">\(\Omega\)</span> is some extended region comoving with the flow, <span class="math inline">\(V_\Omega\)</span> is its volume, <span class="math inline">\(\partial \Omega\)</span> is the surface enclosing <span class="math inline">\(\Omega\)</span>, <span class="math inline">\(\mathbf{n}\)</span> is the outwards pointing normal to it, and <span class="math inline">\(\mathrm{d} A\)</span> and <span class="math inline">\(\mathrm{d} V\)</span> are the area and volume elements.</p>
+<p>The second equality follows from the Gauss divergence theorem. To see why the theorem holds, we can think of <span class="math inline">\(\Omega\)</span> as being composed of many infinitesimal fluid elements. Each of them changes its volume at the rate <span class="math inline">\((\nabla \cdot \mathbf{v}) \mathrm{d} V\)</span> (<a href="#eq-continua-volume" class="quarto-xref">Equation&nbsp;<span>1.12</span></a>), so the rate of change of <span class="math inline">\(V_\Omega\)</span> is obtained by summing over all of them, which gives the volume integral of <span class="math inline">\(\nabla \cdot \mathbf{v}\)</span>. The geometrical interpretation of the first equality is illustrated in <a href="#fig-continua-reynolds-theorem" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>. The rate of change of the volume of <span class="math inline">\(\Omega\)</span> is equal to the surface integral of the component of the velocity normal to its boundary. This makes sense, because the tangential part of the velocity only slides the boundary along itself, while the normal component moves it outwards or inwards. Because <span class="math inline">\(\nabla \cdot \mathbf{v}\)</span> determines the rate of change of the fluid element volumes, it is also called the <strong>expansion</strong>.</p>
+<div id="fig-continua-reynolds-theorem" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A closed region Omega with a thick outline, and the slightly displaced outline of the same region a short time later. Arrows labelled v show the velocity of the boundary and n the outward normal. The thin sliver between the two outlines has volume dV of order v dot n dt per unit area.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-continua-reynolds-theorem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/fluids-as-continua/reynolds-theorem.svg" class="img-fluid figure-img" alt="A closed region Omega with a thick outline, and the slightly displaced outline of the same region a short time later. Arrows labelled v show the velocity of the boundary and n the outward normal. The thin sliver between the two outlines has volume dV of order v dot n dt per unit area.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-continua-reynolds-theorem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.3: The instantaneous rate of change in the volume of a region is equal to the flux of the velocity field through its boundary.
+</figcaption>
+</figure>
+</div>
+<p>If we denote by <span class="math inline">\(\mathcal{M}\)</span> the mass of a fluid element <span class="math inline">\(\mathcal{V}\)</span>, and use the fact that <span class="math inline">\(\mathcal{M}\)</span> is conserved, then we find <span id="eq-continua-14"><span class="math display">\[
+\rho = \frac{\mathcal{M}}{V} \Longrightarrow \frac{\mathrm{d} \rho}{\mathrm{d} t} =
+- \frac{\mathcal{M}}{V^2}  \frac{\mathrm{d} V}{\mathrm{d} t} = -
+\frac{\mathcal{M}}{V}  \frac{1}{V}  \frac{\mathrm{d} V}{\mathrm{d} t} = - \rho
+\nabla \cdot \mathbf{v} .
+\tag{1.14}\]</span></span> We can rearrange the terms to obtain <span id="eq-continua-15"><span class="math display">\[
+\boxed{\frac{1}{\rho}  \frac{\mathrm{d} \rho}{\mathrm{d} t} = - \nabla \cdot
+\mathbf{v}}
+\tag{1.15}\]</span></span> This is the <strong>continuity equation</strong>, the first of the fundamental equations of motion for fluids. Note that <span class="math inline">\(\mathrm{d} / \mathrm{d} t\)</span> denotes the rate of change of a quantity as we follow a fluid element. We will see in <a href="eulerian-lagrangian.html" class="quarto-xref"><span>Chapter 5</span></a> how this is related to the rate of change at a fixed point in space.</p>
+<p>The continuity equation can also be written in terms of <span class="math inline">\(n\)</span>, as long as the number of particles in each fluid element is conserved, that is, in the absence of ionization, recombination, or reactions: <span id="eq-continua-16"><span class="math display">\[
+\frac{1}{n}  \frac{\mathrm{d} n}{\mathrm{d} t} = - \nabla \cdot \mathbf{v}.
+\tag{1.16}\]</span></span> The continuity equation also holds separately for the <span class="math inline">\(n_i\)</span> and <span class="math inline">\(\rho_i\)</span> of each species in the fluid, as long as there are no reactions converting between the species, i.e., <span class="math inline">\(\dot{X}_i = \dot{Y}_i = 0\)</span>, and all species move with the same velocity.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A flow in which all fluid elements have the same velocity has <span class="math inline">\(\nabla \cdot \mathbf{v}= 0\)</span>, since <span class="math inline">\(\mathbf{v}\)</span> is a constant, so the density of each fluid element does not change (<span class="math inline">\(\mathrm{d} \rho / \mathrm{d} t = 0\)</span>).</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
@@ -735,11 +756,11 @@ Figure&nbsp;1.4: Velocity field <span class="math inline">\(\mathbf{v}= (-y, x, 
 </figcaption>
 </figure>
 </div>
-<p>This flow also has <span class="math inline">\(\rho = \operatorname{const}\)</span>: <span id="eq-continua-14"><span class="math display">\[
+<p>This flow also preserves the density of each fluid element: <span id="eq-continua-17"><span class="math display">\[
 \nabla \cdot \mathbf{v}= \frac{\partial v_x}{\partial x} + \frac{\partial
 v_y}{\partial y} = \frac{\partial (- y)}{\partial x} + \frac{\partial
 (x)}{\partial y} = 0.
-\tag{1.14}\]</span></span></p>
+\tag{1.17}\]</span></span></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
@@ -752,73 +773,101 @@ v_y}{\partial y} = \frac{\partial (- y)}{\partial x} + \frac{\partial
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In cylindrical coordinates <span class="math inline">\((\varpi, z, \phi)\)</span>, a generic rotating flow with rotational axis along <span class="math inline">\(z\)</span> takes the form <span id="eq-continua-15"><span class="math display">\[
+<p>In cylindrical coordinates <span class="math inline">\((R, \phi, z)\)</span>, a generic rotating flow with rotational axis along <span class="math inline">\(z\)</span> takes the form <span id="eq-continua-18"><span class="math display">\[
 \mathbf{v}= v_{\phi}  \hat{\boldsymbol{\phi}} .
-\tag{1.15}\]</span></span> Rotating flows preserve the volume of fluid elements if <span id="eq-continua-16"><span class="math display">\[
-\nabla \cdot \mathbf{v}= \frac{1}{\varpi}  \frac{\partial (\varpi
-v_{\varpi})}{\partial \varpi} + \frac{1}{\varpi}  \frac{\partial
+\tag{1.18}\]</span></span> Rotating flows preserve the volume of fluid elements if <span id="eq-continua-19"><span class="math display">\[
+\nabla \cdot \mathbf{v}= \frac{1}{R}  \frac{\partial (R
+v_{R})}{\partial R} + \frac{1}{R}  \frac{\partial
 v_{\phi}}{\partial \phi} + \frac{\partial v_z}{\partial z} =
-\frac{1}{\varpi}  \frac{\partial v_{\phi}}{\partial \phi} = 0.
-\tag{1.16}\]</span></span> That is, as long as all fluid elements with fixed <span class="math inline">\((\varpi, z)\)</span> rotate with the same angular frequency.</p>
+\frac{1}{R}  \frac{\partial v_{\phi}}{\partial \phi} = 0.
+\tag{1.19}\]</span></span> That is, as long as all fluid elements with fixed <span class="math inline">\((R, z)\)</span> rotate with the same angular frequency.</p>
 </div>
 </div>
-<p>Flows for which <span class="math inline">\(\nabla \cdot \mathbf{v}= 0\)</span> everywhere are said to be <strong>incompressible</strong>. An important property of incompressible flows is that the net flux of the velocity field across any closed surface should vanish: <span id="eq-continua-17"><span class="math display">\[
-\int_{\partial \Omega} \mathbf{v} \cdot \mathbf{n} \mathrm{d} \Sigma =
-\int_{\Omega} \nabla \cdot \mathbf{v} \mathrm{d} \Omega = 0.
-\tag{1.17}\]</span></span> We can interpret this result graphically by introducing the velocity field lines, also called <strong>streamlines</strong>. These are curves <span class="math inline">\((x (s), y (s), z (s))\)</span> satisfying <span id="eq-continua-18"><span class="math display">\[
+<p>Flows for which <span class="math inline">\(\nabla \cdot \mathbf{v}= 0\)</span> everywhere are said to be <strong>incompressible</strong>. An important property of incompressible flows is that the net flux of the velocity field across any closed surface should vanish: <span id="eq-continua-20"><span class="math display">\[
+\oint_{\partial \Omega} \mathbf{v} \cdot \mathbf{n} \mathrm{d} A =
+\int_{\Omega} \nabla \cdot \mathbf{v} \mathrm{d} V = 0.
+\tag{1.20}\]</span></span> We can interpret this result graphically by introducing the velocity field lines, also called <strong>streamlines</strong>. These are curves <span class="math inline">\((x (s), y (s), z (s))\)</span> satisfying <span id="eq-continua-21"><span class="math display">\[
 \frac{\mathrm{d} x}{\mathrm{d} s} = v_x, \quad \frac{\mathrm{d} y}{\mathrm{d} s} = v_y,
 \quad \frac{\mathrm{d} z}{\mathrm{d} s} = v_z .
-\tag{1.18}\]</span></span> In an incompressible flow streamlines cross each closed surface at least twice and there are no sources or sinks for the streamlines (<a href="#fig-continua-streamlines" class="quarto-xref">Figure&nbsp;<span>1.5</span></a>).</p>
+\tag{1.21}\]</span></span> In an incompressible flow there are no sources or sinks for the streamlines. This means that every streamline that enters a closed surface must also exit from it (<a href="#fig-continua-streamlines" class="quarto-xref">Figure&nbsp;<span>1.5</span></a>).</p>
 <div id="fig-continua-streamlines" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Left: four curved streamlines sweep from the lower left to the upper right, each crossing a closed curve once on entry and once on exit. Right: eight straight streamlines radiate outward from the centre of a circle, each crossing it once, so the centre is a source.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-continua-streamlines-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../figures/fluids-as-continua/streamlines.svg" class="img-fluid figure-img" alt="Left: four curved streamlines sweep from the lower left to the upper right, each crossing a closed curve once on entry and once on exit. Right: eight straight streamlines radiate outward from the centre of a circle, each crossing it once, so the centre is a source.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-continua-streamlines-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1.5: Streamlines in an incompressible flow (left) cross each closed surface twice. Expansion or compression flows (right) have streamline sources or sinks. Note the analogy with the solenoidal geometry of magnetic field lines in magnetism.
+Figure&nbsp;1.5: Streamlines in an incompressible flow (left) leave every closed surface they enter. Flows with expansion or compression (right) can have sources or sinks of streamlines. Note the analogy with the solenoidal geometry of magnetic field lines in magnetism.
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="sec-continua-homologous" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="sec-continua-homologous"><span class="header-section-number">1.3</span> Radial flows</h2>
-<p>Most astrophysical transients are the result of explosions that generate approximately radial outflows. As such, an important class of flows are those for which the gas is flowing in the radial direction: <span id="eq-continua-19"><span class="math display">\[
+<p>Most astrophysical transients are the result of explosions that generate approximately radial outflows. As such, an important class of flows are those for which the gas is flowing in the radial direction: <span id="eq-continua-22"><span class="math display">\[
 \mathbf{v}= v_r  \hat{\mathbf{r}} .
-\tag{1.19}\]</span></span> These are called <strong>radial flows</strong>. In the previous equation, <span class="math inline">\(v_r\)</span> could in principle depend on both radial <span class="math inline">\(r\)</span>, but also on the direction <span class="math inline">\(\theta, \varphi\)</span>.</p>
-<p>From the continuity equation, we find that radial flows are generically compressible: <span id="eq-continua-20"><span class="math display">\[
+\tag{1.22}\]</span></span> These are called <strong>radial flows</strong>. In the previous equation, <span class="math inline">\(v_r\)</span> can depend on <span class="math inline">\(r\)</span> and on the direction <span class="math inline">\((\theta, \phi)\)</span>.</p>
+<p>Using the divergence in spherical coordinates (<a href="../appendices/vector-calculus.html" class="quarto-xref"><span>Appendix A</span></a>), we find that radial flows are generically compressible: <span id="eq-continua-23"><span class="math display">\[
 \begin{alignedat}{2}
 \nabla \cdot \mathbf{v} &amp;{}={} &amp;&amp; \frac{1}{r^2}  \frac{\partial}{\partial r}
 (r^2 v_r) + \frac{1}{r \sin \theta}  \frac{\partial}{\partial \theta} (\sin
 \theta v_{\theta}) \\
 &amp;&amp;&amp; + \frac{1}{r \sin \theta}  \frac{\partial
-v_{\varphi}}{\partial \varphi}  \\
+v_{\phi}}{\partial \phi}  \\
 &amp;{}={} &amp;&amp; \frac{1}{r^2}  \frac{\partial}{\partial r}  (r^2 v_r) \\
-&amp;{}={} &amp;&amp; \frac{\partial v_r}{\partial r} + \frac{2}{r} v_r \neq 0.
+&amp;{}={} &amp;&amp; \frac{\partial v_r}{\partial r} + \frac{2}{r} v_r .
 \end{alignedat}
-\tag{1.20}\]</span></span> Note that, the radial direction, <span class="math inline">\(\hat{\mathbf{r}}\)</span>, is not well defined at the origin, since all directions are radial there. This implies that <span class="math inline">\(v_r (r = 0) = 0\)</span>. This regularity condition also ensures that the fluid element at the origin is not “broken” (transported in different directions), but only stretched.</p>
-<p>An important example of radial flow is that of an <em>homologously expanding</em> (or contracting) sphere of gas. Here, “homologous” means that the relative rate of change of the volume of each fluid element, <span class="math inline">\(\frac{1}{V} \frac{\mathrm{d} V}{\mathrm{d} t}\)</span>, is equal for all fluid elements. To see how this works, we consider a sphere of gas that at time <span class="math inline">\(t = 0\)</span> has a constant density <span class="math inline">\(\rho_0\)</span>. The assumption of constant density is not necessary, as all calculations will remain valid even for variable density, but it will make the results more transparent.</p>
-<p>In an homologous flow, the velocity of fluid elements that are at <span class="math inline">\(r = p\)</span> at <span class="math inline">\(t = 0\)</span> is given by <span id="eq-continua-21"><span class="math display">\[
-v_r (r = p, t = 0) = Hp,
-\tag{1.21}\]</span></span> where <span class="math inline">\(H\)</span> is a constant. At later times, we assume that each fluid elements continues to move with the velocity it had <em>initially</em>. In other words, we are assuming that fluid elements are not subject to any force and they coast at their original velocity. This is Newton’s first law applied to the fluid elements.</p>
-<p>To find the change in density in the system, we could be tempted to write <span id="eq-continua-22"><span class="math display">\[
+\tag{1.23}\]</span></span> This expression vanishes only if <span class="math inline">\(v_r \propto 1 / r^2\)</span>, which is singular at the origin. So radial flows that are regular at the origin are always compressible.</p>
+<p>Note that the radial direction, <span class="math inline">\(\hat{\mathbf{r}}\)</span>, is not well defined at the origin, since all directions are radial there. This implies that <span class="math inline">\(v_r (r = 0) = 0\)</span>. This regularity condition also ensures that the fluid element at the origin is not “broken” (transported in different directions), but only stretched.</p>
+<p>An important example of radial flow is that of a <em>homologously expanding</em> (or contracting) sphere of gas. Here, “homologous” means that the relative rate of change of the volume of each fluid element, <span class="math inline">\(\frac{1}{V} \frac{\mathrm{d} V}{\mathrm{d} t}\)</span>, is equal for all fluid elements. To see how this works, we consider a sphere of gas that at time <span class="math inline">\(t = 0\)</span> has a constant density <span class="math inline">\(\rho_0\)</span>. The assumption of constant density is not necessary, as all calculations will remain valid even for variable density, but it will make the results more transparent.</p>
+<p>To see what this implies for the velocity, note that for a radial flow the condition that <span class="math inline">\(\nabla \cdot \mathbf{v}\)</span> is the same for all fluid elements reads <span class="math inline">\(\partial_r v_r + 2 v_r / r = 3 H\)</span>, where <span class="math inline">\(H\)</span> does not depend on <span class="math inline">\(r\)</span>. The solutions of this equation are <span class="math inline">\(v_r = H r + B / r^2\)</span>. The regularity condition at the origin requires <span class="math inline">\(B = 0\)</span>, so <span class="math inline">\(v_r \propto r\)</span>.</p>
+<p>Accordingly, in a homologous flow, the velocity of fluid elements that are at <span class="math inline">\(r = q\)</span> at <span class="math inline">\(t = 0\)</span> is given by <span id="eq-continua-24"><span class="math display">\[
+v_r (r = q, t = 0) = Hq,
+\tag{1.24}\]</span></span> where <span class="math inline">\(H\)</span> is a constant. At later times, we assume that each fluid element continues to move with the velocity it had <em>initially</em>. In other words, we are assuming that fluid elements are not subject to any force and they coast at their original velocity. This is Newton’s first law applied to the fluid elements.</p>
+<p>To find the change in density in the system, we could be tempted to write <span id="eq-continua-25"><span class="math display">\[
 \nabla \cdot \mathbf{v}= \frac{1}{r^2}  \frac{\partial}{\partial r}  (r^2
 v_r) \overset{!!!}{=} \frac{1}{r^2}  \frac{\partial}{\partial r}  (r^3 H) = 3 H,
-\tag{1.22}\]</span></span> but this is <strong>incorrect</strong>. The issue is that at any time <span class="math inline">\(t \neq 0\)</span>, the velocity of a fluid element at the location <span class="math inline">\(r\)</span> is not <span class="math inline">\(Hr\)</span>. Instead, its velocity is <span class="math inline">\(Hp\)</span>, where <span class="math inline">\(p\)</span> is the position that that fluid element had at time <span class="math inline">\(t = 0\)</span>.</p>
-<p>To find it, we consider the equation of motion of the fluid element originally located at <span class="math inline">\(r = p\)</span>: <span id="eq-continua-23"><span class="math display">\[
-\frac{\mathrm{d} r (t ; p)}{\mathrm{d} t} = Hp, \qquad r (0 ; p) = p.
-\tag{1.23}\]</span></span> This can be integrated to find <span id="eq-continua-24"><span class="math display">\[
-r (t ; p) = p + Hpt.
-\tag{1.24}\]</span></span> Solving for <span class="math inline">\(p\)</span> gives <span id="eq-continua-25"><span class="math display">\[
-p = \frac{r}{1 + Ht} .
-\tag{1.25}\]</span></span> This means that <span id="eq-continua-26"><span class="math display">\[
+\tag{1.25}\]</span></span> but this is <strong>incorrect</strong>. The issue is that at any time <span class="math inline">\(t \neq 0\)</span>, the velocity of a fluid element at the location <span class="math inline">\(r\)</span> is not <span class="math inline">\(Hr\)</span>. Instead, its velocity is <span class="math inline">\(Hq\)</span>, where <span class="math inline">\(q\)</span> is the position that that fluid element had at time <span class="math inline">\(t = 0\)</span>.</p>
+<p>To find it, we consider the equation of motion of the fluid element originally located at <span class="math inline">\(r = q\)</span>: <span id="eq-continua-26"><span class="math display">\[
+\frac{\mathrm{d} r (t ; q)}{\mathrm{d} t} = Hq, \qquad r (0 ; q) = q.
+\tag{1.26}\]</span></span> This can be integrated to find <span id="eq-continua-27"><span class="math display">\[
+r (t ; q) = q + Hqt.
+\tag{1.27}\]</span></span> Solving for <span class="math inline">\(q\)</span> gives <span id="eq-continua-28"><span class="math display">\[
+q = \frac{r}{1 + Ht} .
+\tag{1.28}\]</span></span> This means that <span id="eq-continua-29"><span class="math display">\[
 v_r (r, t) = \frac{rH}{1 + Ht} \neq rH.
-\tag{1.26}\]</span></span> The continuity equation gives <span id="eq-continua-homologous"><span class="math display">\[
+\tag{1.29}\]</span></span> The continuity equation gives <span id="eq-continua-homologous"><span class="math display">\[
 \frac{1}{\rho}  \frac{\mathrm{d} \rho}{\mathrm{d} t} = - \nabla \cdot \mathbf{v}= -
 3 \frac{H}{1 + Ht} .
-\tag{1.27}\]</span></span> Note that the expansion (or compression if <span class="math inline">\(H &lt; 0\)</span>) rates depend only on <span class="math inline">\(H\)</span> and <span class="math inline">\(t\)</span> and not on the initial position of the fluid element <span class="math inline">\(p\)</span>. In other words, all fluid elements are expanding/contracting at the same rate.</p>
-<p>To make this result more transparent, we define <span class="math inline">\(R (t)\)</span> to be the radius of the expanding/contracting gas sphere at time <span class="math inline">\(t\)</span>. Evidently, <span class="math inline">\(\dot{R} (t) = HR_0\)</span> and <span class="math inline">\(R (t) = R_0 (1 + Ht)\)</span>. So <a href="#eq-continua-homologous" class="quarto-xref">Equation&nbsp;<span>1.27</span></a> can be written as <span id="eq-continua-28"><span class="math display">\[
+\tag{1.30}\]</span></span> Note that the expansion (or compression if <span class="math inline">\(H &lt; 0\)</span>) rates depend only on <span class="math inline">\(H\)</span> and <span class="math inline">\(t\)</span> and not on the initial position of the fluid element <span class="math inline">\(q\)</span>. In other words, all fluid elements are expanding/contracting at the same rate.</p>
+<p>To make this result more transparent, we define <span class="math inline">\(R (t)\)</span> to be the radius of the expanding/contracting gas sphere at time <span class="math inline">\(t\)</span>. Evidently, <span class="math inline">\(\dot{R} (t) = HR_0\)</span> and <span class="math inline">\(R (t) = R_0 (1 + Ht)\)</span>. So <a href="#eq-continua-homologous" class="quarto-xref">Equation&nbsp;<span>1.30</span></a> can be written as <span id="eq-continua-31"><span class="math display">\[
 \boxed{\frac{\dot{\rho}}{\rho} = - 3 \frac{\dot{R}}{R}}
-\tag{1.28}\]</span></span> The flows produced by many types of astronomical explosions can be described well as homologously expanding flows at sufficiently late times. Typically, once the gas has expanded to twice its initial radius. This is because as the gas expands, it rearranges to reach pressure equilibrium. Afterwards, the fluid elements are not subject to any net force, so they coast at a fixed velocity. As we will see later, among all possible coasting flows, homologous expansion is the only one that preserves pressure equilibrium, so it is an attractive solution.</p>
+\tag{1.31}\]</span></span> This equation can be integrated to find <span class="math inline">\(\rho \propto R^{-3}\)</span>. This should not be surprising, because the mass of the sphere, <span class="math inline">\(\frac{4 \pi}{3} \rho R^3\)</span>, is conserved. The expansion is illustrated in <a href="#fig-continua-homologous" class="quarto-xref">Figure&nbsp;<span>1.6</span></a>.</p>
+<div id="fig-continua-homologous" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Three snapshots of an expanding sphere of gas. The sphere grows and its grey shading becomes lighter. Six fluid elements at half the radius and six at the surface move outward along straight radial lines. Each carries a velocity arrow whose length is the same in every snapshot; the arrows of the outer elements are twice as long as those of the inner ones.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-continua-homologous-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/fluids-as-continua/homologous-expansion.svg" class="img-fluid figure-img" alt="Three snapshots of an expanding sphere of gas. The sphere grows and its grey shading becomes lighter. Six fluid elements at half the radius and six at the surface move outward along straight radial lines. Each carries a velocity arrow whose length is the same in every snapshot; the arrows of the outer elements are twice as long as those of the inner ones.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-continua-homologous-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.6: Homologous expansion of a sphere of gas, at <span class="math inline">\(t = 0\)</span> and at two later times. Each marked fluid element keeps its initial velocity (arrows), which is proportional to its initial distance from the centre. The pattern of fluid elements is the same at all times, only scaled up, and the density (shading) decreases as <span class="math inline">\(R^{-3}\)</span>.
+</figcaption>
+</figure>
+</div>
+<p>The flows produced by many types of astronomical explosions can be described well as homologously expanding flows at sufficiently late times, typically once the gas has expanded to several times its initial radius. This is because at early times pressure gradients accelerate the gas, converting internal energy into kinetic energy. As the gas expands, it cools adiabatically and the pressure forces become negligible. Afterwards, the fluid elements are not subject to any net force, so they coast at a fixed velocity. Fluid elements that started from a small region then end up at <span class="math inline">\(r \approx v t\)</span>, which is a homologous flow. This is the basis for the models of supernova light curves that we will discuss in <a href="supernovae.html" class="quarto-xref"><span>Chapter 3</span></a>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider a supernova that ejects <span class="math inline">\(M = 10\,M_\odot\)</span> of gas, with the outer layers moving at <span class="math inline">\(v = 5000\,\mathrm{km\,s^{-1}}\)</span>. After one year, the radius of the ejecta is <span class="math inline">\(R \approx v t \approx 1.6 \times 10^{14}\,\mathrm{m}\)</span>, or about <span class="math inline">\(1000\,\mathrm{AU}\)</span>, so their mean density is <span id="eq-continua-sn-density"><span class="math display">\[
+\bar{\rho} = \frac{3 M}{4 \pi R^3} \approx 1 \times 10^{-12}\,\mathrm{kg\,m^{-3}} = 1 \times 10^{-15}\,\mathrm{g\,cm^{-3}}.
+\tag{1.32}\]</span></span> This corresponds to about <span class="math inline">\(10^9\)</span> particles per <span class="math inline">\(\mathrm{cm^3}\)</span>. Since <span class="math inline">\(R \propto t\)</span> at late times, the density decreases as <span class="math inline">\(t^{-3}\)</span>, so after ten years it is a thousand times smaller.</p>
+</div>
+</div>
 </section>
 <section id="sec-continua-worksheet" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="sec-continua-worksheet"><span class="header-section-number">1.4</span> In-class worksheet</h2>
@@ -826,12 +875,13 @@ v_r (r, t) = \frac{rH}{1 + Ht} \neq rH.
 <li><p>Consider a gas with particle number density <span class="math inline">\(n\)</span> and particle fractions <span class="math inline">\(\{ Y_i \}\)</span>. Let <span class="math inline">\(\{ m_i \}\)</span> be the masses of the different atomic species in the gas. Write an explicit expression for</p>
 <ol type="1">
 <li><p>The mean molecular weight <span class="math inline">\(\mu\)</span>;</p></li>
-<li><p>The particle mass fractions <span class="math inline">\(\{ X_i \}\)</span>.</p></li>
+<li><p>The mass fractions <span class="math inline">\(\{ X_i \}\)</span>.</p></li>
 </ol></li>
 <li><p>Consider a gas composed of atomic hydrogen <span class="math inline">\(\mathrm{H}\)</span> and helium <span class="math inline">\(\mathrm{He}\)</span>. The particle fraction of hydrogen is 70%.</p>
 <ol type="1">
 <li><p>What is the mean molecular weight of this gas?</p></li>
 <li><p>What is the mass fraction of <span class="math inline">\(\mathrm{He}\)</span>?</p></li>
+<li><p>The Sun has a helium mass fraction <span class="math inline">\(X_{\mathrm{He}} \approx 0.27\)</span>, with the rest mostly hydrogen. What fraction of its atoms are helium?</p></li>
 </ol></li>
 <li><p>Consider a radial flow <span class="math inline">\(\mathbf{v}= v_r \hat{\mathbf{r}}\)</span>.</p>
 <ol type="1">
@@ -842,22 +892,23 @@ r}  (r^2 v_r) \\
 &amp; + \frac{1}{r \sin \theta}  \frac{\partial}{\partial
 \theta} (\sin \theta v_{\theta}) \\
 &amp; + \frac{1}{r \sin \theta}
-\frac{\partial v_{\varphi}}{\partial \varphi},
+\frac{\partial v_{\phi}}{\partial \phi},
 \end{aligned}
-\tag{1.29}\]</span></span></p></li>
-<li><p>Is the flow incompressible if <span class="math inline">\(v_r = \operatorname{const}\)</span>?</p></li>
+\tag{1.33}\]</span></span></p></li>
+<li><p>Is the flow incompressible if <span class="math inline">\(v_r = \mathrm{const}\)</span>?</p></li>
 </ol></li>
 </ol>
 </section>
 <section id="sec-continua-exercises" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="sec-continua-exercises"><span class="header-section-number">1.5</span> Exercises</h2>
 <div id="exr-continua-differential-rotation" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1.1 (Differential rotation of a star)</strong></span> A spherical star of radius <span class="math inline">\(R\)</span> is differentially rotating with angular velocity <span id="eq-continua-differential-rotation"><span class="math display">\[
-\Omega (r) = \frac{\Omega_0}{1 + \left( \frac{r}{R} \right)^2},
-\tag{1.30}\]</span></span> where <span class="math inline">\(r\)</span> is the cylindrical radius.</p>
+<p><span class="theorem-title"><strong>Exercise 1.1 (Differential rotation of a star)</strong></span> A spherical star of radius <span class="math inline">\(R_*\)</span> is differentially rotating with angular velocity <span id="eq-continua-differential-rotation"><span class="math display">\[
+\Omega (R) = \frac{\Omega_0}{1 + \left( \frac{R}{R_*} \right)^2},
+\tag{1.34}\]</span></span> where <span class="math inline">\(R\)</span> is the cylindrical radius.</p>
 <ol type="1">
 <li><p>Is the flow incompressible? Why?</p></li>
 <li><p>What is the velocity of the surface of the star as a function of the latitude angle <span class="math inline">\(\theta\)</span>?</p></li>
+<li><p>The star has the radius of the Sun and an equatorial rotation period of 25 days. What is the rotation velocity of its surface at the equator and at a latitude of <span class="math inline">\(45^\circ\)</span>?</p></li>
 </ol>
 </div>
 </section>

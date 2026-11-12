@@ -628,7 +628,7 @@ Note
 \Sigma R^{1 / 2})] .
 \tag{20.1}\]</span></span> Assume that the viscosity <span class="math inline">\(\nu\)</span> is in the form <span class="math inline">\(\nu = \nu (\Sigma, R)\)</span>.</p>
 <ol type="1">
-<li><p>Introduce the quantity <span class="math inline">\(\mu = \nu \Sigma\)</span> and consider a small perturbation <span class="math inline">\(\delta \Sigma\)</span> in the surface density of the disk. Find the equation describing the evolution of the corresponding perturbation <span class="math inline">\(\delta \mu\)</span> of <span class="math inline">\(\mu\)</span>.</p></li>
+<li><p>Introduce the quantity <span class="math inline">\(\psi = \nu \Sigma\)</span> and consider a small perturbation <span class="math inline">\(\delta \Sigma\)</span> in the surface density of the disk. Find the equation describing the evolution of the corresponding perturbation <span class="math inline">\(\delta \psi\)</span> of <span class="math inline">\(\psi\)</span>.</p></li>
 <li><p>Under what condition is the disk stable?</p></li>
 </ol></li>
 </ol>
@@ -636,14 +636,14 @@ Note
 <section id="sec-diskspec-exercises" class="level2" data-number="20.2">
 <h2 data-number="20.2" class="anchored" data-anchor-id="sec-diskspec-exercises"><span class="header-section-number">20.2</span> Exercises</h2>
 <div id="exr-diskspec-spectrum" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 20.1 (Accretion-disk spectrum)</strong></span> Model an accretion disk as a set of concentric rings <span class="math inline">\(i = 1, 2, \ldots, N\)</span>, each with median radius <span class="math inline">\(R_i\)</span> and radial extent <span class="math inline">\(\Delta R\)</span>. Let the disk extend from an inner radius <span class="math inline">\(R_{\operatorname{in}}\)</span> to an outer radius <span class="math inline">\(R_{\operatorname{out}}\)</span> and the temperature be <span id="eq-diskspec-2"><span class="math display">\[
-T (R) = T_{\operatorname{in}}  \left( \frac{R_{\operatorname{in}}}{R} \right)^{3 / 4} .
+<p><span class="theorem-title"><strong>Exercise 20.1 (Accretion-disk spectrum)</strong></span> Model an accretion disk as a set of concentric rings <span class="math inline">\(i = 1, 2, \ldots, N\)</span>, each with median radius <span class="math inline">\(R_i\)</span> and radial extent <span class="math inline">\(\Delta R\)</span>. Let the disk extend from an inner radius <span class="math inline">\(R_{\mathrm{in}}\)</span> to an outer radius <span class="math inline">\(R_{\mathrm{out}}\)</span> and the temperature be <span id="eq-diskspec-2"><span class="math display">\[
+T (R) = T_{\mathrm{in}}  \left( \frac{R_{\mathrm{in}}}{R} \right)^{3 / 4} .
 \tag{20.2}\]</span></span> Assume that the <span class="math inline">\(i\)</span>th ring emits as a blackbody with a fixed temperature <span class="math inline">\(T_i = T (R_i)\)</span> <span id="eq-diskspec-3"><span class="math display">\[
-B_{\nu} (T) = \frac{2 h \nu^3}{c^2}  \frac{1}{e^{h \nu / kT} - 1},
-\tag{20.3}\]</span></span> where <span class="math inline">\(h\)</span> is Planck constant, <span class="math inline">\(c\)</span> the speed of light, and <span class="math inline">\(k\)</span> the Boltzmann constant.</p>
+B_{\nu} (T) = \frac{2 h \nu^3}{c^2}  \frac{1}{\mathrm{e}^{h \nu / k_B T} - 1},
+\tag{20.3}\]</span></span> where <span class="math inline">\(h\)</span> is the Planck constant, <span class="math inline">\(c\)</span> the speed of light, and <span class="math inline">\(k_B\)</span> the Boltzmann constant.</p>
 <ol type="1">
-<li><p>Write a code to compute and plot the emergent spectrum from a single ring at radius <span class="math inline">\(R_i\)</span>. Plot the emergent spectrum for several radii. You can work in units in which <span class="math inline">\(k = h = c = 1\)</span>. You can take <span class="math inline">\(T_{\operatorname{in}} = 1\)</span> in these units.</p></li>
-<li><p>Write a code to compute the emergent spectrum from the full disk by summing up the contribution from each ring. Plot the resulting spectrum and discuss its physical interpretation. Verify that the spectrum approximately scales as <span class="math inline">\(\nu^{1 / 3}\)</span> for <span class="math inline">\(T_{\operatorname{in}} \lesssim \nu \lesssim T_{\operatorname{out}}\)</span>. You can work in the same units as in the previous point. Additionally assume that <span class="math inline">\(R_{\operatorname{out}} / R_{\operatorname{in}} = 200\)</span>.</p></li>
+<li><p>Write a code to compute and plot the emergent spectrum from a single ring at radius <span class="math inline">\(R_i\)</span>. Plot the emergent spectrum for several radii. You can work in units in which <span class="math inline">\(k_B = h = c = 1\)</span>. You can take <span class="math inline">\(T_{\mathrm{in}} = 1\)</span> in these units.</p></li>
+<li><p>Write a code to compute the emergent spectrum from the full disk by summing up the contribution from each ring. Plot the resulting spectrum and discuss its physical interpretation. Verify that the spectrum approximately scales as <span class="math inline">\(\nu^{1 / 3}\)</span> for <span class="math inline">\(T_{\mathrm{out}} \lesssim \nu \lesssim T_{\mathrm{in}}\)</span>. You can work in the same units as in the previous point. Additionally assume that <span class="math inline">\(R_{\mathrm{out}} / R_{\mathrm{in}} = 10^4\)</span>, so that <span class="math inline">\(T_{\mathrm{out}} = 10^{-3}\, T_{\mathrm{in}}\)</span>.</p></li>
 </ol>
 </div>
 </section>

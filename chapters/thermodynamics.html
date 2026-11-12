@@ -629,28 +629,28 @@ Figure&nbsp;2.1: Decomposition of the velocity of particles in a fluid element.
 </figcaption>
 </figure>
 </div>
-<p>Because the random component of the velocity averages to zero, it does not impact the continuity equation. To see this, consider the net mass flux across the grayed surface in <a href="#fig-thermo-particle-velocities" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>. Over any given <span class="math inline">\(\mathrm{d} t\)</span>, only the particles in the region with volume <span class="math inline">\(\langle u_x \rangle \mathrm{d} t \mathrm{d} A\)</span> cross the surface, so the mass flux is <span id="eq-thermo-3"><span class="math display">\[
-nm \langle u_x  \rangle \mathrm{d} t \mathrm{d} A = \rho v_x \mathrm{d} t \mathrm{d} A
+<p>Because the random component of the velocity averages to zero, it does not impact the continuity equation. To see this, consider the net mass crossing the grayed surface in <a href="#fig-thermo-particle-velocities" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>. Over any given <span class="math inline">\(\mathrm{d} t\)</span>, only the particles in the region with volume <span class="math inline">\(\langle u_x \rangle \mathrm{d} t \mathrm{d} A\)</span> cross the surface, so the mass crossing the surface is <span id="eq-thermo-3"><span class="math display">\[
+nm \langle u_x  \rangle \mathrm{d} t \mathrm{d} A = \rho v_x \mathrm{d} t \mathrm{d} A .
 \tag{2.3}\]</span></span> However, the random motion of particles contributes to a net <em>momentum</em> flux. This is because each particle contributes a momentum <span class="math inline">\(mu_x\)</span>, so the momentum flux is <span id="eq-thermo-4"><span class="math display">\[
 F \mathrm{d} t = nm \langle u_x^2 \rangle \mathrm{d} t \mathrm{d} A = \rho v_x^2 \mathrm{d}
 t \mathrm{d} A + \rho \langle w_x^2 \rangle \mathrm{d} t \mathrm{d} A.
 \tag{2.4}\]</span></span> Note that the momentum flux per unit time has units of <span id="eq-thermo-5"><span class="math display">\[
-[F] = [\rho v_x^2 \mathrm{d} A] =\mathrm{g} \operatorname{cm} \mathrm{s}^{- 2},
-\tag{2.5}\]</span></span> so the quantity <span class="math inline">\(\rho \langle w_x^2 \rangle\)</span> is a force per unit area. We define as <em>gas pressure</em> the quantity <span id="eq-thermo-meaning-pressure"><span class="math display">\[
+[F] = [\rho v_x^2 \mathrm{d} A] = \mathrm{kg} \, \mathrm{m} \, \mathrm{s}^{- 2} = \mathrm{N},
+\tag{2.5}\]</span></span> where <span class="math inline">\(\mathrm{N}\)</span> (newton) is the SI unit of force, so the quantity <span class="math inline">\(\rho \langle w_x^2 \rangle\)</span> is a force per unit area. Pressure is measured in pascal, <span class="math inline">\(1\,\mathrm{Pa} = 1\,\mathrm{N\,m^{-2}}\)</span>. If the random motions are isotropic, that is, if they have no preferred direction, then <span class="math inline">\(\langle w_x^2 \rangle = \langle w_y^2 \rangle = \langle w_z^2 \rangle = \frac{1}{3} \langle | \mathbf{w} |^2 \rangle\)</span>. Accordingly, we define as <em>gas pressure</em> the quantity <span id="eq-thermo-meaning-pressure"><span class="math display">\[
 p = \frac{1}{3} \rho \langle | \mathbf{w} |^2 \rangle .
 \tag{2.6}\]</span></span> The factor <span class="math inline">\(1 / 3\)</span> can be understood to come from the fact that pressure forces are the result of random motion in three directions. In analogy, the quantity <span class="math inline">\(\rho v_x^2\)</span> is called the ram pressure. If you are swimming in a river the ram pressure is the force that tries to drag you along with the flow, while the pressure is responsible for the buoyancy you experience.</p>
 <p>For a monoatomic gas with particles of mass <span class="math inline">\(m\)</span>, the rms velocity can be computed using the equipartition theorem<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>: <span id="eq-thermo-7"><span class="math display">\[
 m \langle | \mathbf{w} |^2 \rangle = 3 k_B T,
-\tag{2.7}\]</span></span> where <span class="math inline">\(T\)</span> is the temperature in Kelvin and <span class="math inline">\(k_B\)</span> is the Boltzmann constant, which in CGS units reads <span id="eq-thermo-8"><span class="math display">\[
-k_B \cong 1.380649 \times 10^{- 16} \operatorname{erg} \mathrm{K}^{- 1} .
+\tag{2.7}\]</span></span> where <span class="math inline">\(T\)</span> is the temperature in kelvin and <span class="math inline">\(k_B\)</span> is the Boltzmann constant, <span id="eq-thermo-8"><span class="math display">\[
+k_B = 1.380649 \times 10^{- 23} \, \mathrm{J} \, \mathrm{K}^{- 1} .
 \tag{2.8}\]</span></span> Combining this with <a href="#eq-thermo-meaning-pressure" class="quarto-xref">Equation&nbsp;<span>2.6</span></a> we find the equation of state for an ideal gas: <span id="eq-thermo-ideal-gas"><span class="math display">\[
 \boxed{p = nk_B T.}
 \tag{2.9}\]</span></span> Often, the equation of state for ideal gases is written in terms of the ideal gas constant <span class="math inline">\(\mathcal{R}\)</span> as <span id="eq-thermo-ideal-gas-2"><span class="math display">\[
 p = \frac{\mathcal{R}}{N_A m} \rho T,
-\tag{2.10}\]</span></span> where <span class="math inline">\(N_A\)</span> is Avogadro’s number. Since <span class="math inline">\(n = \frac{\rho}{m}\)</span>, we see that <span class="math inline">\(\mathcal{R}\)</span> is just an alias for <span class="math inline">\(N_A k_B\)</span>. For mixtures of monoatomic gases, <a href="#eq-thermo-ideal-gas" class="quarto-xref">Equation&nbsp;<span>2.9</span></a> remains unchanged, but <span class="math inline">\(n\)</span> is now the number density of particles of any species, but <a href="#eq-thermo-ideal-gas-2" class="quarto-xref">Equation&nbsp;<span>2.10</span></a> becomes <span id="eq-thermo-11"><span class="math display">\[
-p = \frac{\mathcal{R}}{N_A \mu} \rho T,
-\tag{2.11}\]</span></span> where <span class="math inline">\(\mu\)</span> is the mean molecular weight: <span id="eq-thermo-12"><span class="math display">\[
-\mu = \frac{\rho}{n} .
+\tag{2.10}\]</span></span> where <span class="math inline">\(N_A\)</span> is Avogadro’s number. Since <span class="math inline">\(n = \frac{\rho}{m}\)</span>, we see that <span class="math inline">\(\mathcal{R}\)</span> is just an alias for <span class="math inline">\(N_A k_B\)</span>. For mixtures of monoatomic gases, <a href="#eq-thermo-ideal-gas" class="quarto-xref">Equation&nbsp;<span>2.9</span></a> remains unchanged, with <span class="math inline">\(n\)</span> now being the number density of particles of any species, while <a href="#eq-thermo-ideal-gas-2" class="quarto-xref">Equation&nbsp;<span>2.10</span></a> becomes <span id="eq-thermo-11"><span class="math display">\[
+p = \frac{\mathcal{R}}{N_A \mu m_u} \rho T = \frac{\rho k_B T}{\mu m_u},
+\tag{2.11}\]</span></span> where <span class="math inline">\(m_u\)</span> is the atomic mass unit and <span class="math inline">\(\mu\)</span> is the mean molecular weight (<a href="fluids-as-continua.html#eq-continua-mu" class="quarto-xref">Equation&nbsp;<span>1.6</span></a>): <span id="eq-thermo-12"><span class="math display">\[
+\mu = \frac{\rho}{n m_u} .
 \tag{2.12}\]</span></span> Thermal motion is not only a source of pressure, but also a reservoir of energy for the gas. In other words, because of their motion, the particles in the gas have average kinetic energy per unit mass <span id="eq-thermo-13"><span class="math display">\[
 \varepsilon = \frac{1}{2} \langle | \mathbf{w} |^2 \rangle = \frac{3}{2 m}
 k_B T \Longrightarrow k_B T = \frac{2}{3} m \varepsilon .
@@ -660,24 +660,24 @@ p = \frac{2}{3} \rho \varepsilon,
 <p>The last equation is a particular case of a <span class="math inline">\(\Gamma\)</span>-law equation of state: <span id="eq-thermo-gamma-law"><span class="math display">\[
 \boxed{p = (\Gamma - 1) \rho \varepsilon,}
 \tag{2.15}\]</span></span> where <span class="math inline">\(\Gamma = \frac{5}{3}\)</span> for a monoatomic gas. The <span class="math inline">\(\Gamma\)</span>-law equation of state is a good approximation also for non monoatomic gases or mixture of gases, for which <a href="#eq-thermo-monoatomic-eos" class="quarto-xref">Equation&nbsp;<span>2.14</span></a> does not hold. For example, air can be described with a <span class="math inline">\(\Gamma\)</span>-law equation of state with <span class="math inline">\(\Gamma = 1.4\)</span>. Another example is given by radiation-dominated gases, which we discuss below. Note that it is possible to rewrite <a href="#eq-thermo-gamma-law" class="quarto-xref">Equation&nbsp;<span>2.15</span></a> as <span id="eq-thermo-16"><span class="math display">\[
-p = (\Gamma - 1) e,
-\tag{2.16}\]</span></span> where <span class="math inline">\(e = \rho \varepsilon\)</span> is the gas energy density, measured in <span class="math inline">\(\mathrm{erg} / \mathrm{cm}^3\)</span>.</p>
+p = (\Gamma - 1) u,
+\tag{2.16}\]</span></span> where <span class="math inline">\(u = \rho \varepsilon\)</span> is the internal energy density, measured in <span class="math inline">\(\mathrm{J} / \mathrm{m}^3\)</span>.</p>
 </section>
 <section id="the-first-law-of-thermodynamics" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="the-first-law-of-thermodynamics"><span class="header-section-number">2.2</span> The first law of thermodynamics</h2>
 <p>The first law of thermodynamics applied to a fluid element of volume <span class="math inline">\(V\)</span> and mass <span class="math inline">\(\mathcal{M}\)</span> reads <span id="eq-thermo-first-law"><span class="math display">\[
 \mathrm{d} E = \delta Q - \delta W.
 \tag{2.17}\]</span></span> It states that the amount of energy in the fluid element increases by the amount of heat absorbed by the fluid element, <span class="math inline">\(\delta Q\)</span>, and decreases by the amount of mechanical work done, <span class="math inline">\(\delta W\)</span>.</p>
-<p>For a perfect fluid, the change in the mechanical work is given by <span id="eq-thermo-18"><span class="math display">\[
+<p>For a perfect fluid, the mechanical work is given by <span id="eq-thermo-18"><span class="math display">\[
 \delta W = p \mathrm{d} V,
 \tag{2.18}\]</span></span> where <span class="math inline">\(V\)</span> is the volume of the fluid element. In the case of nonperfect fluids, there are corrections that arise from the anisotropic components of the stress tensor.</p>
-<p>For an ideal gas, the amount of absorbed heat is given by <span id="eq-thermo-19"><span class="math display">\[
+<p>For a reversible process, the amount of absorbed heat is given by <span id="eq-thermo-19"><span class="math display">\[
 \delta Q = T \mathrm{d} S.
 \tag{2.19}\]</span></span> In many cases, it is convenient to work with the first law of thermodynamics using specific (per unit mass) quantities: <span id="eq-thermo-20"><span class="math display">\[
 \varepsilon = \frac{E}{\mathcal{M}}, \qquad w = \frac{W}{\mathcal{M}},
 \qquad q = \frac{Q}{\mathcal{M}}, \qquad s = \frac{S}{\mathcal{M}}, \qquad v
 = \frac{V}{\mathcal{M}} = \frac{1}{\rho} .
-\tag{2.20}\]</span></span> In terms of the specific quantities, the first law reads <span id="eq-thermo-first-law2"><span class="math display">\[
+\tag{2.20}\]</span></span> Note that here <span class="math inline">\(v\)</span> denotes the specific volume, that is, the volume per unit mass, and not the velocity. In terms of the specific quantities, the first law reads <span id="eq-thermo-first-law2"><span class="math display">\[
 \mathrm{d} \varepsilon = \delta q - \delta w = T \mathrm{d} s - p \mathrm{d} v = T
 \mathrm{d} s + \frac{p}{\rho^2} \mathrm{d} \rho .
 \tag{2.21}\]</span></span> In the case of adiabatic flows <span class="math inline">\(\delta q = 0\)</span>, the first law simplifies to <span id="eq-thermo-22"><span class="math display">\[
@@ -686,16 +686,30 @@ p = (\Gamma - 1) e,
 \frac{1}{\rho} \mathrm{d} p - \frac{p}{\rho^2} \mathrm{d} \rho = (\Gamma - 1)
 \frac{p}{\rho^2} \mathrm{d} \rho \Longrightarrow \frac{\mathrm{d} p}{p} = \Gamma
 \frac{\mathrm{d} \rho}{\rho} .
-\tag{2.23}\]</span></span> This can be integrated to yield <span id="eq-thermo-poly"><span class="math display">\[
+\tag{2.23}\]</span></span> If <span class="math inline">\(\Gamma\)</span> is constant, this can be integrated to yield <span id="eq-thermo-poly"><span class="math display">\[
 \boxed{p = K \rho^{\Gamma},}
 \tag{2.24}\]</span></span> where <span class="math inline">\(K\)</span> is an integration constant. <a href="#eq-thermo-poly" class="quarto-xref">Equation&nbsp;<span>2.24</span></a> represents a so-called <strong>polytropic equation of state</strong>. Note that for an adiabatic flow, <span class="math inline">\(K\)</span> is constant with time in each fluid element, but <span class="math inline">\(K\)</span> does not have to be the same in each fluid element. A comparison between <a href="#eq-thermo-poly" class="quarto-xref">Equation&nbsp;<span>2.24</span></a> and <a href="#eq-thermo-gamma-law" class="quarto-xref">Equation&nbsp;<span>2.15</span></a> shows that <span id="eq-thermo-25"><span class="math display">\[
 K = (\Gamma - 1) \rho^{1 - \Gamma} \varepsilon .
-\tag{2.25}\]</span></span> Note that, since <a href="#eq-thermo-poly" class="quarto-xref">Equation&nbsp;<span>2.24</span></a> is barotropic, this equation of state, together with the continuity and velocity equations, form a closed system of equations, using which it is, in principle, possible to compute all quantities in the flow. However, the polytropic equation of state cannot be applied if <span class="math inline">\(\delta q \neq 0\)</span>, due to the presence of heating or cooling of the gas. Even if the flow is adiabatic (<span class="math inline">\(\delta q = 0\)</span>), there are irreversible thermodynamic processes that operate in shocks. When this happens, the steps we took to get &nbsp;<a href="#eq-thermo-poly" class="quarto-xref">Equation&nbsp;<span>2.24</span></a> from <a href="#eq-thermo-first-law2" class="quarto-xref">Equation&nbsp;<span>2.21</span></a> are no longer valid, because <span class="math inline">\(\delta Q\)</span> and <span class="math inline">\(\delta W\)</span> are not exact differentials. In all these situations, it is necessary to derive a new equation, in addition to the equation of state and the velocity and continuity equations, to close the system. This will be accomplished with the energy equation, discussed below.</p>
+\tag{2.25}\]</span></span> For an ideal gas, <span class="math inline">\(K\)</span> is a function of the specific entropy only, so we can think of <span class="math inline">\(K\)</span> as a measure of the entropy of a fluid element.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider a fluid element of monoatomic ideal gas (<span class="math inline">\(\Gamma = 5/3\)</span>) that is compressed adiabatically, so that its density doubles. Since <span class="math inline">\(K\)</span> is constant, the pressure increases by a factor <span class="math inline">\(2^{5/3} \approx 3.2\)</span>. From the ideal-gas law, <span class="math inline">\(T \propto p / \rho \propto \rho^{\Gamma - 1}\)</span>, so the temperature increases by a factor <span class="math inline">\(2^{2/3} \approx 1.6\)</span>.</p>
+</div>
+</div>
+<p>Note that, if <span class="math inline">\(K\)</span> is the same for all fluid elements, <a href="#eq-thermo-poly" class="quarto-xref">Equation&nbsp;<span>2.24</span></a> is barotropic, that is, the pressure depends only on the density. In this case, this equation of state, together with the continuity equation and the equation for the velocity (Euler’s equation, <a href="euler-equation.html" class="quarto-xref"><span>Chapter 4</span></a>), form a closed system of equations, using which it is, in principle, possible to compute all quantities in the flow. If <span class="math inline">\(K\)</span> differs between fluid elements, the system is still closed, since <span class="math inline">\(K\)</span> is constant along each fluid element (<span class="math inline">\(\mathrm{d} K / \mathrm{d} t = 0\)</span>). However, the polytropic equation of state cannot be applied if <span class="math inline">\(\delta q \neq 0\)</span>, due to the presence of heating or cooling of the gas. Even if the flow is adiabatic (<span class="math inline">\(\delta q = 0\)</span>), there are irreversible thermodynamic processes that operate in shocks. When this happens, the steps we took to get &nbsp;<a href="#eq-thermo-poly" class="quarto-xref">Equation&nbsp;<span>2.24</span></a> from <a href="#eq-thermo-first-law2" class="quarto-xref">Equation&nbsp;<span>2.21</span></a> are no longer valid, because in irreversible processes the entropy of a fluid element increases even if no heat is exchanged, <span class="math inline">\(T \mathrm{d} s &gt; \delta q\)</span>. In all these situations, it is necessary to derive a new equation, in addition to the equation of state and the velocity and continuity equations, to close the system. In the presence of heating and cooling, this is the energy equation discussed below. Shocks require a different treatment, which we will discuss in <a href="conservation-laws.html" class="quarto-xref"><span>Chapter 6</span></a> and <a href="shock-waves.html" class="quarto-xref"><span>Chapter 11</span></a>.</p>
 </section>
 <section id="radiation-pressure" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="radiation-pressure"><span class="header-section-number">2.3</span> Radiation pressure</h2>
-<p>Gas-pressure is not the only relevant source of pressure in astrophysical flows. Radiation pressure is another important component. While gas pressure arises due to the random (or thermal) component of the velocity of particles, radiation pressure arises as a result of momentum deposition by photons in optically thick conditions, in which radiation can be considered to be isotropic and in thermal equilibrium with the gas. It is not possible to derive radiation pressure in the same way as we derived the gas pressure, because photons are not classical particles and a rigorous derivation would require us to use quantum mechanics. However, we can find an expression for the radiation pressure up to a constant factor using classical thermodynamics.</p>
-<p>Consider a region filled with radiation and let <span class="math inline">\(e\)</span> be the energy density in radiation. We assume that the radiation field is isotropic, meaning that there is an equal probability to find a photon traveling in each direction. In other words, the energy density of photons per unit solid angle of direction is <span class="math inline">\(J = \frac{e}{4 \pi}\)</span>. Let’s compute the flux of momentum crossing an area <span class="math inline">\(\mathrm{d} A\)</span> with normal <span class="math inline">\(\hat{\mathbf{n}}\)</span> (shown in <a href="#fig-thermo-radiation-area" class="quarto-xref">Figure&nbsp;<span>2.2</span></a>).</p>
+<p>Gas-pressure is not the only relevant source of pressure in astrophysical flows. Radiation pressure is another important component. While gas pressure arises due to the random (or thermal) component of the velocity of particles, radiation pressure arises as a result of momentum deposition by photons in optically thick conditions, in which radiation can be considered to be isotropic and in thermal equilibrium with the gas. We can derive the radiation pressure using a similar method as for the gas pressure, if we assume that photons carry momentum. However, to relate the radiation pressure to the temperature we need to use thermodynamics, and the value of the constant of proportionality can only be derived using quantum mechanics.</p>
+<p>Consider a region filled with radiation and let <span class="math inline">\(u\)</span> be the energy density in radiation. We assume that the radiation field is isotropic, meaning that there is an equal probability to find a photon traveling in each direction. In other words, the energy density of photons per unit solid angle of direction is <span class="math inline">\(J = \frac{u}{4 \pi}\)</span>. Let’s compute the flux of momentum crossing an area <span class="math inline">\(\mathrm{d} A\)</span> with normal <span class="math inline">\(\hat{\mathbf{n}}\)</span> (shown in <a href="#fig-thermo-radiation-area" class="quarto-xref">Figure&nbsp;<span>2.2</span></a>).</p>
 <div id="fig-thermo-radiation-area" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A shaded parallelogram, the area element dA, with its unit normal n-hat pointing up from its centre. A second arrow, the photon direction Omega-hat, makes an angle theta with the normal and ends in a small circle that represents the solid angle dOmega.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-thermo-radiation-area-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -706,16 +720,16 @@ Figure&nbsp;2.2: Area element for the calculation of the radiation pressure.
 </figcaption>
 </figure>
 </div>
-<p>Each photon with energy <span class="math inline">\(\varepsilon\)</span> carries a momentum <span class="math inline">\(\varepsilon / c\)</span>. Over the time interval <span class="math inline">\(\mathrm{d} t\)</span> photons in the volume <span class="math inline">\(\mathrm{d} V = c \mathrm{d} t \mathrm{d} A \cos \theta\)</span> will cross <span class="math inline">\(\mathrm{d} A\)</span>, each carrying a normal component of the momentum equal to <span class="math inline">\(\varepsilon / c \cos \theta\)</span>, so the overall flux of momentum is <span id="eq-thermo-radiation-pressure"><span class="math display">\[
-\int J (\cos \theta)^2 \mathrm{d} t \mathrm{d} A \mathrm{d} \Omega = \frac{e \mathrm{d} t
-\mathrm{d} A}{4 \pi} \int_0^{2 \pi} \mathrm{d} \varphi \int_0^{\pi} \mathrm{d} \theta \sin \theta
-(\cos \theta)^2 = \frac{1}{3} e \mathrm{d} t \mathrm{d} A \Longrightarrow
-\boxed{p = \frac{1}{3} e.}
-\tag{2.26}\]</span></span> So we have found that the radiation pressure can be described with a <span class="math inline">\(\Gamma\)</span>-law equation of state with <span class="math inline">\(\Gamma = 4 / 3\)</span>. However, to be able to actually compute the pressure, we need to find a relation between <span class="math inline">\(e, p\)</span> and the temperature <span class="math inline">\(T\)</span>. Consider the following thought experimental setup (<a href="#fig-thermo-blackbody-enclosure" class="quarto-xref">Figure&nbsp;<span>2.3</span></a>):</p>
-<div id="fig-thermo-blackbody-enclosure" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A rectangular box filled with radiation of energy density e, pressure p, temperature T and volume V. A shaded piston closes the right side; an arrow pointing right shows it moving outward, so that the volume increases.">
+<p>Each photon with energy <span class="math inline">\(\varepsilon_{\mathrm{ph}}\)</span> carries a momentum <span class="math inline">\(\varepsilon_{\mathrm{ph}} / c\)</span>. Over the time interval <span class="math inline">\(\mathrm{d} t\)</span> photons in the volume <span class="math inline">\(\mathrm{d} V = c \mathrm{d} t \mathrm{d} A \cos \theta\)</span> will cross <span class="math inline">\(\mathrm{d} A\)</span>, each carrying a normal component of the momentum equal to <span class="math inline">\((\varepsilon_{\mathrm{ph}} / c) \cos \theta\)</span>, so the overall flux of momentum is <span id="eq-thermo-radiation-pressure"><span class="math display">\[
+\int J (\cos \theta)^2 \mathrm{d} t \mathrm{d} A \mathrm{d} \Omega = \frac{u \mathrm{d} t
+\mathrm{d} A}{4 \pi} \int_0^{2 \pi} \mathrm{d} \phi \int_0^{\pi} \mathrm{d} \theta \sin \theta
+(\cos \theta)^2 = \frac{1}{3} u \mathrm{d} t \mathrm{d} A \Longrightarrow
+\boxed{p = \frac{1}{3} u.}
+\tag{2.26}\]</span></span> So we have found that the radiation pressure can be described with a <span class="math inline">\(\Gamma\)</span>-law equation of state with <span class="math inline">\(\Gamma = 4 / 3\)</span>. However, to be able to actually compute the pressure, we need to find a relation between <span class="math inline">\(u\)</span>, <span class="math inline">\(p\)</span>, and the temperature <span class="math inline">\(T\)</span>. Consider the following thought experiment (<a href="#fig-thermo-blackbody-enclosure" class="quarto-xref">Figure&nbsp;<span>2.3</span></a>):</p>
+<div id="fig-thermo-blackbody-enclosure" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A rectangular box filled with radiation of energy density u, pressure p, temperature T and volume V. A shaded piston closes the right side; an arrow pointing right shows it moving outward, so that the volume increases.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-thermo-blackbody-enclosure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../figures/thermodynamics/blackbody-enclosure.svg" class="img-fluid figure-img" alt="A rectangular box filled with radiation of energy density e, pressure p, temperature T and volume V. A shaded piston closes the right side; an arrow pointing right shows it moving outward, so that the volume increases.">
+<img src="../figures/thermodynamics/blackbody-enclosure.svg" class="img-fluid figure-img" alt="A rectangular box filled with radiation of energy density u, pressure p, temperature T and volume V. A shaded piston closes the right side; an arrow pointing right shows it moving outward, so that the volume increases.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-thermo-blackbody-enclosure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.3: Blackbody enclosure.
@@ -724,65 +738,82 @@ Figure&nbsp;2.3: Blackbody enclosure.
 </div>
 <p>The first and second law of thermodynamics read <span id="eq-thermo-first-and-second-law"><span class="math display">\[
 \delta Q = \mathrm{d} E + p \mathrm{d} V, \quad T \mathrm{d} S = \delta Q.
-\tag{2.27}\]</span></span> The energy can be written in terms of the energy density as <span class="math inline">\(E = eV\)</span>, so <span id="eq-thermo-28"><span class="math display">\[
-\mathrm{d} E = \mathrm{d} eV + e \mathrm{d} V = V \frac{\mathrm{d} e}{\mathrm{d} T} \mathrm{d} T + e
+\tag{2.27}\]</span></span> The energy can be written in terms of the energy density as <span class="math inline">\(E = uV\)</span>, so <span id="eq-thermo-28"><span class="math display">\[
+\mathrm{d} E = V \mathrm{d} u + u \mathrm{d} V = V \frac{\mathrm{d} u}{\mathrm{d} T} \mathrm{d} T + u
 \mathrm{d} V
 \tag{2.28}\]</span></span> Solving <a href="#eq-thermo-first-and-second-law" class="quarto-xref">Equation&nbsp;<span>2.27</span></a> for <span class="math inline">\(\mathrm{d} S\)</span> and using <a href="#eq-thermo-radiation-pressure" class="quarto-xref">Equation&nbsp;<span>2.26</span></a> to eliminate <span class="math inline">\(p\)</span>, we find <span id="eq-thermo-29"><span class="math display">\[
-\mathrm{d} S = \frac{V}{T}  \frac{\mathrm{d} e}{\mathrm{d} T} \mathrm{d} T + \frac{4}{3}
-\frac{e}{T} \mathrm{d} V.
+\mathrm{d} S = \frac{V}{T}  \frac{\mathrm{d} u}{\mathrm{d} T} \mathrm{d} T + \frac{4}{3}
+\frac{u}{T} \mathrm{d} V.
 \tag{2.29}\]</span></span> We can rewrite the previous equation as: <span id="eq-thermo-30"><span class="math display">\[
 \left( \frac{\partial S}{\partial T} \right)_V = \frac{V}{T}  \frac{\mathrm{d}
-e}{\mathrm{d} T}, \qquad \left( \frac{\partial S}{\partial V} \right)_T =
-\frac{4}{3}  \frac{e}{T} .
+u}{\mathrm{d} T}, \qquad \left( \frac{\partial S}{\partial V} \right)_T =
+\frac{4}{3}  \frac{u}{T} .
 \tag{2.30}\]</span></span> Since <span class="math inline">\(\mathrm{d} S\)</span> is an exact differential: <span id="eq-thermo-31"><span class="math display">\[
 \frac{\partial^2 S}{\partial V \partial T} = \frac{1}{T}  \frac{\mathrm{d}
-e}{\mathrm{d} T} = \frac{4}{3}  \frac{1}{T}  \frac{\mathrm{d} e}{\mathrm{d} T} -
-\frac{4}{3}  \frac{e}{T^2} = \frac{\partial^2 S}{\partial T \partial V} .
+u}{\mathrm{d} T} = \frac{4}{3}  \frac{1}{T}  \frac{\mathrm{d} u}{\mathrm{d} T} -
+\frac{4}{3}  \frac{u}{T^2} = \frac{\partial^2 S}{\partial T \partial V} .
 \tag{2.31}\]</span></span> Combining the terms we find <span id="eq-thermo-32"><span class="math display">\[
-\frac{\mathrm{d} e}{\mathrm{d} T} = 4 \frac{e}{T} \Longrightarrow \boxed{e =
+\frac{\mathrm{d} u}{\mathrm{d} T} = 4 \frac{u}{T} \Longrightarrow \boxed{u =
 aT^4 .}
-\tag{2.32}\]</span></span> The constant of integration, is the <em>radiation constant</em>. It can be derived using quantum mechanics: <span id="eq-thermo-33"><span class="math display">\[
-a \cong 7.5646 \times 10^{- 15} \operatorname{erg} \operatorname{cm}^{- 3} \mathrm{K}^{- 4}
+\tag{2.32}\]</span></span> The constant of integration is the <em>radiation constant</em>. It can be derived using quantum mechanics: <span id="eq-thermo-33"><span class="math display">\[
+a \cong 7.5657 \times 10^{- 16} \, \mathrm{J} \, \mathrm{m}^{- 3} \, \mathrm{K}^{- 4}
 .
 \tag{2.33}\]</span></span> The radiation constant is related to the Stefan–Boltzmann constant <span class="math inline">\(\sigma\)</span> by <span id="eq-thermo-34"><span class="math display">\[
 a = \frac{4 \sigma}{c},
 \tag{2.34}\]</span></span> where <span class="math inline">\(c\)</span> is the speed of light.</p>
 <p>In general, both radiation and gas pressure can be present. For example, for ionized stellar matter the pressure and energy densities can be computed as <span id="eq-thermo-35"><span class="math display">\[
-p = \frac{\rho}{\mu} k_B T + \frac{1}{3} aT^4, \qquad e = \rho \varepsilon =
-\frac{3}{2}  \frac{\rho}{\mu} k_B T + aT^4 .
+p = \frac{\rho k_B T}{\mu m_u} + \frac{1}{3} aT^4, \qquad u = \rho \varepsilon =
+\frac{3}{2}  \frac{\rho k_B T}{\mu m_u} + aT^4 .
 \tag{2.35}\]</span></span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider the center of the Sun, where <span class="math inline">\(\rho \approx 150\,\mathrm{g\,cm^{-3}} = 1.5 \times 10^5\,\mathrm{kg\,m^{-3}}\)</span> and <span class="math inline">\(T \approx 1.5 \times 10^7\,\mathrm{K}\)</span>. For fully ionized solar matter <span class="math inline">\(\mu \approx 0.6\)</span>, so the gas pressure is <span id="eq-thermo-sun-gas"><span class="math display">\[
+p_{\mathrm{gas}} = \frac{\rho k_B T}{\mu m_u} \approx 3 \times 10^{16}\,\mathrm{Pa},
+\tag{2.36}\]</span></span> while the radiation pressure is <span id="eq-thermo-sun-rad"><span class="math display">\[
+p_{\mathrm{rad}} = \frac{1}{3} a T^4 \approx 1.3 \times 10^{13}\,\mathrm{Pa}.
+\tag{2.37}\]</span></span> So radiation contributes only about <span class="math inline">\(0.04\%\)</span> of the pressure at the center of the Sun. As we will see in <a href="supernovae.html" class="quarto-xref"><span>Chapter 3</span></a>, the situation is very different in the ejecta of supernovae, which are radiation dominated.</p>
+</div>
+</div>
 </section>
 <section id="sec-thermo-energy" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="sec-thermo-energy"><span class="header-section-number">2.4</span> Energy equation</h2>
-<p>The first law of thermodynamics can be used to derive the energy equation for a perfect fluid. We start from the first law written for the energy per unit volume <span id="eq-thermo-36"><span class="math display">\[
+<p>The first law of thermodynamics can be used to derive the energy equation for a perfect fluid. We start from the first law written for the energy per unit mass <span id="eq-thermo-38"><span class="math display">\[
 \mathrm{d} \varepsilon = \delta q + \frac{p}{\rho}  \frac{\mathrm{d} \rho}{\rho} .
-\tag{2.36}\]</span></span> Dividing both terms by <span class="math inline">\(\mathrm{d} t\)</span> and multiplying by <span class="math inline">\(\rho\)</span> gives <span id="eq-thermo-energy-lagrangian"><span class="math display">\[
+\tag{2.38}\]</span></span> Dividing both terms by <span class="math inline">\(\mathrm{d} t\)</span>, multiplying by <span class="math inline">\(\rho\)</span>, and using the continuity equation (<a href="fluids-as-continua.html#eq-continua-15" class="quarto-xref">Equation&nbsp;<span>1.15</span></a>) gives <span id="eq-thermo-energy-lagrangian"><span class="math display">\[
 \boxed{\rho \frac{\mathrm{d} \varepsilon}{\mathrm{d} t} = \rho \dot{q} - p
 \nabla \cdot \mathbf{v}.}
-\tag{2.37}\]</span></span> The first term on the RHS is the net heating rate <span class="math inline">\(\dot{q} = \dot{q}_{\operatorname{heat}} - \dot{q}_{\operatorname{cool}}\)</span>. For example, &nbsp;<span class="math inline">\(\dot{q}_{\operatorname{heat}}\)</span> might represents the energy generation due to nuclear burning in the gas, while <span class="math inline">\(\dot{q}_{\operatorname{cool}}\)</span> might be the energy lost by emitting radiation. The second term is the so-called pdV term. It represents the energy spent by doing work on the environment, or on other fluid elements. A list of common heating and cooling processes in astrophysics is given in <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Section 4.4.</p>
+\tag{2.39}\]</span></span> The first term on the RHS contains the net heating rate per unit mass, <span class="math inline">\(\dot{q} = \dot{q}_{\mathrm{heat}} - \dot{q}_{\mathrm{cool}}\)</span>. For example, &nbsp;<span class="math inline">\(\dot{q}_{\mathrm{heat}}\)</span> might represent the energy generation due to nuclear burning in the gas, while <span class="math inline">\(\dot{q}_{\mathrm{cool}}\)</span> might be the energy lost by emitting radiation. The second term is the so-called pdV term. It represents the energy spent by doing work on the environment, or on other fluid elements. A list of common heating and cooling processes in astrophysics is given in <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Section 4.5.</p>
 </section>
 <section id="sec-thermo-worksheet" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="sec-thermo-worksheet"><span class="header-section-number">2.5</span> In-class worksheet</h2>
-<p>The first law of thermodynamics for an ideal-gas reads <span id="eq-thermo-ws1"><span class="math display">\[
+<p>For a reversible process in a gas with fixed composition, the first law of thermodynamics reads <span id="eq-thermo-ws1"><span class="math display">\[
 \mathrm{d} E = T \mathrm{d} S - p \mathrm{d} V.
-\tag{2.38}\]</span></span> Define the specific (per unit mass) quantities: <span id="eq-thermo-ws2"><span class="math display">\[
+\tag{2.40}\]</span></span> Define the specific (per unit mass) quantities: <span id="eq-thermo-ws2"><span class="math display">\[
 \varepsilon = \frac{E}{\mathcal{M}}, \qquad w = \frac{W}{\mathcal{M}},
 \qquad q = \frac{Q}{\mathcal{M}}, \qquad s = \frac{S}{\mathcal{M}},
 \qquad v = \frac{V}{\mathcal{M}} = \frac{1}{\rho} .
-\tag{2.39}\]</span></span></p>
+\tag{2.41}\]</span></span></p>
 <ol type="1">
 <li><p>Find an expression for <span class="math inline">\(\mathrm{d} \varepsilon\)</span> in terms of <span class="math inline">\(T, s, p, \rho\)</span>.</p></li>
 <li><p>Consider an ideal-gas with <span class="math inline">\(p = (\Gamma - 1) \rho \varepsilon\)</span> undergoing an adiabatic process (<span class="math inline">\(\delta q = 0\)</span>).</p>
 <ol type="1">
 <li><p>Show that <span id="eq-thermo-ws3"><span class="math display">\[
 p = K \rho^{\Gamma} .
-\tag{2.40}\]</span></span></p></li>
+\tag{2.42}\]</span></span></p></li>
 <li><p>What is the relation between <span class="math inline">\(K\)</span> and <span class="math inline">\(\varepsilon\)</span>?</p></li>
 </ol></li>
 <li><p>Consider an adiabatically expanding radiation-pressure dominated gas sphere. Let <span class="math inline">\(T\)</span> and <span class="math inline">\(V\)</span> be the temperature and volume of the gas at a given time <span class="math inline">\(t.\)</span></p>
 <ol type="1">
 <li><p>Find an expression for the entropy of the gas <span class="math inline">\(S\)</span>.</p></li>
-<li><p>Show that <span class="math inline">\(pV^{4 / 3} = \operatorname{const}\)</span> as the gas expands.</p></li>
+<li><p>Show that <span class="math inline">\(pV^{4 / 3} = \mathrm{const}\)</span> as the gas expands.</p></li>
 </ol></li>
 </ol>
 </section>
@@ -791,7 +822,7 @@ p = K \rho^{\Gamma} .
 <div id="exr-thermo-equation-of-state" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2.1 (Equation of state of an H/He plasma)</strong></span> Consider a mixture of ionized hydrogen and helium with <span class="math inline">\(X_{\mathrm{H}} = 70\%\)</span> and <span class="math inline">\(X_{\mathrm{He}} = 30\%\)</span>. The pressure is given by <span id="eq-thermo-stellar-pressure"><span class="math display">\[
 p = p_{\mathrm{ions}} + p_e + p_{\mathrm{rad}},
-\tag{2.41}\]</span></span> where <span class="math inline">\(p_{\mathrm{ions}}\)</span> is the partial pressure of the ions, <span class="math inline">\(p_e\)</span> is the partial pressure of the electrons, and <span class="math inline">\(p_{\mathrm{rad}}\)</span> is the radiation pressure. Treat ions and electrons as ideal monoatomic gasses (with the appropriate mean molecular weights).</p>
+\tag{2.43}\]</span></span> where <span class="math inline">\(p_{\mathrm{ions}}\)</span> is the partial pressure of the ions, <span class="math inline">\(p_e\)</span> is the partial pressure of the electrons, and <span class="math inline">\(p_{\mathrm{rad}}\)</span> is the radiation pressure. Treat ions and electrons as ideal monoatomic gasses (with the appropriate mean molecular weights), and assume that the radiation is in thermal equilibrium with the gas.</p>
 <ol type="1">
 <li><p>Write a code to compute <span class="math inline">\(p_{\mathrm{ions}}\)</span>, <span class="math inline">\(p_e\)</span>, and <span class="math inline">\(p_{\mathrm{rad}}\)</span> for any given density <span class="math inline">\(\rho\)</span> and temperature <span class="math inline">\(T\)</span>.</p></li>
 <li><p>Plot <span class="math inline">\(p_{\mathrm{ions}}\)</span>, <span class="math inline">\(p_e\)</span>, and <span class="math inline">\(p_{\mathrm{rad}}\)</span> as a function of temperature for <span class="math inline">\(\rho = 150\,\mathrm{g\,cm^{-3}}\)</span> (central density of the Sun) and for <span class="math inline">\(\rho = 10^{-24}\,\mathrm{g\,cm^{-3}}\)</span> (ISM density). At what temperature does radiation become dominant in each case?</p></li>
@@ -801,7 +832,7 @@ p = p_{\mathrm{ions}} + p_e + p_{\mathrm{rad}},
 <section id="sec-thermo-reading" class="level2" data-number="2.7">
 <h2 data-number="2.7" class="anchored" data-anchor-id="sec-thermo-reading"><span class="header-section-number">2.7</span> Further reading</h2>
 <ul>
-<li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Chapter 4 (the energy equation), in particular Section 4.4 on heating and cooling processes.</li>
+<li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Chapter 4 (the energy equation), in particular Sections 4.4–4.5 on energy transport and on heating and cooling processes.</li>
 </ul>
 
 
@@ -814,7 +845,7 @@ Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dy
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>That is we assign one <span class="math inline">\(k_B T\)</span> of energy to each of the 3 translational degrees of freedom of the gas particles.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>That is, we assign an energy <span class="math inline">\(\frac{1}{2} k_B T\)</span> to each of the 3 translational degrees of freedom of the gas particles.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

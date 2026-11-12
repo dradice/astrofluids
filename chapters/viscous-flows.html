@@ -623,33 +623,33 @@ Note
 <section id="sec-visc-worksheet" class="level2" data-number="18.1">
 <h2 data-number="18.1" class="anchored" data-anchor-id="sec-visc-worksheet"><span class="header-section-number">18.1</span> In-class worksheet</h2>
 <ol type="1">
-<li><p>Core-collapse supernovae inject metals, such as oxygen, in the interstellar medium (ISM). After the supernova remnant has stalled its expansion, the diffusion of these elements throughout the galaxy can be modeled through an advection-diffusion equation: <span id="eq-visc-advection-diffusion"><span class="math display">\[
+<li><p>Core-collapse supernovae inject metals, such as oxygen, into the interstellar medium (ISM). After the supernova remnant has stalled its expansion, the diffusion of these elements throughout the galaxy can be modeled through an advection-diffusion equation: <span id="eq-visc-advection-diffusion"><span class="math display">\[
 \frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{v}) = \nabla
-\cdot (\mu \nabla \rho),
-\tag{18.1}\]</span></span> where <span class="math inline">\(\rho\)</span> is the mass density of the newly synthesized elements, <span class="math inline">\(\mathbf{v}\)</span> is the local velocity of the ISM, and <span class="math inline">\(\mu\)</span> is a diffusion coefficient.</p>
+\cdot (D \nabla \rho),
+\tag{18.1}\]</span></span> where <span class="math inline">\(\rho\)</span> is the mass density of the newly synthesized elements, <span class="math inline">\(\mathbf{v}\)</span> is the local velocity of the ISM, and <span class="math inline">\(D\)</span> is a diffusion coefficient.</p>
 <ol type="1">
 <li><p>Show that, under suitable assumptions, <span id="eq-visc-2"><span class="math display">\[
 \frac{\mathrm{d}}{\mathrm{d} t} \int_V \rho \mathrm{d}^3 \mathbf{r}= 0.
 \tag{18.2}\]</span></span></p></li>
-<li><p>Assume that <span class="math inline">\(\mathbf{v}= \operatorname{const}\)</span>, <span class="math inline">\(\mu = \operatorname{const} &gt; 0\)</span>, and look for solutions in the form <span id="eq-visc-ansatz"><span class="math display">\[
-\rho (t, \mathbf{x}) = \rho_0 e^{\mathrm{i} (\mathbf{k} \cdot \mathbf{x}-
+<li><p>Assume that <span class="math inline">\(\mathbf{v}= \mathrm{const}\)</span>, <span class="math inline">\(D = \mathrm{const} &gt; 0\)</span>, and look for solutions in the form <span id="eq-visc-ansatz"><span class="math display">\[
+\rho (t, \mathbf{x}) = \rho_0 \mathrm{e}^{\mathrm{i} (\mathbf{k} \cdot \mathbf{x}-
 \omega t)} .
 \tag{18.3}\]</span></span> Sketch the solution for different times and give a physical interpretation of the results.</p></li>
-<li><p>How do the results change if <span class="math inline">\(\mu &lt; 0\)</span>?</p></li>
+<li><p>How do the results change if <span class="math inline">\(D &lt; 0\)</span>?</p></li>
 <li><p>Show that <a href="#eq-visc-advection-diffusion" class="quarto-xref">Equation&nbsp;<span>18.1</span></a> can be written as <span id="eq-visc-4"><span class="math display">\[
 \frac{\partial \rho}{\partial t} + \nabla \cdot \left[ \rho \left(
-\mathbf{v}- \mu \frac{\nabla \rho}{\rho} \right)  \right] = 0.
-\tag{18.4}\]</span></span> Interpret the term in round bracket as an effective propagation velocity <span class="math inline">\(\mathbf{v}_{\operatorname{eff}}\)</span>. How does <span class="math inline">\(\mathbf{v}_{\operatorname{eff}}\)</span> depend on the wave number <span class="math inline">\(\mathbf{k}\)</span> if <span class="math inline">\(\rho\)</span> is as in <a href="#eq-visc-ansatz" class="quarto-xref">Equation&nbsp;<span>18.3</span></a>?</p></li>
+\mathbf{v}- D \frac{\nabla \rho}{\rho} \right)  \right] = 0.
+\tag{18.4}\]</span></span> Interpret the term in round brackets as an effective propagation velocity <span class="math inline">\(\mathbf{v}_{\mathrm{eff}}\)</span>. How does <span class="math inline">\(\mathbf{v}_{\mathrm{eff}}\)</span> depend on the wave number <span class="math inline">\(\mathbf{k}\)</span> if <span class="math inline">\(\rho\)</span> is as in <a href="#eq-visc-ansatz" class="quarto-xref">Equation&nbsp;<span>18.3</span></a>?</p></li>
 </ol></li>
 </ol>
 </section>
 <section id="sec-visc-exercises" class="level2" data-number="18.2">
 <h2 data-number="18.2" class="anchored" data-anchor-id="sec-visc-exercises"><span class="header-section-number">18.2</span> Exercises</h2>
 <div id="exr-visc-vortex" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 18.1 (Steady viscous vortex)</strong></span> Consider a steady-state, axisymmetric solution of the incompressible, viscous, Navier-Stokes equations in cylindrical coordinates <span class="math inline">\((R, \theta, z)\)</span> in the form <span id="eq-visc-vortex-ansatz"><span class="math display">\[
-v_R = - \alpha R, \qquad v_{\theta} = \frac{\Gamma}{2 \pi R} g (R), \qquad
+<p><span class="theorem-title"><strong>Exercise 18.1 (Steady viscous vortex)</strong></span> Consider a steady-state, axisymmetric solution of the incompressible, viscous, Navier–Stokes equations in cylindrical coordinates <span class="math inline">\((R, \phi, z)\)</span> in the form <span id="eq-visc-vortex-ansatz"><span class="math display">\[
+v_R = - \alpha R, \qquad v_{\phi} = \frac{\mathcal{C}}{2 \pi R} g (R), \qquad
 v_z = 2 \alpha z,
-\tag{18.5}\]</span></span> where <span class="math inline">\(\alpha &gt; 0\)</span> and <span class="math inline">\(\Gamma &gt; 0\)</span> are given constants, while <span class="math inline">\(g (R)\)</span> is a function satisfying <span id="eq-visc-vortex-limits"><span class="math display">\[
+\tag{18.5}\]</span></span> where <span class="math inline">\(\alpha &gt; 0\)</span> and <span class="math inline">\(\mathcal{C} &gt; 0\)</span> are given constants, while <span class="math inline">\(g (R)\)</span> is a function satisfying <span id="eq-visc-vortex-limits"><span class="math display">\[
 \lim_{R \rightarrow 0} g (R) = 0, \qquad \lim_{R \rightarrow \infty} g (R)
 = 1.
 \tag{18.6}\]</span></span> Let <span class="math inline">\(\nu &gt; 0\)</span> be the kinematic viscosity.</p>

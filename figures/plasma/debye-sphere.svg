@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="420" height="320" viewBox="0 0 420 320">
 <title>Electron cloud around an ion</title>
-<desc>A circle of radius lambda D centred on an ion of charge q. Inside the circle, minus signs for electrons are close to the ion and plus signs for other ions are farther out, so that the electrons screen the ion.</desc>
+<desc>A circle of radius lambda D centred on an ion of charge Q. Inside the circle, minus signs for electrons are close to the ion and plus signs for other ions are farther out, so that the electrons screen the ion.</desc>
 <rect width="420" height="320" fill="#fff"/>
 <circle cx="210" cy="165" r="145" fill="none" stroke="#000" stroke-width="1.5"/>
 <circle cx="210" cy="165" r="3.5" fill="#000"/>
 <path d="M210 165 L313 62" stroke="#000" stroke-width="1.5"/>
 <g font-family="serif" font-size="20" fill="#000" text-anchor="middle">
-<text x="210" y="195" font-style="italic">q</text>
+<text x="210" y="195" font-style="italic">Q</text>
 <text x="340" y="55" font-style="italic">λ<tspan font-size="14" dy="5">D</tspan></text>
 <text x="205" y="95">−</text><text x="240" y="150">−</text><text x="258" y="200">−</text><text x="170" y="225">−</text><text x="150" y="150">−</text>
 <text x="170" y="65">+</text><text x="305" y="140">+</text><text x="125" y="105">+</text><text x="95" y="185">+</text><text x="290" y="235">+</text><text x="215" y="285">+</text><text x="115" y="245">+</text>

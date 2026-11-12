@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" width="560" height="360" role="img" aria-labelledby="prom-t prom-d">
 <title id="prom-t">Force diagram for a Solar prominence</title>
-<desc id="prom-d">A grey ellipse (the prominence) inside a rectangular control volume V above the curved Solar photosphere. Blue magnetic field lines rise from the photosphere, arch over the prominence and come back down, passing through the volume above and to the sides of the prominence. The gravitational acceleration g points down, towards the photosphere.</desc>
+<desc id="prom-d">A grey ellipse (the prominence) inside a rectangular control volume V above the curved solar photosphere. Blue magnetic field lines rise from the photosphere, arch over the prominence and come back down, passing through the volume above and to the sides of the prominence. The gravitational acceleration g points down, towards the photosphere.</desc>
 <defs><marker id="ah-k" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#000" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker><marker id="ah-1f4fbf" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#1f4fbf" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker></defs>
 <rect width="560" height="360" fill="#fff"/>
 <g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif">
 <rect x="160" y="110" width="156" height="62" fill="none" stroke="#000" stroke-width="1.6"/>
 <ellipse cx="238.0" cy="141.0" rx="78.0" ry="25.0" transform="rotate(0.0 238.0 141.0)" fill="#d9d9d9" stroke="#000" stroke-width="1.6"/>
 <path d="M 10 300 Q 238 190 468 300" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" />
-<text x="240" y="330" text-anchor="middle" font-size="20" font-style="normal" font-weight="normal" fill="#000">Solar photo-sphere</text>
+<text x="240" y="330" text-anchor="middle" font-size="20" font-style="normal" font-weight="normal" fill="#000">Solar photosphere</text>
 <text x="240" y="62" text-anchor="middle" font-size="20" font-style="normal" font-weight="normal" fill="#000">prominence</text>
 <text x="272" y="211" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">V</text>
 <line x1="176.0" y1="198.0" x2="176.0" y2="250.0" stroke="#000" stroke-width="1.5" marker-end="url(#ah-k)"/>

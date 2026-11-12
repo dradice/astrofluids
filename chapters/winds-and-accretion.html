@@ -623,10 +623,10 @@ Note
 <section id="sec-wind-worksheet" class="level2" data-number="14.1">
 <h2 data-number="14.1" class="anchored" data-anchor-id="sec-wind-worksheet"><span class="header-section-number">14.1</span> In-class worksheet</h2>
 <ol type="1">
-<li>The radial velocity <span class="math inline">\(v\)</span> for an isothermal wind with isothermal sound speed <span class="math inline">\(a\)</span> satisfies the equation <span id="eq-wind-1"><span class="math display">\[
-(v^2 - a^2)  \frac{v'}{v} = \frac{2 a^2}{r} - \frac{GM}{r^2} .
+<li>The radial velocity <span class="math inline">\(v\)</span> for an isothermal wind with isothermal sound speed <span class="math inline">\(c_{\mathrm{iso}}\)</span> satisfies the equation <span id="eq-wind-1"><span class="math display">\[
+(v^2 - c_{\mathrm{iso}}^2)  \frac{1}{v} \frac{\mathrm{d} v}{\mathrm{d} r} = \frac{2 c_{\mathrm{iso}}^2}{r} - \frac{GM}{r^2} .
 \tag{14.1}\]</span></span> Find the acceleration of the wind at the sonic point <span id="eq-wind-2"><span class="math display">\[
-r_c = \frac{GM}{2 a^2} .
+r_c = \frac{GM}{2 c_{\mathrm{iso}}^2} .
 \tag{14.2}\]</span></span></li>
 </ol>
 </section>
@@ -638,18 +638,18 @@ f = \frac{A}{r^2},
 \tag{14.3}\]</span></span> where <span class="math inline">\(A &gt; 0\)</span>.</p>
 <ol type="1">
 <li><p>Show that the momentum equation becomes <span id="eq-wind-4"><span class="math display">\[
-(v^2 - a^2)  \frac{1}{v}  \frac{\mathrm{d} v}{\mathrm{d} r} = \frac{2 a^2}{r} -
+(v^2 - c_{\mathrm{iso}}^2)  \frac{1}{v}  \frac{\mathrm{d} v}{\mathrm{d} r} = \frac{2 c_{\mathrm{iso}}^2}{r} -
 \frac{GM}{r^2} + \frac{A}{r^2},
-\tag{14.4}\]</span></span> where <span class="math inline">\(a\)</span> is the isothermal sound speed.</p></li>
+\tag{14.4}\]</span></span> where <span class="math inline">\(c_{\mathrm{iso}}\)</span> is the isothermal sound speed.</p></li>
 <li><p>Assuming <span class="math inline">\(A &lt; GM\)</span>, how does the structure of the wind change?</p></li>
 <li><p>How does the radial profile of the velocity change if <span class="math inline">\(A &gt; GM\)</span>? Give a physical interpretation of the results.</p></li>
 </ol>
 </div>
 <div id="exr-wind-bondi" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 14.2 (Isothermal Bondi accretion)</strong></span> Far from a star of mass <span class="math inline">\(M\)</span> located at the origin, isothermal gas has pressure <span class="math inline">\(p_{\infty} = a^2 \rho_{\infty}\)</span> and density <span class="math inline">\(\rho_{\infty}\)</span>. This gas is steadily accreted onto the star.</p>
+<p><span class="theorem-title"><strong>Exercise 14.2 (Isothermal Bondi accretion)</strong></span> Far from a star of mass <span class="math inline">\(M\)</span> located at the origin, isothermal gas has pressure <span class="math inline">\(p_{\infty} = c_{\mathrm{iso}}^2 \rho_{\infty}\)</span> and density <span class="math inline">\(\rho_{\infty}\)</span>. This gas is steadily accreted onto the star.</p>
 <ol type="1">
 <li><p>Find the accretion rate, assuming that the gas remains isothermal. At what radius does the infalling gas reach the sound speed?</p></li>
-<li><p>Let <span class="math inline">\(a = 10^5 \operatorname{cm} /\mathrm{s}\)</span> and <span class="math inline">\(n_{\infty} = 10^3\)</span> hydrogen molecules <span class="math inline">\(\operatorname{cm}^{- 3}\)</span>, and take the mass of the hydrogen atom to be <span class="math inline">\(1.66 \times 10^{- 24} \mathrm{g}\)</span>. Express this radius in units of the solar radius <span class="math inline">\(R_{\odot} = 7 \times 10^{10} \operatorname{cm}\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(c_{\mathrm{iso}} = 1\, \mathrm{km} /\mathrm{s}\)</span> and <span class="math inline">\(n_{\infty} = 10^3\)</span> hydrogen atoms per <span class="math inline">\(\mathrm{cm}^{3}\)</span>, and take the mass of the hydrogen atom to be <span class="math inline">\(1.66 \times 10^{- 27}\, \mathrm{kg}\)</span>. Express this radius in units of the solar radius <span class="math inline">\(R_{\odot} = 7 \times 10^8\, \mathrm{m}\)</span>.</p></li>
 <li><p>Calculate the time that a star of mass <span class="math inline">\(M\)</span> needs to double its mass.</p></li>
 </ol>
 <p>Adapted from <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Problem 30.</p>

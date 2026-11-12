@@ -581,7 +581,8 @@ window.Quarto = {
   <li><a href="#electromagnetism-refresher" id="toc-electromagnetism-refresher" class="nav-link active" data-scroll-target="#electromagnetism-refresher"><span class="header-section-number">22.1</span> Electromagnetism Refresher</a></li>
   <li><a href="#plasma" id="toc-plasma" class="nav-link" data-scroll-target="#plasma"><span class="header-section-number">22.2</span> Plasma</a></li>
   <li><a href="#sec-plasma-worksheet" id="toc-sec-plasma-worksheet" class="nav-link" data-scroll-target="#sec-plasma-worksheet"><span class="header-section-number">22.3</span> In-class worksheet</a></li>
-  <li><a href="#sec-plasma-reading" id="toc-sec-plasma-reading" class="nav-link" data-scroll-target="#sec-plasma-reading"><span class="header-section-number">22.4</span> Further reading</a></li>
+  <li><a href="#sec-plasma-exercises" id="toc-sec-plasma-exercises" class="nav-link" data-scroll-target="#sec-plasma-exercises"><span class="header-section-number">22.4</span> Exercises</a></li>
+  <li><a href="#sec-plasma-reading" id="toc-sec-plasma-reading" class="nav-link" data-scroll-target="#sec-plasma-reading"><span class="header-section-number">22.5</span> Further reading</a></li>
   </ul>
 </nav>
     </div>
@@ -612,40 +613,50 @@ window.Quarto = {
 <h2 data-number="22.1" class="anchored" data-anchor-id="electromagnetism-refresher"><span class="header-section-number">22.1</span> Electromagnetism Refresher</h2>
 <section id="lorentz-force-and-maxwell-equations" class="level3" data-number="22.1.1">
 <h3 data-number="22.1.1" class="anchored" data-anchor-id="lorentz-force-and-maxwell-equations"><span class="header-section-number">22.1.1</span> Lorentz Force and Maxwell Equations</h3>
-<p>Most of the baryonic matter in the Universe is in the form of plasma, a state of matter characterized by large electrical conductivity and charge mobility. Not surprisingly, plasma physics plays an important role in many astrophysical systems. Before we are ready to discuss plasmas, or even before we can precisely state what plasma is, it is a good idea to refresh some key concepts from electromagnetism. In the process, we will also introduce CGS units, which are ubiquitous in astronomy.</p>
-<p>The starting point for electromagnetism is the observation that some particles, electrons and protons, are endowed with electric charge, which as an intrinsic property, like mass. When two lumps of matter with net charge <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(Q_2\)</span> are placed at a distance <span class="math inline">\(r\)</span>, the two experience a force, which we write in CGS units as <span id="eq-plasma-coulomb"><span class="math display">\[
-F = \frac{Q_1 Q_2}{r^2} .
-\tag{22.1}\]</span></span> The force is repulsive if <span class="math inline">\(Q_1 Q_2 &gt; 0\)</span> and attractive if <span class="math inline">\(Q_1 Q_2 &lt; 0\)</span>. Note that there is no Coulomb constant in the previous equation. This is not a typo, but a feature of CGS units. In these units, charge, which is measured in Statcoulomb, is not a fundamental unit, but can be defined in terms of <span class="math inline">\(\mathrm{g}\)</span>, <span class="math inline">\(\mathrm{cm}\)</span>, and <span class="math inline">\(\mathrm{s}\)</span> using <a href="#eq-plasma-coulomb" class="quarto-xref">Equation&nbsp;<span>22.1</span></a>: <span id="eq-plasma-2"><span class="math display">\[
-[Q]^2 = [F] L^2 = [M]  [L]  [T]^{- 2}  [L]^2 \Longrightarrow [Q]
-=\mathrm{g}^{1 / 2} \mathrm{cm}^{3 / 2} \mathrm{s}^{- 1} = : \mathrm{statC} .
+<p>Most of the baryonic matter in the Universe is in the form of plasma, a state of matter characterized by large electrical conductivity and charge mobility. Not surprisingly, plasma physics plays an important role in many astrophysical systems. Before we are ready to discuss plasmas, or even before we can precisely state what plasma is, it is a good idea to refresh some key concepts from electromagnetism. We will write the equations of electromagnetism in SI units, as in the rest of these notes.</p>
+<p>The starting point for electromagnetism is the observation that some particles, electrons and protons, are endowed with electric charge, which is an intrinsic property, like mass. When two lumps of matter with net charge <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(Q_2\)</span> are placed at a distance <span class="math inline">\(r\)</span>, the two experience a force <span id="eq-plasma-coulomb"><span class="math display">\[
+F = \frac{Q_1 Q_2}{4 \pi \epsilon_0 r^2} .
+\tag{22.1}\]</span></span> The force is repulsive if <span class="math inline">\(Q_1 Q_2 &gt; 0\)</span> and attractive if <span class="math inline">\(Q_1 Q_2 &lt; 0\)</span>. In SI units, charge is measured in coulomb (<span class="math inline">\(1\,\mathrm{C} = 1\,\mathrm{A\,s}\)</span>), and the constant <span class="math inline">\(\epsilon_0\)</span>, called the vacuum permittivity, is <span id="eq-plasma-2"><span class="math display">\[
+\epsilon_0 = 8.854 \times 10^{- 12}\,\mathrm{C^2\,N^{-1}\,m^{-2}} .
 \tag{22.2}\]</span></span> The charge of the electron is <span id="eq-plasma-3"><span class="math display">\[
-e = 4.8032047 \times 10^{- 10} \mathrm{statC} .
-\tag{22.3}\]</span></span> The Coulomb force on particle 2 can also be thought as the effect on particle 2 of an electrostatic field produced by particle 1. In a system of coordinates centered on particle 1, the lines of force of the electrostatic field produced by particle 1 are <span id="eq-plasma-4"><span class="math display">\[
-\mathbf{E}= \frac{Q_1}{r^2}  \hat{\mathbf{r}}
+e = 1.602176634 \times 10^{- 19}\,\mathrm{C} .
+\tag{22.3}\]</span></span> The Coulomb force on particle 2 can also be thought of as the effect on particle 2 of an electrostatic field produced by particle 1. In a system of coordinates centered on particle 1, the electrostatic field produced by particle 1 is <span id="eq-plasma-4"><span class="math display">\[
+\mathbf{E}= \frac{Q_1}{4 \pi \epsilon_0 r^2}  \hat{\mathbf{r}}
 \tag{22.4}\]</span></span> and the force on particle 2 is given by <span id="eq-plasma-5"><span class="math display">\[
-\mathbf{F}= \frac{Q_1 Q_2}{r^2}  \hat{\mathbf{r}} = Q_2 \mathbf{E}.
+\mathbf{F}= \frac{Q_1 Q_2}{4 \pi \epsilon_0 r^2}  \hat{\mathbf{r}} = Q_2 \mathbf{E}.
 \tag{22.5}\]</span></span> In general, a charged particle with charge <span class="math inline">\(Q\)</span> moving in an electromagnetic field experiences the so-called Lorentz force: <span id="eq-plasma-lorentz-force"><span class="math display">\[
-\mathbf{F}= Q \left( \mathbf{E}+ \frac{\mathbf{v} \times \mathbf{B}}{c}
-\right),
-\tag{22.6}\]</span></span> where <span class="math inline">\(c\)</span> is the speed of light. In CGS units, the electric <span class="math inline">\(\mathbf{E}\)</span> and magnetic <span class="math inline">\(\mathbf{B}\)</span> fields are <em>defined</em> by <a href="#eq-plasma-lorentz-force" class="quarto-xref">Equation&nbsp;<span>22.6</span></a>. They also have the same units, as can be easily checked: <span id="eq-plasma-7"><span class="math display">\[
-[\mathbf{E}] = [\mathbf{B}] = \mathrm{cm}^{- 1 / 2} \mathrm{g}^{1 / 2}
-\mathrm{s}^{- 1} .
-\tag{22.7}\]</span></span> The fact that <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> have the same units in CGS is the main reason why these units are still widely used. Indeed, electric and magnetic fields are different manifestations of a single field: the electromagnetic field, as is revealed by special relativity. The electromagnetic field can be found as solution of the Maxwell’s field equations <span id="eq-plasma-maxwell"><span class="math display">\[
-\begin{array}{lll}
-\nabla \cdot \mathbf{E}= 4 \pi q, &amp;  &amp; \nabla \cdot \mathbf{B}= 0,\\
-\nabla \times \mathbf{E}= - \frac{1}{c}  \frac{\partial
-\mathbf{B}}{\partial t}, &amp;  &amp; \nabla \times \mathbf{B}= \frac{4 \pi}{c}
-\mathbf{j}+ \frac{1}{c}  \frac{\partial \mathbf{E}}{\partial t} .
+\mathbf{F}= Q ( \mathbf{E}+ \mathbf{v} \times \mathbf{B} ) .
+\tag{22.6}\]</span></span> The electric <span class="math inline">\(\mathbf{E}\)</span> and magnetic <span class="math inline">\(\mathbf{B}\)</span> fields are <em>defined</em> by <a href="#eq-plasma-lorentz-force" class="quarto-xref">Equation&nbsp;<span>22.6</span></a>, as the force per unit charge on a particle at rest, and the additional force on a moving particle. Their units are <span id="eq-plasma-7"><span class="math display">\[
+[\mathbf{E}] = \mathrm{N\,C^{-1}} = \mathrm{V\,m^{-1}}, \qquad [\mathbf{B}] = \mathrm{N\,s\,C^{-1}\,m^{-1}} = \mathrm{T}\ (\mathrm{tesla}) .
+\tag{22.7}\]</span></span> In astronomy, magnetic fields are customarily measured in gauss, with <span class="math inline">\(1\,\mathrm{G} = 10^{-4}\,\mathrm{T}\)</span>. We will give field strengths in tesla, followed by their value in gauss. Note that <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(c \mathbf{B}\)</span>, where <span class="math inline">\(c\)</span> is the speed of light, have the same units. This makes sense, because electric and magnetic fields are different manifestations of a single field: the electromagnetic field, as is revealed by special relativity. The electromagnetic field can be found as solution of the Maxwell’s field equations <span id="eq-plasma-maxwell"><span class="math display">\[
+\begin{array}{ll}
+\nabla \cdot \mathbf{E}= \dfrac{q}{\epsilon_0}, &amp; \nabla \cdot \mathbf{B}= 0,\\
+\nabla \times \mathbf{E}= - \dfrac{\partial
+\mathbf{B}}{\partial t}, &amp; \nabla \times \mathbf{B}= \mu_0
+\mathbf{j}+ \mu_0 \epsilon_0 \dfrac{\partial \mathbf{E}}{\partial t} .
 \end{array}
-\tag{22.8}\]</span></span> In the previous equation, <span class="math inline">\(q\)</span> is the charge density and <span class="math inline">\(\mathbf{j}\)</span> the current density. The equations in the first row are called the Gauss law for electric and magnetic fields. The second two equations are the Faraday, or induction, equation (left column), and the Ampere-Maxwell law (right column).</p>
+\tag{22.8}\]</span></span> In the previous equation, <span class="math inline">\(q\)</span> is the charge density, <span class="math inline">\(\mathbf{j}\)</span> the current density, and <span class="math inline">\(\mu_0 \approx 4 \pi \times 10^{- 7}\,\mathrm{N\,A^{-2}}\)</span> is the vacuum permeability. The two constants are related to the speed of light by <span class="math inline">\(\mu_0 \epsilon_0 = 1 / c^2\)</span>. The equations in the first row are called the Gauss law for electric and magnetic fields. The second two equations are the Faraday, or induction, equation (left column), and the Ampère–Maxwell law (right column).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Gaussian units
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Most astrophysics texts and papers, including <span class="citation" data-cites="kulsrud2005">Kulsrud (<a href="#ref-kulsrud2005" role="doc-biblioref">2005</a>)</span>, write the equations of electromagnetism in Gaussian (CGS) units. In these units there is no <span class="math inline">\(\epsilon_0\)</span> or <span class="math inline">\(\mu_0\)</span>, charge is measured in statcoulomb, and <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> have the same units. To translate a formula from Gaussian to SI units, replace <span class="math inline">\(B / \sqrt{4 \pi}\)</span> with <span class="math inline">\(B / \sqrt{\mu_0}\)</span>, <span class="math inline">\(e^2\)</span> with <span class="math inline">\(e^2 / (4 \pi \epsilon_0)\)</span>, and <span class="math inline">\(\mathbf{E}\)</span> with <span class="math inline">\(\sqrt{4 \pi \epsilon_0}\, \mathbf{E}\)</span>, and write every <span class="math inline">\(\mathbf{v} \times \mathbf{B} / c\)</span> as <span class="math inline">\(\mathbf{v} \times \mathbf{B}\)</span>. For example, the Gaussian plasma frequency <span class="math inline">\(\sqrt{4 \pi n e^2 / m_e}\)</span> becomes <span class="math inline">\(\sqrt{n e^2 / (\epsilon_0 m_e)}\)</span> (<a href="#eq-plasma-50" class="quarto-xref">Equation&nbsp;<span>22.50</span></a>), and the Gaussian magnetic pressure <span class="math inline">\(B^2 / 8 \pi\)</span> becomes <span class="math inline">\(B^2 / 2 \mu_0\)</span>.</p>
+</div>
+</div>
 </section>
 <section id="electrostatics" class="level3" data-number="22.1.2">
 <h3 data-number="22.1.2" class="anchored" data-anchor-id="electrostatics"><span class="header-section-number">22.1.2</span> Electrostatics</h3>
-<p>If <span class="math inline">\(\frac{\partial \mathbf{E}}{\partial t} =\mathbf{B}= 0\)</span>, Maxwell equations simplify to <span id="eq-plasma-9"><span class="math display">\[
-\nabla \cdot \mathbf{E}= 4 \pi q,  \nabla \times \mathbf{E}= 0,
+<p>If the fields do not depend on time, the Maxwell equations for <span class="math inline">\(\mathbf{E}\)</span> simplify to <span id="eq-plasma-9"><span class="math display">\[
+\nabla \cdot \mathbf{E}= \frac{q}{\epsilon_0}, \qquad \nabla \times \mathbf{E}= 0.
 \tag{22.9}\]</span></span> The second equation tells us that <span class="math inline">\(\mathbf{E}= - \nabla \Phi\)</span>, where <span class="math inline">\(\Phi\)</span> is the electrostatic potential. The latter satisfies the Poisson equation <span id="eq-plasma-10"><span class="math display">\[
-\nabla^2 \Phi = - 4 \pi q.
-\tag{22.10}\]</span></span> Apart from a minus sign, this is the same equation satisfied by the gravitational potential.</p>
+\nabla^2 \Phi = - \frac{q}{\epsilon_0} .
+\tag{22.10}\]</span></span> Apart from a minus sign and the constant, <span class="math inline">\(1 / \epsilon_0\)</span> instead of <span class="math inline">\(4 \pi G\)</span>, this is the same equation satisfied by the gravitational potential (<a href="gravitational-potential.html" class="quarto-xref"><span>Chapter 7</span></a>).</p>
 <p>The force experienced by a charge <span class="math inline">\(Q\)</span> in an electrostatic field is <span id="eq-plasma-11"><span class="math display">\[
 \mathbf{F}= Q\mathbf{E}= - Q \nabla \Phi .
 \tag{22.11}\]</span></span></p>
@@ -659,7 +670,7 @@ e = 4.8032047 \times 10^{- 10} \mathrm{statC} .
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Consider the electrostatic potential generated by a spherical distribution of charge density <span class="math inline">\(q\)</span> and the force experienced by an electron <span class="math inline">\(e\)</span> outside the sphere, as illustrated in <a href="#fig-plasma-sphere" class="quarto-xref">Figure&nbsp;<span>22.1</span></a>.</p>
+<p>Consider the electrostatic potential generated by a spherical distribution of charge density <span class="math inline">\(q\)</span> and the force experienced by an electron outside the sphere, as illustrated in <a href="#fig-plasma-sphere" class="quarto-xref">Figure&nbsp;<span>22.1</span></a>.</p>
 <div id="fig-plasma-sphere" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A grey sphere carrying charge q. An electron e outside the sphere, up and to the left, has an arrow F pointing from it towards the sphere.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-plasma-sphere-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -670,18 +681,18 @@ Figure&nbsp;22.1: Spherical distribution of charge.
 </figcaption>
 </figure>
 </div>
-<p>The radial component of the force experienced by a particle of charge <span class="math inline">\(e\)</span> at a distance <span class="math inline">\(r\)</span> from a charged sphere, with charge density <span class="math inline">\(q\)</span> is given by: <span id="eq-plasma-12"><span class="math display">\[
-F_r = - e \partial_r \Phi .
+<p>The radial component of the force experienced by an electron, which has charge <span class="math inline">\(- e\)</span>, at a distance <span class="math inline">\(r\)</span> from a charged sphere, with charge density <span class="math inline">\(q\)</span>, is given by: <span id="eq-plasma-12"><span class="math display">\[
+F_r = e \partial_r \Phi .
 \tag{22.12}\]</span></span> From the Poisson equation <span id="eq-plasma-13"><span class="math display">\[
-\nabla \cdot \nabla \Phi = - 4 \pi q.
+\nabla \cdot \nabla \Phi = - \frac{q}{\epsilon_0} .
 \tag{22.13}\]</span></span> Integrating both sides over a sphere of radius <span class="math inline">\(r\)</span>, we find <span id="eq-plasma-14"><span class="math display">\[
-- 4 \pi \int_V q \mathrm{d} V = - 4 \pi Q = \int_V \nabla \cdot \nabla \Phi
-\mathrm{d} V,
-\tag{22.14}\]</span></span> The RHS gives (using Gauss’ law) <span id="eq-plasma-15"><span class="math display">\[
+- \frac{1}{\epsilon_0} \int_V q \mathrm{d} V = - \frac{Q}{\epsilon_0} = \int_V \nabla \cdot \nabla \Phi
+\mathrm{d} V.
+\tag{22.14}\]</span></span> The RHS gives (using the divergence theorem) <span id="eq-plasma-15"><span class="math display">\[
 \int_V \nabla \cdot \nabla \Phi \mathrm{d} V = \int_S \nabla \Phi \cdot
 \hat{\mathbf{r}} \mathrm{d} S = 4 \pi r^2 \partial_r \Phi \Longrightarrow
-\partial_r \Phi = - \frac{Q}{r^2} \Longrightarrow F_r = \frac{Qe}{r^2} .
-\tag{22.15}\]</span></span></p>
+\partial_r \Phi = - \frac{Q}{4 \pi \epsilon_0 r^2} \Longrightarrow F_r = - \frac{Qe}{4 \pi \epsilon_0 r^2} .
+\tag{22.15}\]</span></span> So the electron is attracted by the sphere if <span class="math inline">\(Q &gt; 0\)</span>, and repelled if <span class="math inline">\(Q &lt; 0\)</span>.</p>
 </div>
 </div>
 <p>Even though electrostatic and gravitational forces have a similar mathematical structure, these forces are very different for two reasons. First, gravity is always attractive, because no forms of matter are known to possess negative mass, while electric charge can be positive or negative and objects of similar charge repel each other. Second, gravity is a very weak force, as we explore with the next example.</p>
@@ -697,14 +708,14 @@ F_r = - e \partial_r \Phi .
 <div class="callout-body-container callout-body">
 <p>Consider a proton on the surface of the Sun. It is subject to an attractive gravitational force: <span id="eq-plasma-16"><span class="math display">\[
 F_g = - \frac{GM_{\odot} m_p}{R_{\odot }^2} .
-\tag{22.16}\]</span></span> The proton is also subject to an electrostatic: <span id="eq-plasma-17"><span class="math display">\[
-F_e = \frac{Q_{\odot} e}{R_{\odot}^2},
-\tag{22.17}\]</span></span> where <span class="math inline">\(Q_{\odot} \approx \frac{M_{\odot}}{m_p} \varepsilon\)</span> is the net charge of the Sun, where <span class="math inline">\(\varepsilon = (N_p - N_e) / N_p\)</span> is the fractional charge imbalance. Gravity and electrostatic forces balance each other when <span id="eq-plasma-18"><span class="math display">\[
-\varepsilon = \frac{Gm_p^2}{e^2} \sim 10^{- 36} .
+\tag{22.16}\]</span></span> The proton is also subject to an electrostatic force: <span id="eq-plasma-17"><span class="math display">\[
+F_e = \frac{Q_{\odot} e}{4 \pi \epsilon_0 R_{\odot}^2},
+\tag{22.17}\]</span></span> where <span class="math inline">\(Q_{\odot} \approx \frac{M_{\odot}}{m_p} \delta e\)</span> is the net charge of the Sun, and <span class="math inline">\(\delta = (N_p - N_e) / N_p\)</span> is the fractional charge imbalance. Gravity and electrostatic forces balance each other when <span id="eq-plasma-18"><span class="math display">\[
+\delta = \frac{4 \pi \epsilon_0 G m_p^2}{e^2} \sim 10^{- 36} .
 \tag{22.18}\]</span></span> The Sun must be very close to neutral, because even a small charge imbalance would cause particles of the same charge as the Sun to be evaporated from the surface.</p>
 </div>
 </div>
-<p>The argument we have just made for the Sun apply to most astrophysical systems. This implies that the charge imbalance in astronomical objects must be very small. In other words, they are <em>quasi-neutral</em>. As we will see shortly, quasi-neutrality is one of the key characteristics an ionized gas must have to be considered to be plasma. At this point, it is important to remark that, while we will be concerned only with systems that have zero net charge, these systems can still contain electric currents, which give rise to magnetic fields and internal stresses via the Lorentz force.</p>
+<p>The argument we have just made for the Sun applies to most astrophysical systems. This implies that the charge imbalance in astronomical objects must be very small. In other words, they are <em>quasi-neutral</em>. As we will see shortly, quasi-neutrality is one of the key characteristics an ionized gas must have to be considered to be plasma. At this point, it is important to remark that, while we will be concerned only with systems that have zero net charge, these systems can still contain electric currents, which give rise to magnetic fields and internal stresses via the Lorentz force.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -715,19 +726,18 @@ F_e = \frac{Q_{\odot} e}{R_{\odot}^2},
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If we take the divergence of Ampere’s law we find <span id="eq-plasma-19"><span class="math display">\[
-\frac{\partial \nabla \cdot \mathbf{E}}{\partial t} + 4 \pi
+<p>If we take the divergence of Ampère’s law we find <span id="eq-plasma-19"><span class="math display">\[
+\epsilon_0 \frac{\partial \nabla \cdot \mathbf{E}}{\partial t} +
 \nabla \cdot \mathbf{j}= 0.
 \tag{22.19}\]</span></span> Using Gauss’ law <span id="eq-plasma-20"><span class="math display">\[
 \frac{\partial q}{\partial t} + \nabla \cdot \mathbf{j}= 0.
-\tag{22.20}\]</span></span> So the charge density satisfies a continuity equation, just like the mass density for a fluid. In other words, the Maxwell equations imply charge conservation.</p>
-<p>It is also possible to show that the Maxwell equation imply conservation of the energy in the electromagnetic field. To see this, consider the work done by the electromagnetic field on a fluid with charge density <span class="math inline">\(q\)</span> and velocity <span class="math inline">\(\mathbf{v}\)</span>. The Lorentz force per unit volume is <span id="eq-plasma-21"><span class="math display">\[
-\mathbf{f}= q \left( \mathbf{E}+ \frac{\mathbf{v} \times \mathbf{B}}{c}
-\right) .
-\tag{22.21}\]</span></span> So the work per unit volume is (using <span class="math inline">\(\mathbf{j}= q\mathbf{v}\)</span> and Ampere’s law) <span id="eq-plasma-22"><span class="math display">\[
+\tag{22.20}\]</span></span> So the charge density satisfies a continuity equation, just like the mass density for a fluid (<a href="fluids-as-continua.html#eq-continua-15" class="quarto-xref">Equation&nbsp;<span>1.15</span></a>). In other words, the Maxwell equations imply charge conservation.</p>
+<p>It is also possible to show that the Maxwell equations imply conservation of the energy in the electromagnetic field. To see this, consider the work done by the electromagnetic field on a fluid with charge density <span class="math inline">\(q\)</span> and velocity <span class="math inline">\(\mathbf{v}\)</span>. The Lorentz force per unit volume is <span id="eq-plasma-21"><span class="math display">\[
+\mathbf{f}= q ( \mathbf{E}+ \mathbf{v} \times \mathbf{B} ) .
+\tag{22.21}\]</span></span> So the work per unit volume is (using <span class="math inline">\(\mathbf{j}= q\mathbf{v}\)</span> and Ampère’s law) <span id="eq-plasma-22"><span class="math display">\[
 w =\mathbf{f} \cdot \mathbf{v}= q\mathbf{E} \cdot \mathbf{v}=\mathbf{E}
-\cdot \mathbf{j}= \frac{1}{4 \pi}  \left[ c (\nabla \times \mathbf{B}) \cdot
-\mathbf{E}-\mathbf{E} \cdot \frac{\partial \mathbf{E}}{\partial t} \right] .
+\cdot \mathbf{j}= \frac{1}{\mu_0} (\nabla \times \mathbf{B}) \cdot
+\mathbf{E}- \epsilon_0 \mathbf{E} \cdot \frac{\partial \mathbf{E}}{\partial t} .
 \tag{22.22}\]</span></span> Using the vector identity <span id="eq-plasma-23"><span class="math display">\[
 \mathbf{E} \cdot (\nabla \times \mathbf{B}) =\mathbf{B} \cdot (\nabla \times
 \mathbf{E}) - \nabla \cdot (\mathbf{E} \times \mathbf{B})
@@ -735,102 +745,102 @@ w =\mathbf{f} \cdot \mathbf{v}= q\mathbf{E} \cdot \mathbf{v}=\mathbf{E}
 \mathbf{E} \cdot \frac{\partial \mathbf{E}}{\partial t} = \frac{1}{2}
 \dfrac{\partial E^2}{\partial t},
 \tag{22.24}\]</span></span> we can write <span id="eq-plasma-25"><span class="math display">\[
-\mathbf{E} \cdot \mathbf{j}= \frac{1}{4 \pi}  \left\{ c [\mathbf{B} \cdot
+\mathbf{E} \cdot \mathbf{j}= \frac{1}{\mu_0} [\mathbf{B} \cdot
 (\nabla \times \mathbf{E}) - \nabla \cdot (\mathbf{E} \times \mathbf{B})] -
-\frac{1}{2}  \frac{\partial E^2}{\partial t} \right\},
-\tag{22.25}\]</span></span> we can use Faraday’s law to get rid of <span class="math inline">\(c \nabla \times \mathbf{E}\)</span> to rewrite the last equation as <span id="eq-plasma-poynting"><span class="math display">\[
-\frac{1}{8 \pi}  \frac{\partial (E^2 + B^2)}{\partial t} + \nabla \cdot
-\left( \frac{c}{4 \pi} \mathbf{E} \times \mathbf{B} \right) = -\mathbf{E}
+\frac{\epsilon_0}{2}  \frac{\partial E^2}{\partial t} .
+\tag{22.25}\]</span></span> We can use Faraday’s law to get rid of <span class="math inline">\(\nabla \times \mathbf{E}\)</span> to rewrite the last equation as <span id="eq-plasma-poynting"><span class="math display">\[
+\frac{\partial}{\partial t} \left( \frac{\epsilon_0 E^2}{2} + \frac{B^2}{2 \mu_0} \right) + \nabla \cdot
+\left( \frac{1}{\mu_0} \mathbf{E} \times \mathbf{B} \right) = -\mathbf{E}
 \cdot \mathbf{j}.
 \tag{22.26}\]</span></span> We can recognize that this is a conservation law in the form <span id="eq-plasma-27"><span class="math display">\[
-\frac{\partial u_{\operatorname{EM}}}{\partial t} + \nabla \cdot \mathbf{S}=
+\frac{\partial u_{\mathrm{EM}}}{\partial t} + \nabla \cdot \mathbf{S}=
 -\mathbf{E} \cdot \mathbf{j}.
-\tag{22.27}\]</span></span> The last term is the work done by the electric field, so we can interpret <span class="math inline">\(u_{\operatorname{EM}} = \tfrac{E^2 + B^2}{8 \pi}\)</span> as the energy in the electromagnetic field and the vector <span class="math inline">\(\mathbf{S}= \frac{c}{4 \pi} \mathbf{E} \times \mathbf{B}\)</span>, called the <em>Poynting flux</em>, as the flux of electromagnetic energy. <a href="#eq-plasma-poynting" class="quarto-xref">Equation&nbsp;<span>22.26</span></a> is also called the Poynting theorem. As we will see later, the equation for energy conservation for a plasma is just the sum of the energy conservation equations for the matter, which we already know as the energy equation, and the energy conservation equation for the electromagnetic field.</p>
+\tag{22.27}\]</span></span> The last term is the work done by the electric field, so we can interpret <span class="math inline">\(u_{\mathrm{EM}} = \tfrac{1}{2} \epsilon_0 E^2 + \tfrac{B^2}{2 \mu_0}\)</span> as the energy in the electromagnetic field and the vector <span class="math inline">\(\mathbf{S}= \frac{1}{\mu_0} \mathbf{E} \times \mathbf{B}\)</span>, called the <em>Poynting flux</em>, as the flux of electromagnetic energy. <a href="#eq-plasma-poynting" class="quarto-xref">Equation&nbsp;<span>22.26</span></a> is also called the Poynting theorem. As we will see in <a href="mhd-equations.html" class="quarto-xref"><span>Chapter 23</span></a>, the equation for energy conservation for a plasma is just the sum of the energy conservation equations for the matter, which we already know as the energy equation (<a href="conservation-laws.html" class="quarto-xref"><span>Chapter 6</span></a>), and the energy conservation equation for the electromagnetic field.</p>
 </div>
 </div>
 </section>
 <section id="electromagnetic-waves" class="level3" data-number="22.1.3">
 <h3 data-number="22.1.3" class="anchored" data-anchor-id="electromagnetic-waves"><span class="header-section-number">22.1.3</span> Electromagnetic Waves</h3>
-<p>The propagation of electromagnetic waves <strong>in vacuum</strong> can be studied with a similar formalism as that used to study sound waves. Actually, since Maxwell equations are linear, the derivation of the dispersion relation for electromagnetic waves is simpler than that for sound waves. The starting point are the Maxwell equations in vacuum: <span id="eq-plasma-maxwell-vacuum"><span class="math display">\[
+<p>The propagation of electromagnetic waves <strong>in vacuum</strong> can be studied with a similar formalism as that used to study sound waves (<a href="sound-waves.html" class="quarto-xref"><span>Chapter 9</span></a>). Actually, since Maxwell equations are linear, the derivation of the dispersion relation for electromagnetic waves is simpler than that for sound waves. The starting point are the Maxwell equations in vacuum: <span id="eq-plasma-maxwell-vacuum"><span class="math display">\[
 \begin{array}{lll}
 \nabla \cdot \mathbf{E}= 0, &amp;  &amp; \nabla \cdot \mathbf{B}= 0,\\
-\nabla \times \mathbf{E}= - \frac{1}{c}  \frac{\partial
-\mathbf{B}}{\partial t}, &amp;  &amp; \nabla \times \mathbf{B}= \frac{1}{c}
-\frac{\partial \mathbf{E}}{\partial t} .
+\nabla \times \mathbf{E}= - \dfrac{\partial
+\mathbf{B}}{\partial t}, &amp;  &amp; \nabla \times \mathbf{B}= \dfrac{1}{c^2}
+\dfrac{\partial \mathbf{E}}{\partial t} .
 \end{array}
 \tag{22.28}\]</span></span> We look for solutions in the form <span id="eq-plasma-29"><span class="math display">\[
-\mathbf{E} (t, \mathbf{x}) = \hat{\mathbf{E}}_0 e^{\mathrm{i} (\mathbf{k}
+\mathbf{E} (t, \mathbf{x}) = \hat{\mathbf{E}}_0 \mathrm{e}^{\mathrm{i} (\mathbf{k}
 \cdot \mathbf{x}- \omega t)}, \qquad \mathbf{B} (t, \mathbf{x}) =
-\hat{\mathbf{B}}_0 e^{\mathrm{i} (\mathbf{k} \cdot \mathbf{x}- \omega t)} .
+\hat{\mathbf{B}}_0 \mathrm{e}^{\mathrm{i} (\mathbf{k} \cdot \mathbf{x}- \omega t)} .
 \tag{22.29}\]</span></span> Inserting this ansatz into the first row of <a href="#eq-plasma-maxwell-vacuum" class="quarto-xref">Equation&nbsp;<span>22.28</span></a>, we obtain <span id="eq-plasma-30"><span class="math display">\[
 \nabla \cdot \mathbf{E}= 0 \Longrightarrow \mathrm{i} \mathbf{k} \cdot
-\hat{\mathbf{E}}_0 e^{\mathrm{i} (\mathbf{k} \cdot \mathbf{x}- \omega t)} = 0
+\hat{\mathbf{E}}_0 \mathrm{e}^{\mathrm{i} (\mathbf{k} \cdot \mathbf{x}- \omega t)} = 0
 \Longrightarrow \mathbf{k} \perp \hat{\mathbf{E}}_0
 \tag{22.30}\]</span></span> and, similarly, <span class="math inline">\(\mathbf{k} \perp \hat{\mathbf{B}}_0\)</span>. This means that, differently from sound waves, electromagnetic waves in vacuum are transverse, meaning that <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> are perpendicular to the direction of propagation of the wave.</p>
 <p>From Faraday’s law, we obtain that <span id="eq-plasma-faraday-fourier"><span class="math display">\[
-\frac{\mathrm{i} \omega}{c}  \hat{\mathbf{B}}_0 e^{\mathrm{i} (\mathbf{k} \cdot
+\mathrm{i} \omega  \hat{\mathbf{B}}_0 \mathrm{e}^{\mathrm{i} (\mathbf{k} \cdot
 \mathbf{x}- \omega t)} = \mathrm{i} \mathbf{k} \times \hat{\mathbf{E}}_0
-e^{\mathrm{i} (\mathbf{k} \cdot \mathbf{x}- \omega t)} \Longrightarrow
-\frac{\omega}{c}  \hat{\mathbf{B}}_0 =\mathbf{k} \times \hat{\mathbf{E}}_0 .
-\tag{22.31}\]</span></span> This implies that <span class="math inline">\(\hat{\mathbf{E}}_0 \perp \hat{\mathbf{B}}_0\)</span>. From Ampere’s law, we obtain <span id="eq-plasma-ampere-fourier"><span class="math display">\[
-\mathbf{k} \times \hat{\mathbf{B}}_0 = - \frac{\omega}{c}
+\mathrm{e}^{\mathrm{i} (\mathbf{k} \cdot \mathbf{x}- \omega t)} \Longrightarrow
+\omega  \hat{\mathbf{B}}_0 =\mathbf{k} \times \hat{\mathbf{E}}_0 .
+\tag{22.31}\]</span></span> This implies that <span class="math inline">\(\hat{\mathbf{E}}_0 \perp \hat{\mathbf{B}}_0\)</span>. From Ampère’s law, we obtain <span id="eq-plasma-ampere-fourier"><span class="math display">\[
+\mathbf{k} \times \hat{\mathbf{B}}_0 = - \frac{\omega}{c^2}
 \hat{\mathbf{E}}_0 .
 \tag{22.32}\]</span></span> Substituting <a href="#eq-plasma-ampere-fourier" class="quarto-xref">Equation&nbsp;<span>22.32</span></a> into <a href="#eq-plasma-faraday-fourier" class="quarto-xref">Equation&nbsp;<span>22.31</span></a>, we obtain (using the properties of the double vector product) <span id="eq-plasma-33"><span class="math display">\[
-\frac{\omega}{c}  \hat{\mathbf{B}}_0 = - \frac{c}{\omega} \mathbf{k} \times
-(\mathbf{k} \times \hat{\mathbf{B}}_0) = \cancel{- \frac{c}{\omega} \mathbf{k}
-(\mathbf{k} \cdot \hat{\mathbf{B}}_0)} + \frac{c}{\omega} k^2
-\hat{\mathbf{B}}_0 = \frac{c}{\omega} k^2  \hat{\mathbf{B}}_0
+\omega  \hat{\mathbf{B}}_0 = - \frac{c^2}{\omega} \mathbf{k} \times
+(\mathbf{k} \times \hat{\mathbf{B}}_0) = \cancel{- \frac{c^2}{\omega} \mathbf{k}
+(\mathbf{k} \cdot \hat{\mathbf{B}}_0)} + \frac{c^2}{\omega} k^2
+\hat{\mathbf{B}}_0 = \frac{c^2}{\omega} k^2  \hat{\mathbf{B}}_0
 \Longrightarrow \boxed{\omega^2 = c^2 k^2} .
-\tag{22.33}\]</span></span> So electromagnetic waves satisfy the same dispersion relation as sound waves, but with <span class="math inline">\(c\)</span>, the speed of light, instead of the sound speed <span class="math inline">\(c_s\)</span>.</p>
+\tag{22.33}\]</span></span> So electromagnetic waves satisfy the same dispersion relation as sound waves (<a href="sound-waves.html#eq-sound-18" class="quarto-xref">Equation&nbsp;<span>9.18</span></a>), but with <span class="math inline">\(c\)</span>, the speed of light, instead of the sound speed <span class="math inline">\(c_s\)</span>.</p>
 </section>
 </section>
 <section id="plasma" class="level2" data-number="22.2">
 <h2 data-number="22.2" class="anchored" data-anchor-id="plasma"><span class="header-section-number">22.2</span> Plasma</h2>
 <section id="what-is-a-plasma" class="level3" data-number="22.2.1">
 <h3 data-number="22.2.1" class="anchored" data-anchor-id="what-is-a-plasma"><span class="header-section-number">22.2.1</span> What is a Plasma?</h3>
-<p>Consider a quasi-neutral gas made of electrons and ions. Assume that, due to a thermal fluctuation, a small over density of electrons <span class="math inline">\(\delta n\)</span> is created in a region with characteristic size <span class="math inline">\(L\)</span>. How large can this fluctuation be?</p>
+<p>Consider a quasi-neutral gas made of electrons and ions. Assume that, due to a thermal fluctuation, a small overdensity of electrons <span class="math inline">\(\delta n\)</span> is created in a region with characteristic size <span class="math inline">\(L\)</span>. How large can this fluctuation be?</p>
 <div id="fig-plasma-overdensity" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A grey disc of radius L in which the electron density exceeds the background density n by an amount delta n.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-plasma-overdensity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../figures/plasma/overdensity.svg" class="img-fluid figure-img" alt="A grey disc of radius L in which the electron density exceeds the background density n by an amount delta n.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-plasma-overdensity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;22.2: Schematic representation of an over density of electrons.
+Figure&nbsp;22.2: Schematic representation of an overdensity of electrons.
 </figcaption>
 </figure>
 </div>
-<p>The electrostatic potential created by this over-density is of order <span id="eq-plasma-34"><span class="math display">\[
-\delta \Phi \sim 4 \pi L^2 e \delta n.
+<p>The electrostatic potential created by this overdensity is of order <span id="eq-plasma-34"><span class="math display">\[
+\delta \Phi \sim \frac{L^2 e \delta n}{\epsilon_0} .
 \tag{22.34}\]</span></span> The potential energy of each electron is <span id="eq-plasma-35"><span class="math display">\[
-U \sim e \delta \Phi .
-\tag{22.35}\]</span></span> Their kinetic is <span class="math inline">\(K \sim k_B T\)</span> (in thermodynamic equilibrium). Thermal fluctuations should have <span class="math inline">\(U \sim K\)</span>, so <span id="eq-plasma-36"><span class="math display">\[
-4 \pi L^2 e^2 \delta n \sim k_B T \Longrightarrow \frac{\delta n}{n} \sim
-\frac{1}{L^2}  \left( \frac{k_B T}{4 \pi ne^2} \right) =: \left(
+e \delta \Phi \sim \frac{L^2 e^2 \delta n}{\epsilon_0} .
+\tag{22.35}\]</span></span> Their thermal energy is <span class="math inline">\(\sim k_B T\)</span> (in thermodynamic equilibrium). Thermal fluctuations should have potential energy comparable to the thermal energy, so <span id="eq-plasma-36"><span class="math display">\[
+\frac{L^2 e^2 \delta n}{\epsilon_0} \sim k_B T \Longrightarrow \frac{\delta n}{n} \sim
+\frac{1}{L^2}  \left( \frac{\epsilon_0 k_B T}{ne^2} \right) =: \left(
 \frac{\lambda_D}{L} \right)^2,
-\tag{22.36}\]</span></span> where <span class="math inline">\(n\)</span> is the density of free electrons and we have introduced the <em>Debye length</em> <span id="eq-plasma-37"><span class="math display">\[
-\boxed{\lambda_D = \sqrt{\frac{k_B T}{4 \pi ne^2}} .}
+\tag{22.36}\]</span></span> where <span class="math inline">\(n\)</span> is the density of free electrons (we will also write it as <span class="math inline">\(n_e\)</span>) and we have introduced the <em>Debye length</em> <span id="eq-plasma-37"><span class="math display">\[
+\boxed{\lambda_D = \sqrt{\frac{\epsilon_0 k_B T}{ne^2}} .}
 \tag{22.37}\]</span></span> The Debye length is a characteristic length scale for charge fluctuations in the gas. Over scales <span class="math inline">\(L \gg \lambda_D\)</span>, one can assume that the medium is neutral, <em>if the density of the gas is sufficiently high</em>.</p>
-<p>To see this, consider again a uniform gas of electrons and ions. The ion masses are of order <span class="math inline">\(Am_p \sim (2 \times 10^3) Am_e\)</span>, so if ions and electrons have on average the same kinetic energy, as would be expected in equilibrium <span class="math inline">\(v_{\operatorname{ions}} \ll v_e\)</span>. To first approximations, we can consider the ions to be static and immersed in a sea of electrons. If electrons are abundant, each ion will then be surrounded by a sea of electrons, which effectively shield its charge hiding it from the other ions, as shown in <a href="#fig-plasma-debye" class="quarto-xref">Figure&nbsp;<span>22.3</span></a>.</p>
-<div id="fig-plasma-debye" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A circle of radius lambda D centred on an ion of charge q. Electrons (minus signs) are concentrated near the ion and other ions (plus signs) lie farther out, so the electrons screen the ion.">
+<p>To see this, consider again a uniform gas of electrons and ions. The ion masses are of order <span class="math inline">\(A m_p \approx 1836 A m_e\)</span>, so if ions and electrons have on average the same kinetic energy, as would be expected in equilibrium, <span class="math inline">\(v_{\mathrm{ions}} \ll v_e\)</span>. To a first approximation, we can consider the ions to be static and immersed in a sea of electrons. If electrons are abundant, each ion will then be surrounded by a sea of electrons, which effectively shield its charge hiding it from the other ions, as shown in <a href="#fig-plasma-debye" class="quarto-xref">Figure&nbsp;<span>22.3</span></a>.</p>
+<div id="fig-plasma-debye" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A circle of radius lambda D centred on an ion of charge Q. Electrons (minus signs) are concentrated near the ion and other ions (plus signs) lie farther out, so the electrons screen the ion.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-plasma-debye-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../figures/plasma/debye-sphere.svg" class="img-fluid figure-img" alt="A circle of radius lambda D centred on an ion of charge q. Electrons (minus signs) are concentrated near the ion and other ions (plus signs) lie farther out, so the electrons screen the ion.">
+<img src="../figures/plasma/debye-sphere.svg" class="img-fluid figure-img" alt="A circle of radius lambda D centred on an ion of charge Q. Electrons (minus signs) are concentrated near the ion and other ions (plus signs) lie farther out, so the electrons screen the ion.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-plasma-debye-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;22.3: Electron cloud around an ion of charge <span class="math inline">\(q\)</span>.
+Figure&nbsp;22.3: Electron cloud around an ion of charge <span class="math inline">\(Q\)</span>.
 </figcaption>
 </figure>
 </div>
-<p>It turns out that, in this situation, the electrostatic potential near the ion is <span id="eq-plasma-38"><span class="math display">\[
-\Phi (r) = \frac{q}{r} e^{- r / \lambda_D},
-\tag{22.38}\]</span></span> where <span class="math inline">\(\lambda_D\)</span> is the Debye length. In other words, the Debye length is also the characteristic screening length. However, screening can only take place if electrons are sufficiently mobile to screen each ion. To quantify this, we define the <em>plasma parameter</em>: <span id="eq-plasma-39"><span class="math display">\[
-\Lambda = \frac{4}{3} \pi n \lambda_D^3 = \frac{1}{6 \sqrt[]{\pi} e^3}  (k_B
+<p>It turns out that, in this situation, the electrostatic potential around the ion is <span id="eq-plasma-38"><span class="math display">\[
+\Phi (r) = \frac{Q}{4 \pi \epsilon_0 r} \mathrm{e}^{- r / \lambda_D},
+\tag{22.38}\]</span></span> where <span class="math inline">\(\lambda_D\)</span> is the Debye length (see the box below). In other words, the Debye length is also the characteristic screening length. However, screening can only take place if electrons are sufficiently mobile to screen each ion. To quantify this, we define the <em>plasma parameter</em>: <span id="eq-plasma-39"><span class="math display">\[
+\Lambda = \frac{4}{3} \pi n \lambda_D^3 = \frac{4 \pi}{3 e^3}  (\epsilon_0 k_B
 T)^{3 / 2} n^{- 1 / 2} .
-\tag{22.39}\]</span></span> The plasma parameter is just the number of electrons in each Debye sphere. We say that a ionized gas for which <span class="math inline">\(\lambda_D \ll L\)</span> and <span class="math inline">\(\Lambda \gg 1\)</span> is a <em>plasma</em>. Typical plasma parameters for astrophysical systems are given in <a href="#tbl-plasma-parameters" class="quarto-xref">Table&nbsp;<span>22.1</span></a>. As we can see, astrophysical plasmas span tremendous range in scales.</p>
+\tag{22.39}\]</span></span> The plasma parameter is just the number of electrons in each Debye sphere. We say that an ionized gas for which <span class="math inline">\(\lambda_D \ll L\)</span> and <span class="math inline">\(\Lambda \gg 1\)</span> is a <em>plasma</em>. Typical plasma parameters for astrophysical systems are given in <a href="#tbl-plasma-parameters" class="quarto-xref">Table&nbsp;<span>22.1</span></a>. As we can see, astrophysical plasmas span a tremendous range in scales.</p>
 <div id="tbl-plasma-parameters" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-plasma-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;22.1: Temperature, free electron density, Debye length, and plasma parameters for various systems.
+Table&nbsp;22.1: Temperature, free electron density, Debye length, and plasma parameters for various systems. The electrons in protoneutron stars and white dwarfs are degenerate (and, in protoneutron stars, relativistic), so for these systems the values computed with the classical formulas are only indicative.
 </figcaption>
 <div aria-describedby="tbl-plasma-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -847,58 +857,58 @@ Table&nbsp;22.1: Temperature, free electron density, Debye length, and plasma pa
 <th style="text-align: left;"></th>
 <th style="text-align: left;"><span class="math inline">\(T\)</span> [K]</th>
 <th style="text-align: left;"><span class="math inline">\(n_e^{\mathrm{free}}\)</span> [cm<span class="math inline">\(^{-3}\)</span>]</th>
-<th style="text-align: left;"><span class="math inline">\(\lambda_D\)</span> [cm]</th>
+<th style="text-align: left;"><span class="math inline">\(\lambda_D\)</span> [m]</th>
 <th style="text-align: left;"><span class="math inline">\(\Lambda\)</span></th>
 <th style="text-align: left;">plasma?</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">The Sun</td>
+<td style="text-align: left;">The Sun (core)</td>
 <td style="text-align: left;"><span class="math inline">\(10^7\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(10^{26}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(2 \times 10^{-9}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(4.5\)</span></td>
-<td style="text-align: left;">yes</td>
+<td style="text-align: left;"><span class="math inline">\(2 \times 10^{-11}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(4.4\)</span></td>
+<td style="text-align: left;">marginal</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Warm ISM</td>
 <td style="text-align: left;"><span class="math inline">\(10^4\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(1\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(700\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(3 \times 10^9\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(7\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.4 \times 10^9\)</span></td>
 <td style="text-align: left;">yes</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Molecular clouds</td>
 <td style="text-align: left;"><span class="math inline">\(10\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(10^{-4}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(2 \times 10^4\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(10^7\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(20\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(4 \times 10^6\)</span></td>
 <td style="text-align: left;">yes</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Intracluster medium</td>
 <td style="text-align: left;"><span class="math inline">\(10^7\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(10^{-3}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(7 \times 10^5\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(3 \times 10^{15}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(7 \times 10^3\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.4 \times 10^{15}\)</span></td>
 <td style="text-align: left;">yes</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Protoneutron star</td>
 <td style="text-align: left;"><span class="math inline">\(10^{11}\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(2 \times 10^{38}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(1.6 \times 10^{-13}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(3.2\)</span></td>
-<td style="text-align: left;">yes</td>
+<td style="text-align: left;"><span class="math inline">\(1.5 \times 10^{-15}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(3.1\)</span></td>
+<td style="text-align: left;">marginal</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">White dwarf</td>
 <td style="text-align: left;"><span class="math inline">\(10^5\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(6 \times 10^{29}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(2 \times 10^{-12}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(5.8 \times 10^{-5}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(3 \times 10^{-14}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(5.6 \times 10^{-5}\)</span></td>
 <td style="text-align: left;">no</td>
 </tr>
 </tbody>
@@ -906,10 +916,52 @@ Table&nbsp;22.1: Temperature, free electron density, Debye length, and plasma pa
 </div>
 </figure>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Going further: Debye Screening
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We can derive <a href="#eq-plasma-38" class="quarto-xref">Equation&nbsp;<span>22.38</span></a> as follows. Consider an ion of charge <span class="math inline">\(Q\)</span> at the origin, surrounded by electrons with temperature <span class="math inline">\(T\)</span> and average density <span class="math inline">\(n_e\)</span>, and by other ions, which we assume to have uniform charge density <span class="math inline">\(e n_e\)</span>, so that the plasma is neutral on average. In thermal equilibrium, the electrons follow the Boltzmann distribution. An electron has potential energy <span class="math inline">\(- e \Phi\)</span>, so <span id="eq-plasma-boltzmann"><span class="math display">\[
+n (r) = n_e \mathrm{e}^{e \Phi / k_B T} \approx n_e \left( 1 + \frac{e \Phi}{k_B T} \right),
+\tag{22.40}\]</span></span> where we have assumed <span class="math inline">\(| e \Phi | \ll k_B T\)</span>, which is true sufficiently far from the ion. The charge density is then <span id="eq-plasma-debye-charge"><span class="math display">\[
+q = e n_e - e n (r) = - \frac{n_e e^2}{k_B T} \Phi ,
+\tag{22.41}\]</span></span> and the Poisson equation (<a href="#eq-plasma-10" class="quarto-xref">Equation&nbsp;<span>22.10</span></a>) becomes <span id="eq-plasma-debye-poisson"><span class="math display">\[
+\nabla^2 \Phi = \frac{n_e e^2}{\epsilon_0 k_B T} \Phi = \frac{\Phi}{\lambda_D^2} .
+\tag{22.42}\]</span></span> For a spherically symmetric potential, <span class="math inline">\(\nabla^2 \Phi = \frac{1}{r} \frac{\mathrm{d}^2 (r \Phi)}{\mathrm{d} r^2}\)</span>, so <span class="math inline">\(r \Phi\)</span> satisfies <span class="math inline">\(\frac{\mathrm{d}^2 (r \Phi)}{\mathrm{d} r^2} = \frac{r \Phi}{\lambda_D^2}\)</span>. The solution that does not grow at large <span class="math inline">\(r\)</span> is <span class="math inline">\(r \Phi = A \mathrm{e}^{- r / \lambda_D}\)</span>. Close to the ion, the potential must be that of the ion alone, <span class="math inline">\(\Phi \approx Q / (4 \pi \epsilon_0 r)\)</span>, so <span class="math inline">\(A = Q / (4 \pi \epsilon_0)\)</span>, and we recover <a href="#eq-plasma-38" class="quarto-xref">Equation&nbsp;<span>22.38</span></a>.</p>
+</div>
+</div>
 </section>
-<section id="cold-plasma-approximation" class="level3" data-number="22.2.2">
-<h3 data-number="22.2.2" class="anchored" data-anchor-id="cold-plasma-approximation"><span class="header-section-number">22.2.2</span> Cold Plasma Approximation</h3>
-<p>The cold plasma approximation is used to study the propagation of electromagnetic waves, particularly radio waves, in the interstellar medium. As the name suggests, in the cold plasma approximation we ignore the thermal motion of the electrons. We also take the ions to be stationary. Let’s consider the propagation of an electromagnetic wave through such medium, as illustrated in <a href="#fig-plasma-em-wave" class="quarto-xref">Figure&nbsp;<span>22.4</span></a>.</p>
+<section id="when-is-a-plasma-a-fluid" class="level3" data-number="22.2.2">
+<h3 data-number="22.2.2" class="anchored" data-anchor-id="when-is-a-plasma-a-fluid"><span class="header-section-number">22.2.2</span> When is a Plasma a Fluid?</h3>
+<p>In <a href="fluids-as-continua.html" class="quarto-xref"><span>Chapter 1</span></a> we have seen that a gas can be treated as a fluid if the mean free path <span class="math inline">\(\lambda\)</span> of its particles is small compared to the scales of interest. In a plasma, the particles interact via the Coulomb force. Two particles are strongly deflected if they come so close that their electrostatic energy is comparable to their thermal energy, <span class="math inline">\(e^2 / (4 \pi \epsilon_0 r) \sim k_B T\)</span>. This gives a cross section <span class="math inline">\(\sigma \sim \pi [e^2 / (4 \pi \epsilon_0 k_B T)]^2\)</span>, and a mean free path <span class="math inline">\(\lambda \sim 1 / (n \sigma)\)</span>. Many weak collisions at larger distances make the particles lose their direction somewhat faster, and a more careful calculation gives <span id="eq-plasma-coulomb-mfp"><span class="math display">\[
+\lambda \approx 100\,\mathrm{m} \left( \frac{T}{1\,\mathrm{K}} \right)^2 \left( \frac{n}{1\,\mathrm{cm^{-3}}} \right)^{-1} .
+\tag{22.43}\]</span></span> Note that <span class="math inline">\(\lambda\)</span> increases very quickly with temperature: hot plasmas are almost collisionless.</p>
+<p>Magnetic fields change this picture. A particle with charge <span class="math inline">\(Q\)</span> and mass <span class="math inline">\(m\)</span> moving with velocity <span class="math inline">\(v\)</span> perpendicular to a magnetic field <span class="math inline">\(B\)</span> experiences a Lorentz force <span class="math inline">\(|Q| v B\)</span> perpendicular to its velocity. So it moves on a circle around the field lines, with radius <span class="math inline">\(r_L\)</span> given by <span id="eq-plasma-larmor"><span class="math display">\[
+\frac{m v^2}{r_L} = | Q | v B \Longrightarrow r_L = \frac{m v}{| Q | B} .
+\tag{22.44}\]</span></span> <span class="math inline">\(r_L\)</span> is called the <em>Larmor radius</em>, or <em>gyroradius</em>. In other words, particles cannot move freely across the magnetic field lines, even if they never collide. On scales much larger than <span class="math inline">\(r_L\)</span>, a magnetized plasma behaves like a fluid in the directions perpendicular to the magnetic field. Along the field lines, instead, particles can travel a distance <span class="math inline">\(\sim \lambda\)</span>. This is why magnetohydrodynamics (<a href="mhd-equations.html" class="quarto-xref"><span>Chapter 23</span></a>) works well even in plasmas in which collisions are rare. However, processes along the field lines, such as heat conduction, can be very different from those in an ordinary gas.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider the warm interstellar medium, with <span class="math inline">\(T \sim 10^4\,\mathrm{K}\)</span>, <span class="math inline">\(n \sim 1\,\mathrm{cm^{-3}}\)</span>, and <span class="math inline">\(B \sim 0.3\,\mathrm{nT}\)</span> (<span class="math inline">\(3\,\mu\mathrm{G}\)</span>). From <a href="#eq-plasma-coulomb-mfp" class="quarto-xref">Equation&nbsp;<span>22.43</span></a>, <span class="math inline">\(\lambda \sim 10^{10}\,\mathrm{m}\)</span>, which is much smaller than the scales of interest, <span class="math inline">\(\sim 1\,\mathrm{pc} \approx 3 \times 10^{16}\,\mathrm{m}\)</span>. A thermal proton has velocity <span class="math inline">\(v \sim \sqrt{k_B T / m_p} \approx 9\,\mathrm{km\,s^{-1}}\)</span>, so its Larmor radius is <span class="math inline">\(r_L \approx 300\,\mathrm{km}\)</span>, even smaller.</p>
+<p>The solar wind close to the Earth is different. It has <span class="math inline">\(T \sim 10^5\,\mathrm{K}\)</span> and <span class="math inline">\(n \sim 5\,\mathrm{cm^{-3}}\)</span>, so <span class="math inline">\(\lambda \sim 2 \times 10^{11}\,\mathrm{m}\)</span>, about the distance between the Earth and the Sun. The solar wind is essentially collisionless! However, the magnetic field is <span class="math inline">\(B \sim 5\,\mathrm{nT}\)</span> (<span class="math inline">\(5 \times 10^{-5}\,\mathrm{G}\)</span>), so a thermal proton has <span class="math inline">\(r_L \approx 60\,\mathrm{km}\)</span>. On large scales, the solar wind can still be described as a magnetized fluid.</p>
+</div>
+</div>
+</section>
+<section id="cold-plasma-approximation" class="level3" data-number="22.2.3">
+<h3 data-number="22.2.3" class="anchored" data-anchor-id="cold-plasma-approximation"><span class="header-section-number">22.2.3</span> Cold Plasma Approximation</h3>
+<p>The cold plasma approximation is used to study the propagation of electromagnetic waves, particularly radio waves, in the interstellar medium. As the name suggests, in the cold plasma approximation we ignore the thermal motion of the electrons. We also take the ions to be stationary. Let’s consider the propagation of an electromagnetic wave through such a medium, as illustrated in <a href="#fig-plasma-em-wave" class="quarto-xref">Figure&nbsp;<span>22.4</span></a>.</p>
 <div id="fig-plasma-em-wave" class="quarto-float quarto-figure quarto-figure-center anchored" alt="An electromagnetic wave travels to the right along the x axis, in the direction of the Poynting vector S. The electric field E oscillates in the vertical plane and the magnetic field B, in phase with it, in the horizontal plane. An electron in the wave, where E points up, is pushed down, giving it a velocity v; the magnetic force F, proportional to v cross B, then points to the right, along the direction of propagation.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-plasma-em-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -920,54 +972,54 @@ Figure&nbsp;22.4: Lorentz force experienced by an electron due to a passing elec
 </figcaption>
 </figure>
 </div>
-<p>The Lorentz force experienced by an electron is (assuming <span class="math inline">\(v \ll c\)</span>): <span id="eq-plasma-40"><span class="math display">\[
-\mathbf{F}= - e \left( \mathbf{E}+ \frac{\mathbf{v} \times \mathbf{B}}{c}
-\right) \approx - e\mathbf{E}.
-\tag{22.40}\]</span></span> So, if we take <span class="math inline">\(\mathbf{E}= \hat{\mathbf{E}}_0 e^{\mathrm{i} (\mathbf{k} \cdot \mathbf{x}- \omega t)}\)</span> and <span class="math inline">\(\mathbf{v}= \hat{\mathbf{v}}_0 e^{\mathrm{i} (\mathbf{k} \cdot \mathbf{x}- \omega t)}\)</span>, we have <span id="eq-plasma-41"><span class="math display">\[
-\quad  \hat{\mathbf{v}}_0 = \frac{e \hat{\mathbf{E}}_0}{\mathrm{i} \omega m_e} .
-\tag{22.41}\]</span></span> The induced current density in the plasma is <span id="eq-plasma-42"><span class="math display">\[
+<p>The Lorentz force experienced by an electron is (assuming <span class="math inline">\(v \ll c\)</span>): <span id="eq-plasma-45"><span class="math display">\[
+\mathbf{F}= - e ( \mathbf{E}+ \mathbf{v} \times \mathbf{B} ) \approx - e\mathbf{E}.
+\tag{22.45}\]</span></span> So, if we take <span class="math inline">\(\mathbf{E}= \hat{\mathbf{E}}_0 \mathrm{e}^{\mathrm{i} (\mathbf{k} \cdot \mathbf{x}- \omega t)}\)</span> and <span class="math inline">\(\mathbf{v}= \hat{\mathbf{v}}_0 \mathrm{e}^{\mathrm{i} (\mathbf{k} \cdot \mathbf{x}- \omega t)}\)</span>, we have <span id="eq-plasma-46"><span class="math display">\[
+\hat{\mathbf{v}}_0 = \frac{e \hat{\mathbf{E}}_0}{\mathrm{i} \omega m_e} .
+\tag{22.46}\]</span></span> The induced current density in the plasma is <span id="eq-plasma-47"><span class="math display">\[
 \hat{\mathbf{j}} = - ne \hat{\mathbf{v}}_0 = \left( \frac{\mathrm{i}
 ne^2}{\omega m_e} \right)  \hat{\mathbf{E}}_0 = : \sigma \hat{\mathbf{E}}_0,
-\tag{22.42}\]</span></span> where we have introduced the conductivity <span class="math inline">\(\sigma\)</span>. Charge conservation is <span id="eq-plasma-43"><span class="math display">\[
+\tag{22.47}\]</span></span> where we have introduced the conductivity <span class="math inline">\(\sigma\)</span>. Charge conservation is <span id="eq-plasma-48"><span class="math display">\[
 \frac{\partial q}{\partial t} + \nabla \cdot \mathbf{j}= 0 \Longrightarrow -
 \mathrm{i} \omega \hat{q}_0 + \mathrm{i} \mathbf{k} \cdot \hat{\mathbf{j}}_0 = 0
 \Longrightarrow \hat{q}_0 = \frac{\mathbf{k} \cdot
 \hat{\mathbf{j}}_0}{\omega} = \frac{\sigma}{\omega} \mathbf{k} \cdot
 \hat{\mathbf{E}}_0 .
-\tag{22.43}\]</span></span> Gauss’ law reads <span id="eq-plasma-44"><span class="math display">\[
-\mathrm{i} \mathbf{k} \cdot \hat{\mathbf{E}}_0 = 4 \pi \hat{q}_0 \Longrightarrow
-\mathrm{i} \mathbf{k} \cdot \left( 1 - \frac{4 \pi \sigma}{\mathrm{i} \omega}
+\tag{22.48}\]</span></span> Gauss’ law reads <span id="eq-plasma-49"><span class="math display">\[
+\mathrm{i} \mathbf{k} \cdot \hat{\mathbf{E}}_0 = \frac{\hat{q}_0}{\epsilon_0} \Longrightarrow
+\mathrm{i} \mathbf{k} \cdot \left( 1 - \frac{\sigma}{\mathrm{i} \omega \epsilon_0}
 \right) \hat{\mathbf{E}}_0 = 0.
-\tag{22.44}\]</span></span> Introducing the dielectric constant <span id="eq-plasma-45"><span class="math display">\[
-\begin{gathered}
-\epsilon = 1 - \frac{4 \pi \sigma}{\mathrm{i} \omega} = 1 - \left(
+\tag{22.49}\]</span></span> Introducing the dielectric constant <span id="eq-plasma-50"><span class="math display">\[
+\begin{aligned}
+\epsilon &amp;= 1 - \frac{\sigma}{\mathrm{i} \omega \epsilon_0} = 1 - \left(
 \frac{\omega_p}{\omega} \right)^2, \\
-\omega_p = \sqrt{\frac{4 \pi
-ne^2}{m}} = 56.3 \mathrm{kHz} \left( \frac{n}{1 \mathrm{cm}^{- 3}} \right)^{1 /
+\omega_p &amp;= \sqrt{\frac{ne^2}{\epsilon_0 m_e}} \\
+&amp;\approx 5.6 \times 10^4\,\mathrm{s^{-1}} \left( \frac{n}{1\,\mathrm{cm}^{- 3}} \right)^{1 /
 2} .
-\end{gathered}
-\tag{22.45}\]</span></span> we find that the Maxwell equations reduce to <span id="eq-plasma-46"><span class="math display">\[
+\end{aligned}
+\tag{22.50}\]</span></span> To evaluate <span class="math inline">\(\omega_p\)</span>, we have used <span class="math inline">\(1\,\mathrm{cm^{-3}} = 10^6\,\mathrm{m^{-3}}\)</span>. The corresponding frequency is <span class="math inline">\(f_p = \omega_p / 2 \pi \approx 9\,\mathrm{kHz}\,(n / 1\,\mathrm{cm^{-3}})^{1/2}\)</span>. <span class="math inline">\(\omega_p\)</span> is called the <em>plasma frequency</em>, and <span class="math inline">\(\epsilon\)</span> (not to be confused with the internal energy <span class="math inline">\(\varepsilon\)</span>, or with the vacuum permittivity <span class="math inline">\(\epsilon_0\)</span>) is the dielectric constant. The plasma frequency has a simple physical meaning: if the electrons are displaced with respect to the ions, the electric field pulls them back, and they oscillate around their equilibrium positions with angular frequency <span class="math inline">\(\omega_p\)</span> (<a href="#exr-plasma-oscillations" class="quarto-xref">Exercise&nbsp;<span>22.1</span></a>). Note also that <span class="math inline">\(\lambda_D = v_{\mathrm{th}} / \omega_p\)</span>, where <span class="math inline">\(v_{\mathrm{th}} = \sqrt{k_B T / m_e}\)</span> is the thermal velocity of the electrons. In other words, the Debye length is the distance traveled by a thermal electron during one plasma oscillation.</p>
+<p>With these definitions, we find that the Maxwell equations reduce to <span id="eq-plasma-51"><span class="math display">\[
 \begin{array}{lll}
 \mathrm{i} \mathbf{k} \cdot \epsilon \hat{\mathbf{E}}_0 = 0, &amp;  &amp; \mathrm{i}
 \mathbf{k} \cdot \hat{\mathbf{B}}_0 = 0,\\
-\mathrm{i} \mathbf{k} \times \hat{\mathbf{E}}_0 = \mathrm{i} \frac{\omega}{c}
-\hat{\mathbf{B}}, &amp;  &amp; \mathrm{i} \mathbf{k} \times \hat{\mathbf{B}}_0 = -
-\mathrm{i} \frac{\omega}{c} \epsilon \hat{\mathbf{E}}_0 .
+\mathrm{i} \mathbf{k} \times \hat{\mathbf{E}}_0 = \mathrm{i} \omega
+\hat{\mathbf{B}}_0, &amp;  &amp; \mathrm{i} \mathbf{k} \times \hat{\mathbf{B}}_0 = -
+\mathrm{i} \frac{\omega}{c^2} \epsilon \hat{\mathbf{E}}_0 .
 \end{array}
-\tag{22.46}\]</span></span> These can be solved in the same way as the vacuum Maxwell equations to find the dispersion relation for electromagnetic waves in a cold plasma <span id="eq-plasma-47"><span class="math display">\[
+\tag{22.51}\]</span></span> These can be solved in the same way as the vacuum Maxwell equations to find the dispersion relation for electromagnetic waves in a cold plasma <span id="eq-plasma-52"><span class="math display">\[
 c^2 k^2 = \epsilon \omega^2 \Longrightarrow k = \frac{\omega}{c}  \sqrt{1 -
 \left( \frac{\omega_p}{\omega } \right)^2} \Longrightarrow \boxed{k =
 \frac{1}{c}  \sqrt{\omega^2 - \omega_p^2} .}
-\tag{22.47}\]</span></span> For example, if the wave is propagating in the <span class="math inline">\(z\)</span>-direction, <span class="math inline">\(\mathbf{k}= \left(\begin{array}{ccc} 0 &amp; 0 &amp; k \end{array}\right)^T\)</span>. Then</p>
+\tag{22.52}\]</span></span> For example, if the wave is propagating in the <span class="math inline">\(z\)</span>-direction, <span class="math inline">\(\mathbf{k}= k \hat{\mathbf{z}}\)</span>. Then</p>
 <ul>
-<li><p>If <span class="math inline">\(\omega &lt; \omega_p\)</span>, then <span class="math inline">\(k\)</span> is imaginary: the wave is damped: <span id="eq-plasma-48"><span class="math display">\[
-\mathbf{E}= \hat{\mathbf{E}}_0 e^{\mathrm{i} \omega t} e^{- \frac{z}{c}
+<li><p>If <span class="math inline">\(\omega &lt; \omega_p\)</span>, then <span class="math inline">\(k\)</span> is imaginary and the wave cannot propagate. Its amplitude decays exponentially over a distance <span class="math inline">\(\sim c / \omega_p\)</span>: <span id="eq-plasma-53"><span class="math display">\[
+\mathbf{E}= \hat{\mathbf{E}}_0 \mathrm{e}^{- \mathrm{i} \omega t} \mathrm{e}^{- \frac{z}{c}
 \sqrt{\omega_p^2 - \omega^2}} .
-\tag{22.48}\]</span></span> This is a remarkable property of plasma. Even though the motion of particles and fields in the plasma are described by equations that do not have dissipation, we find that some waves are damped.</p></li>
-<li><p>If <span class="math inline">\(\omega &gt; \omega_p\)</span> the wave can propagate, but different frequencies propagate at different speeds: <span id="eq-plasma-49"><span class="math display">\[
+\tag{22.53}\]</span></span> Note that this is not due to dissipation. The electrons respond to the wave fast enough to cancel its electric field, so the wave is <em>reflected</em> by the plasma. This is the same mathematics we found for sound waves below the acoustic cutoff frequency (<a href="stratified-atmospheres.html#eq-strat-acoustic-cutoff" class="quarto-xref">Equation&nbsp;<span>10.21</span></a>).</p></li>
+<li><p>If <span class="math inline">\(\omega &gt; \omega_p\)</span> the wave can propagate, but different frequencies propagate at different speeds: <span id="eq-plasma-54"><span class="math display">\[
 v_g = \frac{\partial \omega}{\partial k} = c \sqrt{1 -
 \frac{\omega_p^2}{\omega^2}} .
-\tag{22.49}\]</span></span> This leads to the phenomenon of dispersion, which can be used to estimate the column distance to sources of radio pulses, such as pulsars and fast radio-bursts, as illustrated in <a href="#fig-plasma-frb" class="quarto-xref">Figure&nbsp;<span>22.5</span></a>.</p>
+\tag{22.54}\]</span></span> This leads to the phenomenon of dispersion, which can be used to measure the column density of free electrons between us and sources of radio pulses, such as pulsars and fast radio bursts, and hence to estimate their distance, as illustrated in <a href="#fig-plasma-frb" class="quarto-xref">Figure&nbsp;<span>22.5</span></a>.</p>
 <div id="fig-plasma-frb" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Top: the radio amplitude summed over frequency against time, flat except for a single sharp pulse at about 0.34 seconds. Bottom: frequency, from 1.25 to 1.5 gigahertz, against time, from 0 to 0.8 seconds, in grey scale. A dark curved stripe runs from about 0.2 seconds at 1.5 gigahertz to about 0.55 seconds at 1.25 gigahertz: lower frequencies arrive later.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-plasma-frb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -979,11 +1031,24 @@ Figure&nbsp;22.5: Different arrival time of a fast radio burst at different freq
 </figure>
 </div></li>
 </ul>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider the ionosphere of the Earth, which has <span class="math inline">\(n_e \sim 10^6\,\mathrm{cm^{-3}}\)</span>. Its plasma frequency is <span class="math inline">\(f_p \approx 9\,\mathrm{MHz}\)</span>. AM radio, with <span class="math inline">\(f \sim 1\,\mathrm{MHz}\)</span>, is reflected by the ionosphere. This is why AM stations can be received beyond the horizon, especially at night. FM radio and TV, with <span class="math inline">\(f \sim 100\,\mathrm{MHz}\)</span>, pass through the ionosphere. For the same reason, radio astronomy at frequencies below <span class="math inline">\(\sim 10\,\mathrm{MHz}\)</span> is only possible from space.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="sec-plasma-worksheet" class="level2" data-number="22.3">
 <h2 data-number="22.3" class="anchored" data-anchor-id="sec-plasma-worksheet"><span class="header-section-number">22.3</span> In-class worksheet</h2>
-<p>Fast radio bursts are thought to be millisecond-long broad-band radio flares, produced during particularly violent magnetar flares, and possibly other astrophysical events. As the radio waves propagates from the source to Earth through the interstellar medium, the signal is dispersed, as shown in <a href="#fig-plasma-frb-ws" class="quarto-xref">Figure&nbsp;<span>22.6</span></a>:</p>
+<p>Fast radio bursts are thought to be millisecond-long broad-band radio flares, produced during particularly violent magnetar flares, and possibly other astrophysical events. As the radio waves propagate from the source to Earth through the interstellar medium, the signal is dispersed, as shown in <a href="#fig-plasma-frb-ws" class="quarto-xref">Figure&nbsp;<span>22.6</span></a>:</p>
 <div id="fig-plasma-frb-ws" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Frequency, from 1.25 to 1.5 gigahertz, against time, from 0 to 0.8 seconds, in grey scale. A dark curved stripe runs from about 0.2 seconds at 1.5 gigahertz to about 0.55 seconds at 1.25 gigahertz: the burst arrives later at lower frequencies.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-plasma-frb-ws-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -996,7 +1061,7 @@ Figure&nbsp;22.6: Time-frequency signal for FRB 010724. Adapted from <span class
 </div>
 <p>The time of arrival of the peak of the burst at <em>angular</em> frequency <span class="math inline">\(\omega\)</span>, <span class="math inline">\(t_p (\omega)\)</span> is given by <span id="eq-plasma-ws1"><span class="math display">\[
 t_p = \int_0^d \frac{\mathrm{d} s}{v_g (\omega)},
-\tag{22.50}\]</span></span> where <span class="math inline">\(d\)</span> is the (luminosity) distance to the source and <span class="math inline">\(v_g (\omega)\)</span> is the group velocity at frequency <span class="math inline">\(\omega\)</span>. The approximate arrival times for &nbsp;FRB 010724 are tabulated below</p>
+\tag{22.55}\]</span></span> where <span class="math inline">\(d\)</span> is the distance to the source and <span class="math inline">\(v_g (\omega)\)</span> is the group velocity at frequency <span class="math inline">\(\omega\)</span>. The approximate arrival times for FRB 010724 are tabulated below:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1021,22 +1086,34 @@ t_p = \int_0^d \frac{\mathrm{d} s}{v_g (\omega)},
 </table>
 <ol type="1">
 <li><p>Assume that the interstellar medium is a cold plasma, with plasma frequency <span id="eq-plasma-ws2"><span class="math display">\[
-\omega_p = \sqrt{\frac{4 \pi ne^2}{m_e}},
-\tag{22.51}\]</span></span> where <span class="math inline">\(n\)</span> is the number density of free electrons, and that <span class="math inline">\(\omega \gg \omega_p\)</span>. Show that <span id="eq-plasma-ws3"><span class="math display">\[
+\omega_p = \sqrt{\frac{ne^2}{\epsilon_0 m_e}},
+\tag{22.56}\]</span></span> where <span class="math inline">\(n\)</span> is the number density of free electrons, and that <span class="math inline">\(\omega \gg \omega_p\)</span>. Show that <span id="eq-plasma-ws3"><span class="math display">\[
 t_p (\omega) \approx \frac{d}{c} + \frac{1}{2 c \omega^2}  \int_0^d
 \omega_p^2 \mathrm{d} s.
-\tag{22.52}\]</span></span></p></li>
+\tag{22.57}\]</span></span></p></li>
 <li><p>Show that <span id="eq-plasma-ws4"><span class="math display">\[
-\frac{\mathrm{d} t_p}{\mathrm{d} \omega} = - \frac{4 \pi e^2}{cm_e \omega^3}
-\operatorname{DM},
-\tag{22.53}\]</span></span> where DM is the dispersion measurement: <span id="eq-plasma-ws5"><span class="math display">\[
-\operatorname{DM} = \int_0^d n \mathrm{d} s.
-\tag{22.54}\]</span></span></p></li>
-<li><p>Compute the DM for FRB 010724. In the direction of this source, the DM due to free electrons within the Milky Way is estimated to be <span class="math inline">\(\operatorname{DM} = 25 \mathrm{cm}^{- 3} \operatorname{pc}\)</span>. Is this source extragalactic?</p></li>
+\frac{\mathrm{d} t_p}{\mathrm{d} \omega} = - \frac{e^2}{\epsilon_0 c m_e \omega^3}
+\mathrm{DM},
+\tag{22.58}\]</span></span> where DM is the dispersion measure: <span id="eq-plasma-ws5"><span class="math display">\[
+\mathrm{DM} = \int_0^d n \mathrm{d} s.
+\tag{22.59}\]</span></span></p></li>
+<li><p>Compute the DM for FRB 010724. In the direction of this source, the DM due to free electrons within the Milky Way is estimated to be <span class="math inline">\(\mathrm{DM} = 25\,\mathrm{cm^{-3}\,pc}\)</span>. Is this source extragalactic? [Remember that <span class="math inline">\(\omega = 2 \pi f\)</span>. It is convenient to plot <span class="math inline">\(t_p\)</span> against <span class="math inline">\(1 / f^2\)</span>.]</p></li>
 </ol>
 </section>
-<section id="sec-plasma-reading" class="level2" data-number="22.4">
-<h2 data-number="22.4" class="anchored" data-anchor-id="sec-plasma-reading"><span class="header-section-number">22.4</span> Further reading</h2>
+<section id="sec-plasma-exercises" class="level2" data-number="22.4">
+<h2 data-number="22.4" class="anchored" data-anchor-id="sec-plasma-exercises"><span class="header-section-number">22.4</span> Exercises</h2>
+<div id="exr-plasma-oscillations" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 22.1 (Plasma oscillations and the Debye length)</strong></span> Consider a slab of plasma with uniform electron density <span class="math inline">\(n_e\)</span>. The ions are at rest and have uniform charge density <span class="math inline">\(e n_e\)</span>. At <span class="math inline">\(t = 0\)</span>, all electrons in the slab are displaced by a small distance <span class="math inline">\(x\)</span> in the direction perpendicular to the slab.</p>
+<ol type="1">
+<li><p>Show that the displacement creates an electric field <span class="math inline">\(E = n_e e x / \epsilon_0\)</span> inside the slab.</p></li>
+<li><p>Show that the electrons oscillate around their equilibrium positions with angular frequency <span class="math inline">\(\omega_p = \sqrt{n_e e^2 / (\epsilon_0 m_e)}\)</span>.</p></li>
+<li><p>Show that <span class="math inline">\(\lambda_D = v_{\mathrm{th}} / \omega_p\)</span>, where <span class="math inline">\(v_{\mathrm{th}} = \sqrt{k_B T / m_e}\)</span>. Interpret this result.</p></li>
+<li><p>Compute <span class="math inline">\(\omega_p\)</span>, <span class="math inline">\(f_p = \omega_p / 2 \pi\)</span>, and <span class="math inline">\(\lambda_D\)</span> for the ionosphere of the Earth (<span class="math inline">\(n_e \sim 10^6\,\mathrm{cm^{-3}}\)</span>, <span class="math inline">\(T \sim 10^3\,\mathrm{K}\)</span>) and for the warm interstellar medium (<span class="math inline">\(n_e \sim 1\,\mathrm{cm^{-3}}\)</span>, <span class="math inline">\(T \sim 10^4\,\mathrm{K}\)</span>).</p></li>
+</ol>
+</div>
+</section>
+<section id="sec-plasma-reading" class="level2" data-number="22.5">
+<h2 data-number="22.5" class="anchored" data-anchor-id="sec-plasma-reading"><span class="header-section-number">22.5</span> Further reading</h2>
 <ul>
 <li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Chapter 13 (plasmas).</li>
 </ul>
@@ -1045,6 +1122,9 @@ t_p (\omega) \approx \frac{d}{c} + \frac{1}{2 c \omega^2}  \int_0^d
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-clarke2007" class="csl-entry" role="listitem">
 Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dynamics</em>. Cambridge University Press.
+</div>
+<div id="ref-kulsrud2005" class="csl-entry" role="listitem">
+Kulsrud, Russell M. 2005. <em>Plasma Physics for Astrophysics</em>. Princeton University Press.
 </div>
 <div id="ref-lorimer2018" class="csl-entry" role="listitem">
 Lorimer, D. R. 2018. <span>“A Decade of Fast Radio Bursts.”</span> <em>Nature Astronomy</em> 2: 860–64. <a href="https://doi.org/10.1038/s41550-018-0607-9">https://doi.org/10.1038/s41550-018-0607-9</a>.

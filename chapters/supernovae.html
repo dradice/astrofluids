@@ -615,52 +615,52 @@ window.Quarto = {
 
 <section id="observational-facts" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="observational-facts"><span class="header-section-number">3.1</span> Observational facts</h2>
-<p>Supernovae are among the most energetic and luminous transients in the sky. They are the result of the explosion of massive stars, or of accreting white dwarfs at the end of their lives. Here, we use the tools of fluid mechanics we have developed so far to construct a simple model for these and similar explosive transients, such as novae and kilonovae. Our goal is to understand the basic physics, not to develop precise models, or to discuss all the nuisance of the problem, for which we refer to the specialized literature.</p>
-<p>Observationally, supernovae are characterized by a fast rise in the luminosity, on a timescale of a few days. They peak on a timescale of days to weeks and then decline over a timescale of months. A famous example of a core-collapse supernova light curve is given by the SN1987a light curve in <a href="#fig-sn-sn1987a" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>. At peak magnitude, supernovae have luminosity <span class="math inline">\(L \sim 10^{10} L_{\odot}\)</span>, where <span class="math inline">\(L_{\odot}\)</span> is the luminosity of the Sun. They remain bright for weeks to months, before beginning to fade. At peak, their typical effective temperature is <span class="math inline">\(T_{\operatorname{eff}} \sim 2 T_{\odot} \approx 12{,}000\,\mathrm{K}\)</span>, <span class="math inline">\(T_{\odot}\)</span> being the effective temperature of the Sun. For a black body, the Stefan–Boltzmann law gives a relation between temperature and luminosity: <span id="eq-sn-1"><span class="math display">\[
+<p>Supernovae are among the most energetic and luminous transients in the sky. They are the result of the explosion of massive stars, or of accreting white dwarfs at the end of their lives. Here, we use the tools of fluid mechanics we have developed so far to construct a simple model for these and similar explosive transients, such as novae and kilonovae. Our goal is to understand the basic physics, not to develop precise models, or to discuss all the nuances of the problem, for which we refer to the specialized literature.</p>
+<p>Observationally, supernovae are characterized by a fast rise in the luminosity, on a timescale of a few days. They peak on a timescale of days to weeks and then decline over a timescale of months. A famous example of a core-collapse supernova light curve is given by the SN 1987A light curve in <a href="#fig-sn-sn1987a" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>. At peak magnitude, supernovae have luminosity <span class="math inline">\(L \sim 10^{10} L_{\odot}\)</span>, where <span class="math inline">\(L_{\odot}\)</span> is the luminosity of the Sun. They remain bright for weeks to months, before beginning to fade. At peak, their typical effective temperature is <span class="math inline">\(T_{\mathrm{eff}} \sim 2 T_{\odot} \approx 12{,}000\,\mathrm{K}\)</span>, <span class="math inline">\(T_{\odot}\)</span> being the effective temperature of the Sun. For a black body, the Stefan–Boltzmann law gives a relation between temperature and luminosity: <span id="eq-sn-1"><span class="math display">\[
 L = 4 \pi R^2 \sigma T^4,
 \tag{3.1}\]</span></span> where <span class="math inline">\(\sigma\)</span> is the Stefan–Boltzmann constant <span id="eq-sn-2"><span class="math display">\[
-\sigma = \frac{ac}{4} = 5.6704 \cdot 10^{-5} \operatorname{erg} \operatorname{cm}^{- 2}
-\mathrm{s}^{- 1} \mathrm{K}^{- 4} .
+\sigma = \frac{ac}{4} = 5.6704 \times 10^{-8} \, \mathrm{W} \, \mathrm{m}^{- 2}
+\, \mathrm{K}^{- 4} .
 \tag{3.2}\]</span></span> Assuming in first approximation supernovae to be black body emitters, this implies that the characteristic radius of a supernova at peak magnitude is <span id="eq-sn-3"><span class="math display">\[
-R_p \sim 2.5 \cdot 10^4 R_{\odot} \approx 10^{15} \operatorname{cm} .
-\tag{3.3}\]</span></span> This is about twenty times larger than the radius of the largest stars. The duration of the peak is of a few weeks, say <span class="math inline">\(\sim 2 \cdot 10^6 \mathrm{s}\)</span>, so the total energy release in photons is <span id="eq-sn-4"><span class="math display">\[
-\mathcal{E}_r \sim 2 \cdot 10^6 \cdot 10^{10} L_{\odot} \approx 8 \cdot
-10^{49} \operatorname{erg} .
-\tag{3.4}\]</span></span> From the observation of Doppler shifted emission and absorption lines, we know that the typical velocities are in the range of <span class="math inline">\(2{,}000 \operatorname{km} \mathrm{s}^{- 1}\)</span> to <span class="math inline">\(10{,}000 \operatorname{km} \mathrm{s}^{- 1}\)</span>. These velocities are consistent with the estimated length and temporal scales of the supernova phenomenon: <span id="eq-sn-5"><span class="math display">\[
-v \sim \frac{10^{15} \operatorname{cm}}{10^6 s} = 10^9 \operatorname{cm} \mathrm{s}^{- 1} =
-10^4 \operatorname{km} \mathrm{s}^{- 1} .
+R_p \sim 2.5 \times 10^4 R_{\odot} \approx 10^{13} \, \mathrm{m} .
+\tag{3.3}\]</span></span> This is about twenty times larger than the radius of the largest stars. The duration of the peak is of a few weeks, say <span class="math inline">\(\sim 2 \times 10^6\,\mathrm{s}\)</span>, so the total energy release in photons is <span id="eq-sn-4"><span class="math display">\[
+\mathcal{E}_r \sim (2 \times 10^6\,\mathrm{s}) \times 10^{10} L_{\odot} \approx 8 \times
+10^{49}\,\mathrm{erg} .
+\tag{3.4}\]</span></span> Here and in the rest of the chapter, we follow the custom of quoting large energies in erg and luminosities in <span class="math inline">\(\mathrm{erg\,s^{-1}}\)</span>, with <span class="math inline">\(1\,\mathrm{erg} = 10^{-7}\,\mathrm{J}\)</span>. From the observation of Doppler shifted emission and absorption lines, we know that the typical velocities are in the range of <span class="math inline">\(2{,}000\,\mathrm{km}\,\mathrm{s}^{- 1}\)</span> to <span class="math inline">\(10{,}000\,\mathrm{km}\,\mathrm{s}^{- 1}\)</span>. These velocities are consistent with the estimated length and temporal scales of the supernova phenomenon: <span id="eq-sn-5"><span class="math display">\[
+v \sim \frac{10^{13} \, \mathrm{m}}{10^6\,\mathrm{s}} = 10^7 \, \mathrm{m} \, \mathrm{s}^{- 1} =
+10^4 \, \mathrm{km} \, \mathrm{s}^{- 1} .
 \tag{3.5}\]</span></span> The associated kinetic energy is <span id="eq-sn-6"><span class="math display">\[
 K \sim \frac{1}{2} Mv^2 \approx 10^{51}  \left( \frac{M}{M_{\odot}} \right)
-\operatorname{erg} \gg \mathcal{E}_r
+\mathrm{erg} \gg \mathcal{E}_r .
 \tag{3.6}\]</span></span></p>
 <p>From these basic observational facts, we know that supernovae must be powered by objects with large surface areas and require large energies. All these numbers already suggest that supernovae could be powered by the explosion of stars. This is most dramatically confirmed by the disappearance of stars previously observed at the location of supernovae.</p>
-<div id="fig-sn-sn1987a" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Plot of log luminosity in erg per second, from 40.5 to 42.5, against days since core collapse, from 0 to 350. The SN1987A data rise from about 41.3 at day 10 to a peak near 42 at about 85 days, then decline, almost linearly in log L after day 150, to about 40.7 at day 350. Two model curves, labelled slow and fast approximation, follow the data; the fast one peaks earlier, at about 70 days.">
+<div id="fig-sn-sn1987a" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Plot of log luminosity in erg per second, from 40.5 to 42.5, against days since core collapse, from 0 to 350. The SN 1987A data rise from about 41.3 at day 10 to a peak near 42 at about 85 days, then decline, almost linearly in log L after day 150, to about 40.7 at day 350. Two model curves, labelled slow and fast approximation, follow the data; the fast one peaks earlier, at about 70 days.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sn-sn1987a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../figures/supernovae/sn1987a-light-curve.png" class="img-fluid figure-img" alt="Plot of log luminosity in erg per second, from 40.5 to 42.5, against days since core collapse, from 0 to 350. The SN1987A data rise from about 41.3 at day 10 to a peak near 42 at about 85 days, then decline, almost linearly in log L after day 150, to about 40.7 at day 350. Two model curves, labelled slow and fast approximation, follow the data; the fast one peaks earlier, at about 70 days.">
+<img src="../figures/supernovae/sn1987a-light-curve.png" class="img-fluid figure-img" alt="Plot of log luminosity in erg per second, from 40.5 to 42.5, against days since core collapse, from 0 to 350. The SN 1987A data rise from about 41.3 at day 10 to a peak near 42 at about 85 days, then decline, almost linearly in log L after day 150, to about 40.7 at day 350. Two model curves, labelled slow and fast approximation, follow the data; the fast one peaks earlier, at about 70 days.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sn-sn1987a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.1: Bolometric light curve for SN1987a (dots) and two semi-analytic models (lines). From <span class="citation" data-cites="arnett1996">Arnett (<a href="#ref-arnett1996" role="doc-biblioref">1996</a>)</span>; © Princeton University Press, reproduced for non-commercial educational use and not covered by the license of these notes.
+Figure&nbsp;3.1: Bolometric light curve for SN 1987A (dots) and two semi-analytic models (lines). From <span class="citation" data-cites="arnett1996">Arnett (<a href="#ref-arnett1996" role="doc-biblioref">1996</a>)</span>; © Princeton University Press, reproduced for non-commercial educational use and not covered by the license of these notes.
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="shock-breakout" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="shock-breakout"><span class="header-section-number">3.2</span> Shock breakout</h2>
-<p>Our supernova model begins with a star of radius <span class="math inline">\(R_0\)</span> in which a large amount of energy <span class="math inline">\(\mathcal{E}\)</span>, much larger than the gravitational binding energy of the star, is injected. The source of this energy might be gravitational, in the case of core-collapse supernovae, or thermonuclear, but the outcome is similar: the progenitor is disrupted and matter starts expanding with large velocities. To fix our ideas, we will consider the explosion of a red supergiant with <span class="math inline">\(R_0 \sim 10^{14} \operatorname{cm}\)</span>, however all our results can be rescaled for other radii.</p>
-<p>Immediately after the energy has been injected on the star, kinetic and internal energy are expected to be in equipartition <span class="math inline">\(K \sim E \sim \mathcal{E} \sim 10^{51} \operatorname{erg}\)</span>, so we can estimate the temperature, assuming the gas to be radiation dominated: <span id="eq-sn-7"><span class="math display">\[
+<p>Our supernova model begins with a star of radius <span class="math inline">\(R_0\)</span> in which a large amount of energy <span class="math inline">\(\mathcal{E}\)</span>, much larger than the gravitational binding energy of the star, is injected. The source of this energy might be gravitational, in the case of core-collapse supernovae, or thermonuclear, but the outcome is similar: the progenitor is disrupted and matter starts expanding with large velocities. To fix our ideas, we will consider the explosion of a red supergiant with <span class="math inline">\(R_0 \sim 10^{12}\,\mathrm{m}\)</span>, however all our results can be rescaled for other radii.</p>
+<p>Immediately after the energy has been injected into the star, kinetic and internal energy are expected to be in equipartition <span class="math inline">\(K \sim E \sim \mathcal{E} \sim 10^{51}\,\mathrm{erg} = 10^{44}\,\mathrm{J}\)</span>, so we can estimate the temperature, assuming the gas to be radiation dominated: <span id="eq-sn-7"><span class="math display">\[
 E = \frac{4}{3} \pi R^3_0 aT^4 .
 \tag{3.7}\]</span></span> This estimate gives a temperature of <span id="eq-sn-8"><span class="math display">\[
-T \approx 4.2 \cdot 10^5 \mathrm{K} \left( \frac{R_0}{10^{14} \operatorname{cm}}
-\right)^{- 3 / 4}  \left( \frac{E}{10^{51} \operatorname{erg}} \right)^{1 / 4},
-\tag{3.8}\]</span></span> The first light emanating from the supernova is the so-called <em>shock breakout</em>. Because of the high temperature, the radiation spectrum at breakout peaks in the UV and X-ray bands.</p>
+T \approx 4.2 \times 10^5\,\mathrm{K} \left( \frac{R_0}{10^{12} \, \mathrm{m}}
+\right)^{- 3 / 4}  \left( \frac{E}{10^{51}\,\mathrm{erg}} \right)^{1 / 4} .
+\tag{3.8}\]</span></span> The energy is injected close to the center of the star and it is carried outwards by a shock wave (<a href="shock-waves.html" class="quarto-xref"><span>Chapter 11</span></a>), which reaches the surface of the star after a time <span class="math inline">\(\sim R_0 / v \sim 10^5\,\mathrm{s}\)</span>, about a day (see <a href="#eq-sn-32" class="quarto-xref">Equation&nbsp;<span>3.32</span></a> below). When this happens, the hot radiation behind the shock is able to escape. This is the so-called <em>shock breakout</em>, which is the first light emanating from the supernova. Because of the high temperature, the radiation spectrum at breakout peaks in the UV and X-ray bands.</p>
 <p>We can check if the assumption of radiation dominated gas is consistent by computing the ratio of radiation pressure to gas pressure: <span id="eq-sn-9"><span class="math display">\[
 \beta = \frac{\frac{1}{3} aT^4}{nk_B T} = \frac{a}{3 k_B}  \frac{T^3}{n}
-\approx \frac{a}{3 k_B}  \frac{4 \pi R^3_0}{3}  \frac{\mu}{M} T^3,
-\tag{3.9}\]</span></span> where we have approximated <span class="math inline">\(n\)</span> with the average density, and <span class="math inline">\(M\)</span> is the mass of the progenitor. We find <span class="math inline">\(\beta\)</span>: <span id="eq-sn-10"><span class="math display">\[
-\beta \approx 4.8 \cdot 10^3  \left( \frac{\mu}{m_p} \right)  \left( \frac{1
-M_{\odot}}{M} \right)  \left( \frac{R}{10^{14} \operatorname{cm}} \right)^{3 / 4}
-\left( \frac{E}{10^{51} \operatorname{erg}} \right)^{3 / 4},
+\approx \frac{a}{3 k_B}  \frac{4 \pi R^3_0}{3}  \frac{\mu m_u}{M} T^3,
+\tag{3.9}\]</span></span> where we have approximated <span class="math inline">\(n\)</span> with the average number density, <span class="math inline">\(n = \rho / (\mu m_u)\)</span> (<a href="fluids-as-continua.html#eq-continua-5" class="quarto-xref">Equation&nbsp;<span>1.5</span></a>), and <span class="math inline">\(M\)</span> is the mass of the progenitor. We find <span class="math inline">\(\beta\)</span>: <span id="eq-sn-10"><span class="math display">\[
+\beta \approx 4.8 \times 10^3 \mu  \left( \frac{1
+M_{\odot}}{M} \right)  \left( \frac{R_0}{10^{12} \, \mathrm{m}} \right)^{3 / 4}
+\left( \frac{E}{10^{51}\,\mathrm{erg}} \right)^{3 / 4},
 \tag{3.10}\]</span></span> confirming that radiation dominates at early times. As we will see later, for homologous expansion, <span class="math inline">\(E \sim R^{- 1}\)</span>, so <span class="math inline">\(\beta\)</span> is independent of the radius to which the ejecta has expanded, and matter remains radiation dominated.</p>
 </section>
 <section id="radiation-diffusion" class="level2" data-number="3.3">
@@ -683,7 +683,7 @@ Figure&nbsp;3.2: Random walk of a photon in the supernova ejecta.
 \langle \mathbf{R} \rangle = \langle \mathbf{r}_1 +\mathbf{r}_2
 +\mathbf{r}_3 + \cdots \rangle = \langle \mathbf{r}_1 \rangle + \langle
 \mathbf{r}_2 \rangle + \langle \mathbf{r}_3 \rangle + \cdots = 0.
-\tag{3.12}\]</span></span> However, the root mean square of the displacement does not vanish: <span id="eq-sn-13"><span class="math display">\[
+\tag{3.12}\]</span></span> However, the mean square of the displacement does not vanish: <span id="eq-sn-13"><span class="math display">\[
 \begin{alignedat}{2}
 \langle \mathbf{R}^2 \rangle &amp;{}={} &amp;&amp; \langle (\mathbf{r}_1 +\mathbf{r}_2
 +\mathbf{r}_3 + \cdots) \\
@@ -697,36 +697,36 @@ Figure&nbsp;3.2: Random walk of a photon in the supernova ejecta.
 \end{alignedat}
 \tag{3.13}\]</span></span> The mixed products disappear, since the orientation of the displacement vectors is random, but <span id="eq-sn-14"><span class="math display">\[
 \langle \mathbf{r}_i^2 \rangle = \lambda^2 &gt; 0,
-\tag{3.14}\]</span></span> the photon mean free path. We conclude that <span id="eq-sn-15"><span class="math display">\[
+\tag{3.14}\]</span></span> up to a factor of order unity, where <span class="math inline">\(\lambda\)</span> is the photon mean free path. We conclude that <span id="eq-sn-15"><span class="math display">\[
 \langle \mathbf{R}^2 \rangle = N \lambda^2 .
 \tag{3.15}\]</span></span> Equating this to the size <span class="math inline">\(R\)</span> of the supernova, we find that the number of interactions experienced by the photon before escaping is <span id="eq-sn-16"><span class="math display">\[
 N = \left( \frac{R}{\lambda} \right)^2 .
 \tag{3.16}\]</span></span> Neglecting the time between absorption and re-emission, the time required for the photon to escape, the so-called radiative diffusion time, is given by <span id="eq-sn-17"><span class="math display">\[
 \tau_d = N \frac{\lambda}{c} = \frac{R^2}{\lambda c} .
-\tag{3.17}\]</span></span> The mean free path can be expressed as <span class="math inline">\(\lambda = 1 / \kappa \rho\)</span> and <span class="math inline">\(\rho = \frac{3 M}{4 \pi R^3}\)</span>, where <span class="math inline">\(\kappa\)</span> is the opacity, so <span id="eq-sn-18"><span class="math display">\[
+\tag{3.17}\]</span></span> The mean free path can be expressed as <span class="math inline">\(\lambda = 1 / (\kappa \rho)\)</span>, where <span class="math inline">\(\kappa\)</span> is the opacity (compare with <a href="fluids-as-continua.html#eq-continua-mean-free-path" class="quarto-xref">Equation&nbsp;<span>1.1</span></a>, <span class="math inline">\(\kappa \rho\)</span> plays the role of <span class="math inline">\(n \sigma\)</span>), and <span class="math inline">\(\rho = \frac{3 M}{4 \pi R^3}\)</span>, so <span id="eq-sn-18"><span class="math display">\[
 \tau_d = \frac{\kappa \rho}{c} R^2 = \frac{3}{4 \pi}  \frac{\kappa M}{Rc} .
 \tag{3.18}\]</span></span> Our calculation did not account for geometrical effects, but captured the essence of the problem. A more careful numerical calculation reveals that the characteristic radiation diffusion time scale is <span id="eq-sn-19"><span class="math display">\[
 \boxed{\tau_d = \frac{\kappa M}{\beta Rc}},
 \tag{3.19}\]</span></span> where <span class="math inline">\(\beta\)</span> is a geometrical factor, not to be confused with the ratio of radiation to gas pressure. For spherical geometry, <span class="math inline">\(\beta \approx 13.8\)</span>.</p>
 <p>Note that, since <span class="math inline">\(R = R_0 + vt \approx vt\)</span>, the diffusion time scale decays with time. On the other hand, the hydrodynamic time scale <span class="math inline">\(\tau_h = R / \dot{R} \approx t\)</span> increases with time. Most of the radiation will escape at the time at which <span class="math inline">\(t_p = \tau_d (t_p)\)</span>, which is also the time at which diffusion and hydrodynamic time scales become equal: <span id="eq-sn-20"><span class="math display">\[
 \boxed{t_p = \left( \frac{\kappa M}{\beta cv} \right)^{1 / 2} .}
-\tag{3.20}\]</span></span> This is the peak time of the <em>bolometric luminosity</em>. For Thomson scattering in an hydrogen rich, ionized gas <span class="math inline">\(\kappa = 0.4 \operatorname{cm}^2 \mathrm{g}^{- 1}\)</span>, so <span id="eq-sn-21"><span class="math display">\[
-t_p = 1.4 \cdot 10^6 \mathrm{s} \left( \frac{M}{M_{\odot}} \right)^{1 / 2}
-\left( \frac{\kappa}{0.4 \operatorname{cm}^2 \mathrm{g}^{- 1}} \right)^{1 / 2}
-\left( \frac{v}{10^9 \operatorname{cm} \mathrm{s}^{- 1}} \right)^{- 1 / 2} .
+\tag{3.20}\]</span></span> This is the peak time of the <em>bolometric luminosity</em>. For Thomson scattering in a hydrogen-rich, ionized gas <span class="math inline">\(\kappa = 0.4\,\mathrm{cm}^2\,\mathrm{g}^{- 1}\)</span>, that is, <span class="math inline">\(0.04\,\mathrm{m^2\,kg^{-1}}\)</span> (as is customary, we quote opacities in <span class="math inline">\(\mathrm{cm^2\,g^{-1}}\)</span>), so <span id="eq-sn-21"><span class="math display">\[
+t_p = 1.4 \times 10^6\,\mathrm{s} \left( \frac{M}{M_{\odot}} \right)^{1 / 2}
+\left( \frac{\kappa}{0.4\,\mathrm{cm}^2\,\mathrm{g}^{- 1}} \right)^{1 / 2}
+\left( \frac{v}{10^4 \, \mathrm{km} \, \mathrm{s}^{- 1}} \right)^{- 1 / 2} .
 \tag{3.21}\]</span></span> The characteristic radius of the supernova at this time is <span id="eq-sn-22"><span class="math display">\[
-R_p = R_0 + t_p v \approx t_p v \sim 10^{15} \operatorname{cm} .
-\tag{3.22}\]</span></span> This time scale and characteristic radius are in good agreement with observations. These formulae also show that the typical duration of the rise time of the supernova is proportional to the mass and the opacity and inversely proportional to the velocity. This implies that the explosion of less massive stars produces faster transients, while more massive stars produce light curves that evolve over longer timescales. These relations are key to interpret not only supernovae, but also other explosive transients, such as kilonovae. For SN1987a the inferred velocity from spectroscopy is <span class="math inline">\(v \sim 0.3 \cdot 10^9 \operatorname{cm} \mathrm{s}^{- 1}\)</span> and the peak time is <span class="math inline">\(t_p \approx 100 \operatorname{days}\)</span> (see the SN1987a light curve below), so we can estimate <span class="math inline">\(M \approx 10 M_{\odot}\)</span>. This gives an explosion energy of <span class="math inline">\(\mathcal{E}= \frac{1}{2} Mv^2 \sim 10^{51} \operatorname{erg}\)</span>. These estimates are only correct to within an order of magnitude, since they neglect important effects, such as recombination, which we discuss below.</p>
+R_p = R_0 + t_p v \approx t_p v \sim 10^{13} \, \mathrm{m} .
+\tag{3.22}\]</span></span> This time scale and characteristic radius are in good agreement with observations. These formulae also show that the typical duration of the rise time of the supernova is proportional to the square root of the mass and of the opacity, and inversely proportional to the square root of the velocity. This implies that the explosion of less massive stars produces faster transients, while more massive stars produce light curves that evolve over longer timescales. These relations are key to interpret not only supernovae, but also other explosive transients, such as kilonovae. For SN 1987A the inferred velocity from spectroscopy is <span class="math inline">\(v \sim 3000\,\mathrm{km\,s^{-1}}\)</span> and the peak time is <span class="math inline">\(t_p \approx 100\,\mathrm{days}\)</span> (<a href="#fig-sn-sn1987a" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>), so we can estimate <span class="math inline">\(M \approx 10 M_{\odot}\)</span>. This gives an explosion energy of <span class="math inline">\(\mathcal{E}= \frac{1}{2} Mv^2 \sim 10^{51}\,\mathrm{erg}\)</span>. These estimates are only correct to within an order of magnitude, since they neglect important effects, such as recombination, which we discuss below.</p>
 </section>
 <section id="ejecta-expansion" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="ejecta-expansion"><span class="header-section-number">3.4</span> Ejecta expansion</h2>
-<p>We describe the supernova outflow as a single fluid element undergoing homologous expansion, the so-called “one-zone approximation”. Accordingly, the equation for energy balance in the ejecta is <span id="eq-sn-23"><span class="math display">\[
+<p>We describe the supernova outflow as a single fluid element undergoing homologous expansion (<a href="fluids-as-continua.html#sec-continua-homologous" class="quarto-xref"><span>Section 1.3</span></a>), the so-called “one-zone approximation”. Accordingly, the equation for energy balance in the ejecta is (<a href="thermodynamics.html#eq-thermo-energy-lagrangian" class="quarto-xref">Equation&nbsp;<span>2.39</span></a>) <span id="eq-sn-23"><span class="math display">\[
 \rho \frac{\mathrm{d} \varepsilon}{\mathrm{d} t} + p \nabla \cdot \mathbf{v}= \rho
 \dot{q} .
 \tag{3.23}\]</span></span> For the moment, we neglect radioactive heating, so <span class="math inline">\(\dot{q}\)</span> only accounts for the loss of energy due to the escape of photons. Using the fact that <span class="math inline">\(\rho = M / V\)</span> and <span class="math inline">\(M\)</span> is constant, we can rewrite this as <span id="eq-sn-24"><span class="math display">\[
-\frac{\mathrm{d} (\varepsilon M)}{\mathrm{d} t} + pV \nabla \cdot \mathbf{v}= - V
-\dot{Q} .
-\tag{3.24}\]</span></span> The first term is just the time derivative of the total internal energy in the ejecta <span class="math inline">\(E = \varepsilon M\)</span>, while the term on the RHS is the total luminosity <span class="math inline">\(L = - V \dot{Q}\)</span>. Using the fact that <span class="math inline">\(\nabla \cdot \mathbf{v}= \frac{1}{V} \frac{\mathrm{d} V}{\mathrm{d} t}\)</span>, the second term in the LHS can be rewritten as <span id="eq-sn-25"><span class="math display">\[
+\frac{\mathrm{d} (\varepsilon M)}{\mathrm{d} t} + pV \nabla \cdot \mathbf{v}= M
+\dot{q} .
+\tag{3.24}\]</span></span> The first term is just the time derivative of the total internal energy in the ejecta <span class="math inline">\(E = \varepsilon M\)</span>, while the term on the RHS is minus the total luminosity, <span class="math inline">\(L = - M \dot{q}\)</span>, since <span class="math inline">\(\dot{q}\)</span> only accounts for the energy lost by the escape of photons. Using the fact that <span class="math inline">\(\nabla \cdot \mathbf{v}= \frac{1}{V} \frac{\mathrm{d} V}{\mathrm{d} t}\)</span> (<a href="fluids-as-continua.html#eq-continua-volume" class="quarto-xref">Equation&nbsp;<span>1.12</span></a>), the second term in the LHS can be rewritten as <span id="eq-sn-25"><span class="math display">\[
 pV \nabla \cdot \mathbf{v}= p \frac{\mathrm{d} V}{\mathrm{d} t},
 \tag{3.25}\]</span></span> so the energy equation becomes <span id="eq-sn-26"><span class="math display">\[
 \dot{E} + p \dot{V} = - L.
@@ -739,31 +739,31 @@ p \dot{V} = pV \frac{\dot{V}}{V} = 3 pV \left( \frac{\dot{R}}{R} \right) = 3
 pV \frac{1}{\tau_h},
 \tag{3.28}\]</span></span> where we have used the hydrodynamical timescale <span class="math inline">\(\tau_h = R / \dot{R} = R / v\)</span>, and the fact that <span id="eq-sn-29"><span class="math display">\[
 \frac{\dot{V}}{V} = 3 \frac{\dot{R}}{R} .
-\tag{3.29}\]</span></span> For a radiation dominated gas: <span id="eq-sn-30"><span class="math display">\[
+\tag{3.29}\]</span></span> For a radiation dominated gas, <span class="math inline">\(p = u / 3\)</span> (<a href="thermodynamics.html#eq-thermo-radiation-pressure" class="quarto-xref">Equation&nbsp;<span>2.26</span></a>), so <span id="eq-sn-30"><span class="math display">\[
 p = \frac{1}{3} \rho \varepsilon \Longrightarrow 3 pV = M \varepsilon = E.
 \tag{3.30}\]</span></span> Combining the last two equations with <a href="#eq-sn-luminosity-scale" class="quarto-xref">Equation&nbsp;<span>3.27</span></a>, we obtain <span id="eq-sn-31"><span class="math display">\[
 \dot{E} + \frac{E}{\tau_h} = - \frac{E}{\tau_d} \Longrightarrow
 \boxed{\frac{\dot{E}}{E} = - \left( \frac{1}{\tau_h} + \frac{1}{\tau_d}
 \right) .}
-\tag{3.31}\]</span></span> We remind that this expression is only valid for <span class="math inline">\(t \gtrsim \tau_d\)</span>. Also note that both <span class="math inline">\(\tau_h\)</span> and <span class="math inline">\(\tau_d\)</span> depend on time.</p>
+\tag{3.31}\]</span></span> Remember that this expression is only valid for <span class="math inline">\(t \gtrsim \tau_d\)</span>. Also note that both <span class="math inline">\(\tau_h\)</span> and <span class="math inline">\(\tau_d\)</span> depend on time.</p>
 <p>At the time of break out, the hydrodynamical time scale is <span id="eq-sn-32"><span class="math display">\[
-\tau_{h, 0} = \frac{R}{v} = 10^5 \mathrm{s} \left( \frac{R_0}{10^{14}
-\operatorname{cm}} \right)  \left( \frac{v}{10^9 \operatorname{cm} \mathrm{s}^{- 1}}
+\tau_{h, 0} = \frac{R}{v} = 10^5\,\mathrm{s} \left( \frac{R_0}{10^{12}
+\, \mathrm{m}} \right)  \left( \frac{v}{10^4 \, \mathrm{km} \, \mathrm{s}^{- 1}}
 \right)^{- 1} .
-\tag{3.32}\]</span></span> The radiation diffusion time scale can be estimated using <span class="math inline">\(\kappa \approx 0.4 \operatorname{cm}^2 \mathrm{g}^{- 1}\)</span> to be <span id="eq-sn-33"><span class="math display">\[
-\tau_{d, 0} = 2 \cdot 10^7 \mathrm{s} \left( \frac{M}{M_{\odot}} \right)
-\left( \frac{R_0}{10^{14} \operatorname{cm}} \right)^{- 1} \gg \tau_h .
+\tag{3.32}\]</span></span> The radiation diffusion time scale can be estimated using <span class="math inline">\(\kappa \approx 0.4\,\mathrm{cm}^2\,\mathrm{g}^{- 1}\)</span> to be <span id="eq-sn-33"><span class="math display">\[
+\tau_{d, 0} = 2 \times 10^7\,\mathrm{s} \left( \frac{M}{M_{\odot}} \right)
+\left( \frac{R_0}{10^{12} \, \mathrm{m}} \right)^{- 1} \gg \tau_{h, 0} .
 \tag{3.33}\]</span></span> So at early times radiation is trapped in the expanding ejecta, however most of the thermal energy is “lost” to pdV work (it is converted to kinetic energy) on a time scale <span class="math inline">\(t \sim \tau_h\)</span>, before it has a chance to escape as radiation. Indeed, at early times we can neglect the radiative losses to find <span id="eq-sn-34"><span class="math display">\[
 \frac{\dot{E}}{E} + \frac{\dot{R}}{R} = 0 \Longrightarrow ER \sim
-\operatorname{const} \Longrightarrow E \sim \frac{1}{R} .
-\tag{3.34}\]</span></span> So after matter has expanded by a factor <span class="math inline">\(10\)</span>, the thermal energy is reduced to a tenth of the initial value. This explains why <span class="math inline">\(\mathcal{E}_r \ll \mathcal{E}\)</span> in supernovae.</p>
+\mathrm{const} \Longrightarrow E \sim \frac{1}{R} .
+\tag{3.34}\]</span></span> So after matter has expanded by a factor <span class="math inline">\(10\)</span>, the thermal energy is reduced to a tenth of the initial value. This explains why <span class="math inline">\(\mathcal{E}_r \ll \mathcal{E}\)</span> in supernovae. Indeed, since <span class="math inline">\(R_p \sim 10 R_0\)</span> (<a href="#eq-sn-22" class="quarto-xref">Equation&nbsp;<span>3.22</span></a>), we expect <span class="math inline">\(\mathcal{E}_r \sim \mathcal{E} / 10 \sim 10^{50}\,\mathrm{erg}\)</span>, in agreement with <a href="#eq-sn-4" class="quarto-xref">Equation&nbsp;<span>3.4</span></a>.</p>
 <p>To calculate the bolometric light curve, we write the energy as <span id="eq-sn-35"><span class="math display">\[
 \frac{\dot{E}}{E} + \frac{\dot{R}}{R} = - \frac{1}{\tau_d (t)}
 \Longrightarrow \frac{\mathrm{d} \ln (ER)}{\mathrm{d} t} = - \frac{1}{\tau_d (t)} .
 \tag{3.35}\]</span></span> and expand <span class="math inline">\(\tau_d (t)\)</span> as: <span id="eq-sn-36"><span class="math display">\[
 \tau_d (t) = \tau_{d, p}  \frac{R_p}{R_p + vt} = \tau_{d, p}  \frac{R_p /
 v}{R_p / v + t} = \frac{\tau_{d, p} \tau_{h, p}}{\tau_{h, p} + t},
-\tag{3.36}\]</span></span> where <span class="math inline">\(\tau_{d, p}\)</span> and <span class="math inline">\(\tau_{h, p}\)</span> are the diffusion and hydrodynamic time scale at the peak of the light curve, respectively.</p>
+\tag{3.36}\]</span></span> where <span class="math inline">\(\tau_{d, p}\)</span> and <span class="math inline">\(\tau_{h, p}\)</span> are the diffusion and hydrodynamic time scale at the peak of the light curve, respectively, and where we now measure <span class="math inline">\(t\)</span> from the time of the peak.</p>
 <p>In this way we find <span id="eq-sn-37"><span class="math display">\[
 \frac{\mathrm{d} \ln (ER)}{\mathrm{d} t} = - \frac{t + \tau_{h, p}}{\tau_{d, p}
 \tau_{h, p}} \Rightarrow ER = (E_p R_p) \exp \left( - \frac{\tau_{h, p} t +
@@ -773,68 +773,94 @@ L = \frac{E}{\tau_d} = \left( \frac{\beta c}{\kappa M} \right) ER,
 \tag{3.38}\]</span></span> so <span id="eq-sn-39"><span class="math display">\[
 \boxed{\begin{aligned} L = {} &amp; \left( \frac{\beta cE_p R_p}{\kappa M} \right) \exp \left( -
 \frac{\tau_{h, p} t + t^2 / 2}{\tau_{d, p} \tau_{h, p}} \right) \\
-&amp; \operatorname{for} t \gtrsim \tau_d .\end{aligned}}
+&amp; \mathrm{for}\ t \geq 0 .\end{aligned}}
 \tag{3.39}\]</span></span> The luminosity at peak can be estimated as <span id="eq-sn-40"><span class="math display">\[
 \begin{aligned}
-L_0 &amp;= \frac{\beta cE_p R_p}{\kappa M} = \frac{\mathcal{E}_r}{\tau_{d, p}} \\
-&amp;\approx 5.2 \cdot 10^{43} \operatorname{erg} \mathrm{s}^{- 1}  \left(
-\frac{\mathcal{E}_r}{10^{50} \operatorname{erg}} \right) \left( \frac{R_p}{10^{15}
-\operatorname{cm}} \right) \\
-&amp;\qquad \times \left( \frac{M_{\odot}}{M} \right)  \left( \frac{0.4
-\operatorname{cm}^2 \mathrm{g}^{- 1}}{\kappa} \right)
+L_0 &amp;= \frac{\beta cE_p R_p}{\kappa M} = \frac{E_p}{\tau_{d, p}} \\
+&amp;\approx 5.2 \times 10^{43}\,\mathrm{erg}\,\mathrm{s}^{- 1}  \left(
+\frac{E_p}{10^{50}\,\mathrm{erg}} \right) \\
+&amp;\qquad \times \left( \frac{R_p}{10^{13}
+\, \mathrm{m}} \right) \left( \frac{M_{\odot}}{M} \right)  \left( \frac{0.4
+\mathrm{cm}^2\,\mathrm{g}^{- 1}}{\kappa} \right)
 \end{aligned}
-\tag{3.40}\]</span></span> For SN1987a, we have already estimated <span class="math inline">\(M \sim 10 M_{\odot}\)</span>, so this formula predicts the correct peak luminosity <span class="math inline">\(L_0 \sim 10^{42} \operatorname{erg} \mathrm{s}^{- 1}\)</span>.</p>
-<p>This shows that, in absence of radioactive heating, or when radioactive heating is subdominant, the luminosity declines exponentially (after having peaked at <span class="math inline">\(t = t_p\)</span>). The characteristic decay time for the light curve is given by <span id="eq-sn-41"><span class="math display">\[
+\tag{3.40}\]</span></span> For the explosion of a red supergiant with <span class="math inline">\(M \sim 10 M_{\odot}\)</span>, we have <span class="math inline">\(R_p \sim 10 R_0 \sim 10^{13}\,\mathrm{m}\)</span> and <span class="math inline">\(E_p \sim \mathcal{E} / 10 \sim 10^{50}\,\mathrm{erg}\)</span>, so this formula predicts <span class="math inline">\(L_0 \sim 5 \times 10^{42}\,\mathrm{erg}\,\mathrm{s}^{- 1}\)</span>, comparable to the luminosity of Type II-P supernovae (<a href="#fig-sn-sn1999em" class="quarto-xref">Figure&nbsp;<span>3.5</span></a>). For SN 1987A, whose progenitor was a compact blue supergiant with <span class="math inline">\(R_0 \approx 3 \times 10^{10}\,\mathrm{m}\)</span>, this estimate is about ten times smaller than the observed peak. As we will see below, the light curve of SN 1987A is powered by radioactive decays.</p>
+<p>This shows that, in absence of radioactive heating, or when radioactive heating is subdominant, the luminosity declines rapidly after having peaked at <span class="math inline">\(t = t_p\)</span>. At late times, <span class="math inline">\(t \gtrsim \tau_{h, p}\)</span>, the luminosity decreases as <span class="math inline">\(\exp (- t^2 / \tau_{\mathrm{lc}}^2)\)</span>, where the characteristic decay time for the light curve is given by <span id="eq-sn-41"><span class="math display">\[
 \begin{aligned}
-\tau_{\operatorname{lc}} &amp;= \sqrt{2 \tau_{d, p} \tau_{h, p}} \\
-&amp;\approx 2 \cdot 10^6 \mathrm{s} \left( \frac{\kappa}{0.4 \operatorname{cm}^2 \mathrm{g}^{- 1}} \right)^{1/ 2}  \left( \frac{M}{M_{\odot}} \right)^{1 / 2} \\
-&amp;\qquad \times \left( \frac{v}{10^9
-\operatorname{cm} \mathrm{s}^{- 1}} \right)^{- 1 / 2} .
+\tau_{\mathrm{lc}} &amp;= \sqrt{2 \tau_{d, p} \tau_{h, p}} \\
+&amp;\approx 2 \times 10^6\,\mathrm{s} \left( \frac{\kappa}{0.4\,\mathrm{cm}^2\,\mathrm{g}^{- 1}} \right)^{1/ 2}  \left( \frac{M}{M_{\odot}} \right)^{1 / 2} \\
+&amp;\qquad \times \left( \frac{v}{10^4
+\, \mathrm{km} \, \mathrm{s}^{- 1}} \right)^{- 1 / 2} .
 \end{aligned}
-\tag{3.41}\]</span></span> Note that <span class="math inline">\(\tau_{\operatorname{lc}}\)</span> does not depend on the expansion radius, but remains constant.</p>
-<p>This simple model with no radioactive heating already predicts several key properties of supernovae and other explosive transients. It shows that the luminosity is proportional to the explosion energy per unit mass and inversely proportional to the opacity. It also shows that the typical duration of the transient is proportional to mass and opacity and inversely proportional to the velocity. For example, we have found that the explosion of less massive stars produces faster transients, while more massive stars produce light curves that evolve over longer timescales.</p>
+\tag{3.41}\]</span></span> Note that <span class="math inline">\(\tau_{\mathrm{lc}}\)</span> does not depend on the expansion radius, but remains constant. Since <span class="math inline">\(\tau_{d, p} = t_p\)</span> and <span class="math inline">\(\tau_{h, p} \approx t_p\)</span>, we also have <span class="math inline">\(\tau_{\mathrm{lc}} \approx \sqrt{2} t_p\)</span>, which explains why <a href="#eq-sn-41" class="quarto-xref">Equation&nbsp;<span>3.41</span></a> and <a href="#eq-sn-21" class="quarto-xref">Equation&nbsp;<span>3.21</span></a> have the same scaling.</p>
+<p>This simple model with no radioactive heating already predicts several key properties of supernovae and other explosive transients. It shows that the luminosity is proportional to the explosion energy per unit mass and to the radius of the progenitor, and inversely proportional to the opacity. Indeed, using <span class="math inline">\(E_p \approx \mathcal{E} R_0 / R_p\)</span> in <a href="#eq-sn-40" class="quarto-xref">Equation&nbsp;<span>3.40</span></a>, we find <span class="math inline">\(L_0 \approx \beta c \mathcal{E} R_0 / (\kappa M)\)</span>. It also shows that the typical duration of the transient is proportional to the square root of the mass and of the opacity, and inversely proportional to the square root of the velocity. For example, we have found that the explosion of less massive stars produces faster transients, while more massive stars produce light curves that evolve over longer timescales.</p>
 </section>
 <section id="radioactive-heating" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="radioactive-heating"><span class="header-section-number">3.5</span> Radioactive heating</h2>
-<p>The radioactive decay of <span class="math inline">\(^{56} \operatorname{Ni}\)</span> to <span class="math inline">\(^{56} \operatorname{Co}\)</span> and of <span class="math inline">\(^{56} \operatorname{Co}\)</span> to <span class="math inline">\(^{56} \operatorname{Fe}\)</span> powers the light curve of supernovae. These decays produce <span class="math inline">\(\gamma\)</span>-rays and positrons. Some of these particles escape from the ejecta, so their energy does not contribute to the optical light curve. However, especially in the first weeks, the majority of the decay products are reprocessed into thermal radiation. After having included this new heating source, the first law of thermodynamics is: <span id="eq-sn-42"><span class="math display">\[
-\dot{E} + p \dot{V} = \dot{Q}_{\operatorname{heat}} - L,
-\tag{3.42}\]</span></span> where <span class="math inline">\(\dot{Q}_{\operatorname{heat}}\)</span> is the energy deposited by the radioactive decays in <span class="math inline">\(\operatorname{erg} \mathrm{s}^{- 1}\)</span>.</p>
+<p>The radioactive decay of <span class="math inline">\(^{56}\,\mathrm{Ni}\)</span> to <span class="math inline">\(^{56}\,\mathrm{Co}\)</span> and of <span class="math inline">\(^{56}\,\mathrm{Co}\)</span> to <span class="math inline">\(^{56}\,\mathrm{Fe}\)</span> powers the light curve of supernovae. These decays produce <span class="math inline">\(\gamma\)</span>-rays and positrons. Some of these particles escape from the ejecta, so their energy does not contribute to the optical light curve. However, especially in the first weeks, the majority of the decay products are reprocessed into thermal radiation. After having included this new heating source, the first law of thermodynamics is: <span id="eq-sn-42"><span class="math display">\[
+\dot{E} + p \dot{V} = \dot{Q}_{\mathrm{heat}} - L,
+\tag{3.42}\]</span></span> where <span class="math inline">\(\dot{Q}_{\mathrm{heat}}\)</span> is the energy deposited by the radioactive decays in <span class="math inline">\(\mathrm{erg}\,\mathrm{s}^{- 1}\)</span>.</p>
 <p>Proceeding as before, we can introduce a heating time scale <span id="eq-sn-43"><span class="math display">\[
-\tau_{\operatorname{heat}} = \frac{E}{\dot{Q}_{\operatorname{heat}}},
+\tau_{\mathrm{heat}} = \frac{E}{\dot{Q}_{\mathrm{heat}}},
 \tag{3.43}\]</span></span> and obtain the energy equation <span id="eq-sn-arnett-model-radioactive"><span class="math display">\[
-\frac{\dot{E}}{E} + \frac{\dot{R}}{R} = \frac{1}{\tau_{\operatorname{heat}}} -
+\frac{\dot{E}}{E} + \frac{\dot{R}}{R} = \frac{1}{\tau_{\mathrm{heat}}} -
 \frac{1}{\tau_d} \Longrightarrow \boxed{\frac{\mathrm{d} \ln (E R)}{\mathrm{d}
-t} = \frac{1}{\tau_{\operatorname{heat}}} - \frac{1}{\tau_d} .}
-\tag{3.44}\]</span></span> With the inclusion of radioactive heating, the light curve changes qualitatively. In particular, the luminosity can continue to grow even after <span class="math inline">\(t \gtrsim \tau_d\)</span> and reach a higher maximum. To see this, we use the fact that <span class="math inline">\(E R \sim cL\)</span>, which implies that the peak is reached when the RHS of <a href="#eq-sn-arnett-model-radioactive" class="quarto-xref">Equation&nbsp;<span>3.44</span></a> vanishes: <span id="eq-sn-45"><span class="math display">\[
-\frac{1}{\tau_{\operatorname{heat}}} = \frac{1}{\tau_d} \Longrightarrow
-\frac{\dot{Q}_{\operatorname{heat}}}{E} = \frac{1}{\tau_d} \Longrightarrow
-\boxed{\dot{Q}_{\operatorname{heat}} = \frac{E}{\tau_d} = L.}
-\tag{3.45}\]</span></span> This shows that the luminosity at peak equals the heating rate. This is a key result in supernova theory called “Arnett’s law<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>”. Since the energy released by each nuclear decay is known from laboratory experiments, Arnett’s law provides a way to estimate the amount of radioactive material produced by the supernova. Type Ia supernovae (<a href="#fig-sn-type-ia" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>), which are the result of the thermonuclear explosion of white dwarfs, are an example of supernovae in which radioactivity plays the dominant role in the light curve over all times and for which Arnett’s law can be applied.</p>
+t} = \frac{1}{\tau_{\mathrm{heat}}} - \frac{1}{\tau_d} .}
+\tag{3.44}\]</span></span> With the inclusion of radioactive heating, the light curve changes qualitatively. In particular, the luminosity can continue to grow even after <span class="math inline">\(t \gtrsim \tau_d\)</span> and reach a higher maximum. To see this, we use the fact that <span class="math inline">\(E R = (\kappa M / \beta c) L \propto L\)</span> (<a href="#eq-sn-38" class="quarto-xref">Equation&nbsp;<span>3.38</span></a>), which implies that the peak is reached when the RHS of <a href="#eq-sn-arnett-model-radioactive" class="quarto-xref">Equation&nbsp;<span>3.44</span></a> vanishes: <span id="eq-sn-45"><span class="math display">\[
+\frac{1}{\tau_{\mathrm{heat}}} = \frac{1}{\tau_d} \Longrightarrow
+\frac{\dot{Q}_{\mathrm{heat}}}{E} = \frac{1}{\tau_d} \Longrightarrow
+\boxed{\dot{Q}_{\mathrm{heat}} = \frac{E}{\tau_d} = L.}
+\tag{3.45}\]</span></span> This shows that the luminosity at peak equals the heating rate. This is a key result in supernova theory called “Arnett’s rule”<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Since the energy released by each nuclear decay is known from laboratory experiments, Arnett’s rule provides a way to estimate the amount of radioactive material produced by the supernova. Type Ia supernovae (<a href="#fig-sn-type-ia" class="quarto-xref">Figure&nbsp;<span>3.4</span></a>), which are the result of the thermonuclear explosion of white dwarfs, are an example of supernovae in which radioactivity plays the dominant role in the light curve over all times and for which Arnett’s rule can be applied.</p>
+<p>The effect of radioactive heating is illustrated in <a href="#fig-sn-one-zone" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>, which shows the solution of the one-zone model, <a href="#eq-sn-arnett-model-radioactive" class="quarto-xref">Equation&nbsp;<span>3.44</span></a> with <span class="math inline">\(L = E / \tau_d\)</span>, for the explosion of a red and of a blue supergiant. The explosion of the compact blue supergiant would be very faint without radioactive heating, because most of its thermal energy is lost to <span class="math inline">\(p \mathrm{d} V\)</span> work. With radioactive heating, the light curve has a broad peak after about four months, which is qualitatively similar to the one of SN 1987A (<a href="#fig-sn-sn1987a" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>). Note that the peak is reached when the luminosity equals the heating rate, as predicted by Arnett’s rule.</p>
+<div id="fig-sn-one-zone" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Plot of log luminosity in erg per second, from 39.5 to 42.9, against time since explosion, from 0 to 250 days. The red-supergiant curve without heating starts at about 42.4, stays nearly flat for about 50 days and then declines, faster and faster, to 40.8 at day 250. The blue-supergiant curve without heating is about thirty times fainter, starting at 40.9 and falling below 39.5 near day 235. The blue-supergiant curve with nickel heating rises from 40.9 to a broad peak at about 41.5 near day 125, where it crosses the dotted curve of the radioactive heating rate, and then stays slightly above it, declining slowly to 41.2 at day 250.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sn-one-zone-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/supernovae/one-zone-light-curve.svg" class="img-fluid figure-img" alt="Plot of log luminosity in erg per second, from 39.5 to 42.9, against time since explosion, from 0 to 250 days. The red-supergiant curve without heating starts at about 42.4, stays nearly flat for about 50 days and then declines, faster and faster, to 40.8 at day 250. The blue-supergiant curve without heating is about thirty times fainter, starting at 40.9 and falling below 39.5 near day 235. The blue-supergiant curve with nickel heating rises from 40.9 to a broad peak at about 41.5 near day 125, where it crosses the dotted curve of the radioactive heating rate, and then stays slightly above it, declining slowly to 41.2 at day 250.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sn-one-zone-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: Light curves from the one-zone model for the explosion of a red supergiant (<span class="math inline">\(R_0 = 10^{12}\,\mathrm{m}\)</span>) and of a compact blue supergiant (<span class="math inline">\(R_0 = 3 \times 10^{10}\,\mathrm{m}\)</span>), with <span class="math inline">\(M = 10\,M_\odot\)</span>, <span class="math inline">\(v = 3000\,\mathrm{km\,s^{-1}}\)</span>, and an initial thermal energy of <span class="math inline">\(5 \times 10^{50}\,\mathrm{erg}\)</span>. The dashed line includes the heating by the decay of <span class="math inline">\(0.07\,M_\odot\)</span> of <span class="math inline">\(^{56}\)</span>Ni, whose rate is shown by the dotted line. The model is not accurate at early times, before the peak (see text).
+</figcaption>
+</figure>
+</div>
 <div id="fig-sn-type-ia" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Plot of log luminosity, from 40.5 to 43.5, against days, from 0 to 160, for four Type Ia supernovae (SN1991T, SN1989B, SN1992A, SN1991bg) and the Type Ic SN1994I, each with a model curve. All rise steeply to a peak at about 15 to 20 days, at log L between about 42.2 and 43.4, and then decline smoothly; brighter supernovae decline more slowly.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sn-type-ia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../figures/supernovae/type-ia-light-curves.png" class="img-fluid figure-img" alt="Plot of log luminosity, from 40.5 to 43.5, against days, from 0 to 160, for four Type Ia supernovae (SN1991T, SN1989B, SN1992A, SN1991bg) and the Type Ic SN1994I, each with a model curve. All rise steeply to a peak at about 15 to 20 days, at log L between about 42.2 and 43.4, and then decline smoothly; brighter supernovae decline more slowly.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sn-type-ia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.3: Sample of Type Ia thermonuclear supernova light curves: data and theoretical models. From <span class="citation" data-cites="arnett1996">Arnett (<a href="#ref-arnett1996" role="doc-biblioref">1996</a>)</span>; © Princeton University Press, reproduced for non-commercial educational use and not covered by the license of these notes.
+Figure&nbsp;3.4: Sample of Type Ia thermonuclear supernova light curves: data and theoretical models. From <span class="citation" data-cites="arnett1996">Arnett (<a href="#ref-arnett1996" role="doc-biblioref">1996</a>)</span>; © Princeton University Press, reproduced for non-commercial educational use and not covered by the license of these notes.
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="recombination-and-nebular-phase" class="level2" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="recombination-and-nebular-phase"><span class="header-section-number">3.6</span> Recombination and nebular phase</h2>
-<p>After the peak of the light curve, as the explosion debris expand and cool, other physical effects start to become important. First, a larger fraction of gamma rays and positrons escape and/or are not thermalized. Secondly, ions begin to recombine. This removes the free electrons that were responsible for the Thomson opacity from the gas which then becomes transparent in the infrared/optical bands. Thus, as matter recombines, radiation quickly escapes rapidly cooling down the material. This process launches a recombination wave into the supernova debris. The photons we see at this stage are no longer coming from the outer edge of the ejecta, but instead are emitted at a photosphere that is very close to the recombination front.</p>
-<p>Recombination of hydrogen and helium is important for many classes of supernovae, including for SN1987a, but their impact is particularly spectacular in hydrogen rich, Type II-P supernovae. Because recombination of hydrogen happens at a fixed temperature<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, the luminosity can be estimated as <span id="eq-sn-46"><span class="math display">\[
+<p>After the peak of the light curve, as the explosion debris expand and cool, other physical effects start to become important. First, a larger fraction of gamma rays and positrons escape and/or are not thermalized. Secondly, ions begin to recombine. This removes the free electrons that were responsible for the Thomson opacity from the gas which then becomes transparent in the infrared/optical bands. Thus, as matter recombines, radiation quickly escapes, rapidly cooling down the material. This process launches a recombination wave into the supernova debris. The photons we see at this stage are no longer coming from the outer edge of the ejecta, but instead are emitted at a photosphere that is very close to the recombination front.</p>
+<p>Recombination of hydrogen and helium is important for many classes of supernovae, including for SN 1987A, but their impact is particularly spectacular in hydrogen rich, Type II-P supernovae. Because recombination of hydrogen happens at a fixed temperature<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, the luminosity can be estimated as <span id="eq-sn-46"><span class="math display">\[
 L = 4 \pi R_r^2 (t) \sigma T^4_r,
-\tag{3.46}\]</span></span> where <span class="math inline">\(T_r\)</span> is the recombination temperature (a constant), and <span class="math inline">\(R_r (t)\)</span> is the position of the recombination front (which nearly coincides with the photosphere). In Type II-P supernovae, <span class="math inline">\(R_r (t) \sim \operatorname{const}\)</span> for <span class="math inline">\(\sim 100\)</span> days and the bolometric luminosity plateaus to a nearly constant value (P stands for plateau). A prototypical example is SN1999em, shown in <a href="#fig-sn-sn1999em" class="quarto-xref">Figure&nbsp;<span>3.4</span></a>.</p>
-<p>After the recombination wave has swept through the ejecta, the supernova enters the so called nebular phase. In this stage there is no longer a photosphere, because the material is transparent. The black body approximation fails, because radiation is produced by various decays and matter is no longer in thermodynamic equilibrium. Often, the luminosity decays exponentially, with characteristic time scale equal to the half life of <span class="math inline">\(^{56} \operatorname{Co}\)</span>, so it is possible to fit the decay tail to estimates of the amount of radioactive material. This has to be done carefully, accounting for the thermalization efficiency of positrons and gamma-rays.</p>
+\tag{3.46}\]</span></span> where <span class="math inline">\(T_r \approx 6000\,\mathrm{K}\)</span> is the recombination temperature (a constant), and <span class="math inline">\(R_r (t)\)</span> is the position of the recombination front (which nearly coincides with the photosphere). In Type II-P supernovae, <span class="math inline">\(R_r (t) \sim \mathrm{const}\)</span> for <span class="math inline">\(\sim 100\)</span> days and the bolometric luminosity plateaus to a nearly constant value (P stands for plateau). A prototypical example is SN 1999em, shown in <a href="#fig-sn-sn1999em" class="quarto-xref">Figure&nbsp;<span>3.5</span></a>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider the plateau of SN 1999em. If we take the radius of the recombination front to be <span class="math inline">\(R_r \sim 10^{13}\,\mathrm{m}\)</span>, as estimated in <a href="#eq-sn-22" class="quarto-xref">Equation&nbsp;<span>3.22</span></a>, and <span class="math inline">\(T_r \approx 6000\,\mathrm{K}\)</span>, <a href="#eq-sn-46" class="quarto-xref">Equation&nbsp;<span>3.46</span></a> gives <span id="eq-sn-plateau"><span class="math display">\[
+L \approx 4 \pi \left( 10^{13}\,\mathrm{m} \right)^2 \sigma \left( 6000\,\mathrm{K} \right)^4 \approx 9 \times 10^{34}\,\mathrm{W} = 9 \times 10^{41}\,\mathrm{erg\,s^{-1}},
+\tag{3.47}\]</span></span> or <span class="math inline">\(\log L \approx 42.0\)</span>, in good agreement with the plateau in <a href="#fig-sn-sn1999em" class="quarto-xref">Figure&nbsp;<span>3.5</span></a>.</p>
+</div>
+</div>
+<p>After the recombination wave has swept through the ejecta, the supernova enters the so called nebular phase. In this stage there is no longer a photosphere, because the material is transparent. The black body approximation fails, because radiation is produced by various decays and matter is no longer in thermodynamic equilibrium. Often, the luminosity decays exponentially, with characteristic time scale equal to the mean lifetime of <span class="math inline">\(^{56}\,\mathrm{Co}\)</span>, <span class="math inline">\(\tau \approx 111\)</span> days (its half life is 77 days), so it is possible to fit the decay tail to estimate the amount of radioactive material. This has to be done carefully, accounting for the thermalization efficiency of positrons and gamma-rays.</p>
 <div id="fig-sn-sn1999em" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Plot of log luminosity in erg per second, from 41 to 43, against time in days, from 0 to 200. The luminosity drops from about 42.7 in the first days to a plateau at about 42.1, which lasts from day 25 to about day 100. It then falls steeply to about 41.4 at day 130 and declines slowly to about 41.2 at day 180.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sn-sn1999em-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../figures/supernovae/sn1999em-light-curve.png" class="img-fluid figure-img" alt="Plot of log luminosity in erg per second, from 41 to 43, against time in days, from 0 to 200. The luminosity drops from about 42.7 in the first days to a plateau at about 42.1, which lasts from day 25 to about day 100. It then falls steeply to about 41.4 at day 130 and declines slowly to about 41.2 at day 180.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sn-sn1999em-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.4: Bolometric light curve for SN1999em, a classical example of a Type II-P supernova. Data from <span class="citation" data-cites="elmhamdi2003">Elmhamdi et al. (<a href="#ref-elmhamdi2003" role="doc-biblioref">2003</a>)</span>; figure courtesy of Viktoriya Morozova, used with permission and not covered by the license of these notes.
+Figure&nbsp;3.5: Bolometric light curve for SN 1999em, a classical example of a Type II-P supernova. Data from <span class="citation" data-cites="elmhamdi2003">Elmhamdi et al. (<a href="#ref-elmhamdi2003" role="doc-biblioref">2003</a>)</span>; figure courtesy of Viktoriya Morozova, used with permission and not covered by the license of these notes.
 </figcaption>
 </figure>
 </div>
@@ -842,35 +868,35 @@ Figure&nbsp;3.4: Bolometric light curve for SN1999em, a classical example of a T
 <section id="sec-sn-worksheet" class="level2" data-number="3.7">
 <h2 data-number="3.7" class="anchored" data-anchor-id="sec-sn-worksheet"><span class="header-section-number">3.7</span> In-class worksheet</h2>
 <ol type="1">
-<li><p>Consider the explosion of a red supergiant with <span class="math inline">\(R_{\star} = 10^{14}\,\mathrm{cm}\)</span>. At time <span class="math inline">\(t = 0\)</span>, we inject a large amount of energy into the star, <span class="math inline">\(\sim 10^{51}\,\mathrm{erg}\)</span>.</p>
-<p>Constants: <span class="math inline">\(a = 7.5 \times 10^{-15}\,\mathrm{erg\,cm^{-3}\,K^{-4}}\)</span>, <span class="math inline">\(k_B = 1.4 \times 10^{-16}\,\mathrm{erg/K}\)</span>, <span class="math inline">\(h = 6.6 \times 10^{-27}\,\mathrm{erg\,s}\)</span>.</p>
+<li><p>Consider the explosion of a red supergiant with radius <span class="math inline">\(R_0 = 10^{12}\,\mathrm{m}\)</span> and mass <span class="math inline">\(M \sim 10\,M_\odot\)</span>. At time <span class="math inline">\(t = 0\)</span>, we inject a large amount of energy into the star, <span class="math inline">\(\sim 10^{51}\,\mathrm{erg} = 10^{44}\,\mathrm{J}\)</span>.</p>
+<p>Constants: <span class="math inline">\(a = 7.6 \times 10^{-16}\,\mathrm{J\,m^{-3}\,K^{-4}}\)</span>, <span class="math inline">\(k_B = 1.4 \times 10^{-23}\,\mathrm{J/K}\)</span>, <span class="math inline">\(h = 6.6 \times 10^{-34}\,\mathrm{J\,s}\)</span>.</p>
 <ol type="1">
 <li><p>Find the temperature of the gas, and determine the waveband in which the black body emission peaks.</p></li>
 <li><p>Show that the gas is radiation dominated. Compute <span class="math inline">\(\beta = P_{\mathrm{rad}} / P_{\mathrm{gas}}\)</span>.</p></li>
 </ol></li>
-<li><p>Given the mean free path <span class="math inline">\(\lambda = 1 / \kappa \rho\)</span>, and the definition of the photon diffusion time through a system of size <span class="math inline">\(R\)</span>, <span class="math inline">\(\tau_d = R^2 / \lambda c\)</span>, find the time needed for a photon to escape the Sun, after being created in the core. Take <span class="math inline">\(\kappa \sim 25\,\mathrm{cm^2\,g^{-1}}\)</span>.</p></li>
+<li><p>Given the mean free path <span class="math inline">\(\lambda = 1 / (\kappa \rho)\)</span>, and the definition of the photon diffusion time through a system of size <span class="math inline">\(R\)</span>, <span class="math inline">\(\tau_d = R^2 / \lambda c\)</span>, find the time needed for a photon to escape the Sun, after being created in the core. Take <span class="math inline">\(\kappa \sim 25\,\mathrm{cm^2\,g^{-1}}\)</span>.</p></li>
 <li><p>Show that: <span id="eq-sn-ws-diffusion-time"><span class="math display">\[
 \tau_d (t) = \frac{\tau_d (0) \tau_h (0)}{\tau_h (0) + t} .
-\tag{3.47}\]</span></span></p></li>
+\tag{3.48}\]</span></span></p></li>
 </ol>
 </section>
 <section id="sec-sn-exercises" class="level2" data-number="3.8">
 <h2 data-number="3.8" class="anchored" data-anchor-id="sec-sn-exercises"><span class="header-section-number">3.8</span> Exercises</h2>
 <div id="exr-sn-katz-integral" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3.1 (The Katz integral)</strong></span> Consider an homologously expanding radioactive cloud of debris launched by an explosion of some kind, e.g., a supernova.</p>
+<p><span class="theorem-title"><strong>Exercise 3.1 (The Katz integral)</strong></span> Consider a homologously expanding radioactive cloud of debris, with radius <span class="math inline">\(R \approx v t\)</span>, launched by an explosion of some kind, e.g., a supernova.</p>
 <ol type="1">
 <li><p>Assume that the gas is described by the gamma-law equation of state <span id="eq-sn-katz-gamma-law"><span class="math display">\[
 p = (\Gamma - 1) \rho \varepsilon .
-\tag{3.48}\]</span></span> Show that the first law of thermodynamics becomes <span id="eq-sn-katz-energy"><span class="math display">\[
+\tag{3.49}\]</span></span> Show that the first law of thermodynamics becomes <span id="eq-sn-katz-energy"><span class="math display">\[
 \frac{\mathrm{d} E}{\mathrm{d} t} = - L + \dot{Q} - 3 (\Gamma - 1)
 \frac{E}{t},
-\tag{3.49}\]</span></span> where <span class="math inline">\(L\)</span> is the luminosity (energy radiated away in erg/s), and <span class="math inline">\(\dot{Q}\)</span> is the radioactive heating rate in erg/s.</p></li>
+\tag{3.50}\]</span></span> where <span class="math inline">\(L\)</span> is the luminosity (energy radiated away in erg/s), and <span class="math inline">\(\dot{Q}\)</span> is the radioactive heating rate in erg/s.</p></li>
 <li><p>Show that the following exact relation holds <em>under suitable assumptions</em>: <span id="eq-sn-katz-integral"><span class="math display">\[
 \int_0^t L (t') t' \mathrm{d} t' = \int_0^t \dot{Q} (t') t' \mathrm{d} t' .
-\tag{3.50}\]</span></span> The quantity on the LHS is called the Katz integral and can be determined observationally. Discuss the validity of the approximations made to derive this result.</p></li>
+\tag{3.51}\]</span></span> The quantity on the LHS is called the Katz integral and can be determined observationally. Discuss the validity of the approximations made to derive this result.</p></li>
 <li><p>The radioactive heating can be written as <span id="eq-sn-katz-heating"><span class="math display">\[
 \dot{Q} = M (t)  \frac{q}{\tau},
-\tag{3.51}\]</span></span> where <span class="math inline">\(q\)</span> is the radioactive energy release in erg/g, <span class="math inline">\(\tau\)</span> is the radioactive decay timescale, and <span class="math inline">\(M (t) = M_0 e^{- t / \tau}\)</span> is the mass of the radioactive material at time <span class="math inline">\(t\)</span>. Show how <span class="math inline">\(M_0\)</span> can be <em>estimated</em> from the Katz integral, assuming <span class="math inline">\(q\)</span> and <span class="math inline">\(\tau\)</span> to be known from nuclear physics experiments.</p></li>
+\tag{3.52}\]</span></span> where <span class="math inline">\(q\)</span> is the radioactive energy release in J/kg, <span class="math inline">\(\tau\)</span> is the radioactive decay timescale, and <span class="math inline">\(M (t) = M_0 \mathrm{e}^{- t / \tau}\)</span> is the mass of the radioactive material at time <span class="math inline">\(t\)</span>. Show how <span class="math inline">\(M_0\)</span> can be <em>estimated</em> from the Katz integral, assuming <span class="math inline">\(q\)</span> and <span class="math inline">\(\tau\)</span> to be known from nuclear physics experiments.</p></li>
 </ol>
 </div>
 </section>

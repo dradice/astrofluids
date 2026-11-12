@@ -612,10 +612,10 @@ window.Quarto = {
 
 <section id="the-virial-theorem" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="the-virial-theorem"><span class="header-section-number">8.1</span> The virial theorem</h2>
-<p>We consider a self-gravitating cloud of gas in equilibrium, described by the momentum equation <span id="eq-hydro-1"><span class="math display">\[
+<p>We consider a self-gravitating cloud of gas in equilibrium, described by the momentum equation in conservation form (<a href="conservation-laws.html#eq-conserv-ch6-eq-momentum" class="quarto-xref">Equation&nbsp;<span>6.7</span></a>) <span id="eq-hydro-1"><span class="math display">\[
 \frac{\partial (\rho \mathbf{v})}{\partial t} + \nabla \cdot [\rho
 \mathbf{v} \otimes \mathbf{v}+ p\mathbf{I}] = - \rho \nabla \Psi,
-\tag{8.1}\]</span></span> where <span class="math inline">\(\Psi\)</span> is the gravitational potential. We consider the scalar moment of inertia<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <span id="eq-hydro-2"><span class="math display">\[
+\tag{8.1}\]</span></span> where <span class="math inline">\(\Psi\)</span> is the gravitational potential. We consider the scalar moment of inertia <span id="eq-hydro-2"><span class="math display">\[
 I = \frac{1}{2} \int_V \rho (\mathbf{r}) r^2 \mathrm{d} V,
 \tag{8.2}\]</span></span> where <span class="math inline">\(V\)</span> is a volume that encloses the whole gas cloud. The time derivative of <span class="math inline">\(I\)</span> is (using the continuity equation) <span id="eq-hydro-3"><span class="math display">\[
 \begin{alignedat}{2}
@@ -623,12 +623,12 @@ I = \frac{1}{2} \int_V \rho (\mathbf{r}) r^2 \mathrm{d} V,
 \rho}{\partial t} r^2 \mathrm{d} V \\
 &amp;{}={} &amp;&amp; - \frac{1}{2} \int_V \nabla \cdot (\rho
 \mathbf{v}) r^2 \mathrm{d} V \\
-&amp;{}={} &amp;&amp; - \frac{1}{2} \int_V \nabla \cdot (\rho \mathbf{v}r^2) \mathrm{d} V +
-\frac{1}{2}  \int_V \rho \mathbf{v} \cdot \nabla r^2 \mathrm{d} V.
+&amp;{}={} &amp;&amp; - \frac{1}{2} \int_V \nabla \cdot (\rho \mathbf{v}r^2) \mathrm{d} V \\
+&amp;&amp;&amp; + \frac{1}{2}  \int_V \rho \mathbf{v} \cdot \nabla r^2 \mathrm{d} V.
 \end{alignedat}
 \tag{8.3}\]</span></span> The total divergence term is equal to a boundary integral <span id="eq-hydro-4"><span class="math display">\[
-\int_V \nabla \cdot (\rho \mathbf{v}r^2) \mathrm{d} V = \int_S \rho
-\mathbf{v}r^2 \cdot \mathbf{n} \mathrm{d} S,
+\int_V \nabla \cdot (\rho \mathbf{v}r^2) \mathrm{d} V = \int_{\partial V} \rho
+\mathbf{v}r^2 \cdot \mathbf{n} \mathrm{d} A,
 \tag{8.4}\]</span></span> but the latter vanishes since, by assumption, <span class="math inline">\(\rho \rightarrow 0\)</span> at the boundary of <span class="math inline">\(V\)</span>. So we find <span id="eq-hydro-5"><span class="math display">\[
 \frac{\mathrm{d} I}{\mathrm{d} t} = \frac{1}{2}  \int_V \rho \mathbf{v} \cdot \nabla
 r^2 \mathrm{d} V = \int_V \rho \mathbf{v} \cdot \mathbf{r} \mathrm{d} V.
@@ -638,12 +638,13 @@ r^2 \mathrm{d} V = \int_V \rho \mathbf{v} \cdot \mathbf{r} \mathrm{d} V.
 \frac{\mathrm{d}^2 I}{\mathrm{d} t^2} &amp;= \int_V \frac{\partial (\rho \mathbf{v})}{\partial t} \cdot \mathbf{r} \mathrm{d} V \\
 &amp;= - \int_V \rho \nabla \Psi \cdot \mathbf{r} \mathrm{d} V \\
 &amp;\qquad - \int_V \nabla \cdot [\rho \mathbf{v} \otimes \mathbf{v}+ p\mathbf{I}] \cdot \mathbf{r} \mathrm{d} V \\
-&amp;= - \int_V \rho \nabla \Psi \cdot \mathbf{r} \mathrm{d} V - \int_V \nabla \cdot [\rho (\mathbf{v} \cdot \mathbf{r}) \mathbf{v}+ p\mathbf{r}] \mathrm{d} V \\
-&amp;\qquad + \int_V [\rho \mathbf{v} \otimes \mathbf{v}+ p\mathbf{I}] : \nabla \mathbf{r} \mathrm{d} V.
+&amp;= - \int_V \rho \nabla \Psi \cdot \mathbf{r} \mathrm{d} V \\
+&amp;\qquad - \int_V \nabla \cdot [\rho (\mathbf{v} \cdot \mathbf{r}) \mathbf{v}+ p\mathbf{r}] \mathrm{d} V \\
+&amp;\qquad + \int_V [\rho \mathbf{v} \otimes \mathbf{v}+ p\mathbf{I}] : \nabla \mathbf{r} \mathrm{d} V,
 \end{aligned}
-\tag{8.6}\]</span></span> Where the notation <span class="math inline">\(\mathbf{A}: \mathbf{B}\)</span> denotes the inner product between two tensors: <span id="eq-hydro-7"><span class="math display">\[
+\tag{8.6}\]</span></span> where the notation <span class="math inline">\(\mathbf{A}: \mathbf{B}\)</span> denotes the inner product between two tensors: <span id="eq-hydro-7"><span class="math display">\[
 \mathbf{A}: \mathbf{B}= \sum_{i = 1}^3 \sum_{k = 1}^3 A_{i k} B_{k i} =
-\operatorname{Trace} \left[ \left(\begin{array}{ccc}
+\mathrm{Trace} \left[ \left(\begin{array}{ccc}
 A_{x x} &amp; A_{x y} &amp; A_{x z}\\
 A_{y x} &amp; A_{y y} &amp; A_{y z}\\
 A_{z x} &amp; A_{z y} &amp; A_{z z}
@@ -652,7 +653,7 @@ B_{x x} &amp; B_{x y} &amp; B_{x z}\\
 B_{y x} &amp; B_{y y} &amp; B_{y z}\\
 B_{z x} &amp; B_{z y} &amp; B_{z z}
 \end{array}\right) \right] .
-\tag{8.7}\]</span></span> Once again, we can drop the total divergence terms, since they vanish due to Gauss’ theorem, to find <span id="eq-hydro-virial-base"><span class="math display">\[
+\tag{8.7}\]</span></span> Once again, we can drop the total divergence terms, since, by the divergence theorem, they are equal to boundary integrals that vanish because <span class="math inline">\(\rho\)</span> and <span class="math inline">\(p\)</span> vanish at the boundary of <span class="math inline">\(V\)</span>. We find <span id="eq-hydro-virial-base"><span class="math display">\[
 \frac{\mathrm{d}^2 I}{\mathrm{d} t^2} = - \int_V \rho \nabla \Psi \cdot
 \mathbf{r} \mathrm{d} V + \int_V [\rho \mathbf{v} \otimes \mathbf{v}+
 p\mathbf{I}] : \nabla \mathbf{r} \mathrm{d} V.
@@ -668,19 +669,19 @@ p\mathbf{I}] : \nabla \mathbf{r} \mathrm{d} V.
 \end{array}\right) =\mathbf{I}.
 \tag{8.9}\]</span></span> So everything simplifies to <span id="eq-hydro-10"><span class="math display">\[
 \int_V [\rho \mathbf{v} \otimes \mathbf{v}+ p\mathbf{I}] : \nabla \mathbf{r}
-\mathrm{d} V = \int_V \rho v^2 \mathrm{d} V + 3 \int_V p \mathrm{d} V =: 2 T +
+\mathrm{d} V = \int_V \rho v^2 \mathrm{d} V + 3 \int_V p \mathrm{d} V =: 2 K +
 3 \Pi,
-\tag{8.10}\]</span></span> where <span class="math inline">\(T\)</span> is the kinetic energy of the gas and <span class="math inline">\(\Pi\)</span> is the integrated pressure.</p>
+\tag{8.10}\]</span></span> where <span class="math inline">\(K\)</span> is the kinetic energy of the gas and <span class="math inline">\(\Pi\)</span> is the integrated pressure.</p>
 <p>The first term in the RHS of <a href="#eq-hydro-virial-base" class="quarto-xref">Equation&nbsp;<span>8.8</span></a> requires a little more work. First, we need to compute an expression for the gravitational potential in terms of the mass density <span class="math inline">\(\rho\)</span>. To do this, we remember that the gravitational potential generated by a distribution of point masses with mass <span class="math inline">\(m_i\)</span> at locations <span class="math inline">\(\mathbf{r}_i\)</span> is given by <span id="eq-hydro-11"><span class="math display">\[
 \Psi (\mathbf{r}) = - \sum_{i = 1}^N \frac{Gm_i}{ | \mathbf{r}-\mathbf{r}_i
 |} .
 \tag{8.11}\]</span></span> This can be generalized to the case of a mass density distribution by converting the sum into an integral <span id="eq-hydro-12"><span class="math display">\[
 \Psi (\mathbf{r}) = - \int_V \frac{G \rho (\mathbf{r}')}{ |
-\mathbf{r}-\mathbf{r}' |} \mathrm{d} \mathbf{r}' .
+\mathbf{r}-\mathbf{r}' |} \mathrm{d}^3 r' .
 \tag{8.12}\]</span></span> Inserting this into the first term in the RHS of <a href="#eq-hydro-virial-base" class="quarto-xref">Equation&nbsp;<span>8.8</span></a> yields <span id="eq-hydro-derivative-of-potential"><span class="math display">\[
-\int_V \rho \nabla \Psi \cdot \mathbf{r} \mathrm{d} \mathbf{r} = - \int_V
-\mathrm{d} \mathbf{r} \rho (\mathbf{r}) \nabla_{\mathbf{r}} \int_V \mathrm{d}
-\mathbf{r}'  \frac{G \rho (\mathbf{r}')}{ | \mathbf{r}-\mathbf{r}' |} \cdot
+\int_V \rho \nabla \Psi \cdot \mathbf{r} \mathrm{d}^3 r = - \int_V
+\mathrm{d}^3 r \rho (\mathbf{r}) \nabla_{\mathbf{r}} \int_V \mathrm{d}^3
+r'  \frac{G \rho (\mathbf{r}')}{ | \mathbf{r}-\mathbf{r}' |} \cdot
 \mathbf{r},
 \tag{8.13}\]</span></span> where we have used the notation <span class="math inline">\(\nabla_{\mathbf{r}}\)</span> to remind ourselves that the derivatives are computed with respect to the unprimed position <span class="math inline">\(\mathbf{r}\)</span>. In particular, note that <span class="math inline">\(\rho (\mathbf{r}')\)</span> in the integral is not affected by the derivative, since it is a function of <span class="math inline">\(\mathbf{r}'\)</span> and not of <span class="math inline">\(\mathbf{r}\)</span>. The only term that we need to differentiate is the denominator: <span id="eq-hydro-diff-one-over-r"><span class="math display">\[
 \begin{aligned}
@@ -696,83 +697,117 @@ z - z'
 \end{aligned}
 \tag{8.14}\]</span></span> Inserting the last expression into <a href="#eq-hydro-derivative-of-potential" class="quarto-xref">Equation&nbsp;<span>8.13</span></a>, we obtain <span id="eq-hydro-expansion-of-grad-potential"><span class="math display">\[
 \begin{aligned}
-&amp; \int_V \rho \nabla \Psi \cdot \mathbf{r} \mathrm{d} \mathbf{r} \\
-&amp; \quad = \int_V \mathrm{d} \mathbf{r} \int_V \mathrm{d} \mathbf{r}' \frac{G \rho (\mathbf{r}') \rho (\mathbf{r}) }{ | \mathbf{r}-\mathbf{r}' |^3} (\mathbf{r}-\mathbf{r}') \cdot \mathbf{r} \\
-&amp; \quad = \int_V \mathrm{d} \mathbf{r} \int_V \mathrm{d} \mathbf{r}' \frac{G \rho (\mathbf{r}') \rho (\mathbf{r}) }{ | \mathbf{r}-\mathbf{r}' |^3} (\mathbf{r}-\mathbf{r}') \cdot (\mathbf{r}-\mathbf{r}') \\
-&amp; \qquad\qquad + \int_V \mathrm{d} \mathbf{r} \int_V \mathrm{d} \mathbf{r}' \frac{G \rho (\mathbf{r}') \rho (\mathbf{r}) }{ | \mathbf{r}-\mathbf{r}' |^3} (\mathbf{r}-\mathbf{r}') \cdot \mathbf{r}' \\
-&amp; \quad = \int_V \mathrm{d} \mathbf{r} \int_V \mathrm{d} \mathbf{r}' \frac{G \rho (\mathbf{r}') \rho (\mathbf{r}) }{| \mathbf{r}-\mathbf{r}' |} \\
-&amp; \qquad + \int_V \mathrm{d} \mathbf{r}' \rho (\mathbf{r}') \int_V \mathrm{d} \mathbf{r} \frac{G \rho (\mathbf{r}) }{ | \mathbf{r}-\mathbf{r}' |^3} (\mathbf{r}-\mathbf{r}') \cdot \mathbf{r}' \\
-&amp; \quad = - \int_V \mathrm{d} \mathbf{r} \Psi (\mathbf{r}) \rho (\mathbf{r}) - \int_V \rho (\mathbf{r}') \nabla_{\mathbf{r}'} \Psi (\mathbf{r}') \cdot \mathbf{r}' \mathrm{d} \mathbf{r}' .
+&amp; \int_V \rho \nabla \Psi \cdot \mathbf{r} \mathrm{d}^3 r \\
+&amp; \quad = \int_V \mathrm{d}^3 r \int_V \mathrm{d}^3 r' \frac{G \rho (\mathbf{r}') \rho (\mathbf{r}) }{ | \mathbf{r}-\mathbf{r}' |^3} (\mathbf{r}-\mathbf{r}') \cdot \mathbf{r} \\
+&amp; \quad = \int_V \mathrm{d}^3 r \int_V \mathrm{d}^3 r' \frac{G \rho (\mathbf{r}') \rho (\mathbf{r}) }{ | \mathbf{r}-\mathbf{r}' |^3} | \mathbf{r}-\mathbf{r}' |^2 \\
+&amp; \qquad + \int_V \mathrm{d}^3 r \int_V \mathrm{d}^3 r' \frac{G \rho (\mathbf{r}') \rho (\mathbf{r}) }{ | \mathbf{r}-\mathbf{r}' |^3} (\mathbf{r}-\mathbf{r}') \cdot \mathbf{r}' \\
+&amp; \quad = \int_V \mathrm{d}^3 r \int_V \mathrm{d}^3 r' \frac{G \rho (\mathbf{r}') \rho (\mathbf{r}) }{| \mathbf{r}-\mathbf{r}' |} \\
+&amp; \qquad + \int_V \mathrm{d}^3 r' \rho (\mathbf{r}') \mathbf{r}' \cdot \int_V \mathrm{d}^3 r \frac{G \rho (\mathbf{r}) (\mathbf{r}-\mathbf{r}') }{ | \mathbf{r}-\mathbf{r}' |^3} \\
+&amp; \quad = - \int_V \mathrm{d}^3 r \Psi (\mathbf{r}) \rho (\mathbf{r}) \\
+&amp; \qquad - \int_V \rho (\mathbf{r}') \nabla_{\mathbf{r}'} \Psi (\mathbf{r}') \cdot \mathbf{r}' \mathrm{d}^3 r' .
 \end{aligned}
 \tag{8.15}\]</span></span> We have used the fact that (note the difference in sign compared to <a href="#eq-hydro-diff-one-over-r" class="quarto-xref">Equation&nbsp;<span>8.14</span></a>) <span id="eq-hydro-16"><span class="math display">\[
 \nabla_{\mathbf{r}'}  \frac{1}{| \mathbf{r}-\mathbf{r}' |} =
 \frac{\mathbf{r}-\mathbf{r}'}{| \mathbf{r}-\mathbf{r}' |^3} .
 \tag{8.16}\]</span></span> The last term on the RHS of <a href="#eq-hydro-expansion-of-grad-potential" class="quarto-xref">Equation&nbsp;<span>8.15</span></a> is identical to the LHS, so we find <span id="eq-hydro-17"><span class="math display">\[
-- \int_V \rho \nabla \Psi \cdot \mathbf{r} \mathrm{d} \mathbf{r}= \frac{1}{2}
-\int_V \mathrm{d} \mathbf{r} \Psi (\mathbf{r}) \rho (\mathbf{r}) = \Omega,
-\tag{8.17}\]</span></span> <span class="math inline">\(\Omega\)</span> being the gravitational potential energy.</p>
+- \int_V \rho \nabla \Psi \cdot \mathbf{r} \mathrm{d}^3 r= \frac{1}{2}
+\int_V \mathrm{d}^3 r \Psi (\mathbf{r}) \rho (\mathbf{r}) = W,
+\tag{8.17}\]</span></span> <span class="math inline">\(W\)</span> being the gravitational potential energy.</p>
 <p>For a <strong>stationary configuration</strong> <span class="math inline">\(\mathrm{d}^2 I / \mathrm{d} t^2 = 0\)</span>, so <a href="#eq-hydro-virial-base" class="quarto-xref">Equation&nbsp;<span>8.8</span></a> yields the <em>virial theorem</em>: <span id="eq-hydro-virial-theorem"><span class="math display">\[
-\boxed{\Omega + 2 T + 3 \Pi = 0.}
-\tag{8.18}\]</span></span> For an ideal gas <span class="math inline">\(p = (\Gamma - 1) \rho \varepsilon\)</span>, so <span id="eq-hydro-19"><span class="math display">\[
+\boxed{W + 2 K + 3 \Pi = 0.}
+\tag{8.18}\]</span></span> For an ideal gas <span class="math inline">\(p = (\Gamma - 1) \rho \varepsilon\)</span> (<a href="thermodynamics.html#eq-thermo-gamma-law" class="quarto-xref">Equation&nbsp;<span>2.15</span></a>), so <span id="eq-hydro-19"><span class="math display">\[
 \Pi = \int_V p \mathrm{d} V = (\Gamma - 1) \int_V \rho \varepsilon \mathrm{d} V =
 (\Gamma - 1) U,
 \tag{8.19}\]</span></span> where <span class="math inline">\(U\)</span> is the total internal energy. In this case, the virial theorem reads <span id="eq-hydro-virial-ideal-gas"><span class="math display">\[
-\boxed{\Omega + 2 T + 3 (\Gamma - 1) U = 0.}
+\boxed{W + 2 K + 3 (\Gamma - 1) U = 0.}
 \tag{8.20}\]</span></span></p>
 </section>
 <section id="hydrostatic-equilibria" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="hydrostatic-equilibria"><span class="header-section-number">8.2</span> Hydrostatic equilibria</h2>
+<p>A fluid is in hydrostatic equilibrium when <span class="math inline">\(\mathbf{v} = 0\)</span>, so that Euler’s equation reduces to <span class="math inline">\(\nabla p = - \rho \nabla \Psi\)</span>. For a spherical star, this reads <span class="math inline">\(\mathrm{d} p / \mathrm{d} r = - G M (r) \rho / r^2\)</span>, where <span class="math inline">\(M (r)\)</span> is the mass enclosed within the radius <span class="math inline">\(r\)</span> (see also <a href="euler-equation.html#eq-euler-hydrostatic-equilibrium" class="quarto-xref">Equation&nbsp;<span>4.21</span></a>).</p>
 <p>The virial theorem has an important consequence for the stability of hydrostatic equilibria. Consider a cloud of gas or star in hydrostatic equilibrium, that is with no large scale motion (no rotation). Then the virial theorem states that <span id="eq-hydro-virial-simple"><span class="math display">\[
-\Omega + 3 (\Gamma - 1) U = 0.
+W + 3 (\Gamma - 1) U = 0.
 \tag{8.21}\]</span></span> On the other hand, the energy of the cloud is <span id="eq-hydro-energy"><span class="math display">\[
-E = \Omega + U.
-\tag{8.22}\]</span></span> The energy must be negative for the system to be stable <span class="math inline">\(E \leq 0\)</span>. This implies <span id="eq-hydro-23"><span class="math display">\[
-U \leq - \Omega = 3 (\Gamma - 1) U \Longrightarrow [- 1 + 3 (\Gamma -
+E = W + U.
+\tag{8.22}\]</span></span> The energy must be negative for the system to be bound, <span class="math inline">\(E \leq 0\)</span>. This implies <span id="eq-hydro-23"><span class="math display">\[
+U \leq - W = 3 (\Gamma - 1) U \Longrightarrow [- 1 + 3 (\Gamma -
 1)] U \geq 0,
 \tag{8.23}\]</span></span> since <span class="math inline">\(U \geq 0\)</span>, this requires <span id="eq-hydro-24"><span class="math display">\[
 \Gamma \geq 4 / 3.
-\tag{8.24}\]</span></span> Monoatomic gas has <span class="math inline">\(\Gamma = 5 / 3\)</span>, so regular stars are stable. White dwarfs close to their maximum mass and very hot stars that are radiation pressure dominated have <span class="math inline">\(\Gamma \approx 4 / 3\)</span>, so they are unstable. They explode as Type Ia supernovae and pair-instability supernova, respectively.</p>
-<p>A surprising consequence of the virial theorem is that self-gravitating systems have <em>negative specific heat</em>. Consider a self-gravitating cloud (a protostar) emitting infrared radiation. As its energy <span class="math inline">\(E\)</span> becomes more negative its gravitational binding energy <span class="math inline">\(- \Omega\)</span> must increase, because <span class="math inline">\(U \geq 0\)</span>. We can use <a href="#eq-hydro-virial-simple" class="quarto-xref">Equation&nbsp;<span>8.21</span></a> and <a href="#eq-hydro-energy" class="quarto-xref">Equation&nbsp;<span>8.22</span></a> to solve for <span class="math inline">\(U\)</span> in terms of <span class="math inline">\(E\)</span>: <span id="eq-hydro-internal-energy-from-virial"><span class="math display">\[
+\tag{8.24}\]</span></span> Monoatomic gas has <span class="math inline">\(\Gamma = 5 / 3\)</span>, so regular stars are stable. Matter dominated by relativistic particles, such as radiation or the relativistic degenerate electrons in white dwarfs and in the iron cores of massive stars, has <span class="math inline">\(\Gamma \approx 4 / 3\)</span>. Stars made of such matter are only marginally stable, and small effects that reduce <span class="math inline">\(\Gamma\)</span> below <span class="math inline">\(4/3\)</span> can make them collapse. This happens in the iron cores of massive stars, where electron captures reduce the pressure, triggering core-collapse supernovae (<a href="supernovae.html" class="quarto-xref"><span>Chapter 3</span></a> and <a href="euler-equation.html#sec-euler-worksheet" class="quarto-xref"><span>Section 4.3</span></a>), and in very massive stars, where the production of electron–positron pairs triggers so-called pair-instability supernovae.</p>
+<p>A surprising consequence of the virial theorem is that self-gravitating systems have <em>negative specific heat</em>. Consider a self-gravitating cloud (a protostar) emitting infrared radiation. As its energy <span class="math inline">\(E\)</span> becomes more negative its gravitational binding energy <span class="math inline">\(- W\)</span> must increase, because <span class="math inline">\(U \geq 0\)</span>. We can use <a href="#eq-hydro-virial-simple" class="quarto-xref">Equation&nbsp;<span>8.21</span></a> and <a href="#eq-hydro-energy" class="quarto-xref">Equation&nbsp;<span>8.22</span></a> to solve for <span class="math inline">\(U\)</span> in terms of <span class="math inline">\(E\)</span>: <span id="eq-hydro-internal-energy-from-virial"><span class="math display">\[
 U = - \frac{E}{3 \Gamma - 4} .
 \tag{8.25}\]</span></span> If <span class="math inline">\(\Gamma &gt; 4 / 3\)</span>, <a href="#eq-hydro-internal-energy-from-virial" class="quarto-xref">Equation&nbsp;<span>8.25</span></a> predicts that <span class="math inline">\(U\)</span> will increase as <span class="math inline">\(E\)</span> becomes more negative. Meaning that the system heats up as it loses energy! Eventually the cloud contracts to the point that nuclear fusion starts occurring and a star is born. Nuclear burning <em>prevents</em> the star from heating up further.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Could the Sun be powered by gravitational contraction alone? In this case, the Sun would radiate its gravitational binding energy, <span class="math inline">\(| W | \sim G M_{\odot}^2 / R_{\odot}\)</span>, over a time <span id="eq-hydro-kelvin-helmholtz"><span class="math display">\[
+t_{\mathrm{KH}} \sim \frac{G M_{\odot}^2}{R_{\odot} L_{\odot}} \approx 3 \times 10^7\,\mathrm{yr},
+\tag{8.26}\]</span></span> where <span class="math inline">\(L_{\odot} \approx 3.8 \times 10^{26}\,\mathrm{W}\)</span> (<span class="math inline">\(3.8 \times 10^{33}\,\mathrm{erg\,s^{-1}}\)</span>) is the luminosity of the Sun. This is the so-called <em>Kelvin–Helmholtz time</em>. It is much shorter than the age of the Earth, about <span class="math inline">\(4.5 \times 10^9\)</span> years, so the Sun must have another source of energy: nuclear fusion.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The hot gas in a galaxy cluster is in approximate virial equilibrium in the gravitational potential of the cluster. Consider a cluster with mass <span class="math inline">\(M \sim 10^{15}\,M_{\odot}\)</span> and radius <span class="math inline">\(R \sim 1\,\mathrm{Mpc}\)</span>, and assume, for simplicity, that the gas has the same distribution as the total mass. For a uniform sphere <span class="math inline">\(W = - \frac{3}{5} G M^2 / R\)</span>, while <span class="math inline">\(3 \Pi = 3 M k_B T / (\mu m_u)\)</span>, so the virial theorem gives <span id="eq-hydro-cluster-temperature"><span class="math display">\[
+k_B T \sim \frac{G M \mu m_u}{5 R} \approx 5\,\mathrm{keV},
+\tag{8.27}\]</span></span> or <span class="math inline">\(T \sim 6 \times 10^7\,\mathrm{K}\)</span>, where we have taken <span class="math inline">\(\mu \approx 0.6\)</span> for fully ionized gas. This is why galaxy clusters are bright X-ray sources, as in the case of the Bullet cluster (<a href="fluids-as-continua.html#fig-continua-bullet-cluster" class="quarto-xref">Figure&nbsp;<span>1.1</span></a>).</p>
+</div>
+</div>
 </section>
 <section id="application-to-star-formation" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="application-to-star-formation"><span class="header-section-number">8.3</span> Application to star formation</h2>
-<p>Consider a spherical cloud of radius <span class="math inline">\(R\)</span>. Let the typical density be <span class="math inline">\(\bar{\rho}\)</span>. Then the gravitational potential energy is (neglecting factors of order unity) <span id="eq-hydro-26"><span class="math display">\[
-- \Omega = G \int_0^R 4 \pi r \rho (r) \mathcal{M} (r) \mathrm{d} r \approx (4
-\pi)^2 G \bar{\rho}^2 R^5,
-\tag{8.26}\]</span></span> where <span id="eq-hydro-27"><span class="math display">\[
-\mathcal{M} (r) = \int_0^r 4 \pi r^2 \rho (r) \mathrm{d} r.
-\tag{8.27}\]</span></span> For an ideal gas, the pressure is given by <span id="eq-hydro-28"><span class="math display">\[
-p = \frac{k_B T}{Am_p} \rho,
-\tag{8.28}\]</span></span> where <span class="math inline">\(A\)</span> is the atomic mass unit of the gas in units of the proton mass <span class="math inline">\(m_p\)</span>, <span class="math inline">\(k_B\)</span> is the Boltzmann constant and <span class="math inline">\(T\)</span> is the temperature. We can assume <span class="math inline">\(T\)</span> to be constant. This is a good approximation for optically thin clouds which can efficiently cool by emitting radiation. With this approximation <span id="eq-hydro-29"><span class="math display">\[
-\Pi = \int_0^R 4 \pi r^2 p (r) \mathrm{d} r \approx \frac{4}{3} \pi c_s^2
+<p>Consider a spherical cloud of radius <span class="math inline">\(R\)</span>. For simplicity, we take its density <span class="math inline">\(\bar{\rho}\)</span> to be uniform. Then the gravitational potential energy is <span id="eq-hydro-28"><span class="math display">\[
+- W = G \int_0^R 4 \pi r \rho (r) M (r) \mathrm{d} r = \frac{16 \pi^2}{15} G \bar{\rho}^2 R^5 = \frac{3}{5} \frac{G M^2}{R},
+\tag{8.28}\]</span></span> where <span class="math inline">\(M = \frac{4 \pi}{3} \bar{\rho} R^3\)</span> is the mass of the cloud and <span id="eq-hydro-29"><span class="math display">\[
+M (r) = \int_0^r 4 \pi r'^2 \rho (r') \mathrm{d} r'
+\tag{8.29}\]</span></span> is the mass enclosed within the radius <span class="math inline">\(r\)</span>. For an ideal gas, the pressure is given by <span id="eq-hydro-30"><span class="math display">\[
+p = \frac{k_B T}{\mu m_u} \rho,
+\tag{8.30}\]</span></span> where <span class="math inline">\(\mu\)</span> is the mean molecular weight (<a href="fluids-as-continua.html#eq-continua-mu" class="quarto-xref">Equation&nbsp;<span>1.6</span></a>), <span class="math inline">\(m_u\)</span> is the atomic mass unit, <span class="math inline">\(k_B\)</span> is the Boltzmann constant and <span class="math inline">\(T\)</span> is the temperature. We can assume <span class="math inline">\(T\)</span> to be constant. This is a good approximation for optically thin clouds which can efficiently cool by emitting radiation. With this approximation <span id="eq-hydro-31"><span class="math display">\[
+\Pi = \int_0^R 4 \pi r^2 p (r) \mathrm{d} r = \frac{4}{3} \pi c_s^2
 \bar{\rho} R^3,
-\tag{8.29}\]</span></span> where <span id="eq-hydro-30"><span class="math display">\[
-c_s^2 = \frac{k_B T}{Am_p}
-\tag{8.30}\]</span></span> is a constant. As we will see later, <span class="math inline">\(c_s\)</span> turns out to be the sound speed of the gas. The condition for collapse of the cloud is that <span class="math inline">\(3 \Pi &lt; | \Omega |\)</span>, which implies that collapse will occur for a cloud with <span id="eq-hydro-31"><span class="math display">\[
-R &gt; R_J, \qquad R_J^2 = \frac{c_s^2}{4 \pi \bar{\rho} G} .
-\tag{8.31}\]</span></span> This is called the <em>Jeans length</em>. Typical molecular clouds have <span class="math inline">\(R \gg R_J\)</span>. So instead of collapsing to an object with mass equal to the mass of the cloud, they fragment into smaller stars. The mass of these protostars can be estimated as the mass contained within one Jeans radius, the so-called <em>Jeans mass</em><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>: <span id="eq-hydro-32"><span class="math display">\[
-M_J = \frac{4 \pi}{3}  \bar{\rho} R_J^3 = \frac{c_s^3}{3 (4 \pi
-\bar{\rho})^{1 / 2} G^{3 / 2}} = \frac{k_B^{3 / 2}}{3 (4 \pi)^{1 / 2} m_p^2
-G^{3 / 2}}  \frac{T^{3 / 2}}{A^2 n^{1 / 2}} .
-\tag{8.32}\]</span></span> In CGS units the Jeans mass is <span id="eq-hydro-jeans-mass"><span class="math display">\[
-M_J \approx 1.59 M_{\odot}  \left( \frac{T}{\mathrm{K}} \right)^{3 / 2}
-\left( \frac{\operatorname{cm}^{- 3}}{n} \right)^{1 / 2}  \frac{1}{A^2} .
-\tag{8.33}\]</span></span> For a typical molecular cloud with <span class="math inline">\(T = 10\,\mathrm{K}\)</span>, <span class="math inline">\(n = 100 \operatorname{cm}^{- 3}\)</span>, and <span class="math inline">\(A = 2\)</span> (for molecular hydrogen) the Jeans mass is <span class="math inline">\(M_J \approx 1.25 M_{\odot}\)</span>, giving a reasonable estimate for the typical mass of a fragment of the cloud. Note however that the Jeans mass decreases with increasing <span class="math inline">\(n\)</span>, so, if the gas can efficiently cool, the cloud might undergo further fragmentation forming clusters of small stars.</p>
-<p>While the arguments we have given here give an order of magnitude estimate for the mass of protostars, star formation is strongly influenced by a number of factors that we have neglected. These include turbulence and magnetic fields. Moreover, star formation strongly depends on the ability of the gas to cool to low temperature, as shown by <a href="#eq-hydro-jeans-mass" class="quarto-xref">Equation&nbsp;<span>8.33</span></a>.</p>
+\tag{8.31}\]</span></span> where <span id="eq-hydro-32"><span class="math display">\[
+c_s^2 = \frac{k_B T}{\mu m_u}
+\tag{8.32}\]</span></span> is a constant. As we will see later, <span class="math inline">\(c_s\)</span> turns out to be the sound speed of the gas (<a href="sound-waves.html" class="quarto-xref"><span>Chapter 9</span></a>). The condition for collapse of the cloud is that <span class="math inline">\(3 \Pi &lt; | W |\)</span>, which implies that collapse will occur for a cloud with <span id="eq-hydro-33"><span class="math display">\[
+R &gt; R_J, \qquad R_J^2 = \frac{15 c_s^2}{4 \pi G \bar{\rho}} .
+\tag{8.33}\]</span></span> <span class="math inline">\(R_J\)</span> is called the <em>Jeans length</em>. Typical molecular clouds have <span class="math inline">\(R \gg R_J\)</span>, so instead of collapsing to an object with mass equal to the mass of the cloud, they fragment into smaller pieces. The mass of these fragments can be estimated as the mass contained within one Jeans length, the so-called <em>Jeans mass</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>: <span id="eq-hydro-34"><span class="math display">\[
+\begin{aligned}
+M_J &amp;= \frac{4 \pi}{3}  \bar{\rho} R_J^3 = \frac{15^{3 / 2} c_s^3}{3 (4 \pi
+\bar{\rho})^{1 / 2} G^{3 / 2}} \\
+&amp;= \frac{15^{3 / 2} k_B^{3 / 2}}{3 (4 \pi)^{1 / 2} m_u^2
+G^{3 / 2}}  \frac{T^{3 / 2}}{\mu^2 n^{1 / 2}} .
+\end{aligned}
+\tag{8.34}\]</span></span> Inserting the values of the constants, we find <span id="eq-hydro-jeans-mass"><span class="math display">\[
+M_J \approx 94\,M_{\odot}  \left( \frac{T}{\mathrm{K}} \right)^{3 / 2}
+\left( \frac{\mathrm{cm}^{- 3}}{n} \right)^{1 / 2}  \frac{1}{\mu^2} .
+\tag{8.35}\]</span></span> For a typical molecular cloud with <span class="math inline">\(T = 10\,\mathrm{K}\)</span>, <span class="math inline">\(n = 100\,\mathrm{cm^{-3}}\)</span>, and <span class="math inline">\(\mu = 2\)</span> (for molecular hydrogen) the Jeans length is <span class="math inline">\(R_J \approx 1.5\,\mathrm{pc}\)</span> and the Jeans mass is <span class="math inline">\(M_J \approx 70\,M_{\odot}\)</span>. This is much larger than the mass of a typical star. Note however that the Jeans mass decreases with increasing <span class="math inline">\(n\)</span>. So, as long as the gas can efficiently cool and remain at low temperature, the fragments collapse and undergo further fragmentation. In the dense cores of molecular clouds, with <span class="math inline">\(n \sim 10^4\,\mathrm{cm^{-3}}\)</span>, the Jeans mass is <span class="math inline">\(M_J \approx 7\,M_{\odot}\)</span>, and at even higher densities it approaches the mass of typical stars.</p>
+<p>While the arguments we have given here give an order of magnitude estimate for the mass of protostars, star formation is strongly influenced by a number of factors that we have neglected. These include turbulence and magnetic fields. Moreover, star formation strongly depends on the ability of the gas to cool to low temperature, as shown by <a href="#eq-hydro-jeans-mass" class="quarto-xref">Equation&nbsp;<span>8.35</span></a>.</p>
 </section>
 <section id="sec-hydro-worksheet" class="level2" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="sec-hydro-worksheet"><span class="header-section-number">8.4</span> In-class worksheet</h2>
 <p>For a magnetic star the virial theorem becomes: <span id="eq-hydro-ws1"><span class="math display">\[
-\Omega + 2 T + 3 \Pi +\mathfrak{M}= 0,
-\tag{8.34}\]</span></span> where the new term is the magnetic energy of the star, which is (in CGS units) <span id="eq-hydro-ws2"><span class="math display">\[
-\mathfrak{M}= \frac{1}{8 \pi} \int B^2 \mathrm{d} V,
-\tag{8.35}\]</span></span></p>
+W + 2 K + 3 \Pi +\mathfrak{M}= 0,
+\tag{8.36}\]</span></span> where the new term is the magnetic energy of the star, which is <span id="eq-hydro-ws2"><span class="math display">\[
+\mathfrak{M}= \frac{1}{2 \mu_0} \int B^2 \mathrm{d} V .
+\tag{8.37}\]</span></span></p>
 <ol type="1">
 <li><p>Find the condition for stability of a nonrotating star in terms of <span class="math inline">\(\Gamma\)</span> and <span class="math inline">\(\mathfrak{M}\)</span>.</p></li>
-<li><p>What is the maximum magnetic field strength for a Solar type star (<span class="math inline">\(R = 7 \cdot 10^6 \operatorname{km}, M = 2 \cdot 10^{33} \mathrm{g}\)</span>)?</p></li>
-<li><p>What is the maximum magnetic field strength for a neutron star (<span class="math inline">\(R = 12 \operatorname{km}\)</span>, <span class="math inline">\(M = 3 \cdot 10^{33} \mathrm{g}\)</span>)?</p></li>
+<li><p>What is the maximum magnetic field strength for a Sun-like star (<span class="math inline">\(R = 7 \times 10^5\,\mathrm{km}\)</span>, <span class="math inline">\(M = 2 \times 10^{30}\,\mathrm{kg}\)</span>)? Neglect factors of order unity, and give the answer in tesla and in gauss (<span class="math inline">\(1\,\mathrm{T} = 10^4\,\mathrm{G}\)</span>).</p></li>
+<li><p>What is the maximum magnetic field strength for a neutron star (<span class="math inline">\(R = 12\,\mathrm{km}\)</span>, <span class="math inline">\(M = 3 \times 10^{30}\,\mathrm{kg}\)</span>)?</p></li>
 </ol>
 </section>
 <section id="sec-hydro-exercises" class="level2" data-number="8.5">
@@ -780,20 +815,22 @@ M_J \approx 1.59 M_{\odot}  \left( \frac{T}{\mathrm{K}} \right)^{3 / 2}
 <div id="exr-hydro-slab" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 8.1 (Self-gravitating slab)</strong></span> An infinite, static slab of incompressible fluid with uniform density <span class="math inline">\(\rho_0\)</span> fills the region <span class="math inline">\(| z | &lt; a\)</span> and is held together by its own gravity.</p>
 <ol type="1">
-<li><p>Compute the gravitational acceleration inside and outside the slab, and the pressure profile inside it.</p></li>
-<li><p>Model the disk of a galaxy as such a slab, with <span class="math inline">\(\rho_0 = 10^{-21}\,\mathrm{g\,cm^{-3}}\)</span> and <span class="math inline">\(a = 10^{20}\,\mathrm{cm}\)</span>. A star starts at rest at <span class="math inline">\(z = a\)</span>. How fast does it cross the mid-plane, and what is the period of its vertical oscillation?</p></li>
+<li><p>Compute the gravitational acceleration inside and outside the slab, and the pressure profile inside it. Use Poisson’s equation, <span class="math inline">\(\nabla^2 \Psi = 4 \pi G \rho\)</span>.</p></li>
+<li><p>Model the disk of a galaxy as such a slab, with <span class="math inline">\(\rho_0 = 10^{-23}\,\mathrm{g\,cm^{-3}} = 10^{-20}\,\mathrm{kg\,m^{-3}}\)</span> and <span class="math inline">\(a = 10^{19}\,\mathrm{m}\)</span>. A star starts at rest at <span class="math inline">\(z = a\)</span>. How fast does it cross the mid-plane, and what is the period of its vertical oscillation?</p></li>
 </ol>
 <p>Adapted from <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Problem 8.</p>
 </div>
 <div id="exr-hydro-cloud" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8.2 (Mass of a molecular cloud)</strong></span> A self-gravitating cloud of molecular hydrogen <span class="math inline">\(\left( p = nk_B T = \frac{2}{5} \rho \varepsilon \right)\)</span> is measured to have radius <span class="math inline">\(R = 0.1 \operatorname{pc}\)</span> and temperature <span class="math inline">\(T = 10\mathrm{K}\)</span>. <em>Estimate</em> the mass of the cloud.</p>
+<p><span class="theorem-title"><strong>Exercise 8.2 (Mass of a molecular cloud)</strong></span> A self-gravitating cloud of molecular hydrogen <span class="math inline">\(\left( p = nk_B T = \frac{2}{5} \rho \varepsilon \right)\)</span> is measured to have radius <span class="math inline">\(R = 0.1\,\mathrm{pc}\)</span> and temperature <span class="math inline">\(T = 10\,\mathrm{K}\)</span>. <em>Estimate</em> the mass of the cloud.</p>
 </div>
 <div id="exr-hydro-sun" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8.3 (Temperature of the solar core)</strong></span> Estimate the temperature at the centre of the Sun, assuming that density and pressure change over a length scale comparable to the solar radius. Make the estimate twice: first assuming that the Sun is supported by gas pressure, then assuming that it is supported by radiation pressure. Which assumption is more plausible, and why?</p>
+<p><span class="theorem-title"><strong>Exercise 8.3 (Temperature of the solar core)</strong></span> Estimate the temperature at the center of the Sun, assuming that density and pressure change over a length scale comparable to the solar radius. Make the estimate twice: first assuming that the Sun is supported by gas pressure, then assuming that it is supported by radiation pressure. Which assumption is more plausible, and why?</p>
 <p>Adapted from <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Problem 11.</p>
 </div>
 <div id="exr-hydro-lane-emden" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8.4 (Numerical solution of the Lane–Emden equation)</strong></span> Write a code to compute numerically the solution of the Lane–Emden equation for a given <span class="math inline">\(n\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 8.4 (Numerical solution of the Lane–Emden equation)</strong></span> The Lane–Emden equation describes the structure of a star with a polytropic equation of state, <span class="math inline">\(p = K \rho^{1 + 1 / n}\)</span>. It reads <span id="eq-hydro-lane-emden"><span class="math display">\[
+\frac{1}{\xi^2} \frac{\mathrm{d}}{\mathrm{d} \xi} \left( \xi^2 \frac{\mathrm{d} \theta}{\mathrm{d} \xi} \right) = - \theta^n, \qquad \theta (0) = 1, \qquad \theta' (0) = 0,
+\tag{8.38}\]</span></span> where <span class="math inline">\(\theta^n\)</span> is the density in units of the central density, and <span class="math inline">\(\xi\)</span> is the radius in suitable units. Write a code to compute numerically the solution of the Lane–Emden equation for a given <span class="math inline">\(n\)</span>.</p>
 <ol type="1">
 <li><p>Validate your code by comparing numerical and analytic solution for <span class="math inline">\(n = 0, 1, 5\)</span>.</p></li>
 <li><p>Plot the solution for <span class="math inline">\(n = 1.5\)</span> and find the radius of the polytrope, i.e., the value <span class="math inline">\(\xi_r\)</span> at which <span class="math inline">\(\theta (\xi_r) = 0\)</span>.</p></li>
@@ -817,8 +854,7 @@ Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dy
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>Sometimes called the virial.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Note that this definition is slightly different from the one given in <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>; however, this difference is inconsequential given the level of approximation of these arguments.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Note that this definition is slightly different from the one given in <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>; however, this difference is inconsequential given the level of approximation of these arguments.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

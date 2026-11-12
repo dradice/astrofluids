@@ -114,6 +114,35 @@ div.csl-indent {
   };
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -602,8 +631,8 @@ div.csl-indent {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>I am in the process of importing my lecture notes from previous years. Once all chapters have been imported, the material will be revised and corrected in a second step, with added examples and clarifications. Until then, you may find typos, errors, and rough edges.</p>
-<p>Chapters marked “in preparation” will be completed before the corresponding lecture.</p>
+<p>These notes are a work in progress. I revise them as I teach the course, so you may still find typos, errors, and rough edges. Chapters marked “in preparation” will be completed before the corresponding lecture.</p>
+<p>Corrections and suggestions for improvement are welcome. You can report them by opening an <a href="https://github.com/dradice/astrofluids/issues">issue</a> on GitHub, or propose a change directly with a <a href="https://github.com/dradice/astrofluids/pulls">pull request</a>.</p>
 </div>
 </div>
 <section id="how-to-use-these-notes" class="level2 unnumbered">
@@ -612,6 +641,7 @@ div.csl-indent {
 <li><strong>One chapter per lecture topic.</strong> Canvas lists which chapter goes with each lecture.</li>
 <li><strong>Everything is numbered by chapter.</strong> Equation (9.14) is the fourteenth numbered equation of Chapter 9, and Exercise 8.4 is the fourth exercise of Chapter 8. When you ask a question about the notes, quote these numbers.</li>
 <li><strong>In-class worksheets</strong> appear near the end of each chapter, followed by the <strong>exercises</strong>. Homework assignments on Canvas list the exercises to solve, for example “Exercises 2.1, 7.3”.</li>
+<li><strong>Units.</strong> We use SI units, together with a few units that are customary in astronomy: number densities in <span class="math inline">\(\mathrm{cm^{-3}}\)</span>, mass densities in <span class="math inline">\(\mathrm{g\,cm^{-3}}\)</span>, opacities in <span class="math inline">\(\mathrm{cm^2\,g^{-1}}\)</span>, large energies in erg, magnetic fields in gauss (given in parentheses after the value in tesla), and pc, AU, <span class="math inline">\(M_\odot\)</span>, eV. Many astrophysics books and papers use Gaussian units for electromagnetism: <a href="chapters/plasma.html" class="quarto-xref"><span>22&nbsp; Introduction to Plasma</span></a> explains how to translate their formulas.</li>
 <li><strong>Optional material</strong> is set apart in boxes titled “Going further”; you can skip it on a first reading.</li>
 </ul>
 </section>
@@ -622,7 +652,7 @@ div.csl-indent {
 </section>
 <section id="use-of-ai" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="use-of-ai">Use of AI</h2>
-<p>These notes are my own work. I used AI tools, Anthropic’s Claude Opus and Claude Sonnet models, to convert them from my original lecture notes to their current format, to generate diagrams, and to review them.</p>
+<p>These notes started from my own lecture notes from previous years. They have been converted, corrected, and improved using AI tools (Anthropic’s Claude models). I check and edit all AI-generated material.</p>
 </section>
 <section id="license" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="license">License</h2>
