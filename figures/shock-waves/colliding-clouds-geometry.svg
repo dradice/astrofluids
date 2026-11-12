@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 200" width="440" height="200" role="img" aria-labelledby="geometry-t geometry-d">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 200" width="470" height="200" role="img" aria-labelledby="geometry-t geometry-d">
 <title id="geometry-t">Idealized geometry of the colliding-cloud problem</title>
-<desc id="geometry-d">One-dimensional sketch along the z axis. A thick blue line on the left marks the edge of the shocked layer and a thin blue line marks the shock, which moves to the right at speed s. Between them the shocked material has density rho_2, velocity zero and temperature T_2. To the right of the shock is the unshocked cloud, with density rho_1, velocity v_1 and temperature T_1, ending at radius R_c.</desc>
+<desc id="geometry-d">One-dimensional sketch along the z axis. A thick blue line on the left marks the edge of the shocked layer and a thin blue line marks the shock, which moves to the right at speed s. Between them the shocked material has density rho_2, velocity zero and temperature T_2. To the right of the shock is the unshocked cloud, with density rho_1, velocity v_1 and temperature T_1, ending at radius R_cloud.</desc>
 <defs><marker id="ah-k" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#000" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker><marker id="ah-1f4fbf" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#1f4fbf" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker></defs>
-<rect width="440" height="200" fill="#fff"/>
+<rect width="470" height="200" fill="#fff"/>
 <g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif">
 <line x1="22.0" y1="13.0" x2="22.0" y2="187.0" stroke="#000" stroke-width="1.6"/>
 <line x1="109.0" y1="13.0" x2="109.0" y2="187.0" stroke="#1f4fbf" stroke-width="3.2"/>
@@ -18,7 +18,7 @@
 <text x="332" y="52" text-anchor="middle" font-size="20" font-style="italic" font-weight="normal" fill="#000">ρ<tspan dy="5.0" font-size="14.4" font-style="normal">1</tspan></text>
 <text x="332" y="90" text-anchor="middle" font-size="20" font-style="italic" font-weight="normal" fill="#000">v<tspan dy="5.0" font-size="14.4" font-style="normal">1</tspan></text>
 <text x="332" y="135" text-anchor="middle" font-size="20" font-style="italic" font-weight="normal" fill="#000">T<tspan dy="5.0" font-size="14.4" font-style="normal">1</tspan></text>
-<text x="385" y="80" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">R<tspan dy="5.0" font-size="14.4" font-style="normal">c</tspan></text>
+<text x="378" y="80" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">R<tspan dy="5.0" font-size="14.4" font-style="normal">cloud</tspan></text>
 <text x="404" y="122" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">z</text>
 <text x="195" y="178" text-anchor="middle" font-size="20" font-style="normal" font-weight="normal" fill="#000">shocked material</text>
 <text x="322" y="178" text-anchor="middle" font-size="20" font-style="normal" font-weight="normal" fill="#000">cloud</text>

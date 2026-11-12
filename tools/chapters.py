@@ -20,7 +20,7 @@ PARTS = [
     ("Foundations", [
         ("fluids-as-continua", "continua", "Fluids as Continua", "port"),
         ("thermodynamics", "thermo", "Thermodynamics Refresher", "port"),
-        ("supernovae", "sn", "Core-Collapse Supernovae", "port"),
+        ("supernovae", "sn", "Supernovae", "port"),
         ("euler-equation", "euler", "The Euler Equation", "port"),
         ("eulerian-lagrangian", "lagrange", "Eulerian and Lagrangian Descriptions", "port"),
         ("conservation-laws", "conserv", "Conservation Laws", "port"),
@@ -31,7 +31,6 @@ PARTS = [
         ("sound-waves", "sound", "Sound Waves and the Doppler Effect", "port+"),
         ("stratified-atmospheres", "strat", "Waves in Stratified Atmospheres", "port+"),
         ("shock-waves", "shock", "Shock Waves", "new"),
-        ("radiative-shocks", "radshock", "Radiative Shocks", "new"),
         ("blast-waves", "blast", "Blast Waves", "new"),
         ("winds-and-accretion", "wind", "Stellar Winds and Spherical Accretion", "new"),
     ]),

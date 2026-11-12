@@ -32,7 +32,6 @@ book:
         - chapters/sound-waves.qmd
         - chapters/stratified-atmospheres.qmd
         - chapters/shock-waves.qmd
-        - chapters/radiative-shocks.qmd
         - chapters/blast-waves.qmd
         - chapters/winds-and-accretion.qmd
     - part: "Instabilities, Viscosity, Disks, and Turbulence"

@@ -425,4 +425,4 @@ $$ {#eq-conserv-angular-density}
 - @clarke2007, Chapter 2 (the fluid equations) and Chapter 4 (the energy equation).
 - @mihalas1984 for the equations of radiation hydrodynamics.
 
-[^conserv-1]: @mihalas1984.
+[^conserv-1]: See @mihalas1984.

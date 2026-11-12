@@ -1,4 +1,4 @@
-# Core-Collapse Supernovae {#sec-sn}
+# Supernovae {#sec-sn}
 
 ## Observational facts
 
@@ -419,6 +419,6 @@ Consider a homologously expanding radioactive cloud of debris, with radius $R \a
 - @arnett1982 derives the light-curve model used in this chapter.
 - @arnett1996 covers supernova light curves and nucleosynthesis in depth.
 
-[^sn-1]: @arnett1982.
+[^sn-1]: See @arnett1982.
 
 [^sn-2]: But note that the onset of recombination depends on the composition.

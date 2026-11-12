@@ -128,6 +128,13 @@ def lint(files):
             for bad in re.findall(r"\\(?:operatorname|rm)(?![A-Za-z])", line):
                 errors.append(f"{rel}:{i+1}: use \\mathrm{{...}} instead of {bad}")
 
+        # a block that is only "@key." (a bullet, a footnote, or a paragraph) is read by
+        # Pandoc as an example-list marker, which also turns every later @key into a number
+        for i, line in enumerate(lines):
+            if re.match(r"^\s*(?:[-*+]\s+|\[\^[^\]]+\]:\s*)?@[\w:-]+\.\s*$", line):
+                errors.append(f"{rel}:{i+1}: '@key.' alone is an example-list marker; "
+                              "add text (e.g. 'See @key.')")
+
     for r, where in refs:
         if r not in labels:
             errors.append(f"{where}: reference to unknown label {r}")

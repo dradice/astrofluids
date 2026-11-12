@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Sketch for the solution of Exercise 19.1 (vertical gravity in a disk), redrawn from the 2025 drawing.
+"""Sketch for the solution of Exercise 18.1 (vertical gravity in a disk), redrawn from the 2025 drawing.
 
 Usage: python3 figures-src/accretion-disks-structure/make-figures.py   (from the notes/ directory)
-The plot figure of Exercise 19.3 is made by solutions/code/accretion-disks-structure/accretion-disk.py.
+The plot figure of Exercise 18.3 is made by solutions/code/accretion-disks-structure/accretion-disk.py.
 """
 import sys
 from pathlib import Path

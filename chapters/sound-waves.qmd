@@ -1,5 +1,9 @@
 # Sound Waves and the Doppler Effect {#sec-sound}
 
+Sound waves are small perturbations of pressure and density that propagate through a fluid, like the ones in @fig-sound-schlieren.
+
+![Schlieren photograph of sound waves in a scale model of a hall. The wave fronts are reflected by the walls and the ceiling, and the arrows show some of the directions of propagation. From @engl1939; reproduced for non-commercial educational use and not covered by the license of these notes.](../figures/sound-waves/schlieren-engl1939.jpg){#fig-sound-schlieren fig-alt="Black-and-white Schlieren photograph of the cross-section of a hall, with a curved ceiling on the top and a dark semicircle on the floor at the lower right. Many thin, curved wave fronts spread out from the lower right and are reflected by the ceiling and the walls. Straight arrows drawn on the photograph show some of the directions of propagation of the sound."}
+
 ## Oscillation Equation
 
 The equations of fluid mechanics are nonlinear and only few analytic solutions are known. However, significant insight into astrophysical systems can be obtained by considering small perturbations around a background flow. Typically the background is chosen to be a hydrostatic solution, e.g., the density profile of an atmosphere. However, this method can be applied to more general situations. This is the key working principle of *asteroseismology* (*helioseismology* in the case of the Sun). Sound waves are also one of the key tools to learn about the early Universe, as they generate the baryon acoustic oscillations seen in the CMB and in the distribution of galaxies.
@@ -81,7 +85,7 @@ Why should sound waves be adiabatic? A sound wave compresses some regions of the
 $$
 \frac{t_{\mathrm{diff}}}{\lambda_w / c_s} \sim \frac{\lambda_w}{\lambda} \gg 1,
 $$ {#eq-sound-adiabatic}
-whenever the fluid description is valid. In other words, heat does not have time to leave the compressed regions during one period, and the perturbations are adiabatic. The opposite limit, isothermal perturbations, happens when the gas can cool very quickly, for example by radiation. This is the case in cold molecular clouds (@sec-hydro, @sec-radshock).
+whenever the fluid description is valid. In other words, heat does not have time to leave the compressed regions during one period, and the perturbations are adiabatic. The opposite limit, isothermal perturbations, happens when the gas can cool very quickly, for example by radiation. This is the case in cold molecular clouds (@sec-hydro, @sec-shock-isothermal).
 
 In this case, we can use the chain rule to rewrite $\nabla \delta p$ in terms of $\nabla \delta \rho$:
 $$
