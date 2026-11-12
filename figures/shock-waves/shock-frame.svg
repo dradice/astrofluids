@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 170" width="440" height="170" role="img" aria-labelledby="shock-frame-t shock-frame-d">
+<title id="shock-frame-t">A shock in its rest frame</title>
+<desc id="shock-frame-d">A tube crossed by a thick vertical line, the shock. An arrow shows the gas flowing from left to right. On the left, upstream, the gas has density rho_1, velocity u_1 and pressure p_1. On the right, downstream, it has density rho_2, velocity u_2 and pressure p_2.</desc>
+<defs><marker id="ah-k" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#000" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker></defs>
+<rect width="440" height="170" fill="#fff"/>
+<g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif">
+<line x1="20.0" y1="45.0" x2="420.0" y2="45.0" stroke="#000" stroke-width="1.6"/>
+<line x1="20.0" y1="155.0" x2="420.0" y2="155.0" stroke="#000" stroke-width="1.6"/>
+<line x1="220.0" y1="45.0" x2="220.0" y2="155.0" stroke="#1f4fbf" stroke-width="3.4"/>
+<text x="120" y="30" text-anchor="middle" font-size="20" font-style="normal" font-weight="normal" fill="#000">upstream</text>
+<text x="320" y="30" text-anchor="middle" font-size="20" font-style="normal" font-weight="normal" fill="#000">downstream</text>
+<line x1="160.0" y1="75.0" x2="280.0" y2="75.0" stroke="#000" stroke-width="1.6" marker-end="url(#ah-k)"/>
+<text x="120" y="120" text-anchor="middle" font-size="20" font-style="italic" font-weight="normal" fill="#000">ρ<tspan dy="5.0" font-size="14.4" font-style="normal">1</tspan><tspan dy="-5">,  u</tspan><tspan dy="5" font-size="14.4" font-style="normal">1</tspan><tspan dy="-5">,  p</tspan><tspan dy="5" font-size="14.4" font-style="normal">1</tspan></text>
+<text x="320" y="120" text-anchor="middle" font-size="20" font-style="italic" font-weight="normal" fill="#000">ρ<tspan dy="5.0" font-size="14.4" font-style="normal">2</tspan><tspan dy="-5">,  u</tspan><tspan dy="5" font-size="14.4" font-style="normal">2</tspan><tspan dy="-5">,  p</tspan><tspan dy="5" font-size="14.4" font-style="normal">2</tspan></text>
+</g>
+</svg>
