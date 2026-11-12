@@ -27,13 +27,13 @@ build: lint
     quarto render
     bash tools/check-no-solutions.sh _book
 
-# Build only the HTML site (faster)
+# Build only the HTML site (faster). Keeps the PDF already in _book/
 html:
-    quarto render --to html
+    quarto render --to html --no-clean
 
-# Build only the PDF print version (Typst)
+# Build only the PDF print version (Typst). Keeps the HTML already in _book/
 pdf:
-    quarto render --to typst
+    quarto render --to typst --no-clean
 
 # Instructor build with solutions into _book-solutions/ (never published)
 solutions:
