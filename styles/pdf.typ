@@ -134,3 +134,9 @@
     block(width: 100%, breakable: true, my-outline-small(title, appendix-state, part-state, part-location, part-change, part-counter, main-color, textSize2: outline-heading1, textSize4: outline-heading2, depth: depth, width: 100%))
   }
 }
+
+// 7. Tables without a caption.
+// A table with a caption is a figure, which orange-book centres. A table without a caption
+// (e.g. in a worksheet) is a bare `table`, which Typst places at the left margin. Centre
+// every table; the alignment of the cells is unchanged.
+#show table: it => align(center, it)
