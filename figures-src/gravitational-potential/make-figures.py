@@ -52,6 +52,37 @@ def homologous():
     s.save(OUT / "homologous-collapse.svg")
 
 
+def uniform_sphere():
+    s = Svg(600, 340, "Gravitational potential of a uniform sphere",
+            "The potential Psi as a function of r. It starts at minus 3 G M over 2 R at the "
+            "center, grows like r squared inside the sphere, reaches minus G M over R at r = R, "
+            "and then approaches zero like minus one over r outside.", "uniform-sphere")
+    x0, y0, sx, sy = 150, 50, 110, 160  # pixels per R and per GM/R
+
+    def px(r, psi):
+        return (x0 + sx * r, y0 - sy * psi)
+
+    s.line(x0, 20, x0, 320)
+    s.line(x0 - 20, y0, 590, y0, head=True)
+    s.text(578, 38, "r")
+    s.text(x0 - 12, 32, "Ψ", anchor="end")
+    inside = [px(0.01 * i, -(3 - (0.01 * i) ** 2) / 2) for i in range(0, 101)]
+    outside = [px(1 + 0.01 * i, -1 / (1 + 0.01 * i)) for i in range(0, 290)]
+    s.poly(inside + outside, BLUE, 2.4)
+    # tick at r = R and guides at -GM/R and -3GM/2R
+    xR, yR = px(1, -1)
+    s.line(xR, y0 - 6, xR, y0 + 6)
+    s.text(xR, y0 - 12, "R", anchor="middle")
+    s.line(x0, yR, xR, yR, color="#555", w=1.2, dash="6 4")
+    s.line(xR, y0, xR, yR, color="#555", w=1.2, dash="6 4")
+    s.text(x0 - 8, yR + 7, "−GM/R", anchor="end")
+    s.text(x0 - 8, px(0, -1.5)[1] + 7, "−3GM/2R", anchor="end")
+    s.text(px(0.7, 0)[0], px(0, -1.4)[1], "∝ r^2", fill=BLUE)
+    s.text(px(2.6, 0)[0], px(0, -0.62)[1], "∝ −1/r", fill=BLUE)
+    s.save(OUT / "uniform-sphere.svg")
+
+
 if __name__ == "__main__":
     homologous()
+    uniform_sphere()
     print("wrote", OUT)
