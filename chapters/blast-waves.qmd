@@ -8,7 +8,7 @@ This chapter is in preparation.
 
 1.  **Atmospheric explosion.** These are experimental measurements of the expansion of a blast wave due to an atmospheric explosion.
 
-    | $t (\operatorname{ms})$ | 0.09 | 0.24 | 0.38 | 0.52 | 0.66 | 0.80 | 0.94 |
+    | $t (\mathrm{ms})$ | 0.09 | 0.24 | 0.38 | 0.52 | 0.66 | 0.80 | 0.94 |
     |:---|---:|---:|---:|---:|---:|---:|---:|
     | $R (\mathrm{m})$ | 24 | 42 | 51 | 60 | 66 | 70 | 77 |
 
@@ -20,12 +20,12 @@ This chapter is in preparation.
 
     2.  Show that the shock expansion speed is
         $$
-        U_{\operatorname{sh}} = \frac{2}{5}  \frac{r_{\operatorname{sh}}}{t} .
+        U_{\mathrm{sh}} = \frac{2}{5}  \frac{r_{\mathrm{sh}}}{t} .
         $$ {#eq-blast-1}
 
-    3.  *Estimate* the explosion energy $E$. You can assume $\rho_1 = 1.25 \times 10^{- 3} \mathrm{g} \operatorname{cm}^{- 3}$ for the density of the atmosphere.
+    3.  *Estimate* the explosion energy $E$. You can assume $\rho_1 = 1.25 \times 10^{- 3} \mathrm{g} \mathrm{cm}^{- 3}$ for the density of the atmosphere.
 
-    4.  Estimate the temperature of the fireball 1 ms after the explosion. Use $\Gamma = \frac{7}{5}$ and $\mu = 28 m_p$ for air. Is this estimate an upper limit or a lower limit?
+    4.  Estimate the temperature of the fireball 1 ms after the explosion. Use $\Gamma = \frac{7}{5}$ and $\mu \approx 29$ for air. Is this estimate an upper limit or a lower limit?
 
 ## Exercises {#sec-blast-exercises}
 
@@ -48,7 +48,7 @@ Adapted from @clarke2007, Problem 28.
 1.  We set $\xi = r / r_0$, where $r_0 = L^{\alpha} \rho_0^{\beta} t^{\gamma}$. Dimensional analysis gives:
     $$
     [r_0] = [L^{\alpha}]  [\rho_0^{\beta}]  [t]^{\gamma} =\mathrm{g}^{\alpha
-    + \beta} \operatorname{cm}^{2 \alpha - 3 \beta} \mathrm{s}^{\gamma - 3 \alpha}
+    + \beta} \mathrm{cm}^{2 \alpha - 3 \beta} \mathrm{s}^{\gamma - 3 \alpha}
     \Longrightarrow \left\{\begin{array}{l}
     \alpha + \beta = 0\\
     2 \alpha - 3 \beta = 1\\
@@ -81,18 +81,18 @@ Adapted from @clarke2007, Problem 28.
     The cross-sectional area of the bubble is
     $$
     A_{b, s} = \pi r_{b, s}^2 = \frac{27 \pi \xi_0^5}{125 c_s^3}
-    \frac{L}{\rho_0} \propto L. \text{}
+    \frac{L}{\rho_0} \propto L.
     $$
     If stars are uniformly spaced, then the porosity of the ISM is
     $$
-    \frac{N_s A_b}{A_{\operatorname{tot}}} \propto \Sigma_s L_s,
+    \frac{N_s A_b}{A_{\mathrm{tot}}} \propto \Sigma_s L_s,
     $$
-    where $A_b$ is the area of the stalled bubble formed by a single star, $A_{\operatorname{tot}}$ is the area of the galaxy disk, and $\Sigma_s$ is the surface density of stars.
+    where $A_b$ is the area of the stalled bubble formed by a single star, $A_{\mathrm{tot}}$ is the area of the galaxy disk, and $\Sigma_s$ is the surface density of stars.
 
-    On the other hand, if all the stars are concentrated in a single location, then they form a single large bubble with area $A_{b, \operatorname{tot}} \propto N_s L$, so the porosity of the ISM is
+    On the other hand, if all the stars are concentrated in a single location, then they form a single large bubble with area $A_{b, \mathrm{tot}} \propto N_s L$, so the porosity of the ISM is
     $$
-    \frac{A_{b, \operatorname{tot}}}{A_{\operatorname{tot}}} \propto \frac{N_s
-    L_s}{A_{\operatorname{tot}}} = \Sigma_s L_s .
+    \frac{A_{b, \mathrm{tot}}}{A_{\mathrm{tot}}} \propto \frac{N_s
+    L_s}{A_{\mathrm{tot}}} = \Sigma_s L_s .
     $$
     That is the porosity of the ISM does not depend on the distribution of stars.
 

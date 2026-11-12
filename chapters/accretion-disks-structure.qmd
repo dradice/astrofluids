@@ -63,7 +63,7 @@ This chapter is in preparation.
 
 1.  Consider gas in an accretion disk that is in hydrostatic equilibrium in the vertical direction, with the vertical pressure gradient balancing the vertical component of the gravitational acceleration due to the central object. Show that the angular frequency of rotation $\Omega$, the sound speed $c_s$, and the vertical scale height $H$ of the disk satisfy $c_s \sim H \Omega$.
 
-2.  Suppose now that the $R \phi$ component of the viscous stress tensor equals a factor $\alpha$ times the thermal pressure. Show that (i) $\nu \sim \alpha c_s H$ and (ii) the Reynolds number is $\operatorname{Re} \sim \frac{1}{\alpha} \left( \frac{R}{H} \right)^2$.
+2.  Suppose now that the $R \phi$ component of the viscous stress tensor equals a factor $\alpha$ times the thermal pressure. Show that (i) $\nu \sim \alpha c_s H$ and (ii) the Reynolds number is $\mathrm{Re} \sim \frac{1}{\alpha} \left( \frac{R}{H} \right)^2$.
 
 Adapted from @clarke2007, Problem 47.
 :::
@@ -95,23 +95,17 @@ Adapted from @clarke2007, Problem 47.
     \frac{p}{\partial_z p} \right| .
     $$
 
-2.  The viscous stress is
+2.  The $R \phi$ component of the viscous stress is
     $$
-    \tau = \frac{\mu}{2}  (\nabla \vb{v}+ \nabla \vb{v}^T),
+    \tau_{R \phi} = \rho \nu R \frac{\dd \Omega}{\dd R} = - \frac{3}{2} \rho \nu \Omega ,
     $$
-    so
+    where $\nu$ is the kinematic viscosity, since $\Omega = \left( \frac{GM}{R^3} \right)^{1 / 2}$. Note that the stress depends on the shear, $R \, \dd \Omega / \dd R$, and not on $\partial_R v_{\phi}$, because a rigid rotation produces no stress. If we assume $\tau_{R \phi} = - \alpha p$, then we obtain
     $$
-    \tau_{R \phi} = \mu \partial_R v_{\phi} = \mu \partial_R  (\Omega R) = -
-    \frac{1}{2} \mu \Omega,
-    $$
-    since $\Omega = \left( \frac{GM}{R^3} \right)^{1 / 2}$. If we assume $\tau_{R \phi} = - \alpha p$, then we obtain
-    $$
-    \alpha p = \alpha c_s^2 \rho = \mu \Omega \Longrightarrow \alpha c_s H
-    \Omega = \nu \Omega \Longrightarrow \nu = \alpha c_s H.
+    \alpha p = \alpha c_s^2 \rho = \frac{3}{2} \rho \nu \Omega \Longrightarrow \nu = \frac{2}{3} \alpha \frac{c_s^2}{\Omega} = \frac{2}{3} \alpha c_s H \sim \alpha c_s H .
     $$
     The Reynolds number is
     $$
-    \operatorname{Re} = \frac{v_{\phi} R}{\nu} = \frac{v_{\phi} R}{\alpha c_s H} =
+    \mathrm{Re} = \frac{v_{\phi} R}{\nu} = \frac{v_{\phi} R}{\alpha c_s H} =
     \frac{v_{\phi} R}{\alpha H^2 \Omega} = \frac{\Omega R^2}{\alpha H^2
     \Omega} = \frac{1}{\alpha}  \left( \frac{R}{H} \right)^2 .
     $$
@@ -164,16 +158,16 @@ Adapted from @clarke2007, Problem 49.
     \frac{\partial S}{\partial t} = \beta \frac{\partial^2 S}{\partial X^2} .
     $$
 
-3.  We can look for solutions in the form $S (t, X) = \hat{S} (t) e^{\ii kX}$. In this case, we obtain:
+3.  We can look for solutions in the form $S (t, X) = \hat{S} (t) \ee^{\ii kX}$. In this case, we obtain:
     $$
     \frac{\partial S}{\partial t} = \frac{\dd \hat{S} (t)}{\dd t}
-    e^{\ii kX}, \quad \frac{\partial S}{\partial X} = \ii k \hat{S} (t)
-    e^{\ii kX}, \quad \Longrightarrow \quad  \frac{\dd \hat{S}
+    \ee^{\ii kX}, \quad \frac{\partial S}{\partial X} = \ii k \hat{S} (t)
+    \ee^{\ii kX}, \quad \Longrightarrow \quad  \frac{\dd \hat{S}
     (t)}{\dd t} = - \beta k^2  \hat{S} (t) .
     $$
     The last equation can be solved to find that
     $$
-    S (t, X) = e^{- \beta k^2 t} e^{\ii kX} .
+    S (t, X) = \ee^{- \beta k^2 t} \ee^{\ii kX} .
     $$
     The solutions are exponentially decaying in time if $\beta > 0$. This means that if $\beta > 0$, then the disk is stable. Otherwise, if $\beta < 0$, we have exponentially growing solutions, so the disk is unstable.
 :::
@@ -216,7 +210,7 @@ Adapted from @clarke2007, Problem 49.
 
 4.  Consider as initial conditions
     $$
-    S (t = 0, X) = e^{- (X - 10)^2},
+    S (t = 0, X) = \ee^{- (X - 10)^2},
     $$ {#eq-disk-initial}
     with $X_{\min} = 1$. Plot the numerical solutions at successive times. Interpret the results in a few sentences.
 :::

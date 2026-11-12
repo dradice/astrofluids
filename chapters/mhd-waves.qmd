@@ -1,12 +1,12 @@
 # MHD Waves {#sec-mhdwaves}
 
-Waves play a very important role in the dynamics of magnetized plasmas. Particle-wave interaction with the interstellar medium regulates the propagation of cosmic rays in the galaxy. In strong MHD turbulence, the non-linear interaction between Alfvén waves acts as the main driver of the turbulence cascade. Torsional Alfvén waves extract angular momentum from proto-stellar cores allowing them to collapse and form stars. These are just a few examples. In these notes, we discuss the phenomenology of waves in compressible MHD.
+Waves play a very important role in the dynamics of magnetized plasmas. Particle-wave interaction with the interstellar medium regulates the propagation of cosmic rays in the Galaxy. In strong MHD turbulence (@sec-turb), the non-linear interaction between Alfvén waves acts as the main driver of the turbulence cascade. Torsional Alfvén waves extract angular momentum from proto-stellar cores allowing them to collapse and form stars (@exr-mhdwaves-torsional-alfven). These are just a few examples. In this chapter, we discuss the phenomenology of waves in compressible MHD.
 
 ## Waves in a Homogeneous Plasma
 
 We consider a homogeneous plasma described by the ideal-MHD equations with
 $$
-\rho_0 = \operatorname{const}, \qquad \vb{v}_0 = 0, \qquad \vb{B}_0 = B_0
+\rho_0 = \mathrm{const}, \qquad \vb{v}_0 = 0, \qquad \vb{B}_0 = B_0
 \hat{\vb{z}} .
 $$ {#eq-mhdwaves-1}
 We proceed in the same way as when we derived the dispersion relation for sound waves in unmagnetized media (@sec-sound). However, as we will see shortly, the phenomenology of MHD waves is significantly more complex than that of sound waves. As before, we introduce a perturbation with a Lagrangian displacement $\vb{\xi}$, shown in @fig-mhdwaves-lagrangian.
@@ -19,7 +19,7 @@ $$
 \frac{\Gamma p_0}{\rho_0} \delta \rho = - \Gamma p_0 \nabla \cdot
 \vb{\xi}.
 $$ {#eq-mhdwaves-2}
-The magnetic field perturbations can be computed from the linearized induction equation:
+Since the background is uniform, the Lagrangian and Eulerian perturbations coincide. The magnetic field perturbations can be computed from the linearized induction equation:
 $$
 \frac{\partial \delta \vb{B}}{\partial t} = \nabla \times \left(
 \frac{\partial \vb{\xi}}{\partial t} \times \vb{B}_0 \right)
@@ -48,9 +48,9 @@ $$
 [\nabla \times (\vb{\xi} \times \vb{B}_0)] \} \times \vb{B}_0 .
 \end{aligned}}
 $$ {#eq-mhdwaves-6}
-Of course, if $\vb{B}_0$=0, this equation reduces to the equation for sound waves. All the new physics is in the last term on the RHS. To derive a dispersion relation, we take the usual ansatz
+Of course, if $\vb{B}_0 = 0$, this equation reduces to the equation for sound waves. All the new physics is in the last term on the RHS. To derive a dispersion relation, we take the usual ansatz
 $$
-\vb{\xi} (t, \vb{x}) =\vb{\xi}_1 e^{\ii (\vb{k} \cdot
+\vb{\xi} (t, \vb{x}) =\vb{\xi}_1 \ee^{\ii (\vb{k} \cdot
 \vb{x}- \omega t)},
 $$ {#eq-mhdwaves-7}
 which we plug into the oscillation equation. This yields
@@ -62,7 +62,7 @@ $$
 (\vb{\xi}_1 \times \vb{B}_0)] \} \times \vb{B}_0 .
 \end{aligned}
 $$ {#eq-mhdwaves-8}
-As expected from the general perturbation theory, the oscillation equation give rise to an eigenvalue problem in the form
+As we have seen for sound waves (@sec-sound), the oscillation equation gives rise to an eigenvalue problem in the form
 $$
 - \rho_0 \omega^2 \vb{\xi}_1 =\vb{F} (\vb{k}) \vb{\xi}_1,
 $$ {#eq-mhdwaves-eigenvalue-problem}
@@ -70,15 +70,17 @@ where $\vb{F} (\vb{k})$ is a matrix. This equation has solutions with $\vb{\xi}_
 $$
 \det [\vb{F} (\vb{k}) + \rho_0 \omega^2 \vb{I}] = 0.
 $$ {#eq-mhdwaves-10}
-The last equation is defines the dispersion relation $\omega = \omega (\vb{k})$. The eigenvectors of $\vb{F} (\vb{k})$ define the polarization vector $\vb{\xi}_1$ of the wave.
+The last equation defines the dispersion relation $\omega = \omega (\vb{k})$. The eigenvectors of $\vb{F} (\vb{k})$ define the polarization vector $\vb{\xi}_1$ of the wave.
 
 ## Families of MHD Waves
 
-In general, there are three solutions to the eigenvalue problem @eq-mhdwaves-eigenvalue-problem, corresponding to three different modes. In the unmagnetized case, the three modes are degenerate (in a uniform medium), so we find only sound waves. In the magnetized case, there are always three types of waves: Alfvén waves, slow-, and fast-magnetosonic waves. We consider these separately below.
+In general, there are three solutions to the eigenvalue problem @eq-mhdwaves-eigenvalue-problem, corresponding to three different modes. In the unmagnetized case, one of the modes is the sound wave, while the other two are the transverse modes with $\omega = 0$ we found in @sec-sound. In the magnetized case, the magnetic field provides a restoring force also for transverse displacements, and there are three types of waves: Alfvén waves, slow-, and fast-magnetosonic waves.
+
+Without loss of generality, we can choose the axes so that $\vb{B}_0$ is along $z$ and $\vb{k}$ is in the $x z$-plane, at an angle $\theta$ from $\vb{B}_0$. We will see that the $y$ component of the displacement decouples from the other two. So the eigenvalue problem splits into a $1 \times 1$ problem (the Alfvén wave) and a $2 \times 2$ problem (the slow and fast waves). We consider these separately below.
 
 ### Alfvén Waves
 
-We consider at first the situation depicted in @fig-mhdwaves-alfven-geometry:
+We first consider displacements along $y$, as depicted in @fig-mhdwaves-alfven-geometry:
 
 - $\vb{B}_0$ is along $z$
 
@@ -90,51 +92,52 @@ Note that $\vb{k} \cdot \vb{\xi}= 0$, meaning that $\delta \rho = \delta p = 0$.
 
 ![Geometry of the Alfvén wave: $\vb{B}_0$ along $z$, $\vb{k}$ in the $xz$-plane at an angle $\theta$ from $\vb{B}_0$, and displacement $\vb{\xi}$ along $y$.](../figures/mhd-waves/waves-alfven-geometry.svg){#fig-mhdwaves-alfven-geometry fig-alt="Axes: x up, z to the right, y towards the lower left. The background field B0 lies along z. The wave vector k lies in the xz-plane at an angle theta from z; the unit vector k-perp is perpendicular to k in the same plane. The displacement xi points along y, perpendicular to both k and B0."}
 
-To compute the Lorentz force we proceed as follows. First we note that
+To compute the Lorentz force we proceed as follows. In Fourier space, $\nabla \rightarrow \ii \vb{k}$, so each derivative in @eq-mhdwaves-3 and @eq-mhdwaves-5 is replaced by a factor $\ii \vb{k}$. First we note that
 $$
-\vb{\xi} \times \vb{B}_0 {= \xi_y}  B_0  \hat{\vb{x}} .
+\vb{\xi} \times \vb{B}_0 = \xi_y B_0  \hat{\vb{x}} .
 $$ {#eq-mhdwaves-11}
 Next, we compute the magnetic field perturbation as
 $$
-\vb{k} \times (\vb{\xi} \times \vb{B}_0) = k \xi_y B_0 \cos
-\theta \hat{\vb{y}} = \delta \vb{B}.
+\delta \vb{B} = \ii \vb{k} \times (\vb{\xi} \times \vb{B}_0) = \ii k \xi_y B_0 \cos
+\theta \hat{\vb{y}} .
 $$ {#eq-mhdwaves-12}
 The current is given by
 $$
-\vb{k} \times [\vb{k} \times (\vb{\xi} \times \vb{B}_0)] = -
-k^2 \xi_y B_0 \cos \theta \hat{\vb{k}}_{\perp} = 4 \pi \delta
-\vb{j}.
+\begin{aligned}
+4 \pi \delta \vb{j} &= \ii \vb{k} \times \delta \vb{B} = - \vb{k} \times [\vb{k} \times (\vb{\xi} \times \vb{B}_0)] \\
+&= k^2 \xi_y B_0 \cos \theta \hat{\vb{k}}_{\perp} .
+\end{aligned}
 $$ {#eq-mhdwaves-13}
 Finally, the Lorentz force is
 $$
-4 \pi \delta \vb{j} \times \vb{B}_0 = k^2 B_0^2 \cos^2 \theta \xi_y
-\hat{\vb{y}} = (\vb{k} \cdot \vb{B}_0)^2 \vb{\xi}.
+4 \pi \delta \vb{j} \times \vb{B}_0 = - k^2 B_0^2 \cos^2 \theta \xi_y
+\hat{\vb{y}} = - (\vb{k} \cdot \vb{B}_0)^2 \vb{\xi}.
 $$ {#eq-mhdwaves-14}
-So $\vb{\xi}$ evolves as a mass attached to an elastic spring with spring constant $(\vb{k} \cdot \vb{B}_0)^2$. In formulas,
+So $\vb{\xi}$ evolves as a mass attached to an elastic spring with spring constant $(\vb{k} \cdot \vb{B}_0)^2 / 4 \pi$. In formulas,
 $$
 \begin{aligned}
-- \rho_0 \omega^2 \xi_y &= \tfrac{1}{4 \pi} k^2 B_0^2 \cos^2 \theta \xi_y \\
+- \rho_0 \omega^2 \xi_y &= - \tfrac{1}{4 \pi} k^2 B_0^2 \cos^2 \theta \xi_y \\
 \Longrightarrow \quad & \boxed{\omega = \pm \frac{B_0}{\sqrt{4 \pi \rho_0}} k
-\cos \theta = kv_A \cos \theta .}
+\cos \theta = \pm \vb{k} \cdot \vb{v}_A ,}
 \end{aligned}
 $$ {#eq-mhdwaves-15}
-This type of waves are called Alfvén waves from Alfvén [-@alfven1942] (Physics Nobel Prize in 1970). Some comments are in order.
+where $\vb{v}_A = \vb{B}_0 / \sqrt{4 \pi \rho_0}$. We call $\omega_A = \vb{k} \cdot \vb{v}_A$ the Alfvén frequency. These waves are called Alfvén waves, after Alfvén [-@alfven1942] (Physics Nobel Prize in 1970). Some comments are in order.
 
 1.  If  $\theta = 0$, these waves propagate along the field lines with velocity (Alfvén velocity):
     $$
     v_A = \frac{B_0}{\sqrt{4 \pi \rho_0}} .
     $$ {#eq-mhdwaves-16}
-    If $\theta > 0$, the waves can still propagate (as long as $\theta \neq 90^{\circ}$ or $270^{\circ}$), but at a reduced speed.
+    If $\theta > 0$, the phase velocity is reduced to $v_A \cos \theta$. However, the group velocity is $\partial \omega / \partial \vb{k} = \pm v_A \hat{\vb{z}}$, for any $\theta$. In other words, Alfvén waves always transport energy along the magnetic field lines, with velocity $v_A$.
 
-2.  The displacement $\vb{\xi}$ is perpendicular to the background field $\vb{B}_0$, so these waves are transverse. More precisely, Alfvén waves behave as transverse waves in an elastic string (the magnetic field). Indeed, the restoring force for these waves is magnetic tension.
+2.  The displacement $\vb{\xi}$ is perpendicular to the background field $\vb{B}_0$, so these waves are transverse. More precisely, Alfvén waves behave as transverse waves in an elastic string (the magnetic field). Indeed, the restoring force for these waves is magnetic tension (@sec-tension).
 
 3.  As already mentioned $\delta \rho = \delta p = 0$ for these waves. As such, Alfvén waves are incompressible and exist also in incompressible flows.
 
-Although we have derived Alfvén waves as small perturbations, it turns out that Alfvén waves are an exact solution to the full non-linear equations. This means that MHD flows can support arbitrarily strong waves.
+Although we have derived Alfvén waves as small perturbations, it turns out that Alfvén waves with $\delta \vb{B} = \mp \sqrt{4 \pi \rho} \, \delta \vb{v}$, propagating in the $\pm z$ direction, are an exact solution to the full non-linear equations, as long as the magnetic pressure $B^2 / 8 \pi$ stays uniform. This means that MHD flows can support arbitrarily strong waves. We check the small-amplitude case in @exr-flux-alfven-wave.
 
 ### Magnetosonic Waves
 
-We consider at first the situation depicted in @fig-mhdwaves-magnetosonic-geometry:
+We now consider displacements in the $x z$-plane, as depicted in @fig-mhdwaves-magnetosonic-geometry:
 
 - $\vb{B}_0$ is along $z$
 
@@ -160,10 +163,13 @@ $$
 $$ {#eq-mhdwaves-18}
 Plugging this into the expression for the Lorentz force gives
 $$
-\delta \vb{j} \times \vb{B}_0 = \frac{1}{4 \pi}  \{ \vb{k}
+\begin{aligned}
+\delta \vb{j} \times \vb{B}_0 &= - \frac{1}{4 \pi}  \{ \vb{k}
 \times [\vb{k} \times (\vb{\xi} \times \vb{B}_0)] \} \times
-\vb{B}_0 = - \frac{k^2}{4 \pi}  (\vb{\xi} \times \vb{B}_0)
+\vb{B}_0 \\
+&= \frac{k^2}{4 \pi}  (\vb{\xi} \times \vb{B}_0)
 \times \vb{B}_0 = - \frac{k^2 B_0^2 \xi_x}{4 \pi}  \hat{\vb{x}} .
+\end{aligned}
 $$ {#eq-mhdwaves-19}
 The pressure force is
 $$
@@ -184,7 +190,7 @@ c_s^2 \sin \theta \cos \theta & c_s^2 \cos^2 \theta
 \xi_z
 \end{array}\right) .
 $$ {#eq-mhdwaves-eigenvalue-magnetosonic}
-The dispersion relation is (after a long calculation):
+The eigenvalues of this matrix are $\omega^2 = T / 2 \pm \sqrt{T^2 / 4 - D}$, where $T = k^2 (c_s^2 + v_A^2)$ and $D = k^4 c_s^2 v_A^2 \cos^2 \theta$ are its trace and determinant. After some algebra, we find the dispersion relation
 $$
 \boxed{
 \begin{aligned}
@@ -192,7 +198,7 @@ $$
 & \pm \frac{1}{2} \sqrt{(v_A^2 - c_s^2)^2 + 4 c_s^2 v_A^2 \sin^2 \theta} .
 \end{aligned}}
 $$ {#eq-mhdwaves-22}
-So there are two solutions and two corresponding polarization vectors $\vb{\xi}_s$ and $\vb{\xi}_f$. Note that $\vb{\xi}_s \perp \vb{\xi}_f$, since the matrix $\vb{F} (\vb{k})$ in @eq-mhdwaves-eigenvalue-magnetosonic is self-adjoint. Conventionally, $\vb{\xi}_s$ is taken to be the polarization corresponding to the smaller group velocity. This is the so-called slow magnetosonic wave. Conversely, $\vb{\xi}_f$ is called the fast magnetosonic wave. As we will see shortly, these have a mixed character of sound and magnetic waves.
+So there are two solutions and two corresponding polarization vectors $\vb{\xi}_s$ and $\vb{\xi}_f$. Note that $\vb{\xi}_s \perp \vb{\xi}_f$, since the matrix $\vb{F} (\vb{k})$ in @eq-mhdwaves-eigenvalue-magnetosonic is self-adjoint (see @eq-sound-29). Conventionally, $\vb{\xi}_s$ is taken to be the polarization corresponding to the minus sign in @eq-mhdwaves-22, i.e., to the smaller phase velocity. This is the so-called slow magnetosonic wave. Conversely, $\vb{\xi}_f$ is called the fast magnetosonic wave. As we will see shortly, these have a mixed character of sound and magnetic waves.
 
 ## Effect of Propagation Direction
 
@@ -207,15 +213,15 @@ $$
 $$ {#eq-mhdwaves-23}
 There are two different cases, depending on whether $v_A > c_s$ or $v_A < c_s$, shown in @fig-mhdwaves-parallel.
 
-![Polarization diagram for MHD waves propagating along the background magnetic field.](../figures/mhd-waves/waves-parallel-polarization.svg){#fig-mhdwaves-parallel fig-alt="Two panels with axes x up, z right and y to the lower left; B0 and k both lie along z. Left, for v_A greater than c_s: the fast mode is polarized along x, the slow mode along z and the Alfvén mode along y, with omega_s squared equal to c_s squared k squared and omega_f squared equal to omega_A squared equal to v_A squared. Right, for v_A less than c_s the fast and slow modes exchange polarizations: the slow mode is along x and the fast mode along z, with omega_f squared equal to c_s squared k squared and omega_s squared equal to omega_A squared equal to v_A squared."}
+![Polarization diagram for MHD waves propagating along the background magnetic field.](../figures/mhd-waves/waves-parallel-polarization.svg){#fig-mhdwaves-parallel fig-alt="Two panels with axes x up, z right and y to the lower left; B0 and k both lie along z. Left, for v_A greater than c_s: the fast mode is polarized along x, the slow mode along z and the Alfvén mode along y, with omega_s squared equal to c_s squared k squared and omega_f squared equal to omega_A squared equal to v_A squared k squared. Right, for v_A less than c_s the fast and slow modes exchange polarizations: the slow mode is along x and the fast mode along z, with omega_f squared equal to c_s squared k squared and omega_s squared equal to omega_A squared equal to v_A squared k squared."}
 
 - If $v_A > c_s$, then
 
-  - The slow mode polarization is along the magnetic field, the mode propagate at speed $c_s$ and its restoring force is pressure.
+  - The slow mode polarization is along the magnetic field, the mode propagates at speed $c_s$ and its restoring force is pressure.
 
   - Fast and Alfvén modes are orthogonal to the magnetic field and to each other and both have the character of Alfvén waves propagating with speed $v_A$. Magnetic tension is their restoring force.
 
-- If $v_A < c_s$, then the situation is similar as before, but slow and fast mode exchange character: the fast mode is now a sound wave, while the slow mode is an Alfvén wave.
+- If $v_A < c_s$, then the situation is similar as before, but the slow and fast modes exchange character: the fast mode is now a sound wave, while the slow mode is an Alfvén wave.
 
 ### Perpendicularly Propagating Waves ($\theta = 90^{\circ}$)
 
@@ -223,13 +229,13 @@ Let us consider the case of waves propagating perpendicular to the field lines. 
 $$
 \left( \frac{\omega}{k} \right)^2 = v_A^2 + c_s^2 .
 $$ {#eq-mhdwaves-24}
-In this case $\vb{\xi}_f$ is parallel to $\vb{k}$. The restoring force for the mode is the sum of both magnetic tension and pressure, which explains why this mode is called the "magnetosonic" mode.
+In this case $\vb{\xi}_f$ is parallel to $\vb{k}$. The restoring force for the mode is the sum of the magnetic and gas pressures, which explains why this mode is called the "magnetosonic" mode. In other words, the field lines are compressed, as in a sound wave, but they are not bent.
 
 ### Friedrichs Diagrams
 
 Friedrichs diagrams show the propagation velocity of the different MHD modes as a function of a generic propagation angle $\theta$. The special cases of $\theta = 0, 90^{\circ}$ discussed above correspond to the $x$- and $y$-axis in @fig-mhdwaves-friedrichs. In general, slow and fast modes have a mixed character between sound waves and Alfvén waves.
 
-![Friedrichs Diagrams for ideal-MHD.](../figures/mhd-waves/waves-friedrichs-diagrams.svg){#fig-mhdwaves-friedrichs fig-alt="Two polar plots of the phase speeds of the slow (solid), Alfvén (dashed) and fast (dotted) modes as a function of the angle from the magnetic field (0 degrees to the right). Left, v_A greater than c_s: the fast mode is almost circular with radius about 2.2, the Alfvén mode is a pair of lobes reaching 2 along the field and the slow mode a pair of smaller lobes reaching 1. Right, v_A less than c_s: the fast mode is again almost circular, and the Alfvén and slow modes are two nearly identical lobes reaching 1 along the field."}
+![Friedrichs diagrams for ideal MHD, for $v_A = 2 c_s$ (left) and $v_A = c_s / 2$ (right). The phase speeds are in units of the smaller of $v_A$ and $c_s$.](../figures/mhd-waves/waves-friedrichs-diagrams.svg){#fig-mhdwaves-friedrichs fig-alt="Two polar plots of the phase speeds of the slow (solid), Alfvén (dashed) and fast (dotted) modes as a function of the angle from the magnetic field (0 degrees to the right). Left, v_A greater than c_s: the fast mode is almost circular with radius about 2.2, the Alfvén mode is a pair of lobes reaching 2 along the field and the slow mode a pair of smaller lobes reaching 1. Right, v_A less than c_s: the fast mode is again almost circular, and the Alfvén and slow modes are two nearly identical lobes reaching 1 along the field."}
 
 ## Weak and Strong Field Limits
 
@@ -237,17 +243,17 @@ Finally, it is also instructive to compare slow- and fast-magnetosonic waves in 
 
 ![Slow and fast magnetosonic waves in the limits of weak (*left panel*) and strong (*right panel*) magnetic fields.](../figures/mhd-waves/waves-weak-strong-field.svg){#fig-mhdwaves-limits fig-alt="Two panels with axes x up, z right and y to the lower left, B0 along z and k in the xz-plane at 45 degrees from z. Left, weak field (c_s much larger than v_A): the fast displacement lies close to k, slightly steeper, and the slow displacement points up and to the left, nearly perpendicular to k. Right, strong field (v_A much larger than c_s): the fast displacement is close to the x axis, almost perpendicular to B0, and the slow displacement is nearly parallel to B0. In both panels the Alfvén displacement points along y."}
 
-- *Left panel:* the fast mode is $\sim$ a sound wave and the slow mode is nearly perpendicular to $\vb{k}$.
+- *Left panel:* the fast mode is $\sim$ a sound wave, with $\omega \approx k c_s$, and the slow mode is nearly perpendicular to $\vb{k}$, with $\omega \approx k v_A \cos \theta$.
 
-- *Right panel:* the fast mode is $\sim$ an Alfvén wave and the slow mode is nearly parallel to $\vb{B}_0$.
+- *Right panel:* the fast mode is $\sim$ an Alfvén wave, with $\omega \approx k v_A$, and the slow mode is nearly parallel to $\vb{B}_0$, with $\omega \approx k c_s \cos \theta$. In other words, the slow mode is a sound wave guided along the magnetic field lines. This is the situation in the solar corona.
 
 ## Shock Waves
 
-As for non-magnetized gasses, MHD waves can steepen into shock waves. Alfvén waves can steepen into *rotational discontinuities*, in which the magnetic field direction suddenly changes across an interface. Slow- and fast-magnetosonic waves can give rise to (slow and fast) shocks and rarefaction waves. The theory of MHD shocks is very complex and beyond the scope of this course. A good overview is given in Bazer and Ericson [-@bazer1959]. It is important to be aware of that, even in the case of shocks propagating along magnetic field lines, MHD effects can be important. For example, hydrodynamics shocks can split into a slow and a fast shock, separated by a region in which a perpendicular component of the $B$-field is created. These are sometimes called *switch on* and *switch off* discontinuities.
+As for unmagnetized gases, MHD waves can steepen into shock waves. Alfvén waves can steepen into *rotational discontinuities*, in which the magnetic field direction suddenly changes across an interface. Slow- and fast-magnetosonic waves can give rise to (slow and fast) shocks and rarefaction waves. The theory of MHD shocks is very complex and beyond the scope of this course. A good overview is given in Bazer and Ericson [-@bazer1959]. It is important to be aware that, even in the case of shocks propagating along magnetic field lines, MHD effects can be important. For example, a shock propagating along the magnetic field can create a component of the field parallel to the shock front (a *switch-on* shock), and the opposite process is also possible (a *switch-off* shock).
 
 We treat in detail only one case that is relevant for the interstellar medium: a shock propagating in an isothermal flow with perpendicular magnetic field, as illustrated in @fig-mhdwaves-shock.
 
-![Isothermal shock propagating in a medium with perpendicular magnetic field.](../figures/mhd-waves/waves-isothermal-shock.svg){#fig-mhdwaves-shock fig-alt="A vertical line marks the shock. The gas ahead of it (right) has density rho1, velocity u1 and field B1; the gas behind it (left) has density rho2, velocity u2 and field B2. The magnetic field points out of the page on both sides, and the flow u moves leftwards through the shock. The gas is isothermal, p equals a squared rho."}
+![Isothermal shock propagating in a medium with perpendicular magnetic field.](../figures/mhd-waves/waves-isothermal-shock.svg){#fig-mhdwaves-shock fig-alt="A vertical line marks the shock. The gas ahead of it (right) has density rho1, velocity u1 and field B1; the gas behind it (left) has density rho2, velocity u2 and field B2. The magnetic field points out of the page on both sides, and the flow u moves leftwards through the shock. The gas is isothermal, p equals c_iso squared rho."}
 
 The shock conditions for the shock shown in @fig-mhdwaves-shock are:
 $$
@@ -257,26 +263,26 @@ $$
 $$ {#eq-mhdwaves-25}
 where $[\![ \cdot ]\!]$ denotes the jump across the shock.
 
-We remind that, in the absence of a magnetic field, the compression factor of an isothermal shock is
+In the absence of a magnetic field, the shock conditions for an isothermal gas, $p = c_{\mathrm{iso}}^2 \rho$, are $\rho_1 u_1 = \rho_2 u_2$ and $c_{\mathrm{iso}}^2 \rho_1 + \rho_1 u_1^2 = c_{\mathrm{iso}}^2 \rho_2 + \rho_2 u_2^2$. Using the first condition to eliminate $u_2$ from the second, we find $c_{\mathrm{iso}}^2 (\rho_2 - \rho_1) = \rho_1 u_1^2 (1 - \rho_1 / \rho_2) = \rho_1 u_1^2 (\rho_2 - \rho_1) / \rho_2$. So the compression factor of an isothermal shock is
 $$
-\frac{\rho_2}{\rho_1} = \left( \frac{u_1}{a} \right)^2,
+\frac{\rho_2}{\rho_1} = \left( \frac{u_1}{c_{\mathrm{iso}}} \right)^2,
 $$ {#eq-mhdwaves-26}
-which can become arbitrarily large for large upstream Mach numbers. This is dramatically different when a magnetic field is present, as long as it is sufficiently strong:
+which can become arbitrarily large for large upstream Mach numbers. We discuss isothermal shocks in more detail in @sec-radshock. This is dramatically different when a magnetic field is present, as long as it is sufficiently strong:
 $$
-u_1 \gg v_A = \frac{B_1}{\sqrt{4 \pi \rho_1}} \gg a.
+u_1 \gg v_A = \frac{B_1}{\sqrt{4 \pi \rho_1}} \gg c_{\mathrm{iso}}.
 $$ {#eq-mhdwaves-27}
 In this case, from $[\![ \rho u ]\!] = [\![ Bu ]\!] = 0$, we conclude that
 $$
 \frac{B_1}{\rho_1} = \frac{B_2}{\rho_2} .
 $$ {#eq-mhdwaves-28}
-From the conservation of momentum, we have (using $u_1 \gg v_{A, 1} \gg a$)
+From the conservation of momentum, we have (using $u_1 \gg v_A \gg c_{\mathrm{iso}}$)
 $$
 \begin{aligned}
-\frac{\rho_2}{\rho_1} &= \frac{a^2 + u_1^2 + \frac{1}{2} v_A^2}{a^2 + u_2^2 +
+\frac{\rho_2}{\rho_1} &= \frac{c_{\mathrm{iso}}^2 + u_1^2 + \frac{1}{2} v_A^2}{c_{\mathrm{iso}}^2 + u_2^2 +
 \frac{B_2^2}{8 \pi \rho_2}} \\
-&\approx \frac{u_1^2}{a^2 + u_2^2 +
+&\approx \frac{u_1^2}{c_{\mathrm{iso}}^2 + u_2^2 +
 \frac{B_2^2}{8 \pi \rho_2^2} \rho_2} \\
-&= \frac{u_1^2}{a^2 + u_2^2 +
+&= \frac{u_1^2}{c_{\mathrm{iso}}^2 + u_2^2 +
 \frac{B_1^2}{8 \pi \rho_1}  \frac{\rho_2}{\rho_1}} \\
 &\approx \frac{u_1^2}{\frac{v_A^2}{2}  \frac{\rho_2}{\rho_1}} .
 \end{aligned}
@@ -285,7 +291,17 @@ Solving for $\rho_2 / \rho_1$, we obtain
 $$
 \boxed{\frac{\rho_2}{\rho_1} = \sqrt{2}  \frac{u_1}{v_A} .}
 $$ {#eq-mhdwaves-30}
-This shows that the compression ratio now scales with the Alfvénic Mach number, instead of the Mach number squared, of the upstream gas. This is another example showing that magnetic fields play an important role in the dynamics of the interstellar medium and in star formation.
+This shows that the compression ratio now scales with the Alfvénic Mach number of the upstream gas, $\mathrm{Ma}_A = u_1 / v_A$, instead of the square of its Mach number. This is another example showing that magnetic fields play an important role in the dynamics of the interstellar medium and in star formation.
+
+::: {.callout-tip icon=false}
+## Example: Shocks in molecular clouds
+
+Consider a molecular cloud with temperature $T \approx 10\,\mathrm{K}$, number density $n \approx 100\,\mathrm{cm^{-3}}$ and magnetic field $B \approx 10\,\mu\mathrm{G}$. The gas has $\rho = \mu m_u n \approx 4 \times 10^{- 22}\,\mathrm{g\,cm^{-3}}$ (with $\mu \approx 2.3$) and $c_{\mathrm{iso}} \approx 0.2\,\mathrm{km\,s^{-1}}$. The Alfvén velocity is
+$$
+v_A = \frac{B}{\sqrt{4 \pi \rho}} \approx 1.4\,\mathrm{km\,s^{-1}} .
+$$ {#eq-mhdwaves-cloud-va}
+Note that $v_A \gg c_{\mathrm{iso}}$, so the magnetic pressure is much larger than the gas pressure. Suppose that the cloud is hit by a shock with $u_1 = 10\,\mathrm{km\,s^{-1}}$, for example driven by a nearby supernova remnant. Then $u_1 \gg v_A \gg c_{\mathrm{iso}}$, and @eq-mhdwaves-30 applies. Without the magnetic field, the compression factor would be $(u_1 / c_{\mathrm{iso}})^2 \approx 2500$. With the magnetic field, it is only $\sqrt{2} u_1 / v_A \approx 10$. In other words, the magnetic field makes the shocked gas about 250 times less dense. So it is much harder to form dense cores in molecular clouds with shocks alone.
+:::
 
 ## In-class worksheet {#sec-mhdwaves-worksheet}
 
@@ -303,9 +319,9 @@ $$ {#eq-mhdwaves-ws1}
     & \quad + \frac{1}{4 \pi} \{ \nabla \times [\nabla
     \times (\vb{\xi} \times \vb{B}_0)] \} \times \vb{B}_0 .
     \end{aligned}
-    $$ {#eq-mhdwaves-two}
+    $$ {#eq-mhdwaves-ws2}
 
-2.  Introduce the ansatz $\vb{\xi} (t, \vb{x}) = e^{\ii (\vb{k} \cdot \vb{x}- \omega t)}$ and show that @eq-mhdwaves-two reduces to
+2.  Introduce the ansatz $\vb{\xi} (t, \vb{x}) = \vb{\xi}_1 \ee^{\ii (\vb{k} \cdot \vb{x}- \omega t)}$ and show that @eq-mhdwaves-ws2 reduces to
     $$
     \begin{aligned}
     & - \rho_0 \omega^2 \vb{\xi}_1 = - \Gamma p_0 \vb{k} (\vb{k}
@@ -315,7 +331,7 @@ $$ {#eq-mhdwaves-ws1}
     \vb{B}_0 .
     \end{aligned}
     $$ {#eq-mhdwaves-ws3}
-    \[Hint. Use $\partial_t \rightarrow \ii \omega$ and $\nabla \rightarrow \ii \vb{k}$.\]
+    \[Hint. Use $\partial_t \rightarrow - \ii \omega$ and $\nabla \rightarrow \ii \vb{k}$.\]
 
 3.  Consider waves with $\vb{k} \parallel \hat{\vb{x}}$ and $\vb{\xi} \parallel \vb{k}$. Find the dispersion relation $\omega = \omega (\vb{k})$ and compute group and phase velocities for these waves.
 
@@ -324,7 +340,7 @@ $$ {#eq-mhdwaves-ws1}
 ::: {#exr-mhdwaves-torsional-alfven}
 ## Torsional Alfvén waves
 
-1.  Show that in cylindrical coordinates the toroidal Alfvén wave
+1.  Consider the torsional Alfvén wave, in cylindrical coordinates $(R, \phi, z)$,
     $$
     \begin{aligned}
     \vb{v} &= \epsilon v_A g (R) f (z - v_A t)  \hat{\vb{\phi}}, \\
@@ -332,11 +348,13 @@ $$ {#eq-mhdwaves-ws1}
     \hat{\vb{\phi}},
     \end{aligned}
     $$ {#eq-mhdwaves-hw1}
-    satisfies the ideal-MHD equations to order $\epsilon$, where $f$ and $g$ are arbitrary functions.
+    where $f$ and $g$ are arbitrary functions and $\epsilon$ is a small parameter. Show that it is a solution of the ideal-MHD equations to first order in $\epsilon$.
 
-2.  Consider a region filled with uniform plasma at rest and introduce an infinitely conducting, thin disk of radius $a$ at the origin in the $x y$-plane. Suddenly the disk starts rotating with the small constant angular velocity $\omega$. Use the above solution and the condition that the tangential velocity at the disk is continuous to show that at any later time $t$ all the plasma with $R < a$, $| z | < v_A t$ is rotating with angular velocity $\omega$ and that the rest of the plasma is still at rest.
+2.  Consider a uniform plasma at rest, threaded by the magnetic field $B_0 \hat{\vb{z}}$. A thin disk of radius $a$, made of a perfectly conducting material, lies in the $x y$-plane with its centre at the origin. At $t = 0$, the disk is set into rotation with a constant angular velocity $\Omega$, with $\Omega a \ll v_A$. The plasma just above and below the disk must move with the same tangential velocity as the disk. Use the solution of part 1 to show that, at time $t$, the plasma with $R < a$ and $| z | < v_A t$ rotates with angular velocity $\Omega$, while the rest of the plasma is still at rest.
 
-3.  If the disk has surface density $\Sigma$, how long will it be before it "starts" to slow down?
+3.  Let $\Sigma$ be the mass per unit area of the disk. Estimate how long it takes before the disk starts to slow down. \[Hint. Compare the angular momentum of the disk with that of the plasma set in motion by the wave.\]
+
+Adapted from @kulsrud2005, Problem 3.4.
 :::
 
 ::: {.content-visible when-profile="solutions"}
@@ -357,12 +375,12 @@ $$ {#eq-mhdwaves-ws1}
     \nabla \cdot \vb{v}= \frac{1}{R} \partial_R  (Rv_R) + \frac{1}{R}
     \partial_{\phi} v_{\phi} + \partial_z v_z = 0,
     $$
-    since $v_{\phi}$ does not depend on $\phi$. As such, $\rho = \operatorname{const}$ and $\nabla p = 0$.
+    since $v_{\phi}$ does not depend on $\phi$. As such, $\rho = \mathrm{const}$ and $\nabla p = 0$.
 
     To first order in $\epsilon$, we have
     $$
     \vb{v} \times \vb{B}= \epsilon B_0 v_A g (R) f (z - v_A t)
-    \hat{\vb{r}}, \quad \nabla \times (\vb{v} \times \vb{B}) =
+    \hat{\vb{R}}, \quad \nabla \times (\vb{v} \times \vb{B}) =
     \epsilon B_0 v_A g (R) f' (z - v_A t)  \hat{\vb{\phi}} .
     $$
     The LHS of the induction equation is
@@ -375,7 +393,7 @@ $$ {#eq-mhdwaves-ws1}
     The current is
     $$
     4 \pi \vb{j}= \nabla \times \vb{B}= \epsilon B_0 g (R) f' (z -
-    v_A t)  \hat{\vb{r}} - \epsilon B_0 \left[ \frac{1}{R} g (R) f (z -
+    v_A t)  \hat{\vb{R}} - \epsilon B_0 \left[ \frac{1}{R} g (R) f (z -
     v_A t) + g' (R) f (z - v_A t) \right]  \hat{\vb{z}} .
     $$
     The RHS of the momentum equation is
@@ -390,29 +408,39 @@ $$ {#eq-mhdwaves-ws1}
     $$
     So the momentum equation is satisfied, provided that $v_A = B_0 / \sqrt{4 \pi \rho}$.
 
-2.  Since the angular velocity $\omega$ is small, we can use it instead of $\epsilon$ in the toroidal Alfvén wave solution of point 1. This shows that the plasma above the disk is set into motion. Because the toroidal Alfvén wave propagates with velocity $v_A$ only the plasma with $| z | < v_A t$ will corotate.
+2.  We choose $g (R) = R$ for $R < a$ and $g (R) = 0$ for $R > a$, $f (s) = 1$ for $s < 0$ and $f (s) = 0$ for $s > 0$, and $\epsilon = \Omega / v_A$. Then, above the disk, @eq-mhdwaves-hw1 gives
+    $$
+    \vb{v} = \Omega R \hat{\vb{\phi}} \quad \text{for } R < a, \; 0 < z < v_A t,
+    $$
+    and $\vb{v} = 0$ elsewhere. At $z = 0$, the velocity of the plasma is $\Omega R \hat{\vb{\phi}}$ for $R < a$, which is the velocity of the disk, so the tangential velocity is continuous. The front of the wave, $z = v_A t$, moves upwards with velocity $v_A$. Below the disk, we use the wave that propagates towards $- z$. This is obtained from @eq-mhdwaves-hw1 by replacing $z \rightarrow - z$ and changing the sign of $B_{\phi}$, and it gives $\vb{v} = \Omega R \hat{\vb{\phi}}$ for $R < a$, $- v_A t < z < 0$. In other words, the field lines are twisted in opposite directions above and below the disk. Note that the solution is valid only if $\epsilon R = \Omega R / v_A \ll 1$ for all $R < a$, which is why we need $\Omega a \ll v_A$.
 
-3.  Assuming that the kinetic energy is conserved, we have
+3.  We cannot use the conservation of kinetic energy, because the wave also carries magnetic energy, $\delta B^2 / 8 \pi = \rho \delta v^2 / 2$. However, angular momentum is conserved. In nonrelativistic MHD the momentum of the electromagnetic field is negligible (see @eq-mhd-23), so the angular momentum is shared between the disk and the plasma set in motion by the wave:
     $$
-    K = \frac{1}{2} I_{\operatorname{disk}} \Omega^2 (t) + \frac{1}{2} I_{\operatorname{cyl}}
-    (t) \Omega^2 (t) = \operatorname{const},
+    I_{\mathrm{disk}} \Omega_0 = [I_{\mathrm{disk}} + I_{\mathrm{cyl}} (t)] \Omega (t),
     $$
-    where $I_{\operatorname{disk}}$ is the moment of inertia of the disk,
+    where $\Omega_0$ is the initial angular velocity, $I_{\mathrm{disk}}$ is the moment of inertia of the disk,
     $$
-    I_{\operatorname{disk}} = \frac{\pi}{2} \Sigma a^4,
+    I_{\mathrm{disk}} = \frac{\pi}{2} \Sigma a^4,
     $$
-    and $I_{\operatorname{cyl}}$ is the (time-dependent) moment of inertia of a plasma cylinder of height $2 v_A t$:
+    and $I_{\mathrm{cyl}}$ is the (time-dependent) moment of inertia of a plasma cylinder of radius $a$ and height $2 v_A t$:
     $$
-    I_{\operatorname{cyl}} (t) = \pi \rho v_A ta^4 .
+    I_{\mathrm{cyl}} (t) = \pi \rho v_A t a^4 .
     $$
-    This shows that the disk starts to slow down when
+    The disk starts to slow down when $I_{\mathrm{cyl}} \sim I_{\mathrm{disk}}$, that is, after
     $$
-    \Sigma \sim \rho v_A t = \Sigma_{\operatorname{cyl}} .
+    t \sim \frac{\Sigma}{2 \rho v_A} .
     $$
+    In other words, the disk slows down when the mass of the plasma set in motion, $2 \pi a^2 \rho v_A t$, becomes comparable to the mass of the disk, $\pi a^2 \Sigma$.
+
+    We can check this result by computing the torque on the disk. Above the disk, $B_{\phi} = - B_0 \Omega R / v_A$. So the magnetic stress transports angular momentum away from the disk, with a flux of $\phi$-momentum along $z$ equal to $- B_z B_{\phi} / 4 \pi = B_0^2 \Omega R / 4 \pi v_A = \rho v_A \Omega R$. The same happens below the disk. The total torque is then
+    $$
+    \tau = 2 \int_0^a R \, \rho v_A \Omega R \, 2 \pi R \dd R = \pi \rho v_A \Omega a^4,
+    $$
+    and the disk slows down on a time scale $I_{\mathrm{disk}} \Omega / \tau = \Sigma / 2 \rho v_A$, as before. This is the mechanism of magnetic braking: the field lines that thread a rotating proto-stellar core carry its angular momentum away, through torsional Alfvén waves. See also @exr-mhd-solar-wind.
 :::
 :::
 
 ## Further reading {#sec-mhdwaves-reading}
 
 - @clarke2007, Chapter 13 (plasmas).
-- @bazer1959.
+- @bazer1959

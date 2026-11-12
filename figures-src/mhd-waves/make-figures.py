@@ -81,8 +81,8 @@ def parallel():
             "exchange polarizations: the slow mode is along x and the fast mode along z. "
             "Below each panel are the corresponding frequencies.", "par")
     for ox, label, up, down, eq in (
-            (130, "v_A > c_s", "f", "s", ("ω_s^2 = c_s^2 k^2,", "ω_f^2 = ω_A^2 = v_A^2.")),
-            (490, "v_A < c_s", "s", "f", ("ω_f^2 = c_s^2 k^2,", "ω_s^2 = ω_A^2 = v_A^2."))):
+            (130, "v_A > c_s", "f", "s", ("ω_s^2 = c_s^2 k^2,", "ω_f^2 = ω_A^2 = v_A^2 k^2.")),
+            (490, "v_A < c_s", "s", "f", ("ω_f^2 = c_s^2 k^2,", "ω_s^2 = ω_A^2 = v_A^2 k^2."))):
         oy = 175
         s.text(ox + 55, 28, label, anchor="middle", size=20)
         triad(s, ox, oy, up=130, right=190, left=45, down=45, ylen=92)
@@ -151,9 +151,9 @@ def shock():
             "velocity u1 and field B1; the gas behind it (left) has density rho2, velocity u2 "
             "and field B2. The magnetic field points out of the page (circled dots) on both "
             "sides, and the flow u (blue arrow) moves leftwards, through the shock. The gas "
-            "is isothermal, p = a^2 rho.", "shock")
+            "is isothermal, p = c_iso^2 rho.", "shock")
     s.line(262, 30, 262, 255, w=3.0)
-    s.text(40, 52, "p = a^2 ρ", size=22)
+    s.text(40, 52, "p = c_{iso}^2 ρ", size=22)
     for x, y in ((185, 105), (312, 105), (185, 220), (312, 220)):
         s.out_of_plane(x, y, GREEN, r=12)
     s.text(332, 138, "B", bold=True, fill=GREEN, size=26)

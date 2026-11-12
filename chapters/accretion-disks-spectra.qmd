@@ -22,9 +22,9 @@ This chapter is in preparation.
 ::: {#exr-diskspec-spectrum}
 ## Accretion-disk spectrum
 
-Model an accretion disk as a set of concentric rings $i = 1, 2, \ldots, N$, each with median radius $R_i$ and radial extent $\Delta R$. Let the disk extend from an inner radius $R_{\operatorname{in}}$ to an outer radius $R_{\operatorname{out}}$ and the temperature be
+Model an accretion disk as a set of concentric rings $i = 1, 2, \ldots, N$, each with median radius $R_i$ and radial extent $\Delta R$. Let the disk extend from an inner radius $R_{\mathrm{in}}$ to an outer radius $R_{\mathrm{out}}$ and the temperature be
 $$
-T (R) = T_{\operatorname{in}}  \left( \frac{R_{\operatorname{in}}}{R} \right)^{3 / 4} .
+T (R) = T_{\mathrm{in}}  \left( \frac{R_{\mathrm{in}}}{R} \right)^{3 / 4} .
 $$ {#eq-diskspec-2}
 Assume that the $i$th ring emits as a blackbody with a fixed temperature $T_i = T (R_i)$
 $$
@@ -32,9 +32,9 @@ B_{\nu} (T) = \frac{2 h \nu^3}{c^2}  \frac{1}{e^{h \nu / kT} - 1},
 $$ {#eq-diskspec-3}
 where $h$ is Planck constant, $c$ the speed of light, and $k$ the Boltzmann constant.
 
-1.  Write a code to compute and plot the emergent spectrum from a single ring at radius $R_i$. Plot the emergent spectrum for several radii. You can work in units in which $k = h = c = 1$. You can take $T_{\operatorname{in}} = 1$ in these units.
+1.  Write a code to compute and plot the emergent spectrum from a single ring at radius $R_i$. Plot the emergent spectrum for several radii. You can work in units in which $k = h = c = 1$. You can take $T_{\mathrm{in}} = 1$ in these units.
 
-2.  Write a code to compute the emergent spectrum from the full disk by summing up the contribution from each ring. Plot the resulting spectrum and discuss its physical interpretation. Verify that the spectrum approximately scales as $\nu^{1 / 3}$ for $T_{\operatorname{in}} \lesssim \nu \lesssim T_{\operatorname{out}}$. You can work in the same units as in the previous point. Additionally assume that $R_{\operatorname{out}} / R_{\operatorname{in}} = 200$.
+2.  Write a code to compute the emergent spectrum from the full disk by summing up the contribution from each ring. Plot the resulting spectrum and discuss its physical interpretation. Verify that the spectrum approximately scales as $\nu^{1 / 3}$ for $T_{\mathrm{in}} \lesssim \nu \lesssim T_{\mathrm{out}}$. You can work in the same units as in the previous point. Additionally assume that $R_{\mathrm{out}} / R_{\mathrm{in}} = 200$.
 :::
 
 ::: {.content-visible when-profile="solutions"}

@@ -2,7 +2,7 @@
 
 ## Lorentz Force
 
-These notes present a concise derivation of the equations of magnetohydrodynamics (MHD) and a discussion of the underlying assumptions. We consider a quasi-neutral gas of ions and electrons immersed in an external magnetic field. Let $\vb{w}_e$ and $\vb{w}_i$ be the drift velocities of electrons and ions, respectively. The Lorentz force experienced by each electron is
+These notes present a concise derivation of the equations of magnetohydrodynamics (MHD) and a discussion of the underlying assumptions. We consider a quasi-neutral gas of ions and electrons immersed in a magnetic field. Let $\vb{w}_e$ and $\vb{w}_i$ be the drift velocities of electrons and ions, respectively. The Lorentz force experienced by each electron is
 $$
 \vb{F}_e = - \frac{e}{c} \vb{w}_e \times \vb{B}.
 $$ {#eq-mhd-1}
@@ -16,7 +16,7 @@ $$
 Z\vb{w}_i - n_e \vb{w}_e) \times \vb{B} =: \vb{j}
 \times \vb{B}.
 $$ {#eq-mhd-3}
-Note that **we have absorbed the $1 / c$ factor in the definition of $\vb{j}$**, following a standard convention in magnetohydrodynamics.
+Note that **we have absorbed the $1 / c$ factor in the definition of $\vb{j}$**, following a standard convention in magnetohydrodynamics. Also note that we have not included the electric force. The electric force per unit volume is $q \vb{E}$, where $q$ is the charge density, and it is negligible because the plasma is quasi-neutral, $q \approx 0$ (@sec-plasma).
 
 The equations of MHD are just the "usual" hydrodynamics equations with the addition of the Lorentz force on the RHS:
 $$
@@ -26,7 +26,7 @@ $$
 \rho \frac{\dd \varepsilon}{\dd t} &= - p \nabla \cdot \vb{v}.
 \end{aligned}
 $$ {#eq-mhd-basic}
-These equations look deceivably simple. The real complication is that $\vb{j}$ and $\vb{B}$ are not prescribed, but are self-consistently produced by the fluid. We have also implicitly made the following assumption
+These equations look deceptively simple. The real complication is that $\vb{j}$ and $\vb{B}$ are not prescribed, but are self-consistently produced by the fluid. We have also implicitly made the following assumption:
 
 ::: {#cnj-mhd-drift}
 ## Negligible drift momentum
@@ -34,7 +34,7 @@ These equations look deceivably simple. The real complication is that $\vb{j}$ a
 The drift motion of the charged particles in the plasma that gives rise to the current is sufficiently small that we can neglect its contribution to the macroscopic momentum $\rho \vb{v}$. In other words, in a frame in which $\vb{v}= 0$, we have $m_i n_i \vb{w}_i + m_e n_e \vb{w}_e \approx 0$.
 :::
 
-This assumption is satisfied in most situations encountered in terrestrial and astrophysical applications, because the currents are sufficiently weak and the charge densities sufficiently large that we can treat the plasma as being a single fluid. This can be violated in very tenuous plasmas, for example in the magnetosphere of dying pulsars, in which the field and spin have decayed to the point that pair production is no longer efficient. In this case, one needs to go beyond magnetohydrodynamics and use the multi-fluid magnetohydrodynamics equations, or employ a fully kinetic treatment. Another situation in which this assumption can fail is if the degree of ionization of the plasma is small, so there is drift between the charged component of the gas and the neutrals, *ambipolar diffusion*. As we will see later, ambipolar diffusion plays an important role, for example, in stellar formation.
+This assumption is satisfied in most situations encountered in terrestrial and astrophysical applications, because the currents are sufficiently weak and the charge densities sufficiently large that we can treat the plasma as being a single fluid. This can be violated in very tenuous plasmas, for example in the magnetosphere of dying pulsars, in which the field and spin have decayed to the point that pair production is no longer efficient. In this case, one needs to go beyond magnetohydrodynamics and use the multi-fluid magnetohydrodynamics equations, or employ a fully kinetic treatment. Another situation in which this assumption can fail is if the degree of ionization of the plasma is small, so there is drift between the charged component of the gas and the neutrals, *ambipolar diffusion*. As we will see in @sec-flux, ambipolar diffusion plays an important role, for example, in star formation.
 
 ## Ohm's Law
 
@@ -46,18 +46,19 @@ We need two more equations, in addition to the equation of state, to close @eq-m
 The electric current in the plasma $\vb{j}$ is proportional to the electric field $\vb{E}'$ in the frame of the plasma (in which $\vb{v}= 0$): $\vb{j}= \sigma \vb{E}'$.
 :::
 
-The quantity $\sigma$ is called the *electrical conductivity*, it is the inverse of the *electrical resistivity* $\eta = 1 / \sigma$, which you might be familiar from electromagnetism. In CGS units[^mhd-1]
+The quantity $\sigma$ is called the *electrical conductivity*, it is the inverse of the *electrical resistivity* $\eta = 1 / \sigma$, which you might be familiar with from electromagnetism. In CGS units[^mhd-1]
 $$
 [\vb{E}] = \mathrm{cm}^{- 1 / 2} \mathrm{g}^{1 / 2} \mathrm{s}^{- 1},
-\qquad [\vb{j}] = \mathrm{cm}^{- 3 / 2} \mathrm{g}^{1 / 2} \mathrm{s},
+\qquad [\vb{j}] = \mathrm{cm}^{- 3 / 2} \mathrm{g}^{1 / 2} \mathrm{s}^{- 1},
 $$ {#eq-mhd-5}
-so the units of electrical conductivity is
+so the units of electrical conductivity are
 $$
-[\sigma] = \mathrm{cm}^{- 1} \mathrm{s}^2 .
+[\sigma] = \mathrm{cm}^{- 1} .
 $$ {#eq-mhd-6}
+Because of the factor $1 / c$ in $\vb{j}$, our $\sigma$ is the usual electrical conductivity, which has units of $\mathrm{s}^{-1}$, divided by $c$.
 Again, note that in CGS units all electromagnetic quantities have units that can be expressed in terms of fundamental length, time, and mass. Charge and current are not independent quantities. This means that the Maxwell and MHD equations do not have new fundamental constants. Be very careful not to mix CGS and SI units, because the equations are different in the two cases.
 
-One subtlety with the new assumption is what we mean for the "electric field in the frame of the plasma". The hydrodynamics equations are invariant with respect to Galilean transformations, that if $\vb{u}$ is a velocity in the Eulerian frame, then in the fluid frame we have
+One subtlety with the new assumption is what we mean for the "electric field in the frame of the plasma". The hydrodynamics equations are invariant with respect to Galilean transformations, that is, if $\vb{u}$ is a velocity in the Eulerian frame, then in the fluid frame we have
 $$
 \vb{u}' =\vb{u}-\vb{v}.
 $$ {#eq-mhd-7}
@@ -79,7 +80,7 @@ $$
 \vb{j}' = \sigma \vb{E}' \Longrightarrow \vb{j}= \sigma \left(
 \vb{E}+ \frac{\vb{v} \times \vb{B}}{c} \right) .
 $$ {#eq-mhd-9}
-In Ampere's law[^mhd-2],
+In Ampère's law (recall that we have absorbed a factor $1 / c$ in $\vb{j}$),
 $$
 \nabla \times \vb{B}= 4 \pi \vb{j}+ \frac{1}{c}  \frac{\partial
 \vb{E}}{\partial t},
@@ -112,7 +113,7 @@ $$
 \frac{\vb{v} \times \vb{B}}{c} \Longrightarrow \vb{E}= \eta
 \vb{j}- \frac{\vb{v} \times \vb{B}}{c} .
 $$ {#eq-mhd-15}
-We use again Ampere's law to remove $\vb{j}= \frac{1}{4 \pi} \nabla \times \vb{B}$:
+We use again Ampère's law to remove $\vb{j}= \frac{1}{4 \pi} \nabla \times \vb{B}$:
 $$
 \vb{E}= \frac{\eta}{4 \pi} \nabla \times \vb{B}- \frac{\vb{v}
 \times \vb{B}}{c} .
@@ -135,22 +136,37 @@ $$
 \boxed{\frac{\partial \vb{B}}{\partial t} = \nabla \times
 (\vb{v} \times \vb{B}) + \frac{c \eta}{4 \pi} \nabla^2 \vb{B}.}
 $$ {#eq-mhd-19}
-This is the last equation. The full set of MHD equation is
+The coefficient $c \eta / 4 \pi$ has units of $\mathrm{cm^2\,s^{-1}}$ and is called the *magnetic diffusivity*. It is extremely small in most astrophysical systems.
+
+::: {.callout-tip icon=false}
+## Example
+
+Consider the warm interstellar medium, with $T \approx 10^4\,\mathrm{K}$. Its magnetic diffusivity is $c \eta / 4 \pi \approx 5 \times 10^6\,\mathrm{cm^2\,s^{-1}}$ (@eq-flux-27). Consider a region of size $L \sim 1\,\mathrm{pc}$ in which the gas moves with velocity $v \sim 10\,\mathrm{km\,s^{-1}}$. The ratio between the time it takes for the magnetic field to diffuse over the region, $L^2 / (c \eta / 4 \pi)$, and the time it takes for the gas to cross it, $L / v$, is
+$$
+\mathrm{R}_M = \frac{L v}{c \eta / 4 \pi} \sim 6 \times 10^{17} .
+$$ {#eq-mhd-rm-ism}
+This is the magnetic Reynolds number, which we will discuss in @sec-flux. For comparison, copper has a conductivity of about $6 \times 10^{17}\,\mathrm{s^{-1}}$ (in the usual units), so its magnetic diffusivity is $c^2 / (4 \pi \sigma) \approx 120\,\mathrm{cm^2\,s^{-1}}$. A copper bar of length $1\,\mathrm{m}$ moving with velocity $1\,\mathrm{m\,s^{-1}}$ has $\mathrm{R}_M \sim 100$. In other words, resistivity is negligible in astrophysics, but not in the laboratory. Even liquid-metal experiments designed to study the generation of magnetic fields struggle to reach $\mathrm{R}_M \sim 10^3$.
+:::
+
+This is the last equation. The full set of MHD equations is
 $$
 \begin{aligned}
 \frac{\dd \rho}{\dd t} &= - \rho \nabla \cdot \vb{v}, \\
 \rho \frac{\dd \vb{v}}{\dd t} &= \frac{1}{4 \pi}  (\nabla
 \times \vb{B}) \times \vb{B}- \nabla p - \rho \nabla \Psi, \\
-\rho \frac{\dd \varepsilon}{\dd t} &= - p \nabla \cdot \vb{v}, \\
+\rho \frac{\dd \varepsilon}{\dd t} &= - p \nabla \cdot \vb{v} + c \eta j^2, \\
 \frac{\partial \vb{B}}{\partial t} &= \nabla \times (\vb{v} \times
-\vb{B}) + \frac{c \eta}{4 \pi} \nabla^2 \vb{B}.
+\vb{B}) + \frac{c \eta}{4 \pi} \nabla^2 \vb{B}, \\
+\nabla \cdot \vb{B} &= 0,
 \end{aligned}
-$$ {#eq-mhd-20}
-They can be converted to the Eulerian frame with the usual substitution
+$$ {#eq-mhd-21}
+where $\vb{j} = \nabla \times \vb{B} / 4 \pi$. The last term in the energy equation describes the heating of the plasma by the electric currents, also known as Joule (or Ohmic) heating. It vanishes in ideal MHD. The last equation, $\nabla \cdot \vb{B} = 0$, is a constraint on the initial data. If it is satisfied at $t = 0$, the induction equation guarantees that it is satisfied at all times, because the divergence of a curl vanishes (see the in-class worksheet).
+
+The first three equations can be converted to the Eulerian frame with the usual substitution
 $$
 \frac{\dd}{\dd t} \longrightarrow \frac{\partial}{\partial t} +
 (\vb{v} \cdot \nabla) .
-$$ {#eq-mhd-21}
+$$ {#eq-mhd-22}
 If $\eta = 0$, these are known as the ideal-MHD equations. If $\eta > 0$, these are called the resistive-MHD equations.
 
 ## Conservation Laws
@@ -165,24 +181,31 @@ $$
 & \qquad\qquad - \frac{\vb{B} \otimes \vb{B}}{4 \pi} \biggr]
 =\vb{f},
 \end{aligned}}
-$$ {#eq-mhd-22}
-where $\vb{f}$ is some external force, e.g., gravity. The derivation of this equation is tedious, but straight forward. Here, we limit ourselves to discuss a couple of the consequences of this equation. The first is that the magnetic field does not contribute to the momentum $\rho \vb{v}$, consistently with @cnj-mhd-drift. This is not the case in relativistic MHD, in which the inertia of the electromagnetic field is also taken into account. Second, we see that the Lorentz force splits into two components: one that resembles an additional pressure term $B^2 / 8 \pi$, plus a term proportional to $\vb{B} \otimes \vb{B}$. We will discuss these terms in more detail in the next set of notes.
+$$ {#eq-mhd-23}
+where $\vb{f}$ is some external force, e.g., gravity. To derive this equation, we use the vector identity
+$$
+(\nabla \times \vb{B}) \times \vb{B} = (\vb{B} \cdot \nabla) \vb{B} - \nabla \left( \frac{B^2}{2} \right)
+$$ {#eq-mhd-curl-identity}
+and the fact that, since $\nabla \cdot \vb{B} = 0$,
+$$
+\nabla \cdot (\vb{B} \otimes \vb{B}) = (\vb{B} \cdot \nabla) \vb{B} + \vb{B} (\nabla \cdot \vb{B}) = (\vb{B} \cdot \nabla) \vb{B} .
+$$ {#eq-mhd-bb-divergence}
+So the Lorentz force can be written as the divergence of a tensor, $\frac{1}{4 \pi} (\nabla \times \vb{B}) \times \vb{B} = - \nabla \cdot \left[ \frac{B^2}{8 \pi} \vb{I} - \frac{\vb{B} \otimes \vb{B}}{4 \pi} \right]$, and the rest of the derivation is the same as in @sec-conserv. Here, we limit ourselves to discuss a couple of the consequences of this equation. The first is that the magnetic field does not contribute to the momentum $\rho \vb{v}$, consistently with @cnj-mhd-drift. This is not the case in relativistic MHD, in which the inertia of the electromagnetic field is also taken into account. Second, we see that the Lorentz force splits into two components: one that resembles an additional pressure term $B^2 / 8 \pi$, plus a term proportional to $\vb{B} \otimes \vb{B}$. We will discuss these terms in more detail in @sec-tension.
 
-The energy conservation equation now takes into account both the gas energy and the energy in the electromagnetic field and can be obtained by combining the gas-dynamics energy equation with the Poynting theorem. Specifically, the equation describing the energy conservation for the gas is
+The energy conservation equation now takes into account both the gas energy and the energy in the electromagnetic field and can be obtained by combining the gas-dynamics energy equation with the Poynting theorem. For simplicity, we consider ideal MHD ($\eta = 0$). The equation describing the energy conservation for the gas (@eq-conserv-ch6-eq-energy-total) is
 $$
 \begin{aligned}
-& \frac{\partial e}{\partial t} + \nabla \cdot [(e + p) \vb{v}]
-=\vb{f} \cdot \vb{v}+ (\vb{j} \times \vb{B}) \cdot
-\vb{v}, \\
-& e = \rho \varepsilon + \tfrac{1}{2} \rho v^2 .
+& \frac{\partial}{\partial t} \left[ \rho \left( \varepsilon + \tfrac{1}{2} v^2 \right) \right] + \nabla \cdot \left[ \left( \rho \varepsilon + \tfrac{1}{2} \rho v^2 + p \right) \vb{v} \right] \\
+& \qquad =\vb{f} \cdot \vb{v}+ (\vb{j} \times \vb{B}) \cdot
+\vb{v} .
 \end{aligned}
 $$ {#eq-mhd-gas-energy}
 This is just the usual energy equation, with the inclusion of a new term representing the work done by the Lorentz force. The latter can be rewritten using @eq-mhd-efield as
 $$
 (\vb{j} \times \vb{B}) \cdot \vb{v}= - (\vb{v} \times
 \vb{B}) \cdot \vb{j}= c\vb{E} \cdot \vb{j}.
-$$ {#eq-mhd-24}
-You might recognize this as being the energy sink term in the Poynting equation:
+$$ {#eq-mhd-27}
+You might recognize this as being the energy sink term in the Poynting theorem (@eq-plasma-poynting), which in our units reads
 $$
 \frac{\partial u_{\mathrm{EM}}}{\partial t} + \nabla \cdot \vb{S}= -
 c\vb{j} \cdot \vb{E},
@@ -191,53 +214,58 @@ where $u_{\mathrm{EM}}$ is the electromagnetic field energy, which in our case i
 $$
 u_{\mathrm{EM}} = \frac{B^2 + E^2}{8 \pi} \approx \frac{B^2}{8 \pi} =
 u_{\mathrm{B}},
-$$ {#eq-mhd-26}
+$$ {#eq-mhd-29}
 consistently with our assumption that the dynamics is nonrelativistic. The Poynting vector is, using again @eq-mhd-efield:
 $$
 \vb{S}= \frac{c}{4 \pi}  (\vb{E} \times \vb{B}) =
 \frac{\vb{B} \times (\vb{v} \times \vb{B})}{4 \pi} .
-$$ {#eq-mhd-27}
+$$ {#eq-mhd-30}
 Combining @eq-mhd-gas-energy and @eq-mhd-poynting, we obtain
 $$
-\frac{\partial (e + u_{\mathrm{B}})}{\partial t} + \nabla \cdot [(e + p)
-\vb{v}+\vb{S}] =\vb{f} \cdot \vb{v}.
-$$ {#eq-mhd-28}
+\begin{aligned}
+& \frac{\partial}{\partial t} \left[ \rho \left( \varepsilon + \tfrac{1}{2} v^2 \right) + u_{\mathrm{B}} \right] \\
+& \quad + \nabla \cdot \left[ \left( \rho \varepsilon + \tfrac{1}{2} \rho v^2 + p \right) \vb{v}+\vb{S} \right] =\vb{f} \cdot \vb{v}.
+\end{aligned}
+$$ {#eq-mhd-31}
 In full form:
 $$
 \boxed{
 \begin{aligned}
 & \partial_t  \left[ \rho \left( \varepsilon + \tfrac{1}{2} v^2
 \right) + \frac{B^2}{8 \pi} \right] \\
-& \quad + \nabla \cdot \left[ (e + p)
-\vb{v}+ \frac{\vb{B} \times (\vb{v} \times \vb{B})}{4 \pi}
-\right] =\vb{f} \cdot \vb{v}.
+& \quad + \nabla \cdot \biggl[ \left( \rho \varepsilon + \tfrac{1}{2} \rho v^2 + p \right)
+\vb{v} \\
+& \qquad\qquad + \frac{\vb{B} \times (\vb{v} \times \vb{B})}{4 \pi}
+\biggr] =\vb{f} \cdot \vb{v}.
 \end{aligned}}
-$$ {#eq-mhd-29}
-This equation highlights the fact that magnetic and fluid energies are not separately conserved, but their sum is. In other words, it is possible to convert gas kinetic energy into magnetic energy (*dynamo effect*) or magnetic energy into kinetic and internal energy (*magnetic reconnection*).
+$$ {#eq-mhd-32}
+This equation highlights the fact that magnetic and fluid energies are not separately conserved, but their sum is. In other words, it is possible to convert gas kinetic energy into magnetic energy (*dynamo effect*) or magnetic energy into kinetic and internal energy (*magnetic reconnection*, @sec-flux). In resistive MHD, @eq-mhd-32 still holds. In this case, @eq-mhd-27 has an additional term, $- c \eta j^2$, and the Poynting flux has an additional term proportional to $\eta$. However, these are exactly compensated by the Joule heating in the energy equation of the gas. In other words, the magnetic energy dissipated by the electric currents is transferred to the internal energy of the gas.
 
 ## In-class worksheet {#sec-mhd-worksheet}
 
 1.  Write the Maxwell equations in CGS units.
 
-2.  Write Ampere's law in the nonrelativistic limit. Use it to eliminate the current in the Lorentz force per unit volume experienced by a magnetized fluid:
+2.  Write Ampère's law in the nonrelativistic limit. Use it to eliminate the current in the Lorentz force per unit volume experienced by a magnetized fluid:
     $$
     \vb{f}=\vb{j} \times \vb{B}.
     $$ {#eq-mhd-ws1}
 
-3.  Write the Ohm's law for an electrically conducting, quasi-neutral fluid. Use it to eliminate the electric field in Faraday's law.
+3.  Write Ohm's law for an electrically conducting, quasi-neutral fluid. Use it to eliminate the electric field in Faraday's law.
+
+4.  Show that, if $\nabla \cdot \vb{B} = 0$ at $t = 0$, then the induction equation guarantees that $\nabla \cdot \vb{B} = 0$ at all times.
 
 ## Exercises {#sec-mhd-exercises}
 
 ::: {#exr-mhd-solar-wind}
 ## Angular momentum of the solar wind
 
-1.  Starting from the equations of ideal-MHD, show that the angular momentum of plasma,
+1.  Starting from the equations of ideal MHD, show that the angular momentum of the plasma,
     $$
-    J = \int_V \vb{r} \times \rho \vb{v} \dd V,
+    \vb{J} = \int_V \vb{r} \times \rho \vb{v} \dd V,
     $$ {#eq-mhd-angular-momentum}
-    subject to an external force per unit mass $\vb{f}$, satisfies
+    subject to an external force per unit volume $\vb{f}$, satisfies
     $$
-    \frac{\dd J}{\dd t} = \int_V \vb{r} \times \vb{f} \dd V
+    \frac{\dd \vb{J}}{\dd t} = \int_V \vb{r} \times \vb{f} \dd V
     - \oint_S \left[ (\vb{v} \cdot \dd \vb{S})  (\vb{r} \times
     \rho \vb{v}) + \left( p + \tfrac{B^2}{8 \pi} \right) \vb{r}
     \times \dd \vb{S}- \tfrac{1}{4 \pi}  (\vb{r} \times
@@ -245,18 +273,18 @@ This equation highlights the fact that magnetic and fluid energies are not separ
     $$ {#eq-mhd-angular-momentum-balance}
     \[Hint. Follow the steps of @exr-conserv-angular-momentum.\]
 
-2.  Assume that the magnetic field is stationary in a frame rotating with the angular velocity of the Sun. Show that if the solar wind is infinitely conducting, then (in cylindrical coordinates $r, \phi, z$)
+2.  Assume that the magnetic field is stationary in a frame rotating with the angular velocity of the Sun. Show that if the solar wind is infinitely conducting, then (in cylindrical coordinates $R, \phi, z$)
     $$
     B_{\phi} v_R = (v_{\phi} - \Omega R) B_R,
     $$ {#eq-mhd-corotation}
     where $\Omega$ is the angular velocity of the Sun.
 
-3.  Assuming that the angular torque $\dot{J}$ across a cylinder of height $2 R$ is constant with $R$. Show that it can be written as
+3.  Let $\dot{J}$ be the $z$-component of the torque across a cylinder of radius $R$ and height $2 R$. Assume that $\dot{J}$ does not depend on $R$, and neglect the flux of angular momentum through the top and bottom of the cylinder. Show that $\dot{J}$ can be written as
     $$
     - \dot{J} = 2 \pi \int_{- R}^R \left( R \rho v_R v_{\phi} - R
     \frac{B_{\phi} B_R}{4 \pi} \right) R \dd z.
     $$ {#eq-mhd-torque}
-    Assume that the expression in parenthesis is independent of $z$, and that $4 \pi \rho R^2 v_R$, the Solar wind flux through the cylinder, is a constant. Show that
+    Assume that the expression in parenthesis is independent of $z$, and that $4 \pi \rho R^2 v_R$, the mass flux of the solar wind through the cylinder, is a constant. Show that
     $$
     - \frac{\dot{J}}{4 \pi \rho R^2 v_R} = Rv_{\phi}  \left( 1 - \frac{B_R^2}{4 \pi
     \rho v_R^2} \right) + \frac{B_R^2}{4 \pi \rho v_R^2} \Omega R^2 .
@@ -264,7 +292,7 @@ This equation highlights the fact that magnetic and fluid energies are not separ
 
 4.  There is a radius, $R_A$, called the Alfvén radius where the radial Alfvén speed $v_A = B_R / \sqrt{4 \pi \rho}$ is equal to $v_R$. Evaluate the angular momentum loss per unit mass at this radius and show that it is equal to $\Omega R_A^2$.
 
-5.  If $R_A$ is 10 $R_{\odot}$, approximately what fraction of its mass must the Sun lose to slow its rotation down? Take the moment of inertia of the Sun to be $0.06 M_{\odot} R_{\odot}^2$. What fraction of its mass has the Sun lost in 5 billion years if the solar wind was steady and the number density at the Earth is $10 \, \mathrm{cm}^{- 3}$ and the velocity is $300 \, \mathrm{km} / \mathrm{s}$?
+5.  If $R_A$ is 10 $R_{\odot}$, approximately what fraction of its mass must the Sun lose to slow its rotation down by a factor of 2? Take the moment of inertia of the Sun to be $0.06 M_{\odot} R_{\odot}^2$. What fraction of its mass has the Sun lost in 5 billion years if the solar wind was steady and the number density at the Earth is $10 \, \mathrm{cm}^{- 3}$ and the velocity is $300 \, \mathrm{km} / \mathrm{s}$?
 :::
 
 ::: {.content-visible when-profile="solutions"}
@@ -278,13 +306,13 @@ This equation highlights the fact that magnetic and fluid energies are not separ
     Proceeding as in the solution of @exr-conserv-angular-momentum, we find
     $$
     \frac{\partial \vb{m}}{\partial t} + \nabla \cdot \left[ \vb{m}
-    \otimes \vb{v}+ \left( p + \tfrac{B^2}{8 \pi} \right) \vb{R}
+    \otimes \vb{v}+ \left( p + \tfrac{B^2}{8 \pi} \right) \vb{A}
     \right] = \frac{\vb{r} \times (\vb{B} \cdot \nabla) \vb{B}}{4
     \pi},
     $$
-    where $\vb{m}= \rho \vb{r} \times \vb{v}$ is the angular momentum density and
+    where $\vb{m}= \rho \vb{r} \times \vb{v}$ is the angular momentum density (we use $\vb{m}$ to avoid confusion with the current) and
     $$
-    \vb{R}= \left(\begin{array}{ccc}
+    \vb{A}= \left(\begin{array}{ccc}
     0 & - z & y\\
     z & 0 & - x\\
     - y & x & 0
@@ -300,28 +328,29 @@ This equation highlights the fact that magnetic and fluid energies are not separ
     since $\nabla \vb{r}=\vb{I}$. This can be checked by expanding all terms. This gives the equation for conservation of the angular momentum
     $$
     \frac{\partial \vb{m}}{\partial t} + \nabla \cdot \left[ \vb{m}
-    \otimes \vb{v}+ \left( p + \tfrac{B^2}{8 \pi} \right) \vb{R}-
+    \otimes \vb{v}+ \left( p + \tfrac{B^2}{8 \pi} \right) \vb{A}-
     \frac{(\vb{r} \times \vb{B}) \otimes \vb{B}}{4 \pi} \right] =
     0.
     $$
     Integrating this equation over a control volume $V$ and using Gauss theorem gives
     $$
-    \frac{\dd J}{\dd t} = \int_V \vb{r} \times \vb{f} \dd V
+    \frac{\dd \vb{J}}{\dd t} = \int_V \vb{r} \times \vb{f} \dd V
     - \oint_S \left[ (\vb{v} \cdot \dd \vb{S})  (\vb{r} \times
     \rho \vb{v}) + \left( p + \tfrac{B^2}{8 \pi} \right) \vb{r}
     \times \dd \vb{S}- \tfrac{1}{4 \pi}  (\vb{r} \times
-    \vb{B})  (\vb{B} \cdot \dd \vb{S}) \right]
+    \vb{B})  (\vb{B} \cdot \dd \vb{S}) \right] ,
     $$
+    where we have added back the torque due to the external force.
 
-2.  For the $\vb{B}$-field to be stationary in the rotating frame, the electric field should be zero
+2.  In the frame rotating with the Sun, in which the magnetic field is stationary, the electric field must vanish. In this frame, the velocity of the gas is $\vb{v} - \vb{\Omega} \times \vb{R}$, so
     $$
-    0 =\vb{E}= - \frac{(\vb{v}-\vb{\Omega} \times \vb{R})
+    0 =\vb{E}' = - \frac{(\vb{v}-\vb{\Omega} \times \vb{R})
     \times \vb{B}}{c} .
     $$
     The two terms on the numerator are
     $$
     (\vb{\Omega} \times \vb{R}) \times \vb{B}= \Omega RB_z
-    \hat{\vb{R}} - \Omega R \hat{\vb{z}}, \qquad (\vb{v} \times
+    \hat{\vb{R}} - \Omega R B_R \hat{\vb{z}}, \qquad (\vb{v} \times
     \vb{B}) \cdot \hat{\vb{z}} = v_R B_{\phi} - v_{\phi} B_R .
     $$
     So for the electric field to vanish, we must have
@@ -329,11 +358,11 @@ This equation highlights the fact that magnetic and fluid energies are not separ
     B_{\phi} v_R = (v_{\phi} - \Omega R) B_R .
     $$
 
-3.  Using the results from point 1, the angular torque on a cylinder of height $2 R$ is
+3.  Using the results from point 1, the torque on a cylinder of height $2 R$ is
     $$
-    - \dot{J} = \int_{\operatorname{cyl}} (\vb{v} \cdot \dd \vb{S})
+    - \dot{J} = \int_{\mathrm{cyl}} (\vb{v} \cdot \dd \vb{S})
     (\vb{R} \times \rho \vb{v}) \cdot \hat{\vb{z}} -
-    \int_{\operatorname{cyl}} \tfrac{1}{4 \pi} [ (\vb{R} \times \vb{B}) \cdot
+    \int_{\mathrm{cyl}} \tfrac{1}{4 \pi} [ (\vb{R} \times \vb{B}) \cdot
     \hat{\vb{z}}]  (\vb{B} \cdot \dd \vb{S}) .
     $$
     Note that $\vb{R} \times \dd \vb{S}= 0$. Assuming azimuthal symmetry, $\dot{J}$ can be simplified as
@@ -341,7 +370,7 @@ This equation highlights the fact that magnetic and fluid energies are not separ
     - \dot{J} = 2 \pi \int_{- R}^R R \dd z \left( R \rho v_R v_{\phi} -
     \tfrac{1}{4 \pi} RB_{\phi} B_R \right) .
     $$
-    Assuming the the quantities in parenthesis do not depend on $z$, we find
+    Assuming that the quantities in parenthesis do not depend on $z$, we find
     $$
     - \dot{J} = 4 \pi R^2  \left( R \rho v_R v_{\phi} - \tfrac{1}{4 \pi}
     RB_{\phi} B_R \right) .
@@ -350,7 +379,7 @@ This equation highlights the fact that magnetic and fluid energies are not separ
     $$
     B_{\phi} B_R = \frac{1}{v_R}  (v_{\phi} - \Omega R) B_R^2 .
     $$
-    Dividing both terms for $\dot{J}$ by $4 \pi R^2 \rho v_R$, we find
+    Dividing both terms by $4 \pi R^2 \rho v_R$, we find
     $$
     - \frac{\dot{J}}{4 \pi \rho R^2 v_R} = Rv_{\phi}  \left( 1 -
     \frac{B_R^2}{4 \pi \rho v_R^2} \right) + \frac{B_R^2}{4 \pi \rho v_R^2}
@@ -360,7 +389,7 @@ This equation highlights the fact that magnetic and fluid energies are not separ
 4.  The mass outflow rate from the cylinder is
     $$
     \dot{M} = 2 \pi \int_{- R}^R \rho v_R R \dd z = 4 \pi \rho v_R R^2 =
-    \operatorname{const},
+    \mathrm{const},
     $$
     so the LHS of the equation for $\dot{J}$ does not depend on the radius. The RHS must also be independent from $R$. We can evaluate it at the Alfvén radius at which:
     $$
@@ -381,21 +410,21 @@ This equation highlights the fact that magnetic and fluid energies are not separ
     $$
     Integrating this equation, we find
     $$
-    \log (\Omega_1 / \Omega_0) = \frac{100}{0.06} \log (M_1 / M_0),
+    \ln (\Omega_1 / \Omega_0) = \frac{100}{0.06} \ln (M_1 / M_0),
     $$
-    so for the Sun to loose 50% of its angular momentum the mass should decrease by
+    so for the Sun to lose 50% of its angular momentum the mass should decrease by
     $$
     \frac{\Delta M_{\odot}}{M_{\odot}} = 1 - \exp \left( \frac{0.06}{100}
-    \log (1 / 2) \right) = 4.15 \times 10^{- 4} .
+    \ln (1 / 2) \right) = 4.15 \times 10^{- 4} .
     $$
     The small change justifies taking $\dot{I} \approx 0$.
 
     The amount of mass lost can be computed as
     $$
-    \frac{4 \pi R_{\operatorname{Earth}}^2 \rho v_r t}{M_{\odot}} \approx 1.13 \times
+    \frac{4 \pi (1\,\mathrm{AU})^2 \rho v_R t}{M_{\odot}} \approx 1.1 \times
     10^{- 4},
     $$
-    where we have taken $\rho = nm_p \approx 1.67 \times 10^{- 23} \mathrm{g} \mathrm{cm}^{- 3}$. So the Sun has not lost a substantial amount of its initial angular velocity.
+    where we have taken $\rho = nm_p \approx 1.67 \times 10^{- 23} \mathrm{g} \mathrm{cm}^{- 3}$. This corresponds to $\Omega_1 / \Omega_0 = (1 - 1.1 \times 10^{-4})^{100 / 0.06} \approx 0.83$. In other words, if the solar wind had always been the same as today, the Sun would have lost about 17% of its angular velocity. Observations of young solar-type stars show that the Sun was rotating about ten times faster when it was young, so the solar wind (or its magnetic field) must have been much stronger in the past.
 :::
 :::
 
@@ -404,5 +433,3 @@ This equation highlights the fact that magnetic and fluid energies are not separ
 - @clarke2007, Chapter 13 (plasmas).
 
 [^mhd-1]: Remember that we have absorbed a factor $1 / c$ into $\vb{j}$, so that $\vb{j} \times \vb{B}$ has units of force per unit volume.
-
-[^mhd-2]: Note that we have absorbed a factor $1 / c$ in the definition of $\vb{j}$.

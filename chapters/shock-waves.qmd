@@ -27,10 +27,10 @@ This chapter is in preparation.
     This data can be fitted to infer the following parameters for the upstream and downstream electron density and temperature:
     $$
     \begin{gathered}
-    n_1 = 3.7 \times 10^{- 3} \operatorname{cm}^{- 3}, \quad T_1 = 9.3 \times 10^7
+    n_1 = 3.7 \times 10^{- 3} \mathrm{cm}^{- 3}, \quad T_1 = 9.3 \times 10^7
     \mathrm{K}, \\
-    n_2 = 9.3 \cdot 10^{- 3} \operatorname{cm}^{- 3}, \quad T_2 =
-    2.2 \cdot 10^8 \mathrm{K}.
+    n_2 = 9.3 \times  10^{- 3} \mathrm{cm}^{- 3}, \quad T_2 =
+    2.2 \times  10^8 \mathrm{K}.
     \end{gathered}
     $$ {#eq-shock-2}
     Estimate
@@ -44,7 +44,7 @@ This chapter is in preparation.
 ::: {#exr-shock-piston}
 ## Piston-driven shock
 
-A piston drives a strong shock wave through a cold gas that is initially at rest; similar considerations are used to describe young supernova remnants. The piston moves at speed $v_p$ and has a mass per unit surface area $\sigma M_p$. The gas follows a gamma-law equation of state
+A piston drives a strong shock wave through a cold gas that is initially at rest; similar considerations are used to describe young supernova remnants. The piston moves at speed $v_p$ and has a mass per unit surface area $\Sigma_p$. The gas follows a gamma-law equation of state
 $$
 p = (\Gamma - 1) \rho \varepsilon .
 $$ {#eq-shock-3}
@@ -88,12 +88,12 @@ Adapted from @kulsrud2005, Problem 4.6.
     p_2 v_p = \frac{2}{\Gamma + 1} \rho_1  \left( \frac{\Gamma + 1}{2}
     \right)^2 v_p^3 = \frac{\Gamma + 1}{2} \rho_1 v_p^3 .
     $$
-    The kinetic energy of the piston per unit area is $\frac{1}{2} \sigma M_p v_p^2$. The kinetic energy equals the work done by the piston up to time $t$ when
+    The kinetic energy of the piston per unit area is $\frac{1}{2} \Sigma_p v_p^2$. The kinetic energy equals the work done by the piston up to time $t$ when
     $$
-    \frac{1}{2} \sigma M_p v_p^2 = \frac{\Gamma + 1}{2} \rho_1 v_p^3 t
-    \Longrightarrow \sigma M_p = (\Gamma + 1) v_p \rho_1 t = 2 s \rho_1 t.
+    \frac{1}{2} \Sigma_p v_p^2 = \frac{\Gamma + 1}{2} \rho_1 v_p^3 t
+    \Longrightarrow \Sigma_p = (\Gamma + 1) v_p \rho_1 t = 2 s \rho_1 t.
     $$
-    So the piston starts decelerating when $s \rho_1 \sim \sigma M_p$, that is once the shock has swept a mass of material comparable to the mass of the piston.
+    So the piston starts decelerating when $s \rho_1 \sim \Sigma_p$, that is once the shock has swept a mass of material comparable to the mass of the piston.
 :::
 :::
 

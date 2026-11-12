@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 290" width="480" height="290" role="img" aria-labelledby="shock-t shock-d">
 <title id="shock-t">Isothermal shock with perpendicular magnetic field</title>
-<desc id="shock-d">A vertical line marks the shock. The gas ahead of it (right) has density rho1, velocity u1 and field B1; the gas behind it (left) has density rho2, velocity u2 and field B2. The magnetic field points out of the page (circled dots) on both sides, and the flow u (blue arrow) moves leftwards, through the shock. The gas is isothermal, p = a^2 rho.</desc>
+<desc id="shock-d">A vertical line marks the shock. The gas ahead of it (right) has density rho1, velocity u1 and field B1; the gas behind it (left) has density rho2, velocity u2 and field B2. The magnetic field points out of the page (circled dots) on both sides, and the flow u (blue arrow) moves leftwards, through the shock. The gas is isothermal, p = c_iso^2 rho.</desc>
 <defs><marker id="ah-k" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#000" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker><marker id="ah-1f4fbf" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#1f4fbf" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker></defs>
 <rect width="480" height="290" fill="#fff"/>
 <g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif">
 <line x1="262.0" y1="30.0" x2="262.0" y2="255.0" stroke="#000" stroke-width="3.0"/>
-<text x="40" y="52" text-anchor="start" font-size="22" font-style="italic" font-weight="normal" fill="#000">p = a<tspan dy="-8.0" font-size="15.8" font-style="normal">2</tspan><tspan dy="8"> ρ</tspan></text>
+<text x="40" y="52" text-anchor="start" font-size="22" font-style="italic" font-weight="normal" fill="#000">p = c<tspan dy="5.0" font-size="15.8" font-style="normal">iso</tspan><tspan dy="-13" font-size="15.8" font-style="normal">2</tspan><tspan dy="8"> ρ</tspan></text>
 <circle cx="185.0" cy="105.0" r="12" fill="none" stroke="#0b6e0b" stroke-width="1.6"/>
 <circle cx="185" cy="105" r="4.2" fill="#0b6e0b"/>
 <circle cx="312.0" cy="105.0" r="12" fill="none" stroke="#0b6e0b" stroke-width="1.6"/>

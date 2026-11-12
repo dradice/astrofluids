@@ -7,7 +7,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-08T20:19:58.669787</dc:date>
+    <dc:date>2026-11-11T19:10:28.078839</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -74,7 +74,7 @@ z
      <g id="line2d_1">
       <path d="M 152.34 174.276 
 L 258.2575 174.276 
-" clip-path="url(#p3e41838c8e)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p26dd78d6d8)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_1">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: middle" x="272.2575" y="178.026" transform="rotate(-0 272.2575 178.026)">0°</text>
@@ -84,7 +84,7 @@ L 258.2575 174.276
      <g id="line2d_2">
       <path d="M 152.34 174.276 
 L 227.234982 99.381018 
-" clip-path="url(#p3e41838c8e)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p26dd78d6d8)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_2">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: middle" x="237.134477" y="93.231523" transform="rotate(-0 237.134477 93.231523)">45°</text>
@@ -94,7 +94,7 @@ L 227.234982 99.381018
      <g id="line2d_3">
       <path d="M 152.34 174.276 
 L 152.34 68.3585 
-" clip-path="url(#p3e41838c8e)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p26dd78d6d8)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_3">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: middle" x="152.34" y="58.1085" transform="rotate(-0 152.34 58.1085)">90°</text>
@@ -104,7 +104,7 @@ L 152.34 68.3585
      <g id="line2d_4">
       <path d="M 152.34 174.276 
 L 77.445018 99.381018 
-" clip-path="url(#p3e41838c8e)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p26dd78d6d8)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_4">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: middle" x="67.545523" y="93.231523" transform="rotate(-0 67.545523 93.231523)">135°</text>
@@ -114,7 +114,7 @@ L 77.445018 99.381018
      <g id="line2d_5">
       <path d="M 152.34 174.276 
 L 46.4225 174.276 
-" clip-path="url(#p3e41838c8e)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p26dd78d6d8)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_5">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: middle" x="32.4225" y="178.026" transform="rotate(-0 32.4225 178.026)">180°</text>
@@ -124,7 +124,7 @@ L 46.4225 174.276
      <g id="line2d_6">
       <path d="M 152.34 174.276 
 L 77.445018 249.170982 
-" clip-path="url(#p3e41838c8e)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p26dd78d6d8)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_6">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: middle" x="67.545523" y="262.820477" transform="rotate(-0 67.545523 262.820477)">225°</text>
@@ -134,7 +134,7 @@ L 77.445018 249.170982
      <g id="line2d_7">
       <path d="M 152.34 174.276 
 L 152.34 280.1935 
-" clip-path="url(#p3e41838c8e)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p26dd78d6d8)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_7">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: middle" x="152.34" y="297.9435" transform="rotate(-0 152.34 297.9435)">270°</text>
@@ -144,7 +144,7 @@ L 152.34 280.1935
      <g id="line2d_8">
       <path d="M 152.34 174.276 
 L 227.234982 249.170982 
-" clip-path="url(#p3e41838c8e)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p26dd78d6d8)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_8">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: middle" x="237.134477" y="262.820477" transform="rotate(-0 237.134477 262.820477)">315°</text>
@@ -171,7 +171,7 @@ C 155.2377 196.342146 158.107223 195.771362 160.784348 194.66246
 C 163.461474 193.553559 165.894138 191.928104 167.943121 189.879121 
 C 169.992104 187.830138 171.617559 185.397474 172.72646 182.720348 
 C 173.835362 180.043223 174.406146 177.1737 174.406146 174.276 
-" clip-path="url(#p3e41838c8e)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p26dd78d6d8)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_9">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: start" x="163.373073" y="152.25522" transform="rotate(-0 163.373073 152.25522)">0.5</text>
@@ -196,7 +196,7 @@ C 158.135399 218.408292 163.874446 217.266724 169.228697 215.048921
 C 174.582948 212.831118 179.448276 209.580209 183.546243 205.482243 
 C 187.644209 201.384276 190.895118 196.518948 193.112921 191.164697 
 C 195.330724 185.810446 196.472292 180.071399 196.472292 174.276 
-" clip-path="url(#p3e41838c8e)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p26dd78d6d8)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_10">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: start" x="174.406146" y="133.145377" transform="rotate(-0 174.406146 133.145377)">1.0</text>
@@ -221,7 +221,7 @@ C 161.033099 240.474438 169.641669 238.762087 177.673045 235.435381
 C 185.704422 232.108676 193.002415 227.232313 199.149364 221.085364 
 C 205.296313 214.938415 210.172676 207.640422 213.499381 199.609045 
 C 216.826087 191.577669 218.538437 182.969099 218.538437 174.276 
-" clip-path="url(#p3e41838c8e)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p26dd78d6d8)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_11">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: start" x="185.439219" y="114.035534" transform="rotate(-0 185.439219 114.035534)">1.5</text>
@@ -246,7 +246,7 @@ C 163.930799 262.540583 175.408892 260.257449 186.117394 255.821842
 C 196.825896 251.386235 206.556553 244.884418 214.752485 236.688485 
 C 222.948418 228.492553 229.450235 218.761896 233.885842 208.053394 
 C 238.321449 197.344892 240.604583 185.866799 240.604583 174.276 
-" clip-path="url(#p3e41838c8e)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p26dd78d6d8)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_12">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: start" x="196.472292" y="94.925691" transform="rotate(-0 196.472292 94.925691)">2.0</text>
@@ -381,7 +381,7 @@ L 196.0819 178.10292
 L 196.374374 176.198582 
 L 196.472292 174.276 
 L 196.472292 174.276 
-" clip-path="url(#p3e41838c8e)" style="fill: none; stroke: #1f4fbf; stroke-width: 2; stroke-linecap: square"/>
+" clip-path="url(#p26dd78d6d8)" style="fill: none; stroke: #1f4fbf; stroke-width: 2; stroke-linecap: square"/>
    </g>
    <g id="line2d_14">
     <path d="M 240.604583 174.276 
@@ -568,7 +568,7 @@ L 240.436647 178.122383
 L 240.597862 175.046215 
 L 240.604583 174.276 
 L 240.604583 174.276 
-" clip-path="url(#p3e41838c8e)" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #c55a00; stroke-width: 2"/>
+" clip-path="url(#p26dd78d6d8)" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #c55a00; stroke-width: 2"/>
    </g>
    <g id="line2d_15">
     <path d="M 240.604583 174.276 
@@ -704,7 +704,7 @@ L 240.379586 181.978466
 L 240.58441 176.586761 
 L 240.604583 174.276 
 L 240.604583 174.276 
-" clip-path="url(#p3e41838c8e)" style="fill: none; stroke-dasharray: 2.6,4.29; stroke-dashoffset: 0; stroke: #0b6e0b; stroke-width: 2.6"/>
+" clip-path="url(#p26dd78d6d8)" style="fill: none; stroke-dasharray: 2.6,4.29; stroke-dashoffset: 0; stroke: #0b6e0b; stroke-width: 2.6"/>
    </g>
    <g id="patch_3">
     <path d="M 258.2575 174.276 
@@ -772,7 +772,7 @@ z
      <g id="line2d_16">
       <path d="M 431.16 174.276 
 L 537.0775 174.276 
-" clip-path="url(#pc49db90f19)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p58c94041b6)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_13">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: middle" x="551.0775" y="178.026" transform="rotate(-0 551.0775 178.026)">0°</text>
@@ -782,7 +782,7 @@ L 537.0775 174.276
      <g id="line2d_17">
       <path d="M 431.16 174.276 
 L 506.054982 99.381018 
-" clip-path="url(#pc49db90f19)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p58c94041b6)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_14">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: middle" x="515.954477" y="93.231523" transform="rotate(-0 515.954477 93.231523)">45°</text>
@@ -792,7 +792,7 @@ L 506.054982 99.381018
      <g id="line2d_18">
       <path d="M 431.16 174.276 
 L 431.16 68.3585 
-" clip-path="url(#pc49db90f19)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p58c94041b6)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_15">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: middle" x="431.16" y="58.1085" transform="rotate(-0 431.16 58.1085)">90°</text>
@@ -802,7 +802,7 @@ L 431.16 68.3585
      <g id="line2d_19">
       <path d="M 431.16 174.276 
 L 356.265018 99.381018 
-" clip-path="url(#pc49db90f19)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p58c94041b6)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_16">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: middle" x="346.365523" y="93.231523" transform="rotate(-0 346.365523 93.231523)">135°</text>
@@ -812,7 +812,7 @@ L 356.265018 99.381018
      <g id="line2d_20">
       <path d="M 431.16 174.276 
 L 325.2425 174.276 
-" clip-path="url(#pc49db90f19)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p58c94041b6)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_17">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: middle" x="311.2425" y="178.026" transform="rotate(-0 311.2425 178.026)">180°</text>
@@ -822,7 +822,7 @@ L 325.2425 174.276
      <g id="line2d_21">
       <path d="M 431.16 174.276 
 L 356.265018 249.170982 
-" clip-path="url(#pc49db90f19)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p58c94041b6)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_18">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: middle" x="346.365523" y="262.820477" transform="rotate(-0 346.365523 262.820477)">225°</text>
@@ -832,7 +832,7 @@ L 356.265018 249.170982
      <g id="line2d_22">
       <path d="M 431.16 174.276 
 L 431.16 280.1935 
-" clip-path="url(#pc49db90f19)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p58c94041b6)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_19">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: middle" x="431.16" y="297.9435" transform="rotate(-0 431.16 297.9435)">270°</text>
@@ -842,7 +842,7 @@ L 431.16 280.1935
      <g id="line2d_23">
       <path d="M 431.16 174.276 
 L 506.054982 249.170982 
-" clip-path="url(#pc49db90f19)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p58c94041b6)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_20">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: middle" x="515.954477" y="262.820477" transform="rotate(-0 515.954477 262.820477)">315°</text>
@@ -869,7 +869,7 @@ C 434.0577 196.342146 436.927223 195.771362 439.604348 194.66246
 C 442.281474 193.553559 444.714138 191.928104 446.763121 189.879121 
 C 448.812104 187.830138 450.437559 185.397474 451.54646 182.720348 
 C 452.655362 180.043223 453.226146 177.1737 453.226146 174.276 
-" clip-path="url(#pc49db90f19)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p58c94041b6)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_21">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: start" x="442.193073" y="152.25522" transform="rotate(-0 442.193073 152.25522)">0.5</text>
@@ -894,7 +894,7 @@ C 436.955399 218.408292 442.694446 217.266724 448.048697 215.048921
 C 453.402948 212.831118 458.268276 209.580209 462.366243 205.482243 
 C 466.464209 201.384276 469.715118 196.518948 471.932921 191.164697 
 C 474.150724 185.810446 475.292292 180.071399 475.292292 174.276 
-" clip-path="url(#pc49db90f19)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p58c94041b6)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_22">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: start" x="453.226146" y="133.145377" transform="rotate(-0 453.226146 133.145377)">1.0</text>
@@ -919,7 +919,7 @@ C 439.853099 240.474438 448.461669 238.762087 456.493045 235.435381
 C 464.524422 232.108676 471.822415 227.232313 477.969364 221.085364 
 C 484.116313 214.938415 488.992676 207.640422 492.319381 199.609045 
 C 495.646087 191.577669 497.358437 182.969099 497.358437 174.276 
-" clip-path="url(#pc49db90f19)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p58c94041b6)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_23">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: start" x="464.259219" y="114.035534" transform="rotate(-0 464.259219 114.035534)">1.5</text>
@@ -944,7 +944,7 @@ C 442.750799 262.540583 454.228892 260.257449 464.937394 255.821842
 C 475.645896 251.386235 485.376553 244.884418 493.572485 236.688485 
 C 501.768418 228.492553 508.270235 218.761896 512.705842 208.053394 
 C 517.141449 197.344892 519.424583 185.866799 519.424583 174.276 
-" clip-path="url(#pc49db90f19)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p58c94041b6)" style="fill: none; stroke: #999999; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="text_24">
       <text style="font: 15px 'Latin Modern Math', 'STIX Two Math', 'DejaVu Serif'; text-anchor: start" x="475.292292" y="94.925691" transform="rotate(-0 475.292292 94.925691)">2.0</text>
@@ -1079,7 +1079,7 @@ L 474.9019 178.10292
 L 475.194374 176.198582 
 L 475.292292 174.276 
 L 475.292292 174.276 
-" clip-path="url(#pc49db90f19)" style="fill: none; stroke: #1f4fbf; stroke-width: 2; stroke-linecap: square"/>
+" clip-path="url(#p58c94041b6)" style="fill: none; stroke: #1f4fbf; stroke-width: 2; stroke-linecap: square"/>
    </g>
    <g id="line2d_29">
     <path d="M 475.292292 174.276 
@@ -1206,7 +1206,7 @@ L 475.077545 177.347014
 L 475.27885 175.046097 
 L 475.292292 174.276 
 L 475.292292 174.276 
-" clip-path="url(#pc49db90f19)" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #c55a00; stroke-width: 2"/>
+" clip-path="url(#p58c94041b6)" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #c55a00; stroke-width: 2"/>
    </g>
    <g id="line2d_30">
     <path d="M 519.424583 174.276 
@@ -1342,7 +1342,7 @@ L 519.199586 181.978466
 L 519.40441 176.586761 
 L 519.424583 174.276 
 L 519.424583 174.276 
-" clip-path="url(#pc49db90f19)" style="fill: none; stroke-dasharray: 2.6,4.29; stroke-dashoffset: 0; stroke: #0b6e0b; stroke-width: 2.6"/>
+" clip-path="url(#p58c94041b6)" style="fill: none; stroke-dasharray: 2.6,4.29; stroke-dashoffset: 0; stroke: #0b6e0b; stroke-width: 2.6"/>
    </g>
    <g id="patch_5">
     <path d="M 537.0775 174.276 
@@ -1396,7 +1396,7 @@ L 418.4625 315.295
   </g>
  </g>
  <defs>
-  <clipPath id="p3e41838c8e">
+  <clipPath id="p26dd78d6d8">
    <path d="M 258.2575 174.276 
 C 258.2575 160.367041 255.517738 146.59333 250.19501 133.743128 
 C 244.872282 120.892925 237.070101 109.216136 227.234982 99.381018 
@@ -1435,7 +1435,7 @@ M 258.2575 174.276
 z
 "/>
   </clipPath>
-  <clipPath id="pc49db90f19">
+  <clipPath id="p58c94041b6">
    <path d="M 537.0775 174.276 
 C 537.0775 160.367041 534.337738 146.59333 529.01501 133.743128 
 C 523.692282 120.892925 515.890101 109.216136 506.054982 99.381018 

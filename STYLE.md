@@ -11,6 +11,45 @@
   4. `## Further reading {#sec-<key>-reading}`: textbook sections first [@clarke2007].
 - **Exercise numbers depend on chapter order.** During the semester, chapters may only be appended, never inserted or reordered.
 
+## Notation (decided in the Phase 3 review; apply in each chapter as it is reviewed)
+
+- **Mean molecular weight** $\mu$ is dimensionless: $\rho = \mu m_u n$, $p = \rho k_B T / (\mu m_u)$, with $m_u$ the atomic mass unit (Ch. 1, @eq-continua-mu).
+- **Cylindrical coordinates** are $(R, \phi, z)$; $R$ is the cylindrical radius. A star's radius is then $R_*$ (or $R_\odot$ etc.).
+- **Volume and area elements**: $\dd V$ and $\dd A$; the volume of a region $\Omega$ is $V_\Omega$.
+- **Lagrangian label** (initial position of a fluid element): $q$ (or $\vb{q}$), never $p$.
+- $\dd/\dd t$ is the rate of change following a fluid element (Ch. 1, Ch. 5).
+- **Energy densities**: $u = \rho\varepsilon$ is the internal energy density; $u_{\mathrm{rad}}$ the radiation energy density when more than one source is present (Ch. 2). Photon energy: $\varepsilon_{\mathrm{ph}}$.
+- **Specific volume** $v = 1/\rho$ is allowed (Ch. 2), with a sentence saying it is not the velocity.
+- **Vertical direction**: $z$ points up, $\vb g = -g\hat{\vb z}$, $\partial_z p = -\rho g$ (Ch. 4 onwards).
+- **Mean free path** $\lambda$; **scale heights** $H$; **heat flux** $\vb F_{\mathrm{heat}}$; heating rate per unit mass $\dot q$.
+- **Balance laws**: $\partial_t U + \nabla\cdot\vb F = S$ (Ch. 6, @tbl-conserv-summary).
+- **Energies of a system**: kinetic $K$, internal $U$, gravitational $W$ (Ch. 3, 8). Volume elements in double integrals over positions: $\dd^3 r$, $\dd^3 r'$ (the one exception to $\dd V$). Enclosed mass $M(r)$.
+- **Sound speeds**: $c_s = \sqrt{(\partial p/\partial\rho)_s}$ is the adiabatic sound speed; $c_{\mathrm{iso}} = \sqrt{k_B T/(\mu m_u)} = c_s/\sqrt{\Gamma}$ the isothermal one (Ch. 9, @eq-sound-isothermal). Not $a$, which is the radiation constant. Chapters that only deal with isothermal gas (Ch. 4, 8) may write $c_s$ for it.
+- **Stratified atmospheres** (Ch. 10): scale height $H = c_{\mathrm{iso}}^2/g$; acoustic cutoff $\omega_{\mathrm{ac}} = c_s/(2H)$; buoyancy (Brunt–Väisälä) frequency $N$. Polytropic constant $K$ (not $A$).
+- **Turbulence** (Ch. 21): energy injection/flux/dissipation rate per unit mass $\mathcal P = v^3(\ell_0)/\ell_0$ (not $\varepsilon$, which is the specific internal energy); dissipation scale $\ell_d$; averages $\bar{\vb v}$ (with `\overline` only for products).
+- **MHD** (Ch. 23): $\vb j$ includes the factor $1/c$ (so $\nabla\times\vb B = 4\pi\vb j$, $[\sigma] = \mathrm{cm^{-1}}$); magnetic diffusivity $c\eta/4\pi$; total energy written out as $\rho(\varepsilon + \tfrac12 v^2)$ (no symbol $e$, which is the electron charge); angular momentum density $\vb m$ in MHD chapters.
+- **Magnetic tension** (Ch. 25): plasma beta $\beta = 8\pi p/B^2$; $\alpha_0 = 1/\beta$ only in the Parker atmosphere. Curvature vector $\vb\kappa = (\hat{\vb b}\cdot\nabla)\hat{\vb b}$.
+- **MHD waves** (Ch. 26): Alfvén velocity $\vb v_A = \vb B_0/\sqrt{4\pi\rho_0}$, $v_A = |\vb v_A|$; Alfvén frequency $\omega_A = \vb k\cdot\vb v_A$ (used in Ch. 27). Alfvénic Mach number $\mathrm{Ma}_A = u/v_A$. The slow mode is the one with the smaller phase speed. Fourier convention $e^{\ii(\vb k\cdot\vb x - \omega t)}$, so $\nabla\to\ii\vb k$, $\partial_t\to-\ii\omega$.
+- **Disks and the MRI** (Ch. 19, 27): cylindrical coordinates $(R, \phi, z)$, with φ for the azimuth (not θ) and subscript $R$ for radial components ($u_R$, $B_R$). Growth rates are $\lambda = -\ii\omega$, so $\lambda^2 > 0$ means instability. Epicyclic frequency $\kappa$, $\kappa^2 = 4\Omega^2 + \dd\Omega^2/\dd\ln R$. Magnetic diffusivity written as $\eta c/4\pi$, as in Ch. 24.
+- **Notation sweep (2026-11-11, `review/notation-sweep.md`)**:
+  - **Mach number** $\mathrm{Ma}$ (Alfvénic $\mathrm{Ma}_A$). $\mathcal M$ is the mass of a fluid element (Ch. 1–6); the enclosed mass is $M(r)$.
+  - **Growth rates** $\lambda$, with modes $\propto e^{\lambda t}$, $\lambda = -\ii\omega$ (not $\gamma$ or $\Gamma$).
+  - $\mu$ is only the (dimensionless) mean molecular weight: write $\mu m_u$ for a mass. Dynamic viscosity is $\rho\nu$, a diffusion coefficient $D$.
+  - $\Gamma$ is only the adiabatic index; circulation is $\mathcal C$.
+  - $k$ (or $k_n$) for wavenumbers; $\kappa$ for opacity, curvature (Ch. 25) and the epicyclic frequency (Ch. 27).
+  - A prime is an Eulerian perturbation, never a derivative: write $\dd\rho/\dd r$.
+  - Surface and column densities $\Sigma$ ($\sigma$ is the Stefan–Boltzmann constant).
+  - Gravitational energy $W$ (Ch. 3, 7, 8).
+  - $\ln$ for natural logarithms, $\log_{10}$ for decimal ones.
+  - Azimuthal angle $\phi$ (`\phi`, not `\varphi`) in both cylindrical and spherical coordinates. (Ch. 8 keeps $\varphi = \dd\theta/\dd\xi$ in the Lane–Emden system.)
+  - Exponential: upright, `\ee^{...}`.
+- **Further reading lists**: a bullet must not be just `@key.`, which Pandoc reads as an example-list marker (renders as "1."). Write `- @key` or add text after the key.
+- **Plasma** (Ch. 22): free-electron density $n$ or $n_e$; plasma frequency $\omega_p$ (angular; $f_p = \omega_p/2\pi$); dielectric constant $\epsilon$ (with a warning, not $\varepsilon$); charge imbalance $\delta$; Larmor radius $r_L$; Poynting vector $\vb S$.
+- **Waves**: plane waves and normal modes go as $e^{\ii(\vb k\cdot\vb x - \omega t)}$, i.e. $e^{-\ii\omega t}$; the real part is understood. Work done by an external force: $W_{\mathrm{ext}}$.
+- **Upright subscripts and units**: write `\mathrm{...}`, never `\rm` (the Typst/PDF converter cannot handle `\rm`) or `\operatorname` (`just lint` reports both).
+- **Subscripts in matplotlib figures**: no mathtext; write `ω_ac` in the label and convert `_xyz` to an SVG `<tspan baseline-shift="sub">` after saving (see `figures-src/stratified-atmospheres/diagnostic-diagram.py`).
+- **Numbers**: $5.2 \times 10^{43}$ (not $\cdot$). Object names in IAU style: SN 1987A, SN 1999em.
+
 ## Math
 
 - Inline `$...$`. Display:

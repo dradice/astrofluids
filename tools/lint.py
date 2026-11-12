@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check the book's sources for the conventions in STYLE.md.
+r"""Check the book's sources for the conventions in STYLE.md.
 
 Errors (exit status 1):
   * a display equation outside a solution has no {#eq-...} label
@@ -8,6 +8,7 @@ Errors (exit status 1):
   * references to labels that do not exist
   * a figure/image without fig-alt
   * a solutions-profile block without a .solution div inside
+  * \operatorname or \rm in math (use \mathrm)
 Warnings:
   * fig-alt still contains "TODO"
   * a label that does not start with the chapter's key (tools/chapters.py)
@@ -121,6 +122,11 @@ def lint(files):
                 errors.append(f"{rel}:{line_no}: image without fig-alt")
             elif "TODO" in attrs:
                 warnings.append(f"{rel}:{line_no}: fig-alt still TODO")
+
+        # upright text in math: \mathrm only (STYLE.md)
+        for i, line in enumerate(lines):
+            for bad in re.findall(r"\\(?:operatorname|rm)(?![A-Za-z])", line):
+                errors.append(f"{rel}:{i+1}: use \\mathrm{{...}} instead of {bad}")
 
     for r, where in refs:
         if r not in labels:

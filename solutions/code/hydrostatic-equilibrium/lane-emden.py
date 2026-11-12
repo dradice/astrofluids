@@ -10,7 +10,8 @@ def lane_emden(n, Rmax=10):
         if t > 0:
             return [y[1], -2 * y[1] / t - np.abs(y[0]) ** n]
         else:
-            return [y[1], -np.abs(y[0]) ** n]
+            # limit xi -> 0: theta ~ 1 - xi^2/6, so 2 phi / xi -> -2/3 and phi' -> -theta^n / 3
+            return [y[1], -np.abs(y[0]) ** n / 3]
 
     def surface(t, y):
         return y[0]

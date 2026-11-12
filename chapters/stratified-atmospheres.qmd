@@ -2,20 +2,20 @@
 
 ## Waves in Isothermal Atmospheres
 
-Consider a stratified, static, isothermal atmosphere. We assume constant acceleration $g$ in the negative $z$ direction. The hydrostatic equilibrium equations are
+Consider a stratified, static, isothermal atmosphere. We assume constant acceleration $g$ in the negative $z$ direction. The hydrostatic equilibrium equations are (@sec-euler)
 $$
-\partial_z p_0 = - \rho_0 g, \qquad p = a^2 \rho,
+\partial_z p_0 = - \rho_0 g, \qquad p_0 = c_{\mathrm{iso}}^2 \rho_0,
 $$ {#eq-strat-1}
-where $a = \sqrt{\frac{kT}{\mu}}$ is the isothermal sound speed.
+where $c_{\mathrm{iso}} = \sqrt{k_B T / (\mu m_u)}$ is the isothermal sound speed (@eq-sound-isothermal).
 
 Combining these two we find
 $$
-\partial_z \rho_0 = - \frac{g}{a ^2} \rho_0 \Longrightarrow \rho_0 =
-\tilde{\rho} e^{- z / H} .
+\partial_z \rho_0 = - \frac{g}{c_{\mathrm{iso}}^2} \rho_0 \Longrightarrow \rho_0 =
+\tilde{\rho} \ee^{- z / H} .
 $$ {#eq-strat-2}
-$H = a^2 / g$ is called the scale-high of the atmosphere and has units of a length.
+$H = c_{\mathrm{iso}}^2 / g$ is called the scale height of the atmosphere and has units of a length.
 
-We want to study the propagation of waves in this atmosphere. The continuity equation still gives
+We want to study the propagation of waves in this atmosphere. The continuity equation still gives (@eq-sound-continuity)
 $$
 \delta \rho = - \rho_0 \nabla \cdot \vb{\xi}.
 $$ {#eq-strat-3}
@@ -28,46 +28,41 @@ $$
 $$ {#eq-strat-4}
 The sound speed is given by
 $$
-c_s^2 = \left( \frac{\partial p}{\partial \rho} \right)_s = \Gamma a^2 .
+c_s^2 = \left( \frac{\partial p}{\partial \rho} \right)_s = \Gamma c_{\mathrm{iso}}^2 ,
 $$ {#eq-strat-5}
-Which implies that $\delta p = \Gamma a^2 \delta \rho$ for adiabatic perturbations. However,
+which implies that $\delta p = c_s^2 \delta \rho$ for adiabatic perturbations. However, $p' \neq c_s^2 \rho'$, because the Eulerian and Lagrangian perturbations differ when $\nabla p_0 \neq 0$ (@eq-sound-3). Instead we have
 $$
-p' \overset{!}{=} \Gamma a^2 \rho',
-$$ {#eq-strat-6}
-instead we have
-$$
-\delta p = \Gamma a^2 \delta \rho \Longrightarrow (p' +\vb{\xi} \cdot
-\nabla p_0) = \Gamma a^2 \delta \rho \Longrightarrow p' = \Gamma a^2 \delta
+\delta p = c_s^2 \delta \rho \Longrightarrow (p' +\vb{\xi} \cdot
+\nabla p_0) = c_s^2 \delta \rho \Longrightarrow p' = c_s^2 \delta
 \rho + g \rho_0 \xi_z .
 $$ {#eq-strat-eulerian-pressure}
 The momentum equation reads
 $$
 \rho \frac{\dd \vb{v}}{\dd t} = - \nabla p - g \rho
 \hat{\vb{z}} .
-$$ {#eq-strat-8}
+$$ {#eq-strat-7}
 Setting $\vb{v}=\vb{v}'$, $p = p_0 + p'$, and $\rho = \rho_0 + \rho'$ yields
 $$
 \rho_0  \frac{\partial^2 \vb{\xi}}{\partial t^2} = - \nabla p_0 - g
-\rho_0  \hat{\vb{z}} - \nabla p' - g \rho'  \hat{\vb{z}} +
-\operatorname{HOT} .
-$$ {#eq-strat-9}
-The first two terms on the RHS cancel out. Dropping the higher order terms we find
+\rho_0  \hat{\vb{z}} - \nabla p' - g \rho'  \hat{\vb{z}} + \ldots,
+$$ {#eq-strat-8}
+where the dots denote terms of second order in the perturbation. The first two terms on the RHS cancel out. Dropping the higher order terms we find
 $$
-\rho_0  \frac{\partial^2 \vb{\xi}}{\partial t^2} = - \Gamma a^2 \nabla
+\rho_0  \frac{\partial^2 \vb{\xi}}{\partial t^2} = - c_s^2 \nabla
 \delta \rho + g \frac{\rho_0}{H} \xi_z  \hat{\vb{z}} - g \rho_0 \nabla
 \xi_z - g \left( \delta \rho + \frac{\rho_0}{H} \xi_z  \right)
 \hat{\vb{z}},
 $$ {#eq-strat-euler-in-progress}
 where we have used @eq-strat-eulerian-pressure and
 $$
-\rho' = \delta \rho - (\vb{\xi} \cdot \nabla) \rho_0 = \delta r +
+\rho' = \delta \rho - (\vb{\xi} \cdot \nabla) \rho_0 = \delta \rho +
 \frac{\rho_0}{H} \xi_z .
-$$ {#eq-strat-11}
+$$ {#eq-strat-10}
 The second and last term on the RHS of @eq-strat-euler-in-progress cancel out leaving
 $$
-\rho_0  \frac{\partial^2 \vb{\xi}}{\partial t^2} = - \Gamma a^2 \nabla
+\rho_0  \frac{\partial^2 \vb{\xi}}{\partial t^2} = - c_s^2 \nabla
 \delta \rho - g \rho_0 \nabla \xi_z - g \delta \rho \hat{\vb{z}} .
-$$ {#eq-strat-12}
+$$ {#eq-strat-11}
 Using the fact that
 $$
 \begin{aligned}
@@ -75,32 +70,33 @@ $$
 &= - \rho_0 \nabla \nabla \cdot \vb{\xi}- \nabla \rho_0 \nabla \cdot \vb{\xi} \\
 &= - \rho_0 \nabla \nabla \cdot \vb{\xi}+ \frac{\rho_0}{H} \nabla \cdot \vb{\xi} \hat{\vb{z}},
 \end{aligned}
-$$ {#eq-strat-13}
-We obtain
+$$ {#eq-strat-12}
+we obtain
 $$
 \begin{aligned}
-\rho_0 \frac{\partial^2 \vb{\xi}}{\partial t^2} = {}& \Gamma a^2 \rho_0 \nabla \nabla \cdot \vb{\xi}- \rho_0 \Gamma g \nabla \cdot \vb{\xi} \hat{\vb{z}} \\
+\rho_0 \frac{\partial^2 \vb{\xi}}{\partial t^2} = {}& c_s^2 \rho_0 \nabla \nabla \cdot \vb{\xi}- \rho_0 \Gamma g \nabla \cdot \vb{\xi} \hat{\vb{z}} \\
 & - g \rho_0 \nabla \xi_z + g \rho_0 \nabla \cdot \vb{\xi} \hat{\vb{z}} .
 \end{aligned}
-$$ {#eq-strat-14}
+$$ {#eq-strat-13}
 This can be simplified to
 $$
 \boxed{
 \begin{aligned}
-\frac{\partial^2 \vb{\xi}}{\partial t^2} = {}& c_s^2 \left( \nabla \nabla \cdot \vb{\xi}- \frac{a^2}{c_s^2} \frac{1}{H} \nabla \xi_z \right) \\
-& - \frac{(c_s^2 - a^2)}{H} \nabla \cdot \vb{\xi} \hat{\vb{z}} .
+\frac{\partial^2 \vb{\xi}}{\partial t^2} = {}& c_s^2 \left( \nabla \nabla \cdot \vb{\xi}- \frac{c_{\mathrm{iso}}^2}{c_s^2} \frac{1}{H} \nabla \xi_z \right) \\
+& - \frac{(c_s^2 - c_{\mathrm{iso}}^2)}{H} \nabla \cdot \vb{\xi} \hat{\vb{z}} .
 \end{aligned}
 }
 $$ {#eq-strat-oscillation-stratified}
-We are going to analyze the consequences of this equation shortly. Before we do that, we show that this equation reduces to Eq. (6.31) of @clarke2007 in the limit of vertical oscillations in the $z$ direction. To do that, we take the divergence of @eq-strat-oscillation-stratified to obtain
+We are going to analyze the consequences of this equation shortly. Before we do that, we show that this equation reduces to Eq. (6.31) of @clarke2007 in the limit of vertical oscillations in the $z$ direction. To do that, we take the divergence of @eq-strat-oscillation-stratified and use $\nabla \cdot \vb{\xi} = - \delta \rho / \rho_0$ to obtain
 $$
 \begin{aligned}
-\frac{\partial^2 \delta \rho}{\partial t^2} &= c_s^2 \left( \nabla^2 \delta \rho + \frac{\delta \rho}{H^2} \right) + g \rho_0 \nabla^2 \xi_z \\
-&\qquad - \frac{(c_s^2 - a^2)}{H} \left( \partial_z \delta \rho + \frac{\delta \rho}{H} \right) \\
-&= c_s^2 \nabla^2 \delta \rho - \frac{c_s^2}{H} \partial_z \delta \rho + \frac{a^2}{H} \rho_0 \nabla^2 \xi_z \\
-&\qquad + \frac{a^2}{H} \partial_z \delta \rho + a^2 \frac{\delta \rho}{H^2} .
+\frac{\partial^2 \delta \rho}{\partial t^2} &= c_s^2 \left( \nabla^2 \delta \rho + \frac{2}{H} \partial_z \delta \rho + \frac{\delta \rho}{H^2} \right) \\
+&\qquad + g \rho_0 \nabla^2 \xi_z \\
+&\qquad - \frac{(c_s^2 - c_{\mathrm{iso}}^2)}{H} \left( \partial_z \delta \rho + \frac{\delta \rho}{H} \right) \\
+&= c_s^2 \nabla^2 \delta \rho + \frac{c_s^2 + c_{\mathrm{iso}}^2}{H} \partial_z \delta \rho \\
+&\qquad + \frac{c_{\mathrm{iso}}^2}{H} \rho_0 \nabla^2 \xi_z + c_{\mathrm{iso}}^2 \frac{\delta \rho}{H^2} .
 \end{aligned}
-$$ {#eq-strat-16}
+$$ {#eq-strat-15}
 Assuming that $\delta \rho = \delta \rho (t, z)$ and $\vb{\xi}= \xi_z \hat{\vb{z}}$, we obtain,
 $$
 \frac{\partial^2 \delta \rho}{\partial t^2} - c_s^2  \frac{\partial^2 \delta
@@ -112,91 +108,144 @@ $$
 \nabla^2 \xi_z = \partial_z^2 \xi_z = \partial_z  \left( - \frac{\delta
 \rho}{\rho_0} \right) = - \frac{\partial_z \delta \rho}{\rho_0} -
 \frac{\delta \rho}{\rho_0 H} .
-$$ {#eq-strat-18}
-@eq-strat-oscillation-book is identical to Eq. (6.31) of @clarke2007. It describes the propagation of density modes in a stratified atmosphere, but neglects an entirely different class of modes that have $\vb{\xi}$ in the z-direction, but propagate in the xy-plane.
+$$ {#eq-strat-17}
+@eq-strat-oscillation-book is identical to Eq. (6.31) of @clarke2007. It describes the propagation of density modes in a stratified atmosphere, but neglects an entirely different class of modes, the gravity waves, in which the fluid elements move up and down, while the wave propagates mostly in the horizontal direction. We discuss them in @sec-strat-gravity.
 
 As before, we look for traveling wave solutions
 $$
-\vb{\xi}=\vb{\eta}e^{\ii (\vb{k} \cdot \vb{x}- \omega t)}
-.
-$$ {#eq-strat-19}
-Inserting this into @eq-strat-oscillation-stratified we obtain
+\vb{\xi}=\vb{\eta}\ee^{\ii (\vb{k} \cdot \vb{x}- \omega t)}
+,
+$$ {#eq-strat-18}
+where now we allow the components of $\vb{k}$ to be complex. Inserting this into @eq-strat-oscillation-stratified we obtain
 $$
 \boxed{
 \begin{aligned}
-\omega^2 \vb{\eta} = {}& c_s^2 \left( \vb{k} \cdot \vb{\eta}+ \ii \frac{a^2}{c_s^2} \frac{1}{H} \eta_z \right) \vb{k} \\
-& + \ii \frac{(c_s^2 - a^2)}{H} \vb{k} \cdot \vb{\eta} \hat{\vb{z}} .
+\omega^2 \vb{\eta} = {}& c_s^2 \left( \vb{k} \cdot \vb{\eta}+ \ii \frac{c_{\mathrm{iso}}^2}{c_s^2} \frac{1}{H} \eta_z \right) \vb{k} \\
+& + \ii \frac{(c_s^2 - c_{\mathrm{iso}}^2)}{H} \vb{k} \cdot \vb{\eta} \hat{\vb{z}} .
 \end{aligned}
 }
-$$ {#eq-strat-20}
+$$ {#eq-strat-19}
 
-- In the limit of $H \gg a^2 k / \omega^2$, that is, in the limit in which the wavelength of perturbations is much smaller than the scale height of the atmosphere, we recover the dispersion relation for waves in a homogeneous medium, namely $\omega^2 = c_s k^2$, as expected.
+- In the limit $kH \gg 1$, that is, when the wavelength is much smaller than the scale height of the atmosphere, the terms proportional to $1/H$ can be neglected and we recover the dispersion relation for waves in a homogeneous medium, namely $\omega^2 = c_s^2 k^2$, as expected.
 
-- Purely horizontal waves, with $\vb{\eta}, \vb{k} \perp \hat{\vb{z}}$ cannot satisfy the dispersion relation, unless $c_s = a$, that is for isothermal as opposed to adiabatic perturbations. Physically this means that density fluctuations become buoyant, so they acquire a $k_z \neq 0$ component in their wave vector.
+- Purely horizontal waves, with $\vb{\eta}, \vb{k} \perp \hat{\vb{z}}$ cannot satisfy the dispersion relation, unless $c_s = c_{\mathrm{iso}}$, that is for isothermal as opposed to adiabatic perturbations. Physically this means that density fluctuations become buoyant, so they acquire a $k_z \neq 0$ component in their wave vector.
 
-- Waves with $\vb{\eta} \parallel \vb{k} \parallel \hat{\vb{z}}$ satisfy the dispersion relation simplifies to
+- For waves with $\vb{\eta} \parallel \vb{k} \parallel \hat{\vb{z}}$, the dispersion relation simplifies to
   $$
   \omega^2 = c_s^2  \left( k^2 + \ii \frac{1}{H} k \right)
   \Longrightarrow k_{1, 2} = - \frac{\ii}{2 H} \pm \sqrt{\left(
   \frac{\omega}{c_s} \right)^2 - \left( \frac{1}{2 H} \right)^2} .
   $$ {#eq-strat-dispersion-relation-stratified}
-  These are the so called pressure or p-modes of the atmosphere. They are the generalization of sound waves.
+  These are the so-called pressure or p-modes of the atmosphere. They are the generalization of sound waves. Note that $k$ has a real part only if $\omega$ is larger than the **acoustic cutoff frequency**
+  $$
+  \omega_{\mathrm{ac}} = \frac{c_s}{2 H} .
+  $$ {#eq-strat-acoustic-cutoff}
 
-  - If $H \gg \frac{c_s}{\omega}$, then the dispersion relation for p-modes can be approximated as:
+  - If $\omega \gg \omega_{\mathrm{ac}}$, then the dispersion relation for p-modes can be approximated as:
     $$
     k_{1, 2} \approx - \frac{\ii}{2 H} \pm \frac{\omega}{c_s} .
     $$ {#eq-strat-22}
     In this case the displacement grows exponentially with height:
     $$
-    \xi_z = \eta_z e^{\ii (\vb{k} \cdot \vb{x}- \omega t)} =
+    \xi_z = \eta_z \ee^{\ii (\vb{k} \cdot \vb{x}- \omega t)} =
     \eta_z \exp \left[ \ii \omega \left( \pm \frac{z}{c_s} - t \right)
     \right] \exp \left( \frac{z}{2 H} \right) .
     $$ {#eq-strat-xiz-stratified-atmosphere}
-    This means that waves propagating vertically along an isothermal atmosphere eventually become nonlinear and will experience wave-breaking. Note that the density fluctuation remains finite:
+    This makes sense, because the energy flux carried by the wave, which is the energy density (@eq-sound-43) times $c_s$, $\sim \rho_0 \omega^2 |\vb{\xi}|^2 c_s$, must be the same at all heights. Since $\rho_0$ decreases with height, $|\vb{\xi}|$ must increase as $\rho_0^{-1/2} \propto \ee^{z / 2 H}$. The density perturbation of the wave propagating upward is
     $$
     \delta \rho = - \rho_0 \nabla \cdot \vb{\xi}= - \tilde{\rho} \eta_z
     \left( \frac{\ii \omega}{c_s} + \frac{1}{2 H} \right) \exp \left[
     \ii \omega \left( \frac{z}{c_s} - t \right) \right] \exp \left( -
     \frac{z}{2 H} \right) .
     $$ {#eq-strat-24}
+    Note that the density perturbation itself decreases with height. However, the background density decreases faster, so the relative perturbation $\delta \rho / \rho_0 \propto \ee^{z / 2 H}$ grows. This means that waves propagating upward through an isothermal atmosphere eventually become nonlinear, $\delta \rho \sim \rho_0$, and break, forming shocks (@sec-shock). Waves breaking in this way are thought to contribute to the heating of the solar chromosphere.
 
-  - If $H \ll \frac{c_s}{\omega}$, then the solution describes one of two global oscillation modes of the atmosphere:
+  - If $\omega < \omega_{\mathrm{ac}}$, then $k$ is purely imaginary and the waves do not propagate. In the limit $\omega \ll \omega_{\mathrm{ac}}$, we find
     $$
-    k_{1, 2} \approx - \frac{\ii}{H}, 0 \qquad \Longrightarrow \qquad
-    [\xi_z]_{1, 2} = \eta  e^{\ii \omega t}, \eta_z e^{z / H} e^{\ii
+    k_{1, 2} \approx 0, - \frac{\ii}{H} \qquad \Longrightarrow \qquad
+    [\xi_z]_{1, 2} = \eta_z  \ee^{- \ii \omega t}, \eta_z \ee^{z / H} \ee^{- \ii
     \omega t} .
     $$ {#eq-strat-25}
+    In other words, the atmosphere responds to the perturbation as a whole, rather than with a wave propagating upward.
 
 - Let us now consider the case of perturbations with horizontal displacement. We can align the $x$-axis with $\vb{\eta}$, meaning that $\vb{\eta}= \eta \hat{\vb{x}}$. In this case, the dispersion relation becomes
   $$
   \omega^2 \eta \hat{\vb{x}} = c_s^2  (k_x \eta) \vb{k}+ \ii
-  \frac{(c_s^2 - a^2)}{H} k_x \eta \hat{\vb{z}} .
-  $$ {#eq-strat-g-modes}
-  This means that there are two components of $\vb{k}= \left(\begin{array}{ccc} k_x & 0 & k_z \end{array}\right)$. The x-component of @eq-strat-g-modes is
+  \frac{(c_s^2 - c_{\mathrm{iso}}^2)}{H} k_x \eta \hat{\vb{z}} .
+  $$ {#eq-strat-lamb}
+  This means that there are two components of $\vb{k}= (k_x, 0, k_z)$. The $x$-component of @eq-strat-lamb is
   $$
   \omega^2 = c_s^2 k_x^2 \Longrightarrow k_x = \pm \frac{\omega}{c_s} .
   $$ {#eq-strat-27}
-  The $z$-component of @eq-strat-g-modes is
+  The $z$-component of @eq-strat-lamb is
   $$
-  k_z = - \ii \left( 1 - \frac{a^2}{c_s^2} \right)  \frac{1}{H} .
+  k_z = - \ii \left( 1 - \frac{c_{\mathrm{iso}}^2}{c_s^2} \right)  \frac{1}{H} .
   $$ {#eq-strat-28}
   The corresponding displacement is
   $$
   \vb{\xi} (t, \vb{x}) = \eta \exp \left[ \ii \omega \left( \pm
-  \frac{x}{c_s} - t \right) \right] \exp \left[ \left( 1 - \frac{a^2}{c_s^2}
+  \frac{x}{c_s} - t \right) \right] \exp \left[ \left( 1 - \frac{c_{\mathrm{iso}}^2}{c_s^2}
   \right)  \frac{z}{H} \right]  \hat{\vb{x}} .
   $$ {#eq-strat-29}
-  Note that, as in the previous case, the density fluctuations $\delta \rho$ remain finite. These are the so called (internal) gravity-modes or g-modes of the atmosphere. In the limit in which $c_s \rightarrow a$, that is $\Gamma \rightarrow 1$ (isothermal perturbations), these type of waves reduce to horizontal sound waves.
+  These are called **Lamb waves**. They are sound waves that propagate horizontally and are trapped near the bottom of the atmosphere. Indeed, their energy density $\rho_0 |\vb{\xi}|^2 \propto \ee^{(1 - 2 / \Gamma) z / H}$ decreases with height for $\Gamma < 2$. Lamb waves generated by the eruption of the Hunga Tonga volcano in 2022 were observed to travel around the Earth several times. In the limit in which $c_s \rightarrow c_{\mathrm{iso}}$, that is $\Gamma \rightarrow 1$ (isothermal perturbations), these waves reduce to horizontal sound waves.
+
+::: {.callout-tip icon=false}
+## Example
+
+Consider the atmosphere of the Earth. It is not isothermal, but we can estimate its properties taking $T \approx 288\,\mathrm{K}$, $\mu \approx 29$, and $\Gamma = 7/5$. We find $H = k_B T / (\mu m_u g) \approx 8\,\mathrm{km}$, $c_s \approx 340\,\mathrm{m\,s^{-1}}$, and an acoustic cutoff period $2 \pi / \omega_{\mathrm{ac}} \approx 5\,\mathrm{min}$.
+
+For the solar photosphere, $T \approx 5800\,\mathrm{K}$, $\mu \approx 1.3$, $g \approx 2.7 \times 10^4\,\mathrm{cm\,s^{-2}}$, and $\Gamma = 5/3$. We find $H \approx 140\,\mathrm{km}$, $c_s \approx 8\,\mathrm{km\,s^{-1}}$, and $\omega_{\mathrm{ac}} / 2 \pi \approx 4.6\,\mathrm{mHz}$, corresponding to a period of about 3.6 minutes. The measured value is about $5.3\,\mathrm{mHz}$. The solar oscillations with periods of about 5 minutes have lower frequencies, about $3.3\,\mathrm{mHz}$, so they cannot propagate into the solar atmosphere. They are reflected at the surface and remain trapped inside the Sun. This is why the Sun rings like a pipe (@exr-sound-helioseismology).
+:::
+
+## Gravity Waves {#sec-strat-gravity}
+
+To understand the second class of waves, consider a fluid element that is displaced upward by a small distance $\xi_z$. We assume that the displacement is slow enough for the fluid element to stay in pressure equilibrium with its surroundings, and that it is adiabatic. The pressure of the fluid element changes by $\delta p = \xi_z \partial_z p_0 = - \rho_0 g \xi_z$, so its density changes by
+$$
+\delta \rho = \frac{\delta p}{c_s^2} = - \frac{g}{c_s^2} \rho_0 \xi_z .
+$$ {#eq-strat-buoyancy-element}
+The density of the surrounding gas at the new position is $\rho_0 + \xi_z \partial_z \rho_0 = \rho_0 - (g / c_{\mathrm{iso}}^2) \rho_0 \xi_z$. Since $c_s > c_{\mathrm{iso}}$, the fluid element is denser than its surroundings, by
+$$
+\Delta \rho = \delta \rho - \xi_z \partial_z \rho_0 = g \left( \frac{1}{c_{\mathrm{iso}}^2} - \frac{1}{c_s^2} \right) \rho_0 \xi_z .
+$$ {#eq-strat-buoyancy-excess}
+So gravity pulls it back down. The equation of motion of the fluid element is
+$$
+\rho_0 \frac{\dd^2 \xi_z}{\dd t^2} = - g \Delta \rho = - \rho_0 N^2 \xi_z, \qquad
+N^2 = g^2 \left( \frac{1}{c_{\mathrm{iso}}^2} - \frac{1}{c_s^2} \right) = \frac{(\Gamma - 1) g^2}{c_s^2} .
+$$ {#eq-strat-brunt-vaisala}
+In other words, the fluid element oscillates up and down with frequency $N$, which is called the **buoyancy frequency** or **Brunt–Väisälä frequency**. Note that $N = 0$ if $\Gamma = 1$. This makes sense, because, if the perturbations are isothermal, a displaced fluid element always has the same density as its surroundings. If the atmosphere were stratified in such a way that $N^2 < 0$, the displaced fluid element would be lighter than its surroundings and would keep rising. This is the onset of convection, which we will discuss in @sec-conv.
+
+To find the waves associated with this oscillation, we go back to @eq-strat-19 and consider a general wave vector. We can always align the $x$-axis with the horizontal component of $\vb{k}$, so that $\vb{k} = (k_x, 0, k_z)$. @eq-strat-19 is a linear system of equations for $\vb{\eta}$, which has non-trivial solutions only if its determinant vanishes. To simplify the result, it is useful to write $k_z = K - \ii / (2 H)$, with $K$ real. This takes into account the growth of the amplitude with height, $\ee^{z / 2 H}$, that we found for the p-modes. After some algebra, we find the dispersion relation
+$$
+\boxed{
+\begin{aligned}
+\omega^4 - \omega^2 \left[ c_s^2 (k_x^2 + K^2) + \omega_{\mathrm{ac}}^2 \right]& \\
+{} + N^2 c_s^2 k_x^2 &= 0 .
+\end{aligned}
+}
+$$ {#eq-strat-dispersion-general}
+This is a quadratic equation for $\omega^2$, so for each wave vector there are two solutions:
+
+- The larger solution describes the acoustic waves, or p-modes. One can show that these have $\omega > \omega_{\mathrm{ac}}$. For $c_s k \gg \omega_{\mathrm{ac}}$ they reduce to sound waves, $\omega^2 \approx c_s^2 (k_x^2 + K^2)$.
+
+- The smaller solution describes the **gravity waves**, or g-modes, in which the restoring force is buoyancy. These have $\omega < N$. For $c_s k \gg \omega_{\mathrm{ac}}$ we find
+  $$
+  \omega^2 \approx N^2 \frac{k_x^2}{k_x^2 + K^2} .
+  $$ {#eq-strat-gravity-waves}
+  Interestingly, the frequency of gravity waves depends only on the direction of $\vb{k}$, not on the wavelength. Gravity waves with $K = 0$, propagating horizontally, have the largest frequency, $\omega \approx N$. In these waves, the fluid elements move up and down, like the fluid element we considered above.
+
+For an isothermal atmosphere, $\omega_{\mathrm{ac}}^2 - N^2 = (g / c_s)^2 (\Gamma / 2 - 1)^2 \geq 0$, so $N \leq \omega_{\mathrm{ac}}$. Waves with frequencies between $N$ and $\omega_{\mathrm{ac}}$ cannot propagate vertically. The two branches are shown in @fig-strat-diagnostic. The Lamb waves we found before lie between the two branches, because they do not propagate vertically.
+
+![Dispersion relation for waves in an isothermal atmosphere with $\Gamma = 5/3$, for vertical wave number $K = 0$. Acoustic waves (p-modes) can propagate in the region above the upper curve and gravity waves (g-modes) in the region below the lower curve. Waves with $K \neq 0$ move further into these regions. The dotted line is the Lamb wave, $\omega = c_s k_x$.](../figures/stratified-atmospheres/diagnostic-diagram.svg){#fig-strat-diagnostic fig-alt="Plot of frequency omega over omega_ac, from 0 to 3.2, against horizontal wave number c_s k_x over omega_ac, from 0 to 3, for Gamma equal to 5/3. The upper curve, solid, starts at omega equal to omega_ac at k_x equal to 0, stays flat until about c_s k_x equal to omega_ac, then rises and approaches the line omega equal to c_s k_x. The region above it is shaded and labelled acoustic waves (p-modes). The lower curve, dashed, starts at 0, rises along the line omega equal to c_s k_x, and levels off just below 1, at the buoyancy frequency N, which is about 0.98 omega_ac. The region below it is shaded and labelled gravity waves (g-modes). Horizontal lines mark omega_ac and N. A dotted diagonal line, omega equal to c_s k_x, labelled Lamb wave, runs through the unshaded band between the two curves."}
 
 ## In-class worksheet {#sec-strat-worksheet}
 
-We consider small disturbances in a plane parallel, isothermal atmosphere. We will assume $z$ to be the vertical direction and $g$ to be the gravitational acceleration, assumed to be constant and towards the negative $z$ direction. Let $a = \sqrt{k_B T / \mu}$ be the isothermal sound speed.
+We consider small disturbances in a plane parallel, isothermal atmosphere. We will assume $z$ to be the vertical direction and $g$ to be the gravitational acceleration, assumed to be constant and towards the negative $z$ direction. Let $c_{\mathrm{iso}} = \sqrt{k_B T / (\mu m_u)}$ be the isothermal sound speed.
 
 1.  Show that the static background density $\rho_0$ satisfies
     $$
-    \rho_0 (z) = \tilde{\rho} e^{- z / H},
+    \rho_0 (z) = \tilde{\rho} \ee^{- z / H},
     $$ {#eq-strat-ws1}
-    where $H = a^2 / g$ is the scale height of the atmosphere.
+    where $H = c_{\mathrm{iso}}^2 / g$ is the scale height of the atmosphere.
 
 2.  Let $\delta \rho$ and $\rho'$ be the Lagrangian and Eulerian perturbations of the density. Show that
     $$
@@ -207,7 +256,7 @@ We consider small disturbances in a plane parallel, isothermal atmosphere. We wi
     $$
     p' = c_s^2 \delta \rho + g \rho_0 \xi_z,
     $$ {#eq-strat-ws3}
-    where $c_s^2 = \Gamma a^2$ is the square of the sound speed and $\xi_z$ is the $z$-component of the displacement.
+    where $c_s^2 = \Gamma c_{\mathrm{iso}}^2$ is the square of the sound speed and $\xi_z$ is the $z$-component of the displacement.
 
 4.  Use the results from the previous two points to show that
     $$
@@ -215,34 +264,40 @@ We consider small disturbances in a plane parallel, isothermal atmosphere. We wi
     \delta \rho - g \rho_0 \nabla \xi_z - g \delta \rho \hat{\vb{z}} .
     $$ {#eq-strat-ws4}
 
+5.  If time allows: consider vertical waves, $\vb{\xi} = \xi_z (t, z) \hat{\vb{z}}$, and look for solutions $\xi_z \propto \ee^{\ii (k z - \omega t)}$. Show that
+    $$
+    \omega^2 = c_s^2 \left( k^2 + \frac{\ii k}{H} \right),
+    $$ {#eq-strat-ws5}
+    and that the waves can propagate, that is, $k$ has a real part, only if $\omega > c_s / (2 H)$.
+
 ## Exercises {#sec-strat-exercises}
 
 ::: {#exr-strat-polytropic}
 ## Waves in a polytropic atmosphere
 
-An isentropic atmosphere sits in a uniform gravitational field $g$, with pressure $p_0 = A \rho_0^{1 + 1/n}$ and $A$ constant. Let $x$ be the depth below the top of the atmosphere, and suppose that the unperturbed density is $\rho_0 = (kx)^n$ with $k$ constant.
+An isentropic atmosphere sits in a uniform gravitational field $g$, with pressure $p_0 = K \rho_0^{1 + 1/n}$ and $K$ constant. Let $x$ be the depth below the top of the atmosphere, and suppose that the unperturbed density is $\rho_0 = (bx)^n$ with $b$ constant.
 
-1.  Show that hydrostatic equilibrium requires $g = Ak (1 + n)$.
+1.  Show that hydrostatic equilibrium requires $g = Kb (1 + n)$.
 
-2.  Perturb the atmosphere with a small vertical velocity $u$, taken positive upward, together with adiabatic perturbations $p' \ll p_0$ of the pressure and $\rho' \ll \rho_0$ of the density. Show that $p' = (gx / n) \rho'$.
+2.  Perturb the atmosphere with a small vertical velocity $v$, taken positive upward, together with adiabatic perturbations $p' \ll p_0$ of the pressure and $\rho' \ll \rho_0$ of the density. Show that $p' = (gx / n) \rho'$.
 
 3.  Show that the linearized continuity and momentum equations are
     $$
-    \frac{\partial \rho'}{\partial t} - u \frac{\partial \rho_0}{\partial x} - \rho_0 \frac{\partial u}{\partial x} = 0
+    \frac{\partial \rho'}{\partial t} - v \frac{\partial \rho_0}{\partial x} - \rho_0 \frac{\partial v}{\partial x} = 0
     $$ {#eq-strat-poly-continuity}
     and
     $$
-    \frac{\partial u}{\partial t} + \left( \frac{\rho'}{\rho_0} \right) g - \frac{g}{n \rho_0} \frac{\partial (x \rho')}{\partial x} = 0.
+    \frac{\partial v}{\partial t} + \left( \frac{\rho'}{\rho_0} \right) g - \frac{g}{n \rho_0} \frac{\partial (x \rho')}{\partial x} = 0.
     $$ {#eq-strat-poly-momentum}
 
 4.  For $n = 1/2$, combine these equations to show that
     $$
-    \frac{\partial^2 u}{\partial t^2} = 2 gx \frac{\partial^2 u}{\partial x^2} + 3 g \frac{\partial u}{\partial x} .
+    \frac{\partial^2 v}{\partial t^2} = 2 gx \frac{\partial^2 v}{\partial x^2} + 3 g \frac{\partial v}{\partial x} .
     $$ {#eq-strat-poly-wave}
 
-5.  Look for solutions $u (t, x) = u_1 (x) e^{\ii \omega t}$ and change variable to $\tau = (2 x / g)^{1/2}$. Show that @eq-strat-poly-wave becomes
+5.  Look for solutions $v (t, x) = v_1 (x) \ee^{- \ii \omega t}$ and change variable to $\tau = (2 x / g)^{1/2}$. Show that @eq-strat-poly-wave becomes
     $$
-    \frac{1}{\tau} \frac{\dd^2}{\dd \tau^2} (\tau u_1) + \omega^2 u_1 = 0.
+    \frac{1}{\tau} \frac{\dd^2}{\dd \tau^2} (\tau v_1) + \omega^2 v_1 = 0.
     $$ {#eq-strat-poly-tau}
     Find the solution that stays finite at $x = 0$ and interpret it physically.
 
@@ -251,35 +306,35 @@ Adapted from @clarke2007, Problem 22.
 
 ::: {.content-visible when-profile="solutions"}
 ::: {.solution}
-1.  In hydrostatic equilibrium
+Note that $x$ increases downward, so $\partial_x$ is a derivative in the downward direction.
+
+1.  In hydrostatic equilibrium, the pressure increases with depth:
     $$
-    \nabla p = \rho \vb{g} \Longrightarrow A \left( 1 + \frac{1}{n}
-    \right) \rho_0^{1 / n} \nabla \rho_0 = - \rho_0 g \hat{\vb{x}} .
+    \partial_x p_0 = \rho_0 g \Longrightarrow K \left( 1 + \frac{1}{n}
+    \right) \rho_0^{1 / n} \partial_x \rho_0 = \rho_0 g .
     $$
-    The gradient of the density is
+    The derivative of the density is
     $$
-    \nabla \rho_0 = - nk^n x^{n - 1}  \hat{\vb{x}} = - \frac{n}{x} \rho_0
-    \hat{\vb{x}} .
+    \partial_x \rho_0 = n b^n x^{n - 1} = \frac{n}{x} \rho_0 .
     $$
-    Inserting this into the previous equation, we find
+    Inserting this into the previous equation, and using $\rho_0^{1/n} = bx$, we find
     $$
-    g = Ak (1 + n) .
+    g = Kb (1 + n) .
     $$
 
-2.  The Eulerian pressure perturbation is
+2.  Let $\xi$ be the displacement in the direction of increasing $x$. The Eulerian pressure perturbation is
     $$
-    p' = \delta p - (\vb{\xi} \cdot \nabla) p_0 = \delta p - \xi
-    \partial_x p_0 .
+    p' = \delta p - \xi \partial_x p_0 .
     $$
     The first component is
     $$
-    \delta p = \left( \frac{\dd p}{\dd \rho} \right) \delta \rho = A
+    \delta p = \left( \frac{\dd p}{\dd \rho} \right) \delta \rho = K
     \left( 1 + \frac{1}{n} \right) \rho_0^{1 / n} \delta \rho = \frac{1}{n}
-    [A (1 + n) k] x \delta \rho = \frac{gx}{n} \delta \rho .
+    [K (1 + n) b] x \delta \rho = \frac{gx}{n} \delta \rho .
     $$
     The second component of the pressure perturbation can be found from the condition of hydrostatic equilibrium: $\partial_x p_0 = \rho_0 g$. This can be written in terms of $\partial_x \rho_0$, because
     $$
-    \partial_x \rho_0 = nk^n x^{n - 1} = \frac{n}{x} \rho_0 \Longrightarrow
+    \partial_x \rho_0 = \frac{n}{x} \rho_0 \Longrightarrow
     \partial_x p_0 = \frac{xg}{n} \partial_x \rho_0 .
     $$
     Putting everything together, we find
@@ -288,64 +343,64 @@ Adapted from @clarke2007, Problem 22.
     \rho' .
     $$
 
-3.  The continuity equation reads (note that $x$ decreases upwards, while $u$ is taken to be positive upwards)
+3.  The continuity equation reads (note that $x$ decreases upwards, while $v$ is taken to be positive upwards)
     $$
     0 = \frac{\partial (\rho_0 + \rho')}{\partial t} -
-    \frac{\partial}{\partial x}  [u (\rho_0 + \rho')] = \frac{\partial
-    \rho'}{\partial t} - u \frac{\partial \rho_0}{\partial x} - \rho_0
-    \frac{\partial u}{\partial x} + \operatorname{HOT} .
+    \frac{\partial}{\partial x}  [v (\rho_0 + \rho')] = \frac{\partial
+    \rho'}{\partial t} - v \frac{\partial \rho_0}{\partial x} - \rho_0
+    \frac{\partial v}{\partial x} + \ldots,
     $$
-    The momentum equation reads
+    where the dots denote second-order terms. The momentum equation reads
     $$
     \begin{alignedat}{2}
-    - \frac{\partial u}{\partial t} &{}={} && \frac{1}{\rho_0 + \rho'}  (-
+    - \frac{\partial v}{\partial t} &{}={} && \frac{1}{\rho_0 + \rho'}  (-
     \partial_x p_0 + \rho_0 g - \partial_x p' + \rho' g) \\
     &{}={} && \frac{1}{\rho_0 + \rho'}  (- \partial_x p' + \rho' g) \\
-    &{}={} && \frac{1}{\rho_0}  \left( 1 - \frac{\rho'}{\rho_0} \right)  \left[ -
+    &{}={} && \frac{1}{\rho_0}  \left[ -
     \frac{g}{n}  \frac{\partial (x \rho')}{\partial x} + \rho' g \right] +
-    \operatorname{HOT} .
+    \ldots
     \end{alignedat}
     $$
     Rearranging terms and dropping all higher order terms, we find
     $$
-    \frac{\partial u}{\partial t} + \left( \frac{\rho'}{\rho_0} \right) g -
+    \frac{\partial v}{\partial t} + \left( \frac{\rho'}{\rho_0} \right) g -
     \frac{g}{n \rho_0}  \frac{\partial (x \rho')}{\partial x} = 0.
     $$
 
 4.  We can take one more time derivative of the velocity equation to obtain
     $$
     \begin{alignedat}{2}
-    \frac{\partial^2 u}{\partial t^2} &{}={} && - \frac{g}{\rho_0}  \frac{\partial
+    \frac{\partial^2 v}{\partial t^2} &{}={} && - \frac{g}{\rho_0}  \frac{\partial
     \rho'}{\partial t} + \frac{g}{n \rho_0}  \frac{\partial}{\partial x}
     \left[ x \frac{\partial \rho'}{\partial t} \right] \\
-    &{}={} && - \frac{g}{\rho_0}  \left( u \frac{\partial \rho_0}{\partial x} +
-    \rho_0  \frac{\partial u}{\partial x} \right) + \frac{g}{n \rho_0}  \left(
-    u \frac{\partial \rho_0}{\partial x} + \rho_0  \frac{\partial u}{\partial
-    x} \right) + \frac{g x}{n \rho_0} \frac{\partial}{\partial x}  \left( u
-    \frac{\partial \rho_0}{\partial x} + \rho_0  \frac{\partial u}{\partial x}
+    &{}={} && - \frac{g}{\rho_0}  \left( v \frac{\partial \rho_0}{\partial x} +
+    \rho_0  \frac{\partial v}{\partial x} \right) + \frac{g}{n \rho_0}  \left(
+    v \frac{\partial \rho_0}{\partial x} + \rho_0  \frac{\partial v}{\partial
+    x} \right) + \frac{g x}{n \rho_0} \frac{\partial}{\partial x}  \left( v
+    \frac{\partial \rho_0}{\partial x} + \rho_0  \frac{\partial v}{\partial x}
     \right) \\
-    &{}={} && - \frac{g}{\rho_0}  \left( u \frac{n \rho_0}{x} + \rho_0
-    \frac{\partial u}{\partial x} \right) + \frac{g}{n \rho_0}  \left( u
-    \frac{n \rho_0}{x} + \rho_0  \frac{\partial u}{\partial x} \right) +
-    \frac{g x}{n \rho_0} \frac{\partial}{\partial x}  \left( u \frac{n
-    \rho_0}{x} + \rho_0  \frac{\partial u}{\partial x} \right) \\
-    &{}={} && \frac{gu}{x}  (1 - n) + g \frac{\partial u}{\partial x} \left(
+    &{}={} && - \frac{g}{\rho_0}  \left( v \frac{n \rho_0}{x} + \rho_0
+    \frac{\partial v}{\partial x} \right) + \frac{g}{n \rho_0}  \left( v
+    \frac{n \rho_0}{x} + \rho_0  \frac{\partial v}{\partial x} \right) +
+    \frac{g x}{n \rho_0} \frac{\partial}{\partial x}  \left( v \frac{n
+    \rho_0}{x} + \rho_0  \frac{\partial v}{\partial x} \right) \\
+    &{}={} && \frac{gv}{x}  (1 - n) + g \frac{\partial v}{\partial x} \left(
     \frac{1}{n} - 1 \right) + \frac{g x}{n \rho_0}  \left( \frac{n \rho_0}{x}
-    \frac{\partial u}{\partial x} + \frac{un}{x}  \frac{n \rho_0}{x} -
-    \frac{un \rho_0}{x^2} + \frac{n \rho_0}{x}  \frac{\partial u}{\partial x}
-    + \rho_0  \frac{\partial^2 u}{\partial x^2} \right) \\
-    &{}={} && \frac{gu}{x}  (1 - n) + g \frac{\partial u}{\partial x} \left(
-    \frac{1}{n} - 1 \right) + g \frac{\partial u}{\partial x} + \frac{gu}{x}
-    (n - 1) + g \frac{\partial u}{\partial x} + \frac{gx}{n}  \frac{\partial^2
-    u}{\partial x^2} \\
-    &{}={} && g \frac{\partial u}{\partial x}  \left( \frac{1}{n} + 1 \right) +
-    \frac{gx}{n}  \frac{\partial^2 u}{\partial x^2} .
+    \frac{\partial v}{\partial x} + \frac{vn}{x}  \frac{n \rho_0}{x} -
+    \frac{vn \rho_0}{x^2} + \frac{n \rho_0}{x}  \frac{\partial v}{\partial x}
+    + \rho_0  \frac{\partial^2 v}{\partial x^2} \right) \\
+    &{}={} && \frac{gv}{x}  (1 - n) + g \frac{\partial v}{\partial x} \left(
+    \frac{1}{n} - 1 \right) + g \frac{\partial v}{\partial x} + \frac{gv}{x}
+    (n - 1) + g \frac{\partial v}{\partial x} + \frac{gx}{n}  \frac{\partial^2
+    v}{\partial x^2} \\
+    &{}={} && g \frac{\partial v}{\partial x}  \left( \frac{1}{n} + 1 \right) +
+    \frac{gx}{n}  \frac{\partial^2 v}{\partial x^2} .
     \end{alignedat}
     $$
     So for $n = 1 / 2$, we obtain
     $$
-    \frac{\partial^2 u}{\partial t^2} = 2 gx \frac{\partial^2 u}{\partial
-    x^2} + 3 g \frac{\partial u}{\partial x} .
+    \frac{\partial^2 v}{\partial t^2} = 2 gx \frac{\partial^2 v}{\partial
+    x^2} + 3 g \frac{\partial v}{\partial x} .
     $$
 
 5.  We can convert the partial derivative w.r.t. $x$ to one w.r.t. $\tau$ using the chain rule
@@ -357,26 +412,26 @@ Adapted from @clarke2007, Problem 22.
     Accordingly the velocity equation becomes[^strat-1]
     $$
     \begin{alignedat}{2}
-    \frac{\partial^2 u}{\partial t^2} &{}={} && \tau \frac{\partial}{\partial
-    \tau}  \left( \frac{1}{\tau}  \frac{\partial u}{\partial \tau} \right) +
-    \frac{3}{\tau}  \frac{\partial u}{\partial \tau} \\
-    &{}={} && - \frac{1}{\tau}  \frac{\partial u}{\partial \tau} +
-    \frac{\partial^2 u}{\partial \tau^2} + \frac{3}{\tau}  \frac{\partial
-    u}{\partial \tau} \\
-    &{}={} && \frac{1}{\tau}  \frac{\partial^2 (\tau u)}{\partial \tau^2} .
+    \frac{\partial^2 v}{\partial t^2} &{}={} && \tau \frac{\partial}{\partial
+    \tau}  \left( \frac{1}{\tau}  \frac{\partial v}{\partial \tau} \right) +
+    \frac{3}{\tau}  \frac{\partial v}{\partial \tau} \\
+    &{}={} && - \frac{1}{\tau}  \frac{\partial v}{\partial \tau} +
+    \frac{\partial^2 v}{\partial \tau^2} + \frac{3}{\tau}  \frac{\partial
+    v}{\partial \tau} \\
+    &{}={} && \frac{1}{\tau}  \frac{\partial^2 (\tau v)}{\partial \tau^2} .
     \end{alignedat}
     $$
-    Setting $u (t, \tau) = u_1 (\tau) e^{\ii \omega t}$, we obtain
+    Setting $v (t, \tau) = v_1 (\tau) \ee^{- \ii \omega t}$, we obtain
     $$
-    \frac{1}{\tau}  \frac{\dd^2}{\dd \tau^2} (\tau u_1) + \omega^2 u_1
+    \frac{1}{\tau}  \frac{\dd^2}{\dd \tau^2} (\tau v_1) + \omega^2 v_1
     = 0.
     $$
     To solve this equation, we first expand out the derivative using the product rule to find
     $$
-    \frac{\dd^2 u_1}{\dd \tau^2} + \frac{2}{\tau}  \frac{\dd
-    u_1}{\dd \tau} + \omega^2 u_1 = 0 \Longrightarrow \tau^2
-    \frac{\dd^2 u_1}{\dd \tau^2} + 2 \tau \frac{\dd u_1}{\dd
-    \tau} + \omega^2 \tau^2 u_1 = 0
+    \frac{\dd^2 v_1}{\dd \tau^2} + \frac{2}{\tau}  \frac{\dd
+    v_1}{\dd \tau} + \omega^2 v_1 = 0 \Longrightarrow \tau^2
+    \frac{\dd^2 v_1}{\dd \tau^2} + 2 \tau \frac{\dd v_1}{\dd
+    \tau} + \omega^2 \tau^2 v_1 = 0
     $$
     We make one more change of variable
     $$
@@ -387,18 +442,22 @@ Adapted from @clarke2007, Problem 22.
     $$
     With this definition, the differential equation becomes
     $$
-    y^2  \frac{\dd^2 u_1}{\dd y^2} + 2 y \frac{\dd u_1}{\dd y} +
-    y^2 u_1 = 0.
+    y^2  \frac{\dd^2 v_1}{\dd y^2} + 2 y \frac{\dd v_1}{\dd y} +
+    y^2 v_1 = 0.
     $$
-    This is a spherical Bessel equation of order 0, a solution is:
+    This is a spherical Bessel equation of order 0. Its solutions are $\sin y / y$ and $\cos y / y$. The second one diverges at $x = 0$, so the solution that stays finite is
     $$
-    j_0 (y) = \frac{\sin y}{y} \Longrightarrow u_1 (\tau) = \frac{\sin
-    (\omega \tau)}{\omega \tau} \Longrightarrow u_1 (x) = \frac{\sin [\omega
+    j_0 (y) = \frac{\sin y}{y} \Longrightarrow v_1 (\tau) = \frac{\sin
+    (\omega \tau)}{\omega \tau} \Longrightarrow v_1 (x) = \frac{\sin [\omega
     (2 x / g)^{1 / 2}]}{\omega (2 x / g)^{1 / 2}} .
     $$
-    These are damped sinusoidal waves, with amplitude $\propto \hspace{0.25em} 1 / \sqrt{x}$.
+    To interpret this solution, note that for $n = 1/2$ the sound speed is $c_s^2 = \dd p / \dd \rho = gx / n = 2 g x$ (part 2). The time it takes for a sound wave to travel from the top of the atmosphere to the depth $x$ is
+    $$
+    \int_0^x \frac{\dd x'}{c_s} = \int_0^x \frac{\dd x'}{\sqrt{2 g x'}} = \left( \frac{2 x}{g} \right)^{1/2} = \tau .
+    $$
+    In other words, $\tau$ measures the depth in terms of the travel time of sound, and, in terms of $\tau$, the solution is a standing sound wave. Its amplitude decreases with depth, as $1 / \tau \propto x^{-1/2}$. This makes sense, because the energy flux carried by the wave, $\sim \rho_0 c_s v^2$, must be the same at all depths. Since $\rho_0 \propto x^{1/2}$ and $c_s \propto x^{1/2}$, we need $v \propto x^{-1/2}$. This is the same effect that makes waves grow with height in an isothermal atmosphere (@eq-strat-xiz-stratified-atmosphere).
 
-[^strat-1]: Note that $x = g \tau^2 / 2$
+[^strat-1]: Note that $x = g \tau^2 / 2$.
 :::
 :::
 

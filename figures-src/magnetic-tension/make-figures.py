@@ -40,14 +40,14 @@ def pressure_tension():
 def prominence():
     s = Svg(560, 360, "Force diagram for a Solar prominence",
             "A grey ellipse (the prominence) inside a rectangular control volume V above the "
-            "curved Solar photosphere. Blue magnetic field lines rise from the photosphere, "
+            "curved solar photosphere. Blue magnetic field lines rise from the photosphere, "
             "arch over the prominence and come back down, passing through the volume above and "
             "to the sides of the prominence. The gravitational acceleration g points down, "
             "towards the photosphere.", "prom")
     s.rect(160, 110, 156, 62)
     s.ellipse(238, 141, 78, 25, fill=GRAY)
     s.path("M 10 300 Q 238 190 468 300", w=1.6)  # photosphere
-    s.text(240, 330, "Solar photo-sphere", anchor="middle", italic=False, size=20)
+    s.text(240, 330, "Solar photosphere", anchor="middle", italic=False, size=20)
     s.text(240, 62, "prominence", anchor="middle", italic=False, size=20)
     s.text(272, 211, "V", size=20)
     s.line(176, 198, 176, 250, w=1.5, head=True)
@@ -92,8 +92,8 @@ def reconnection():
     s = Svg(700, 430, "Explosive reconnection between two plates",
             "Panel (a): two grey conducting plates, one above the other, a distance 2D apart. "
             "Two field lines B (blue) are anchored on the plates and bowed towards each other, "
-            "separated by a gap l; black arrows labelled f show the external force that "
-            "stretches them. The horizontal extent of each arc is D. Panel (b): after "
+            "with height l; black arrows labelled f show the external force that "
+            "stretches them, and the horizontal extent of each arc is D. Panel (b): after "
             "reconnection the field lines are straight, running between the plates, and arrows "
             "labelled v show the plasma moving outwards.", "recon")
     # (a)

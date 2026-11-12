@@ -4,7 +4,7 @@ import numpy as np
 
 class RandomWalk:
     """
-    Class representing an ensamble of random walks
+    Class representing an ensemble of random walks
     """
     def __init__(self, nwalkers, type="brownian"):
         """
@@ -67,7 +67,7 @@ if __name__ == '__main__':
 
     plt.figure()
     plt.title("Lévy Flights")
-    plt.plot(np.array(xp)/xp[0], np.array(yp)/yp[0], 'b-')
+    plt.plot(xp, yp, 'b-')
 
     plt.figure()
     plt.loglog(N, np.array(rwb.R)/rwb.R[0], "r", label="Brownian")
@@ -75,6 +75,6 @@ if __name__ == '__main__':
     plt.loglog(N, N**(1/2), 'k--', label=r"$t^{1/2}$")
     plt.loglog(N, N**(3/2), 'k:', label=r"$t^{3/2}$")
     plt.xlabel(r"$t$")
-    plt.ylabel(r"$\langle R \rangle$")
+    plt.ylabel(r"median of $R$")
     plt.legend()
     plt.show()

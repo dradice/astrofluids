@@ -25,7 +25,7 @@ If something in these notes is not accessible to you, please let me know.
 
 ## Use of AI {.unnumbered}
 
-These notes are my own work. I used AI tools, Anthropic's Claude Opus and Claude Sonnet models, to convert them from my original lecture notes to their current format, to generate diagrams, and to review them.
+These notes started from my own lecture notes from previous years. They have been converted, corrected, and improved using AI tools (Anthropic's Claude models). I check and edit all AI-generated material.
 
 ## License {.unnumbered}
 

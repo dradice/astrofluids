@@ -2,9 +2,9 @@
 
 ## Momentum equation in conservation form
 
-In this lecture, we wish to reformulate the hydrodynamics equation in a way that makes conservation of momentum and energy manifest. These equations will also be useful later on, when we discuss shock waves. We start with the equation for the momentum.
+In this chapter, we wish to reformulate the hydrodynamics equations in a way that makes conservation of momentum and energy manifest. These equations will also be useful later on, when we discuss shock waves (@sec-shock). We start with the equation for the momentum.
 
-The starting point is the velocity equation, which reads
+The starting point is the velocity equation (@eq-euler-general), which reads
 $$
 \rho \left[ \frac{\partial \vb{v}}{\partial t} + (\vb{v} \cdot
 \nabla) \vb{v} \right] = \nabla \cdot \vb{T}+ \rho \vb{g}.
@@ -13,9 +13,9 @@ We can bring $\rho$ inside the time derivative at the price of including new ter
 $$
 \rho \frac{\partial \vb{v}}{\partial t} + \rho (\vb{v} \cdot \nabla)
 \vb{v} = \frac{\partial (\rho \vb{v})}{\partial t} -\vb{v}
-\frac{\partial \rho}{\partial t} + \rho (\vb{v} \cdot \nabla) \vb{v}
+\frac{\partial \rho}{\partial t} + \rho (\vb{v} \cdot \nabla) \vb{v} .
 $$ {#eq-conserv-2}
-Using the continuity equation (@eq-lagrange-16) we find
+Using the continuity equation (@eq-lagrange-17) we find
 $$
 \begin{aligned}
 \rho \frac{\partial \vb{v}}{\partial t} + \rho (\vb{v} \cdot \nabla)
@@ -72,7 +72,7 @@ where $\partial \Omega$ is the surface bounding $\Omega$ and $\vb{n}$ its outwar
 
 ![Diagram illustrating the balance of momentum in $\Omega$.](../figures/conservation-laws/momentum-balance.svg){#fig-conserv-momentum-balance fig-alt="A closed region Omega bounded by a surface with outward normal n. Labels inside give the total momentum in the region, the momentum flux through the boundary, minus rho times v dot n times v dA, and the pressure force on the boundary, minus p n dA."}
 
-In words, @eq-conserv-ch6-eq-momentum-integral states that the total momentum in some region changes due to the action of volumetric forces and because of the flux of momentum across the boundary. For example, if we take $\Omega$ to be the region with $x > 0$ and neglect gravity, then $\partial \Omega$ is the $y z$-plane and @eq-conserv-ch6-eq-momentum-integral becomes:
+In words, @eq-conserv-ch6-eq-momentum-integral states that the total momentum in some region changes due to the action of volumetric forces and because of the flux of momentum across the boundary. For example, if we take $\Omega$ to be the region with $x > 0$ and neglect gravity, then $\partial \Omega$ is the $y z$-plane. If we also assume that this region is isolated, so that no momentum flows in or out through the surface at infinity, then @eq-conserv-ch6-eq-momentum-integral becomes:
 $$
 \begin{aligned}
 & \frac{\dd}{\dd t}  \int_{x > 0} \rho \left(\begin{array}{c}
@@ -92,18 +92,18 @@ v_z
 \end{array}\right) \biggr] \dd y \dd z.
 \end{aligned}
 $$ {#eq-conserv-10}
-Note that the pressure across the $x = 0$ surface only influences the $x$-component of the velocity.
+Note that the pressure across the $x = 0$ surface only influences the $x$-component of the momentum.
 
-The last equation also gives the alternative interpretation of pressure we were after. We see that in the RHS the pressure has the same effect as the term $\rho v_x v_x$. This term describes the flow of momentum through the $y z$-plane and is also called the **ram pressure**. This suggests that we can think of pressure not only as force per unit area, but also as a flux of momentum per unit area.
+The last equation also gives an alternative interpretation of pressure. We see that in the RHS the pressure has the same effect as the term $\rho v_x v_x$. This term describes the flow of momentum through the $y z$-plane and is also called the **ram pressure**. This suggests that we can think of pressure not only as force per unit area, but also as a flux of momentum per unit area. This is the same interpretation that we found in @sec-thermo, when we derived the pressure as the flux of momentum due to the random motion of the particles (@eq-thermo-4).
 
 ## Energy equation
 
-The energy equation reads
+The energy equation (@eq-thermo-energy-lagrangian) reads
 $$
 \rho \frac{\dd \varepsilon}{\dd t} = \rho \dot{q} - p \nabla \cdot
 \vb{v}.
 $$ {#eq-conserv-ch6-eq-energy-lagrangian}
-We can expand the advective derivative in @eq-conserv-ch6-eq-energy-lagrangian to obtain the energy equation in the Eulerian frame:
+We can expand the advective derivative in @eq-conserv-ch6-eq-energy-lagrangian to obtain the energy equation in the Eulerian frame (@eq-lagrange-energy):
 $$
 \rho \frac{\partial \varepsilon}{\partial t} + \rho (\vb{v} \cdot
 \nabla) \varepsilon = \rho \dot{q} - p \nabla \cdot \vb{v}.
@@ -115,23 +115,23 @@ $$
 $$ {#eq-conserv-ch6-eq-energy-eulerian}
 The form of this equation is similar to that of the Eulerian continuity equation and to the momentum equation above. They are all examples of **balance laws**: equations describing the conservation of some quantity. A balance law reads:
 $$
-\frac{\partial q}{\partial t} + \nabla \cdot \vb{F}= s,
+\frac{\partial U}{\partial t} + \nabla \cdot \vb{F}= S,
 $$ {#eq-conserv-ch6-eq-balance}
-where $q$, $\vb{F}$, and $s$ are called the conservative quantities, the fluxes, and the sources of the balance law, respectively. If $s = 0$, then @eq-conserv-ch6-eq-balance is said to be a **conservation law**. The name balance law is more clear if we convert the equation to integral form by integrating it over a fixed volume $\Omega$:
+where $U$, $\vb{F}$, and $S$ are called the conserved quantities, the fluxes, and the sources of the balance law, respectively. If $S = 0$, then @eq-conserv-ch6-eq-balance is said to be a **conservation law**. The name balance law is more clear if we convert the equation to integral form by integrating it over a fixed volume $\Omega$:
 $$
-\frac{\dd}{\dd t} \int_{\Omega} q \dd V + \int_{\Omega} \nabla
-\cdot \vb{F} \dd V = \int_{\Omega} s \dd V.
+\frac{\dd}{\dd t} \int_{\Omega} U \dd V + \int_{\Omega} \nabla
+\cdot \vb{F} \dd V = \int_{\Omega} S \dd V.
 $$ {#eq-conserv-15}
-Using Gauss' theorem, we obtain
+Using the divergence theorem, we obtain
 $$
-\frac{\dd}{\dd t} \int_{\Omega} q \dd V = \int_{\Omega} s \dd V
+\frac{\dd}{\dd t} \int_{\Omega} U \dd V = \int_{\Omega} S \dd V
 - \int_{\partial \Omega} \vb{F} \cdot \vb{n} \dd A.
 $$ {#eq-conserv-16}
-This equation signifies that the total amount of a quantity $q$ in the volume $\Omega$ changes by the amount of $q$ that flows in/out through the boundary $\partial \Omega$, plus the amount of $q$ created/destroyed by the source/sink term $s$ (see @fig-conserv-balance-law). Equations in the form of @eq-conserv-ch6-eq-balance are also said to be in **conservation form**.
+This equation signifies that the total amount of a quantity $U$ in the volume $\Omega$ changes by the amount of $U$ that flows in/out through the boundary $\partial \Omega$, plus the amount of $U$ created/destroyed by the source/sink term $S$ (see @fig-conserv-balance-law). Equations in the form of @eq-conserv-ch6-eq-balance are also said to be in **conservation form**.
 
-![Graphical illustration of a balance law.](../figures/conservation-laws/balance-law.svg){#fig-conserv-balance-law fig-alt="A closed region Omega with boundary and outward normal n contains the quantity q. Three flux lines F cross the boundary, entering or leaving the region."}
+![Graphical illustration of a balance law.](../figures/conservation-laws/balance-law.svg){#fig-conserv-balance-law fig-alt="A closed region Omega with boundary and outward normal n contains the quantity U. Three flux lines F cross the boundary, entering or leaving the region."}
 
-At this point, one might ask in what sense @eq-conserv-ch6-eq-energy-eulerian describes the conservation of the energy in the fluid. First, this equation does not contain any terms describing the work done on the system by external forces. Second, $\varepsilon$ is only part of the energy in the flow: we are not including kinetic and potential energy. The issue is that @eq-conserv-ch6-eq-energy-eulerian only describes the evolution of the internal energy. Mechanical work done by gravity, or other forces, can only directly affect the mechanical energy of the fluid (its kinetic energy). The conversion between mechanical and kinetic energy is operated by the pdV term. We postpone for the moment the issue of the gravitational energy of the system, which will turn out to be more complex than expected, to focus on the interplay between kinetic and internal energy.
+At this point, one might ask in what sense @eq-conserv-ch6-eq-energy-eulerian describes the conservation of the energy in the fluid. First, this equation does not contain any terms describing the work done on the system by external forces. Second, $\varepsilon$ is only part of the energy in the flow: we are not including kinetic and potential energy. The issue is that @eq-conserv-ch6-eq-energy-eulerian only describes the evolution of the internal energy. Mechanical work done by gravity, or other forces, can only directly affect the mechanical energy of the fluid (its kinetic energy). The conversion between internal and kinetic energy is operated by the pdV term. We postpone for the moment the issue of the gravitational energy of the system (@sec-grav), which will turn out to be more complex than expected, to focus on the interplay between kinetic and internal energy.
 
 To derive an equation for the kinetic energy, we start from the Euler equation
 $$
@@ -159,7 +159,7 @@ we can rewrite this equation as
 $$
 \frac{\partial \left( \frac{1}{2} \rho v^2 \right)}{\partial t} + \nabla
 \cdot \left[ \left( \tfrac{1}{2} \rho v^2 + p \right) \vb{v} \right] = p
-\nabla \cdot \vb{v}+\vb{f} \cdot \vb{v}
+\nabla \cdot \vb{v}+\vb{f} \cdot \vb{v} .
 $$ {#eq-conserv-21}
 This is the wanted equation for the kinetic energy. We notice two things. First, this equation shows that pressure can be interpreted also as an energy density. Second, this equation has the same pdV term as the internal energy equation, but with opposite sign! This is the term describing the conversion of internal energy into kinetic energy and vice versa. Also note that the work done by external forces appears in the kinetic energy equation, but heating and cooling terms do not.
 
@@ -174,60 +174,95 @@ $$
 &\qquad = \rho \dot{q} +\vb{f} \cdot \vb{v}.
 \end{aligned}}
 $$ {#eq-conserv-ch6-eq-energy-total}
-This shows that the total energy in the fluid is conserved in absence of external forces and heating/cooling. If $\vb{f}$ is a conservative force, it is possible to rewrite the energy equation in a way that is manifestly conservative by including the potential inside the time derivative.
+This shows that the total energy in the fluid is conserved in absence of external forces and heating/cooling. If $\vb{f}$ is a conservative force, it is possible to rewrite the energy equation in a way that is manifestly conservative by including the potential inside the time derivative. For example, consider gravity, $\vb{f} = - \rho \nabla \Psi$, and assume that the potential $\Psi$ does not depend on time, as is the case for an external, static potential. Then, using the continuity equation,
+$$
+\vb{f} \cdot \vb{v} = - \rho \vb{v} \cdot \nabla \Psi = - \nabla \cdot (\rho \Psi \vb{v}) + \Psi \nabla \cdot (\rho \vb{v}) = - \nabla \cdot (\rho \Psi \vb{v}) - \frac{\partial (\rho \Psi)}{\partial t},
+$$ {#eq-conserv-gravity-work}
+so that @eq-conserv-ch6-eq-energy-total becomes
+$$
+\begin{aligned}
+&\frac{\partial \left[ \rho \left( \frac{1}{2} v^2 + \varepsilon + \Psi
+\right) \right]}{\partial t} \\
+&\qquad + \nabla \cdot \left[ \left(
+\tfrac{1}{2} \rho v^2 + \rho \varepsilon + p + \rho \Psi \right) \vb{v}
+\right] = \rho \dot{q} .
+\end{aligned}
+$$ {#eq-conserv-energy-gravity}
+If the gas is self-gravitating, instead, $\Psi$ depends on time through the density, and this simple manipulation does not work. We will come back to this in @sec-grav.
+
+We can now summarize the equations of hydrodynamics in conservation form (@eq-conserv-ch6-eq-balance). In the absence of heating and cooling, and with a body force $\vb{f}$, we have:
+
+| Conservation of | $U$ | $\vb{F}$ | $S$ |
+|---|---|---|---|
+| mass | $\rho$ | $\rho \vb{v}$ | $0$ |
+| momentum | $\rho \vb{v}$ | $\rho \vb{v} \otimes \vb{v} + p \vb{I}$ | $\vb{f}$ |
+| energy | $\rho \left( \frac{1}{2} v^2 + \varepsilon \right)$ | $\left( \frac{1}{2} \rho v^2 + \rho \varepsilon + p \right) \vb{v}$ | $\vb{f} \cdot \vb{v}$ |
+
+: The equations of hydrodynamics in conservation form. {#tbl-conserv-summary}
+
+We will use these equations in @sec-shock to derive the jump conditions across shock waves.
 
 ## Heat conduction
 
-Heat conduction can be included in @eq-conserv-ch6-eq-energy-total by adding a heat flux $\vb{q}$:
+Heat conduction can be included in @eq-conserv-ch6-eq-energy-total by adding a heat flux $\vb{F}_{\mathrm{heat}}$:
 $$
 \begin{aligned}
 &\frac{\partial \left[ \rho \left( \frac{1}{2} v^2 + \varepsilon \right)
 \right]}{\partial t} \\
 &\qquad + \nabla \cdot \left[ \left( \tfrac{1}{2} \rho
-v^2 + \rho \varepsilon + p \right) \vb{v}+\vb{q} \right] \\
+v^2 + \rho \varepsilon + p \right) \vb{v}+\vb{F}_{\mathrm{heat}} \right] \\
 &\qquad = \rho \dot{q} +\vb{f} \cdot \vb{v}.
 \end{aligned}
-$$ {#eq-conserv-23}
-In most astrophysical applications, heat conduction is mediated by photons and can be approximated as
-$$
-\vb{q}= - \frac{c}{3 \rho \kappa_R} \nabla (aT^4),
-$$ {#eq-conserv-ch6-eq-heat-flux}
-where $c$ is the speed of light, $a$ the radiation constant, and $\kappa_R$ is the so-called *Rosseland mean opacity*. The radiation constant is
-$$
-a = 7.5657 \times 10^{- 15} \mathrm{erg} \cdot \operatorname{cm}^{- 3} \cdot
-\mathrm{K}^{- 4},
 $$ {#eq-conserv-25}
-so the term in parenthesis is an energy density. Indeed, it is the energy density of radiation for a black body:
+In many astrophysical applications, energy is transported mostly by photons, and the heat flux can be approximated as
 $$
-u_{\operatorname{rad}} = aT^4 .
-$$ {#eq-conserv-26}
-The opacity has units of $\operatorname{cm}^2 \mathrm{g}^{- 1}$, so $\ell = 1 / \rho \kappa_R$ has units of a length. Indeed, $\ell$ is the photon mean free path. Combining these two facts, we can write @eq-conserv-ch6-eq-heat-flux as
+\vb{F}_{\mathrm{heat}}= - \frac{c}{3 \rho \kappa_R} \nabla (aT^4),
+$$ {#eq-conserv-ch6-eq-heat-flux}
+where $c$ is the speed of light, $a$ the radiation constant (@eq-thermo-33), and $\kappa_R$ is the so-called *Rosseland mean opacity*. The term in parenthesis is an energy density. Indeed, it is the energy density of radiation for a black body (@eq-thermo-32):
 $$
-\vb{q}= - \frac{1}{3} \ell c \nabla u_{\operatorname{rad}} = -\mathcal{D} \nabla
-u_{\operatorname{rad}} .
+u_{\mathrm{rad}} = aT^4 .
+$$ {#eq-conserv-27}
+The opacity has units of $\mathrm{cm}^2 \mathrm{g}^{- 1}$, so $\lambda = 1 / (\rho \kappa_R)$ has units of a length. Indeed, $\lambda$ is the photon mean free path. Combining these two facts, we can write @eq-conserv-ch6-eq-heat-flux as
+$$
+\vb{F}_{\mathrm{heat}}= - \frac{1}{3} \lambda c \nabla u_{\mathrm{rad}} = -\mathcal{D} \nabla
+u_{\mathrm{rad}}, \qquad \mathcal{D} = \frac{\lambda c}{3} .
 $$ {#eq-conserv-ch6-eq-fick-law}
 This is a special case of Fick's law of diffusion:
 $$
 \textbf{diffusive flux} = -\mathcal{D} \nabla \left(
 \text{density of quantity being diffused} \right) .
-$$ {#eq-conserv-28}
+$$ {#eq-conserv-29}
 The diffusion coefficient has units of
 $$
-[\mathcal{D}] = \operatorname{cm}^2 \cdot \mathrm{s}^{- 1} .
-$$ {#eq-conserv-29}
-If energy due to radiation was advected with velocity $\vb{v}_{\operatorname{eff}}$, then
-$$
-\vb{q}= u_{\operatorname{rad}} \vb{v}_{\operatorname{eff}} .
+[\mathcal{D}] = \mathrm{cm}^2 \cdot \mathrm{s}^{- 1} .
 $$ {#eq-conserv-30}
-Comparing this to @eq-conserv-ch6-eq-fick-law, suggests that
+The time needed to diffuse over a distance $R$ is $\sim R^2 / \mathcal{D}$, which is the diffusion time we found in @eq-sn-17 with the random-walk argument (up to a factor of 3).
+
+If energy due to radiation was advected with velocity $\vb{v}_{\mathrm{eff}}$, then
 $$
-v_{\operatorname{eff}} \sim \left( \frac{\ell}{3 L} \right) c,
+\vb{F}_{\mathrm{heat}}= u_{\mathrm{rad}} \vb{v}_{\mathrm{eff}} .
 $$ {#eq-conserv-31}
-where $L$ is the radiation energy density scale-height:
+Comparing this to @eq-conserv-ch6-eq-fick-law suggests that
 $$
-L = \frac{u_{\operatorname{rad}}}{| \nabla u_{\operatorname{rad}} |} .
+v_{\mathrm{eff}} \sim \left( \frac{\lambda}{3 H} \right) c,
 $$ {#eq-conserv-32}
-In the interior of stars $L \gg \ell$, so the radiation diffusion timescale is very long compared with the light crossing time of the star. Close to their surface $L \lesssim \ell / 3$ and @eq-conserv-ch6-eq-fick-law predicts that radiant energy propagates faster than the speed of light. This is a symptom that the diffusion approximation breaks down. More in general, the transport of energy by radiation can be described using @eq-conserv-ch6-eq-heat-flux only if photons and matter are in local thermodynamic equilibrium. If the diffusion approximation cannot be used, matter and radiation need to be treated separately using the equations of radiation-hydrodynamics[^conserv-1].
+where $H$ is the radiation energy density scale-height:
+$$
+H = \frac{u_{\mathrm{rad}}}{| \nabla u_{\mathrm{rad}} |} .
+$$ {#eq-conserv-33}
+In the interior of stars $H \gg \lambda$, so radiation diffuses very slowly: the time it needs to cross the star is much longer than the light-crossing time.
+
+::: {.callout-tip icon=false}
+## Example
+
+Consider the Sun. With an opacity $\kappa \approx 25\,\mathrm{cm^2\,g^{-1}}$ and the mean density of the Sun, $\bar{\rho} \approx 1.4\,\mathrm{g\,cm^{-3}}$, the photon mean free path is $\lambda \approx 0.03\,\mathrm{cm}$. Taking $H \sim R_{\odot}$, @eq-conserv-32 gives
+$$
+v_{\mathrm{eff}} \sim \frac{0.03\,\mathrm{cm}}{3 \times 7 \times 10^{10}\,\mathrm{cm}}\, c \approx 4 \times 10^{-3}\,\mathrm{cm\,s^{-1}},
+$$ {#eq-conserv-sun-veff}
+or about $40\,\mu\mathrm{m\,s^{-1}}$. At this speed, energy takes $R_{\odot} / v_{\mathrm{eff}} \sim 5 \times 10^5$ years to reach the surface from the center, while light would cross the Sun in about $2\,\mathrm{s}$.
+:::
+
+Close to the surface of stars $H \lesssim \lambda / 3$ and @eq-conserv-ch6-eq-fick-law predicts that radiant energy propagates faster than the speed of light. This is a symptom that the diffusion approximation breaks down. More generally, the transport of energy by radiation can be described using @eq-conserv-ch6-eq-heat-flux only if photons and matter are in local thermodynamic equilibrium. If the diffusion approximation cannot be used, matter and radiation need to be treated separately using the equations of radiation-hydrodynamics[^conserv-1].
 
 ## In-class worksheet {#sec-conserv-worksheet}
 
@@ -238,17 +273,17 @@ In the interior of stars $L \gg \ell$, so the radiation diffusion timescale is v
     $$ {#eq-conserv-ws1}
     Discuss the physical meaning of each term.
 
-2.  *Ram pressure.* Consider the flow around a rigid body $\Omega$, as shown in @fig-conserv-flow-past-body.
+2.  *Ram pressure.* Consider the steady flow around a rigid body. Let $\partial \Omega$ be a closed surface in the fluid that encloses the body, with outward normal $\vb{n}$, as shown in @fig-conserv-flow-past-body.
 
-    ![Flow past a rigid body.](../figures/conservation-laws/flow-past-body.svg){#fig-conserv-flow-past-body fig-alt="Four streamlines flow from left to right around a shaded rigid body Omega. A second outline just outside the body marks its boundary, labeled boundary of Omega."}
+    ![Flow past a rigid body. The outer outline is the closed surface $\partial \Omega$ that encloses the body.](../figures/conservation-laws/flow-past-body.svg){#fig-conserv-flow-past-body fig-alt="Four streamlines flow from left to right around a shaded rigid body. A second outline just outside the body, labeled boundary of Omega, is the closed surface that encloses it."}
 
-    1.  Use the divergence theorem and the momentum equation to show that the total force acting on the body is
+    1.  Use the momentum equation and the divergence theorem to show that the total force acting on the body is
         $$
-        \vb{F}= \int_{\partial \Omega} [\rho (\vb{v} \cdot \vb{n})
+        \vb{F}= - \oint_{\partial \Omega} [\rho (\vb{v} \cdot \vb{n})
         \vb{v}+ p\vb{n}] \dd A.
         $$ {#eq-conserv-momentum}
 
-    2.  Assume that $p \approx \operatorname{const}$ and that the flow in the wake of the body is slower than on the front. What kind of force does the body experience?
+    2.  Assume that $p \approx \mathrm{const}$ and that the flow in the wake of the body is slower than on the front. What kind of force does the body experience?
 
 ## Exercises {#sec-conserv-exercises}
 
@@ -282,6 +317,8 @@ $$ {#eq-conserv-angular-density}
     \vb{J}= \int \vb{j} \dd V
     $$ {#eq-conserv-angular-total}
     evolve with time?
+
+4.  Show that, for an isolated fluid in an axisymmetric potential $\Psi (R, z)$, the $z$-component of $\vb{J}$ is conserved.
 :::
 
 ::: {.content-visible when-profile="solutions"}
@@ -290,7 +327,7 @@ $$ {#eq-conserv-angular-density}
     $$
     \rho \frac{\dd \vb{v}}{\dd t} = - \nabla p +\vb{f}.
     $$
-    Multiplying both terms by $\vb{r}$ from the left, we obtain
+    Taking the cross product of both terms with $\vb{r}$ from the left, we obtain
     $$
     \rho \frac{\dd}{\dd t} (\vb{r} \times \vb{v}) = -\vb{r}
     \times \nabla p +\vb{r} \times \vb{f},
@@ -344,15 +381,7 @@ $$ {#eq-conserv-angular-density}
     \partial_x  [p (- y)] + \partial_y  [px] + \partial_z  [0]
     \end{array}\right) .
     $$
-    Remembering that the divergence of tensor is
-    $$
-    \nabla \cdot \vb{T}  = \left(\begin{array}{c}
-    \partial_x T_{x x} + \partial_y T_{x y} + \partial_z T_{x z}\\
-    \partial_x T_{y x} + \partial_y T_{y y} + \partial_z T_{y z}\\
-    \partial_x T_{z x} + \partial_y T_{z y} + \partial_z T_{z z}
-    \end{array}\right),
-    $$
-    we recognize that
+    Remembering the definition of the divergence of a tensor (@eq-euler-15), we recognize that
     $$
     \vb{r} \times \nabla p = \nabla \cdot [p\vb{R}],
     $$
@@ -378,10 +407,16 @@ $$ {#eq-conserv-angular-density}
     We can integrate this equation over the volume of the fluid to obtain
     $$
     \frac{\dd \vb{J}}{\dd t} = \int \vb{r} \times \vb{f}
-    \dd V - \oint [(\vb{v} \cdot \dd \vb{S}) \vb{j}+
-    p\vb{r} \times \dd \vb{S}] .
+    \dd V - \oint [(\vb{v} \cdot \vb{n}) \vb{j}+
+    p\vb{r} \times \vb{n}] \dd A ,
     $$
-    The first term in the RHS represents the torque of the external force. The surface integrals represent the flux of angular momentum advected through the outer boundary $(\vb{v} \cdot \dd \vb{S}) \vb{j}$ and the torque exerted by the container of the fluid $p\vb{R} \dd \vb{S}$.
+    where we used $\vb{R} \vb{n} = \vb{r} \times \vb{n}$. The first term in the RHS represents the torque of the external force. The surface integrals represent the flux of angular momentum advected through the outer boundary, $(\vb{v} \cdot \vb{n}) \vb{j}$, and the torque exerted by the container of the fluid, $p \vb{r} \times \vb{n}$.
+
+4.  For an isolated fluid there is no flux of angular momentum through the outer boundary and no container, so the surface integrals vanish. The external force is $\vb{f} = - \rho \nabla \Psi$, and the $z$-component of its torque is
+    $$
+    (\vb{r} \times \vb{f})_z = - \rho (x \partial_y \Psi - y \partial_x \Psi) = - \rho \frac{\partial \Psi}{\partial \phi} = 0,
+    $$
+    because $\Psi$ does not depend on the azimuthal angle $\phi$. So $\dd J_z / \dd t = 0$. The other components of $\vb{J}$ are not conserved in general, because the torque of the force has non-zero $x$- and $y$-components.
 :::
 :::
 

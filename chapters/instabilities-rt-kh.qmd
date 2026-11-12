@@ -16,7 +16,7 @@ This chapter is in preparation.
 
     2.  Show that the growth rate of the instability is
         $$
-        \Gamma \sim \sqrt{\frac{Ag}{r}},
+        \lambda \sim \sqrt{\frac{Ag}{r}},
         $$ {#eq-rtkh-1}
         where $A$ is the Atwood number
         $$
@@ -43,16 +43,16 @@ Adapted from @clarke2007, Problem 41.
 
 2.  Before the instability sets in, the gravitational potential energy per unit length of the fluid in the pipe is
     $$
-    E_{\operatorname{before}} = a \int_{- a / 2}^0 \rho_0 gz \dd z + a \int_0^{a /
+    E_{\mathrm{before}} = a \int_{- a / 2}^0 \rho_0 gz \dd z + a \int_0^{a /
     2} \rho_1 gz \dd z = \frac{a^3}{8}  (\rho_1 - \rho_0) g.
     $$
     The instability will exchange the heavy and light fluids, so the potential energy per unit length of the fluid once the flow has settled is
     $$
-    E_{\operatorname{after}} = \frac{a^3}{8}  (\rho_0 - \rho_1) g.
+    E_{\mathrm{after}} = \frac{a^3}{8}  (\rho_0 - \rho_1) g.
     $$
     The total energy available to the instability per unit length is then
     $$
-    E_1 = E_{\operatorname{before}} - E_{\operatorname{after}} = \frac{a^3}{4} (\rho_1 -
+    E_1 = E_{\mathrm{before}} - E_{\mathrm{after}} = \frac{a^3}{4} (\rho_1 -
     \rho_0) g.
     $$
 :::
