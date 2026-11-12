@@ -26,7 +26,7 @@ $$
 \cdot \vb{v}- \frac{1}{\rho} \nabla p \cdot \vb{v}+ \nu \nabla^2
 \vb{v} \cdot \vb{v}.
 $$ {#eq-turb-kinetic-energy-full}
-Consider, the first term on the RHS, representing the work done by the external force on the flow. If $\ell \ll \ell_0$, then we can take $\vb{g} \sim \mathrm{const}$ over this region and
+Consider the first term on the RHS, representing the work done by the external force on the flow. If $\ell \ll \ell_0$, then we can take $\vb{g} \sim \mathrm{const}$ over this region and
 $$
 \langle \vb{g} \cdot \vb{v} \rangle \sim \vb{g} \cdot \langle
 \vb{v} \rangle = 0.
@@ -77,7 +77,7 @@ In the previous equation, we have introduced the Reynolds number
 $$
 \mathrm{Re} = \frac{\ell_0 v (\ell_0)}{\nu} .
 $$ {#eq-turb-10}
-Experimental observations of fluids in pipes suggest that turbulence sets in when $\mathrm{Re} \gtrsim 10^3$. In astrophysical situations, $\mathrm{Re}$ can be much larger. For example, in the interstellar medium $\mathrm{Re} \sim 10^8$. In neutron star mergers we contend with flows having $\mathrm{Re} \sim 10^{15}$. Consequently, @eq-turb-ratio-of-scales-1 implies that $\ell_d \ll \ell_0$ for turbulent flows.
+Experimental observations of fluids in pipes suggest that turbulence sets in when $\mathrm{Re} \gtrsim 10^3$. In astrophysical situations, $\mathrm{Re}$ can be much larger. For example, in the interstellar medium $\mathrm{Re} \sim 10^9$. In neutron star mergers we contend with flows having $\mathrm{Re} \sim 10^{15}$. Consequently, @eq-turb-ratio-of-scales-1 implies that $\ell_d \ll \ell_0$ for turbulent flows.
 
 Summarizing, in our analysis of @eq-turb-kinetic-energy we have found that kinetic energy is injected at large scale $\ell_0$ (first term on the RHS) and dissipated at the dissipation scale $\ell_d \ll \ell_0$ (last term on the RHS). This means that there is a range of scales $\ell_d \ll \ell \ll \ell_0$, the so-called *inertial range*, in which the dynamics is dominated by the nonlinear term $(\vb{v} \cdot \nabla) v^2$. We can estimate it as
 $$
@@ -122,7 +122,7 @@ $$
 \boxed{\frac{\dd v^2 (\ell)}{\dd t} \sim - \frac{v^2 (\ell)}{\tau}
 .}
 $$ {#eq-turb-17}
-The constancy of $v^3 (\ell) / \ell$ implies that **the rate at which turbulence dissipates kinetic energy is independent of $\nu$** or on the detailed form of the physical processes responsible for dissipation! Instead, it is set by the dynamics at large scale. In other words, when kinetic energy is injected by mechanical work at large scale in a turbulent flow, turbulence efficiently transports this energy to small scales (generating large velocity gradients) at which point it is dissipated. This is the reason why turbulence theory applies equally well to the flow of water around the propeller of a ship and to the motion of rarefied gas in the intergalactic medium. This finding also justifies turbulence modeling approaches used in simulations.
+The constancy of $v^3 (\ell) / \ell$ implies that **the rate at which turbulence dissipates kinetic energy is independent of $\nu$** or of the detailed form of the physical processes responsible for dissipation! Instead, it is set by the dynamics at large scale. In other words, when kinetic energy is injected by mechanical work at large scale in a turbulent flow, turbulence efficiently transports this energy to small scales (generating large velocity gradients) at which point it is dissipated. This is the reason why turbulence theory applies equally well to the flow of water around the propeller of a ship and to the motion of rarefied gas in the intergalactic medium. This finding also justifies turbulence modeling approaches used in simulations.
 
 With Kolmogorov's second similarity law, we can provide a better estimate for $\ell_d$. Using @eq-turb-kolmogorov-scaling into @eq-turb-ratio-of-scales-1, we can eliminate $v (\ell_d)$ to find
 $$
@@ -138,7 +138,7 @@ which makes it impossible to directly simulate very turbulent flows. The largest
 ::: {.callout-tip icon=false}
 ## Example
 
-Consider the wind in the atmosphere of the Earth, with $\ell_0 \sim 1\,\mathrm{km}$ and $v (\ell_0) \sim 10\,\mathrm{m\,s^{-1}}$. The kinematic viscosity of air is $\nu \approx 0.15\,\mathrm{cm^2\,s^{-1}}$, so $\mathrm{Re} \sim 7 \times 10^8$. The dissipation scale is $\ell_d \sim \mathrm{Re}^{-3/4} \ell_0 \sim 0.2\,\mathrm{mm}$, and a direct numerical simulation would cost $\sim \mathrm{Re}^3 \sim 10^{26}$, many orders of magnitude beyond what is possible. Even a cup of coffee stirred with a spoon, with $\ell_0 \sim 3\,\mathrm{cm}$, $v (\ell_0) \sim 10\,\mathrm{cm\,s^{-1}}$, and $\nu \approx 0.01\,\mathrm{cm^2\,s^{-1}}$, has $\mathrm{Re} \sim 3000$ and $\ell_d \sim 70\,\mu\mathrm{m}$.
+Consider the wind in the atmosphere of the Earth, with $\ell_0 \sim 1\,\mathrm{km}$ and $v (\ell_0) \sim 10\,\mathrm{m\,s^{-1}}$. The kinematic viscosity of air is $\nu \approx 1.5 \times 10^{-5}\,\mathrm{m^2\,s^{-1}}$, so $\mathrm{Re} \sim 7 \times 10^8$. The dissipation scale is $\ell_d \sim \mathrm{Re}^{-3/4} \ell_0 \sim 0.2\,\mathrm{mm}$, and a direct numerical simulation would cost $\sim \mathrm{Re}^3 \sim 10^{26}$, many orders of magnitude beyond what is possible. Even a cup of coffee stirred with a spoon, with $\ell_0 \sim 3\,\mathrm{cm}$, $v (\ell_0) \sim 0.1\,\mathrm{m\,s^{-1}}$, and $\nu \approx 10^{-6}\,\mathrm{m^2\,s^{-1}}$, has $\mathrm{Re} \sim 3000$ and $\ell_d \sim 70\,\mu\mathrm{m}$.
 :::
 
 Before we discuss some applications of Kolmogorov's theory, it is worth mentioning its limitations. Astrophysical flows are often supersonic and highly magnetized. Compressibility and magnetic fields can have a profound role on the turbulent cascade. Shocks can dissipate kinetic energy directly at large scales (@sec-shock). Magnetic fields can give rise to *inverse cascade* whereby small magnetic field structures self-organize into large scale ordered fields (*turbulent dynamo process*, @sec-flux). The study of compressible, magnetized turbulence is still an active area of research and beyond the scope of this course. However, even for compressible, magnetized flows, Kolmogorov's theory provides a good starting point and can often be applied directly.
@@ -169,12 +169,12 @@ Turbulence significantly accelerates the mixing of new elements produced in supe
 ::: {.callout-tip icon=false}
 ## Example
 
-Consider the metals ejected by a supernova into the warm interstellar medium, with $T \sim 10^4\,\mathrm{K}$ and $n \sim 1\,\mathrm{cm^{-3}}$. The turbulence in the interstellar medium is driven on scales $\ell_0 \sim 100\,\mathrm{pc}$, with $v (\ell_0) \sim 10\,\mathrm{km\,s^{-1}}$. So turbulence mixes the metals over $\sim 100\,\mathrm{pc}$ in a time $\sim \ell_0 / v (\ell_0) \sim 10\,\mathrm{Myr}$. How long would it take without turbulence? The mean free path of the particles in this gas is $\lambda \sim 10^{12}\,\mathrm{cm}$, and their thermal velocity is $v_{\mathrm{th}} \sim 10\,\mathrm{km\,s^{-1}}$, so the diffusion coefficient is $D \sim \lambda v_{\mathrm{th}} / 3 \sim 3 \times 10^{17}\,\mathrm{cm^2\,s^{-1}}$ (@sec-conserv). Molecular diffusion would take $\sim \ell_0^2 / D \sim 10^{16}\,\mathrm{yr}$, much longer than the age of the Universe. Note also that the ratio of the two timescales is $\ell_0 v (\ell_0) / D \sim 10^9$, which is the Reynolds number of the interstellar medium.
+Consider the metals ejected by a supernova into the warm interstellar medium, with $T \sim 10^4\,\mathrm{K}$ and $n \sim 1\,\mathrm{cm^{-3}}$. The turbulence in the interstellar medium is driven on scales $\ell_0 \sim 100\,\mathrm{pc}$, with $v (\ell_0) \sim 10\,\mathrm{km\,s^{-1}}$. So turbulence mixes the metals over $\sim 100\,\mathrm{pc}$ in a time $\sim \ell_0 / v (\ell_0) \sim 10\,\mathrm{Myr}$. How long would it take without turbulence? The mean free path of the particles in this gas is $\lambda \sim 10^{10}\,\mathrm{m}$, and their thermal velocity is $v_{\mathrm{th}} \sim 10\,\mathrm{km\,s^{-1}}$, so the diffusion coefficient is $D \sim \lambda v_{\mathrm{th}} / 3 \sim 3 \times 10^{13}\,\mathrm{m^2\,s^{-1}}$ (@sec-conserv). Molecular diffusion would take $\sim \ell_0^2 / D \sim 10^{16}\,\mathrm{yr}$, much longer than the age of the Universe. Note also that the ratio of the two timescales is $\ell_0 v (\ell_0) / D \sim 10^9$, which is the Reynolds number of the interstellar medium.
 :::
 
 ## Turbulence Modeling: Reynolds Stress
 
-Directly simulating turbulent flows is impossible, so one of the goals of turbulence theory is to develop effective strategies to deal with unresolved turbulence in simulations. Commonly used models are the Reynolds averaged Navier-Stokes (RANS) and Large-Eddy Simulations (LES) frameworks. Without going into the details, both approaches are based on the general idea of coarse graining the fluid equations. That is we replace $\vb{v}$ with a suitable average $\bar{\vb{v}}$ and try to come up with equations for it. If we coarse grain the Navier-Stokes equations, we find:
+Directly simulating turbulent flows is impossible, so one of the goals of turbulence theory is to develop effective strategies to deal with unresolved turbulence in simulations. Commonly used models are the Reynolds averaged Navier–Stokes (RANS) and Large-Eddy Simulations (LES) frameworks. Without going into the details, both approaches are based on the general idea of coarse graining the fluid equations. That is, we replace $\vb{v}$ with a suitable average $\bar{\vb{v}}$ and try to come up with equations for it. If we coarse grain the Navier–Stokes equations, we find:
 $$
 \partial_t \vb{v}+ \nabla \cdot \left(\vb{v} \otimes \vb{v}+ \frac{p}{\rho} \vb{I} \right)
 =\vb{g}+ \nu \nabla^2 \vb{v} \longrightarrow \partial_t
@@ -205,7 +205,7 @@ $$
 \otimes \bar{\vb{v}} + \frac{\bar{p}}{\rho} \vb{I} \right) = \bar{\vb{g}} + (\nu
 + \nu_T) \nabla^2 \bar{\vb{v}} .
 $$ {#eq-turb-momentum-averaged-2}
-That is turbulence is described simply as a dissipative process and $\nu_T$ is an effective turbulent viscosity. The turbulent viscosity, in turn, is often obtained using dimensional analysis arguments:
+That is, turbulence is described simply as a dissipative process and $\nu_T$ is an effective turbulent viscosity. The turbulent viscosity, in turn, is often obtained using dimensional analysis arguments:
 $$
 \nu_T = \ell_{\mathrm{mix}} V,
 $$ {#eq-turb-27}
@@ -222,6 +222,7 @@ $$
 y} \right| .
 $$ {#eq-turb-29}
 This is Prandtl's mixing-length model. The Smagorinsky model, which is often used in large-eddy simulations, is a generalization of this model, in which $\ell_{\mathrm{mix}}$ is proportional to the size of the grid cells and $| \partial \bar{v}_x / \partial y |$ is replaced by the magnitude of the rate of strain of $\bar{\vb{v}}$.
+
 For industrial applications, a popular strategy is to solve additional equations for $\partial_t \vb{R}$, with coefficients calibrated to experimental (wind tunnel) results. More sophisticated "subgrid" models have also been proposed for astrophysical applications, but their detailed description is beyond the scope of this course. See @brandenburg2011 for more information.
 
 Another popular approach is the Implicit Large-Eddy Simulations (ILES) method, in which $\vb{R}$ is not included explicitly in the equations. Instead, a numerical scheme is chosen that has a numerical viscosity $\nu_{\mathrm{num}} \approx \nu_T$. This approach is often effective, but ILES simulations need to be accompanied by careful resolution studies to assess their reliability, because accurate results can only be obtained if a sufficient portion of the inertial range is resolved by the simulations.

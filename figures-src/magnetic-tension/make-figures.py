@@ -18,9 +18,9 @@ def pressure_tension():
     s = Svg(760, 300, "Magnetic pressure and magnetic tension forces",
             "Left panel: a bundle of field lines pointing out of the page (circled dots, with "
             "unit vector b-hat); four arrows pointing diagonally outward show the magnetic "
-            "pressure force, minus the perpendicular gradient of B squared over 8 pi. Right "
+            "pressure force, minus the perpendicular gradient of B squared over 2 mu-zero. Right "
             "panel: a curved field line (blue) with direction b-hat; an arrow from the curve "
-            "towards its centre of curvature shows the tension force B squared over 4 pi times "
+            "towards its centre of curvature shows the tension force B squared over mu-zero times "
             "(b-hat dot nabla) b-hat.", "pt")
     cx, cy = 150, 165
     for dx, dy in ((0, 0), (-65, 0), (65, 0), (0, -65), (0, 65)):
@@ -28,12 +28,12 @@ def pressure_tension():
     for sx, sy in ((-1, -1), (1, -1), (-1, 1), (1, 1)):
         s.line(cx + sx * 26, cy + sy * 26, cx + sx * 80, cy + sy * 80, head=True)
     s.text(cx + 82, cy + 8, "b̂", bold=True, size=22)
-    s.text(48, 52, "−∇_⊥ B^2/8π", italic=True, size=20)
+    s.text(48, 52, "−∇_⊥ B^2/2μ_0", italic=True, size=20)
     # tension panel
     s.path("M 455 265 C 455 190 480 120 620 115", BLUE, 2.6, head=True)
     s.text(595, 150, "b̂", bold=True, fill=BLUE, size=22)
     s.line(490, 160, 590, 260, w=1.5, head=True)
-    s.text(600, 243, "(B^2/4π) (b̂·∇) b̂", size=20)
+    s.text(600, 243, "(B^2/μ_0) (b̂·∇) b̂", size=20)
     s.save(OUT / "tension-pressure-tension.svg")
 
 

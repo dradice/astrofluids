@@ -42,10 +42,10 @@ where $A > 0$.
 ::: {.solution}
 1.  The momentum equation becomes
     $$
-    v \frac{\dd v}{\dd r} + \frac{a^2}{\rho} \frac{\dd \rho}{\dd r} = \frac{A - GM}{r^2} = -
+    v \frac{\dd v}{\dd r} + \frac{c_{\mathrm{iso}}^2}{\rho} \frac{\dd \rho}{\dd r} = \frac{A - GM}{r^2} = -
     \frac{GM_{\mathrm{eff}}}{r^2},
     $$
-    where the effective mass is $M_{\mathrm{eff}} = A / G - M$. Proceeding as for the isothermal stellar wind of @eq-wind-1, we find
+    where the effective mass is $M_{\mathrm{eff}} = M - A / G$. Proceeding as for the isothermal stellar wind of @eq-wind-1, we find
     $$
     (v^2 - c_{\mathrm{iso}}^2)  \frac{1}{v}  \frac{\dd v}{\dd r} = \frac{2 c_{\mathrm{iso}}^2}{r} -
     \frac{GM}{r^2} + \frac{A}{r^2} .
@@ -57,7 +57,7 @@ where $A > 0$.
     $$
     As long as $r_s > r_0$, the stellar radius, the wind solution does not change qualitatively. If $r_s < r_0$, then there is no sonic point, which means that the wind never becomes supersonic.
 
-3.  If $A > GM$, then $M_{\mathrm{eff}} < 0$, then
+3.  If $A > GM$, then $M_{\mathrm{eff}} < 0$ and
     $$
     (v^2 - c_{\mathrm{iso}}^2)  \frac{1}{v} \frac{\dd v}{\dd r} = \frac{2 c_{\mathrm{iso}}^2}{r} + \frac{G | M_{\mathrm{eff}}
     |}{r^2} > 0.
@@ -73,7 +73,7 @@ Far from a star of mass $M$ located at the origin, isothermal gas has pressure $
 
 1.  Find the accretion rate, assuming that the gas remains isothermal. At what radius does the infalling gas reach the sound speed?
 
-2.  Let $c_{\mathrm{iso}} = 10^5 \mathrm{cm} /\mathrm{s}$ and $n_{\infty} = 10^3$ hydrogen molecules $\mathrm{cm}^{- 3}$, and take the mass of the hydrogen atom to be $1.66 \times 10^{- 24} \mathrm{g}$. Express this radius in units of the solar radius $R_{\odot} = 7 \times 10^{10} \mathrm{cm}$.
+2.  Let $c_{\mathrm{iso}} = 1\, \mathrm{km} /\mathrm{s}$ and $n_{\infty} = 10^3$ hydrogen atoms per $\mathrm{cm}^{3}$, and take the mass of the hydrogen atom to be $1.66 \times 10^{- 27}\, \mathrm{kg}$. Express this radius in units of the solar radius $R_{\odot} = 7 \times 10^8\, \mathrm{m}$.
 
 3.  Calculate the time that a star of mass $M$ needs to double its mass.
 
@@ -84,8 +84,8 @@ Adapted from @clarke2007, Problem 30.
 ::: {.solution}
 1.  The infalling gas is described by
     $$
-    \dot{M} = 4 \pi r^2 \rho v = \mathrm{const}, \qquad v \frac{\dd v}{\dd r} + \frac{a^2}{\rho}
-    \frac{\dd \rho}{\dd r} = - \frac{GM}{r^2},
+    \dot{M} = 4 \pi r^2 \rho v = \mathrm{const}, \qquad v \frac{\dd v}{\dd r} + \frac{c_{\mathrm{iso}}^2}{\rho}
+    \frac{\dd \rho}{\dd r} = - \frac{GM}{r^2} .
     $$
     The first equation yields
     $$
@@ -111,18 +111,18 @@ Adapted from @clarke2007, Problem 30.
     v \exp \left( - \frac{v^2}{2 c_{\mathrm{iso}}^2} \right) = c_{\mathrm{iso}} \left( \frac{r_s}{r}
     \right)^2 \exp \left( - \frac{2 r_s}{r} + \frac{3}{2} \right) .
     $$
-    For $r \gg r_c$, we have $v \ll c_{\mathrm{iso}}$ and
+    For $r \gg r_s$, we have $v \ll c_{\mathrm{iso}}$ and
     $$
-    v_{\infty} = c_{\mathrm{iso}} \left( \frac{r_c}{r} \right)^2 \ee^{3 / 2} .
+    v_{\infty} = c_{\mathrm{iso}} \left( \frac{r_s}{r} \right)^2 \ee^{3 / 2} .
     $$
     The accretion rate is
     $$
     \dot{M} = 4 \pi r^2 v \rho = 4 \pi c_{\mathrm{iso}} r_s^2 \rho_{\infty} \ee^{3 / 2} .
     $$
-    So the time required to double the mass is
+    With $n_{\infty} = 10^3\, \mathrm{cm}^{- 3} = 10^9\, \mathrm{m}^{- 3}$ hydrogen atoms, each of mass $1.66 \times 10^{- 27}\, \mathrm{kg}$, we have $\rho_{\infty} = 1.7 \times 10^{- 18}\, \mathrm{kg} \, \mathrm{m}^{- 3}$. So the time required to double the mass is
     $$
     4 \pi c_{\mathrm{iso}} r_s^2 \rho_{\infty} \ee^{3 / 2} t = M \Longrightarrow t = \frac{M}{4
-    \pi c_{\mathrm{iso}} r_s^2 \rho_{\infty} \ee^{3 / 2}} = 1.5 \times 10^8 \mathrm{years} \left(
+    \pi c_{\mathrm{iso}} r_s^2 \rho_{\infty} \ee^{3 / 2}} = 1.5 \times 10^8\, \mathrm{yr} \left(
     \frac{M_{\odot}}{M} \right) .
     $$
 :::

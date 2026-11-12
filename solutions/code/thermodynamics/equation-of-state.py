@@ -8,10 +8,11 @@ class StellarMatter:
 
         self.X_H = X_H
         self.X_He = X_He
-        self.k_B = k_B.cgs.value
-        self.a_rad = (4 * sigma_sb / c).cgs.value
-        self.m_H = m_p.cgs.value
-        self.m_He = 4 * u.cgs.value
+        # SI units: rho in kg m^-3, T in K, p in Pa
+        self.k_B = k_B.si.value
+        self.a_rad = (4 * sigma_sb / c).si.value
+        self.m_H = m_p.si.value
+        self.m_He = 4 * u.si.value
 
     def get_densities(self, rho, temp):
         n_H = rho * (self.X_H / self.m_H)
@@ -30,7 +31,7 @@ class StellarMatter:
 if __name__ == "__main__":
     eos = StellarMatter()
 
-    rho = 150
+    rho = 150e3  # 150 g cm^-3
     temp = 10.0**np.linspace(1, 10, 100)
     p_ions, p_e, p_rad = eos.get_pressures(rho, temp)
     plt.figure()
@@ -39,10 +40,10 @@ if __name__ == "__main__":
     plt.loglog(temp, p_e, label=r"$p_{\rm e}$")
     plt.loglog(temp, p_rad, label=r"$p_{\rm rad}$")
     plt.xlabel(r"$T\ [{\rm K}]$")
-    plt.ylabel(r"$p\ [{\rm Ba}]$")
+    plt.ylabel(r"$p\ [{\rm Pa}]$")
     plt.legend()
 
-    rho = 1e-24
+    rho = 1e-21  # 1e-24 g cm^-3
     temp = 10.0**np.linspace(-3, 3, 100)
     p_ions, p_e, p_rad = eos.get_pressures(rho, temp)
     plt.figure()
@@ -51,7 +52,7 @@ if __name__ == "__main__":
     plt.loglog(temp, p_e, label=r"$p_{\rm e}$")
     plt.loglog(temp, p_rad, label=r"$p_{\rm rad}$")
     plt.xlabel(r"$T\ [{\rm K}]$")
-    plt.ylabel(r"$p\ [{\rm Ba}]$")
+    plt.ylabel(r"$p\ [{\rm Pa}]$")
     plt.legend()
 
     plt.show()

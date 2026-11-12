@@ -15,7 +15,7 @@ This chapter is in preparation.
         W = - \frac{3 GM^2}{5 R} .
         $$ {#eq-grav-1}
 
-    3.  The iron core of a massive star has a mass $M = 1.4 M_{\odot}$ and radius $R \approx 5000 \mathrm{km}$ collapses to form a protoneutron star with a radius $R \approx 10 \mathrm{km}$. How much gravitational energy is liberated in the process?
+    3.  The iron core of a massive star, with mass $M = 1.4\,M_{\odot}$ and radius $R \approx 5000\,\mathrm{km}$, collapses to form a protoneutron star with a radius $R \approx 10\,\mathrm{km}$. How much gravitational energy is liberated in the process?
 
 ## Exercises {#sec-grav-exercises}
 
@@ -78,8 +78,8 @@ where $\vb{r}$ is the displacement of the fluid element from the center of the c
     The term on the RHS can be simplified as
     $$
     M (r) = \frac{4}{3} \pi \rho r^3 \Longrightarrow
-    \frac{GM (r)}{r^2} \hat{\vb{r}} = \frac{4}{3} \pi \rho r
-    \hat{\vb{r}} = \frac{4}{3} \pi \rho \vb{r}.
+    \frac{GM (r)}{r^2} \hat{\vb{r}} = \frac{4}{3} \pi G \rho r
+    \hat{\vb{r}} = \frac{4}{3} \pi G \rho \vb{r}.
     $$
     The LHS of the momentum equation reads
     $$
@@ -97,7 +97,7 @@ where $\vb{r}$ is the displacement of the fluid element from the center of the c
     \begin{alignedat}{2}
     \frac{\dd}{\dd t} \left( H^2 a^2 - \frac{8 \pi}{3} G \rho a^2
     \right) &{}={} && 2 H \dot{H} a^2 + 2 H^2  \dot{a} a - \frac{8 \pi}{3} G
-    \dot{\rho} a^2 - \frac{16 \pi}{3} \rho a \dot{a} \\
+    \dot{\rho} a^2 - \frac{16 \pi}{3} G \rho a \dot{a} \\
     &{}={} && 2 Ha^2  \left( \dot{H} + H^2 + \frac{4 \pi G}{3} \rho \right) = 0.
     \end{alignedat}
     $$
@@ -163,9 +163,9 @@ The initial acceleration is the same in both cases and equal to $- GM / R^2_0$.
     v (r) = - \sqrt{\frac{2 GM}{r} - \frac{2 GM}{R_0}} = - \sqrt{2 GM \left(
     \frac{R_0 - r}{rR_0} \right)} .
     $$
-    The integral can be evaluate to give
+    The integral can be evaluated to give
     $$
-    T = \int_0^{R_0} \sqrt{\frac{rR_0}{2 GM (R_0 - r)}} = \sqrt{\frac{R_0^3}{2
+    T = \int_0^{R_0} \sqrt{\frac{rR_0}{2 GM (R_0 - r)}} \dd r = \sqrt{\frac{R_0^3}{2
     GM}}  \int_0^1 \sqrt{\frac{\xi}{1 - \xi}} \dd \xi = \frac{\pi}{2
     \sqrt{2}}  \sqrt{\frac{R_0^3}{GM}} .
     $$

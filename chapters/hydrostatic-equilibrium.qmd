@@ -42,7 +42,7 @@ $$
 &\qquad - \int_V \nabla \cdot [\rho \vb{v} \otimes \vb{v}+ p\vb{I}] \cdot \vb{r} \dd V \\
 &= - \int_V \rho \nabla \Psi \cdot \vb{r} \dd V \\
 &\qquad - \int_V \nabla \cdot [\rho (\vb{v} \cdot \vb{r}) \vb{v}+ p\vb{r}] \dd V \\
-&\qquad + \int_V [\rho \vb{v} \otimes \vb{v}+ p\vb{I}] : \nabla \vb{r} \dd V.
+&\qquad + \int_V [\rho \vb{v} \otimes \vb{v}+ p\vb{I}] : \nabla \vb{r} \dd V,
 \end{aligned}
 $$ {#eq-hydro-6}
 where the notation $\vb{A}: \vb{B}$ denotes the inner product between two tensors:
@@ -190,13 +190,13 @@ Could the Sun be powered by gravitational contraction alone? In this case, the S
 $$
 t_{\mathrm{KH}} \sim \frac{G M_{\odot}^2}{R_{\odot} L_{\odot}} \approx 3 \times 10^7\,\mathrm{yr},
 $$ {#eq-hydro-kelvin-helmholtz}
-where $L_{\odot} \approx 3.8 \times 10^{33}\,\mathrm{erg\,s^{-1}}$ is the luminosity of the Sun. This is the so-called *Kelvin–Helmholtz time*. It is much shorter than the age of the Earth, about $4.5 \times 10^9$ years, so the Sun must have another source of energy: nuclear fusion.
+where $L_{\odot} \approx 3.8 \times 10^{26}\,\mathrm{W}$ ($3.8 \times 10^{33}\,\mathrm{erg\,s^{-1}}$) is the luminosity of the Sun. This is the so-called *Kelvin–Helmholtz time*. It is much shorter than the age of the Earth, about $4.5 \times 10^9$ years, so the Sun must have another source of energy: nuclear fusion.
 :::
 
 ::: {.callout-tip icon=false}
 ## Example
 
-The hot gas in a galaxy cluster is in approximate virial equilibrium in the gravitational potential of the cluster. Consider a cluster with mass $M \sim 10^{15} M_{\odot}$ and radius $R \sim 1\,\mathrm{Mpc}$, and assume, for simplicity, that the gas has the same distribution as the total mass. For a uniform sphere $W = - \frac{3}{5} G M^2 / R$, while $3 \Pi = 3 M k_B T / (\mu m_u)$, so the virial theorem gives
+The hot gas in a galaxy cluster is in approximate virial equilibrium in the gravitational potential of the cluster. Consider a cluster with mass $M \sim 10^{15}\,M_{\odot}$ and radius $R \sim 1\,\mathrm{Mpc}$, and assume, for simplicity, that the gas has the same distribution as the total mass. For a uniform sphere $W = - \frac{3}{5} G M^2 / R$, while $3 \Pi = 3 M k_B T / (\mu m_u)$, so the virial theorem gives
 $$
 k_B T \sim \frac{G M \mu m_u}{5 R} \approx 5\,\mathrm{keV},
 $$ {#eq-hydro-cluster-temperature}
@@ -239,12 +239,12 @@ M_J &= \frac{4 \pi}{3}  \bar{\rho} R_J^3 = \frac{15^{3 / 2} c_s^3}{3 (4 \pi
 G^{3 / 2}}  \frac{T^{3 / 2}}{\mu^2 n^{1 / 2}} .
 \end{aligned}
 $$ {#eq-hydro-34}
-In CGS units the Jeans mass is
+Inserting the values of the constants, we find
 $$
-M_J \approx 94 M_{\odot}  \left( \frac{T}{\mathrm{K}} \right)^{3 / 2}
+M_J \approx 94\,M_{\odot}  \left( \frac{T}{\mathrm{K}} \right)^{3 / 2}
 \left( \frac{\mathrm{cm}^{- 3}}{n} \right)^{1 / 2}  \frac{1}{\mu^2} .
 $$ {#eq-hydro-jeans-mass}
-For a typical molecular cloud with $T = 10\,\mathrm{K}$, $n = 100 \mathrm{cm}^{- 3}$, and $\mu = 2$ (for molecular hydrogen) the Jeans length is $R_J \approx 1.5\,\mathrm{pc}$ and the Jeans mass is $M_J \approx 70 M_{\odot}$. This is much larger than the mass of a typical star. Note however that the Jeans mass decreases with increasing $n$. So, as long as the gas can efficiently cool and remain at low temperature, the fragments collapse and undergo further fragmentation. In the dense cores of molecular clouds, with $n \sim 10^4\,\mathrm{cm^{-3}}$, the Jeans mass is $M_J \approx 7 M_{\odot}$, and at even higher densities it approaches the mass of typical stars.
+For a typical molecular cloud with $T = 10\,\mathrm{K}$, $n = 100\,\mathrm{cm^{-3}}$, and $\mu = 2$ (for molecular hydrogen) the Jeans length is $R_J \approx 1.5\,\mathrm{pc}$ and the Jeans mass is $M_J \approx 70\,M_{\odot}$. This is much larger than the mass of a typical star. Note however that the Jeans mass decreases with increasing $n$. So, as long as the gas can efficiently cool and remain at low temperature, the fragments collapse and undergo further fragmentation. In the dense cores of molecular clouds, with $n \sim 10^4\,\mathrm{cm^{-3}}$, the Jeans mass is $M_J \approx 7\,M_{\odot}$, and at even higher densities it approaches the mass of typical stars.
 
 While the arguments we have given here give an order of magnitude estimate for the mass of protostars, star formation is strongly influenced by a number of factors that we have neglected. These include turbulence and magnetic fields. Moreover, star formation strongly depends on the ability of the gas to cool to low temperature, as shown by @eq-hydro-jeans-mass.
 
@@ -254,16 +254,16 @@ For a magnetic star the virial theorem becomes:
 $$
 W + 2 K + 3 \Pi +\mathfrak{M}= 0,
 $$ {#eq-hydro-ws1}
-where the new term is the magnetic energy of the star, which is (in CGS units)
+where the new term is the magnetic energy of the star, which is
 $$
-\mathfrak{M}= \frac{1}{8 \pi} \int B^2 \dd V,
+\mathfrak{M}= \frac{1}{2 \mu_0} \int B^2 \dd V .
 $$ {#eq-hydro-ws2}
 
 1.  Find the condition for stability of a nonrotating star in terms of $\Gamma$ and $\mathfrak{M}$.
 
-2.  What is the maximum magnetic field strength for a Sun-like star ($R = 7 \times 10^5 \mathrm{km}$, $M = 2 \times 10^{33} \mathrm{g}$)? Neglect factors of order unity.
+2.  What is the maximum magnetic field strength for a Sun-like star ($R = 7 \times 10^5\,\mathrm{km}$, $M = 2 \times 10^{30}\,\mathrm{kg}$)? Neglect factors of order unity, and give the answer in tesla and in gauss ($1\,\mathrm{T} = 10^4\,\mathrm{G}$).
 
-3.  What is the maximum magnetic field strength for a neutron star ($R = 12 \mathrm{km}$, $M = 3 \times 10^{33} \mathrm{g}$)?
+3.  What is the maximum magnetic field strength for a neutron star ($R = 12\,\mathrm{km}$, $M = 3 \times 10^{30}\,\mathrm{kg}$)?
 
 ## Exercises {#sec-hydro-exercises}
 
@@ -274,7 +274,7 @@ An infinite, static slab of incompressible fluid with uniform density $\rho_0$ f
 
 1.  Compute the gravitational acceleration inside and outside the slab, and the pressure profile inside it. Use Poisson's equation, $\nabla^2 \Psi = 4 \pi G \rho$.
 
-2.  Model the disk of a galaxy as such a slab, with $\rho_0 = 10^{-23}\,\mathrm{g\,cm^{-3}}$ and $a = 10^{21}\,\mathrm{cm}$. A star starts at rest at $z = a$. How fast does it cross the mid-plane, and what is the period of its vertical oscillation?
+2.  Model the disk of a galaxy as such a slab, with $\rho_0 = 10^{-23}\,\mathrm{g\,cm^{-3}} = 10^{-20}\,\mathrm{kg\,m^{-3}}$ and $a = 10^{19}\,\mathrm{m}$. A star starts at rest at $z = a$. How fast does it cross the mid-plane, and what is the period of its vertical oscillation?
 
 Adapted from @clarke2007, Problem 8.
 :::
@@ -342,12 +342,12 @@ Adapted from @clarke2007, Problem 8.
     $$
     We are told that the maximum distance traveled vertically by the star is $a$, so $A = a$. The velocity of the star at the moment it is passing through $z = 0$ is then
     $$
-    \dot{z} (0) = [a \omega \cos (\omega t)]_{t = 0} = a \omega \approx 30
-    \mathrm{km} \mathrm{s}^{- 1} .
+    \dot{z} (0) = [a \omega \cos (\omega t)]_{t = 0} = a \omega \approx 30\,
+    \mathrm{km\,s^{-1}} .
     $$
     The period of the oscillation is
     $$
-    \frac{2 \pi}{\omega} = \frac{2 \pi}{\sqrt{4 \pi G \rho_0}} \approx 70 \mathrm{Myr} .
+    \frac{2 \pi}{\omega} = \frac{2 \pi}{\sqrt{4 \pi G \rho_0}} \approx 70\,\mathrm{Myr} .
     $$
     This is comparable to the period of the vertical oscillation of the Sun around the mid-plane of the Galaxy, which is estimated to be 60–90 Myr.
 :::
@@ -356,7 +356,7 @@ Adapted from @clarke2007, Problem 8.
 ::: {#exr-hydro-cloud}
 ## Mass of a molecular cloud
 
-A self-gravitating cloud of molecular hydrogen $\left( p = nk_B T = \frac{2}{5} \rho \varepsilon \right)$ is measured to have radius $R = 0.1 \mathrm{pc}$ and temperature $T = 10\mathrm{K}$. *Estimate* the mass of the cloud.
+A self-gravitating cloud of molecular hydrogen $\left( p = nk_B T = \frac{2}{5} \rho \varepsilon \right)$ is measured to have radius $R = 0.1\,\mathrm{pc}$ and temperature $T = 10\,\mathrm{K}$. *Estimate* the mass of the cloud.
 :::
 
 ::: {.content-visible when-profile="solutions"}
@@ -382,7 +382,7 @@ $$
 So we have ($\Gamma = 7 / 5$, $\mu = 2$)
 $$
 - \frac{3}{5}  \frac{GM^2}{R} + 3 k_B T \frac{M}{\mu m_u} = 0 \Longrightarrow M
-= \frac{5 k_B T R}{G \mu m_u} \approx 4.8 M_{\odot} .
+= \frac{5 k_B T R}{G \mu m_u} \approx 4.8\,M_{\odot} .
 $$
 :::
 :::
@@ -405,7 +405,7 @@ We fix $\rho_0$ by asking that
 $$
 M_{\odot} = 4 \pi \int_0^{R_{\odot}} \rho (r) r^2 \dd r = \frac{\pi}{3}
 R_{\odot}^3 \rho_0 \Longrightarrow \rho_0 = \frac{3 M_{\odot}}{\pi
-R_{\odot}^3} \approx \frac{M_{\odot}}{R_{\odot}^3} .
+R_{\odot}^3} \approx \frac{M_{\odot}}{R_{\odot}^3} \approx 6 \times 10^3\,\mathrm{kg\,m^{-3}} .
 $$
 Similarly, we assume that the pressure is given by
 $$
@@ -421,15 +421,15 @@ If the Sun is supported by gas pressure, we can estimate its core temperature wi
 $$
 \frac{\rho_0}{\frac{1}{2} m_u} k_B T = p_0 = \frac{GM_{\odot}
 \rho_0}{R_{\odot}} \Longrightarrow T = \frac{1}{2}  \frac{m_u
-GM_{\odot} }{k_B R_{\odot}} \approx 10^7 \mathrm{K}.
+GM_{\odot} }{k_B R_{\odot}} \approx 10^7\,\mathrm{K}.
 $$
 If the pressure is provided by radiation pressure, then we would have
 $$
 T = \left( \frac{3 GM_{\odot} \rho_0}{aR_{\odot}} \right)^{1 / 4} = \left(
-\frac{3 GM_{\odot}^2}{aR_{\odot}^4} \right)^{1 / 4} \approx 4.6 \times 10^7
+\frac{3 GM_{\odot}^2}{aR_{\odot}^4} \right)^{1 / 4} \approx 4.6 \times 10^7\,
 \mathrm{K}.
 $$
-To decide which assumption is more plausible, we check whether each estimate is consistent. At $T \approx 10^7\,\mathrm{K}$, the radiation pressure is $a T^4 / 3 \approx 5 \times 10^{13}\,\mathrm{dyn\,cm^{-2}}$, about 1% of $p_0 \approx 4 \times 10^{15}\,\mathrm{dyn\,cm^{-2}}$, so the assumption that the Sun is supported by gas pressure is consistent. At $T \approx 5 \times 10^7\,\mathrm{K}$, instead, the gas pressure would be $\approx 1.4 \times 10^{16}\,\mathrm{dyn\,cm^{-2}}$, larger than $p_0$, which is a contradiction. We conclude that the Sun is supported by gas pressure.
+To decide which assumption is more plausible, we check whether each estimate is consistent. At $T \approx 10^7\,\mathrm{K}$, the radiation pressure is $a T^4 / 3 \approx 3 \times 10^{12}\,\mathrm{Pa}$, less than 1% of $p_0 \approx 1 \times 10^{15}\,\mathrm{Pa}$, so the assumption that the Sun is supported by gas pressure is consistent. At $T \approx 5 \times 10^7\,\mathrm{K}$, instead, the gas pressure would be $\approx 5 \times 10^{15}\,\mathrm{Pa}$, larger than $p_0$, which is a contradiction. We conclude that the Sun is supported by gas pressure.
 :::
 :::
 

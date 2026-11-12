@@ -8,7 +8,7 @@ This chapter is in preparation.
 
 ### Shock waves I
 
-1.  Consider a shock wave in an ideal gas with adiabatic index $\Gamma$. Let $\rho_1, p_1$, and $T_1$ be the upstream (unshocked) gas density, pressure, and temperature. Let $\rho_2, p_2,$and $T_2$ be the corresponding downstream (post-shock) quantities.
+1.  Consider a shock wave in an ideal gas with adiabatic index $\Gamma$. Let $\rho_1, p_1$, and $T_1$ be the upstream (unshocked) gas density, pressure, and temperature. Let $\rho_2, p_2,$ and $T_2$ be the corresponding downstream (post-shock) quantities.
 
     1.  Show that the ratio of downstream to upstream temperature across the shock is
         $$
@@ -27,10 +27,10 @@ This chapter is in preparation.
     This data can be fitted to infer the following parameters for the upstream and downstream electron density and temperature:
     $$
     \begin{gathered}
-    n_1 = 3.7 \times 10^{- 3} \mathrm{cm}^{- 3}, \quad T_1 = 9.3 \times 10^7
-    \mathrm{K}, \\
-    n_2 = 9.3 \times  10^{- 3} \mathrm{cm}^{- 3}, \quad T_2 =
-    2.2 \times  10^8 \mathrm{K}.
+    n_1 = 3.7 \times 10^{- 3}\, \mathrm{cm}^{- 3}, \enspace T_1 = 9.3 \times 10^7
+    \,\mathrm{K}, \\
+    n_2 = 9.3 \times  10^{- 3}\, \mathrm{cm}^{- 3}, \enspace T_2 =
+    2.2 \times  10^8 \,\mathrm{K}.
     \end{gathered}
     $$ {#eq-shock-2}
     Estimate
@@ -72,9 +72,9 @@ Adapted from @kulsrud2005, Problem 4.6.
     + 1}{\Gamma - 1} - 1 \right)^{- 1}  \left( \frac{\Gamma + 1}{\Gamma - 1}
     \right) v_p = \frac{\Gamma + 1}{2} v_p .
     $$
-    The pressure downstream of the shock can be found from the Rankine-Hugonoit conditions in the shock frame:
+    The pressure downstream of the shock can be found from the Rankine-Hugoniot conditions in the shock frame:
     $$
-    \rho_1 u_1 = \rho_2 u_2 = j  p_2 + j^2 V_2 = j^2 V_1,
+    \rho_1 u_1 = \rho_2 u_2 = j, \qquad p_2 + j^2 V_2 = j^2 V_1,
     $$
     where we have introduced $V_i = 1 / \rho_i$ and $u_1, u_2$ are the fluid velocities in the shock frame. From these conditions, we find
     $$
@@ -93,7 +93,7 @@ Adapted from @kulsrud2005, Problem 4.6.
     \frac{1}{2} \Sigma_p v_p^2 = \frac{\Gamma + 1}{2} \rho_1 v_p^3 t
     \Longrightarrow \Sigma_p = (\Gamma + 1) v_p \rho_1 t = 2 s \rho_1 t.
     $$
-    So the piston starts decelerating when $s \rho_1 \sim \Sigma_p$, that is once the shock has swept a mass of material comparable to the mass of the piston.
+    So the piston starts decelerating when $\rho_1 s t \sim \Sigma_p$, that is once the shock has swept a mass of material comparable to the mass of the piston.
 :::
 :::
 

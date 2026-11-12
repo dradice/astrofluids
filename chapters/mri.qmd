@@ -2,7 +2,7 @@
 
 The magnetorotational instability (MRI) was first discovered by @velikhov1959 and @chandrasekhar1961, who studied the stability of a conducting fluid between two rotating cylinders, and then rediscovered in the context of accretion disks by @balbus1991. This is the instability thought to be responsible for the $\alpha$-viscosity (@sec-disk) in many astrophysical systems: from X-ray binaries to AGN disks. It is one of the most important, among the many instabilities operating in plasmas, so we will cover it in detail in these notes.
 
-It was long known that a way to transport angular momentum in the disk is through magnetic stresses, that is the $B_R B_{\phi} / 4 \pi$ term in the momentum equation (@sec-tension). However, to explain the observed luminosities from accretion disks, the magnetic stresses must be similar in magnitude to the pressure in the disk $p$ (the proportionality constant being the $\alpha$-viscosity coefficient). Given a small component of the field in the radial direction, flux freezing (@sec-flux) can grow $B_{\phi}$ linearly in time. However, since $B_R$ is small, this mechanism can transport angular momentum efficiently only if $B_{\phi}^2 / 8 \pi \gg p$. Such a strong toroidal field cannot be contained in the disk, because it is buoyant and rises out of it. The requirement for the magnetic stresses to do the job of transporting angular momentum is that $B_R B_{\phi} / 4 \pi \approx \alpha \rho c_s^2$, with $B_R \sim B_{\phi}$. Detailed simulations have shown that MRI is a mechanism that naturally produces the required field strengths over a short timescale. Note that a vertical field can also carry angular momentum away from the disk, through torsional Alfvén waves (@exr-mhdwaves-torsional-alfven).
+It was long known that a way to transport angular momentum in the disk is through magnetic stresses, that is the $B_R B_{\phi} / \mu_0$ term in the momentum equation (@sec-tension). However, to explain the observed luminosities from accretion disks, the magnetic stresses must be similar in magnitude to the pressure in the disk $p$ (the proportionality constant being the $\alpha$-viscosity coefficient). Given a small component of the field in the radial direction, flux freezing (@sec-flux) can grow $B_{\phi}$ linearly in time. However, since $B_R$ is small, this mechanism can transport angular momentum efficiently only if $B_{\phi}^2 / 2 \mu_0 \gg p$. Such a strong toroidal field cannot be contained in the disk, because it is buoyant and rises out of it. The requirement for the magnetic stresses to do the job of transporting angular momentum is that $B_R B_{\phi} / \mu_0 \approx \alpha \rho c_s^2$, with $B_R \sim B_{\phi}$. Detailed simulations have shown that MRI is a mechanism that naturally produces the required field strengths over a short timescale. Note that a vertical field can also carry angular momentum away from the disk, through torsional Alfvén waves (@exr-mhdwaves-torsional-alfven).
 
 ## Qualitative Picture
 
@@ -18,26 +18,26 @@ The magnetic tension (@sec-tension) then creates an attractive force between $A$
 
 The mechanism we have just described involves the magnetic tension force, so it is natural to expect a characteristic growth rate of
 $$
-\lambda \approx kv_A, \qquad v_A = \frac{B_z}{\sqrt{4 \pi \rho}} .
+\lambda \approx kv_A, \qquad v_A = \frac{B_z}{\sqrt{\mu_0 \rho}} .
 $$ {#eq-mri-2}
 In our derivation, we have assumed the field to be sufficiently weak, so that the displaced fluid elements can acquire the angular velocity of their surroundings. This should be valid as long as
 $$
-\omega_A = kv_A \lesssim \Omega .
+\omega_A = kv_A \lesssim \Omega ,
 $$ {#eq-mri-3}
-where $\omega_A$ is the Alfvén frequency (@eq-mhdwaves-15). We will find that the exact condition for instability is $kv_A < \sqrt{3} \Omega$, so the maximum growth rate is achieved by taking $k$ sufficiently large, so that $\lambda \approx kv_A \approx \Omega$. This is a very short timescale: the amplitude of the fastest mode grows by a factor of about 100 every orbit! Moreover, the maximum growth rate is independent of the field strength, as long as $v_A$ is not so large that the required $k$ to satisfy $kv_A < \sqrt{3} \Omega$ corresponds to perturbation with characteristic size larger than the vertical size of the disk. We will see that this requires $v_A \lesssim c_s$.
+where $\omega_A$ is the Alfvén frequency (@eq-mhdwaves-15). We will find that the exact condition for instability is $kv_A < \sqrt{3} \Omega$, so the maximum growth rate is achieved by taking $k$ sufficiently large, so that $\lambda \approx kv_A \approx \Omega$. This is a very short timescale: the amplitude of the fastest mode grows by a factor of about 100 every orbit! Moreover, the maximum growth rate is independent of the field strength, as long as $v_A$ is not so large that the required $k$ to satisfy $kv_A < \sqrt{3} \Omega$ corresponds to perturbations with characteristic size larger than the vertical size of the disk. We will see that this requires $v_A \lesssim c_s$.
 
 ## Detailed Calculation
 
 The starting point is the momentum equation of ideal MHD (@eq-mhd-basic), with the Lorentz force written as the sum of magnetic pressure and tension (@eq-tension-lorentz-force-decomposed). We write it in vector form. We use cylindrical coordinates $(R, \phi, z)$.
 $$
 \rho \left[ \frac{\partial \vb{v}}{\partial t} + (\vb{v} \cdot
-\nabla) \vb{v} \right] = - \nabla \left( p + \frac{B^2}{8 \pi} \right) +
-\frac{(\vb{B} \cdot \nabla) \vb{B}}{4 \pi} +\vb{g} \rho .
+\nabla) \vb{v} \right] = - \nabla \left( p + \frac{B^2}{2 \mu_0} \right) +
+\frac{(\vb{B} \cdot \nabla) \vb{B}}{\mu_0} +\vb{g} \rho .
 $$ {#eq-mri-4}
 We consider a disk that is Keplerian and threaded by a vertical magnetic field:
 $$
 \vb{v}= R \Omega \hat{\vb{\phi}} +\vb{u}, \qquad \vb{B}=
-B_0  \hat{\vb{z}} +\vb{b}, \qquad p + \frac{B^2}{8 \pi} = P_0 + P.
+B_0  \hat{\vb{z}} +\vb{b}, \qquad p + \frac{B^2}{2 \mu_0} = P_0 + P.
 $$ {#eq-mri-5}
 We will treat $\vb{u}$ and $\vb{b}$ as (small) Eulerian perturbations. We will only consider modes that are axisymmetric (no $\phi$ dependence) and incompressible
 $$
@@ -71,7 +71,7 @@ Since the unit vectors do not depend on $z$, this is $B_0 \, \partial \vb{b} / \
 $$
 \frac{\partial \vb{u}}{\partial t} + \frac{1}{2} \Omega u_R
 \hat{\vb{\phi}} - 2 \Omega u_{\phi}  \hat{\vb{R}} = -
-\frac{1}{\rho} \nabla P + \frac{B_0}{4 \pi \rho} \frac{\partial \vb{b}}{\partial z} .
+\frac{1}{\rho} \nabla P + \frac{B_0}{\mu_0 \rho} \frac{\partial \vb{b}}{\partial z} .
 $$ {#eq-mri-9}
 The induction equation, @eq-mhd-19 with $\eta = 0$, can be linearized in a similar way:
 $$
@@ -101,16 +101,16 @@ where $k_R R, k_z R \gg 1$, so that we can neglect terms of order $1 / R$. We al
 $$
 \begin{alignedat}{2}
 \lambda u_R - 2 \Omega u_{\phi} &{}={} && - \ii k_R  \frac{P}{\rho} +
-\frac{\ii k_z B_0 b_R}{4 \pi \rho},  \\
+\frac{\ii k_z B_0 b_R}{\mu_0 \rho},  \\
 \lambda u_{\phi} + \frac{\Omega}{2} u_R &{}={} && \frac{\ii k_z B_0
-b_{\phi}}{4 \pi \rho}, \\
-\lambda u_z &{}={} && - \ii k_z  \frac{P}{\rho} + \frac{\ii k_z B_0 b_z}{4
-\pi \rho} .
+b_{\phi}}{\mu_0 \rho}, \\
+\lambda u_z &{}={} && - \ii k_z  \frac{P}{\rho} + \frac{\ii k_z B_0 b_z}{\mu_0
+\rho} .
 \end{alignedat}
 $$ {#eq-mri-12}
 We can eliminate $P / \rho$ from the last equation and insert it into the first to obtain (in the limit $k_z \gg k_R$):
 $$
-\lambda u_R - 2 \Omega u_{\phi} = \ii k_z  \frac{B_0 b_R}{4 \pi \rho} .
+\lambda u_R - 2 \Omega u_{\phi} = \ii k_z  \frac{B_0 b_R}{\mu_0 \rho} .
 $$ {#eq-mri-13}
 The linearized induction equation yields
 $$
@@ -125,7 +125,7 @@ $$
 \lambda b_{\phi} = - \frac{3}{2}  \frac{\ii k_z B_0 \Omega}{\lambda}
 u_R + \ii k_z B_0 u_{\phi} .
 $$ {#eq-mri-15}
-Eliminating $b_{\phi}$ and $b_R$ in the momentum equations above and introducing the Alfvén frequency $\omega_A = k_z v_A$, with $\omega_A^2 = k_z^2 B_0^2 / 4 \pi \rho$, yields
+Eliminating $b_{\phi}$ and $b_R$ in the momentum equations above and introducing the Alfvén frequency $\omega_A = k_z v_A$, with $\omega_A^2 = k_z^2 B_0^2 / \mu_0 \rho$, yields
 $$
 \begin{alignedat}{2}
 (\lambda^2 + \omega_A^2) u_R &{}={} && 2 \lambda \Omega u_{\phi},  \\
@@ -144,7 +144,7 @@ $$ {#eq-mri-18}
 The product of the two roots of $f (\mu^2)$ is negative, so there is one positive and one negative root. Since $\lambda^2 = \mu^2 - \omega_A^2$, the instability is present when the positive root is larger than $\omega_A^2$. Since $f (0) < 0$, this occurs if
 $$
 f (\omega_A^2) = \omega_A^4 - 3 \Omega^2 \omega_A^2 < 0 \Longrightarrow
-\boxed{\frac{k_z B_0}{\sqrt{4 \pi \rho}} = \omega_A < \sqrt{3} \Omega .}
+\boxed{\frac{k_z B_0}{\sqrt{\mu_0 \rho}} = \omega_A < \sqrt{3} \Omega .}
 $$ {#eq-mri-condition}
 We find that if $k_z$ is sufficiently small (long wavelengths), then the mode is unstable. However, if the background field is too large, then the condition in @eq-mri-condition might only be satisfied for $k_z$ that corresponds to modes larger than the disk thickness $H \approx c_s / \Omega$ (@exr-disk-alpha), so the disk is stable to the MRI. The unstable modes have wavelengths longer than $2 \pi v_A / (\sqrt{3} \Omega)$, so they fit in the disk only if $v_A \lesssim c_s$. In other words, the MRI operates when the plasma $\beta$ (@eq-tension-plasma-beta) is larger than about one, that is, when the magnetic pressure is smaller than the gas pressure.
 
@@ -169,13 +169,13 @@ $$ {#eq-mri-23}
 ::: {.callout-tip icon=false}
 ## Example: The MRI in a protoplanetary disk
 
-Consider the disk of gas and dust around a young star like the Sun, at a distance $R = 1\,\mathrm{AU}$ from the star. In the minimum-mass solar nebula, a standard model for the early solar system, the gas at this distance has $T \approx 280\,\mathrm{K}$ and $\rho \approx 1.4 \times 10^{- 9}\,\mathrm{g\,cm^{- 3}}$. The gas is mostly molecular hydrogen, with $\mu \approx 2.3$, so $c_s \approx 1\,\mathrm{km\,s^{- 1}}$. The angular velocity is $\Omega = (G M_{\odot} / R^3)^{1 / 2} \approx 2 \times 10^{- 7}\,\mathrm{s^{- 1}}$, corresponding to an orbital period of one year, and the thickness of the disk is $H \approx c_s / \Omega \approx 5 \times 10^{11}\,\mathrm{cm} \approx 0.03\,\mathrm{AU}$.
+Consider the disk of gas and dust around a young star like the Sun, at a distance $R = 1\,\mathrm{AU}$ from the star. In the minimum-mass solar nebula, a standard model for the early solar system, the gas at this distance has $T \approx 280\,\mathrm{K}$ and $\rho \approx 1.4 \times 10^{- 9}\,\mathrm{g\,cm^{- 3}} = 1.4 \times 10^{- 6}\,\mathrm{kg\,m^{- 3}}$. The gas is mostly molecular hydrogen, with $\mu \approx 2.3$, so $c_s \approx 1\,\mathrm{km\,s^{- 1}}$. The angular velocity is $\Omega = (G M_{\odot} / R^3)^{1 / 2} \approx 2 \times 10^{- 7}\,\mathrm{s^{- 1}}$, corresponding to an orbital period of one year, and the thickness of the disk is $H \approx c_s / \Omega \approx 5 \times 10^{9}\,\mathrm{m} \approx 0.03\,\mathrm{AU}$.
 
-Suppose that the disk is threaded by a vertical field $B_0 \approx 1\,\mathrm{G}$. The Alfvén speed is
+Suppose that the disk is threaded by a vertical field $B_0 \approx 10^{- 4}\,\mathrm{T}$ ($1\,\mathrm{G}$). The Alfvén speed is
 $$
-v_A = \frac{B_0}{\sqrt{4 \pi \rho}} \approx 75\,\mathrm{m\,s^{- 1}},
+v_A = \frac{B_0}{\sqrt{\mu_0 \rho}} \approx 75\,\mathrm{m\,s^{- 1}},
 $$ {#eq-mri-ppd-va}
-and the plasma $\beta \approx 360$. The fastest-growing mode has wavelength $2 \pi / k_{\max} \approx 2.5 \times 10^{11}\,\mathrm{cm} \approx H / 2$, so it fits in the disk. Its growth time is $1 / \lambda_{\max} = 4 / (3 \Omega) \approx 80$ days. In other words, even a field with magnetic pressure 360 times smaller than the gas pressure makes the disk unstable, and the perturbations grow by a factor of about 100 every year.
+and the plasma $\beta \approx 360$. The fastest-growing mode has wavelength $2 \pi / k_{\max} \approx 2.5 \times 10^{9}\,\mathrm{m} \approx H / 2$, so it fits in the disk. Its growth time is $1 / \lambda_{\max} = 4 / (3 \Omega) \approx 80$ days. In other words, even a field with magnetic pressure 360 times smaller than the gas pressure makes the disk unstable, and the perturbations grow by a factor of about 100 every year.
 :::
 It is instructive to check the limit of our analysis when $B_0 \rightarrow 0$, which corresponds to $\omega_A \rightarrow 0$. If $\omega_A \equiv 0$, then @eq-mri-momentum-reduced reduces to
 $$
@@ -217,7 +217,7 @@ The coordinates $x$ and $y$ denote the displacement of one of the two masses fro
     $$ {#eq-mri-ws1}
     Note that these are the same equations as those obtained for the MRI in a disk threaded by a vertical magnetic field, $k_R = 0$, and $K = (v_A k_z)^2 = \omega_A^2$.
 
-2.  Look for solutions in the form $x (t) = x_0 \ee^{\lambda t},$ $y (t) = y_0 \ee^{\lambda t}$. Find $\lambda$.
+2.  Look for solutions in the form $x (t) = x_0 \ee^{\lambda t}$, $y (t) = y_0 \ee^{\lambda t}$. Find $\lambda$.
 
 3.  Under what conditions is the system unstable?
 
@@ -265,14 +265,14 @@ The coordinates $x$ and $y$ denote the displacement of one of the two masses fro
 
 In this exercise we estimate how much ionization is needed for the MRI to operate in a protoplanetary disk.
 
-1.  Consider the MRI in a disk with finite resistivity $\eta$. Argue that a mode with wavenumber $k$ is damped by Ohmic diffusion on the time scale $T_{\mathrm{decay}} = 4 \pi / (k^2 \eta c)$ (see @eq-flux-18). Show that the fastest-growing mode, with $k \approx \Omega / v_A$, grows faster than it is damped only if
+1.  Consider the MRI in a disk with finite resistivity, that is, with magnetic diffusivity $\eta > 0$. Argue that a mode with wavenumber $k$ is damped by Ohmic diffusion on the time scale $T_{\mathrm{decay}} = 1 / (k^2 \eta)$ (see @eq-flux-18). Show that the fastest-growing mode, with $k \approx \Omega / v_A$, grows faster than it is damped only if
     $$
-    v_A^2 \gtrsim \frac{\eta c}{4 \pi} \Omega .
+    v_A^2 \gtrsim \eta \Omega .
     $$ {#eq-mri-ex-elsasser}
 
 2.  In a weakly ionized gas, the magnetic diffusivity is approximately
     $$
-    \frac{\eta c}{4 \pi} \approx 234 \left( \frac{T}{\mathrm{K}} \right)^{1 / 2} x_e^{- 1}\,\mathrm{cm^2\,s^{- 1}},
+    \eta \approx 2.34 \times 10^{- 2} \left( \frac{T}{\mathrm{K}} \right)^{1 / 2} x_e^{- 1}\,\mathrm{m^2\,s^{- 1}},
     $$ {#eq-mri-ex-diffusivity}
     where $x_e = n_e / n$ is the ionization fraction. Find the minimum ionization fraction for the MRI to operate in the disk of the protoplanetary-disk Example ($T \approx 280\,\mathrm{K}$, $\Omega \approx 2 \times 10^{- 7}\,\mathrm{s^{- 1}}$, $v_A \approx 75\,\mathrm{m\,s^{- 1}}$).
 
@@ -281,17 +281,17 @@ In this exercise we estimate how much ionization is needed for the MRI to operat
 
 ::: {.content-visible when-profile="solutions"}
 ::: {.solution}
-1.  With a finite resistivity, the induction equation has the additional term $\frac{\eta c}{4 \pi} \nabla^2 \vb{b}$. For a Fourier mode, $\nabla^2 \to - k^2$, so this term damps the perturbation at the rate $k^2 \eta c / 4 \pi = 1 / T_{\mathrm{decay}}$. The fastest-growing mode grows at the rate $\frac{3}{4} \Omega \sim \Omega$ and has $k \approx \Omega / v_A$. It grows faster than it is damped if
+1.  With a finite resistivity, the induction equation has the additional term $\eta \nabla^2 \vb{b}$ (@eq-mhd-19). For a Fourier mode, $\nabla^2 \to - k^2$, so this term damps the perturbation at the rate $k^2 \eta = 1 / T_{\mathrm{decay}}$. The fastest-growing mode grows at the rate $\frac{3}{4} \Omega \sim \Omega$ and has $k \approx \Omega / v_A$. It grows faster than it is damped if
     $$
-    \frac{\Omega^2}{v_A^2} \frac{\eta c}{4 \pi} \lesssim \Omega ,
+    \frac{\Omega^2}{v_A^2} \eta \lesssim \Omega ,
     $$
-    which gives @eq-mri-ex-elsasser. Modes with longer wavelengths are damped less, but they also grow more slowly. Numerical simulations show that the MRI does not produce turbulence when @eq-mri-ex-elsasser is not satisfied. The ratio $v_A^2 / (\Omega \, \eta c / 4 \pi)$ is called the Elsasser number.
+    which gives @eq-mri-ex-elsasser. Modes with longer wavelengths are damped less, but they also grow more slowly. Numerical simulations show that the MRI does not produce turbulence when @eq-mri-ex-elsasser is not satisfied. The ratio $v_A^2 / (\eta \Omega)$ is called the Elsasser number.
 
 2.  For the given numbers,
     $$
-    \frac{\eta c}{4 \pi} \lesssim \frac{v_A^2}{\Omega} \approx \frac{(7.5 \times 10^3\,\mathrm{cm\,s^{- 1}})^2}{2 \times 10^{- 7}\,\mathrm{s^{- 1}}} \approx 3 \times 10^{14}\,\mathrm{cm^2\,s^{- 1}} .
+    \eta \lesssim \frac{v_A^2}{\Omega} \approx \frac{(75\,\mathrm{m\,s^{- 1}})^2}{2 \times 10^{- 7}\,\mathrm{s^{- 1}}} \approx 3 \times 10^{10}\,\mathrm{m^2\,s^{- 1}} .
     $$
-    Using @eq-mri-ex-diffusivity with $T^{1 / 2} \approx 17$, we find $x_e \gtrsim 234 \times 17 / (3 \times 10^{14}) \approx 10^{- 11}$. In other words, one free electron every $10^{11}$ particles is sufficient. This is a tiny ionization fraction, but at $T \approx 280\,\mathrm{K}$ thermal ionization is completely negligible, so the electrons must be produced by external sources.
+    Using @eq-mri-ex-diffusivity with $T^{1 / 2} \approx 17$, we find $x_e \gtrsim 2.34 \times 10^{- 2} \times 17 / (3 \times 10^{10}) \approx 10^{- 11}$. In other words, one free electron every $10^{11}$ particles is sufficient. This is a tiny ionization fraction, but at $T \approx 280\,\mathrm{K}$ thermal ionization is completely negligible, so the electrons must be produced by external sources.
 
 3.  The MRI operates close to the star, where the gas is thermally ionized, and in the surface layers of the disk, which are ionized by X-rays and cosmic rays. In the midplane, at intermediate distances from the star, the ionization fraction is too small and the MRI does not operate. This region is called the dead zone. Further out, the column density of the disk decreases, the ionizing radiation reaches the midplane, and the whole disk becomes active again. In the dead zone, the gas accretes only through the active surface layers, so gas tends to pile up in the midplane [@gammie1996].
 :::

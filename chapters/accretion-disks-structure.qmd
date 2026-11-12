@@ -10,7 +10,7 @@ This chapter is in preparation.
     $$
     x = R \cos \phi, \qquad y = R \sin \phi, \qquad z = z.
     $$ {#eq-disk-1}
-    The unit vectors in the $R, \phi$, and $z$ direction are
+    The unit vectors in the $R, \phi$, and $z$ directions are
     $$
     \begin{gathered}
     \hat{\vb{R}} = \frac{1}{\sqrt{x^2 + y^2}}  \left(\begin{array}{c}
@@ -34,7 +34,7 @@ This chapter is in preparation.
 
     1.  Given the fluid velocity written as $\vb{v}= v_R \hat{\vb{R}} + v_{\phi} \hat{\vb{\phi}} + v_z \hat{\vb{z}}$, find its Cartesian components $v_x, v_y,$ and $v_z$.
 
-    2.  Use the chain rule for derivative to show that
+    2.  Use the chain rule for derivatives to show that
         $$
         \frac{\partial}{\partial R} = \frac{x}{R}  \frac{\partial}{\partial x}
         + \frac{y}{R}  \frac{\partial}{\partial y}, \qquad
@@ -70,18 +70,18 @@ Adapted from @clarke2007, Problem 47.
 
 ::: {.content-visible when-profile="solutions"}
 ::: {.solution}
-1.  To vertical structure of the disk is set by the balance between pressure and gravity, as shown in @fig-disk-vertical-gravity.
+1.  The vertical structure of the disk is set by the balance between pressure and gravity, as shown in @fig-disk-vertical-gravity.
 
     ![Geometry for the vertical component of the gravitational acceleration at height $z$ above the midplane, at cylindrical radius $R$ and distance $r$ from the central object.](../figures/accretion-disks-structure/vertical-gravity.svg){#fig-disk-vertical-gravity fig-alt="A right triangle with horizontal leg R along the midplane, vertical leg z, and hypotenuse r pointing towards the central object at the left. A fluid element at the top of the vertical leg, drawn as a small square, feels the gravitational acceleration g along the hypotenuse towards the centre; its vertical component g_z points downward."}
 
     The vertical component of the gravitational acceleration is
     $$
-    g_z = -\vb{g} \cdot \hat{\vb{z}} = \frac{GM}{r^3} \vb{r}
-    \cdot \hat{\vb{z}} = \frac{GMz}{r^3} = \Omega^2 z.
+    g_z = \vb{g} \cdot \hat{\vb{z}} = - \frac{GM}{r^3} \vb{r}
+    \cdot \hat{\vb{z}} = - \frac{GMz}{r^3} \approx - \Omega^2 z,
     $$
-    Accordingly, hydrostatic equilibrium becomes
+    where we have used $r \approx R$ for $z \ll R$. Accordingly, hydrostatic equilibrium becomes
     $$
-    \partial_z p = - \Omega^2 z \rho \Longrightarrow \partial_z \rho = -
+    \partial_z p = \rho g_z = - \Omega^2 z \rho \Longrightarrow \partial_z \rho = -
     \frac{\Omega^2}{c_s^2} \rho z.
     $$
     This can be integrated to find
@@ -89,11 +89,7 @@ Adapted from @clarke2007, Problem 47.
     \rho (t, R, z) = \rho_0 (t, R) \exp \left( - \frac{z^2}{2 H^2} \right),
     \qquad H = \frac{c_s}{\Omega},
     $$
-    where
-    $$
-    H = \left| \frac{\rho}{\partial_z \rho} \right| = \left|
-    \frac{p}{\partial_z p} \right| .
-    $$
+    where $H$ is the scale height of the disk: the density drops by a factor $\ee^{-1/2}$ at $|z| = H$.
 
 2.  The $R \phi$ component of the viscous stress is
     $$
@@ -105,7 +101,7 @@ Adapted from @clarke2007, Problem 47.
     $$
     The Reynolds number is
     $$
-    \mathrm{Re} = \frac{v_{\phi} R}{\nu} = \frac{v_{\phi} R}{\alpha c_s H} =
+    \mathrm{Re} = \frac{v_{\phi} R}{\nu} \sim \frac{v_{\phi} R}{\alpha c_s H} =
     \frac{v_{\phi} R}{\alpha H^2 \Omega} = \frac{\Omega R^2}{\alpha H^2
     \Omega} = \frac{1}{\alpha}  \left( \frac{R}{H} \right)^2 .
     $$
@@ -161,13 +157,13 @@ Adapted from @clarke2007, Problem 49.
 3.  We can look for solutions in the form $S (t, X) = \hat{S} (t) \ee^{\ii kX}$. In this case, we obtain:
     $$
     \frac{\partial S}{\partial t} = \frac{\dd \hat{S} (t)}{\dd t}
-    \ee^{\ii kX}, \quad \frac{\partial S}{\partial X} = \ii k \hat{S} (t)
+    \ee^{\ii kX}, \quad \frac{\partial^2 S}{\partial X^2} = - k^2 \hat{S} (t)
     \ee^{\ii kX}, \quad \Longrightarrow \quad  \frac{\dd \hat{S}
     (t)}{\dd t} = - \beta k^2  \hat{S} (t) .
     $$
     The last equation can be solved to find that
     $$
-    S (t, X) = \ee^{- \beta k^2 t} \ee^{\ii kX} .
+    S (t, X) = \hat{S} (0) \ee^{- \beta k^2 t} \ee^{\ii kX} .
     $$
     The solutions are exponentially decaying in time if $\beta > 0$. This means that if $\beta > 0$, then the disk is stable. Otherwise, if $\beta < 0$, we have exponentially growing solutions, so the disk is unstable.
 :::
@@ -186,7 +182,7 @@ Adapted from @clarke2007, Problem 49.
 2.  To solve @eq-disk-diffusion numerically, introduce a grid
     $$
     \{ (T_n, X_k) = (n \Delta T, X_{\min} + k \Delta X) : n = 0, 1, \ldots,
-    N_T, k = 0, 1, \ldots N_X \},
+    N_T, k = 0, 1, \ldots, N_X \},
     $$ {#eq-disk-grid}
     where $\Delta T$, $X_{\min}$, and $\Delta X$ are fixed parameters. Let $S^n_k$ be the approximation of $S$ at $(T_n, X_k)$[^disk-1]. Then $S_k^n$ for $k = 1, \ldots, N_X - 1$ can be written as
     $$
@@ -204,7 +200,7 @@ Adapted from @clarke2007, Problem 49.
     $$
     (I - \Delta TA) \vb{S}^{n + 1} =\vb{S}^n,
     $$ {#eq-disk-heat-numerical}
-    where $\vb{S}^n = (S_0^n, S_1^n, \ldots, S^n_{N_X - 1})$ is a vector of values, $I$ is the identity matrix, and $A$ is a tridiagonal matrix. Find the explicit form of $A$.
+    where $\vb{S}^n = (S_1^n, S_2^n, \ldots, S^n_{N_X - 1})$ is a vector of values, $I$ is the identity matrix, and $A$ is a tridiagonal matrix. Find the explicit form of $A$.
 
 3.  Write code to evolve in time the density in the disk by repeatedly solving @eq-disk-heat-numerical starting from some initial condition $\vb{S}^0$. You can use `scipy.linalg.solve_banded` to solve the linear equations.
 
@@ -219,7 +215,7 @@ Adapted from @clarke2007, Problem 49.
 
 ::: {.content-visible when-profile="solutions"}
 ::: {.solution}
-1.  From the previous definitions, it follows that $Y = 12 \nu SX^2$ and
+1.  From the previous definitions, it follows that $Y = 12 \nu SX^{- 2}$ and
     $$
     \frac{\partial}{\partial t} = \frac{\partial T}{\partial t}
     \frac{\partial}{\partial T} = 12 \nu \frac{\partial}{\partial T} .
@@ -259,7 +255,7 @@ Adapted from @clarke2007, Problem 49.
 
     ![$S (T, X)$ at different times $T$. The solution was obtained with $X_{\max} = 100$, $N_X = 1024$, and $\Delta T = 1$.](../figures/accretion-disks-structure/accretion-disk-evolution.svg){#fig-disk-evolution fig-alt="Log-log plot of S against X, with the curves coloured by time T from 0 to 1000 (colour bar at the right). The initial narrow peak near X = 10 broadens with time: the left side spreads towards small X and the right side towards larger X, while the peak height drops from 1 to about 0.2."}
 
-4.  The disk is viscously spreading. Part of the material is accreted by the central object and part of the material becomes unbound.
+4.  The disk is viscously spreading. Part of the material is accreted by the central object, while the rest moves outward, carrying away the angular momentum. In our calculation, some of this material leaves the grid at $X_{\max}$.
 :::
 :::
 

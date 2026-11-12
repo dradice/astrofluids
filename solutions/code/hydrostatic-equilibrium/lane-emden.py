@@ -18,7 +18,9 @@ def lane_emden(n, Rmax=10):
 
     surface.terminal = True
     surface.direction = -1
-    return solve_ivp(rhs, [0, Rmax], [1.0, 0.0], events=surface, dense_output=True)
+    return solve_ivp(
+        rhs, [0, Rmax], [1.0, 0.0], events=surface, dense_output=True, rtol=1e-10, atol=1e-12
+    )
 
 
 # Analytic solutions to Lane-Emden equations for special values of n
@@ -32,7 +34,7 @@ analytic = {
 for n in [0.0, 1.0, 1.5, 5.0]:
     sol = lane_emden(n)
     try:
-        R = float(sol.t_events[0])
+        R = float(sol.t_events[0][0])
         print(f"n = {n}", f"R = {R}")
     except:
         R = sol.t[-1]

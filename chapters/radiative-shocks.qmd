@@ -9,22 +9,22 @@ This chapter is in preparation.
 ::: {#exr-radshock-colliding-clouds}
 ## Colliding clouds
 
-Two identical clouds, each of radius $3 \times 10^{18} \mathrm{cm}$ and temperature $10\mathrm{K}$, collide with each other at a relative velocity of $4 \times 10^5 \mathrm{cm} \mathrm{s}^{- 1}$.
+Two identical clouds, each of radius $3 \times 10^{16}\, \mathrm{m}$ (about 1 pc) and temperature $10\,\mathrm{K}$, collide with each other at a relative velocity of $4\, \mathrm{km} \, \mathrm{s}^{- 1}$.
 
 1.  *Estimate* the time $t_{\mathrm{coll}}$ that each cloud needs to run entirely into the shock.
 
-2.  The shocked gas cools at a rate $\dot{Q} = 10^{- 3} \mathrm{erg} \cdot \mathrm{s}^{- 1} \cdot \mathrm{g}^{- 1}$. Decide whether the shock is approximately adiabatic or isothermal.
+2.  The shocked gas cools at a rate $\dot{Q} = 10^{- 7}\, \mathrm{W} \, \mathrm{kg}^{- 1}$. Decide whether the shock is approximately adiabatic or isothermal.
 
 3.  Suppose the collision produces an isothermal shock. How thick is the shocked layer, $x$, at the moment when the whole of each cloud has been shocked?
 
-4.  At later times the layer settles into a structure that can be approximated by a hydrostatic isothermal slab with column density $10^{- 2} \mathrm{g} \mathrm{cm}^{- 2}$. In this hydrostatic structure, what fraction of the clouds' mass lies within the thickness $x$? Neglect edge effects and variations of the column density across the plane of the slab. [Hint. The density profile of an isothermal slab is given in @clarke2007, Section 5.2.]
+4.  At later times the layer settles into a structure that can be approximated by a hydrostatic isothermal slab with column density $10^{- 2}\, \mathrm{g} \, \mathrm{cm}^{- 2} = 0.1\, \mathrm{kg} \, \mathrm{m}^{- 2}$. In this hydrostatic structure, what fraction of the clouds' mass lies within the thickness $x$? Neglect edge effects and variations of the column density across the plane of the slab. [Hint. The density profile of an isothermal slab is given in @clarke2007, Section 5.2.]
 
 Adapted from @clarke2007, Problem 24.
 :::
 
 ::: {.content-visible when-profile="solutions"}
 ::: {.solution}
-We need to make some assumptions to be able to solve this problem. First, we consider an idealized geometry, which is sketched in @fig-radshock-geometry.
+We need to make some assumptions to be able to solve this problem. First, we consider an idealized geometry, which is sketched in @fig-radshock-geometry. We work in the center-of-mass frame, in which the shocked gas is at rest and each cloud moves towards it at $v_1 = 2\, \mathrm{km} \, \mathrm{s}^{- 1}$, half the relative velocity.
 
 ![Idealized geometry for the colliding clouds.](../figures/radiative-shocks/colliding-clouds-geometry.svg){#fig-radshock-geometry fig-alt="One-dimensional sketch along z: a thick blue line (edge of the shocked layer) and a thin blue line (the shock, moving right at speed s). Between them shocked material with density rho_2, velocity zero, temperature T_2; to the right the cloud with density rho_1, velocity v_1, temperature T_1, ending at radius R_c."}
 
@@ -32,18 +32,18 @@ Second, we will assume that the shock is strong ($T_1 \approx 0$), so that $\rho
 
 1.  From the condition that the shock is strong, we find, similarly to @exr-shock-piston
     $$
-    s = \frac{\Gamma - 1}{2} v_1 \sim 10^5 \mathrm{cm} \mathrm{s}^{- 1} .
+    s = \frac{\Gamma - 1}{2} v_1 \sim 10^3\, \mathrm{m} \, \mathrm{s}^{- 1} .
     $$
     The time needed for the cloud to cross the shock is
     $$
     t_{\mathrm{coll}} = \frac{R_{\mathrm{cloud}}}{\left( \frac{\Gamma - 1}{2} + 1
     \right) v_1} = \frac{2}{\Gamma + 1}  \frac{R_{\mathrm{cloud}}}{v_1} \sim
-    10^{13} \mathrm{s} \sim 300 \mathrm{kyr} .
+    10^{13}\, \mathrm{s} \sim 300\, \mathrm{kyr} .
     $$
 
 2.  In the shock frame, the velocity upstream and downstream of the shock are
     $$
-    u_1 = v_1 + s = \left( \frac{\Gamma + 1}{2} \right) v_1,  u_2 = - s =
+    u_1 = v_1 + s = \left( \frac{\Gamma + 1}{2} \right) v_1, \qquad u_2 = - s =
     - \frac{\Gamma - 1}{2} v_1 .
     $$
     The enthalpy of the material downstream of the shock is
@@ -54,15 +54,15 @@ Second, we will assume that the shock is strong ($T_1 \approx 0$), so that $\rho
     This is not surprising: it is telling us that all kinetic energy is converted to internal energy at the shock. The typical time scale for cooling can be estimated as
     $$
     t_{\mathrm{cool}} = \frac{\rho_2 \varepsilon_2}{\rho_2  \dot{Q}} =
-    \frac{v_1^2 / 2}{\dot{Q}} = \frac{2 \times  10^{10} \mathrm{cm}^2
-    \mathrm{s}^{- 2}}{10^{- 3} \mathrm{cm}^2 \mathrm{s}^{- 3}} = 2 \times
-     10^{13} \mathrm{s} \sim t_{\mathrm{coll}},
+    \frac{v_1^2 / 2}{\dot{Q}} = \frac{2 \times  10^6\, \mathrm{m}^2
+    \,\mathrm{s}^{- 2}}{10^{- 7}\, \mathrm{m}^2\,\mathrm{s}^{- 3}} = 2 \times
+     10^{13}\, \mathrm{s} \sim t_{\mathrm{coll}},
     $$
-    so the **shock is efficiently radiating and can be considered as isothermal**.
+    so the gas radiates away its internal energy over the duration of the collision. In other words, the **shock is not adiabatic**. Since cooling brings the gas back towards its initial temperature, we can treat it, as a first approximation, as **isothermal**. This is the assumption we make in the next part.
 
 3.  For an isothermal shock the compression factor is
     $$
-    \frac{\rho_2}{\rho_1} = \left( \frac{u_1}{c_{\mathrm{iso}}} \right)^2 = \mathrm{Ma}^2,
+    \frac{\rho_2}{\rho_1} = \left( \frac{u_1}{c_{\mathrm{iso}}} \right)^2 = \mathrm{Ma}^2 .
     $$
     We can find the speed of the shock from the Rankine-Hugoniot conditions:
     $$
@@ -72,21 +72,21 @@ Second, we will assume that the shock is strong ($T_1 \approx 0$), so that $\rho
     The speed of the cloud in the shock frame is given by
     $$
     u_1 = v_1 + s \Longrightarrow \mathrm{Ma} = \frac{u_1}{c_{\mathrm{iso}}} = \left(
-    \frac{v}{c_{\mathrm{iso}}} \right)  \left( \frac{\mathrm{Ma}^2}{\mathrm{Ma}^2 - 1} \right)
+    \frac{v_1}{c_{\mathrm{iso}}} \right)  \left( \frac{\mathrm{Ma}^2}{\mathrm{Ma}^2 - 1} \right)
     \Longrightarrow \mathrm{Ma} = \frac{\xi + \sqrt{\xi^2 + 4}}{2}, \qquad \xi
-    = \frac{v}{c_{\mathrm{iso}}} .
+    = \frac{v_1}{c_{\mathrm{iso}}} .
     $$
     The parameter $\xi$ is the Mach number of the cloud (*not* the Mach number of the shock). However, if $\xi \gg 2$, then $\mathrm{Ma} \approx \xi$.
     $$
-    c_{\mathrm{iso}} = \sqrt{\frac{k_B T}{\mu m_u}} \approx 2.87 \times  10^4 \, \mu^{- 1 / 2} \mathrm{cm} \mathrm{s}^{- 1} \sim 2 \times
-     10^4 \mathrm{cm} \mathrm{s}^{- 1} \Longrightarrow \xi \sim 10
+    c_{\mathrm{iso}} = \sqrt{\frac{k_B T}{\mu m_u}} \approx 288 \, \mu^{- 1 / 2}\, \mathrm{m} \, \mathrm{s}^{- 1} \sim 200\,
+     \mathrm{m} \, \mathrm{s}^{- 1} \Longrightarrow \xi \sim 10
     \Longrightarrow \mathrm{Ma} \sim 10.
     $$
-    Assuming that the crossectional area $A$ stays constant, the conservation of mass implies
+    Assuming that the cross-sectional area $A$ stays constant, the conservation of mass implies
     $$
     \rho_1 AR_{\mathrm{cloud}} = \rho_2 Ax = \mathrm{Ma}^2 \rho_1 Ax
-    \Longrightarrow x = \mathrm{Ma}^{- 2} R_{\mathrm{cloud}} \sim 3 \times  10^{16}
-    \mathrm{cm} .
+    \Longrightarrow x = \mathrm{Ma}^{- 2} R_{\mathrm{cloud}} \sim 3 \times  10^{14}\,
+    \mathrm{m} .
     $$
 
 4.  After the cloud has relaxed [@clarke2007, Eq. 5.21],
@@ -94,21 +94,24 @@ Second, we will assume that the shock is strong ($T_1 \approx 0$), so that $\rho
     \rho (z) = \frac{\rho_0}{\cosh^2 \left( A \sqrt{\rho_0} z \right)},
     \qquad A = \sqrt{\frac{2 \pi G}{c_{\mathrm{iso}}^2}} .
     $$
-    We can estimate the sound speed assuming the cloud to have cooled down to $T = 10 \mathrm{K}$, then $c_{\mathrm{iso}} \sim 2 \times  10^4 \mathrm{cm} \mathrm{s}^{- 1}$ and
+    We can estimate the sound speed assuming the cloud to have cooled down to $T = 10\, \mathrm{K}$, then $c_{\mathrm{iso}} \sim 200\, \mathrm{m} \, \mathrm{s}^{- 1}$ and
     $$
-    A \sim 3 \times  10^{- 8} \mathrm{cm}^{1 / 2} \mathrm{g}^{- 1 / 2} .
+    A \sim 1.0 \times  10^{- 7}\, \mathrm{m}^{1 / 2}\,\mathrm{kg}^{- 1 / 2} .
     $$
     To evaluate $\rho_0$ we use the fact that
     $$
-    \int_0^{\infty} \rho (z) \dd z = \frac{\sqrt{\rho_0}}{A} = \Sigma =
-    0.5 \times  10^{- 2} \mathrm{g} \mathrm{cm}^{- 2} \Longrightarrow \rho_0 =
-    A^2 \Sigma^2 \sim 2.6 \times  10^{- 20} \mathrm{g} \mathrm{cm}^{- 3} .
+    \begin{aligned}
+    & \int_0^{\infty} \rho (z) \dd z = \frac{\sqrt{\rho_0}}{A} = \Sigma =
+    0.5 \times  10^{- 2}\, \mathrm{g} \, \mathrm{cm}^{- 2} = 0.05\, \mathrm{kg} \, \mathrm{m}^{- 2} \\
+    & \quad \Longrightarrow \rho_0 = A^2 \Sigma^2 \sim 2.5 \times  10^{- 17}\, \mathrm{kg} \,
+    \mathrm{m}^{- 3} = 2.5 \times  10^{- 20}\, \mathrm{g} \, \mathrm{cm}^{- 3} .
+    \end{aligned}
     $$
     The fraction of material contained within a width of $x$ is
     $$
     f = \frac{1}{\Sigma}  \int_0^x \frac{A^2 \Sigma^2}{\cosh^2  (A^2 \Sigma
     z)} \dd z = \int_0^{A^2 \Sigma x} \frac{\dd \xi}{\cosh^2 \xi} =
-    \tanh (A^2 \Sigma x) \approx A^2 \Sigma x = 0.135.
+    \tanh (A^2 \Sigma x) \approx A^2 \Sigma x \approx 0.15.
     $$
 :::
 :::

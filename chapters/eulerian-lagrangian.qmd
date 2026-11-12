@@ -13,7 +13,7 @@ $$
 $$ {#eq-lagrange-dust}
 In the new language we have just introduced, these are the Lagrangian equations of motion. That is, they describe the density and velocity of each fluid element. Note that, even though the problem describes a steady state system, we cannot drop the time derivatives, because each individual fluid element is not stationary, but it is in free fall.
 
-Consider a fluid element that starts at rest at large distance from the accretor. Since the fluid elements are not subject to any force beside gravity, they are in free fall
+Consider a fluid element that starts at rest at large distance from the accretor. Since the fluid elements are not subject to any force besides gravity, they are in free fall
 $$
 v = - \sqrt{\frac{2 GM}{r}} .
 $$ {#eq-lagrange-2}
@@ -190,7 +190,7 @@ which answers the question we asked at the beginning of the chapter.
 
     3.  Explain the difference between the two results.
 
-2.  An emission line from gas falling radially onto a star is observed at the radius $r_0 = 10\,R_{\odot}$, where the gas has velocity $v_0 = - 200\,\mathrm{km\,s^{-1}}$ and density $\rho_0 = 10^{-15}\,\mathrm{g\,cm^{-3}}$. Assuming pressureless free fall, estimate the mass of the star in units of $M_{\odot}$ and the accretion rate in units of $M_{\odot}\,\mathrm{yr^{-1}}$.
+2.  An emission line from gas falling radially onto a star is observed at the radius $r_0 = 10\,R_{\odot}$, where the gas has velocity $v_0 = - 200\,\mathrm{km\,s^{-1}}$ and density $\rho_0 = 10^{-15}\,\mathrm{g\,cm^{-3}} = 10^{-12}\,\mathrm{kg\,m^{-3}}$. Assuming pressureless free fall, estimate the mass of the star in units of $M_{\odot}$ and the accretion rate in units of $M_{\odot}\,\mathrm{yr^{-1}}$.
 
 ## Exercises {#sec-lagrange-exercises}
 

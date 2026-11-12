@@ -19,7 +19,7 @@ The ratio $\lambda / L$ is called the **Knudsen number**. In other words, the fl
 ::: {.callout-tip icon=false}
 ## Example
 
-Consider a cloud of atomic hydrogen in the interstellar medium with number density $n \sim 1\,\mathrm{cm^{-3}}$. The cross section for collisions between hydrogen atoms is $\sigma \sim 10^{-15}\,\mathrm{cm^2}$, so the mean free path is $\lambda \sim 10^{15}\,\mathrm{cm}$, or about $70\,\mathrm{AU}$. This is much smaller than the typical size of interstellar clouds, $L \sim 1\,\mathrm{pc} \approx 3 \times 10^{18}\,\mathrm{cm}$. So $\lambda / L \sim 3 \times 10^{-4}$ and the cloud can be treated as a fluid.
+Consider a cloud of atomic hydrogen in the interstellar medium with number density $n \sim 1\,\mathrm{cm^{-3}} = 10^{6}\,\mathrm{m^{-3}}$. The cross section for collisions between hydrogen atoms is $\sigma \sim 10^{-19}\,\mathrm{m^2}$, so the mean free path is $\lambda \sim 10^{13}\,\mathrm{m}$, or about $70\,\mathrm{AU}$. This is much smaller than the typical size of interstellar clouds, $L \sim 1\,\mathrm{pc} \approx 3 \times 10^{16}\,\mathrm{m}$. So $\lambda / L \sim 3 \times 10^{-4}$ and the cloud can be treated as a fluid.
 :::
 
 For plasmas, the mean free path does not tell the whole story. Magnetic fields force charged particles to gyrate around the field lines, so they cannot drift freely across the field lines even in the absence of collisions. For this reason, plasmas can sometimes be treated as fluids even when $\lambda$ is large. We will come back to this point in @sec-plasma.
@@ -27,20 +27,21 @@ For plasmas, the mean free path does not tell the whole story. Magnetic fields f
 We define the **number density** of a fluid element $\mathcal{V}$ to be
 $$
 n = \frac{\text{``number of particles in $\mathcal{V}$''}}{\text{``volume of
-$\mathcal{V}$''}} \qquad [\mathrm{cm}^{- 3}] .
+$\mathcal{V}$''}} \qquad [\mathrm{m}^{- 3}] .
 $$ {#eq-continua-3}
 As the system evolves, the number of particles inside the volume element $\mathcal{V}$ remains constant, but the size of the volume changes, so $n$ depends on the fluid element and on time.
 
 An associated concept is that of the **mass density** (or simply density)
 $$
 \rho = \frac{\text{``mass contained in $\mathcal{V}$''}}{\text{``volume of
-$\mathcal{V}$''}} \qquad [\mathrm{g} \mathrm{cm}^{- 3}] .
+$\mathcal{V}$''}} \qquad [\mathrm{kg} \, \mathrm{m}^{- 3}] .
 $$ {#eq-continua-4}
+We use SI units in these notes, but we follow the astrophysical custom of quoting number densities in $\mathrm{cm^{-3}}$ and mass densities in $\mathrm{g\,cm^{-3}}$, with $1\,\mathrm{cm^{-3}} = 10^6\,\mathrm{m^{-3}}$ and $1\,\mathrm{g\,cm^{-3}} = 10^3\,\mathrm{kg\,m^{-3}}$. Note that we always convert them to SI before we use them in a formula.
 If the gas is composed of identical particles of mass $m$, then $\rho = mn$. For mixtures with many constituents
 $$
 \rho = \sum_{i = 1}^N m_i n_i = \sum_{i = 1}^N m_i Y_i n = \mu m_u n,
 $$ {#eq-continua-5}
-where we have introduced the particle number fractions $Y_i = n_i / n$, the atomic mass unit $m_u \approx 1.66 \times 10^{-24}\,\mathrm{g}$, and the **mean molecular weight**
+where we have introduced the particle number fractions $Y_i = n_i / n$, the atomic mass unit $m_u \approx 1.66 \times 10^{-27}\,\mathrm{kg}$, and the **mean molecular weight**
 $$
 \mu = \sum_{i = 1}^N Y_i \frac{m_i}{m_u} ,
 $$ {#eq-continua-mu}
@@ -52,8 +53,8 @@ The $X_i = \rho_i / \rho$ are the mass fractions. $Y_i$ measures the relative co
 
 We also assume that each element has a well-defined velocity
 $$
-\vb{v}= \text{``velocity of $\mathcal{V}$''} \qquad [\mathrm{cm}
-\mathrm{s}^{- 1}]
+\vb{v}= \text{``velocity of $\mathcal{V}$''} \qquad [\mathrm{m}
+\, \mathrm{s}^{- 1}]
 $$ {#eq-continua-8}
 and temperature
 $$
@@ -259,9 +260,9 @@ The flows produced by many types of astronomical explosions can be described wel
 ::: {.callout-tip icon=false}
 ## Example
 
-Consider a supernova that ejects $M = 10\,M_\odot$ of gas, with the outer layers moving at $v = 5000\,\mathrm{km\,s^{-1}}$. After one year, the radius of the ejecta is $R \approx v t \approx 1.6 \times 10^{16}\,\mathrm{cm}$, or about $1000\,\mathrm{AU}$, so their mean density is
+Consider a supernova that ejects $M = 10\,M_\odot$ of gas, with the outer layers moving at $v = 5000\,\mathrm{km\,s^{-1}}$. After one year, the radius of the ejecta is $R \approx v t \approx 1.6 \times 10^{14}\,\mathrm{m}$, or about $1000\,\mathrm{AU}$, so their mean density is
 $$
-\bar{\rho} = \frac{3 M}{4 \pi R^3} \approx 1 \times 10^{-15}\,\mathrm{g\,cm^{-3}},
+\bar{\rho} = \frac{3 M}{4 \pi R^3} \approx 1 \times 10^{-12}\,\mathrm{kg\,m^{-3}} = 1 \times 10^{-15}\,\mathrm{g\,cm^{-3}}.
 $$ {#eq-continua-sn-density}
 This corresponds to about $10^9$ particles per $\mathrm{cm^3}$. Since $R \propto t$ at late times, the density decreases as $t^{-3}$, so after ten years it is a thousand times smaller.
 :::
@@ -340,7 +341,7 @@ where $R$ is the cylindrical radius.
 
 3.  At the equator $\Omega = \Omega_0 / 2 = 2 \pi / P$ with $P = 25\,\mathrm{d}$, so
     $$
-    v_{\mathrm{eq}} = \frac{2 \pi R_\odot}{P} = \frac{2 \pi \times 6.96 \times 10^{10}\,\mathrm{cm}}{2.16 \times 10^6\,\mathrm{s}} \approx 2.0\,\mathrm{km\,s^{-1}} .
+    v_{\mathrm{eq}} = \frac{2 \pi R_\odot}{P} = \frac{2 \pi \times 6.96 \times 10^{8}\,\mathrm{m}}{2.16 \times 10^6\,\mathrm{s}} \approx 2.0\,\mathrm{km\,s^{-1}} .
     $$
     At $\theta = 45^\circ$, $\cos^2 \theta = 1/2$ and $v_\phi = \Omega_0 R_\odot (\sqrt{2}/2) / (3/2) = (2\sqrt{2}/3)\, v_{\mathrm{eq}} \approx 1.9\,\mathrm{km\,s^{-1}}$.
     Note that in this model the angular velocity *increases* towards the poles, where $\Omega = \Omega_0$. The real Sun does the opposite.

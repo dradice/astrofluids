@@ -5,9 +5,9 @@ These are the lecture notes for ASTRO 442, an introduction to the fluid dynamics
 ::: {.callout-important}
 ## Work in progress
 
-I am in the process of importing my lecture notes from previous years. Once all chapters have been imported, the material will be revised and corrected in a second step, with added examples and clarifications. Until then, you may find typos, errors, and rough edges.
+These notes are a work in progress. I revise them as I teach the course, so you may still find typos, errors, and rough edges. Chapters marked "in preparation" will be completed before the corresponding lecture.
 
-Chapters marked "in preparation" will be completed before the corresponding lecture.
+Corrections and suggestions for improvement are welcome. You can report them by opening an [issue](https://github.com/dradice/astrofluids/issues) on GitHub, or propose a change directly with a [pull request](https://github.com/dradice/astrofluids/pulls).
 :::
 
 ## How to use these notes {.unnumbered}
@@ -15,6 +15,7 @@ Chapters marked "in preparation" will be completed before the corresponding lect
 - **One chapter per lecture topic.** Canvas lists which chapter goes with each lecture.
 - **Everything is numbered by chapter.** Equation (9.14) is the fourteenth numbered equation of Chapter 9, and Exercise 8.4 is the fourth exercise of Chapter 8. When you ask a question about the notes, quote these numbers.
 - **In-class worksheets** appear near the end of each chapter, followed by the **exercises**. Homework assignments on Canvas list the exercises to solve, for example "Exercises 2.1, 7.3".
+- **Units.** We use SI units, together with a few units that are customary in astronomy: number densities in $\mathrm{cm^{-3}}$, mass densities in $\mathrm{g\,cm^{-3}}$, opacities in $\mathrm{cm^2\,g^{-1}}$, large energies in erg, magnetic fields in gauss (given in parentheses after the value in tesla), and pc, AU, $M_\odot$, eV. Many astrophysics books and papers use Gaussian units for electromagnetism: @sec-plasma explains how to translate their formulas.
 - **Optional material** is set apart in boxes titled "Going further"; you can skip it on a first reading.
 
 ## Accessibility {.unnumbered}

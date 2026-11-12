@@ -10,22 +10,23 @@ L = 4 \pi R^2 \sigma T^4,
 $$ {#eq-sn-1}
 where $\sigma$ is the Stefan–Boltzmann constant
 $$
-\sigma = \frac{ac}{4} = 5.6704 \times 10^{-5} \mathrm{erg} \mathrm{cm}^{- 2}
-\mathrm{s}^{- 1} \mathrm{K}^{- 4} .
+\sigma = \frac{ac}{4} = 5.6704 \times 10^{-8} \, \mathrm{W} \, \mathrm{m}^{- 2}
+\, \mathrm{K}^{- 4} .
 $$ {#eq-sn-2}
 Assuming in first approximation supernovae to be black body emitters, this implies that the characteristic radius of a supernova at peak magnitude is
 $$
-R_p \sim 2.5 \times 10^4 R_{\odot} \approx 10^{15} \mathrm{cm} .
+R_p \sim 2.5 \times 10^4 R_{\odot} \approx 10^{13} \, \mathrm{m} .
 $$ {#eq-sn-3}
-This is about twenty times larger than the radius of the largest stars. The duration of the peak is of a few weeks, say $\sim 2 \times 10^6 \mathrm{s}$, so the total energy release in photons is
+This is about twenty times larger than the radius of the largest stars. The duration of the peak is of a few weeks, say $\sim 2 \times 10^6\,\mathrm{s}$, so the total energy release in photons is
 $$
 \mathcal{E}_r \sim (2 \times 10^6\,\mathrm{s}) \times 10^{10} L_{\odot} \approx 8 \times
- 10^{49} \mathrm{erg} .
+ 10^{49}\,\mathrm{erg} .
 $$ {#eq-sn-4}
-From the observation of Doppler shifted emission and absorption lines, we know that the typical velocities are in the range of $2{,}000 \mathrm{km} \mathrm{s}^{- 1}$ to $10{,}000 \mathrm{km} \mathrm{s}^{- 1}$. These velocities are consistent with the estimated length and temporal scales of the supernova phenomenon:
+Here and in the rest of the chapter, we follow the custom of quoting large energies in erg and luminosities in $\mathrm{erg\,s^{-1}}$, with $1\,\mathrm{erg} = 10^{-7}\,\mathrm{J}$.
+From the observation of Doppler shifted emission and absorption lines, we know that the typical velocities are in the range of $2{,}000\,\mathrm{km}\,\mathrm{s}^{- 1}$ to $10{,}000\,\mathrm{km}\,\mathrm{s}^{- 1}$. These velocities are consistent with the estimated length and temporal scales of the supernova phenomenon:
 $$
-v \sim \frac{10^{15} \mathrm{cm}}{10^6\,\mathrm{s}} = 10^9 \mathrm{cm} \mathrm{s}^{- 1} =
-10^4 \mathrm{km} \mathrm{s}^{- 1} .
+v \sim \frac{10^{13} \, \mathrm{m}}{10^6\,\mathrm{s}} = 10^7 \, \mathrm{m} \, \mathrm{s}^{- 1} =
+10^4 \, \mathrm{km} \, \mathrm{s}^{- 1} .
 $$ {#eq-sn-5}
 The associated kinetic energy is
 $$
@@ -39,16 +40,16 @@ From these basic observational facts, we know that supernovae must be powered by
 
 ## Shock breakout
 
-Our supernova model begins with a star of radius $R_0$ in which a large amount of energy $\mathcal{E}$, much larger than the gravitational binding energy of the star, is injected. The source of this energy might be gravitational, in the case of core-collapse supernovae, or thermonuclear, but the outcome is similar: the progenitor is disrupted and matter starts expanding with large velocities. To fix our ideas, we will consider the explosion of a red supergiant with $R_0 \sim 10^{14} \mathrm{cm}$, however all our results can be rescaled for other radii.
+Our supernova model begins with a star of radius $R_0$ in which a large amount of energy $\mathcal{E}$, much larger than the gravitational binding energy of the star, is injected. The source of this energy might be gravitational, in the case of core-collapse supernovae, or thermonuclear, but the outcome is similar: the progenitor is disrupted and matter starts expanding with large velocities. To fix our ideas, we will consider the explosion of a red supergiant with $R_0 \sim 10^{12}\,\mathrm{m}$, however all our results can be rescaled for other radii.
 
-Immediately after the energy has been injected into the star, kinetic and internal energy are expected to be in equipartition $K \sim E \sim \mathcal{E} \sim 10^{51} \mathrm{erg}$, so we can estimate the temperature, assuming the gas to be radiation dominated:
+Immediately after the energy has been injected into the star, kinetic and internal energy are expected to be in equipartition $K \sim E \sim \mathcal{E} \sim 10^{51}\,\mathrm{erg} = 10^{44}\,\mathrm{J}$, so we can estimate the temperature, assuming the gas to be radiation dominated:
 $$
 E = \frac{4}{3} \pi R^3_0 aT^4 .
 $$ {#eq-sn-7}
 This estimate gives a temperature of
 $$
-T \approx 4.2 \times 10^5 \mathrm{K} \left( \frac{R_0}{10^{14} \mathrm{cm}}
-\right)^{- 3 / 4}  \left( \frac{E}{10^{51} \mathrm{erg}} \right)^{1 / 4} .
+T \approx 4.2 \times 10^5\,\mathrm{K} \left( \frac{R_0}{10^{12} \, \mathrm{m}}
+\right)^{- 3 / 4}  \left( \frac{E}{10^{51}\,\mathrm{erg}} \right)^{1 / 4} .
 $$ {#eq-sn-8}
 The energy is injected close to the center of the star and it is carried outwards by a shock wave (@sec-shock), which reaches the surface of the star after a time $\sim R_0 / v \sim 10^5\,\mathrm{s}$, about a day (see @eq-sn-32 below). When this happens, the hot radiation behind the shock is able to escape. This is the so-called *shock breakout*, which is the first light emanating from the supernova. Because of the high temperature, the radiation spectrum at breakout peaks in the UV and X-ray bands.
 
@@ -57,11 +58,11 @@ $$
 \beta = \frac{\frac{1}{3} aT^4}{nk_B T} = \frac{a}{3 k_B}  \frac{T^3}{n}
 \approx \frac{a}{3 k_B}  \frac{4 \pi R^3_0}{3}  \frac{\mu m_u}{M} T^3,
 $$ {#eq-sn-9}
-where we have approximated $n$ with the average number density, $n = \rho / (\mu m_u)$ (@eq-continua-3), and $M$ is the mass of the progenitor. We find $\beta$:
+where we have approximated $n$ with the average number density, $n = \rho / (\mu m_u)$ (@eq-continua-5), and $M$ is the mass of the progenitor. We find $\beta$:
 $$
 \beta \approx 4.8 \times 10^3 \mu  \left( \frac{1
-M_{\odot}}{M} \right)  \left( \frac{R_0}{10^{14} \mathrm{cm}} \right)^{3 / 4}
-\left( \frac{E}{10^{51} \mathrm{erg}} \right)^{3 / 4},
+M_{\odot}}{M} \right)  \left( \frac{R_0}{10^{12} \, \mathrm{m}} \right)^{3 / 4}
+\left( \frac{E}{10^{51}\,\mathrm{erg}} \right)^{3 / 4},
 $$ {#eq-sn-10}
 confirming that radiation dominates at early times. As we will see later, for homologous expansion, $E \sim R^{- 1}$, so $\beta$ is independent of the radius to which the ejecta has expanded, and matter remains radiation dominated.
 
@@ -127,17 +128,17 @@ Note that, since $R = R_0 + vt \approx vt$, the diffusion time scale decays with
 $$
 \boxed{t_p = \left( \frac{\kappa M}{\beta cv} \right)^{1 / 2} .}
 $$ {#eq-sn-20}
-This is the peak time of the *bolometric luminosity*. For Thomson scattering in a hydrogen-rich, ionized gas $\kappa = 0.4 \mathrm{cm}^2 \mathrm{g}^{- 1}$, so
+This is the peak time of the *bolometric luminosity*. For Thomson scattering in a hydrogen-rich, ionized gas $\kappa = 0.4\,\mathrm{cm}^2\,\mathrm{g}^{- 1}$, that is, $0.04\,\mathrm{m^2\,kg^{-1}}$ (as is customary, we quote opacities in $\mathrm{cm^2\,g^{-1}}$), so
 $$
-t_p = 1.4 \times 10^6 \mathrm{s} \left( \frac{M}{M_{\odot}} \right)^{1 / 2}
-\left( \frac{\kappa}{0.4 \mathrm{cm}^2 \mathrm{g}^{- 1}} \right)^{1 / 2}
-\left( \frac{v}{10^9 \mathrm{cm} \mathrm{s}^{- 1}} \right)^{- 1 / 2} .
+t_p = 1.4 \times 10^6\,\mathrm{s} \left( \frac{M}{M_{\odot}} \right)^{1 / 2}
+\left( \frac{\kappa}{0.4\,\mathrm{cm}^2\,\mathrm{g}^{- 1}} \right)^{1 / 2}
+\left( \frac{v}{10^4 \, \mathrm{km} \, \mathrm{s}^{- 1}} \right)^{- 1 / 2} .
 $$ {#eq-sn-21}
 The characteristic radius of the supernova at this time is
 $$
-R_p = R_0 + t_p v \approx t_p v \sim 10^{15} \mathrm{cm} .
+R_p = R_0 + t_p v \approx t_p v \sim 10^{13} \, \mathrm{m} .
 $$ {#eq-sn-22}
-This time scale and characteristic radius are in good agreement with observations. These formulae also show that the typical duration of the rise time of the supernova is proportional to the square root of the mass and of the opacity, and inversely proportional to the square root of the velocity. This implies that the explosion of less massive stars produces faster transients, while more massive stars produce light curves that evolve over longer timescales. These relations are key to interpret not only supernovae, but also other explosive transients, such as kilonovae. For SN 1987A the inferred velocity from spectroscopy is $v \sim 0.3 \times 10^9 \mathrm{cm} \mathrm{s}^{- 1}$ and the peak time is $t_p \approx 100 \mathrm{days}$ (@fig-sn-sn1987a), so we can estimate $M \approx 10 M_{\odot}$. This gives an explosion energy of $\mathcal{E}= \frac{1}{2} Mv^2 \sim 10^{51} \mathrm{erg}$. These estimates are only correct to within an order of magnitude, since they neglect important effects, such as recombination, which we discuss below.
+This time scale and characteristic radius are in good agreement with observations. These formulae also show that the typical duration of the rise time of the supernova is proportional to the square root of the mass and of the opacity, and inversely proportional to the square root of the velocity. This implies that the explosion of less massive stars produces faster transients, while more massive stars produce light curves that evolve over longer timescales. These relations are key to interpret not only supernovae, but also other explosive transients, such as kilonovae. For SN 1987A the inferred velocity from spectroscopy is $v \sim 3000\,\mathrm{km\,s^{-1}}$ and the peak time is $t_p \approx 100\,\mathrm{days}$ (@fig-sn-sn1987a), so we can estimate $M \approx 10 M_{\odot}$. This gives an explosion energy of $\mathcal{E}= \frac{1}{2} Mv^2 \sim 10^{51}\,\mathrm{erg}$. These estimates are only correct to within an order of magnitude, since they neglect important effects, such as recombination, which we discuss below.
 
 ## Ejecta expansion
 
@@ -190,14 +191,14 @@ Remember that this expression is only valid for $t \gtrsim \tau_d$. Also note th
 
 At the time of break out, the hydrodynamical time scale is
 $$
-\tau_{h, 0} = \frac{R}{v} = 10^5 \mathrm{s} \left( \frac{R_0}{10^{14}
-\mathrm{cm}} \right)  \left( \frac{v}{10^9 \mathrm{cm} \mathrm{s}^{- 1}}
+\tau_{h, 0} = \frac{R}{v} = 10^5\,\mathrm{s} \left( \frac{R_0}{10^{12}
+\, \mathrm{m}} \right)  \left( \frac{v}{10^4 \, \mathrm{km} \, \mathrm{s}^{- 1}}
 \right)^{- 1} .
 $$ {#eq-sn-32}
-The radiation diffusion time scale can be estimated using $\kappa \approx 0.4 \mathrm{cm}^2 \mathrm{g}^{- 1}$ to be
+The radiation diffusion time scale can be estimated using $\kappa \approx 0.4\,\mathrm{cm}^2\,\mathrm{g}^{- 1}$ to be
 $$
-\tau_{d, 0} = 2 \times 10^7 \mathrm{s} \left( \frac{M}{M_{\odot}} \right)
-\left( \frac{R_0}{10^{14} \mathrm{cm}} \right)^{- 1} \gg \tau_{h, 0} .
+\tau_{d, 0} = 2 \times 10^7\,\mathrm{s} \left( \frac{M}{M_{\odot}} \right)
+\left( \frac{R_0}{10^{12} \, \mathrm{m}} \right)^{- 1} \gg \tau_{h, 0} .
 $$ {#eq-sn-33}
 So at early times radiation is trapped in the expanding ejecta, however most of the thermal energy is "lost" to pdV work (it is converted to kinetic energy) on a time scale $t \sim \tau_h$, before it has a chance to escape as radiation. Indeed, at early times we can neglect the radiative losses to find
 $$
@@ -232,28 +233,28 @@ so
 $$
 \boxed{\begin{aligned} L = {} & \left( \frac{\beta cE_p R_p}{\kappa M} \right) \exp \left( -
 \frac{\tau_{h, p} t + t^2 / 2}{\tau_{d, p} \tau_{h, p}} \right) \\
-& \mathrm{for} t \geq 0 .\end{aligned}}
+& \mathrm{for}\ t \geq 0 .\end{aligned}}
 $$ {#eq-sn-39}
 The luminosity at peak can be estimated as
 $$
 \begin{aligned}
 L_0 &= \frac{\beta cE_p R_p}{\kappa M} = \frac{E_p}{\tau_{d, p}} \\
-&\approx 5.2 \times 10^{43} \mathrm{erg} \mathrm{s}^{- 1}  \left(
-\frac{E_p}{10^{50} \mathrm{erg}} \right) \\
-&\qquad \times \left( \frac{R_p}{10^{15}
-\mathrm{cm}} \right) \left( \frac{M_{\odot}}{M} \right)  \left( \frac{0.4
-\mathrm{cm}^2 \mathrm{g}^{- 1}}{\kappa} \right)
+&\approx 5.2 \times 10^{43}\,\mathrm{erg}\,\mathrm{s}^{- 1}  \left(
+\frac{E_p}{10^{50}\,\mathrm{erg}} \right) \\
+&\qquad \times \left( \frac{R_p}{10^{13}
+\, \mathrm{m}} \right) \left( \frac{M_{\odot}}{M} \right)  \left( \frac{0.4
+\mathrm{cm}^2\,\mathrm{g}^{- 1}}{\kappa} \right)
 \end{aligned}
 $$ {#eq-sn-40}
-For the explosion of a red supergiant with $M \sim 10 M_{\odot}$, we have $R_p \sim 10 R_0 \sim 10^{15}\,\mathrm{cm}$ and $E_p \sim \mathcal{E} / 10 \sim 10^{50}\,\mathrm{erg}$, so this formula predicts $L_0 \sim 5 \times 10^{42} \mathrm{erg} \mathrm{s}^{- 1}$, comparable to the luminosity of Type II-P supernovae (@fig-sn-sn1999em). For SN 1987A, whose progenitor was a compact blue supergiant with $R_0 \approx 3 \times 10^{12}\,\mathrm{cm}$, this estimate is about ten times smaller than the observed peak. As we will see below, the light curve of SN 1987A is powered by radioactive decays.
+For the explosion of a red supergiant with $M \sim 10 M_{\odot}$, we have $R_p \sim 10 R_0 \sim 10^{13}\,\mathrm{m}$ and $E_p \sim \mathcal{E} / 10 \sim 10^{50}\,\mathrm{erg}$, so this formula predicts $L_0 \sim 5 \times 10^{42}\,\mathrm{erg}\,\mathrm{s}^{- 1}$, comparable to the luminosity of Type II-P supernovae (@fig-sn-sn1999em). For SN 1987A, whose progenitor was a compact blue supergiant with $R_0 \approx 3 \times 10^{10}\,\mathrm{m}$, this estimate is about ten times smaller than the observed peak. As we will see below, the light curve of SN 1987A is powered by radioactive decays.
 
 This shows that, in absence of radioactive heating, or when radioactive heating is subdominant, the luminosity declines rapidly after having peaked at $t = t_p$. At late times, $t \gtrsim \tau_{h, p}$, the luminosity decreases as $\exp (- t^2 / \tau_{\mathrm{lc}}^2)$, where the characteristic decay time for the light curve is given by
 $$
 \begin{aligned}
 \tau_{\mathrm{lc}} &= \sqrt{2 \tau_{d, p} \tau_{h, p}} \\
-&\approx 2 \times 10^6 \mathrm{s} \left( \frac{\kappa}{0.4 \mathrm{cm}^2 \mathrm{g}^{- 1}} \right)^{1/ 2}  \left( \frac{M}{M_{\odot}} \right)^{1 / 2} \\
-&\qquad \times \left( \frac{v}{10^9
-\mathrm{cm} \mathrm{s}^{- 1}} \right)^{- 1 / 2} .
+&\approx 2 \times 10^6\,\mathrm{s} \left( \frac{\kappa}{0.4\,\mathrm{cm}^2\,\mathrm{g}^{- 1}} \right)^{1/ 2}  \left( \frac{M}{M_{\odot}} \right)^{1 / 2} \\
+&\qquad \times \left( \frac{v}{10^4
+\, \mathrm{km} \, \mathrm{s}^{- 1}} \right)^{- 1 / 2} .
 \end{aligned}
 $$ {#eq-sn-41}
 Note that $\tau_{\mathrm{lc}}$ does not depend on the expansion radius, but remains constant. Since $\tau_{d, p} = t_p$ and $\tau_{h, p} \approx t_p$, we also have $\tau_{\mathrm{lc}} \approx \sqrt{2} t_p$, which explains why @eq-sn-41 and @eq-sn-21 have the same scaling.
@@ -262,11 +263,11 @@ This simple model with no radioactive heating already predicts several key prope
 
 ## Radioactive heating
 
-The radioactive decay of $^{56} \mathrm{Ni}$ to $^{56} \mathrm{Co}$ and of $^{56} \mathrm{Co}$ to $^{56} \mathrm{Fe}$ powers the light curve of supernovae. These decays produce $\gamma$-rays and positrons. Some of these particles escape from the ejecta, so their energy does not contribute to the optical light curve. However, especially in the first weeks, the majority of the decay products are reprocessed into thermal radiation. After having included this new heating source, the first law of thermodynamics is:
+The radioactive decay of $^{56}\,\mathrm{Ni}$ to $^{56}\,\mathrm{Co}$ and of $^{56}\,\mathrm{Co}$ to $^{56}\,\mathrm{Fe}$ powers the light curve of supernovae. These decays produce $\gamma$-rays and positrons. Some of these particles escape from the ejecta, so their energy does not contribute to the optical light curve. However, especially in the first weeks, the majority of the decay products are reprocessed into thermal radiation. After having included this new heating source, the first law of thermodynamics is:
 $$
 \dot{E} + p \dot{V} = \dot{Q}_{\mathrm{heat}} - L,
 $$ {#eq-sn-42}
-where $\dot{Q}_{\mathrm{heat}}$ is the energy deposited by the radioactive decays in $\mathrm{erg} \mathrm{s}^{- 1}$.
+where $\dot{Q}_{\mathrm{heat}}$ is the energy deposited by the radioactive decays in $\mathrm{erg}\,\mathrm{s}^{- 1}$.
 
 Proceeding as before, we can introduce a heating time scale
 $$
@@ -288,7 +289,7 @@ This shows that the luminosity at peak equals the heating rate. This is a key re
 
 The effect of radioactive heating is illustrated in @fig-sn-one-zone, which shows the solution of the one-zone model, @eq-sn-arnett-model-radioactive with $L = E / \tau_d$, for the explosion of a red and of a blue supergiant. The explosion of the compact blue supergiant would be very faint without radioactive heating, because most of its thermal energy is lost to $p \dd V$ work. With radioactive heating, the light curve has a broad peak after about four months, which is qualitatively similar to the one of SN 1987A (@fig-sn-sn1987a). Note that the peak is reached when the luminosity equals the heating rate, as predicted by Arnett's rule.
 
-![Light curves from the one-zone model for the explosion of a red supergiant ($R_0 = 10^{14}\,\mathrm{cm}$) and of a compact blue supergiant ($R_0 = 3 \times 10^{12}\,\mathrm{cm}$), with $M = 10\,M_\odot$, $v = 3 \times 10^8\,\mathrm{cm\,s^{-1}}$, and an initial thermal energy of $5 \times 10^{50}\,\mathrm{erg}$. The dashed line includes the heating by the decay of $0.07\,M_\odot$ of $^{56}$Ni, whose rate is shown by the dotted line. The model is not accurate at early times, before the peak (see text).](../figures/supernovae/one-zone-light-curve.svg){#fig-sn-one-zone fig-alt="Plot of log luminosity in erg per second, from 39.5 to 42.9, against time since explosion, from 0 to 250 days. The red-supergiant curve without heating starts at about 42.4, stays nearly flat for about 50 days and then declines, faster and faster, to 40.8 at day 250. The blue-supergiant curve without heating is about thirty times fainter, starting at 40.9 and falling below 39.5 by day 230. The blue-supergiant curve with nickel heating rises from 40.9 to a broad peak at about 41.5 near day 125, where it crosses the dotted curve of the radioactive heating rate, and then stays slightly above it, declining slowly to 41.2 at day 250."}
+![Light curves from the one-zone model for the explosion of a red supergiant ($R_0 = 10^{12}\,\mathrm{m}$) and of a compact blue supergiant ($R_0 = 3 \times 10^{10}\,\mathrm{m}$), with $M = 10\,M_\odot$, $v = 3000\,\mathrm{km\,s^{-1}}$, and an initial thermal energy of $5 \times 10^{50}\,\mathrm{erg}$. The dashed line includes the heating by the decay of $0.07\,M_\odot$ of $^{56}$Ni, whose rate is shown by the dotted line. The model is not accurate at early times, before the peak (see text).](../figures/supernovae/one-zone-light-curve.svg){#fig-sn-one-zone fig-alt="Plot of log luminosity in erg per second, from 39.5 to 42.9, against time since explosion, from 0 to 250 days. The red-supergiant curve without heating starts at about 42.4, stays nearly flat for about 50 days and then declines, faster and faster, to 40.8 at day 250. The blue-supergiant curve without heating is about thirty times fainter, starting at 40.9 and falling below 39.5 near day 235. The blue-supergiant curve with nickel heating rises from 40.9 to a broad peak at about 41.5 near day 125, where it crosses the dotted curve of the radioactive heating rate, and then stays slightly above it, declining slowly to 41.2 at day 250."}
 
 ![Sample of Type Ia thermonuclear supernova light curves: data and theoretical models. From @arnett1996; © Princeton University Press, reproduced for non-commercial educational use and not covered by the license of these notes.](../figures/supernovae/type-ia-light-curves.png){#fig-sn-type-ia fig-alt="Plot of log luminosity, from 40.5 to 43.5, against days, from 0 to 160, for four Type Ia supernovae (SN1991T, SN1989B, SN1992A, SN1991bg) and the Type Ic SN1994I, each with a model curve. All rise steeply to a peak at about 15 to 20 days, at log L between about 42.2 and 43.4, and then decline smoothly; brighter supernovae decline more slowly."}
 
@@ -305,22 +306,22 @@ where $T_r \approx 6000\,\mathrm{K}$ is the recombination temperature (a constan
 ::: {.callout-tip icon=false}
 ## Example
 
-Consider the plateau of SN 1999em. If we take the radius of the recombination front to be $R_r \sim 10^{15}\,\mathrm{cm}$, as estimated in @eq-sn-22, and $T_r \approx 6000\,\mathrm{K}$, @eq-sn-46 gives
+Consider the plateau of SN 1999em. If we take the radius of the recombination front to be $R_r \sim 10^{13}\,\mathrm{m}$, as estimated in @eq-sn-22, and $T_r \approx 6000\,\mathrm{K}$, @eq-sn-46 gives
 $$
-L \approx 4 \pi \left( 10^{15}\,\mathrm{cm} \right)^2 \sigma \left( 6000\,\mathrm{K} \right)^4 \approx 9 \times 10^{41}\,\mathrm{erg\,s^{-1}},
+L \approx 4 \pi \left( 10^{13}\,\mathrm{m} \right)^2 \sigma \left( 6000\,\mathrm{K} \right)^4 \approx 9 \times 10^{34}\,\mathrm{W} = 9 \times 10^{41}\,\mathrm{erg\,s^{-1}},
 $$ {#eq-sn-plateau}
 or $\log L \approx 42.0$, in good agreement with the plateau in @fig-sn-sn1999em.
 :::
 
-After the recombination wave has swept through the ejecta, the supernova enters the so called nebular phase. In this stage there is no longer a photosphere, because the material is transparent. The black body approximation fails, because radiation is produced by various decays and matter is no longer in thermodynamic equilibrium. Often, the luminosity decays exponentially, with characteristic time scale equal to the mean lifetime of $^{56} \mathrm{Co}$, $\tau \approx 111$ days (its half life is 77 days), so it is possible to fit the decay tail to estimate the amount of radioactive material. This has to be done carefully, accounting for the thermalization efficiency of positrons and gamma-rays.
+After the recombination wave has swept through the ejecta, the supernova enters the so called nebular phase. In this stage there is no longer a photosphere, because the material is transparent. The black body approximation fails, because radiation is produced by various decays and matter is no longer in thermodynamic equilibrium. Often, the luminosity decays exponentially, with characteristic time scale equal to the mean lifetime of $^{56}\,\mathrm{Co}$, $\tau \approx 111$ days (its half life is 77 days), so it is possible to fit the decay tail to estimate the amount of radioactive material. This has to be done carefully, accounting for the thermalization efficiency of positrons and gamma-rays.
 
 ![Bolometric light curve for SN 1999em, a classical example of a Type II-P supernova. Data from @elmhamdi2003; figure courtesy of Viktoriya Morozova, used with permission and not covered by the license of these notes.](../figures/supernovae/sn1999em-light-curve.png){#fig-sn-sn1999em fig-alt="Plot of log luminosity in erg per second, from 41 to 43, against time in days, from 0 to 200. The luminosity drops from about 42.7 in the first days to a plateau at about 42.1, which lasts from day 25 to about day 100. It then falls steeply to about 41.4 at day 130 and declines slowly to about 41.2 at day 180."}
 
 ## In-class worksheet {#sec-sn-worksheet}
 
-1.  Consider the explosion of a red supergiant with radius $R_0 = 10^{14}\,\mathrm{cm}$ and mass $M \sim 10\,M_\odot$. At time $t = 0$, we inject a large amount of energy into the star, $\sim 10^{51}\,\mathrm{erg}$.
+1.  Consider the explosion of a red supergiant with radius $R_0 = 10^{12}\,\mathrm{m}$ and mass $M \sim 10\,M_\odot$. At time $t = 0$, we inject a large amount of energy into the star, $\sim 10^{51}\,\mathrm{erg} = 10^{44}\,\mathrm{J}$.
 
-    Constants: $a = 7.5 \times 10^{-15}\,\mathrm{erg\,cm^{-3}\,K^{-4}}$, $k_B = 1.4 \times 10^{-16}\,\mathrm{erg/K}$, $h = 6.6 \times 10^{-27}\,\mathrm{erg\,s}$.
+    Constants: $a = 7.6 \times 10^{-16}\,\mathrm{J\,m^{-3}\,K^{-4}}$, $k_B = 1.4 \times 10^{-23}\,\mathrm{J/K}$, $h = 6.6 \times 10^{-34}\,\mathrm{J\,s}$.
 
     1.  Find the temperature of the gas, and determine the waveband in which the black body emission peaks.
 
@@ -361,7 +362,7 @@ Consider a homologously expanding radioactive cloud of debris, with radius $R \a
     $$
     \dot{Q} = M (t)  \frac{q}{\tau},
     $$ {#eq-sn-katz-heating}
-    where $q$ is the radioactive energy release in erg/g, $\tau$ is the radioactive decay timescale, and $M (t) = M_0 \ee^{- t / \tau}$ is the mass of the radioactive material at time $t$. Show how $M_0$ can be *estimated* from the Katz integral, assuming $q$ and $\tau$ to be known from nuclear physics experiments.
+    where $q$ is the radioactive energy release in J/kg, $\tau$ is the radioactive decay timescale, and $M (t) = M_0 \ee^{- t / \tau}$ is the mass of the radioactive material at time $t$. Show how $M_0$ can be *estimated* from the Katz integral, assuming $q$ and $\tau$ to be known from nuclear physics experiments.
 :::
 
 ::: {.content-visible when-profile="solutions"}

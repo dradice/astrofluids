@@ -73,7 +73,7 @@ p = p (\rho) .
 $$ {#eq-sound-9}
 In other words, we are taking the pressure at constant entropy. For example, for an ideal gas, we have already seen that for adiabatic processes (@eq-thermo-poly)
 $$
-p = (\Gamma - 1) \rho \varepsilon \longrightarrow p = K \rho^{\Gamma} .
+p = (\Gamma - 1) \rho \varepsilon \longrightarrow p = K \rho^{\Gamma} ,
 $$ {#eq-sound-10}
 with $K = (\Gamma - 1) \rho^{1 - \Gamma} \varepsilon$.
 

@@ -27,8 +27,8 @@ Adapted from @clarke2007, Problem 36.
     We can use the Field criterion for instability:
     $$
     \left. \frac{\partial \dot{Q}}{\partial T} \right|_p =
-    \frac{\partial}{\partial T}  \left[ A \frac{\mu p}{k_B} T^{- 1 / 2}
-    \right] = - \tfrac{1}{2} A \frac{\mu p}{k_B} T^{- 3 / 2} < 0,
+    \frac{\partial}{\partial T}  \left[ A \frac{\mu m_u p}{k_B} T^{- 1 / 2}
+    \right] = - \tfrac{1}{2} A \frac{\mu m_u p}{k_B} T^{- 3 / 2} < 0,
     $$
     so the slab is unstable to the thermal instability.
 
@@ -38,7 +38,7 @@ Adapted from @clarke2007, Problem 36.
     $$
     So the pressure is
     $$
-    p = \frac{\rho}{\mu} k_B T = K \frac{1}{\rho} .
+    p = \frac{\rho}{\mu m_u} k_B T = K \frac{1}{\rho} .
     $$
     Hydrostatic equilibrium yields:
     $$
@@ -46,7 +46,7 @@ Adapted from @clarke2007, Problem 36.
     \rho}{\dd z} \Longrightarrow \frac{\dd \rho}{\dd z} = K^{- 1}
     \rho^3 g,
     $$
-    where we have taken $z$ to be increasing upwards, so that $g > 0$. The last equation implies that the density increases upwards, the slab is also unstable to the Rayleigh-Taylor instability.
+    where we have taken $z$ to be increasing upwards, so that $g > 0$. The last equation implies that the density increases upwards, so the slab is also unstable to the Rayleigh–Taylor instability.
 :::
 :::
 

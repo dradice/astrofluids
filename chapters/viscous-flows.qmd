@@ -6,7 +6,7 @@ This chapter is in preparation.
 
 ## In-class worksheet {#sec-visc-worksheet}
 
-1.  Core-collapse supernovae inject metals, such as oxygen, in the interstellar medium (ISM). After the supernova remnant has stalled its expansion, the diffusion of these elements throughout the galaxy can be modeled through an advection-diffusion equation:
+1.  Core-collapse supernovae inject metals, such as oxygen, into the interstellar medium (ISM). After the supernova remnant has stalled its expansion, the diffusion of these elements throughout the galaxy can be modeled through an advection-diffusion equation:
     $$
     \frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vb{v}) = \nabla
     \cdot (D \nabla \rho),
@@ -32,14 +32,14 @@ This chapter is in preparation.
         \frac{\partial \rho}{\partial t} + \nabla \cdot \left[ \rho \left(
         \vb{v}- D \frac{\nabla \rho}{\rho} \right)  \right] = 0.
         $$ {#eq-visc-4}
-        Interpret the term in round bracket as an effective propagation velocity $\vb{v}_{\mathrm{eff}}$. How does $\vb{v}_{\mathrm{eff}}$ depend on the wave number $\vb{k}$ if $\rho$ is as in @eq-visc-ansatz?
+        Interpret the term in round brackets as an effective propagation velocity $\vb{v}_{\mathrm{eff}}$. How does $\vb{v}_{\mathrm{eff}}$ depend on the wave number $\vb{k}$ if $\rho$ is as in @eq-visc-ansatz?
 
 ## Exercises {#sec-visc-exercises}
 
 ::: {#exr-visc-vortex}
 ## Steady viscous vortex
 
-Consider a steady-state, axisymmetric solution of the incompressible, viscous, Navier-Stokes equations in cylindrical coordinates $(R, \phi, z)$ in the form
+Consider a steady-state, axisymmetric solution of the incompressible, viscous, Navier–Stokes equations in cylindrical coordinates $(R, \phi, z)$ in the form
 $$
 v_R = - \alpha R, \qquad v_{\phi} = \frac{\mathcal{C}}{2 \pi R} g (R), \qquad
 v_z = 2 \alpha z,
@@ -60,7 +60,7 @@ Let $\nu > 0$ be the kinematic viscosity.
 
 ::: {.content-visible when-profile="solutions"}
 ::: {.solution}
-1.  The divergence in cylindrical coordinate is
+1.  The divergence in cylindrical coordinates is
     $$
     \nabla \cdot \vb{v} = \frac{1}{R} \partial_R  (Rv_R) + \frac{1}{R}
     \partial_{\phi} v_{\phi} + \partial_z v_z = - 2 \alpha + 0 + 2 \alpha
@@ -105,7 +105,7 @@ Let $\nu > 0$ be the kinematic viscosity.
     $$
     The only non-zero component is $\omega_z$:
     $$
-    \omega_z = \frac{\Gamma g' (R)}{2 \pi R} = \left( \frac{\alpha \Gamma}{2
+    \omega_z = \frac{\mathcal{C} g' (R)}{2 \pi R} = \left( \frac{\alpha \mathcal{C}}{2
     \pi \nu} \right) \exp \left( - \frac{\alpha R^2}{2 \nu} \right) .
     $$
 :::

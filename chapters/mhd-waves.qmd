@@ -34,8 +34,8 @@ t^2} = - \nabla \delta p + \delta \vb{j} \times \vb{B}_0 .
 $$ {#eq-mhdwaves-4}
 The perturbed current is
 $$
-\delta \vb{j}= \frac{1}{4 \pi} \nabla \times \delta \vb{B}=
-\frac{1}{4 \pi} \nabla \times [\nabla \times (\vb{\xi} \times
+\delta \vb{j}= \frac{1}{\mu_0} \nabla \times \delta \vb{B}=
+\frac{1}{\mu_0} \nabla \times [\nabla \times (\vb{\xi} \times
 \vb{B}_0)],
 $$ {#eq-mhdwaves-5}
 so putting everything together we get the oscillation equation
@@ -44,7 +44,7 @@ $$
 \begin{aligned}
 \rho_0  \frac{\partial^2 \vb{\xi}}{\partial t^2} = {} & \Gamma p_0
 \nabla (\nabla \cdot \vb{\xi}) \\
-& + \frac{1}{4 \pi} \{ \nabla \times
+& + \frac{1}{\mu_0} \{ \nabla \times
 [\nabla \times (\vb{\xi} \times \vb{B}_0)] \} \times \vb{B}_0 .
 \end{aligned}}
 $$ {#eq-mhdwaves-6}
@@ -58,7 +58,7 @@ $$
 \begin{aligned}
 - \rho_0 \omega^2 \vb{\xi}_1 = {} & - \Gamma p_0 \vb{k} (\vb{k} \cdot
 \vb{\xi}_1) \\
-& - \frac{1}{4 \pi}  \{ \vb{k} \times [\vb{k} \times
+& - \frac{1}{\mu_0}  \{ \vb{k} \times [\vb{k} \times
 (\vb{\xi}_1 \times \vb{B}_0)] \} \times \vb{B}_0 .
 \end{aligned}
 $$ {#eq-mhdwaves-8}
@@ -104,28 +104,28 @@ $$ {#eq-mhdwaves-12}
 The current is given by
 $$
 \begin{aligned}
-4 \pi \delta \vb{j} &= \ii \vb{k} \times \delta \vb{B} = - \vb{k} \times [\vb{k} \times (\vb{\xi} \times \vb{B}_0)] \\
+\mu_0 \delta \vb{j} &= \ii \vb{k} \times \delta \vb{B} = - \vb{k} \times [\vb{k} \times (\vb{\xi} \times \vb{B}_0)] \\
 &= k^2 \xi_y B_0 \cos \theta \hat{\vb{k}}_{\perp} .
 \end{aligned}
 $$ {#eq-mhdwaves-13}
 Finally, the Lorentz force is
 $$
-4 \pi \delta \vb{j} \times \vb{B}_0 = - k^2 B_0^2 \cos^2 \theta \xi_y
+\mu_0 \delta \vb{j} \times \vb{B}_0 = - k^2 B_0^2 \cos^2 \theta \xi_y
 \hat{\vb{y}} = - (\vb{k} \cdot \vb{B}_0)^2 \vb{\xi}.
 $$ {#eq-mhdwaves-14}
-So $\vb{\xi}$ evolves as a mass attached to an elastic spring with spring constant $(\vb{k} \cdot \vb{B}_0)^2 / 4 \pi$. In formulas,
+So $\vb{\xi}$ evolves as a mass attached to an elastic spring with spring constant $(\vb{k} \cdot \vb{B}_0)^2 / \mu_0$. In formulas,
 $$
 \begin{aligned}
-- \rho_0 \omega^2 \xi_y &= - \tfrac{1}{4 \pi} k^2 B_0^2 \cos^2 \theta \xi_y \\
-\Longrightarrow \quad & \boxed{\omega = \pm \frac{B_0}{\sqrt{4 \pi \rho_0}} k
+- \rho_0 \omega^2 \xi_y &= - \tfrac{1}{\mu_0} k^2 B_0^2 \cos^2 \theta \xi_y \\
+\Longrightarrow \quad & \boxed{\omega = \pm \frac{B_0}{\sqrt{\mu_0 \rho_0}} k
 \cos \theta = \pm \vb{k} \cdot \vb{v}_A ,}
 \end{aligned}
 $$ {#eq-mhdwaves-15}
-where $\vb{v}_A = \vb{B}_0 / \sqrt{4 \pi \rho_0}$. We call $\omega_A = \vb{k} \cdot \vb{v}_A$ the Alfvén frequency. These waves are called Alfvén waves, after Alfvén [-@alfven1942] (Physics Nobel Prize in 1970). Some comments are in order.
+where $\vb{v}_A = \vb{B}_0 / \sqrt{\mu_0 \rho_0}$. We call $\omega_A = \vb{k} \cdot \vb{v}_A$ the Alfvén frequency. These waves are called Alfvén waves, after Alfvén [-@alfven1942] (Physics Nobel Prize in 1970). Some comments are in order.
 
-1.  If  $\theta = 0$, these waves propagate along the field lines with velocity (Alfvén velocity):
+1.  If $\theta = 0$, these waves propagate along the field lines with velocity (Alfvén velocity):
     $$
-    v_A = \frac{B_0}{\sqrt{4 \pi \rho_0}} .
+    v_A = \frac{B_0}{\sqrt{\mu_0 \rho_0}} .
     $$ {#eq-mhdwaves-16}
     If $\theta > 0$, the phase velocity is reduced to $v_A \cos \theta$. However, the group velocity is $\partial \omega / \partial \vb{k} = \pm v_A \hat{\vb{z}}$, for any $\theta$. In other words, Alfvén waves always transport energy along the magnetic field lines, with velocity $v_A$.
 
@@ -133,7 +133,7 @@ where $\vb{v}_A = \vb{B}_0 / \sqrt{4 \pi \rho_0}$. We call $\omega_A = \vb{k} \c
 
 3.  As already mentioned $\delta \rho = \delta p = 0$ for these waves. As such, Alfvén waves are incompressible and exist also in incompressible flows.
 
-Although we have derived Alfvén waves as small perturbations, it turns out that Alfvén waves with $\delta \vb{B} = \mp \sqrt{4 \pi \rho} \, \delta \vb{v}$, propagating in the $\pm z$ direction, are an exact solution to the full non-linear equations, as long as the magnetic pressure $B^2 / 8 \pi$ stays uniform. This means that MHD flows can support arbitrarily strong waves. We check the small-amplitude case in @exr-flux-alfven-wave.
+Although we have derived Alfvén waves as small perturbations, it turns out that Alfvén waves with $\delta \vb{B} = \mp \sqrt{\mu_0 \rho} \, \delta \vb{v}$, propagating in the $\pm z$ direction, are an exact solution to the full non-linear equations, as long as the magnetic pressure $B^2 / 2 \mu_0$ stays uniform. This means that MHD flows can support arbitrarily strong waves. We check the small-amplitude case in @exr-flux-alfven-wave.
 
 ### Magnetosonic Waves
 
@@ -164,11 +164,11 @@ $$ {#eq-mhdwaves-18}
 Plugging this into the expression for the Lorentz force gives
 $$
 \begin{aligned}
-\delta \vb{j} \times \vb{B}_0 &= - \frac{1}{4 \pi}  \{ \vb{k}
+\delta \vb{j} \times \vb{B}_0 &= - \frac{1}{\mu_0}  \{ \vb{k}
 \times [\vb{k} \times (\vb{\xi} \times \vb{B}_0)] \} \times
 \vb{B}_0 \\
-&= \frac{k^2}{4 \pi}  (\vb{\xi} \times \vb{B}_0)
-\times \vb{B}_0 = - \frac{k^2 B_0^2 \xi_x}{4 \pi}  \hat{\vb{x}} .
+&= \frac{k^2}{\mu_0}  (\vb{\xi} \times \vb{B}_0)
+\times \vb{B}_0 = - \frac{k^2 B_0^2 \xi_x}{\mu_0}  \hat{\vb{x}} .
 \end{aligned}
 $$ {#eq-mhdwaves-19}
 The pressure force is
@@ -177,7 +177,7 @@ $$
 (\xi_x \sin \theta + \xi_z \cos \theta)  (\sin \theta \hat{\vb{x}} +
 \cos \theta \hat{\vb{z}}) .
 $$ {#eq-mhdwaves-20}
-Using $c_s^2 = \Gamma p_0 / \rho_0$ and $v_A = B_0 / \sqrt{4 \pi \rho_0}$, we find
+Using $c_s^2 = \Gamma p_0 / \rho_0$ and $v_A = B_0 / \sqrt{\mu_0 \rho_0}$, we find
 $$
 \omega^2  \left(\begin{array}{c}
 \xi_x\\
@@ -258,7 +258,7 @@ We treat in detail only one case that is relevant for the interstellar medium: a
 The shock conditions for the shock shown in @fig-mhdwaves-shock are:
 $$
 [\![ \rho u ]\!] = 0, \quad [\![ Bu ]\!] = 0,
-\quad \left[\!\left[ p + \rho u^2 + \frac{B^2}{8 \pi} \right]\!\right]
+\quad \left[\!\left[ p + \rho u^2 + \frac{B^2}{2 \mu_0} \right]\!\right]
 = 0,
 $$ {#eq-mhdwaves-25}
 where $[\![ \cdot ]\!]$ denotes the jump across the shock.
@@ -269,7 +269,7 @@ $$
 $$ {#eq-mhdwaves-26}
 which can become arbitrarily large for large upstream Mach numbers. We discuss isothermal shocks in more detail in @sec-radshock. This is dramatically different when a magnetic field is present, as long as it is sufficiently strong:
 $$
-u_1 \gg v_A = \frac{B_1}{\sqrt{4 \pi \rho_1}} \gg c_{\mathrm{iso}}.
+u_1 \gg v_A = \frac{B_1}{\sqrt{\mu_0 \rho_1}} \gg c_{\mathrm{iso}}.
 $$ {#eq-mhdwaves-27}
 In this case, from $[\![ \rho u ]\!] = [\![ Bu ]\!] = 0$, we conclude that
 $$
@@ -279,11 +279,11 @@ From the conservation of momentum, we have (using $u_1 \gg v_A \gg c_{\mathrm{is
 $$
 \begin{aligned}
 \frac{\rho_2}{\rho_1} &= \frac{c_{\mathrm{iso}}^2 + u_1^2 + \frac{1}{2} v_A^2}{c_{\mathrm{iso}}^2 + u_2^2 +
-\frac{B_2^2}{8 \pi \rho_2}} \\
+\frac{B_2^2}{2 \mu_0 \rho_2}} \\
 &\approx \frac{u_1^2}{c_{\mathrm{iso}}^2 + u_2^2 +
-\frac{B_2^2}{8 \pi \rho_2^2} \rho_2} \\
+\frac{B_2^2}{2 \mu_0 \rho_2^2} \rho_2} \\
 &= \frac{u_1^2}{c_{\mathrm{iso}}^2 + u_2^2 +
-\frac{B_1^2}{8 \pi \rho_1}  \frac{\rho_2}{\rho_1}} \\
+\frac{B_1^2}{2 \mu_0 \rho_1}  \frac{\rho_2}{\rho_1}} \\
 &\approx \frac{u_1^2}{\frac{v_A^2}{2}  \frac{\rho_2}{\rho_1}} .
 \end{aligned}
 $$ {#eq-mhdwaves-29}
@@ -296,9 +296,9 @@ This shows that the compression ratio now scales with the Alfvénic Mach number 
 ::: {.callout-tip icon=false}
 ## Example: Shocks in molecular clouds
 
-Consider a molecular cloud with temperature $T \approx 10\,\mathrm{K}$, number density $n \approx 100\,\mathrm{cm^{-3}}$ and magnetic field $B \approx 10\,\mu\mathrm{G}$. The gas has $\rho = \mu m_u n \approx 4 \times 10^{- 22}\,\mathrm{g\,cm^{-3}}$ (with $\mu \approx 2.3$) and $c_{\mathrm{iso}} \approx 0.2\,\mathrm{km\,s^{-1}}$. The Alfvén velocity is
+Consider a molecular cloud with temperature $T \approx 10\,\mathrm{K}$, number density $n \approx 100\,\mathrm{cm^{-3}}$ and magnetic field $B \approx 1\,\mathrm{nT}$ ($10\,\mu\mathrm{G}$). The gas has $\rho = \mu m_u n \approx 4 \times 10^{- 22}\,\mathrm{g\,cm^{-3}} = 4 \times 10^{- 19}\,\mathrm{kg\,m^{-3}}$ (with $\mu \approx 2.3$) and $c_{\mathrm{iso}} \approx 0.2\,\mathrm{km\,s^{-1}}$. The Alfvén velocity is
 $$
-v_A = \frac{B}{\sqrt{4 \pi \rho}} \approx 1.4\,\mathrm{km\,s^{-1}} .
+v_A = \frac{B}{\sqrt{\mu_0 \rho}} \approx 1.4\,\mathrm{km\,s^{-1}} .
 $$ {#eq-mhdwaves-cloud-va}
 Note that $v_A \gg c_{\mathrm{iso}}$, so the magnetic pressure is much larger than the gas pressure. Suppose that the cloud is hit by a shock with $u_1 = 10\,\mathrm{km\,s^{-1}}$, for example driven by a nearby supernova remnant. Then $u_1 \gg v_A \gg c_{\mathrm{iso}}$, and @eq-mhdwaves-30 applies. Without the magnetic field, the compression factor would be $(u_1 / c_{\mathrm{iso}})^2 \approx 2500$. With the magnetic field, it is only $\sqrt{2} u_1 / v_A \approx 10$. In other words, the magnetic field makes the shocked gas about 250 times less dense. So it is much harder to form dense cores in molecular clouds with shocks alone.
 :::
@@ -316,7 +316,7 @@ $$ {#eq-mhdwaves-ws1}
     \begin{aligned}
     & \rho_0  \frac{\partial^2 \vb{\xi}}{\partial t^2} = \Gamma p_0 \nabla
     (\nabla \cdot \vb{\xi}) \\
-    & \quad + \frac{1}{4 \pi} \{ \nabla \times [\nabla
+    & \quad + \frac{1}{\mu_0} \{ \nabla \times [\nabla
     \times (\vb{\xi} \times \vb{B}_0)] \} \times \vb{B}_0 .
     \end{aligned}
     $$ {#eq-mhdwaves-ws2}
@@ -326,7 +326,7 @@ $$ {#eq-mhdwaves-ws1}
     \begin{aligned}
     & - \rho_0 \omega^2 \vb{\xi}_1 = - \Gamma p_0 \vb{k} (\vb{k}
     \cdot \vb{\xi}_1) \\
-    & \quad - \frac{1}{4 \pi}  \{ \vb{k} \times
+    & \quad - \frac{1}{\mu_0}  \{ \vb{k} \times
     [\vb{k} \times (\vb{\xi}_1 \times \vb{B}_0)] \} \times
     \vb{B}_0 .
     \end{aligned}
@@ -365,7 +365,7 @@ Adapted from @kulsrud2005, Problem 3.4.
     \frac{1}{\rho}  \frac{\dd \rho}{\dd t} = - \nabla \cdot \vb{v}, & && \frac{\partial \vb{B}}{\partial t} = \nabla \times (\vb{v}
     \times \vb{B}), \\
     \rho \frac{\dd \vb{v}}{\dd t} =\vb{j} \times \vb{B}-
-    \nabla p, & && 4 \pi \vb{j}= \nabla \times \vb{B}.
+    \nabla p, & && \mu_0 \vb{j}= \nabla \times \vb{B}.
     \end{alignedat}
     $$
     Since we are working at linear order, $\frac{\dd}{\dd t} = \frac{\partial}{\partial t}$.
@@ -392,13 +392,13 @@ Adapted from @kulsrud2005, Problem 3.4.
 
     The current is
     $$
-    4 \pi \vb{j}= \nabla \times \vb{B}= \epsilon B_0 g (R) f' (z -
+    \mu_0 \vb{j}= \nabla \times \vb{B}= \epsilon B_0 g (R) f' (z -
     v_A t)  \hat{\vb{R}} - \epsilon B_0 \left[ \frac{1}{R} g (R) f (z -
     v_A t) + g' (R) f (z - v_A t) \right]  \hat{\vb{z}} .
     $$
     The RHS of the momentum equation is
     $$
-    \vb{j} \times \vb{B}= - \frac{1}{4 \pi} \epsilon B_0^2 g (R) f'
+    \vb{j} \times \vb{B}= - \frac{1}{\mu_0} \epsilon B_0^2 g (R) f'
     (z - v_A t)  \hat{\vb{\phi}} .
     $$
     The LHS is (to first order)
@@ -406,7 +406,7 @@ Adapted from @kulsrud2005, Problem 3.4.
     \rho \frac{\dd \vb{v}}{\dd t} = - \rho \epsilon v_A^2 g (R) f'
     (z - v_A t)  \hat{\vb{\phi}} .
     $$
-    So the momentum equation is satisfied, provided that $v_A = B_0 / \sqrt{4 \pi \rho}$.
+    So the momentum equation is satisfied, provided that $v_A = B_0 / \sqrt{\mu_0 \rho}$.
 
 2.  We choose $g (R) = R$ for $R < a$ and $g (R) = 0$ for $R > a$, $f (s) = 1$ for $s < 0$ and $f (s) = 0$ for $s > 0$, and $\epsilon = \Omega / v_A$. Then, above the disk, @eq-mhdwaves-hw1 gives
     $$
@@ -414,7 +414,7 @@ Adapted from @kulsrud2005, Problem 3.4.
     $$
     and $\vb{v} = 0$ elsewhere. At $z = 0$, the velocity of the plasma is $\Omega R \hat{\vb{\phi}}$ for $R < a$, which is the velocity of the disk, so the tangential velocity is continuous. The front of the wave, $z = v_A t$, moves upwards with velocity $v_A$. Below the disk, we use the wave that propagates towards $- z$. This is obtained from @eq-mhdwaves-hw1 by replacing $z \rightarrow - z$ and changing the sign of $B_{\phi}$, and it gives $\vb{v} = \Omega R \hat{\vb{\phi}}$ for $R < a$, $- v_A t < z < 0$. In other words, the field lines are twisted in opposite directions above and below the disk. Note that the solution is valid only if $\epsilon R = \Omega R / v_A \ll 1$ for all $R < a$, which is why we need $\Omega a \ll v_A$.
 
-3.  We cannot use the conservation of kinetic energy, because the wave also carries magnetic energy, $\delta B^2 / 8 \pi = \rho \delta v^2 / 2$. However, angular momentum is conserved. In nonrelativistic MHD the momentum of the electromagnetic field is negligible (see @eq-mhd-23), so the angular momentum is shared between the disk and the plasma set in motion by the wave:
+3.  We cannot use the conservation of kinetic energy, because the wave also carries magnetic energy, $\delta B^2 / 2 \mu_0 = \rho \delta v^2 / 2$. However, angular momentum is conserved. In nonrelativistic MHD the momentum of the electromagnetic field is negligible (see @eq-mhd-23), so the angular momentum is shared between the disk and the plasma set in motion by the wave:
     $$
     I_{\mathrm{disk}} \Omega_0 = [I_{\mathrm{disk}} + I_{\mathrm{cyl}} (t)] \Omega (t),
     $$
@@ -432,7 +432,7 @@ Adapted from @kulsrud2005, Problem 3.4.
     $$
     In other words, the disk slows down when the mass of the plasma set in motion, $2 \pi a^2 \rho v_A t$, becomes comparable to the mass of the disk, $\pi a^2 \Sigma$.
 
-    We can check this result by computing the torque on the disk. Above the disk, $B_{\phi} = - B_0 \Omega R / v_A$. So the magnetic stress transports angular momentum away from the disk, with a flux of $\phi$-momentum along $z$ equal to $- B_z B_{\phi} / 4 \pi = B_0^2 \Omega R / 4 \pi v_A = \rho v_A \Omega R$. The same happens below the disk. The total torque is then
+    We can check this result by computing the torque on the disk. Above the disk, $B_{\phi} = - B_0 \Omega R / v_A$. So the magnetic stress transports angular momentum away from the disk, with a flux of $\phi$-momentum along $z$ equal to $- B_z B_{\phi} / \mu_0 = B_0^2 \Omega R / \mu_0 v_A = \rho v_A \Omega R$. The same happens below the disk. The total torque is then
     $$
     \tau = 2 \int_0^a R \, \rho v_A \Omega R \, 2 \pi R \dd R = \pi \rho v_A \Omega a^4,
     $$

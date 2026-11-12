@@ -4,61 +4,64 @@
 
 ### Lorentz Force and Maxwell Equations
 
-Most of the baryonic matter in the Universe is in the form of plasma, a state of matter characterized by large electrical conductivity and charge mobility. Not surprisingly, plasma physics plays an important role in many astrophysical systems. Before we are ready to discuss plasmas, or even before we can precisely state what plasma is, it is a good idea to refresh some key concepts from electromagnetism. In the process, we will also introduce CGS units, which are ubiquitous in astronomy.
+Most of the baryonic matter in the Universe is in the form of plasma, a state of matter characterized by large electrical conductivity and charge mobility. Not surprisingly, plasma physics plays an important role in many astrophysical systems. Before we are ready to discuss plasmas, or even before we can precisely state what plasma is, it is a good idea to refresh some key concepts from electromagnetism. We will write the equations of electromagnetism in SI units, as in the rest of these notes.
 
-The starting point for electromagnetism is the observation that some particles, electrons and protons, are endowed with electric charge, which is an intrinsic property, like mass. When two lumps of matter with net charge $Q_1$ and $Q_2$ are placed at a distance $r$, the two experience a force, which we write in CGS units as
+The starting point for electromagnetism is the observation that some particles, electrons and protons, are endowed with electric charge, which is an intrinsic property, like mass. When two lumps of matter with net charge $Q_1$ and $Q_2$ are placed at a distance $r$, the two experience a force
 $$
-F = \frac{Q_1 Q_2}{r^2} .
+F = \frac{Q_1 Q_2}{4 \pi \epsilon_0 r^2} .
 $$ {#eq-plasma-coulomb}
-The force is repulsive if $Q_1 Q_2 > 0$ and attractive if $Q_1 Q_2 < 0$. Note that there is no Coulomb constant in the previous equation. This is not a typo, but a feature of CGS units. In these units, charge, which is measured in Statcoulomb, is not a fundamental unit, but can be defined in terms of $\mathrm{g}$, $\mathrm{cm}$, and $\mathrm{s}$ using @eq-plasma-coulomb:
+The force is repulsive if $Q_1 Q_2 > 0$ and attractive if $Q_1 Q_2 < 0$. In SI units, charge is measured in coulomb ($1\,\mathrm{C} = 1\,\mathrm{A\,s}$), and the constant $\epsilon_0$, called the vacuum permittivity, is
 $$
-[Q]^2 = [F] L^2 = [M]  [L]  [T]^{- 2}  [L]^2 \Longrightarrow [Q]
-=\mathrm{g}^{1 / 2} \mathrm{cm}^{3 / 2} \mathrm{s}^{- 1} = : \mathrm{statC} .
+\epsilon_0 = 8.854 \times 10^{- 12}\,\mathrm{C^2\,N^{-1}\,m^{-2}} .
 $$ {#eq-plasma-2}
 The charge of the electron is
 $$
-e = 4.8032047 \times 10^{- 10} \mathrm{statC} .
+e = 1.602176634 \times 10^{- 19}\,\mathrm{C} .
 $$ {#eq-plasma-3}
-The Coulomb force on particle 2 can also be thought as the effect on particle 2 of an electrostatic field produced by particle 1. In a system of coordinates centered on particle 1, the electrostatic field produced by particle 1 is
+The Coulomb force on particle 2 can also be thought of as the effect on particle 2 of an electrostatic field produced by particle 1. In a system of coordinates centered on particle 1, the electrostatic field produced by particle 1 is
 $$
-\vb{E}= \frac{Q_1}{r^2}  \hat{\vb{r}}
+\vb{E}= \frac{Q_1}{4 \pi \epsilon_0 r^2}  \hat{\vb{r}}
 $$ {#eq-plasma-4}
 and the force on particle 2 is given by
 $$
-\vb{F}= \frac{Q_1 Q_2}{r^2}  \hat{\vb{r}} = Q_2 \vb{E}.
+\vb{F}= \frac{Q_1 Q_2}{4 \pi \epsilon_0 r^2}  \hat{\vb{r}} = Q_2 \vb{E}.
 $$ {#eq-plasma-5}
 In general, a charged particle with charge $Q$ moving in an electromagnetic field experiences the so-called Lorentz force:
 $$
-\vb{F}= Q \left( \vb{E}+ \frac{\vb{v} \times \vb{B}}{c}
-\right),
+\vb{F}= Q ( \vb{E}+ \vb{v} \times \vb{B} ) .
 $$ {#eq-plasma-lorentz-force}
-where $c$ is the speed of light. In CGS units, the electric $\vb{E}$ and magnetic $\vb{B}$ fields are *defined* by @eq-plasma-lorentz-force. They also have the same units, as can be easily checked:
+The electric $\vb{E}$ and magnetic $\vb{B}$ fields are *defined* by @eq-plasma-lorentz-force, as the force per unit charge on a particle at rest, and the additional force on a moving particle. Their units are
 $$
-[\vb{E}] = [\vb{B}] = \mathrm{cm}^{- 1 / 2} \mathrm{g}^{1 / 2}
-\mathrm{s}^{- 1} .
+[\vb{E}] = \mathrm{N\,C^{-1}} = \mathrm{V\,m^{-1}}, \qquad [\vb{B}] = \mathrm{N\,s\,C^{-1}\,m^{-1}} = \mathrm{T}\ (\mathrm{tesla}) .
 $$ {#eq-plasma-7}
-The fact that $\vb{E}$ and $\vb{B}$ have the same units in CGS is the main reason why these units are still widely used. Indeed, electric and magnetic fields are different manifestations of a single field: the electromagnetic field, as is revealed by special relativity. The electromagnetic field can be found as solution of the Maxwell's field equations
+In astronomy, magnetic fields are customarily measured in gauss, with $1\,\mathrm{G} = 10^{-4}\,\mathrm{T}$. We will give field strengths in tesla, followed by their value in gauss. Note that $\vb{E}$ and $c \vb{B}$, where $c$ is the speed of light, have the same units. This makes sense, because electric and magnetic fields are different manifestations of a single field: the electromagnetic field, as is revealed by special relativity. The electromagnetic field can be found as solution of the Maxwell's field equations
 $$
-\begin{array}{lll}
-\nabla \cdot \vb{E}= 4 \pi q, &  & \nabla \cdot \vb{B}= 0,\\
-\nabla \times \vb{E}= - \frac{1}{c}  \frac{\partial
-\vb{B}}{\partial t}, &  & \nabla \times \vb{B}= \frac{4 \pi}{c}
-\vb{j}+ \frac{1}{c}  \frac{\partial \vb{E}}{\partial t} .
+\begin{array}{ll}
+\nabla \cdot \vb{E}= \dfrac{q}{\epsilon_0}, & \nabla \cdot \vb{B}= 0,\\
+\nabla \times \vb{E}= - \dfrac{\partial
+\vb{B}}{\partial t}, & \nabla \times \vb{B}= \mu_0
+\vb{j}+ \mu_0 \epsilon_0 \dfrac{\partial \vb{E}}{\partial t} .
 \end{array}
 $$ {#eq-plasma-maxwell}
-In the previous equation, $q$ is the charge density and $\vb{j}$ the current density. The equations in the first row are called the Gauss law for electric and magnetic fields. The second two equations are the Faraday, or induction, equation (left column), and the Ampère–Maxwell law (right column).
+In the previous equation, $q$ is the charge density, $\vb{j}$ the current density, and $\mu_0 \approx 4 \pi \times 10^{- 7}\,\mathrm{N\,A^{-2}}$ is the vacuum permeability. The two constants are related to the speed of light by $\mu_0 \epsilon_0 = 1 / c^2$. The equations in the first row are called the Gauss law for electric and magnetic fields. The second two equations are the Faraday, or induction, equation (left column), and the Ampère–Maxwell law (right column).
+
+::: {.callout-note}
+## Gaussian units
+
+Most astrophysics texts and papers, including @kulsrud2005, write the equations of electromagnetism in Gaussian (CGS) units. In these units there is no $\epsilon_0$ or $\mu_0$, charge is measured in statcoulomb, and $\vb{E}$ and $\vb{B}$ have the same units. To translate a formula from Gaussian to SI units, replace $B / \sqrt{4 \pi}$ with $B / \sqrt{\mu_0}$, $e^2$ with $e^2 / (4 \pi \epsilon_0)$, and $\vb{E}$ with $\sqrt{4 \pi \epsilon_0}\, \vb{E}$, and write every $\vb{v} \times \vb{B} / c$ as $\vb{v} \times \vb{B}$. For example, the Gaussian plasma frequency $\sqrt{4 \pi n e^2 / m_e}$ becomes $\sqrt{n e^2 / (\epsilon_0 m_e)}$ (@eq-plasma-50), and the Gaussian magnetic pressure $B^2 / 8 \pi$ becomes $B^2 / 2 \mu_0$.
+:::
 
 ### Electrostatics
 
 If the fields do not depend on time, the Maxwell equations for $\vb{E}$ simplify to
 $$
-\nabla \cdot \vb{E}= 4 \pi q,  \nabla \times \vb{E}= 0,
+\nabla \cdot \vb{E}= \frac{q}{\epsilon_0}, \qquad \nabla \times \vb{E}= 0.
 $$ {#eq-plasma-9}
 The second equation tells us that $\vb{E}= - \nabla \Phi$, where $\Phi$ is the electrostatic potential. The latter satisfies the Poisson equation
 $$
-\nabla^2 \Phi = - 4 \pi q.
+\nabla^2 \Phi = - \frac{q}{\epsilon_0} .
 $$ {#eq-plasma-10}
-Apart from a minus sign and the constant $G$, this is the same equation satisfied by the gravitational potential (@sec-grav).
+Apart from a minus sign and the constant, $1 / \epsilon_0$ instead of $4 \pi G$, this is the same equation satisfied by the gravitational potential (@sec-grav).
 
 The force experienced by a charge $Q$ in an electrostatic field is
 $$
@@ -78,18 +81,18 @@ F_r = e \partial_r \Phi .
 $$ {#eq-plasma-12}
 From the Poisson equation
 $$
-\nabla \cdot \nabla \Phi = - 4 \pi q.
+\nabla \cdot \nabla \Phi = - \frac{q}{\epsilon_0} .
 $$ {#eq-plasma-13}
 Integrating both sides over a sphere of radius $r$, we find
 $$
-- 4 \pi \int_V q \dd V = - 4 \pi Q = \int_V \nabla \cdot \nabla \Phi
-\dd V,
+- \frac{1}{\epsilon_0} \int_V q \dd V = - \frac{Q}{\epsilon_0} = \int_V \nabla \cdot \nabla \Phi
+\dd V.
 $$ {#eq-plasma-14}
 The RHS gives (using the divergence theorem)
 $$
 \int_V \nabla \cdot \nabla \Phi \dd V = \int_S \nabla \Phi \cdot
 \hat{\vb{r}} \dd S = 4 \pi r^2 \partial_r \Phi \Longrightarrow
-\partial_r \Phi = - \frac{Q}{r^2} \Longrightarrow F_r = - \frac{Qe}{r^2} .
+\partial_r \Phi = - \frac{Q}{4 \pi \epsilon_0 r^2} \Longrightarrow F_r = - \frac{Qe}{4 \pi \epsilon_0 r^2} .
 $$ {#eq-plasma-15}
 So the electron is attracted by the sphere if $Q > 0$, and repelled if $Q < 0$.
 :::
@@ -105,11 +108,11 @@ F_g = - \frac{GM_{\odot} m_p}{R_{\odot }^2} .
 $$ {#eq-plasma-16}
 The proton is also subject to an electrostatic force:
 $$
-F_e = \frac{Q_{\odot} e}{R_{\odot}^2},
+F_e = \frac{Q_{\odot} e}{4 \pi \epsilon_0 R_{\odot}^2},
 $$ {#eq-plasma-17}
 where $Q_{\odot} \approx \frac{M_{\odot}}{m_p} \delta e$ is the net charge of the Sun, and $\delta = (N_p - N_e) / N_p$ is the fractional charge imbalance. Gravity and electrostatic forces balance each other when
 $$
-\delta = \frac{Gm_p^2}{e^2} \sim 10^{- 36} .
+\delta = \frac{4 \pi \epsilon_0 G m_p^2}{e^2} \sim 10^{- 36} .
 $$ {#eq-plasma-18}
 The Sun must be very close to neutral, because even a small charge imbalance would cause particles of the same charge as the Sun to be evaporated from the surface.
 :::
@@ -121,7 +124,7 @@ The argument we have just made for the Sun applies to most astrophysical systems
 
 If we take the divergence of Ampère's law we find
 $$
-\frac{\partial \nabla \cdot \vb{E}}{\partial t} + 4 \pi
+\epsilon_0 \frac{\partial \nabla \cdot \vb{E}}{\partial t} +
 \nabla \cdot \vb{j}= 0.
 $$ {#eq-plasma-19}
 Using Gauss' law
@@ -132,14 +135,13 @@ So the charge density satisfies a continuity equation, just like the mass densit
 
 It is also possible to show that the Maxwell equations imply conservation of the energy in the electromagnetic field. To see this, consider the work done by the electromagnetic field on a fluid with charge density $q$ and velocity $\vb{v}$. The Lorentz force per unit volume is
 $$
-\vb{f}= q \left( \vb{E}+ \frac{\vb{v} \times \vb{B}}{c}
-\right) .
+\vb{f}= q ( \vb{E}+ \vb{v} \times \vb{B} ) .
 $$ {#eq-plasma-21}
 So the work per unit volume is (using $\vb{j}= q\vb{v}$ and Ampère's law)
 $$
 w =\vb{f} \cdot \vb{v}= q\vb{E} \cdot \vb{v}=\vb{E}
-\cdot \vb{j}= \frac{1}{4 \pi}  \left[ c (\nabla \times \vb{B}) \cdot
-\vb{E}-\vb{E} \cdot \frac{\partial \vb{E}}{\partial t} \right] .
+\cdot \vb{j}= \frac{1}{\mu_0} (\nabla \times \vb{B}) \cdot
+\vb{E}- \epsilon_0 \vb{E} \cdot \frac{\partial \vb{E}}{\partial t} .
 $$ {#eq-plasma-22}
 Using the vector identity
 $$
@@ -153,14 +155,14 @@ $$
 $$ {#eq-plasma-24}
 we can write
 $$
-\vb{E} \cdot \vb{j}= \frac{1}{4 \pi}  \left\{ c [\vb{B} \cdot
+\vb{E} \cdot \vb{j}= \frac{1}{\mu_0} [\vb{B} \cdot
 (\nabla \times \vb{E}) - \nabla \cdot (\vb{E} \times \vb{B})] -
-\frac{1}{2}  \frac{\partial E^2}{\partial t} \right\} .
+\frac{\epsilon_0}{2}  \frac{\partial E^2}{\partial t} .
 $$ {#eq-plasma-25}
-We can use Faraday's law to get rid of $c \nabla \times \vb{E}$ to rewrite the last equation as
+We can use Faraday's law to get rid of $\nabla \times \vb{E}$ to rewrite the last equation as
 $$
-\frac{1}{8 \pi}  \frac{\partial (E^2 + B^2)}{\partial t} + \nabla \cdot
-\left( \frac{c}{4 \pi} \vb{E} \times \vb{B} \right) = -\vb{E}
+\frac{\partial}{\partial t} \left( \frac{\epsilon_0 E^2}{2} + \frac{B^2}{2 \mu_0} \right) + \nabla \cdot
+\left( \frac{1}{\mu_0} \vb{E} \times \vb{B} \right) = -\vb{E}
 \cdot \vb{j}.
 $$ {#eq-plasma-poynting}
 We can recognize that this is a conservation law in the form
@@ -168,7 +170,7 @@ $$
 \frac{\partial u_{\mathrm{EM}}}{\partial t} + \nabla \cdot \vb{S}=
 -\vb{E} \cdot \vb{j}.
 $$ {#eq-plasma-27}
-The last term is the work done by the electric field, so we can interpret $u_{\mathrm{EM}} = \tfrac{E^2 + B^2}{8 \pi}$ as the energy in the electromagnetic field and the vector $\vb{S}= \frac{c}{4 \pi} \vb{E} \times \vb{B}$, called the *Poynting flux*, as the flux of electromagnetic energy. @eq-plasma-poynting is also called the Poynting theorem. As we will see in @sec-mhd, the equation for energy conservation for a plasma is just the sum of the energy conservation equations for the matter, which we already know as the energy equation (@sec-conserv), and the energy conservation equation for the electromagnetic field.
+The last term is the work done by the electric field, so we can interpret $u_{\mathrm{EM}} = \tfrac{1}{2} \epsilon_0 E^2 + \tfrac{B^2}{2 \mu_0}$ as the energy in the electromagnetic field and the vector $\vb{S}= \frac{1}{\mu_0} \vb{E} \times \vb{B}$, called the *Poynting flux*, as the flux of electromagnetic energy. @eq-plasma-poynting is also called the Poynting theorem. As we will see in @sec-mhd, the equation for energy conservation for a plasma is just the sum of the energy conservation equations for the matter, which we already know as the energy equation (@sec-conserv), and the energy conservation equation for the electromagnetic field.
 
 :::
 
@@ -178,9 +180,9 @@ The propagation of electromagnetic waves **in vacuum** can be studied with a sim
 $$
 \begin{array}{lll}
 \nabla \cdot \vb{E}= 0, &  & \nabla \cdot \vb{B}= 0,\\
-\nabla \times \vb{E}= - \frac{1}{c}  \frac{\partial
-\vb{B}}{\partial t}, &  & \nabla \times \vb{B}= \frac{1}{c}
-\frac{\partial \vb{E}}{\partial t} .
+\nabla \times \vb{E}= - \dfrac{\partial
+\vb{B}}{\partial t}, &  & \nabla \times \vb{B}= \dfrac{1}{c^2}
+\dfrac{\partial \vb{E}}{\partial t} .
 \end{array}
 $$ {#eq-plasma-maxwell-vacuum}
 We look for solutions in the form
@@ -199,22 +201,22 @@ and, similarly, $\vb{k} \perp \hat{\vb{B}}_0$. This means that, differently from
 
 From Faraday's law, we obtain that
 $$
-\frac{\ii \omega}{c}  \hat{\vb{B}}_0 \ee^{\ii (\vb{k} \cdot
+\ii \omega  \hat{\vb{B}}_0 \ee^{\ii (\vb{k} \cdot
 \vb{x}- \omega t)} = \ii \vb{k} \times \hat{\vb{E}}_0
 \ee^{\ii (\vb{k} \cdot \vb{x}- \omega t)} \Longrightarrow
-\frac{\omega}{c}  \hat{\vb{B}}_0 =\vb{k} \times \hat{\vb{E}}_0 .
+\omega  \hat{\vb{B}}_0 =\vb{k} \times \hat{\vb{E}}_0 .
 $$ {#eq-plasma-faraday-fourier}
-This implies that $\hat{\vb{E}}_0 \perp \hat{\vb{B}}_0$. From Ampere's law, we obtain
+This implies that $\hat{\vb{E}}_0 \perp \hat{\vb{B}}_0$. From Ampère's law, we obtain
 $$
-\vb{k} \times \hat{\vb{B}}_0 = - \frac{\omega}{c}
+\vb{k} \times \hat{\vb{B}}_0 = - \frac{\omega}{c^2}
 \hat{\vb{E}}_0 .
 $$ {#eq-plasma-ampere-fourier}
 Substituting @eq-plasma-ampere-fourier into @eq-plasma-faraday-fourier, we obtain (using the properties of the double vector product)
 $$
-\frac{\omega}{c}  \hat{\vb{B}}_0 = - \frac{c}{\omega} \vb{k} \times
-(\vb{k} \times \hat{\vb{B}}_0) = \cancel{- \frac{c}{\omega} \vb{k}
-(\vb{k} \cdot \hat{\vb{B}}_0)} + \frac{c}{\omega} k^2
-\hat{\vb{B}}_0 = \frac{c}{\omega} k^2  \hat{\vb{B}}_0
+\omega  \hat{\vb{B}}_0 = - \frac{c^2}{\omega} \vb{k} \times
+(\vb{k} \times \hat{\vb{B}}_0) = \cancel{- \frac{c^2}{\omega} \vb{k}
+(\vb{k} \cdot \hat{\vb{B}}_0)} + \frac{c^2}{\omega} k^2
+\hat{\vb{B}}_0 = \frac{c^2}{\omega} k^2  \hat{\vb{B}}_0
 \Longrightarrow \boxed{\omega^2 = c^2 k^2} .
 $$ {#eq-plasma-33}
 So electromagnetic waves satisfy the same dispersion relation as sound waves (@eq-sound-18), but with $c$, the speed of light, instead of the sound speed $c_s$.
@@ -229,21 +231,21 @@ Consider a quasi-neutral gas made of electrons and ions. Assume that, due to a t
 
 The electrostatic potential created by this overdensity is of order
 $$
-\delta \Phi \sim 4 \pi L^2 e \delta n.
+\delta \Phi \sim \frac{L^2 e \delta n}{\epsilon_0} .
 $$ {#eq-plasma-34}
 The potential energy of each electron is
 $$
-e \delta \Phi \sim 4 \pi L^2 e^2 \delta n .
+e \delta \Phi \sim \frac{L^2 e^2 \delta n}{\epsilon_0} .
 $$ {#eq-plasma-35}
 Their thermal energy is $\sim k_B T$ (in thermodynamic equilibrium). Thermal fluctuations should have potential energy comparable to the thermal energy, so
 $$
-4 \pi L^2 e^2 \delta n \sim k_B T \Longrightarrow \frac{\delta n}{n} \sim
-\frac{1}{L^2}  \left( \frac{k_B T}{4 \pi ne^2} \right) =: \left(
+\frac{L^2 e^2 \delta n}{\epsilon_0} \sim k_B T \Longrightarrow \frac{\delta n}{n} \sim
+\frac{1}{L^2}  \left( \frac{\epsilon_0 k_B T}{ne^2} \right) =: \left(
 \frac{\lambda_D}{L} \right)^2,
 $$ {#eq-plasma-36}
 where $n$ is the density of free electrons (we will also write it as $n_e$) and we have introduced the *Debye length*
 $$
-\boxed{\lambda_D = \sqrt{\frac{k_B T}{4 \pi ne^2}} .}
+\boxed{\lambda_D = \sqrt{\frac{\epsilon_0 k_B T}{ne^2}} .}
 $$ {#eq-plasma-37}
 The Debye length is a characteristic length scale for charge fluctuations in the gas. Over scales $L \gg \lambda_D$, one can assume that the medium is neutral, *if the density of the gas is sufficiently high*.
 
@@ -253,23 +255,23 @@ To see this, consider again a uniform gas of electrons and ions. The ion masses 
 
 It turns out that, in this situation, the electrostatic potential around the ion is
 $$
-\Phi (r) = \frac{Q}{r} \ee^{- r / \lambda_D},
+\Phi (r) = \frac{Q}{4 \pi \epsilon_0 r} \ee^{- r / \lambda_D},
 $$ {#eq-plasma-38}
 where $\lambda_D$ is the Debye length (see the box below). In other words, the Debye length is also the characteristic screening length. However, screening can only take place if electrons are sufficiently mobile to screen each ion. To quantify this, we define the *plasma parameter*:
 $$
-\Lambda = \frac{4}{3} \pi n \lambda_D^3 = \frac{1}{6 \sqrt{\pi} e^3}  (k_B
+\Lambda = \frac{4}{3} \pi n \lambda_D^3 = \frac{4 \pi}{3 e^3}  (\epsilon_0 k_B
 T)^{3 / 2} n^{- 1 / 2} .
 $$ {#eq-plasma-39}
 The plasma parameter is just the number of electrons in each Debye sphere. We say that an ionized gas for which $\lambda_D \ll L$ and $\Lambda \gg 1$ is a *plasma*. Typical plasma parameters for astrophysical systems are given in @tbl-plasma-parameters. As we can see, astrophysical plasmas span a tremendous range in scales.
 
-| | $T$ [K] | $n_e^{\mathrm{free}}$ [cm$^{-3}$] | $\lambda_D$ [cm] | $\Lambda$ | plasma? |
+| | $T$ [K] | $n_e^{\mathrm{free}}$ [cm$^{-3}$] | $\lambda_D$ [m] | $\Lambda$ | plasma? |
 |:--|:--|:--|:--|:--|:--|
-| The Sun (core) | $10^7$ | $10^{26}$ | $2 \times 10^{-9}$ | $4.4$ | marginal |
-| Warm ISM | $10^4$ | $1$ | $700$ | $1.4 \times 10^9$ | yes |
-| Molecular clouds | $10$ | $10^{-4}$ | $2 \times 10^3$ | $4 \times 10^6$ | yes |
-| Intracluster medium | $10^7$ | $10^{-3}$ | $7 \times 10^5$ | $1.4 \times 10^{15}$ | yes |
-| Protoneutron star | $10^{11}$ | $2 \times 10^{38}$ | $1.5 \times 10^{-13}$ | $3.1$ | yes |
-| White dwarf | $10^5$ | $6 \times 10^{29}$ | $3 \times 10^{-12}$ | $5.6 \times 10^{-5}$ | no |
+| The Sun (core) | $10^7$ | $10^{26}$ | $2 \times 10^{-11}$ | $4.4$ | marginal |
+| Warm ISM | $10^4$ | $1$ | $7$ | $1.4 \times 10^9$ | yes |
+| Molecular clouds | $10$ | $10^{-4}$ | $20$ | $4 \times 10^6$ | yes |
+| Intracluster medium | $10^7$ | $10^{-3}$ | $7 \times 10^3$ | $1.4 \times 10^{15}$ | yes |
+| Protoneutron star | $10^{11}$ | $2 \times 10^{38}$ | $1.5 \times 10^{-15}$ | $3.1$ | marginal |
+| White dwarf | $10^5$ | $6 \times 10^{29}$ | $3 \times 10^{-14}$ | $5.6 \times 10^{-5}$ | no |
 
 : Temperature, free electron density, Debye length, and plasma parameters for various systems. The electrons in protoneutron stars and white dwarfs are degenerate (and, in protoneutron stars, relativistic), so for these systems the values computed with the classical formulas are only indicative. {#tbl-plasma-parameters}
 
@@ -286,47 +288,46 @@ q = e n_e - e n (r) = - \frac{n_e e^2}{k_B T} \Phi ,
 $$ {#eq-plasma-debye-charge}
 and the Poisson equation (@eq-plasma-10) becomes
 $$
-\nabla^2 \Phi = \frac{4 \pi n_e e^2}{k_B T} \Phi = \frac{\Phi}{\lambda_D^2} .
+\nabla^2 \Phi = \frac{n_e e^2}{\epsilon_0 k_B T} \Phi = \frac{\Phi}{\lambda_D^2} .
 $$ {#eq-plasma-debye-poisson}
-For a spherically symmetric potential, $\nabla^2 \Phi = \frac{1}{r} \frac{\dd^2 (r \Phi)}{\dd r^2}$, so $r \Phi$ satisfies $\frac{\dd^2 (r \Phi)}{\dd r^2} = \frac{r \Phi}{\lambda_D^2}$. The solution that does not grow at large $r$ is $r \Phi = A \ee^{- r / \lambda_D}$. Close to the ion, the potential must be that of the ion alone, $\Phi \approx Q / r$, so $A = Q$, and we recover @eq-plasma-38.
+For a spherically symmetric potential, $\nabla^2 \Phi = \frac{1}{r} \frac{\dd^2 (r \Phi)}{\dd r^2}$, so $r \Phi$ satisfies $\frac{\dd^2 (r \Phi)}{\dd r^2} = \frac{r \Phi}{\lambda_D^2}$. The solution that does not grow at large $r$ is $r \Phi = A \ee^{- r / \lambda_D}$. Close to the ion, the potential must be that of the ion alone, $\Phi \approx Q / (4 \pi \epsilon_0 r)$, so $A = Q / (4 \pi \epsilon_0)$, and we recover @eq-plasma-38.
 :::
 
 ### When is a Plasma a Fluid?
 
-In @sec-continua we have seen that a gas can be treated as a fluid if the mean free path $\lambda$ of its particles is small compared to the scales of interest. In a plasma, the particles interact via the Coulomb force. Two particles are strongly deflected if they come so close that their electrostatic energy is comparable to their thermal energy, $e^2 / r \sim k_B T$. This gives a cross section $\sigma \sim \pi (e^2 / k_B T)^2$, and a mean free path $\lambda \sim 1 / (n \sigma)$. Many weak collisions at larger distances make the particles lose their direction somewhat faster, and a more careful calculation gives
+In @sec-continua we have seen that a gas can be treated as a fluid if the mean free path $\lambda$ of its particles is small compared to the scales of interest. In a plasma, the particles interact via the Coulomb force. Two particles are strongly deflected if they come so close that their electrostatic energy is comparable to their thermal energy, $e^2 / (4 \pi \epsilon_0 r) \sim k_B T$. This gives a cross section $\sigma \sim \pi [e^2 / (4 \pi \epsilon_0 k_B T)]^2$, and a mean free path $\lambda \sim 1 / (n \sigma)$. Many weak collisions at larger distances make the particles lose their direction somewhat faster, and a more careful calculation gives
 $$
-\lambda \approx 10^4\,\mathrm{cm} \left( \frac{T}{1\,\mathrm{K}} \right)^2 \left( \frac{n}{1\,\mathrm{cm^{-3}}} \right)^{-1} .
+\lambda \approx 100\,\mathrm{m} \left( \frac{T}{1\,\mathrm{K}} \right)^2 \left( \frac{n}{1\,\mathrm{cm^{-3}}} \right)^{-1} .
 $$ {#eq-plasma-coulomb-mfp}
 Note that $\lambda$ increases very quickly with temperature: hot plasmas are almost collisionless.
 
-Magnetic fields change this picture. A particle with charge $Q$ and mass $m$ moving with velocity $v$ perpendicular to a magnetic field $B$ experiences a Lorentz force $|Q| v B / c$ perpendicular to its velocity. So it moves on a circle around the field lines, with radius $r_L$ given by
+Magnetic fields change this picture. A particle with charge $Q$ and mass $m$ moving with velocity $v$ perpendicular to a magnetic field $B$ experiences a Lorentz force $|Q| v B$ perpendicular to its velocity. So it moves on a circle around the field lines, with radius $r_L$ given by
 $$
-\frac{m v^2}{r_L} = \frac{| Q | v B}{c} \Longrightarrow r_L = \frac{m v c}{| Q | B} .
+\frac{m v^2}{r_L} = | Q | v B \Longrightarrow r_L = \frac{m v}{| Q | B} .
 $$ {#eq-plasma-larmor}
 $r_L$ is called the *Larmor radius*, or *gyroradius*. In other words, particles cannot move freely across the magnetic field lines, even if they never collide. On scales much larger than $r_L$, a magnetized plasma behaves like a fluid in the directions perpendicular to the magnetic field. Along the field lines, instead, particles can travel a distance $\sim \lambda$. This is why magnetohydrodynamics (@sec-mhd) works well even in plasmas in which collisions are rare. However, processes along the field lines, such as heat conduction, can be very different from those in an ordinary gas.
 
 ::: {.callout-tip icon=false}
 ## Example
 
-Consider the warm interstellar medium, with $T \sim 10^4\,\mathrm{K}$, $n \sim 1\,\mathrm{cm^{-3}}$, and $B \sim 3\,\mu\mathrm{G}$. From @eq-plasma-coulomb-mfp, $\lambda \sim 10^{12}\,\mathrm{cm}$, which is much smaller than the scales of interest, $\sim 1\,\mathrm{pc} \approx 3 \times 10^{18}\,\mathrm{cm}$. A thermal proton has velocity $v \sim \sqrt{k_B T / m_p} \approx 9\,\mathrm{km\,s^{-1}}$, so its Larmor radius is $r_L \approx 300\,\mathrm{km}$, even smaller.
+Consider the warm interstellar medium, with $T \sim 10^4\,\mathrm{K}$, $n \sim 1\,\mathrm{cm^{-3}}$, and $B \sim 0.3\,\mathrm{nT}$ ($3\,\mu\mathrm{G}$). From @eq-plasma-coulomb-mfp, $\lambda \sim 10^{10}\,\mathrm{m}$, which is much smaller than the scales of interest, $\sim 1\,\mathrm{pc} \approx 3 \times 10^{16}\,\mathrm{m}$. A thermal proton has velocity $v \sim \sqrt{k_B T / m_p} \approx 9\,\mathrm{km\,s^{-1}}$, so its Larmor radius is $r_L \approx 300\,\mathrm{km}$, even smaller.
 
-The solar wind close to the Earth is different. It has $T \sim 10^5\,\mathrm{K}$ and $n \sim 5\,\mathrm{cm^{-3}}$, so $\lambda \sim 2 \times 10^{13}\,\mathrm{cm}$, about the distance between the Earth and the Sun. The solar wind is essentially collisionless! However, the magnetic field is $B \sim 5 \times 10^{-5}\,\mathrm{G}$, so a thermal proton has $r_L \approx 60\,\mathrm{km}$. On large scales, the solar wind can still be described as a magnetized fluid.
+The solar wind close to the Earth is different. It has $T \sim 10^5\,\mathrm{K}$ and $n \sim 5\,\mathrm{cm^{-3}}$, so $\lambda \sim 2 \times 10^{11}\,\mathrm{m}$, about the distance between the Earth and the Sun. The solar wind is essentially collisionless! However, the magnetic field is $B \sim 5\,\mathrm{nT}$ ($5 \times 10^{-5}\,\mathrm{G}$), so a thermal proton has $r_L \approx 60\,\mathrm{km}$. On large scales, the solar wind can still be described as a magnetized fluid.
 :::
 
 ### Cold Plasma Approximation
 
-The cold plasma approximation is used to study the propagation of electromagnetic waves, particularly radio waves, in the interstellar medium. As the name suggests, in the cold plasma approximation we ignore the thermal motion of the electrons. We also take the ions to be stationary. Let's consider the propagation of an electromagnetic wave through such medium, as illustrated in @fig-plasma-em-wave.
+The cold plasma approximation is used to study the propagation of electromagnetic waves, particularly radio waves, in the interstellar medium. As the name suggests, in the cold plasma approximation we ignore the thermal motion of the electrons. We also take the ions to be stationary. Let's consider the propagation of an electromagnetic wave through such a medium, as illustrated in @fig-plasma-em-wave.
 
 ![Lorentz force experienced by an electron due to a passing electromagnetic wave.](../figures/plasma/em-wave-electron.svg){#fig-plasma-em-wave fig-alt="An electromagnetic wave travels to the right along the x axis, in the direction of the Poynting vector S. The electric field E oscillates in the vertical plane and the magnetic field B, in phase with it, in the horizontal plane. An electron in the wave, where E points up, is pushed down, giving it a velocity v; the magnetic force F, proportional to v cross B, then points to the right, along the direction of propagation."}
 
 The Lorentz force experienced by an electron is (assuming $v \ll c$):
 $$
-\vb{F}= - e \left( \vb{E}+ \frac{\vb{v} \times \vb{B}}{c}
-\right) \approx - e\vb{E}.
+\vb{F}= - e ( \vb{E}+ \vb{v} \times \vb{B} ) \approx - e\vb{E}.
 $$ {#eq-plasma-45}
 So, if we take $\vb{E}= \hat{\vb{E}}_0 \ee^{\ii (\vb{k} \cdot \vb{x}- \omega t)}$ and $\vb{v}= \hat{\vb{v}}_0 \ee^{\ii (\vb{k} \cdot \vb{x}- \omega t)}$, we have
 $$
-\quad  \hat{\vb{v}}_0 = \frac{e \hat{\vb{E}}_0}{\ii \omega m_e} .
+\hat{\vb{v}}_0 = \frac{e \hat{\vb{E}}_0}{\ii \omega m_e} .
 $$ {#eq-plasma-46}
 The induced current density in the plasma is
 $$
@@ -343,31 +344,30 @@ $$
 $$ {#eq-plasma-48}
 Gauss' law reads
 $$
-\ii \vb{k} \cdot \hat{\vb{E}}_0 = 4 \pi \hat{q}_0 \Longrightarrow
-\ii \vb{k} \cdot \left( 1 - \frac{4 \pi \sigma}{\ii \omega}
+\ii \vb{k} \cdot \hat{\vb{E}}_0 = \frac{\hat{q}_0}{\epsilon_0} \Longrightarrow
+\ii \vb{k} \cdot \left( 1 - \frac{\sigma}{\ii \omega \epsilon_0}
 \right) \hat{\vb{E}}_0 = 0.
 $$ {#eq-plasma-49}
 Introducing the dielectric constant
 $$
 \begin{aligned}
-\epsilon &= 1 - \frac{4 \pi \sigma}{\ii \omega} = 1 - \left(
+\epsilon &= 1 - \frac{\sigma}{\ii \omega \epsilon_0} = 1 - \left(
 \frac{\omega_p}{\omega} \right)^2, \\
-\omega_p &= \sqrt{\frac{4 \pi
-ne^2}{m_e}} \\
+\omega_p &= \sqrt{\frac{ne^2}{\epsilon_0 m_e}} \\
 &\approx 5.6 \times 10^4\,\mathrm{s^{-1}} \left( \frac{n}{1\,\mathrm{cm}^{- 3}} \right)^{1 /
 2} .
 \end{aligned}
 $$ {#eq-plasma-50}
-The corresponding frequency is $f_p = \omega_p / 2 \pi \approx 9\,\mathrm{kHz}\,(n / 1\,\mathrm{cm^{-3}})^{1/2}$. $\omega_p$ is called the *plasma frequency*, and $\epsilon$ (not to be confused with the internal energy $\varepsilon$) is the dielectric constant. The plasma frequency has a simple physical meaning: if the electrons are displaced with respect to the ions, the electric field pulls them back, and they oscillate around their equilibrium positions with angular frequency $\omega_p$ (@exr-plasma-oscillations). Note also that $\lambda_D = v_{\mathrm{th}} / \omega_p$, where $v_{\mathrm{th}} = \sqrt{k_B T / m_e}$ is the thermal velocity of the electrons. In other words, the Debye length is the distance traveled by a thermal electron during one plasma oscillation.
+To evaluate $\omega_p$, we have used $1\,\mathrm{cm^{-3}} = 10^6\,\mathrm{m^{-3}}$. The corresponding frequency is $f_p = \omega_p / 2 \pi \approx 9\,\mathrm{kHz}\,(n / 1\,\mathrm{cm^{-3}})^{1/2}$. $\omega_p$ is called the *plasma frequency*, and $\epsilon$ (not to be confused with the internal energy $\varepsilon$, or with the vacuum permittivity $\epsilon_0$) is the dielectric constant. The plasma frequency has a simple physical meaning: if the electrons are displaced with respect to the ions, the electric field pulls them back, and they oscillate around their equilibrium positions with angular frequency $\omega_p$ (@exr-plasma-oscillations). Note also that $\lambda_D = v_{\mathrm{th}} / \omega_p$, where $v_{\mathrm{th}} = \sqrt{k_B T / m_e}$ is the thermal velocity of the electrons. In other words, the Debye length is the distance traveled by a thermal electron during one plasma oscillation.
 
 With these definitions, we find that the Maxwell equations reduce to
 $$
 \begin{array}{lll}
 \ii \vb{k} \cdot \epsilon \hat{\vb{E}}_0 = 0, &  & \ii
 \vb{k} \cdot \hat{\vb{B}}_0 = 0,\\
-\ii \vb{k} \times \hat{\vb{E}}_0 = \ii \frac{\omega}{c}
+\ii \vb{k} \times \hat{\vb{E}}_0 = \ii \omega
 \hat{\vb{B}}_0, &  & \ii \vb{k} \times \hat{\vb{B}}_0 = -
-\ii \frac{\omega}{c} \epsilon \hat{\vb{E}}_0 .
+\ii \frac{\omega}{c^2} \epsilon \hat{\vb{E}}_0 .
 \end{array}
 $$ {#eq-plasma-51}
 These can be solved in the same way as the vacuum Maxwell equations to find the dispersion relation for electromagnetic waves in a cold plasma
@@ -410,7 +410,7 @@ The time of arrival of the peak of the burst at *angular* frequency $\omega$, $t
 $$
 t_p = \int_0^d \frac{\dd s}{v_g (\omega)},
 $$ {#eq-plasma-ws1}
-where $d$ is the distance to the source and $v_g (\omega)$ is the group velocity at frequency $\omega$. The approximate arrival times for  FRB 010724 are tabulated below
+where $d$ is the distance to the source and $v_g (\omega)$ is the group velocity at frequency $\omega$. The approximate arrival times for FRB 010724 are tabulated below:
 
 | $t_p [\mathrm{s}]$ | 0.21 | 0.27 | 0.31 | 0.36 | 0.44 |
 |:--|:--|:--|:--|:--|:--|
@@ -418,7 +418,7 @@ where $d$ is the distance to the source and $v_g (\omega)$ is the group velocity
 
 1.  Assume that the interstellar medium is a cold plasma, with plasma frequency
     $$
-    \omega_p = \sqrt{\frac{4 \pi ne^2}{m_e}},
+    \omega_p = \sqrt{\frac{ne^2}{\epsilon_0 m_e}},
     $$ {#eq-plasma-ws2}
     where $n$ is the number density of free electrons, and that $\omega \gg \omega_p$. Show that
     $$
@@ -428,7 +428,7 @@ where $d$ is the distance to the source and $v_g (\omega)$ is the group velocity
 
 2.  Show that
     $$
-    \frac{\dd t_p}{\dd \omega} = - \frac{4 \pi e^2}{cm_e \omega^3}
+    \frac{\dd t_p}{\dd \omega} = - \frac{e^2}{\epsilon_0 c m_e \omega^3}
     \mathrm{DM},
     $$ {#eq-plasma-ws4}
     where DM is the dispersion measure:
@@ -436,7 +436,7 @@ where $d$ is the distance to the source and $v_g (\omega)$ is the group velocity
     \mathrm{DM} = \int_0^d n \dd s.
     $$ {#eq-plasma-ws5}
 
-3.  Compute the DM for FRB 010724. In the direction of this source, the DM due to free electrons within the Milky Way is estimated to be $\mathrm{DM} = 25 \mathrm{cm}^{- 3} \mathrm{pc}$. Is this source extragalactic? \[Remember that $\omega = 2 \pi f$. It is convenient to plot $t_p$ against $1 / f^2$.\]
+3.  Compute the DM for FRB 010724. In the direction of this source, the DM due to free electrons within the Milky Way is estimated to be $\mathrm{DM} = 25\,\mathrm{cm^{-3}\,pc}$. Is this source extragalactic? \[Remember that $\omega = 2 \pi f$. It is convenient to plot $t_p$ against $1 / f^2$.\]
 
 ## Exercises {#sec-plasma-exercises}
 
@@ -445,9 +445,9 @@ where $d$ is the distance to the source and $v_g (\omega)$ is the group velocity
 
 Consider a slab of plasma with uniform electron density $n_e$. The ions are at rest and have uniform charge density $e n_e$. At $t = 0$, all electrons in the slab are displaced by a small distance $x$ in the direction perpendicular to the slab.
 
-1.  Show that the displacement creates an electric field $E = 4 \pi n_e e x$ inside the slab.
+1.  Show that the displacement creates an electric field $E = n_e e x / \epsilon_0$ inside the slab.
 
-2.  Show that the electrons oscillate around their equilibrium positions with angular frequency $\omega_p = \sqrt{4 \pi n_e e^2 / m_e}$.
+2.  Show that the electrons oscillate around their equilibrium positions with angular frequency $\omega_p = \sqrt{n_e e^2 / (\epsilon_0 m_e)}$.
 
 3.  Show that $\lambda_D = v_{\mathrm{th}} / \omega_p$, where $v_{\mathrm{th}} = \sqrt{k_B T / m_e}$. Interpret this result.
 
@@ -458,23 +458,23 @@ Consider a slab of plasma with uniform electron density $n_e$. The ions are at r
 ::: {.solution}
 1.  The displacement uncovers a layer of ions of thickness $x$ on one side of the slab, with charge $e n_e x$ per unit area, and creates a layer of excess electrons with charge $- e n_e x$ per unit area on the other side. This is like a parallel-plate capacitor. Applying Gauss' law to a thin box crossing one of the layers, we find that the electric field between the layers is
     $$
-    E = 4 \pi e n_e x,
+    E = \frac{e n_e x}{\epsilon_0},
     $$
     pointing from the ions to the electrons, that is, opposite to the displacement of the electrons.
 
-2.  The force on each electron is $- e E = - 4 \pi n_e e^2 x$, so
+2.  The force on each electron is $- e E = - n_e e^2 x / \epsilon_0$, so
     $$
-    m_e \frac{\dd^2 x}{\dd t^2} = - 4 \pi n_e e^2 x \Longrightarrow \frac{\dd^2 x}{\dd t^2} = - \omega_p^2 x, \qquad \omega_p = \sqrt{\frac{4 \pi n_e e^2}{m_e}} .
+    m_e \frac{\dd^2 x}{\dd t^2} = - \frac{n_e e^2}{\epsilon_0} x \Longrightarrow \frac{\dd^2 x}{\dd t^2} = - \omega_p^2 x, \qquad \omega_p = \sqrt{\frac{n_e e^2}{\epsilon_0 m_e}} .
     $$
     This is the equation of a harmonic oscillator with angular frequency $\omega_p$.
 
 3.  We have
     $$
-    \frac{v_{\mathrm{th}}}{\omega_p} = \sqrt{\frac{k_B T}{m_e}} \sqrt{\frac{m_e}{4 \pi n_e e^2}} = \sqrt{\frac{k_B T}{4 \pi n_e e^2}} = \lambda_D .
+    \frac{v_{\mathrm{th}}}{\omega_p} = \sqrt{\frac{k_B T}{m_e}} \sqrt{\frac{\epsilon_0 m_e}{n_e e^2}} = \sqrt{\frac{\epsilon_0 k_B T}{n_e e^2}} = \lambda_D .
     $$
     The Debye length is the distance traveled by a thermal electron during one plasma oscillation, that is, in the time the electrons need to respond to a charge imbalance. On scales larger than $\lambda_D$, the electrons have time to rearrange themselves and screen any charge imbalance. On smaller scales, the thermal motion of the electrons wins.
 
-4.  For the ionosphere, $\omega_p \approx 5.6 \times 10^7\,\mathrm{s^{-1}}$, $f_p \approx 9\,\mathrm{MHz}$, and $\lambda_D \approx 0.2\,\mathrm{cm}$. For the warm interstellar medium, $\omega_p \approx 5.6 \times 10^4\,\mathrm{s^{-1}}$, $f_p \approx 9\,\mathrm{kHz}$, and $\lambda_D \approx 7\,\mathrm{m}$.
+4.  We convert the densities to SI, $n_e \sim 10^{12}\,\mathrm{m^{-3}}$ for the ionosphere and $n_e \sim 10^6\,\mathrm{m^{-3}}$ for the warm interstellar medium. For the ionosphere, $\omega_p \approx 5.6 \times 10^7\,\mathrm{s^{-1}}$, $f_p \approx 9\,\mathrm{MHz}$, and $\lambda_D \approx 2\,\mathrm{mm}$. For the warm interstellar medium, $\omega_p \approx 5.6 \times 10^4\,\mathrm{s^{-1}}$, $f_p \approx 9\,\mathrm{kHz}$, and $\lambda_D \approx 7\,\mathrm{m}$.
 :::
 :::
 

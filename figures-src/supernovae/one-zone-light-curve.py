@@ -27,14 +27,15 @@ plt.rcParams.update({
     "axes.spines.right": False,
 })
 
-MSUN, C, DAY = 1.989e33, 2.998e10, 86400.0
-M = 10 * MSUN          # ejecta mass
-R_RSG, R_BSG = 1e14, 3e12   # progenitor radii [cm]
-V = 3e8                # expansion velocity [cm/s]
-E0 = 5e50              # initial thermal energy [erg]
-KAPPA, BETA = 0.4, 13.8
+# SI units throughout; the luminosity is converted to erg/s only for the plot.
+MSUN, C, DAY, ERG = 1.989e30, 2.998e8, 86400.0, 1e-7
+M = 10 * MSUN          # ejecta mass [kg]
+R_RSG, R_BSG = 1e12, 3e10   # progenitor radii [m]
+V = 3e6                # expansion velocity [m/s]
+E0 = 5e50 * ERG        # initial thermal energy [J]
+KAPPA, BETA = 0.04, 13.8    # opacity [m^2/kg] (0.4 cm^2/g)
 M_NI = 0.07 * MSUN     # mass of 56Ni
-EPS_NI, EPS_CO = 3.9e10, 6.78e9     # erg g^-1 s^-1
+EPS_NI, EPS_CO = 3.9e6, 6.78e5      # W kg^-1 (3.9e10, 6.78e9 erg g^-1 s^-1)
 TAU_NI, TAU_CO = 8.8 * DAY, 111.3 * DAY
 
 
@@ -54,8 +55,8 @@ def rhs(t, y, R0, mni):
 t = np.linspace(0, 250 * DAY, 2001)
 curves = {}
 for key, R0, mni in (("rsg", R_RSG, False), ("bsg", R_BSG, False), ("bsg-ni", R_BSG, True)):
-    sol = solve_ivp(rhs, (t[0], t[-1]), [E0], t_eval=t, args=(R0, mni), rtol=1e-8, atol=1e30)
-    curves[key] = sol.y[0] * BETA * C * (R0 + V * t) / (KAPPA * M)
+    sol = solve_ivp(rhs, (t[0], t[-1]), [E0], t_eval=t, args=(R0, mni), rtol=1e-8, atol=1e23)
+    curves[key] = sol.y[0] * BETA * C * (R0 + V * t) / (KAPPA * M) / ERG   # erg/s
 
 fig, ax = plt.subplots(figsize=(7.5, 5.2))
 d = t / DAY
@@ -65,7 +66,7 @@ ax.plot(d, np.log10(curves["bsg"]), color="#009E73", lw=2.2, ls="-.",
         label="blue supergiant, no heating")
 ax.plot(d, np.log10(curves["bsg-ni"]), color="#D55E00", lw=2.2, ls="--",
         label="blue supergiant, 0.07 M⊙ of ⁵⁶Ni")
-ax.plot(d[1:], np.log10(heating(t[1:])), color="#555555", lw=1.6, ls=":",
+ax.plot(d[1:], np.log10(heating(t[1:]) / ERG), color="#555555", lw=1.6, ls=":",
         label="radioactive heating rate")
 ax.set_xlim(0, 250)
 ax.set_ylim(39.5, 42.9)

@@ -39,7 +39,7 @@ Adapted from @clarke2007, Problem 41.
 
 ::: {.content-visible when-profile="solutions"}
 ::: {.solution}
-1.  The fluid in the pipe is unstable against the Rayleigh-Taylor instability.
+1.  The fluid in the pipe is unstable against the Rayleigh–Taylor instability.
 
 2.  Before the instability sets in, the gravitational potential energy per unit length of the fluid in the pipe is
     $$

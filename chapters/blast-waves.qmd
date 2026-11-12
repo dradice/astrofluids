@@ -8,7 +8,7 @@ This chapter is in preparation.
 
 1.  **Atmospheric explosion.** These are experimental measurements of the expansion of a blast wave due to an atmospheric explosion.
 
-    | $t (\mathrm{ms})$ | 0.09 | 0.24 | 0.38 | 0.52 | 0.66 | 0.80 | 0.94 |
+    | $t\ (\mathrm{ms})$ | 0.09 | 0.24 | 0.38 | 0.52 | 0.66 | 0.80 | 0.94 |
     |:---|---:|---:|---:|---:|---:|---:|---:|
     | $R (\mathrm{m})$ | 24 | 42 | 51 | 60 | 66 | 70 | 77 |
 
@@ -23,7 +23,7 @@ This chapter is in preparation.
         U_{\mathrm{sh}} = \frac{2}{5}  \frac{r_{\mathrm{sh}}}{t} .
         $$ {#eq-blast-1}
 
-    3.  *Estimate* the explosion energy $E$. You can assume $\rho_1 = 1.25 \times 10^{- 3} \mathrm{g} \mathrm{cm}^{- 3}$ for the density of the atmosphere.
+    3.  *Estimate* the explosion energy $E$. You can assume $\rho_1 = 1.25 \times 10^{- 3}\, \mathrm{g} \, \mathrm{cm}^{- 3} = 1.25\, \mathrm{kg} \, \mathrm{m}^{- 3}$ for the density of the atmosphere.
 
     4.  Estimate the temperature of the fireball 1 ms after the explosion. Use $\Gamma = \frac{7}{5}$ and $\mu \approx 29$ for air. Is this estimate an upper limit or a lower limit?
 
@@ -47,8 +47,8 @@ Adapted from @clarke2007, Problem 28.
 ::: {.solution}
 1.  We set $\xi = r / r_0$, where $r_0 = L^{\alpha} \rho_0^{\beta} t^{\gamma}$. Dimensional analysis gives:
     $$
-    [r_0] = [L^{\alpha}]  [\rho_0^{\beta}]  [t]^{\gamma} =\mathrm{g}^{\alpha
-    + \beta} \mathrm{cm}^{2 \alpha - 3 \beta} \mathrm{s}^{\gamma - 3 \alpha}
+    [r_0] = [L^{\alpha}]  [\rho_0^{\beta}]  [t]^{\gamma} =\mathrm{kg}^{\alpha
+    + \beta}\,\mathrm{m}^{2 \alpha - 3 \beta}\,\mathrm{s}^{\gamma - 3 \alpha}
     \Longrightarrow \left\{\begin{array}{l}
     \alpha + \beta = 0\\
     2 \alpha - 3 \beta = 1\\
@@ -89,14 +89,14 @@ Adapted from @clarke2007, Problem 28.
     $$
     where $A_b$ is the area of the stalled bubble formed by a single star, $A_{\mathrm{tot}}$ is the area of the galaxy disk, and $\Sigma_s$ is the surface density of stars.
 
-    On the other hand, if all the stars are concentrated in a single location, then they form a single large bubble with area $A_{b, \mathrm{tot}} \propto N_s L$, so the porosity of the ISM is
+    On the other hand, if all the stars are concentrated in a single location, then they form a single large bubble with area $A_{b, \mathrm{tot}} \propto N_s L_s$, so the porosity of the ISM is
     $$
     \frac{A_{b, \mathrm{tot}}}{A_{\mathrm{tot}}} \propto \frac{N_s
     L_s}{A_{\mathrm{tot}}} = \Sigma_s L_s .
     $$
-    That is the porosity of the ISM does not depend on the distribution of stars.
+    That is, the porosity of the ISM does not depend on the distribution of stars.
 
-3.  The picture discussed so far is valid if $z > r_{b, s}$, because we can approximate the density in the ISM as constant. If $r_{b, s} > z$, then the bubbles will break out of the disk of the galaxy and will stall when $r_b = z$ and have a cross-sectional area $A_b \propto z^2$, independent on the luminosity of the clusters (as long as they are sufficiently bright to inflate bubbles with $r_{b, s} > z$). In this case, the porosity of the ISM will be much larger if the stars are evenly distributed than if they are concentrated in few luminous clusters.
+3.  The picture discussed so far is valid if $z > r_{b, s}$, because we can approximate the density in the ISM as constant. If $r_{b, s} > z$, then the bubbles will break out of the disk of the galaxy and will stall when $r_b = z$ and have a cross-sectional area $A_b \propto z^2$, independent of the luminosity of the clusters (as long as they are sufficiently bright to inflate bubbles with $r_{b, s} > z$). In this case, the porosity of the ISM will be much larger if the stars are evenly distributed than if they are concentrated in few luminous clusters.
 :::
 :::
 
