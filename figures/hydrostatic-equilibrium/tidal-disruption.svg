@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 255" width="780" height="255" role="img" aria-labelledby="tidal-disruption-t tidal-disruption-d">
+<title id="tidal-disruption-t">Tidal forces on a star near a black hole</title>
+<desc id="tidal-disruption-d">A black hole of mass M_BH on the left and a star of mass M_* and radius R_* at a distance r on the right. On the side of the star facing the black hole, the black hole pulls with acceleration G M_BH over (r minus R_*) squared, towards the black hole, while the self-gravity of the star pulls with G M_* over R_* squared, towards the center of the star. On the opposite side, both accelerations point towards the black hole: G M_BH over (r plus R_*) squared and G M_* over R_* squared.</desc>
+<defs><marker id="ah-k" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#000" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker><marker id="ah-1f4fbf" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#1f4fbf" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker><marker id="ah-0b6e0b" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#0b6e0b" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker></defs>
+<rect width="780" height="255" fill="#fff"/>
+<g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif">
+<circle cx="90.0" cy="100.0" r="32" fill="#000" stroke="#000" stroke-width="1.6"/>
+<text x="90" y="162" text-anchor="middle" font-size="20" font-style="italic" font-weight="normal" fill="#000">M<tspan dy="5.0" font-size="14.4" font-style="normal">BH</tspan></text>
+<ellipse cx="480.0" cy="100.0" rx="95.0" ry="72.0" transform="rotate(0.0 480.0 100.0)" fill="none" stroke="#000" stroke-width="1.6"/>
+<circle cx="480.0" cy="100.0" r="3.2" fill="#000" stroke="#000" stroke-width="1.6"/>
+<text x="488" y="92" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">M<tspan dy="5.0" font-size="14.4" font-style="normal">*</tspan></text>
+<circle cx="385.0" cy="100.0" r="3.2" fill="#000" stroke="#000" stroke-width="1.6"/>
+<circle cx="575.0" cy="100.0" r="3.2" fill="#000" stroke="#000" stroke-width="1.6"/>
+<line x1="385.0" y1="88.0" x2="300.0" y2="88.0" stroke="#1f4fbf" stroke-width="2.2" marker-end="url(#ah-1f4fbf)"/>
+<line x1="575.0" y1="88.0" x2="535.0" y2="88.0" stroke="#1f4fbf" stroke-width="2.2" marker-end="url(#ah-1f4fbf)"/>
+<line x1="385.0" y1="112.0" x2="430.0" y2="112.0" stroke="#0b6e0b" stroke-width="2.2" marker-end="url(#ah-0b6e0b)"/>
+<line x1="575.0" y1="112.0" x2="530.0" y2="112.0" stroke="#0b6e0b" stroke-width="2.2" marker-end="url(#ah-0b6e0b)"/>
+<text x="375" y="68" text-anchor="end" font-size="20" font-style="italic" font-weight="normal" fill="#1f4fbf">GM<tspan dy="5.0" font-size="14.4" font-style="normal">BH</tspan><tspan dy="-5">/(r − R</tspan><tspan dy="5" font-size="14.4" font-style="normal">*</tspan><tspan dy="-5">)</tspan><tspan dy="-8" font-size="14.4" font-style="normal">2</tspan></text>
+<text x="585" y="68" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#1f4fbf">GM<tspan dy="5.0" font-size="14.4" font-style="normal">BH</tspan><tspan dy="-5">/(r + R</tspan><tspan dy="5" font-size="14.4" font-style="normal">*</tspan><tspan dy="-5">)</tspan><tspan dy="-8" font-size="14.4" font-style="normal">2</tspan></text>
+<text x="375" y="136" text-anchor="end" font-size="20" font-style="italic" font-weight="normal" fill="#0b6e0b">GM<tspan dy="5.0" font-size="14.4" font-style="normal">*</tspan><tspan dy="-5">/R</tspan><tspan dy="5" font-size="14.4" font-style="normal">*</tspan><tspan dy="-13" font-size="14.4" font-style="normal">2</tspan></text>
+<text x="585" y="136" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#0b6e0b">GM<tspan dy="5.0" font-size="14.4" font-style="normal">*</tspan><tspan dy="-5">/R</tspan><tspan dy="5" font-size="14.4" font-style="normal">*</tspan><tspan dy="-13" font-size="14.4" font-style="normal">2</tspan></text>
+<line x1="480.0" y1="195.0" x2="575.0" y2="195.0" stroke="#000" stroke-width="1.5"/>
+<line x1="480.0" y1="188.0" x2="480.0" y2="202.0" stroke="#000" stroke-width="1.5"/>
+<line x1="575.0" y1="188.0" x2="575.0" y2="202.0" stroke="#000" stroke-width="1.5"/>
+<text x="527.5" y="186" text-anchor="middle" font-size="20" font-style="italic" font-weight="normal" fill="#000">R<tspan dy="5.0" font-size="14.4" font-style="normal">*</tspan></text>
+<line x1="90.0" y1="232.0" x2="480.0" y2="232.0" stroke="#000" stroke-width="1.5"/>
+<line x1="90.0" y1="225.0" x2="90.0" y2="239.0" stroke="#000" stroke-width="1.5"/>
+<line x1="480.0" y1="225.0" x2="480.0" y2="239.0" stroke="#000" stroke-width="1.5"/>
+<text x="285.0" y="223" text-anchor="middle" font-size="20" font-style="italic" font-weight="normal" fill="#000">r</text>
+</g>
+</svg>
