@@ -572,9 +572,12 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul class="collapse">
-  <li><a href="#sec-wind-worksheet" id="toc-sec-wind-worksheet" class="nav-link active" data-scroll-target="#sec-wind-worksheet"><span class="header-section-number">13.1</span> In-class worksheet</a></li>
-  <li><a href="#sec-wind-exercises" id="toc-sec-wind-exercises" class="nav-link" data-scroll-target="#sec-wind-exercises"><span class="header-section-number">13.2</span> Exercises</a></li>
-  <li><a href="#sec-wind-reading" id="toc-sec-wind-reading" class="nav-link" data-scroll-target="#sec-wind-reading"><span class="header-section-number">13.3</span> Further reading</a></li>
+  <li><a href="#sec-wind-bernoulli" id="toc-sec-wind-bernoulli" class="nav-link active" data-scroll-target="#sec-wind-bernoulli"><span class="header-section-number">13.1</span> Vorticity, circulation, and Bernoulli’s theorem</a></li>
+  <li><a href="#sec-wind-isothermal" id="toc-sec-wind-isothermal" class="nav-link" data-scroll-target="#sec-wind-isothermal"><span class="header-section-number">13.2</span> Isothermal winds</a></li>
+  <li><a href="#sec-wind-bondi" id="toc-sec-wind-bondi" class="nav-link" data-scroll-target="#sec-wind-bondi"><span class="header-section-number">13.3</span> Spherical accretion</a></li>
+  <li><a href="#sec-wind-worksheet" id="toc-sec-wind-worksheet" class="nav-link" data-scroll-target="#sec-wind-worksheet"><span class="header-section-number">13.4</span> In-class worksheet</a></li>
+  <li><a href="#sec-wind-exercises" id="toc-sec-wind-exercises" class="nav-link" data-scroll-target="#sec-wind-exercises"><span class="header-section-number">13.5</span> Exercises</a></li>
+  <li><a href="#sec-wind-reading" id="toc-sec-wind-reading" class="nav-link" data-scroll-target="#sec-wind-reading"><span class="header-section-number">13.6</span> Further reading</a></li>
   </ul>
 </nav>
     </div>
@@ -601,40 +604,314 @@ window.Quarto = {
 </header>
 
 
+<p>All stars lose mass through winds. Their mass-loss rates span 10 orders of magnitude, <span class="math inline">\(\dot{M} \sim 10^{-14}\)</span>–<span class="math inline">\(10^{-4}\,M_{\odot}/\mathrm{yr}\)</span>, and have terminal velocities in the wide range <span class="math inline">\(v_{\infty} \sim 10\)</span>–<span class="math inline">\(3000\,\mathrm{km/s}\)</span> (<a href="#fig-wind-wr140" class="quarto-xref">Figure&nbsp;<span>13.1</span></a>). Depending on the mechanism that accelerates them, we distinguish:</p>
+<ul>
+<li><strong>Line-driven winds</strong>, driven by the absorption of UV photons in the lines of metals in the atmospheres of hot stars. They are massive and fast, with <span class="math inline">\(\dot{M} \sim 10^{-6}\)</span>–<span class="math inline">\(10^{-5}\,M_{\odot}/\mathrm{yr}\)</span> and <span class="math inline">\(v_{\infty} \sim 2500\,\mathrm{km/s}\)</span>.</li>
+<li><strong>Dust-driven winds</strong>, driven by the absorption of IR photons by dust in the atmospheres of cool giants. They are massive and slow, with <span class="math inline">\(\dot{M} \sim 10^{-5}\)</span>–<span class="math inline">\(10^{-4}\,M_{\odot}/\mathrm{yr}\)</span> and <span class="math inline">\(v_{\infty} \sim 10\,\mathrm{km/s}\)</span>.</li>
+<li><strong>Coronal winds</strong>, driven by the pressure gradient in the hot corona of the star. They are not massive. This is the mechanism of the solar wind, which has <span class="math inline">\(\dot{M} \sim 10^{-14}\,M_{\odot}/\mathrm{yr}\)</span>.</li>
+<li><strong>Alfvén-wave-driven winds</strong>, driven by MHD processes, for example in magnetic rotators.</li>
+</ul>
+<div id="fig-wind-wr140" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A bright star at the centre of a dark field of stars, surrounded by about a dozen nested, evenly spaced rings of reddish dust. The rings are not complete: they are brightest towards the upper right and the lower left, and they look like a set of concentric, roughly square ripples spreading out from the star.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wind-wr140-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/winds-and-accretion/wr140-jwst.png" class="img-fluid figure-img" style="width:70.0%" alt="A bright star at the centre of a dark field of stars, surrounded by about a dozen nested, evenly spaced rings of reddish dust. The rings are not complete: they are brightest towards the upper right and the lower left, and they look like a set of concentric, roughly square ripples spreading out from the star.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wind-wr140-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.1: Mid-infrared image of the Wolf–Rayet binary WR 140 taken by the James Webb Space Telescope. Each ring is a shell of dust formed when the winds of the two stars collide, once per orbit, every 7.9 years. Credit: NASA, ESA, CSA, STScI, JPL-Caltech; not covered by the license of these notes.
+</figcaption>
+</figure>
+</div>
+<p>The most sensitive diagnostics of the winds of hot stars are P Cygni line profiles (<a href="#fig-wind-pcygni" class="quarto-xref">Figure&nbsp;<span>13.2</span></a>), named after the star P Cygni, where they were first observed. The gas in front of the star moves towards us and absorbs the light of the star at blue-shifted wavelengths, up to <span class="math inline">\(v_{\infty}\)</span>, while the rest of the wind scatters photons into our line of sight, with both red and blue shifts. Other diagnostics are optically thin emission lines (at low <span class="math inline">\(\dot{M}\)</span>), the bremsstrahlung emission of the wind, and molecular lines (for the winds of cool stars).</p>
+<div id="fig-wind-pcygni" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Flux, in units of the continuum flux, against the Doppler velocity in units of the terminal velocity of the wind, from -1.5 to 1.5. The continuum is a dashed horizontal line at 1. On the blue side, between -1 and 0, the flux drops well below the continuum in an absorption trough, which ends sharply at -1. On the red side there is an emission peak, about 1.5 times the continuum just above zero velocity, which decreases to the continuum at +1.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wind-pcygni-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/winds-and-accretion/p-cygni.svg" class="img-fluid figure-img" alt="Flux, in units of the continuum flux, against the Doppler velocity in units of the terminal velocity of the wind, from -1.5 to 1.5. The continuum is a dashed horizontal line at 1. On the blue side, between -1 and 0, the flux drops well below the continuum in an absorption trough, which ends sharply at -1. On the red side there is an emission peak, about 1.5 times the continuum just above zero velocity, which decreases to the continuum at +1.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wind-pcygni-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.2: Sketch of a P Cygni line profile: flux, in units of the continuum flux <span class="math inline">\(F_c\)</span>, against the Doppler velocity, in units of <span class="math inline">\(v_{\infty}\)</span>. Negative velocities are towards the observer (blue shift).
+</figcaption>
+</figure>
+</div>
+<p>In this chapter we study the simplest model of a stellar wind, the isothermal wind of <span class="citation" data-cites="parker1958">Parker (<a href="#ref-parker1958" role="doc-biblioref">1958</a>)</span>. Before we can do that, we will take a little detour to introduce the concept of vorticity and Bernoulli’s theorem. The latter will give us the equation describing the acceleration of the wind.</p>
+<section id="sec-wind-bernoulli" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="sec-wind-bernoulli"><span class="header-section-number">13.1</span> Vorticity, circulation, and Bernoulli’s theorem</h2>
+<p>Consider the circulation of the velocity around a closed curve <span class="math inline">\(C\)</span>, bounding a surface <span class="math inline">\(A\)</span>. It is given by <span id="eq-wind-circulation"><span class="math display">\[
+\mathcal{C} = \oint_C \mathbf{v} \cdot \mathrm{d} \mathbf{l} = \int_A (\nabla \times \mathbf{v}) \cdot \mathrm{d} \mathbf{A} = \int_A \boldsymbol{\omega} \cdot \mathrm{d} \mathbf{A},
+\tag{13.1}\]</span></span> where we have used Stokes’ theorem and introduced a new quantity: the <em>vorticity</em> <span id="eq-wind-vorticity-def"><span class="math display">\[
+\boldsymbol{\omega} = \nabla \times \mathbf{v} .
+\tag{13.2}\]</span></span> The vorticity measures the local rotation of the fluid. For example, a fluid in solid-body rotation with angular velocity <span class="math inline">\(\boldsymbol{\Omega}\)</span> has <span class="math inline">\(\boldsymbol{\omega} = 2 \boldsymbol{\Omega}\)</span>. A flow with <span class="math inline">\(\boldsymbol{\omega} = 0\)</span> is said to be <em>irrotational</em>.</p>
+<p>Using the identity <span id="eq-wind-identity"><span class="math display">\[
+(\mathbf{v} \cdot \nabla) \mathbf{v} = \nabla \left( \frac{1}{2} v^2 \right) - \mathbf{v} \times (\nabla \times \mathbf{v}),
+\tag{13.3}\]</span></span> the momentum equation (<a href="eulerian-lagrangian.html#eq-lagrange-18" class="quarto-xref">Equation&nbsp;<span>5.18</span></a>) for a fluid subject to gravity becomes <span id="eq-wind-momentum"><span class="math display">\[
+\frac{\partial \mathbf{v}}{\partial t} + \nabla \left( \frac{1}{2} v^2 \right) + \boldsymbol{\omega} \times \mathbf{v} = - \frac{1}{\rho} \nabla p - \nabla \Psi .
+\tag{13.4}\]</span></span> Taking the curl of this equation, and remembering that <span class="math inline">\(\nabla \times \nabla f = 0\)</span> for any function <span class="math inline">\(f\)</span>, we obtain the <em>vorticity equation</em> <span id="eq-wind-vorticity"><span class="math display">\[
+\frac{\partial \boldsymbol{\omega}}{\partial t} + \nabla \times (\boldsymbol{\omega} \times \mathbf{v}) = \frac{1}{\rho^2} \nabla \rho \times \nabla p .
+\tag{13.5}\]</span></span> For a barotropic fluid, <span class="math inline">\(p = p (\rho)\)</span> (<a href="euler-equation.html#eq-euler-20" class="quarto-xref">Equation&nbsp;<span>4.20</span></a>), <span class="math inline">\(\nabla p\)</span> is parallel to <span class="math inline">\(\nabla \rho\)</span>, so <span id="eq-wind-vorticity-barotropic"><span class="math display">\[
+\boxed{\frac{\partial \boldsymbol{\omega}}{\partial t} + \nabla \times (\boldsymbol{\omega} \times \mathbf{v}) = 0 .}
+\tag{13.6}\]</span></span> This means that, if <span class="math inline">\(\boldsymbol{\omega} = 0\)</span> at some time, then <span class="math inline">\(\boldsymbol{\omega}\)</span> remains zero at all times: irrotational barotropic flows stay irrotational. We will find the same equation for the magnetic field in <a href="flux-freezing.html" class="quarto-xref"><span>Chapter 23</span></a>. Note that, if <span class="math inline">\(\nabla \rho\)</span> is not parallel to <span class="math inline">\(\nabla p\)</span>, for example because there is a temperature gradient that is not aligned with the pressure gradient, then vorticity is generated by the right-hand side of <a href="#eq-wind-vorticity" class="quarto-xref">Equation&nbsp;<span>13.5</span></a>. This is the so-called <em>baroclinic</em> generation of vorticity.</p>
+<section id="kelvins-circulation-theorem" class="level3" data-number="13.1.1">
+<h3 data-number="13.1.1" class="anchored" data-anchor-id="kelvins-circulation-theorem"><span class="header-section-number">13.1.1</span> Kelvin’s circulation theorem</h3>
+<p>Consider now a surface <span class="math inline">\(A (t)\)</span>, bounded by a closed curve <span class="math inline">\(C (t)\)</span>, that moves with the fluid. In a time <span class="math inline">\(\mathrm{d} t\)</span>, each element <span class="math inline">\(\mathrm{d} \mathbf{l}\)</span> of <span class="math inline">\(C (t)\)</span> sweeps an area <span class="math inline">\(\mathrm{d} \mathbf{A} = \mathbf{v} \times \mathrm{d} \mathbf{l} \, \mathrm{d} t\)</span> (<a href="#fig-wind-kelvin" class="quarto-xref">Figure&nbsp;<span>13.3</span></a>). So <span id="eq-wind-kelvin"><span class="math display">\[
+\begin{aligned}
+\frac{\mathrm{d} \mathcal{C}}{\mathrm{d} t} &amp;= \frac{\mathrm{d}}{\mathrm{d} t} \int_{A (t)} \boldsymbol{\omega} \cdot \mathrm{d} \mathbf{A} \\
+&amp;= \int_{A (t)} \frac{\partial \boldsymbol{\omega}}{\partial t} \cdot \mathrm{d} \mathbf{A} + \oint_{C (t)} \boldsymbol{\omega} \cdot (\mathbf{v} \times \mathrm{d} \mathbf{l}) \\
+&amp;= \int_{A (t)} \frac{\partial \boldsymbol{\omega}}{\partial t} \cdot \mathrm{d} \mathbf{A} + \oint_{C (t)} \mathrm{d} \mathbf{l} \cdot (\boldsymbol{\omega} \times \mathbf{v}) \\
+&amp;= \int_{A (t)} \left[ \frac{\partial \boldsymbol{\omega}}{\partial t} + \nabla \times (\boldsymbol{\omega} \times \mathbf{v}) \right] \cdot \mathrm{d} \mathbf{A} = 0,
+\end{aligned}
+\tag{13.7}\]</span></span> where we have used Stokes’ theorem and <a href="#eq-wind-vorticity-barotropic" class="quarto-xref">Equation&nbsp;<span>13.6</span></a> (the first step also uses <span class="math inline">\(\nabla \cdot \boldsymbol{\omega} = 0\)</span>: no vortex lines start or end inside the volume swept by the surface). This is <em>Kelvin’s circulation theorem</em>: the number of vortex lines that thread any surface moving with the fluid does not change in the barotropic flow of an ideal fluid. In other words, vortex lines are material lines: they move with the fluid.</p>
+<div id="fig-wind-kelvin" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A closed curve C(t), drawn as a solid black line with an arrow showing its counterclockwise orientation, encloses the surface A(t). A short element dl of the curve is drawn as an arrow along it. In a time dt the fluid carries the curve to a new position, C(t + dt), drawn as a dashed line, displaced to the upper right and slightly stretched. Each point of dl moves by v dt, drawn as an arrow from the start of dl. The element sweeps a small shaded parallelogram with sides dl and v dt, whose area is dA = v dt cross dl.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wind-kelvin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/winds-and-accretion/kelvin-swept-area.svg" class="img-fluid figure-img" alt="A closed curve C(t), drawn as a solid black line with an arrow showing its counterclockwise orientation, encloses the surface A(t). A short element dl of the curve is drawn as an arrow along it. In a time dt the fluid carries the curve to a new position, C(t + dt), drawn as a dashed line, displaced to the upper right and slightly stretched. Each point of dl moves by v dt, drawn as an arrow from the start of dl. The element sweeps a small shaded parallelogram with sides dl and v dt, whose area is dA = v dt cross dl.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wind-kelvin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.3: A curve <span class="math inline">\(C (t)\)</span> that moves with the fluid. In a time <span class="math inline">\(\mathrm{d} t\)</span>, the element <span class="math inline">\(\mathrm{d} \mathbf{l}\)</span> moves by <span class="math inline">\(\mathbf{v} \, \mathrm{d} t\)</span> and sweeps the shaded area <span class="math inline">\(\mathrm{d} \mathbf{A} = \mathbf{v} \, \mathrm{d} t \times \mathrm{d} \mathbf{l}\)</span>. The displacement is exaggerated.
+</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span>Going further: Potential flows
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This chapter is in preparation.</p>
+<p>Kelvin’s theorem tells us that a barotropic flow that starts irrotational remains irrotational. A flow that is both incompressible and irrotational has <span id="eq-wind-potential-conditions"><span class="math display">\[
+\nabla \cdot \mathbf{v} = 0, \qquad \nabla \times \mathbf{v} = 0 .
+\tag{13.8}\]</span></span> The second equation implies that <span class="math inline">\(\mathbf{v} = \nabla \Phi\)</span> (a <em>potential flow</em>). The first equation then gives <span id="eq-wind-laplace"><span class="math display">\[
+\boxed{\nabla^2 \Phi = 0 .}
+\tag{13.9}\]</span></span> For example, the flow with speed <span class="math inline">\(U\)</span> around a cylinder of radius <span class="math inline">\(a\)</span> has <span class="math inline">\(\Phi = U (R + a^2 / R) \cos \phi\)</span> in cylindrical coordinates (<a href="#fig-wind-cylinder" class="quarto-xref">Figure&nbsp;<span>13.4</span></a>).</p>
+<div id="fig-wind-cylinder" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Streamlines of an incompressible, irrotational flow from left to right, with speed U, around a cylinder, shown as a grey disk. Far from the cylinder the streamlines are straight horizontal lines. Near the cylinder they bend around it symmetrically, so that the pattern is the same in front of and behind the cylinder. The flow splits at a stagnation point on the left of the cylinder and joins again at a stagnation point on the right.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wind-cylinder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/winds-and-accretion/potential-flow-cylinder.svg" class="img-fluid figure-img" alt="Streamlines of an incompressible, irrotational flow from left to right, with speed U, around a cylinder, shown as a grey disk. Far from the cylinder the streamlines are straight horizontal lines. Near the cylinder they bend around it symmetrically, so that the pattern is the same in front of and behind the cylinder. The flow splits at a stagnation point on the left of the cylinder and joins again at a stagnation point on the right.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wind-cylinder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.4: Streamlines of the potential flow around a cylinder.
+</figcaption>
+</figure>
+</div>
+<p>More generally, for an incompressible flow the curl of the vorticity is <span id="eq-wind-incompressible"><span class="math display">\[
+\nabla \times \boldsymbol{\omega} = \nabla \times (\nabla \times \mathbf{v}) = \nabla (\nabla \cdot \mathbf{v}) - \nabla^2 \mathbf{v} \Longrightarrow \nabla^2 \mathbf{v} = - \nabla \times \boldsymbol{\omega} .
+\tag{13.10}\]</span></span> Together with the vorticity equation, <a href="#eq-wind-vorticity-barotropic" class="quarto-xref">Equation&nbsp;<span>13.6</span></a>, this completely determines the flow. We can then find the pressure from the velocity, by taking the divergence of the momentum equation with <span class="math inline">\(\rho = \rho_0\)</span>: <span id="eq-wind-pressure"><span class="math display">\[
+\rho_0 \left[ \frac{\partial \mathbf{v}}{\partial t} + (\mathbf{v} \cdot \nabla) \mathbf{v} \right] = - \nabla p \Longrightarrow \nabla^2 p = - \rho_0 \nabla \cdot \left[ (\mathbf{v} \cdot \nabla) \mathbf{v} \right] .
+\tag{13.11}\]</span></span> The pressure is no longer a function of the density! Instead, it takes whatever value is needed to keep <span class="math inline">\(\nabla \cdot \mathbf{v} = 0\)</span>: in the limit <span class="math inline">\(c_s \to \infty\)</span>, sound waves adjust the pressure instantaneously.</p>
+<p>When can we treat a flow as incompressible? Consider a quasi-steady, adiabatic flow. The continuity equation gives <span id="eq-wind-compression-1"><span class="math display">\[
+0 \approx - \frac{\partial \rho}{\partial t} = \mathbf{v} \cdot \nabla \rho + \rho \nabla \cdot \mathbf{v} \Longrightarrow \frac{1}{c_s^2} \mathbf{v} \cdot \nabla p \approx - \rho \nabla \cdot \mathbf{v},
+\tag{13.12}\]</span></span> where we have used <span class="math inline">\(\nabla p = c_s^2 \nabla \rho\)</span>. The momentum equation, <a href="#eq-wind-momentum" class="quarto-xref">Equation&nbsp;<span>13.4</span></a> without gravity, gives <span id="eq-wind-compression-2"><span class="math display">\[
+0 \approx - \frac{\partial \mathbf{v}}{\partial t} = \nabla \left( \frac{1}{2} v^2 \right) + \boldsymbol{\omega} \times \mathbf{v} + \frac{\nabla p}{\rho} \Longrightarrow \mathbf{v} \cdot \nabla p \approx - \rho \mathbf{v} \cdot \nabla \left( \frac{1}{2} v^2 \right) .
+\tag{13.13}\]</span></span> Combining the two, we find <span id="eq-wind-compression"><span class="math display">\[
+\nabla \cdot \mathbf{v} \approx \frac{1}{c_s^2} \mathbf{v} \cdot \nabla \left( \frac{1}{2} v^2 \right) \sim \left( \frac{v}{c_s} \right)^2 \frac{v}{L} = \mathrm{Ma}^2 \frac{v}{L},
+\tag{13.14}\]</span></span> where <span class="math inline">\(L\)</span> is the length scale of the flow. In practice, this means that the equation of state does not matter for flows with <span class="math inline">\(\mathrm{Ma} \lesssim 0.3\)</span>.</p>
 </div>
 </div>
-<section id="sec-wind-worksheet" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="sec-wind-worksheet"><span class="header-section-number">13.1</span> In-class worksheet</h2>
+</section>
+<section id="bernoullis-theorem" class="level3" data-number="13.1.2">
+<h3 data-number="13.1.2" class="anchored" data-anchor-id="bernoullis-theorem"><span class="header-section-number">13.1.2</span> Bernoulli’s theorem</h3>
+<p>For a barotropic fluid, we can introduce the enthalpy as the indefinite integral <span id="eq-wind-enthalpy"><span class="math display">\[
+\mathcal{H} = \int \frac{\mathrm{d} p}{\rho}, \qquad \nabla \mathcal{H} = \frac{\nabla p}{\rho},
+\tag{13.15}\]</span></span> and write <a href="#eq-wind-momentum" class="quarto-xref">Equation&nbsp;<span>13.4</span></a> as <span id="eq-wind-momentum-bernoulli"><span class="math display">\[
+\frac{\partial \mathbf{v}}{\partial t} + \nabla \mathcal{B} + \boldsymbol{\omega} \times \mathbf{v} = 0, \qquad \mathcal{B} = \frac{1}{2} v^2 + \mathcal{H} + \Psi .
+\tag{13.16}\]</span></span> For an isentropic flow, <span class="math inline">\(\mathcal{H}\)</span> is the specific enthalpy <span class="math inline">\(h\)</span> of <a href="shock-waves.html" class="quarto-xref"><span>Chapter 11</span></a>; for other barotropic flows, such as isothermal ones, it is not. For a pressureless fluid, <span class="math inline">\(\mathcal{H} = 0\)</span>, and <span class="math inline">\(\mathcal{B}\)</span> is just the mechanical energy (kinetic plus potential) per unit mass. In a steady state, <span class="math inline">\(\partial_t \mathbf{v} = 0\)</span>. Taking the dot product of <a href="#eq-wind-momentum-bernoulli" class="quarto-xref">Equation&nbsp;<span>13.16</span></a> with <span class="math inline">\(\mathbf{v}\)</span>, we find <span class="math inline">\(\mathbf{v} \cdot \nabla \mathcal{B} = 0\)</span>, that is (<em>Bernoulli’s theorem</em>) <span id="eq-wind-bernoulli"><span class="math display">\[
+\boxed{\mathcal{B} = \frac{1}{2} v^2 + \mathcal{H} + \Psi = \text{const along streamlines.}}
+\tag{13.17}\]</span></span> This theorem generalizes the conservation of mechanical energy, which is so useful to solve problems in mechanics, to the domain of fluids. As we will see, Bernoulli’s theorem can be used to solve many fluid-related problems with minimal effort. If the flow is also irrotational, then <span class="math inline">\(\nabla \mathcal{B} = 0\)</span>, and <span class="math inline">\(\mathcal{B}\)</span> has the same value everywhere.</p>
+</section>
+</section>
+<section id="sec-wind-isothermal" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="sec-wind-isothermal"><span class="header-section-number">13.2</span> Isothermal winds</h2>
+<p>Consider a spherical, steady, isothermal wind, <span class="math inline">\(p = c_{\mathrm{iso}}^2 \rho\)</span>, from a star with mass <span class="math inline">\(M\)</span>. The wind starts at a radius <span class="math inline">\(r_0\)</span>, the photosphere or the corona of the star, and is accelerated outwards.</p>
+<p>For an isothermal fluid, <a href="#eq-wind-enthalpy" class="quarto-xref">Equation&nbsp;<span>13.15</span></a> gives <span id="eq-wind-enthalpy-isothermal"><span class="math display">\[
+\mathcal{H} = \int c_{\mathrm{iso}}^2 \frac{\mathrm{d} \rho}{\rho} = c_{\mathrm{iso}}^2 \ln \rho,
+\tag{13.18}\]</span></span> and the wind is described by the conservation of mass and by Bernoulli’s theorem: <span id="eq-wind-isothermal"><span class="math display">\[
+\dot{M} = 4 \pi r^2 \rho v = \mathrm{const}, \qquad \frac{1}{2} v^2 + c_{\mathrm{iso}}^2 \ln \rho - \frac{GM}{r} = \mathrm{const} .
+\tag{13.19}\]</span></span> Differentiating the first equation, we find <span id="eq-wind-mass-derivative"><span class="math display">\[
+2 r \rho v + r^2 v \frac{\mathrm{d} \rho}{\mathrm{d} r} + r^2 \rho \frac{\mathrm{d} v}{\mathrm{d} r} = 0 \Longrightarrow \frac{1}{\rho} \frac{\mathrm{d} \rho}{\mathrm{d} r} = - \frac{2}{r} - \frac{1}{v} \frac{\mathrm{d} v}{\mathrm{d} r} .
+\tag{13.20}\]</span></span> Differentiating the second, we find <span id="eq-wind-bernoulli-derivative"><span class="math display">\[
+v \frac{\mathrm{d} v}{\mathrm{d} r} + \frac{c_{\mathrm{iso}}^2}{\rho} \frac{\mathrm{d} \rho}{\mathrm{d} r} = - \frac{GM}{r^2} .
+\tag{13.21}\]</span></span> Combining the two, we obtain the <em>wind equation</em> <span id="eq-wind-equation"><span class="math display">\[
+\boxed{(v^2 - c_{\mathrm{iso}}^2) \frac{1}{v} \frac{\mathrm{d} v}{\mathrm{d} r} = \frac{2 c_{\mathrm{iso}}^2}{r} - \frac{GM}{r^2} .}
+\tag{13.22}\]</span></span> At this point, before we analyze this equation in detail, it is important to remark that energy is <em>not</em> conserved in this problem. The assumption of constant temperature requires that heat is supplied to the wind: by thermal conduction and non-radiative heating in the solar corona, by the radiation of the star in hot stars. Remember that, if energy is conserved, an expanding flow cools adiabatically, like the hot bubble of a supernova remnant in the snowplough phase (<a href="blast-waves.html#sec-blast-snr" class="quarto-xref"><span>Section 12.2</span></a>). What is happening here is that energy is being injected into the flow and that this heating is implicit in our assumption that the flow is isothermal. We will come back to this in <a href="#sec-wind-energy" class="quarto-xref"><span>Section 13.2.3</span></a>.</p>
+<section id="the-critical-point" class="level3" data-number="13.2.1">
+<h3 data-number="13.2.1" class="anchored" data-anchor-id="the-critical-point"><span class="header-section-number">13.2.1</span> The critical point</h3>
+<p>Close to the star, where the wind is almost in hydrostatic equilibrium, <span class="math inline">\(v \ll c_{\mathrm{iso}}\)</span>, while far from it, <span class="math inline">\(v \gg c_{\mathrm{iso}}\)</span>. So, if the wind accelerates, it must cross the sound speed somewhere. At that point the left-hand side of <a href="#eq-wind-equation" class="quarto-xref">Equation&nbsp;<span>13.22</span></a> vanishes, so the right-hand side must also vanish. This happens only at the <em>critical point</em>, or <em>sonic point</em>, <span id="eq-wind-rc"><span class="math display">\[
+\boxed{r_c = \frac{GM}{2 c_{\mathrm{iso}}^2} .}
+\tag{13.23}\]</span></span> Note that <span class="math inline">\(c_{\mathrm{iso}} = v_{\mathrm{esc}} (r_c) / 2\)</span>, where <span class="math inline">\(v_{\mathrm{esc}} = (2GM / r)^{1/2}\)</span> is the escape velocity. In the worksheet, you will show that the acceleration at the critical point is finite: <span id="eq-wind-acceleration"><span class="math display">\[
+\left( \frac{\mathrm{d} v}{\mathrm{d} r} \right)_{r_c} = \pm \frac{2 c_{\mathrm{iso}}^3}{GM} .
+\tag{13.24}\]</span></span></p>
+<p>The wind equation can be written as <span id="eq-wind-integrable"><span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d} r} \left[ \frac{v^2}{2} - c_{\mathrm{iso}}^2 \ln v \right] = \frac{\mathrm{d}}{\mathrm{d} r} \left[ \frac{GM}{r} + 2 c_{\mathrm{iso}}^2 \ln r \right] .
+\tag{13.25}\]</span></span> Integrating, dividing by <span class="math inline">\(- c_{\mathrm{iso}}^2\)</span>, and taking the exponential of both sides, we find <span id="eq-wind-family"><span class="math display">\[
+v \exp \left( - \frac{v^2}{2 c_{\mathrm{iso}}^2} \right) = \frac{C}{r^2} \exp \left( - \frac{2 r_c}{r} \right),
+\tag{13.26}\]</span></span> where <span class="math inline">\(C\)</span> is an integration constant. <a href="#fig-wind-solutions" class="quarto-xref">Figure&nbsp;<span>13.5</span></a> shows the solutions for different values of <span class="math inline">\(C\)</span>. The solution that passes through the critical point, <span class="math inline">\(v = c_{\mathrm{iso}}\)</span> at <span class="math inline">\(r = r_c\)</span>, has <span id="eq-wind-constant"><span class="math display">\[
+c_{\mathrm{iso}} \mathrm{e}^{- 1 / 2} = \frac{C}{r_c^2} \mathrm{e}^{- 2} \Longrightarrow C = c_{\mathrm{iso}} r_c^2 \mathrm{e}^{3 / 2},
+\tag{13.27}\]</span></span> so <span id="eq-wind-parker"><span class="math display">\[
+\boxed{v \exp \left( - \frac{v^2}{2 c_{\mathrm{iso}}^2} \right) = c_{\mathrm{iso}} \left( \frac{r_c}{r} \right)^2 \exp \left( - \frac{2 r_c}{r} + \frac{3}{2} \right) .}
+\tag{13.28}\]</span></span></p>
+<div id="fig-wind-solutions" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Curves of v over c_iso against r over r_c, from 0 to 4, for different values of the integration constant. Two critical solutions cross at r = r_c, v = c_iso, marked by a dot. The wind, a thick black line, starts subsonic near the star, accelerates, becomes supersonic at r_c, and keeps accelerating slowly. The accretion solution, a thick red dashed line, is subsonic at large radii and supersonic inside r_c. Thin grey curves show the other solutions: some are subsonic everywhere, with a maximum of v at r_c; some are supersonic everywhere, with a minimum of v at r_c; others are double valued, either at small radii, where the velocity reaches c_iso with an infinite slope before r_c, or at large radii, where they never reach r_c.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wind-solutions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/winds-and-accretion/parker-solutions.svg" class="img-fluid figure-img" alt="Curves of v over c_iso against r over r_c, from 0 to 4, for different values of the integration constant. Two critical solutions cross at r = r_c, v = c_iso, marked by a dot. The wind, a thick black line, starts subsonic near the star, accelerates, becomes supersonic at r_c, and keeps accelerating slowly. The accretion solution, a thick red dashed line, is subsonic at large radii and supersonic inside r_c. Thin grey curves show the other solutions: some are subsonic everywhere, with a maximum of v at r_c; some are supersonic everywhere, with a minimum of v at r_c; others are double valued, either at small radii, where the velocity reaches c_iso with an infinite slope before r_c, or at large radii, where they never reach r_c.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wind-solutions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.5: Solutions of the isothermal wind equation, <a href="#eq-wind-family" class="quarto-xref">Equation&nbsp;<span>13.26</span></a>, for different values of the integration constant <span class="math inline">\(C\)</span>. Thick lines: the two solutions that pass through the critical point.
+</figcaption>
+</figure>
+</div>
+<p>Only one of the solutions in <a href="#fig-wind-solutions" class="quarto-xref">Figure&nbsp;<span>13.5</span></a> starts subsonic close to the star and becomes supersonic: this is the wind. The other solutions are double valued, or supersonic already at the base of the wind, or subsonic everywhere. The last ones, the <em>breezes</em>, have <span class="math inline">\(v \to 0\)</span> and a finite density at large radii, so their pressure at infinity is much larger than that of the ISM <span class="citation" data-cites="parker1958">(<a href="#ref-parker1958" role="doc-biblioref">Parker 1958</a>)</span>. At the base of the wind, <span class="math inline">\(v_0 \ll c_{\mathrm{iso}}\)</span>, so <a href="#eq-wind-parker" class="quarto-xref">Equation&nbsp;<span>13.28</span></a> gives <span id="eq-wind-v0"><span class="math display">\[
+v_0 \approx c_{\mathrm{iso}} \left( \frac{r_c}{r_0} \right)^2 \exp \left( - \frac{2 r_c}{r_0} + \frac{3}{2} \right) .
+\tag{13.29}\]</span></span> In other words, the speed at the base of the wind is set by the critical point. The wind regulates itself. If the speed at the base is too large, the gas reaches the sound speed before <span class="math inline">\(r_c\)</span>, where <span class="math inline">\(\mathrm{d} v / \mathrm{d} r \to \infty\)</span>: the flow stalls, and a shock forms, which slows down the wind. If the speed at the base is too small, the gas remains subsonic, and a rarefaction wave forms, which lowers the pressure and accelerates the wind.</p>
+</section>
+<section id="velocity-and-density-of-the-wind" class="level3" data-number="13.2.2">
+<h3 data-number="13.2.2" class="anchored" data-anchor-id="velocity-and-density-of-the-wind"><span class="header-section-number">13.2.2</span> Velocity and density of the wind</h3>
+<p>Far from the star, <span class="math inline">\(r \gg r_c\)</span>, the wind is supersonic, and <a href="#eq-wind-parker" class="quarto-xref">Equation&nbsp;<span>13.28</span></a> gives <span id="eq-wind-vlarge"><span class="math display">\[
+\frac{v^2}{2 c_{\mathrm{iso}}^2} \approx 2 \ln \left( \frac{r}{r_c} \right) + \ln \left( \frac{v}{c_{\mathrm{iso}}} \right) - \frac{3}{2} \Longrightarrow v \approx 2 c_{\mathrm{iso}} \left[ \ln \left( \frac{r}{r_c} \right) \right]^{1 / 2} .
+\tag{13.30}\]</span></span> The isothermal wind keeps accelerating, albeit slowly.</p>
+<p>Dividing <a href="#eq-wind-parker" class="quarto-xref">Equation&nbsp;<span>13.28</span></a> by <a href="#eq-wind-v0" class="quarto-xref">Equation&nbsp;<span>13.29</span></a>, we find <span id="eq-wind-velocity"><span class="math display">\[
+\frac{v}{v_0} \exp \left( - \frac{v^2}{2 c_{\mathrm{iso}}^2} \right) \approx \left( \frac{r_0}{r} \right)^2 \exp \left[ \frac{GM}{c_{\mathrm{iso}}^2} \left( \frac{1}{r_0} - \frac{1}{r} \right) \right] .
+\tag{13.31}\]</span></span> So, from the conservation of mass, in the subsonic part of the wind <span id="eq-wind-density"><span class="math display">\[
+\frac{\rho}{\rho_0} = \left( \frac{r_0}{r} \right)^2 \frac{v_0}{v} \approx \exp \left[ - \frac{GM}{c_{\mathrm{iso}}^2} \left( \frac{1}{r_0} - \frac{1}{r} \right) \right],
+\tag{13.32}\]</span></span> which is the density of an isothermal atmosphere in hydrostatic equilibrium. The mass-loss rate is <span class="math inline">\(\dot{M} = 4 \pi r_c^2 \rho_c c_{\mathrm{iso}}\)</span>, where <span class="math inline">\(\rho_c = \rho_0 (r_0 / r_c)^2 v_0 / c_{\mathrm{iso}}\)</span> is the density at the critical point. Using <a href="#eq-wind-v0" class="quarto-xref">Equation&nbsp;<span>13.29</span></a>, <span id="eq-wind-mdot"><span class="math display">\[
+\boxed{\dot{M} = 4 \pi \rho_0 c_{\mathrm{iso}} r_c^2 \exp \left( \frac{3}{2} - \frac{r_0}{H_0} \right),}
+\tag{13.33}\]</span></span> where <span class="math inline">\(H_0 = c_{\mathrm{iso}}^2 / g_0 = c_{\mathrm{iso}}^2 r_0^2 / (GM) = r_0^2 / (2 r_c)\)</span> is the pressure scale height at the base of the wind. The mass-loss rate is exponentially sensitive to <span class="math inline">\(r_0 / H_0\)</span>, that is, to the temperature at the base of the wind.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="#tbl-wind-sun" class="quarto-xref">Table&nbsp;<span>13.1</span></a> gives the isothermal wind of the Sun for different temperatures of the corona. The observed solar wind has <span class="math inline">\(v \approx 400\)</span>–<span class="math inline">\(800\,\mathrm{km/s}\)</span> at the Earth and <span class="math inline">\(\dot{M} \approx 2 \times 10^{-14}\,M_{\odot}/\mathrm{yr}\)</span>, consistent with a corona at <span class="math inline">\(T \approx 1.5\)</span>–<span class="math inline">\(2 \times 10^6\,\mathrm{K}\)</span>. In reality, the corona is not isothermal: it cools as the wind expands.</p>
+<div id="tbl-wind-sun" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-wind-sun-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;13.1: Isothermal wind of the Sun, for <span class="math inline">\(\mu = 0.6\)</span> and a density <span class="math inline">\(n_0 = 10^8\,\mathrm{cm^{-3}}\)</span> at <span class="math inline">\(r_0 = R_{\odot}\)</span>.
+</figcaption>
+<div aria-describedby="tbl-wind-sun-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(T\ (\mathrm{K})\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(1 \times 10^6\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(1.5 \times 10^6\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(2 \times 10^6\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(3 \times 10^6\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(c_{\mathrm{iso}}\ (\mathrm{km/s})\)</span></td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">140</td>
+<td style="text-align: right;">170</td>
+<td style="text-align: right;">200</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(r_c / R_{\odot}\)</span></td>
+<td style="text-align: right;">6.9</td>
+<td style="text-align: right;">4.6</td>
+<td style="text-align: right;">3.4</td>
+<td style="text-align: right;">2.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(v (1\,\mathrm{AU})\ (\mathrm{km/s})\)</span></td>
+<td style="text-align: right;">430</td>
+<td style="text-align: right;">560</td>
+<td style="text-align: right;">670</td>
+<td style="text-align: right;">870</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\dot{M}\ (M_{\odot}/\mathrm{yr})\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(3 \times 10^{-16}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(1 \times 10^{-14}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(9 \times 10^{-14}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(5 \times 10^{-13}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>For a hot star, with <span class="math inline">\(M = 50\,M_{\odot}\)</span>, <span class="math inline">\(r_0 = 15\,R_{\odot}\)</span>, and <span class="math inline">\(T = 4 \times 10^4\,\mathrm{K}\)</span> at the photosphere, <span class="math inline">\(r_0 / H_0 \approx 10^3\)</span>, so thermal pressure cannot drive a wind. The winds of hot stars are driven by radiation (see <a href="#exr-wind-radiation-driven" class="quarto-xref">Exercise&nbsp;<span>13.1</span></a> for a simple model).</p>
+</div>
+</div>
+</section>
+<section id="sec-wind-energy" class="level3" data-number="13.2.3">
+<h3 data-number="13.2.3" class="anchored" data-anchor-id="sec-wind-energy"><span class="header-section-number">13.2.3</span> Energy of the wind</h3>
+<p>The energy per unit mass of the wind is <span id="eq-wind-energy"><span class="math display">\[
+e = \frac{v^2}{2} - \frac{GM}{r} + \frac{p}{(\Gamma - 1) \rho} = \frac{v^2}{2} - \frac{GM}{r} + \frac{c_{\mathrm{iso}}^2}{\Gamma - 1},
+\tag{13.34}\]</span></span> where <span class="math inline">\(\Gamma\)</span> is the adiabatic index of the gas. At the base of the wind, <span class="math inline">\(v^2 \ll c_{\mathrm{iso}}^2 = v_{\mathrm{esc}}^2 (r_c) / 4 \ll v_{\mathrm{esc}}^2 (r_0)\)</span>, so <span class="math inline">\(e (r_0) \approx - GM / r_0 &lt; 0\)</span>. Far from the star, <span class="math inline">\(v \gg c_{\mathrm{iso}}\)</span>, so <span class="math inline">\(e \approx v^2 / 2 &gt; 0\)</span>. This means that energy is not conserved in an isothermal wind: the wind must be heated to stay isothermal. Polytropic winds, <span class="math inline">\(p \propto \rho^{\Gamma}\)</span> with polytropic exponent <span class="math inline">\(\Gamma\)</span>, have the same qualitative features, as long as <span class="math inline">\(\Gamma &lt; 3 / 2\)</span> <span class="citation" data-cites="lamers1999">(<a href="#ref-lamers1999" role="doc-biblioref">Lamers and Cassinelli 1999</a>)</span>. An adiabatic wind with <span class="math inline">\(\Gamma = 5 / 3\)</span> cannot accelerate to supersonic speeds.</p>
+</section>
+<section id="sec-wind-nozzle" class="level3" data-number="13.2.4">
+<h3 data-number="13.2.4" class="anchored" data-anchor-id="sec-wind-nozzle"><span class="header-section-number">13.2.4</span> The de Laval nozzle</h3>
+<p>Surprisingly, there is an exact mathematical equivalence between stellar winds and transonic flows in nozzles. Consider a one-dimensional, barotropic flow in a pipe with cross-sectional area <span class="math inline">\(A (s)\)</span>, <span class="math inline">\(s\)</span> being a coordinate along the pipe (<a href="#fig-wind-nozzle" class="quarto-xref">Figure&nbsp;<span>13.6</span></a>). The flow is described by the conservation of mass and by Bernoulli’s theorem: <span id="eq-wind-nozzle-equations"><span class="math display">\[
+\rho v A = \mathrm{const}, \qquad \frac{1}{2} v^2 + \mathcal{H} = \mathrm{const} .
+\tag{13.35}\]</span></span> Differentiating the first equation, we obtain <span id="eq-wind-nozzle-mass"><span class="math display">\[
+\frac{1}{\rho} \frac{\mathrm{d} \rho}{\mathrm{d} s} + \frac{1}{v} \frac{\mathrm{d} v}{\mathrm{d} s} + \frac{1}{A} \frac{\mathrm{d} A}{\mathrm{d} s} = 0 .
+\tag{13.36}\]</span></span> Bernoulli’s theorem gives, with <span class="math inline">\(c_s^2 = \mathrm{d} p / \mathrm{d} \rho\)</span> and <span class="math inline">\(\mathrm{Ma} = v / c_s\)</span>, <span id="eq-wind-nozzle-bernoulli"><span class="math display">\[
+v \frac{\mathrm{d} v}{\mathrm{d} s} + \frac{c_s^2}{\rho} \frac{\mathrm{d} \rho}{\mathrm{d} s} = 0 \Longrightarrow \frac{1}{\rho} \frac{\mathrm{d} \rho}{\mathrm{d} s} = - \mathrm{Ma}^2 \frac{1}{v} \frac{\mathrm{d} v}{\mathrm{d} s} .
+\tag{13.37}\]</span></span> Combining the last two equations, we find <span id="eq-wind-nozzle"><span class="math display">\[
+\boxed{(1 - \mathrm{Ma}^2) \frac{1}{v} \frac{\mathrm{d} v}{\mathrm{d} s} = - \frac{1}{A} \frac{\mathrm{d} A}{\mathrm{d} s} .}
+\tag{13.38}\]</span></span> We will see below that this equation coincides with the wind equation, <a href="#eq-wind-equation" class="quarto-xref">Equation&nbsp;<span>13.22</span></a>, with the proper choice of <span class="math inline">\(A (s)\)</span>.</p>
+<div id="fig-wind-nozzle" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A pipe whose cross-sectional area A(s) decreases to a minimum, the throat, and then increases again. The gas flows from left to right. It is subsonic, Ma < 1, before the throat, it reaches Ma = 1 at the throat, and it is supersonic, Ma > 1, after it.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wind-nozzle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/winds-and-accretion/nozzle.svg" class="img-fluid figure-img" alt="A pipe whose cross-sectional area A(s) decreases to a minimum, the throat, and then increases again. The gas flows from left to right. It is subsonic, Ma < 1, before the throat, it reaches Ma = 1 at the throat, and it is supersonic, Ma > 1, after it.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wind-nozzle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.6: A de Laval nozzle. The flow is subsonic before the throat, where the area <span class="math inline">\(A (s)\)</span> is smallest, and supersonic after it.
+</figcaption>
+</figure>
+</div>
+<ul>
+<li>If <span class="math inline">\(\mathrm{Ma} &lt; 1\)</span>, the flow accelerates where the pipe narrows, <span class="math inline">\(\mathrm{d} A / \mathrm{d} s &lt; 0\)</span>. The opposite happens for <span class="math inline">\(\mathrm{Ma} &gt; 1\)</span>.</li>
+<li>The flow can become supersonic without a shock, that is with a finite <span class="math inline">\(\mathrm{d} v / \mathrm{d} s\)</span>, only at a throat, where <span class="math inline">\(\mathrm{d} A / \mathrm{d} s = 0\)</span>.</li>
+<li>In principle, we could reverse the nozzle and have a flow that decelerates smoothly from supersonic to subsonic. In practice, this almost always produces shocks. Shocks, and dissipation in general, break the time symmetry of the fluid equations, even though these are derived from classical mechanics, which is time reversible (compare the famous Loschmidt paradox).</li>
+<li>Rocket engines use de Laval nozzles to accelerate their exhaust to supersonic speeds.</li>
+<li>The flow regulates itself, as the wind does. A sonic point before the throat makes <span class="math inline">\(\mathrm{d} v / \mathrm{d} s\)</span> diverge: a shock forms, and the flow stalls. The additional pressure moves the sonic point towards the throat. A sonic point after the throat also makes <span class="math inline">\(\mathrm{d} v / \mathrm{d} s\)</span> diverge, but now a rarefaction wave forms, which decreases the pressure and brings the sonic point back to the throat.</li>
+</ul>
+<p>For an isothermal gas, <span class="math inline">\(c_s = c_{\mathrm{iso}}\)</span>, and <a href="#eq-wind-nozzle" class="quarto-xref">Equation&nbsp;<span>13.38</span></a> becomes <span id="eq-wind-nozzle-isothermal"><span class="math display">\[
+(v^2 - c_{\mathrm{iso}}^2) \frac{1}{v} \frac{\mathrm{d} v}{\mathrm{d} s} = c_{\mathrm{iso}}^2 \frac{\mathrm{d} \ln A}{\mathrm{d} s} .
+\tag{13.39}\]</span></span> This is the wind equation, <a href="#eq-wind-equation" class="quarto-xref">Equation&nbsp;<span>13.22</span></a>, if <span class="math inline">\(c_{\mathrm{iso}}^2 \, \mathrm{d} \ln A / \mathrm{d} r = 2 c_{\mathrm{iso}}^2 / r - GM / r^2\)</span>, that is if <span class="math inline">\(A \propto r^2 \exp (2 r_c / r)\)</span>. This effective area has a minimum at <span class="math inline">\(r = r_c\)</span>: the critical point is the throat of the nozzle.</p>
+</section>
+</section>
+<section id="sec-wind-bondi" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="sec-wind-bondi"><span class="header-section-number">13.3</span> Spherical accretion</h2>
+<p>The same equations, with <span class="math inline">\(v &lt; 0\)</span>, describe the steady accretion of gas onto a star from a uniform medium, at rest far from the star. The physical solution is the one labelled “accretion” in <a href="#fig-wind-solutions" class="quarto-xref">Figure&nbsp;<span>13.5</span></a>: the gas falls in subsonically at large radii, and it crosses the sound speed at <span class="math inline">\(r_c\)</span>. This is called <em>Bondi accretion</em> <span class="citation" data-cites="bondi1952">(<a href="#ref-bondi1952" role="doc-biblioref">Bondi 1952</a>)</span>. We work it out in <a href="#exr-wind-bondi" class="quarto-xref">Exercise&nbsp;<span>13.2</span></a>.</p>
+</section>
+<section id="sec-wind-worksheet" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="sec-wind-worksheet"><span class="header-section-number">13.4</span> In-class worksheet</h2>
 <ol type="1">
-<li>The radial velocity <span class="math inline">\(v\)</span> for an isothermal wind with isothermal sound speed <span class="math inline">\(c_{\mathrm{iso}}\)</span> satisfies the equation <span id="eq-wind-1"><span class="math display">\[
+<li>The radial velocity <span class="math inline">\(v\)</span> for an isothermal wind with isothermal sound speed <span class="math inline">\(c_{\mathrm{iso}}\)</span> satisfies the equation <span id="eq-wind-40"><span class="math display">\[
 (v^2 - c_{\mathrm{iso}}^2)  \frac{1}{v} \frac{\mathrm{d} v}{\mathrm{d} r} = \frac{2 c_{\mathrm{iso}}^2}{r} - \frac{GM}{r^2} .
-\tag{13.1}\]</span></span> Find the acceleration of the wind at the sonic point <span id="eq-wind-2"><span class="math display">\[
+\tag{13.40}\]</span></span> Find the acceleration of the wind at the sonic point <span id="eq-wind-41"><span class="math display">\[
 r_c = \frac{GM}{2 c_{\mathrm{iso}}^2} .
-\tag{13.2}\]</span></span></li>
+\tag{13.41}\]</span></span></li>
 </ol>
 </section>
-<section id="sec-wind-exercises" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="sec-wind-exercises"><span class="header-section-number">13.2</span> Exercises</h2>
+<section id="sec-wind-exercises" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="sec-wind-exercises"><span class="header-section-number">13.5</span> Exercises</h2>
 <div id="exr-wind-radiation-driven" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 13.1 (Radiation-driven winds)</strong></span> Consider an isothermal steady stellar wind. Radiation pressure in optically thin conditions produces an additional force per unit mass that can be parameterized as <span id="eq-wind-3"><span class="math display">\[
+<p><span class="theorem-title"><strong>Exercise 13.1 (Radiation-driven winds)</strong></span> Consider an isothermal steady stellar wind. Radiation pressure in optically thin conditions produces an additional force per unit mass that can be parameterized as <span id="eq-wind-42"><span class="math display">\[
 f = \frac{A}{r^2},
-\tag{13.3}\]</span></span> where <span class="math inline">\(A &gt; 0\)</span>.</p>
+\tag{13.42}\]</span></span> where <span class="math inline">\(A &gt; 0\)</span>.</p>
 <ol type="1">
-<li><p>Show that the momentum equation becomes <span id="eq-wind-4"><span class="math display">\[
+<li><p>Show that the momentum equation becomes <span id="eq-wind-43"><span class="math display">\[
 (v^2 - c_{\mathrm{iso}}^2)  \frac{1}{v}  \frac{\mathrm{d} v}{\mathrm{d} r} = \frac{2 c_{\mathrm{iso}}^2}{r} -
 \frac{GM}{r^2} + \frac{A}{r^2},
-\tag{13.4}\]</span></span> where <span class="math inline">\(c_{\mathrm{iso}}\)</span> is the isothermal sound speed.</p></li>
+\tag{13.43}\]</span></span> where <span class="math inline">\(c_{\mathrm{iso}}\)</span> is the isothermal sound speed.</p></li>
 <li><p>Assuming <span class="math inline">\(A &lt; GM\)</span>, how does the structure of the wind change?</p></li>
 <li><p>How does the radial profile of the velocity change if <span class="math inline">\(A &gt; GM\)</span>? Give a physical interpretation of the results.</p></li>
 </ol>
@@ -645,20 +922,31 @@ f = \frac{A}{r^2},
 <li><p>Find the accretion rate, assuming that the gas remains isothermal. At what radius does the infalling gas reach the sound speed?</p></li>
 <li><p>Let <span class="math inline">\(c_{\mathrm{iso}} = 1\, \mathrm{km} /\mathrm{s}\)</span> and <span class="math inline">\(n_{\infty} = 10^3\)</span> hydrogen atoms per <span class="math inline">\(\mathrm{cm}^{3}\)</span>, and take the mass of the hydrogen atom to be <span class="math inline">\(1.66 \times 10^{- 27}\, \mathrm{kg}\)</span>. Express this radius in units of the solar radius <span class="math inline">\(R_{\odot} = 7 \times 10^8\, \mathrm{m}\)</span>.</p></li>
 <li><p>Calculate the time that a star of mass <span class="math inline">\(M\)</span> needs to double its mass.</p></li>
+<li><p>The gas is captured by the star inside the <em>Bondi radius</em> <span class="math inline">\(r_B\)</span>, where the gravitational energy per unit mass, <span class="math inline">\(GM / r\)</span>, becomes comparable to the thermal energy per unit mass, <span class="math inline">\(c_{\mathrm{iso}}^2\)</span>. Find <span class="math inline">\(r_B\)</span> and compare it with the radius of part 1. Estimate the accretion rate as the mass flux <span class="math inline">\(\rho_{\infty} c_{\mathrm{iso}}\)</span> through a disk of radius <span class="math inline">\(r_B\)</span>, and compare your estimate with the result of part 1.</p></li>
 </ol>
 <p>Adapted from <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Problem 30.</p>
 </div>
 </section>
-<section id="sec-wind-reading" class="level2" data-number="13.3">
-<h2 data-number="13.3" class="anchored" data-anchor-id="sec-wind-reading"><span class="header-section-number">13.3</span> Further reading</h2>
+<section id="sec-wind-reading" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="sec-wind-reading"><span class="header-section-number">13.6</span> Further reading</h2>
 <ul>
 <li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Chapter 9 (Bernoulli’s equation).</li>
+<li><span class="citation" data-cites="lamers1999">Lamers and Cassinelli (<a href="#ref-lamers1999" role="doc-biblioref">1999</a>)</span>, for the theory of stellar winds.</li>
 </ul>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-bondi1952" class="csl-entry" role="listitem">
+Bondi, H. 1952. <span>“On Spherically Symmetrical Accretion.”</span> <em>Monthly Notices of the Royal Astronomical Society</em> 112: 195–204. <a href="https://doi.org/10.1093/mnras/112.2.195">https://doi.org/10.1093/mnras/112.2.195</a>.
+</div>
 <div id="ref-clarke2007" class="csl-entry" role="listitem">
 Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dynamics</em>. Cambridge University Press.
+</div>
+<div id="ref-lamers1999" class="csl-entry" role="listitem">
+Lamers, Henny J. G. L. M., and Joseph P. Cassinelli. 1999. <em>Introduction to Stellar Winds</em>. Cambridge University Press.
+</div>
+<div id="ref-parker1958" class="csl-entry" role="listitem">
+Parker, E. N. 1958. <span>“Dynamics of the Interplanetary Gas and Magnetic Fields.”</span> <em>The Astrophysical Journal</em> 128: 664–76. <a href="https://doi.org/10.1086/146579">https://doi.org/10.1086/146579</a>.
 </div>
 </div>
 </section>

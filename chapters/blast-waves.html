@@ -572,9 +572,11 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul class="collapse">
-  <li><a href="#sec-blast-worksheet" id="toc-sec-blast-worksheet" class="nav-link active" data-scroll-target="#sec-blast-worksheet"><span class="header-section-number">12.1</span> In-class worksheet</a></li>
-  <li><a href="#sec-blast-exercises" id="toc-sec-blast-exercises" class="nav-link" data-scroll-target="#sec-blast-exercises"><span class="header-section-number">12.2</span> Exercises</a></li>
-  <li><a href="#sec-blast-reading" id="toc-sec-blast-reading" class="nav-link" data-scroll-target="#sec-blast-reading"><span class="header-section-number">12.3</span> Further reading</a></li>
+  <li><a href="#sec-blast-similarity" id="toc-sec-blast-similarity" class="nav-link active" data-scroll-target="#sec-blast-similarity"><span class="header-section-number">12.1</span> Similarity analysis</a></li>
+  <li><a href="#sec-blast-snr" id="toc-sec-blast-snr" class="nav-link" data-scroll-target="#sec-blast-snr"><span class="header-section-number">12.2</span> Supernova remnants</a></li>
+  <li><a href="#sec-blast-worksheet" id="toc-sec-blast-worksheet" class="nav-link" data-scroll-target="#sec-blast-worksheet"><span class="header-section-number">12.3</span> In-class worksheet</a></li>
+  <li><a href="#sec-blast-exercises" id="toc-sec-blast-exercises" class="nav-link" data-scroll-target="#sec-blast-exercises"><span class="header-section-number">12.4</span> Exercises</a></li>
+  <li><a href="#sec-blast-reading" id="toc-sec-blast-reading" class="nav-link" data-scroll-target="#sec-blast-reading"><span class="header-section-number">12.5</span> Further reading</a></li>
   </ul>
 </nav>
     </div>
@@ -601,21 +603,276 @@ window.Quarto = {
 </header>
 
 
+<p>Supernova explosions sweep the interstellar medium (ISM), creating bubbles of superheated plasma, with <span class="math inline">\(T \sim 10^7\,\mathrm{K}\)</span> (<a href="#fig-blast-sn1006" class="quarto-xref">Figure&nbsp;<span>12.1</span></a>). These <em>supernova remnants</em> remain bright X-ray sources for about <span class="math inline">\(10^5\)</span> years before cooling down. In this chapter, we model supernova remnants as point explosions in the ISM, and derive the <em>Sedov–Taylor solution</em>. This is also an excuse to present an example of <em>similarity analysis</em>, which has many applications, but is seldom discussed in (astro)physics courses.</p>
+<div id="fig-blast-sn1006" class="quarto-float quarto-figure quarto-figure-center anchored" alt="False-colour X-ray image of a roughly circular supernova remnant on a black background. The interior is filled with mottled red emission. The rim is brighter and bluish-white, especially along the upper left and lower right edges, where it forms thin filaments.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-blast-sn1006-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/blast-waves/sn1006-chandra.jpg" class="img-fluid figure-img" alt="False-colour X-ray image of a roughly circular supernova remnant on a black background. The interior is filled with mottled red emission. The rim is brighter and bluish-white, especially along the upper left and lower right edges, where it forms thin filaments.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blast-sn1006-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.1: X-ray image of the remnant of SN 1006 taken by the Chandra X-ray Observatory. Credit: NASA/CXC; not covered by the license of these notes.
+</figcaption>
+</figure>
+</div>
+<section id="sec-blast-similarity" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="sec-blast-similarity"><span class="header-section-number">12.1</span> Similarity analysis</h2>
+<p>Consider an energy <span class="math inline">\(E\)</span> released at a point in a uniform gas with density <span class="math inline">\(\rho_1\)</span>. The explosion drives a spherical shock with radius <span class="math inline">\(r_{\mathrm{sh}}\)</span>, moving outwards with speed <span class="math inline">\(U_{\mathrm{sh}}\)</span>. In the limit in which the pressure of the ambient gas can be neglected, that is for a strong shock (<a href="shock-waves.html#eq-shock-strong" class="quarto-xref">Equation&nbsp;<span>11.14</span></a>), this problem is characterized by only two parameters: <span class="math inline">\(E\)</span> and <span class="math inline">\(\rho_1\)</span>. No combination of them has the dimensions of a length or a time. So the problem has no characteristic length or time: the flow at a later time must look like a scaled-up copy of the flow at an earlier time. The solution behind the shock must be in the form <span id="eq-blast-1"><span class="math display">\[
+q (t, r) = f_q \left( \xi \right), \qquad \xi = \frac{r}{r_0 (t)},
+\tag{12.1}\]</span></span> where <span class="math inline">\(q\)</span> is any of the fluid variables and <span class="math inline">\(r_0\)</span> is a characteristic length scale of the problem. <span class="math inline">\(r_0\)</span> can only depend on <span class="math inline">\(E\)</span>, <span class="math inline">\(\rho_1\)</span>, and <span class="math inline">\(t\)</span>. We write <span class="math inline">\(r_0 = \rho_1^{\alpha} E^{\beta} t^{\gamma}\)</span>, so that <span id="eq-blast-2"><span class="math display">\[
+\begin{gathered}
+\mathrm{m} = \left( \mathrm{kg\,m^{-3}} \right)^{\alpha} \left( \mathrm{kg\,m^2\,s^{-2}} \right)^{\beta} \mathrm{s}^{\gamma} \\
+\Longrightarrow \quad \alpha + \beta = 0, \quad 2 \beta - 3 \alpha = 1, \quad \gamma - 2 \beta = 0 \\
+\Longrightarrow \quad \alpha = - 1 / 5, \quad \beta = 1 / 5, \quad \gamma = 2 / 5 .
+\end{gathered}
+\tag{12.2}\]</span></span> So the dimensionless radius is <span id="eq-blast-xi"><span class="math display">\[
+\xi = r \left( \frac{\rho_1}{E t^2} \right)^{1 / 5} .
+\tag{12.3}\]</span></span> The shock must sit at a fixed value <span class="math inline">\(\xi = \xi_0\)</span>, so <span id="eq-blast-radius"><span class="math display">\[
+\boxed{r_{\mathrm{sh}} = \xi_0 \left( \frac{E t^2}{\rho_1} \right)^{1 / 5} ,}
+\tag{12.4}\]</span></span> and the shock velocity is <span id="eq-blast-velocity"><span class="math display">\[
+U_{\mathrm{sh}} = \frac{\mathrm{d} r_{\mathrm{sh}}}{\mathrm{d} t} = \frac{2}{5} \xi_0 \left( \frac{E}{\rho_1 t^3} \right)^{1 / 5} = \frac{2}{5}  \frac{r_{\mathrm{sh}}}{t} .
+\tag{12.5}\]</span></span> <span class="math inline">\(\xi_0\)</span> is a number of order one, which we will compute in <a href="#sec-blast-sedov" class="quarto-xref"><span>Section 12.2.4</span></a>. Note that <span class="math inline">\(U_{\mathrm{sh}} \propto t^{- 3 / 5}\)</span> and <span class="math inline">\(r_{\mathrm{sh}} \propto t^{2 / 5}\)</span>, so <span id="eq-blast-energy-conserving"><span class="math display">\[
+\rho_1 r_{\mathrm{sh}}^3 U_{\mathrm{sh}}^2 = \mathrm{const} .
+\tag{12.6}\]</span></span> In other words, the kinetic energy of the swept-up gas is constant: the phase that is described by this similarity solution is <em>energy conserving</em>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The same scaling describes strong explosions in the atmosphere. <a href="#fig-blast-trinity" class="quarto-xref">Figure&nbsp;<span>12.2</span></a> shows the fireball of the first nuclear explosion. In the in-class worksheet (<a href="#sec-blast-worksheet" class="quarto-xref"><span>Section 12.3</span></a>), we use these data to estimate the energy of the explosion.</p>
+<div id="fig-blast-trinity" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A column of seven black-and-white frames, labelled 0.10, 0.24, 0.38, 0.52, 0.66, 0.80, and 0.94 milliseconds. Each shows a bright, roughly hemispherical fireball sitting on the ground, which grows from a small blob in the first frame to a dome about 150 metres across in the last. A 100 metre scale bar is at the bottom.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-blast-trinity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/blast-waves/trinity-fireball.png" class="img-fluid figure-img" style="width:40.0%" alt="A column of seven black-and-white frames, labelled 0.10, 0.24, 0.38, 0.52, 0.66, 0.80, and 0.94 milliseconds. Each shows a bright, roughly hemispherical fireball sitting on the ground, which grows from a small blob in the first frame to a dome about 150 metres across in the last. A 100 metre scale bar is at the bottom.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blast-trinity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.2: Fireball of the Trinity nuclear test (1945) at times from <span class="math inline">\(0.10\)</span> to <span class="math inline">\(0.94\,\mathrm{ms}\)</span> after the explosion. The bar at the bottom is <span class="math inline">\(100\,\mathrm{m}\)</span> long. U.S. government photograph (public domain).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-blast-snr" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="sec-blast-snr"><span class="header-section-number">12.2</span> Supernova remnants</h2>
+<p>A supernova ejects a mass <span class="math inline">\(M_{\mathrm{ej}} \sim M_{\odot}\)</span> with kinetic energy <span class="math inline">\(E \sim 10^{51}\,\mathrm{erg} = 10^{44}\,\mathrm{J}\)</span> into the ISM. The remnant goes through three phases, which we discuss in turn (<a href="#fig-blast-phases" class="quarto-xref">Figure&nbsp;<span>12.3</span></a>).</p>
+<div id="fig-blast-phases" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Sketch of the shock velocity U_sh against time t, both on logarithmic axes. In the free-expansion phase, up to t_0, U_sh is constant. In the Sedov–Taylor phase, between t_0 and t_1, it decreases as t to the power -3/5. At t_1 it drops, and in the snowplough phase it decreases as t to the power -5/7.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-blast-phases-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/blast-waves/phases.svg" class="img-fluid figure-img" alt="Sketch of the shock velocity U_sh against time t, both on logarithmic axes. In the free-expansion phase, up to t_0, U_sh is constant. In the Sedov–Taylor phase, between t_0 and t_1, it decreases as t to the power -3/5. At t_1 it drops, and in the snowplough phase it decreases as t to the power -5/7.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blast-phases-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.3: Velocity of the shock in the three phases of the evolution of a supernova remnant, on logarithmic axes.
+</figcaption>
+</figure>
+</div>
+<section id="free-expansion" class="level3" data-number="12.2.1">
+<h3 data-number="12.2.1" class="anchored" data-anchor-id="free-expansion"><span class="header-section-number">12.2.1</span> Free expansion</h3>
+<p>At early times, the ejecta expand ballistically into the ISM, with velocity <span id="eq-blast-free"><span class="math display">\[
+v \sim \sqrt{\frac{2 E}{M_{\mathrm{ej}}}} \sim 10^4\,\mathrm{km\,s^{-1}} .
+\tag{12.7}\]</span></span> The ejecta drive a shock into the ISM, the <em>forward shock</em>. When the ejecta have swept up a mass of ISM comparable to their own, <span class="math inline">\((4 \pi / 3) \rho_1 r^3 \sim M_{\mathrm{ej}}\)</span>, they are slowed down, and a second shock, the <em>reverse shock</em>, forms (<a href="#fig-blast-free" class="quarto-xref">Figure&nbsp;<span>12.4</span></a>). During the free expansion the ejecta have cooled adiabatically, so their sound speed is small, and the deceleration can only be communicated to them by a shock. The reverse shock moves inwards with respect to the gas and heats the ejecta. For <span class="math inline">\(\rho_1 = 2 \times 10^{-24}\,\mathrm{g\,cm^{-3}} = 2 \times 10^{-21}\,\mathrm{kg\,m^{-3}}\)</span>, that is about one proton per <span class="math inline">\(\mathrm{cm}^3\)</span>, this happens at <span class="math inline">\(r \sim 2\,\mathrm{pc}\)</span>, after <span class="math inline">\(t \sim r / v \sim 200\,\mathrm{yr}\)</span>. This marks the end of the free-expansion phase, <span class="math inline">\(t_0\)</span> in <a href="#fig-blast-phases" class="quarto-xref">Figure&nbsp;<span>12.3</span></a>.</p>
+<div id="fig-blast-free" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two sketches of the density rho against r/r_sh. Left: at early times the supernova ejecta, a high plateau, end at r/r_sh = 1 and move outwards into the interstellar medium, a low plateau. Right: at later times a reverse shock, moving inwards with respect to the gas, separates the ejecta from a higher plateau of shocked gas, which ends at the forward shock at r/r_sh = 1; beyond it is the cold interstellar medium.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-blast-free-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/blast-waves/free-expansion.svg" class="img-fluid figure-img" alt="Two sketches of the density rho against r/r_sh. Left: at early times the supernova ejecta, a high plateau, end at r/r_sh = 1 and move outwards into the interstellar medium, a low plateau. Right: at later times a reverse shock, moving inwards with respect to the gas, separates the ejecta from a higher plateau of shocked gas, which ends at the forward shock at r/r_sh = 1; beyond it is the cold interstellar medium.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blast-free-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.4: Density in the free-expansion phase (left) and after the formation of the reverse shock (right).
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="is-hydrodynamics-applicable" class="level3" data-number="12.2.2">
+<h3 data-number="12.2.2" class="anchored" data-anchor-id="is-hydrodynamics-applicable"><span class="header-section-number">12.2.2</span> Is hydrodynamics applicable?</h3>
+<p>The ejecta are mostly ionized hydrogen moving at <span class="math inline">\(v \sim 10^4\,\mathrm{km\,s^{-1}}\)</span>. What is the mean free path <span class="math inline">\(\lambda\)</span> of the protons? Each proton has an energy <span id="eq-blast-8"><span class="math display">\[
+\begin{aligned}
+\varepsilon_p &amp;= \frac{1}{2} m_p v^2 = \frac{1}{2} \left( \frac{v}{c} \right)^2 m_p c^2 \\
+&amp;\approx 5 \times 10^{-4} m_p c^2 \approx 0.5\,\mathrm{MeV} .
+\end{aligned}
+\tag{12.8}\]</span></span> Protons are slowed down by ionizing hydrogen atoms (if the ISM is ionized, Coulomb collisions give an even longer mean free path). The cross section for this process is <span class="math inline">\(\sigma_{\mathrm{ion}} \sim 10^{-17}\,\mathrm{cm^2} = 10^{-21}\,\mathrm{m^2}\)</span>, and the density of targets is <span class="math inline">\(n_H \sim 1\,\mathrm{cm^{-3}} = 10^6\,\mathrm{m^{-3}}\)</span>. Assuming that <span class="math inline">\(50\,\mathrm{eV}\)</span> are lost in each ionization, we find <span id="eq-blast-9"><span class="math display">\[
+\begin{aligned}
+\lambda &amp;\sim \left( \frac{0.5\,\mathrm{MeV}}{50\,\mathrm{eV}} \right) \frac{1}{n_H \sigma_{\mathrm{ion}}} \sim 10^{19}\,\mathrm{m} \\
+&amp;\approx 300\,\mathrm{pc} \gg r_{\mathrm{sh}} .
+\end{aligned}
+\tag{12.9}\]</span></span> However, the protons are stuck on the magnetic field lines. For <span class="math inline">\(B \sim 0.1\,\mathrm{nT}\)</span> (<span class="math inline">\(1\,\mu\mathrm{G}\)</span>), the Larmor radius (<a href="plasma.html#eq-plasma-larmor" class="quarto-xref">Equation&nbsp;<span>21.44</span></a>) is <span class="math inline">\(r_L \sim 10^9\,\mathrm{m}\)</span>. This makes the plasma behave like a fluid on the scales of interest, <span class="math inline">\(r \sim 1\,\mathrm{pc} \approx 3 \times 10^{16}\,\mathrm{m}\)</span> (<a href="plasma.html" class="quarto-xref"><span>Chapter 21</span></a>). Shocks in which the particles are coupled by the magnetic field, rather than by collisions, are called <em>collisionless shocks</em>.</p>
+</section>
+<section id="sedovtaylor-phase" class="level3" data-number="12.2.3">
+<h3 data-number="12.2.3" class="anchored" data-anchor-id="sedovtaylor-phase"><span class="header-section-number">12.2.3</span> Sedov–Taylor phase</h3>
+<p>Once the swept-up mass is much larger than <span class="math inline">\(M_{\mathrm{ej}}\)</span>, the remnant forgets the details of the ejecta, and it is described by the point explosion of <a href="#sec-blast-similarity" class="quarto-xref"><span>Section 12.1</span></a>. Radiative losses are still negligible, because the shocked gas is too hot and too tenuous to radiate efficiently. <a href="#tbl-blast-sedov" class="quarto-xref">Table&nbsp;<span>12.1</span></a> gives typical numbers.</p>
+<div id="tbl-blast-sedov" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-blast-sedov-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;12.1: Sedov–Taylor solution for <span class="math inline">\(E = 10^{51}\,\mathrm{erg}\)</span>, <span class="math inline">\(\rho_1 = 2 \times 10^{-24}\,\mathrm{g\,cm^{-3}}\)</span>, <span class="math inline">\(\xi_0 = 1.15\)</span>, and <span class="math inline">\(\mu = 0.6\)</span>.
+</figcaption>
+<div aria-describedby="tbl-blast-sedov-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(t\ (\mathrm{yr})\)</span></th>
+<th style="text-align: right;">100</th>
+<th style="text-align: right;">1,000</th>
+<th style="text-align: right;">10,000</th>
+<th style="text-align: right;">100,000</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(r_{\mathrm{sh}}\ (\mathrm{pc})\)</span></td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">5.1</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">32</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(U_{\mathrm{sh}}\ (\mathrm{km\,s^{-1}})\)</span></td>
+<td style="text-align: right;">8,000</td>
+<td style="text-align: right;">2,000</td>
+<td style="text-align: right;">510</td>
+<td style="text-align: right;">130</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(T_2\ (\mathrm{K})\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(9 \times 10^8\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(5 \times 10^7\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(3 \times 10^6\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(2 \times 10^5\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The post-shock conditions can be found from the Rankine–Hugoniot conditions in the strong-shock limit (<a href="shock-waves.html#sec-shock-rh" class="quarto-xref"><span>Section 11.2</span></a>). In the frame of the shock, the upstream velocity is <span class="math inline">\(u_1 = U_{\mathrm{sh}}\)</span>, and, using <a href="shock-waves.html#eq-shock-mass-flux" class="quarto-xref">Equation&nbsp;<span>11.8</span></a> with <span class="math inline">\(p_1 = 0\)</span>, <span id="eq-blast-10"><span class="math display">\[
+\begin{gathered}
+\rho_2 = \frac{\Gamma + 1}{\Gamma - 1} \rho_1, \\
+p_2 = j^2 (V_1 - V_2) = \rho_1 U_{\mathrm{sh}}^2 \left( 1 - \frac{V_2}{V_1} \right) .
+\end{gathered}
+\tag{12.10}\]</span></span> The velocity of the gas behind the shock, in the rest frame of the ISM, is <span class="math inline">\(v_2 = U_{\mathrm{sh}} - u_2 = U_{\mathrm{sh}} (1 - V_2 / V_1)\)</span>. Accordingly, the post-shock pressure and velocity are <span id="eq-blast-postshock"><span class="math display">\[
+p_2 = \frac{2}{\Gamma + 1} \rho_1 U_{\mathrm{sh}}^2, \qquad v_2 = \frac{2}{\Gamma + 1} U_{\mathrm{sh}} .
+\tag{12.11}\]</span></span> The post-shock temperature is <span id="eq-blast-temperature"><span class="math display">\[
+\begin{aligned}
+T_2 &amp;= \frac{\mu m_u p_2}{k_B \rho_2} = 2 \frac{\Gamma - 1}{(\Gamma + 1)^2}  \frac{\mu m_u}{k_B} U_{\mathrm{sh}}^2 \\
+&amp;= \frac{3}{16}  \frac{\mu m_u}{k_B} U_{\mathrm{sh}}^2 \qquad \left( \Gamma = \frac{5}{3} \right) .
+\end{aligned}
+\tag{12.12}\]</span></span> For the ionized ISM, <span class="math inline">\(\mu \approx 0.6\)</span>, so at <span class="math inline">\(t \sim 1000\,\mathrm{yr}\)</span> the temperature is <span class="math inline">\(T_2 \approx 5 \times 10^7\,\mathrm{K}\)</span>. Since <span class="math inline">\(U_{\mathrm{sh}} \propto t^{- 3 / 5}\)</span>, the temperature decreases as <span class="math inline">\(T_2 \propto t^{- 6 / 5}\)</span> (<a href="#tbl-blast-sedov" class="quarto-xref">Table&nbsp;<span>12.1</span></a>).</p>
+</section>
+<section id="sec-blast-sedov" class="level3" data-number="12.2.4">
+<h3 data-number="12.2.4" class="anchored" data-anchor-id="sec-blast-sedov"><span class="header-section-number">12.2.4</span> The Sedov solution</h3>
+<p>Behind the shock, we look for a similarity solution in the form <span id="eq-blast-similarity"><span class="math display">\[
+\begin{gathered}
+\rho (t, r) = \rho_2 \hat{\rho} (\xi), \qquad v (t, r) = v_2 \frac{r}{r_{\mathrm{sh}}} \hat{v} (\xi), \\
+p (t, r) = p_2 \left( \frac{r}{r_{\mathrm{sh}}} \right)^2 \hat{p} (\xi),
+\end{gathered}
+\tag{12.13}\]</span></span> where <span class="math inline">\(\xi\)</span> is given by <a href="#eq-blast-xi" class="quarto-xref">Equation&nbsp;<span>12.3</span></a>, and <span class="math inline">\(\rho_2\)</span>, <span class="math inline">\(v_2\)</span>, and <span class="math inline">\(p_2\)</span> are the post-shock values, which depend on time through <span class="math inline">\(U_{\mathrm{sh}}\)</span>. The dimensionless density, velocity, and pressure satisfy <span id="eq-blast-14"><span class="math display">\[
+\hat{\rho} (\xi_0) = \hat{v} (\xi_0) = \hat{p} (\xi_0) = 1 .
+\tag{12.14}\]</span></span> We can convert the time and radial derivatives into total derivatives with respect to <span class="math inline">\(\xi\)</span>: <span id="eq-blast-15"><span class="math display">\[
+\begin{aligned}
+\frac{\partial}{\partial t} &amp;= \frac{\partial \xi}{\partial t}  \frac{\mathrm{d}}{\mathrm{d} \xi} = - \frac{2}{5}  \frac{\xi}{t}  \frac{\mathrm{d}}{\mathrm{d} \xi}, \\
+\frac{\partial}{\partial r} &amp;= \frac{\partial \xi}{\partial r}  \frac{\mathrm{d}}{\mathrm{d} \xi} = \frac{\xi}{r}  \frac{\mathrm{d}}{\mathrm{d} \xi} .
+\end{aligned}
+\tag{12.15}\]</span></span> Inserting these into the equations of hydrodynamics in spherical symmetry (<a href="conservation-laws.html#tbl-conserv-summary" class="quarto-xref">Table&nbsp;<span>6.1</span></a>) yields <span id="eq-blast-sedov-odes"><span class="math display">\[
+\begin{aligned}
+&amp; - \xi \frac{\mathrm{d} \hat{\rho}}{\mathrm{d} \xi} + \frac{2}{\Gamma + 1} \left[ 3 \hat{\rho} \hat{v} + \xi \frac{\mathrm{d}}{\mathrm{d} \xi} (\hat{\rho} \hat{v}) \right] = 0, \\
+&amp; - \hat{v} - \frac{2}{5} \xi \frac{\mathrm{d} \hat{v}}{\mathrm{d} \xi} + \frac{4}{5 (\Gamma + 1)} \left( \hat{v}^2 + \hat{v} \xi \frac{\mathrm{d} \hat{v}}{\mathrm{d} \xi} \right) \\
+&amp; \qquad = - \frac{2}{5}  \frac{\Gamma - 1}{\Gamma + 1}  \frac{1}{\hat{\rho}} \left( 2 \hat{p} + \xi \frac{\mathrm{d} \hat{p}}{\mathrm{d} \xi} \right), \\
+&amp; - 2 (\hat{p} + \hat{\rho} \hat{v}^2) - \frac{2}{5} \xi \frac{\mathrm{d}}{\mathrm{d} \xi} (\hat{p} + \hat{\rho} \hat{v}^2) \\
+&amp; \qquad + \frac{4}{5 (\Gamma + 1)} \biggl\{ 5 \hat{v} (\Gamma \hat{p} + \hat{\rho} \hat{v}^2) \\
+&amp; \qquad \qquad + \xi \frac{\mathrm{d}}{\mathrm{d} \xi} \left[ \hat{v} (\Gamma \hat{p} + \hat{\rho} \hat{v}^2) \right] \biggr\} = 0 .
+\end{aligned}
+\tag{12.16}\]</span></span> These are three ordinary differential equations, which can be integrated numerically from the shock, <span class="math inline">\(\xi = \xi_0\)</span>, towards the centre. Note that <span class="math inline">\(\xi_0\)</span> only enters through <span class="math inline">\(\xi / \xi_0 = r / r_{\mathrm{sh}}\)</span>. Its value is set by the requirement of energy conservation: <span id="eq-blast-17"><span class="math display">\[
+4 \pi \int_0^{r_{\mathrm{sh}}} \rho \left( \varepsilon + \frac{1}{2} v^2 \right) r^2 \mathrm{d} r = E .
+\tag{12.17}\]</span></span> Using <a href="#eq-blast-postshock" class="quarto-xref">Equation&nbsp;<span>12.11</span></a> and <a href="#eq-blast-similarity" class="quarto-xref">Equation&nbsp;<span>12.13</span></a>, this requires <span id="eq-blast-xi0"><span class="math display">\[
+\frac{32 \pi}{25 (\Gamma^2 - 1)} \int_0^{\xi_0} \left[ \hat{p} + \hat{\rho} \hat{v}^2 \right] \xi^4 \mathrm{d} \xi = 1 .
+\tag{12.18}\]</span></span> For <span class="math inline">\(\Gamma = 5 / 3\)</span>, we find <span class="math inline">\(\xi_0 \approx 1.15\)</span>. The solution is shown in <a href="#fig-blast-sedov" class="quarto-xref">Figure&nbsp;<span>12.5</span></a>. Note that most of the mass is in a thin shell behind the shock, while the interior is filled with hot gas at low density and nearly uniform pressure. Since the shock compresses the gas by a factor <span class="math inline">\((\Gamma + 1) / (\Gamma - 1) = 4\)</span>, the swept-up mass would fill a uniform shell of thickness <span class="math inline">\(r_{\mathrm{sh}} / 12\)</span>.</p>
+<div id="fig-blast-sedov" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Profiles of the Sedov solution for Gamma = 5/3 against r/r_sh, from 0 to 1.25. The pressure p/p_2, in black, is about 0.31 at the centre, rises slowly and then steeply to 1 at the shock. The velocity v/v_2, in blue, grows almost linearly from 0 at the centre to 1 at the shock. The density rho/rho_2, in red, is close to zero in most of the interior and rises steeply to 1 just behind the shock; outside the shock it drops to rho_1/rho_2 = 1/4.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-blast-sedov-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/blast-waves/sedov-profiles.svg" class="img-fluid figure-img" alt="Profiles of the Sedov solution for Gamma = 5/3 against r/r_sh, from 0 to 1.25. The pressure p/p_2, in black, is about 0.31 at the centre, rises slowly and then steeply to 1 at the shock. The velocity v/v_2, in blue, grows almost linearly from 0 at the centre to 1 at the shock. The density rho/rho_2, in red, is close to zero in most of the interior and rises steeply to 1 just behind the shock; outside the shock it drops to rho_1/rho_2 = 1/4.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blast-sedov-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.5: The Sedov solution for <span class="math inline">\(\Gamma = 5/3\)</span>. The pressure at the centre is <span class="math inline">\(0.31\,p_2\)</span>.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="snowplough-phase" class="level3" data-number="12.2.5">
+<h3 data-number="12.2.5" class="anchored" data-anchor-id="snowplough-phase"><span class="header-section-number">12.2.5</span> Snowplough phase</h3>
+<p>As the remnant expands, its temperature decreases, and radiative cooling becomes important. An optically thin gas (<a href="shock-waves.html#sec-shock-radiative" class="quarto-xref"><span>Section 11.5</span></a>) radiates an energy <span class="math inline">\(n_H^2 \Lambda (T)\)</span> per unit volume and unit time, where <span class="math inline">\(\Lambda\)</span> is called the <em>cooling function</em>. For the ISM at <span class="math inline">\(T \sim 10^5\)</span>–<span class="math inline">\(10^6\,\mathrm{K}\)</span>, <span class="math inline">\(\Lambda \sim 10^{-35}\)</span>–<span class="math inline">\(10^{-34}\,\mathrm{W\,m^3}\)</span> (<span class="math inline">\(10^{-22}\)</span>–<span class="math inline">\(10^{-21}\,\mathrm{erg\,cm^3\,s^{-1}}\)</span>). So the energy radiated by <span class="math inline">\(t \sim 10^5\,\mathrm{yr}\)</span> is <span id="eq-blast-19"><span class="math display">\[
+n_H^2 \Lambda t \left( \frac{4 \pi}{3} r_{\mathrm{sh}}^3 \right) \sim 10^{44}\text{–}10^{45}\,\mathrm{J} .
+\tag{12.19}\]</span></span> So the supernova blast wave radiates away all its energy in <span class="math inline">\(t \sim 10^5\,\mathrm{yr}\)</span>. Cooling is fastest in the dense gas behind the shock, since the energy radiated per unit volume scales as <span class="math inline">\(n_H^2\)</span>. So, at <span class="math inline">\(t \gtrsim t_1 \sim 5 \times 10^4\,\mathrm{yr}\)</span>, when <span class="math inline">\(r_{\mathrm{sh}} = r_1\)</span>, the swept-up gas condenses into a thin shell of cold material, pushed by the hot gas in the interior (<a href="#fig-blast-snowplough" class="quarto-xref">Figure&nbsp;<span>12.6</span></a>). The shell sweeps up the ISM like a snowplough.</p>
+<div id="fig-blast-snowplough" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Sketch of the pressure p/p_max, in red, and of the density rho/rho_max, in black, against r/r_sh. The pressure is constant in the hot bubble that fills the interior and drops at the shell. The density is low in the interior and rises to a narrow peak, the cold shell, just inside r/r_sh = 1, which moves outwards at speed v_shell, about U_sh. Outside the shell the density is that of the ISM.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-blast-snowplough-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/blast-waves/snowplough.svg" class="img-fluid figure-img" alt="Sketch of the pressure p/p_max, in red, and of the density rho/rho_max, in black, against r/r_sh. The pressure is constant in the hot bubble that fills the interior and drops at the shell. The density is low in the interior and rises to a narrow peak, the cold shell, just inside r/r_sh = 1, which moves outwards at speed v_shell, about U_sh. Outside the shell the density is that of the ISM.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blast-snowplough-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.6: Structure of a supernova remnant in the snowplough phase.
+</figcaption>
+</figure>
+</div>
+<p>The hot bubble does not radiate efficiently, because of its low density, but it loses energy by doing work on the shell. Due to these adiabatic losses, <span class="math inline">\(p_{\mathrm{hot}} V_{\mathrm{hot}}^{\Gamma} = \mathrm{const}\)</span>, so, for <span class="math inline">\(\Gamma = 5 / 3\)</span>, <span id="eq-blast-20"><span class="math display">\[
+\begin{gathered}
+p_{\mathrm{hot}} \propto V_{\mathrm{hot}}^{- \Gamma} \propto r_{\mathrm{sh}}^{- 3 \Gamma} = r_{\mathrm{sh}}^{- 5} \\
+\Longrightarrow \quad p_{\mathrm{hot}} = p_{\mathrm{hot}} (t_1) \left( \frac{r_{\mathrm{sh}}}{r_1} \right)^{- 5} .
+\end{gathered}
+\tag{12.20}\]</span></span> The momentum of the shell changes because of the pressure of the hot gas: <span id="eq-blast-snowplough"><span class="math display">\[
+\begin{gathered}
+\frac{\mathrm{d}}{\mathrm{d} t} \int_{\mathrm{shell}} \rho v_r \mathrm{d} V = \oint_{\mathrm{shell}} p \mathrm{d} A \\
+\Longrightarrow \quad \frac{\mathrm{d}}{\mathrm{d} t} (M_{\mathrm{sh}} U_{\mathrm{sh}}) = 4 \pi r_{\mathrm{sh}}^2 p_{\mathrm{hot}},
+\end{gathered}
+\tag{12.21}\]</span></span> where <span class="math inline">\(M_{\mathrm{sh}} = (4 \pi / 3) \rho_1 r_{\mathrm{sh}}^3\)</span> is the swept-up mass. We assume <span class="math inline">\(r_{\mathrm{sh}} \propto t^{\eta}\)</span>. Then <span class="math inline">\(U_{\mathrm{sh}} \propto t^{\eta - 1}\)</span>, <span class="math inline">\(M_{\mathrm{sh}} \propto t^{3 \eta}\)</span>, and <span id="eq-blast-22"><span class="math display">\[
+\begin{gathered}
+\frac{\mathrm{d}}{\mathrm{d} t} (M_{\mathrm{sh}} U_{\mathrm{sh}}) \propto t^{4 \eta - 2}, \qquad r_{\mathrm{sh}}^2 p_{\mathrm{hot}} \propto r_{\mathrm{sh}}^{- 3} \propto t^{- 3 \eta} \\
+\Longrightarrow \quad \eta = \frac{2}{7} .
+\end{gathered}
+\tag{12.22}\]</span></span> That is <span id="eq-blast-snowplough-radius"><span class="math display">\[
+\begin{gathered}
+\boxed{r_{\mathrm{sh}} = r_1 \left( \frac{t}{t_1} \right)^{2 / 7},} \\
+U_{\mathrm{sh}} = \frac{2}{7}  \frac{r_{\mathrm{sh}}}{t} \propto t^{- 5 / 7}, \qquad p_{\mathrm{hot}} \propto t^{- 10 / 7} .
+\end{gathered}
+\tag{12.23}\]</span></span> Note that <span class="math inline">\(U_{\mathrm{sh}}\)</span> drops by a factor <span class="math inline">\(5 / 7\)</span> at <span class="math inline">\(t_1\)</span> (<a href="#fig-blast-phases" class="quarto-xref">Figure&nbsp;<span>12.3</span></a>), because <span class="math inline">\(U_{\mathrm{sh}} = (2 / 5) r_{\mathrm{sh}} / t\)</span> just before <span class="math inline">\(t_1\)</span> (<a href="#eq-blast-velocity" class="quarto-xref">Equation&nbsp;<span>12.5</span></a>) and <span class="math inline">\(U_{\mathrm{sh}} = (2 / 7) r_{\mathrm{sh}} / t\)</span> just after. In reality, the transition is gradual. Eventually, the hot interior also cools, and the shell coasts with constant momentum, <span class="math inline">\(M_{\mathrm{sh}} U_{\mathrm{sh}} = \mathrm{const}\)</span>, so that <span class="math inline">\(r_{\mathrm{sh}} \propto t^{1 / 4}\)</span>. The remnant merges with the ISM when <span class="math inline">\(U_{\mathrm{sh}}\)</span> becomes comparable to the sound speed of the ISM.</p>
+</section>
+<section id="breakout-from-the-galactic-disk" class="level3" data-number="12.2.6">
+<h3 data-number="12.2.6" class="anchored" data-anchor-id="breakout-from-the-galactic-disk"><span class="header-section-number">12.2.6</span> Breakout from the galactic disk</h3>
+<p>So far, we have assumed that the ISM is uniform. However, the gas of a galaxy is concentrated in a thin disk. Bubbles that grow larger than the thickness of the disk, for example because they are inflated by many supernovae in a star cluster, expand faster in the vertical direction, where the density drops. Eventually, they break out of the disk and vent their hot gas into the halo of the galaxy (<a href="#fig-blast-ngc3079" class="quarto-xref">Figure&nbsp;<span>12.7</span></a> and <a href="#exr-blast-ionized-cavities" class="quarto-xref">Exercise&nbsp;<span>12.1</span></a>).</p>
+<div id="fig-blast-ngc3079" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Colour image of the edge-on disk of a galaxy, seen as a dusty greenish band across the lower part of the frame. Above its centre rises a bubble outlined by red filaments, which form a cone-shaped structure opening upwards.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-blast-ngc3079-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/blast-waves/ngc3079-hst.png" class="img-fluid figure-img" alt="Colour image of the edge-on disk of a galaxy, seen as a dusty greenish band across the lower part of the frame. Above its centre rises a bubble outlined by red filaments, which form a cone-shaped structure opening upwards.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blast-ngc3079-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.7: Hubble Space Telescope image of a bubble of hot gas rising above the disk of the galaxy NGC 3079. Credit: NASA, G. Cecil, S. Veilleux, J. Bland-Hawthorn, and A. Filippenko; not covered by the license of these notes.
+</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span>Going further: Strömgren spheres
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This chapter is in preparation.</p>
+<p><em>To be written.</em></p>
 </div>
 </div>
-<section id="sec-blast-worksheet" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="sec-blast-worksheet"><span class="header-section-number">12.1</span> In-class worksheet</h2>
+</section>
+</section>
+<section id="sec-blast-worksheet" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="sec-blast-worksheet"><span class="header-section-number">12.3</span> In-class worksheet</h2>
 <ol type="1">
 <li><p><strong>Atmospheric explosion.</strong> These are experimental measurements of the expansion of a blast wave due to an atmospheric explosion.</p>
 <table class="caption-top table">
@@ -644,29 +901,29 @@ Note
 </tr>
 </tbody>
 </table>
-<p>This data is plotted for your convenience in <a href="#fig-blast-fireball" class="quarto-xref">Figure&nbsp;<span>12.1</span></a> (log-log scale). The data file <a href="https://github.com/dradice/astrofluids/blob/main/code/blast-waves/fireball.dat"><code>fireball.dat</code></a> and the plotting script <a href="https://github.com/dradice/astrofluids/blob/main/code/blast-waves/fireball.py"><code>fireball.py</code></a> are available in the repository.</p>
+<p>This data is plotted for your convenience in <a href="#fig-blast-fireball" class="quarto-xref">Figure&nbsp;<span>12.8</span></a> (log-log scale). The data file <a href="https://github.com/dradice/astrofluids/blob/main/code/blast-waves/fireball.dat"><code>fireball.dat</code></a> and the plotting script <a href="https://github.com/dradice/astrofluids/blob/main/code/blast-waves/fireball.py"><code>fireball.py</code></a> are available in the repository.</p>
 <div id="fig-blast-fireball" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Log-log plot of the blast-wave radius R in metres against time t in milliseconds. Seven black points rise from 24 m at 0.09 ms to 77 m at 0.94 ms, with the slope decreasing at later times.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-blast-fireball-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../figures/blast-waves/fireball-data.svg" class="img-fluid figure-img" alt="Log-log plot of the blast-wave radius R in metres against time t in milliseconds. Seven black points rise from 24 m at 0.09 ms to 77 m at 0.94 ms, with the slope decreasing at later times.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blast-fireball-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12.1: Radius of the blast wave as a function of time for the atmospheric explosion (log-log scale).
+Figure&nbsp;12.8: Radius of the blast wave as a function of time for the atmospheric explosion (log-log scale).
 </figcaption>
 </figure>
 </div>
 <ol type="1">
 <li><p>Argue that the radius of the shock should scale as <span class="math inline">\(R = \xi_0 \rho_1^{\alpha} E^{\beta} t^{\gamma}\)</span>, where <span class="math inline">\(\rho_1\)</span> is the atmospheric density, <span class="math inline">\(E\)</span> is the explosion energy, <span class="math inline">\(t\)</span> is the time, and <span class="math inline">\(\xi_0\)</span> is a dimensionless parameter of order one. Is this ansatz supported by the data? Compute <span class="math inline">\(\alpha, \beta, \gamma\)</span>.</p></li>
-<li><p>Show that the shock expansion speed is <span id="eq-blast-1"><span class="math display">\[
+<li><p>Show that the shock expansion speed is <span id="eq-blast-24"><span class="math display">\[
 U_{\mathrm{sh}} = \frac{2}{5}  \frac{r_{\mathrm{sh}}}{t} .
-\tag{12.1}\]</span></span></p></li>
+\tag{12.24}\]</span></span></p></li>
 <li><p><em>Estimate</em> the explosion energy <span class="math inline">\(E\)</span>. You can assume <span class="math inline">\(\rho_1 = 1.25 \times 10^{- 3}\, \mathrm{g} \, \mathrm{cm}^{- 3} = 1.25\, \mathrm{kg} \, \mathrm{m}^{- 3}\)</span> for the density of the atmosphere.</p></li>
 <li><p>Estimate the temperature of the fireball 1 ms after the explosion. Use <span class="math inline">\(\Gamma = \frac{7}{5}\)</span> and <span class="math inline">\(\mu \approx 29\)</span> for air. Is this estimate an upper limit or a lower limit?</p></li>
 </ol></li>
 </ol>
 </section>
-<section id="sec-blast-exercises" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="sec-blast-exercises"><span class="header-section-number">12.2</span> Exercises</h2>
+<section id="sec-blast-exercises" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="sec-blast-exercises"><span class="header-section-number">12.4</span> Exercises</h2>
 <div id="exr-blast-ionized-cavities" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 12.1 (Ionized cavities around star clusters)</strong></span> A cluster of ionizing stars with total luminosity <span class="math inline">\(L\)</span> clears out a cavity in the interstellar medium, which has an undisturbed density <span class="math inline">\(\rho_0\)</span>.</p>
 <ol type="1">
@@ -677,16 +934,24 @@ U_{\mathrm{sh}} = \frac{2}{5}  \frac{r_{\mathrm{sh}}}{t} .
 <p>Adapted from <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Problem 28.</p>
 </div>
 </section>
-<section id="sec-blast-reading" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="sec-blast-reading"><span class="header-section-number">12.3</span> Further reading</h2>
+<section id="sec-blast-reading" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="sec-blast-reading"><span class="header-section-number">12.5</span> Further reading</h2>
 <ul>
 <li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Chapter 8 (blast waves).</li>
+<li><span class="citation" data-cites="shu1992">Shu (<a href="#ref-shu1992" role="doc-biblioref">1992</a>)</span>, for supernova remnants and the Sedov solution.</li>
+<li><span class="citation" data-cites="landau1987">Landau and Lifshitz (<a href="#ref-landau1987" role="doc-biblioref">1987</a>)</span>, for the Sedov solution in closed form.</li>
 </ul>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-clarke2007" class="csl-entry" role="listitem">
 Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dynamics</em>. Cambridge University Press.
+</div>
+<div id="ref-landau1987" class="csl-entry" role="listitem">
+Landau, L. D., and E. M. Lifshitz. 1987. <em>Fluid Mechanics</em>. 2nd ed. Vol. 6. Course of Theoretical Physics. Pergamon Press.
+</div>
+<div id="ref-shu1992" class="csl-entry" role="listitem">
+Shu, Frank H. 1992. <em>The Physics of Astrophysics, Volume II: Gas Dynamics</em>. University Science Books.
 </div>
 </div>
 </section>
