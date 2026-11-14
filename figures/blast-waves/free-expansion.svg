@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" width="720" height="260" role="img" aria-labelledby="free-expansion-t free-expansion-d">
+<title id="free-expansion-t">Free expansion and the reverse shock</title>
+<desc id="free-expansion-d">Two sketches of the density rho against r/r_sh. Left: at early times the supernova ejecta, a high plateau, end at r/r_sh = 1 and move outwards into the interstellar medium, a low plateau. Right: at later times a reverse shock, moving inwards with respect to the gas, separates the ejecta from a higher plateau of shocked gas, which ends at the forward shock at r/r_sh = 1; beyond it is the cold interstellar medium.</desc>
+<defs><marker id="ah-k" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#000" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker><marker id="ah-1f4fbf" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#1f4fbf" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker></defs>
+<rect width="720" height="260" fill="#fff"/>
+<g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif">
+<line x1="40.0" y1="200.0" x2="40.0" y2="25.0" stroke="#000" stroke-width="1.6" marker-end="url(#ah-k)"/>
+<line x1="30.0" y1="200.0" x2="340.0" y2="200.0" stroke="#000" stroke-width="1.6" marker-end="url(#ah-k)"/>
+<text x="30" y="35" text-anchor="end" font-size="20" font-style="italic" font-weight="normal" fill="#000">ρ</text>
+<text x="336" y="240" text-anchor="end" font-size="20" font-style="italic" font-weight="normal" fill="#000">r/r<tspan dy="5.0" font-size="14.4" font-style="normal">sh</tspan></text>
+<line x1="240.0" y1="200.0" x2="240.0" y2="206.0" stroke="#000" stroke-width="1.6"/>
+<text x="240" y="226" text-anchor="middle" font-size="20" font-style="normal" font-weight="normal" fill="#000">1</text>
+<path d="M 40.0 90.0 L 240.0 90.0 L 240.0 170.0 L 325.0 170.0" fill="none" stroke="#000" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="222.0" y1="130.0" x2="262.0" y2="130.0" stroke="#000" stroke-width="1.6" marker-end="url(#ah-k)"/>
+<text x="110" y="145" text-anchor="start" font-size="18" font-style="normal" font-weight="normal" fill="#000">ejecta</text>
+<text x="270" y="160" text-anchor="start" font-size="18" font-style="normal" font-weight="normal" fill="#000">ISM</text>
+<line x1="400.0" y1="200.0" x2="400.0" y2="25.0" stroke="#000" stroke-width="1.6" marker-end="url(#ah-k)"/>
+<line x1="390.0" y1="200.0" x2="700.0" y2="200.0" stroke="#000" stroke-width="1.6" marker-end="url(#ah-k)"/>
+<text x="390" y="35" text-anchor="end" font-size="20" font-style="italic" font-weight="normal" fill="#000">ρ</text>
+<text x="696" y="240" text-anchor="end" font-size="20" font-style="italic" font-weight="normal" fill="#000">r/r<tspan dy="5.0" font-size="14.4" font-style="normal">sh</tspan></text>
+<line x1="600.0" y1="200.0" x2="600.0" y2="206.0" stroke="#000" stroke-width="1.6"/>
+<text x="600" y="226" text-anchor="middle" font-size="20" font-style="normal" font-weight="normal" fill="#000">1</text>
+<path d="M 400.0 130.0 L 540.0 130.0 L 540.0 70.0 L 600.0 70.0 L 600.0 170.0 L 685.0 170.0" fill="none" stroke="#000" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" />
+<text x="430" y="160" text-anchor="start" font-size="18" font-style="normal" font-weight="normal" fill="#000">ejecta</text>
+<text x="570.0" y="60" text-anchor="middle" font-size="17" font-style="normal" font-weight="normal" fill="#000">shocked gas</text>
+<line x1="560.0" y1="100.0" x2="518.0" y2="100.0" stroke="#1f4fbf" stroke-width="1.6" marker-end="url(#ah-1f4fbf)"/>
+<text x="535" y="32" text-anchor="middle" font-size="17" font-style="normal" font-weight="normal" fill="#1f4fbf">reverse shock</text>
+<line x1="540.0" y1="38.0" x2="540.0" y2="62.0" stroke="#1f4fbf" stroke-width="1.2"/>
+<text x="612" y="120" text-anchor="start" font-size="17" font-style="normal" font-weight="normal" fill="#1f4fbf">forward</text>
+<text x="612" y="140" text-anchor="start" font-size="17" font-style="normal" font-weight="normal" fill="#1f4fbf">shock</text>
+<text x="630" y="192" text-anchor="start" font-size="17" font-style="normal" font-weight="normal" fill="#000">cold ISM</text>
+</g>
+</svg>
