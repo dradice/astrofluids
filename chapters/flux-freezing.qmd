@@ -37,7 +37,7 @@ $$
 \vb{B}) \Longrightarrow \frac{\partial \vb{B}}{\partial t} + \nabla
 \times (\vb{B} \times \vb{v}) = 0.
 $$ {#eq-flux-6}
-Remarkably, this is identical to the vorticity equation for a barotropic, inviscid fluid:
+Remarkably, this is identical to the vorticity equation for a barotropic, inviscid fluid (@eq-wind-vorticity-barotropic):
 $$
 \frac{\partial \vb{\omega}}{\partial t} + \nabla \times (\vb{\omega}
 \times \vb{v}) = 0.
@@ -57,7 +57,7 @@ $$
 \end{aligned}
 }
 $$ {#eq-flux-9}
-where we have used @eq-flux-6 in the last step. In other words, the magnetic flux across any surface co-moving with the flow is constant in ideal MHD. The same argument applied to the vorticity gives Kelvin's circulation theorem: the circulation $\mathcal{C} = \oint_{C (t)} \vb{v} \cdot \dd \vb{l} = \int_{S (t)} \vb{\omega} \cdot \dd \vb{A}$ around a curve moving with a barotropic, inviscid fluid is conserved.
+where we have used @eq-flux-6 in the last step. In other words, the magnetic flux across any surface co-moving with the flow is constant in ideal MHD. The same argument applied to the vorticity gives Kelvin's circulation theorem (@eq-wind-kelvin): the circulation $\mathcal{C} = \oint_{C (t)} \vb{v} \cdot \dd \vb{l} = \int_{S (t)} \vb{\omega} \cdot \dd \vb{A}$ around a curve moving with a barotropic, inviscid fluid is conserved.
 
 This fact is called **flux freezing** and is one of the most important properties of MHD. To understand this consider a magnetic flux tube. As the name suggests, a flux tube is an imaginary bundle of magnetic field lines dragged by the plasma. This is illustrated in @fig-flux-tube.
 
