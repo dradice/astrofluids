@@ -862,11 +862,49 @@ Figure&nbsp;12.7: Hubble Space Telescope image of a bubble of hot gas rising abo
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Going further: Strömgren spheres
+<span class="screen-reader-only">Note</span>Going further: Strömgren spheres and ionization fronts
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><em>To be written.</em></p>
+<p>Consider a young, massive star that emits ultraviolet (UV) photons with energies above <span class="math inline">\(13.6\,\mathrm{eV}\)</span>, which can ionize hydrogen, at a rate <span class="math inline">\(\dot{N}_{\mathrm{UV}}\)</span>. Initially, the star is in a cloud of neutral hydrogen (H I) with density <span class="math inline">\(n_H\)</span>, but the UV photons ionize the gas, forming an <em>H II region</em> (<a href="#fig-blast-hii" class="quarto-xref">Figure&nbsp;<span>12.8</span></a>).</p>
+<p>In equilibrium, photoionization balances recombination. The number of recombinations per unit time in a sphere of radius <span class="math inline">\(R\)</span> is <span id="eq-blast-24"><span class="math display">\[
+\frac{4 \pi}{3} R^3 \alpha_B n_e n_p = \frac{4 \pi}{3} R^3 \alpha_B n_H^2 ,
+\tag{12.24}\]</span></span> where <span class="math inline">\(\alpha_B \approx 2.6 \times 10^{-19}\,\mathrm{m^3\,s^{-1}}\)</span> is the recombination coefficient at <span class="math inline">\(T \approx 10^4\,\mathrm{K}\)</span>. This does not include recombinations to the ground state, because these emit a new ionizing photon, which is absorbed nearby. The neutral gas is very opaque to UV photons, so each photon is absorbed and ionizes one atom. So the radius of the H II region, the <em>Strömgren radius</em>, is <span id="eq-blast-stromgren"><span class="math display">\[
+\boxed{R_S = \left( \frac{3 \dot{N}_{\mathrm{UV}}}{4 \pi \alpha_B n_H^2} \right)^{1 / 3} .}
+\tag{12.25}\]</span></span> For example, an O star emits <span class="math inline">\(\dot{N}_{\mathrm{UV}} \sim 10^{49}\,\mathrm{s^{-1}}\)</span>. In a cloud with <span class="math inline">\(n_H = 100\,\mathrm{cm^{-3}} = 10^8\,\mathrm{m^{-3}}\)</span>, we find <span class="math inline">\(R_S \approx 10^{17}\,\mathrm{m} \approx 3\,\mathrm{pc}\)</span>. The boundary of the H II region, the <em>ionization front</em>, is much thinner than this. Its thickness is the mean free path of the UV photons in the neutral gas, <span class="math inline">\(1 / (n_H \sigma) \sim 10^{13}\,\mathrm{m}\)</span>, where <span class="math inline">\(\sigma \approx 6 \times 10^{-22}\,\mathrm{m^2}\)</span> is the photoionization cross section of hydrogen.</p>
+<p>In the early stages of its formation, the H II region grows rapidly under the sole effect of the radiation: the front reaches <span class="math inline">\(R_S\)</span> in a few recombination times, <span class="math inline">\(1 / (n_H \alpha_B) \approx 1200\,\mathrm{yr}\)</span>. However, as the electrons thermalize, the ionized gas heats up to <span class="math inline">\(T_2 \approx 10^4\,\mathrm{K}\)</span>, while the neutral gas is cold, <span class="math inline">\(T_1 \sim 100\,\mathrm{K}\)</span>. So the ionized gas has a much larger pressure than its surroundings and wants to expand. Hydrodynamic effects become important after about one sound-crossing time, <span class="math inline">\(R_S / c_2 \sim 2 \times 10^5\,\mathrm{yr}\)</span>, which is still short compared with the lifetime of the star.</p>
+<p>Like a shock, the ionization front is a thin layer in which the state of the gas changes abruptly, so we can describe it with jump conditions (<a href="shock-waves.html#sec-shock-rh" class="quarto-xref"><span>Section 11.2</span></a>). In the frame of the front, the neutral gas (1) flows into the front with speed <span class="math inline">\(u_1\)</span> and leaves it ionized (2) with speed <span class="math inline">\(u_2\)</span>. Heating and cooling keep both sides at their equilibrium temperatures, so the gas is isothermal, <span class="math inline">\(p_i = c_i^2 \rho_i\)</span>, with <span class="math inline">\(c_1 \approx 1\,\mathrm{km\,s^{-1}}\)</span> for H I at <span class="math inline">\(100\,\mathrm{K}\)</span> and <span class="math inline">\(c_2 \approx 13\,\mathrm{km\,s^{-1}}\)</span> for H II at <span class="math inline">\(10^4\,\mathrm{K}\)</span> (<span class="math inline">\(\mu \approx 1\)</span> and <span class="math inline">\(1 / 2\)</span>, respectively). The conservation of mass and momentum gives (compare <a href="shock-waves.html#eq-shock-28" class="quarto-xref">Equation&nbsp;<span>11.28</span></a>) <span id="eq-blast-26"><span class="math display">\[
+\begin{aligned}
+\rho_1 u_1 &amp;= \rho_2 u_2 = m_p F_{\mathrm{UV}}, \\
+\rho_1 (u_1^2 + c_1^2) &amp;= \rho_2 (u_2^2 + c_2^2),
+\end{aligned}
+\tag{12.26}\]</span></span> where <span class="math inline">\(F_{\mathrm{UV}}\)</span> is the number of UV photons that reach the front per unit time and area. Note that the last equality in the first line is a new condition: each photon that reaches the front ionizes one atom, so the mass flux through the front is fixed by the radiation. We do not need an energy condition, because the temperatures on the two sides are fixed. Setting <span class="math inline">\(x = \rho_2 / \rho_1\)</span> and eliminating <span class="math inline">\(u_2 = u_1 / x\)</span>, we find <span id="eq-blast-27"><span class="math display">\[
+\begin{aligned}
+&amp; c_2^2 x^2 - (u_1^2 + c_1^2) \, x + u_1^2 = 0 \\
+\Longrightarrow \quad &amp; x = \frac{u_1^2 + c_1^2 \pm \sqrt{\Delta}}{2 c_2^2} , \\
+&amp; \Delta = (u_1^2 + c_1^2)^2 - 4 c_2^2 u_1^2 .
+\end{aligned}
+\tag{12.27}\]</span></span> Real solutions exist only if <span class="math inline">\(\Delta \geq 0\)</span>, or <span class="math inline">\(u_1^2 + c_1^2 \geq 2 c_2 u_1\)</span>, that is, for <span class="math inline">\(u_1 \geq u_R\)</span> or <span class="math inline">\(u_1 \leq u_D\)</span>, where <span id="eq-blast-front-speeds"><span class="math display">\[
+u_R = c_2 + \sqrt{c_2^2 - c_1^2} \approx 2 c_2, \qquad u_D = c_2 - \sqrt{c_2^2 - c_1^2} \approx \frac{c_1^2}{2 c_2} .
+\tag{12.28}\]</span></span> For a given photon flux, <span class="math inline">\(u_1 = m_p F_{\mathrm{UV}} / \rho_1\)</span>, so the front moves fast into rarefied gas and slowly into dense gas. For this reason, fronts with <span class="math inline">\(u_1 \geq u_R\)</span> are called <em>R-type</em>, for “rare”, and fronts with <span class="math inline">\(u_1 \leq u_D\)</span> are called <em>D-type</em>, for “dense” <span class="citation" data-cites="spitzer1978">(<a href="#ref-spitzer1978" role="doc-biblioref">Spitzer 1978</a>)</span>. At <span class="math inline">\(u_1 = u_R\)</span> and <span class="math inline">\(u_1 = u_D\)</span>, the two roots coincide, and the ionized gas leaves the front exactly at its sound speed, <span class="math inline">\(u_2 = c_2\)</span>.</p>
+<ul>
+<li>For R-type fronts with <span class="math inline">\(u_1 \gg u_R\)</span>, the root with the minus sign gives <span class="math inline">\(x \approx 1 + c_2^2 / u_1^2 \approx 1\)</span>. The ionized region expands rapidly, but there is no compression: the gas is ionized before it has time to move.</li>
+<li>For D-type fronts with <span class="math inline">\(u_1 \ll u_D\)</span>, the root with the plus sign gives <span class="math inline">\(x \approx c_1^2 / c_2^2 \sim 10^{-2}\)</span>, that is, <span class="math inline">\(\rho_2 c_2^2 \approx \rho_1 c_1^2\)</span>. The gas is ionized and expands, but at nearly constant pressure, as at a contact discontinuity.</li>
+</ul>
+<p>At early times, the front is R-type. As it approaches <span class="math inline">\(R_S\)</span>, it slows down, and when <span class="math inline">\(u_1 &lt; u_R\)</span> no single front can connect the neutral and the ionized gas. The front then splits in two: an isothermal shock (<a href="shock-waves.html#sec-shock-isothermal" class="quarto-xref"><span>Section 11.5.3</span></a>), which compresses the neutral gas ahead of it, followed by a D-type front. At the same time, a rarefaction wave moves inwards into the ionized gas (<a href="#fig-blast-hii" class="quarto-xref">Figure&nbsp;<span>12.8</span></a>).</p>
+<div id="fig-blast-hii" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Concentric circles around a star at the centre, which emits ionizing photons at a rate N-dot_UV. The star is surrounded by the ionized H II region, which contains a dashed circle, the rarefaction wave moving inwards. The H II region ends at a blue circle, the D-type ionization front. Outside it is a grey shell of shocked, compressed neutral gas, bounded by a thick black circle, the isothermal shock. Beyond the shock is the undisturbed neutral H I gas.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-blast-hii-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/blast-waves/hii-region.svg" class="img-fluid figure-img" alt="Concentric circles around a star at the centre, which emits ionizing photons at a rate N-dot_UV. The star is surrounded by the ionized H II region, which contains a dashed circle, the rarefaction wave moving inwards. The H II region ends at a blue circle, the D-type ionization front. Outside it is a grey shell of shocked, compressed neutral gas, bounded by a thick black circle, the isothermal shock. Beyond the shock is the undisturbed neutral H I gas.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blast-hii-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.8: Structure of an expanding H II region. The D-type ionization front is preceded by an isothermal shock, which compresses the neutral gas, and a rarefaction wave moves inwards into the ionized gas.
+</figcaption>
+</figure>
+</div>
+<p>From this point on, the H II region evolves like a supernova remnant in the snowplough phase: the hot ionized gas pushes a dense shell of swept-up neutral gas. The ionized gas is nearly uniform, because its sound speed is large, and it stays in ionization equilibrium, so, from <a href="#eq-blast-stromgren" class="quarto-xref">Equation&nbsp;<span>12.25</span></a>, its density decreases as <span class="math inline">\(n_2 = n_H (R_S / R)^{3 / 2}\)</span>. The shell moves with speed <span class="math inline">\(U = \mathrm{d} R / \mathrm{d} t \gg c_1\)</span>, so the pressure behind the isothermal shock is <span class="math inline">\(\rho_1 U^2\)</span> (<a href="shock-waves.html#eq-shock-isothermal-compression" class="quarto-xref">Equation&nbsp;<span>11.29</span></a>). Setting it equal to the pressure of the ionized gas, <span class="math inline">\(\rho_2 c_2^2\)</span>, with <span class="math inline">\(\rho_2 / \rho_1 = n_2 / n_H\)</span>, we find <span id="eq-blast-spitzer"><span class="math display">\[
+\frac{\mathrm{d} R}{\mathrm{d} t} = c_2 \left( \frac{R_S}{R} \right)^{3 / 4} \Longrightarrow \boxed{R = R_S \left( 1 + \frac{7}{4} \frac{c_2 t}{R_S} \right)^{4 / 7} .}
+\tag{12.29}\]</span></span> At late times, <span class="math inline">\(R \propto t^{4 / 7}\)</span> <span class="citation" data-cites="spitzer1978">(<a href="#ref-spitzer1978" role="doc-biblioref">Spitzer 1978</a>)</span>. The expansion stops when the pressure of the ionized gas drops to that of the neutral gas, <span class="math inline">\(n_2 c_2^2 = n_H c_1^2\)</span>, that is, at <span class="math inline">\(R = R_S (c_2 / c_1)^{4 / 3} \approx 30 R_S\)</span>. In practice, this takes much longer than the lifetime of the star (compare <a href="#exr-blast-ionized-cavities" class="quarto-xref">Exercise&nbsp;<span>12.1</span></a>).</p>
 </div>
 </div>
 </section>
@@ -901,22 +939,22 @@ Figure&nbsp;12.7: Hubble Space Telescope image of a bubble of hot gas rising abo
 </tr>
 </tbody>
 </table>
-<p>This data is plotted for your convenience in <a href="#fig-blast-fireball" class="quarto-xref">Figure&nbsp;<span>12.8</span></a> (log-log scale). The data file <a href="https://github.com/dradice/astrofluids/blob/main/code/blast-waves/fireball.dat"><code>fireball.dat</code></a> and the plotting script <a href="https://github.com/dradice/astrofluids/blob/main/code/blast-waves/fireball.py"><code>fireball.py</code></a> are available in the repository.</p>
+<p>This data is plotted for your convenience in <a href="#fig-blast-fireball" class="quarto-xref">Figure&nbsp;<span>12.9</span></a> (log-log scale). The data file <a href="https://github.com/dradice/astrofluids/blob/main/code/blast-waves/fireball.dat"><code>fireball.dat</code></a> and the plotting script <a href="https://github.com/dradice/astrofluids/blob/main/code/blast-waves/fireball.py"><code>fireball.py</code></a> are available in the repository.</p>
 <div id="fig-blast-fireball" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Log-log plot of the blast-wave radius R in metres against time t in milliseconds. Seven black points rise from 24 m at 0.09 ms to 77 m at 0.94 ms, with the slope decreasing at later times.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-blast-fireball-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../figures/blast-waves/fireball-data.svg" class="img-fluid figure-img" alt="Log-log plot of the blast-wave radius R in metres against time t in milliseconds. Seven black points rise from 24 m at 0.09 ms to 77 m at 0.94 ms, with the slope decreasing at later times.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blast-fireball-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12.8: Radius of the blast wave as a function of time for the atmospheric explosion (log-log scale).
+Figure&nbsp;12.9: Radius of the blast wave as a function of time for the atmospheric explosion (log-log scale).
 </figcaption>
 </figure>
 </div>
 <ol type="1">
 <li><p>Argue that the radius of the shock should scale as <span class="math inline">\(R = \xi_0 \rho_1^{\alpha} E^{\beta} t^{\gamma}\)</span>, where <span class="math inline">\(\rho_1\)</span> is the atmospheric density, <span class="math inline">\(E\)</span> is the explosion energy, <span class="math inline">\(t\)</span> is the time, and <span class="math inline">\(\xi_0\)</span> is a dimensionless parameter of order one. Is this ansatz supported by the data? Compute <span class="math inline">\(\alpha, \beta, \gamma\)</span>.</p></li>
-<li><p>Show that the shock expansion speed is <span id="eq-blast-24"><span class="math display">\[
+<li><p>Show that the shock expansion speed is <span id="eq-blast-30"><span class="math display">\[
 U_{\mathrm{sh}} = \frac{2}{5}  \frac{r_{\mathrm{sh}}}{t} .
-\tag{12.24}\]</span></span></p></li>
+\tag{12.30}\]</span></span></p></li>
 <li><p><em>Estimate</em> the explosion energy <span class="math inline">\(E\)</span>. You can assume <span class="math inline">\(\rho_1 = 1.25 \times 10^{- 3}\, \mathrm{g} \, \mathrm{cm}^{- 3} = 1.25\, \mathrm{kg} \, \mathrm{m}^{- 3}\)</span> for the density of the atmosphere.</p></li>
 <li><p>Estimate the temperature of the fireball 1 ms after the explosion. Use <span class="math inline">\(\Gamma = \frac{7}{5}\)</span> and <span class="math inline">\(\mu \approx 29\)</span> for air. Is this estimate an upper limit or a lower limit?</p></li>
 </ol></li>
@@ -952,6 +990,9 @@ Landau, L. D., and E. M. Lifshitz. 1987. <em>Fluid Mechanics</em>. 2nd ed. Vol. 
 </div>
 <div id="ref-shu1992" class="csl-entry" role="listitem">
 Shu, Frank H. 1992. <em>The Physics of Astrophysics, Volume II: Gas Dynamics</em>. University Science Books.
+</div>
+<div id="ref-spitzer1978" class="csl-entry" role="listitem">
+Spitzer, Lyman. 1978. <em>Physical Processes in the Interstellar Medium</em>. Wiley.
 </div>
 </div>
 </section>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380" role="img" aria-labelledby="hii-t hii-d">
+<title id="hii-t">Structure of an expanding H II region</title>
+<desc id="hii-d">Concentric circles around a star at the centre, which emits ionizing photons at a rate N-dot_UV. The star is surrounded by the ionized H II region, which contains a dashed circle, the rarefaction wave moving inwards. The H II region ends at a blue circle, the D-type ionization front. Outside it is a grey shell of shocked, compressed neutral gas, bounded by a thick black circle, the isothermal shock. Beyond the shock is the undisturbed neutral H I gas.</desc>
+<defs><marker id="ah-k" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#000" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker></defs>
+<rect width="600" height="380" fill="#fff"/>
+<g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif">
+<circle cx="190.0" cy="190.0" r="165" fill="#d9d9d9" stroke="#000" stroke-width="2.6"/>
+<circle cx="190.0" cy="190.0" r="140" fill="#fff" stroke="#1f4fbf" stroke-width="2.6"/>
+<path d="M 105 190 A 85 85 0 1 0 275 190 A 85 85 0 1 0 105 190" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 6" />
+<circle cx="190.0" cy="190.0" r="5" fill="#000" stroke="#000" stroke-width="1.6"/>
+<text x="173" y="232" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">N<tspan dy="5.0" font-size="14.4" font-style="normal">UV</tspan></text>
+<circle cx="188.0" cy="213.0" r="1.9" fill="#000" stroke="none" stroke-width="0"/>
+<text x="170" y="160" text-anchor="middle" font-size="19" font-style="normal" font-weight="normal" fill="#000">H II</text>
+<text x="30" y="40" text-anchor="start" font-size="19" font-style="normal" font-weight="normal" fill="#000">H I</text>
+<line x1="316.4" y1="83.9" x2="389.0" y2="66.0" stroke="#000" stroke-width="1.2"/>
+<text x="395" y="72" text-anchor="start" font-size="18" font-style="normal" font-weight="normal" fill="#000">shock</text>
+<line x1="325.8" y1="156.1" x2="389.0" y2="146.0" stroke="#000" stroke-width="1.2"/>
+<text x="395" y="152" text-anchor="start" font-size="18" font-style="normal" font-weight="normal" fill="#1f4fbf">ionization front</text>
+<line x1="339.2" y1="221.7" x2="389.0" y2="226.0" stroke="#000" stroke-width="1.2"/>
+<text x="395" y="232" text-anchor="start" font-size="18" font-style="normal" font-weight="normal" fill="#000">shocked H I</text>
+<line x1="257.0" y1="242.3" x2="389.0" y2="306.0" stroke="#000" stroke-width="1.2"/>
+<text x="395" y="312" text-anchor="start" font-size="18" font-style="normal" font-weight="normal" fill="#000">rarefaction wave</text>
+</g>
+</svg>
