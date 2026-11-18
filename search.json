@@ -14,7 +14,17 @@
     "href": "index.html#how-to-use-these-notes",
     "title": "Astrophysical Fluid Dynamics",
     "section": "How to use these notes",
-    "text": "How to use these notes\n\nOne chapter per lecture topic. Canvas lists which chapter goes with each lecture.\nEverything is numbered by chapter. Equation (9.14) is the fourteenth numbered equation of Chapter 9, and Exercise 8.4 is the fourth exercise of Chapter 8. When you ask a question about the notes, quote these numbers.\nIn-class worksheets appear near the end of each chapter, followed by the exercises. Homework assignments on Canvas list the exercises to solve, for example “Exercises 2.1, 7.3”.\nUnits. We use SI units, together with a few units that are customary in astronomy: number densities in \\(\\mathrm{cm^{-3}}\\), mass densities in \\(\\mathrm{g\\,cm^{-3}}\\), opacities in \\(\\mathrm{cm^2\\,g^{-1}}\\), large energies in erg, magnetic fields in gauss (given in parentheses after the value in tesla), and pc, AU, \\(M_\\odot\\), eV. Many astrophysics books and papers use Gaussian units for electromagnetism: 21  Introduction to Plasma explains how to translate their formulas.\nOptional material is set apart in boxes titled “Going further”; you can skip it on a first reading.",
+    "text": "How to use these notes\n\nOne chapter per lecture topic. Canvas lists which chapter goes with each lecture.\nEverything is numbered by chapter. Equation (9.14) is the fourteenth numbered equation of Chapter 9, and Exercise 8.4 is the fourth exercise of Chapter 8. When you ask a question about the notes, quote these numbers.\nIn-class worksheets appear near the end of each chapter, followed by the exercises. Homework assignments on Canvas list the exercises to solve, for example “Exercises 2.1, 7.3”.\nUnits. We use SI units, together with a few units that are customary in astronomy: number densities in \\(\\mathrm{cm^{-3}}\\), mass densities in \\(\\mathrm{g\\,cm^{-3}}\\), opacities in \\(\\mathrm{cm^2\\,g^{-1}}\\), large energies in erg, magnetic fields in gauss (given in parentheses after the value in tesla), and pc, AU, \\(M_\\odot\\), eV. Many astrophysics books and papers use Gaussian units for electromagnetism: 21  Introduction to Plasma explains how to translate their formulas.\nOptional material is set apart in boxes titled “Going further”; you can skip it on a first reading. The boxes are listed below.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#going-further",
+    "href": "index.html#going-further",
+    "title": "Astrophysical Fluid Dynamics",
+    "section": "Going further",
+    "text": "Going further\nThe optional boxes, by chapter:\n\n9  Sound Waves and the Doppler Effect: Normal Modes; Work Integral\n11  Shock Waves: Shocks with energy losses\n12  Blast Waves: Strömgren spheres and ionization fronts\n13  Stellar Winds and Spherical Accretion: Potential flows\n21  Introduction to Plasma: Conservation Laws in Electrodynamics; Debye Screening\n23  Flux Freezing: Pulsars",
     "crumbs": [
       "Preface"
     ]
