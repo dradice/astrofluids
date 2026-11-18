@@ -190,7 +190,40 @@ def phases():
     s.save(OUT / "phases.svg")
 
 
+def hii_region():
+    """After the instructor's handwritten notes on Stromgren spheres."""
+    s = Svg(600, 380, "Structure of an expanding H II region",
+            "Concentric circles around a star at the centre, which emits ionizing photons at "
+            "a rate N-dot_UV. The star is surrounded by the ionized H II region, which contains "
+            "a dashed circle, the rarefaction wave moving inwards. The H II region ends at a "
+            "blue circle, the D-type ionization front. Outside it is a grey shell of shocked, "
+            "compressed neutral gas, bounded by a thick black circle, the isothermal shock. "
+            "Beyond the shock is the undisturbed neutral H I gas.", "hii")
+    cx, cy, rr, ri, rs = 190, 190, 85, 140, 165
+    s.circle(cx, cy, rs, fill=GRAY, stroke="#000", w=2.6)
+    s.circle(cx, cy, ri, fill="#fff", stroke=BLUE, w=2.6)
+    s.path(f"M {cx - rr} {cy} A {rr} {rr} 0 1 0 {cx + rr} {cy} A {rr} {rr} 0 1 0 {cx - rr} {cy}",
+           dash="7 6")
+    s.circle(cx, cy, 5, fill="#000", stroke="#000")
+    s.text(cx - 17, cy + 42, "N_{UV}")
+    s.circle(cx - 2, cy + 23, 1.9, fill="#000", stroke="none", w=0)  # dot of N-dot
+    s.text(cx - 20, cy - 30, "H II", anchor="middle", italic=False, size=19)
+    s.text(30, 40, "H I", italic=False, size=19)
+
+    def leader(r, deg, x, y, label, color="#000"):
+        th = math.radians(deg)
+        s.line(cx + r * math.cos(th), cy - r * math.sin(th), x - 6, y - 6, w=1.2)
+        s.text(x, y, label, italic=False, size=18, fill=color)
+
+    leader(rs, 40, 395, 72, "shock")
+    leader(ri, 14, 395, 152, "ionization front", BLUE)
+    leader((ri + rs) / 2, -12, 395, 232, "shocked H I")
+    leader(rr, -38, 395, 312, "rarefaction wave")
+    s.save(OUT / "hii-region.svg")
+
+
 if __name__ == "__main__":
+    hii_region()
     free_expansion()
     xi0 = sedov_profiles()
     snowplough()

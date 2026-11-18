@@ -200,9 +200,55 @@ So far, we have assumed that the ISM is uniform. However, the gas of a galaxy is
 ![Hubble Space Telescope image of a bubble of hot gas rising above the disk of the galaxy NGC 3079. Credit: NASA, G. Cecil, S. Veilleux, J. Bland-Hawthorn, and A. Filippenko; not covered by the license of these notes.](../figures/blast-waves/ngc3079-hst.png){#fig-blast-ngc3079 fig-alt="Colour image of the edge-on disk of a galaxy, seen as a dusty greenish band across the lower part of the frame. Above its centre rises a bubble outlined by red filaments, which form a cone-shaped structure opening upwards."}
 
 ::: {.callout-note}
-## Going further: Strömgren spheres
+## Going further: Strömgren spheres and ionization fronts
 
-*To be written.*
+Consider a young, massive star that emits ultraviolet (UV) photons with energies above $13.6\,\mathrm{eV}$, which can ionize hydrogen, at a rate $\dot{N}_{\mathrm{UV}}$. Initially, the star is in a cloud of neutral hydrogen (H I) with density $n_H$, but the UV photons ionize the gas, forming an *H II region* (@fig-blast-hii).
+
+In equilibrium, photoionization balances recombination. The number of recombinations per unit time in a sphere of radius $R$ is
+$$
+\frac{4 \pi}{3} R^3 \alpha_B n_e n_p = \frac{4 \pi}{3} R^3 \alpha_B n_H^2 ,
+$$ {#eq-blast-24}
+where $\alpha_B \approx 2.6 \times 10^{-19}\,\mathrm{m^3\,s^{-1}}$ is the recombination coefficient at $T \approx 10^4\,\mathrm{K}$. This does not include recombinations to the ground state, because these emit a new ionizing photon, which is absorbed nearby. The neutral gas is very opaque to UV photons, so each photon is absorbed and ionizes one atom. So the radius of the H II region, the *Strömgren radius*, is
+$$
+\boxed{R_S = \left( \frac{3 \dot{N}_{\mathrm{UV}}}{4 \pi \alpha_B n_H^2} \right)^{1 / 3} .}
+$$ {#eq-blast-stromgren}
+For example, an O star emits $\dot{N}_{\mathrm{UV}} \sim 10^{49}\,\mathrm{s^{-1}}$. In a cloud with $n_H = 100\,\mathrm{cm^{-3}} = 10^8\,\mathrm{m^{-3}}$, we find $R_S \approx 10^{17}\,\mathrm{m} \approx 3\,\mathrm{pc}$. The boundary of the H II region, the *ionization front*, is much thinner than this. Its thickness is the mean free path of the UV photons in the neutral gas, $1 / (n_H \sigma) \sim 10^{13}\,\mathrm{m}$, where $\sigma \approx 6 \times 10^{-22}\,\mathrm{m^2}$ is the photoionization cross section of hydrogen.
+
+In the early stages of its formation, the H II region grows rapidly under the sole effect of the radiation: the front reaches $R_S$ in a few recombination times, $1 / (n_H \alpha_B) \approx 1200\,\mathrm{yr}$. However, as the electrons thermalize, the ionized gas heats up to $T_2 \approx 10^4\,\mathrm{K}$, while the neutral gas is cold, $T_1 \sim 100\,\mathrm{K}$. So the ionized gas has a much larger pressure than its surroundings and wants to expand. Hydrodynamic effects become important after about one sound-crossing time, $R_S / c_2 \sim 2 \times 10^5\,\mathrm{yr}$, which is still short compared with the lifetime of the star.
+
+Like a shock, the ionization front is a thin layer in which the state of the gas changes abruptly, so we can describe it with jump conditions (@sec-shock-rh). In the frame of the front, the neutral gas (1) flows into the front with speed $u_1$ and leaves it ionized (2) with speed $u_2$. Heating and cooling keep both sides at their equilibrium temperatures, so the gas is isothermal, $p_i = c_i^2 \rho_i$, with $c_1 \approx 1\,\mathrm{km\,s^{-1}}$ for H I at $100\,\mathrm{K}$ and $c_2 \approx 13\,\mathrm{km\,s^{-1}}$ for H II at $10^4\,\mathrm{K}$ ($\mu \approx 1$ and $1 / 2$, respectively). The conservation of mass and momentum gives (compare @eq-shock-28)
+$$
+\begin{aligned}
+\rho_1 u_1 &= \rho_2 u_2 = m_p F_{\mathrm{UV}}, \\
+\rho_1 (u_1^2 + c_1^2) &= \rho_2 (u_2^2 + c_2^2),
+\end{aligned}
+$$ {#eq-blast-26}
+where $F_{\mathrm{UV}}$ is the number of UV photons that reach the front per unit time and area. Note that the last equality in the first line is a new condition: each photon that reaches the front ionizes one atom, so the mass flux through the front is fixed by the radiation. We do not need an energy condition, because the temperatures on the two sides are fixed. Setting $x = \rho_2 / \rho_1$ and eliminating $u_2 = u_1 / x$, we find
+$$
+\begin{aligned}
+& c_2^2 x^2 - (u_1^2 + c_1^2) \, x + u_1^2 = 0 \\
+\Longrightarrow \quad & x = \frac{u_1^2 + c_1^2 \pm \sqrt{\Delta}}{2 c_2^2} , \\
+& \Delta = (u_1^2 + c_1^2)^2 - 4 c_2^2 u_1^2 .
+\end{aligned}
+$$ {#eq-blast-27}
+Real solutions exist only if $\Delta \geq 0$, or $u_1^2 + c_1^2 \geq 2 c_2 u_1$, that is, for $u_1 \geq u_R$ or $u_1 \leq u_D$, where
+$$
+u_R = c_2 + \sqrt{c_2^2 - c_1^2} \approx 2 c_2, \qquad u_D = c_2 - \sqrt{c_2^2 - c_1^2} \approx \frac{c_1^2}{2 c_2} .
+$$ {#eq-blast-front-speeds}
+For a given photon flux, $u_1 = m_p F_{\mathrm{UV}} / \rho_1$, so the front moves fast into rarefied gas and slowly into dense gas. For this reason, fronts with $u_1 \geq u_R$ are called *R-type*, for "rare", and fronts with $u_1 \leq u_D$ are called *D-type*, for "dense" [@spitzer1978]. At $u_1 = u_R$ and $u_1 = u_D$, the two roots coincide, and the ionized gas leaves the front exactly at its sound speed, $u_2 = c_2$.
+
+- For R-type fronts with $u_1 \gg u_R$, the root with the minus sign gives $x \approx 1 + c_2^2 / u_1^2 \approx 1$. The ionized region expands rapidly, but there is no compression: the gas is ionized before it has time to move.
+- For D-type fronts with $u_1 \ll u_D$, the root with the plus sign gives $x \approx c_1^2 / c_2^2 \sim 10^{-2}$, that is, $\rho_2 c_2^2 \approx \rho_1 c_1^2$. The gas is ionized and expands, but at nearly constant pressure, as at a contact discontinuity.
+
+At early times, the front is R-type. As it approaches $R_S$, it slows down, and when $u_1 < u_R$ no single front can connect the neutral and the ionized gas. The front then splits in two: an isothermal shock (@sec-shock-isothermal), which compresses the neutral gas ahead of it, followed by a D-type front. At the same time, a rarefaction wave moves inwards into the ionized gas (@fig-blast-hii).
+
+![Structure of an expanding H II region. The D-type ionization front is preceded by an isothermal shock, which compresses the neutral gas, and a rarefaction wave moves inwards into the ionized gas.](../figures/blast-waves/hii-region.svg){#fig-blast-hii fig-alt="Concentric circles around a star at the centre, which emits ionizing photons at a rate N-dot_UV. The star is surrounded by the ionized H II region, which contains a dashed circle, the rarefaction wave moving inwards. The H II region ends at a blue circle, the D-type ionization front. Outside it is a grey shell of shocked, compressed neutral gas, bounded by a thick black circle, the isothermal shock. Beyond the shock is the undisturbed neutral H I gas."}
+
+From this point on, the H II region evolves like a supernova remnant in the snowplough phase: the hot ionized gas pushes a dense shell of swept-up neutral gas. The ionized gas is nearly uniform, because its sound speed is large, and it stays in ionization equilibrium, so, from @eq-blast-stromgren, its density decreases as $n_2 = n_H (R_S / R)^{3 / 2}$. The shell moves with speed $U = \dd R / \dd t \gg c_1$, so the pressure behind the isothermal shock is $\rho_1 U^2$ (@eq-shock-isothermal-compression). Setting it equal to the pressure of the ionized gas, $\rho_2 c_2^2$, with $\rho_2 / \rho_1 = n_2 / n_H$, we find
+$$
+\frac{\dd R}{\dd t} = c_2 \left( \frac{R_S}{R} \right)^{3 / 4} \Longrightarrow \boxed{R = R_S \left( 1 + \frac{7}{4} \frac{c_2 t}{R_S} \right)^{4 / 7} .}
+$$ {#eq-blast-spitzer}
+At late times, $R \propto t^{4 / 7}$ [@spitzer1978]. The expansion stops when the pressure of the ionized gas drops to that of the neutral gas, $n_2 c_2^2 = n_H c_1^2$, that is, at $R = R_S (c_2 / c_1)^{4 / 3} \approx 30 R_S$. In practice, this takes much longer than the lifetime of the star (compare @exr-blast-ionized-cavities).
 :::
 
 ## In-class worksheet {#sec-blast-worksheet}
@@ -222,7 +268,7 @@ So far, we have assumed that the ISM is uniform. However, the gas of a galaxy is
     2.  Show that the shock expansion speed is
         $$
         U_{\mathrm{sh}} = \frac{2}{5}  \frac{r_{\mathrm{sh}}}{t} .
-        $$ {#eq-blast-24}
+        $$ {#eq-blast-30}
 
     3.  *Estimate* the explosion energy $E$. You can assume $\rho_1 = 1.25 \times 10^{- 3}\, \mathrm{g} \, \mathrm{cm}^{- 3} = 1.25\, \mathrm{kg} \, \mathrm{m}^{- 3}$ for the density of the atmosphere.
 
