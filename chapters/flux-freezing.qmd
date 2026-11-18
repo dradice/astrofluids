@@ -262,7 +262,7 @@ where now $T_{\mathrm{decay}}$ is computed as in @eq-flux-18, with $L^2$ replace
 This shows the two key features of the system. The relative motion of the conductor and the walls generates an electric field (a consequence of Faraday's law). The electric field drives a current in the system. The current, in turn, causes the field lines to bend and slip (from Ampère's law).
 
 ::: {.callout-note}
-## Going further: Pulsars
+## []{#gf-flux-pulsars}Going further: Pulsars
 
 Pulsars were discovered by Jocelyn Bell Burnell and Antony Hewish in 1967. It was later realized that pulsars are rotating neutron stars endowed with strong magnetic fields. In 1969, Goldreich and Julian [@goldreich1969pulsar] developed the first model of a pulsar. Like the unipolar induction model, Goldreich and Julian's model applies to a variety of astrophysical systems and shows another key physical effect associated with flux freezing. Namely, the fact that rotating neutron stars fill their surroundings with a dense plasma, creating the so-called magnetosphere.
 

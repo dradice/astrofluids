@@ -16,7 +16,18 @@ Corrections and suggestions for improvement are welcome. You can report them by 
 - **Everything is numbered by chapter.** Equation (9.14) is the fourteenth numbered equation of Chapter 9, and Exercise 8.4 is the fourth exercise of Chapter 8. When you ask a question about the notes, quote these numbers.
 - **In-class worksheets** appear near the end of each chapter, followed by the **exercises**. Homework assignments on Canvas list the exercises to solve, for example "Exercises 2.1, 7.3".
 - **Units.** We use SI units, together with a few units that are customary in astronomy: number densities in $\mathrm{cm^{-3}}$, mass densities in $\mathrm{g\,cm^{-3}}$, opacities in $\mathrm{cm^2\,g^{-1}}$, large energies in erg, magnetic fields in gauss (given in parentheses after the value in tesla), and pc, AU, $M_\odot$, eV. Many astrophysics books and papers use Gaussian units for electromagnetism: @sec-plasma explains how to translate their formulas.
-- **Optional material** is set apart in boxes titled "Going further"; you can skip it on a first reading.
+- **Optional material** is set apart in boxes titled "Going further"; you can skip it on a first reading. The boxes are listed below.
+
+## Going further {.unnumbered}
+
+The optional boxes, by chapter:
+
+- @sec-sound: [Normal Modes](chapters/sound-waves.qmd#gf-sound-normal-modes); [Work Integral](chapters/sound-waves.qmd#gf-sound-work-integral)
+- @sec-shock: [Shocks with energy losses](chapters/shock-waves.qmd#gf-shock-losses)
+- @sec-blast: [Strömgren spheres and ionization fronts](chapters/blast-waves.qmd#gf-blast-stromgren)
+- @sec-wind: [Potential flows](chapters/winds-and-accretion.qmd#gf-wind-potential-flows)
+- @sec-plasma: [Conservation Laws in Electrodynamics](chapters/plasma.qmd#gf-plasma-conservation-laws); [Debye Screening](chapters/plasma.qmd#gf-plasma-debye)
+- @sec-flux: [Pulsars](chapters/flux-freezing.qmd#gf-flux-pulsars)
 
 ## Accessibility {.unnumbered}
 

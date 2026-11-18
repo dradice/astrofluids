@@ -9,6 +9,8 @@ Errors (exit status 1):
   * a figure/image without fig-alt
   * a solutions-profile block without a .solution div inside
   * \operatorname or \rm in math (use \mathrm)
+  * a "Going further" box without a []{#gf-<key>-...} anchor in its title, or one
+    not linked from the list in index.qmd (and links there to missing boxes)
 Warnings:
   * fig-alt still contains "TODO"
   * a label that does not start with the chapter's key (tools/chapters.py)
@@ -138,6 +140,31 @@ def lint(files):
     for r, where in refs:
         if r not in labels:
             errors.append(f"{where}: reference to unknown label {r}")
+
+    # "Going further" boxes are anchored and listed in the preface
+    if any(f.name == "index.qmd" for f in files):
+        boxes = {}
+        for f in files:
+            rel = f.relative_to(ROOT) if f.is_relative_to(ROOT) else f
+            for i, line in enumerate(f.read_text(encoding="utf-8").split("\n")):
+                if re.match(r"^##\s.*Going further:", line):
+                    a = re.match(r"^##\s+\[\]\{#(gf-[A-Za-z0-9_-]+)\}Going further:", line)
+                    if not a:
+                        errors.append(f"{rel}:{i+1}: 'Going further' box without "
+                                      "a []{#gf-...} anchor in its title")
+                    else:
+                        boxes[a.group(1)] = (f, f"{rel}:{i+1}")
+        index = (ROOT / "index.qmd").read_text(encoding="utf-8")
+        listed = {g: p for p, g in
+                  re.findall(r"\]\(([^)#]+\.qmd)#(gf-[A-Za-z0-9_-]+)\)", index)}
+        for g, (f, where) in boxes.items():
+            if g not in listed:
+                errors.append(f"{where}: box #{g} is not listed in index.qmd")
+            elif (ROOT / listed[g]).resolve() != f.resolve():
+                errors.append(f"index.qmd: link to #{g} points to {listed[g]}")
+        for g in listed:
+            if g not in boxes:
+                errors.append(f"index.qmd: link to unknown box #{g}")
     return errors, warnings
 
 

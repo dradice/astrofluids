@@ -189,7 +189,7 @@ This means that the frequency of the sound measured by an observer at rest is sh
 Sound waves also transport energy and momentum. The deposition of energy by breaking waves (@sec-shock) is thought to play an important role in phenomena such as core-collapse supernovae, stellar eruptions, and the evolution of giant molecular clouds.
 
 ::: {.callout-note}
-## Going further: Normal Modes
+## []{#gf-sound-normal-modes}Going further: Normal Modes
 
 Before we can compute the energy carried by waves, we need to develop some general perturbation theory. In general, the oscillation equation takes the form
 $$
@@ -270,7 +270,7 @@ where $A_n$ and $B_n$ are determined by the initial velocity $\partial_t \xi (0,
 :::
 
 ::: {.callout-note}
-## Going further: Work Integral
+## []{#gf-sound-work-integral}Going further: Work Integral
 
 We might be tempted to define the energy density of a wave in the general form $\vb{\xi} (t, \vb{x}) =\vb{\eta} (\vb{x}) \ee^{- \ii \omega t}$ as
 $$

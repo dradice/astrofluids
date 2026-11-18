@@ -61,7 +61,7 @@ where we have used Stokes' theorem and @eq-wind-vorticity-barotropic (the first 
 ![A curve $C (t)$ that moves with the fluid. In a time $\dd t$, the element $\dd \vb{l}$ moves by $\vb{v} \, \dd t$ and sweeps the shaded area $\dd \vb{A} = \vb{v} \, \dd t \times \dd \vb{l}$. The displacement is exaggerated.](../figures/winds-and-accretion/kelvin-swept-area.svg){#fig-wind-kelvin fig-alt="A closed curve C(t), drawn as a solid black line with an arrow showing its counterclockwise orientation, encloses the surface A(t). A short element dl of the curve is drawn as an arrow along it. In a time dt the fluid carries the curve to a new position, C(t + dt), drawn as a dashed line, displaced to the upper right and slightly stretched. Each point of dl moves by v dt, drawn as an arrow from the start of dl. The element sweeps a small shaded parallelogram with sides dl and v dt, whose area is dA = v dt cross dl."}
 
 ::: {.callout-note}
-## Going further: Potential flows
+## []{#gf-wind-potential-flows}Going further: Potential flows
 
 Kelvin's theorem tells us that a barotropic flow that starts irrotational remains irrotational. A flow that is both incompressible and irrotational has
 $$

@@ -5,7 +5,7 @@
 - One file per chapter, `chapters/<slug>.qmd`. Slugs have no numbers and are never renamed (they are the page URLs). The order lives only in `_quarto.yml`.
 - The chapter list, with each chapter's **label key**, lives in `tools/chapters.py`. Every label in a chapter starts with that key.
 - Each chapter starts with `# Title {#sec-<key>}`. Structure:
-  1. Body sections. Optional material goes in `::: {.callout-note}` boxes titled "Going further: ...". Do not use `collapse="true"`: Quarto's collapsible callouts cannot be opened with the keyboard and fail axe.
+  1. Body sections. Optional material goes in `::: {.callout-note}` boxes titled `## []{#gf-<key>-<name>}Going further: ...`, and add a link to each new box to the list in `index.qmd` (`just lint` checks both). Do not use `collapse="true"`: Quarto's collapsible callouts cannot be opened with the keyboard and fail axe.
   2. `## In-class worksheet {#sec-<key>-worksheet}`
   3. `## Exercises {#sec-<key>-exercises}`
   4. `## Further reading {#sec-<key>-reading}`: textbook sections first [@clarke2007].

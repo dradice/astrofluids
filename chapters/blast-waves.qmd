@@ -200,7 +200,7 @@ So far, we have assumed that the ISM is uniform. However, the gas of a galaxy is
 ![Hubble Space Telescope image of a bubble of hot gas rising above the disk of the galaxy NGC 3079. Credit: NASA, G. Cecil, S. Veilleux, J. Bland-Hawthorn, and A. Filippenko; not covered by the license of these notes.](../figures/blast-waves/ngc3079-hst.png){#fig-blast-ngc3079 fig-alt="Colour image of the edge-on disk of a galaxy, seen as a dusty greenish band across the lower part of the frame. Above its centre rises a bubble outlined by red filaments, which form a cone-shaped structure opening upwards."}
 
 ::: {.callout-note}
-## Going further: Strömgren spheres and ionization fronts
+## []{#gf-blast-stromgren}Going further: Strömgren spheres and ionization fronts
 
 Consider a young, massive star that emits ultraviolet (UV) photons with energies above $13.6\,\mathrm{eV}$, which can ionize hydrogen, at a rate $\dot{N}_{\mathrm{UV}}$. Initially, the star is in a cloud of neutral hydrogen (H I) with density $n_H$, but the UV photons ionize the gas, forming an *H II region* (@fig-blast-hii).
 

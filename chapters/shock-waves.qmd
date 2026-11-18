@@ -112,7 +112,7 @@ The shock adiabat is shown in @fig-shock-hugoniot, together with the adiabats $p
 ![Shock adiabat (black) and adiabats (blue) for $\Gamma = 5/3$, on logarithmic axes. The dashed part of the shock adiabat describes expansion shocks, which would decrease the entropy.](../figures/shock-waves/hugoniot.svg){#fig-shock-hugoniot fig-alt="Logarithmic plot of the pressure ratio p_2/p_1 against the volume ratio V_2/V_1 for Gamma = 5/3. The adiabats p V^Gamma = const are straight blue lines. The shock adiabat, in black, touches the adiabat through the point (1, 1) at that point. For compressions, V_2/V_1 < 1, it rises above it towards a vertical asymptote at V_2/V_1 = (Gamma - 1)/(Gamma + 1) = 1/4, and a compressed state lies on a higher adiabat, so its entropy is larger. For expansions, V_2/V_1 > 1, the shock adiabat is dashed and lies below the adiabat through (1, 1), so the entropy would be smaller."}
 
 ::: {.callout-note}
-## Going further: Shocks with energy losses
+## []{#gf-shock-losses}Going further: Shocks with energy losses
 
 So far, we have assumed that the composition of the gas does not change across the shock. However, the gas heated by a shock can be ionized, or its molecules or nuclei can be dissociated. These processes absorb an energy $\Delta \varepsilon$ per unit mass, which is no longer available to heat the gas. The conservation of mass and momentum is unchanged, while the energy condition, divided by $j$ as in @eq-shock-9, becomes
 $$

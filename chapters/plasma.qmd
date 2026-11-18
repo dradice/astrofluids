@@ -120,7 +120,7 @@ The Sun must be very close to neutral, because even a small charge imbalance wou
 The argument we have just made for the Sun applies to most astrophysical systems. This implies that the charge imbalance in astronomical objects must be very small. In other words, they are *quasi-neutral*. As we will see shortly, quasi-neutrality is one of the key characteristics an ionized gas must have to be considered to be plasma. At this point, it is important to remark that, while we will be concerned only with systems that have zero net charge, these systems can still contain electric currents, which give rise to magnetic fields and internal stresses via the Lorentz force.
 
 ::: {.callout-note}
-## Going further: Conservation Laws in Electrodynamics
+## []{#gf-plasma-conservation-laws}Going further: Conservation Laws in Electrodynamics
 
 If we take the divergence of Ampère's law we find
 $$
@@ -276,7 +276,7 @@ The plasma parameter is just the number of electrons in each Debye sphere. We sa
 : Temperature, free electron density, Debye length, and plasma parameters for various systems. The electrons in protoneutron stars and white dwarfs are degenerate (and, in protoneutron stars, relativistic), so for these systems the values computed with the classical formulas are only indicative. {#tbl-plasma-parameters}
 
 ::: {.callout-note}
-## Going further: Debye Screening
+## []{#gf-plasma-debye}Going further: Debye Screening
 
 We can derive @eq-plasma-38 as follows. Consider an ion of charge $Q$ at the origin, surrounded by electrons with temperature $T$ and average density $n_e$, and by other ions, which we assume to have uniform charge density $e n_e$, so that the plasma is neutral on average. In thermal equilibrium, the electrons follow the Boltzmann distribution. An electron has potential energy $- e \Phi$, so
 $$
