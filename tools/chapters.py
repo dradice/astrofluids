@@ -35,9 +35,7 @@ PARTS = [
         ("winds-and-accretion", "wind", "Stellar Winds and Spherical Accretion", "new"),
     ]),
     ("Instabilities, Viscosity, Disks, and Turbulence", [
-        ("instabilities-convection", "conv", "Fluid Instabilities I: Convection", "new"),
-        ("instabilities-rt-kh", "rtkh", "Fluid Instabilities II: Rayleigh–Taylor and Kelvin–Helmholtz", "new"),
-        ("instabilities-thermal-gravitational", "tginst", "Fluid Instabilities III: Thermal and Gravitational Instabilities", "new"),
+        ("fluid-instabilities", "inst", "Fluid Instabilities", "new"),
         ("viscous-flows", "visc", "Diffusion and Viscous Flows", "new"),
         ("accretion-disks-structure", "disk", "Accretion Disks I: Structure and Viscous Evolution", "new"),
         ("accretion-disks-spectra", "diskspec", "Accretion Disks II: Steady Disks and Spectra", "new"),

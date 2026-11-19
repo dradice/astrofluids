@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Figures of Chapter 24 (Flux freezing), redrawn from the 2025 TeXmacs drawings.
+"""Figures of Chapter 22 (Flux freezing), redrawn from the 2025 TeXmacs drawings.
 
 Usage: python3 figures-src/flux-freezing/make-figures.py   (from the notes/ directory)
 """

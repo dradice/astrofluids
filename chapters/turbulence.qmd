@@ -110,7 +110,7 @@ A physical interpretation of the K41 model is given by the Richardson cascade (w
 
 ![The Richardson cascade. Redrawn after @frisch1995.](../figures/turbulence/richardson-cascade.svg){#fig-turb-richardson fig-alt="Rows of eddies of decreasing size: a few large eddies of size l0 at the top, then more and more eddies of sizes r l0, r squared l0, r cubed l0, down to the dissipation scale l_d. Arrows on the right show energy injected at the rate P at the top, a constant flux of energy P from large to small scales, and dissipation of energy at the rate P at the bottom."}
 
-The main mechanisms for the transport of energy are vortex stretching and shear (Kelvin–Helmholtz) instabilities (@sec-rtkh).
+The main mechanisms for the transport of energy are vortex stretching and shear (Kelvin–Helmholtz) instabilities (@sec-inst).
 
 We can interpret $v^3 (\ell) / \ell$ as a term that controls the kinetic energy dissipation:
 $$

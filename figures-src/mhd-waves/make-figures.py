@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Figures of Chapter 26 (MHD waves), redrawn from the 2025 TeXmacs drawings.
+"""Figures of Chapter 24 (MHD waves), redrawn from the 2025 TeXmacs drawings.
 
 Usage: python3 figures-src/mhd-waves/make-figures.py   (from the notes/ directory)
 The Friedrichs diagrams are computed from the dispersion relation with c_s = 1, v_A = 2

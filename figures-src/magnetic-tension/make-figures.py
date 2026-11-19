@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Figures of Chapter 25 (Magnetic tension), redrawn from the 2025 TeXmacs drawings.
+"""Figures of Chapter 23 (Magnetic tension), redrawn from the 2025 TeXmacs drawings.
 
 Usage: python3 figures-src/magnetic-tension/make-figures.py   (from the notes/ directory)
 """

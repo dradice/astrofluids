@@ -36,9 +36,7 @@ book:
         - chapters/winds-and-accretion.qmd
     - part: "Instabilities, Viscosity, Disks, and Turbulence"
       chapters:
-        - chapters/instabilities-convection.qmd
-        - chapters/instabilities-rt-kh.qmd
-        - chapters/instabilities-thermal-gravitational.qmd
+        - chapters/fluid-instabilities.qmd
         - chapters/viscous-flows.qmd
         - chapters/accretion-disks-structure.qmd
         - chapters/accretion-disks-spectra.qmd

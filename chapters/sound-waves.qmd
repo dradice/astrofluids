@@ -212,7 +212,7 @@ $$
 (\vb{x}) \dd V = \int \vb{\xi}
 (\vb{x}) \cdot \hat{\vb{F}} \vb{\zeta} (\vb{x}) \dd V .
 $$ {#eq-sound-29}
-For sound waves, this can be shown by integrating by parts: both sides are equal to $- \int \rho_0 c_s^2 (\nabla \cdot \vb{\zeta}) (\nabla \cdot \vb{\xi}) \dd V$. An important consequence of @eq-sound-29 is that $\omega^2$ is always real. So each mode either oscillates, if $\omega^2 > 0$, or grows exponentially, if $\omega^2 < 0$. We will use this to study instabilities later in the course (@sec-conv, @sec-rtkh, @sec-tginst).
+For sound waves, this can be shown by integrating by parts: both sides are equal to $- \int \rho_0 c_s^2 (\nabla \cdot \vb{\zeta}) (\nabla \cdot \vb{\xi}) \dd V$. An important consequence of @eq-sound-29 is that $\omega^2$ is always real. So each mode either oscillates, if $\omega^2 > 0$, or grows exponentially, if $\omega^2 < 0$. We will use this to study instabilities later in the course (@sec-inst).
 
 The general theory of linear operators then implies that @eq-sound-eigenvalue has an infinite set of eigenvalues $\{ \omega_n \}$ and eigenfunctions $\{ \vb{\eta}_n \}$ and that any perturbation (not just plane waves) can be written as an infinite superposition of elementary solutions:
 $$
