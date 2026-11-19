@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 200" width="680" height="200"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Random walk on a one-dimensional lattice</title>
+  <desc id="desc">A row of nine equally spaced sites on a horizontal line, separated by
+  a distance delta x. A particle sits on site i. Two curved arrows go from site i to the
+  neighbouring sites i minus 1 and i plus 1, each labelled with the probability one half.</desc>
+  <!-- Drawn from the 2026 handwritten lecture notes (diffusion.pdf). Hand-written SVG;
+       also editable in Inkscape. White background so the figure stays readable in dark mode. -->
+  <defs>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7"
+            orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10" fill="none" stroke="#1f4fbf" stroke-width="1.6"/>
+    </marker>
+  </defs>
+  <rect width="680" height="200" fill="#fff"/>
+
+  <g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif" font-size="20"
+     fill="#000">
+    <!-- lattice -->
+    <line x1="20" y1="110" x2="660" y2="110" stroke="#000" stroke-width="1.5"/>
+    <g fill="#fff" stroke="#000" stroke-width="1.5">
+      <circle cx="60" cy="110" r="8"/>
+      <circle cx="130" cy="110" r="8"/>
+      <circle cx="200" cy="110" r="8"/>
+      <circle cx="270" cy="110" r="8"/>
+      <circle cx="410" cy="110" r="8"/>
+      <circle cx="480" cy="110" r="8"/>
+      <circle cx="550" cy="110" r="8"/>
+      <circle cx="620" cy="110" r="8"/>
+    </g>
+    <!-- particle -->
+    <circle cx="340" cy="110" r="9" fill="#1f4fbf" stroke="#000" stroke-width="1.5"/>
+
+    <!-- jumps -->
+    <path d="M 334 97 Q 305 45 276 95" fill="none" stroke="#1f4fbf" stroke-width="2"
+          marker-end="url(#arrow-blue)"/>
+    <path d="M 346 97 Q 375 45 404 95" fill="none" stroke="#1f4fbf" stroke-width="2"
+          marker-end="url(#arrow-blue)"/>
+    <text x="305" y="50" text-anchor="middle" fill="#1f4fbf">1/2</text>
+    <text x="375" y="50" text-anchor="middle" fill="#1f4fbf">1/2</text>
+
+    <!-- site labels -->
+    <text x="270" y="145" text-anchor="middle"><tspan font-style="italic">i</tspan> − 1</text>
+    <text x="340" y="145" text-anchor="middle" font-style="italic">i</text>
+    <text x="410" y="145" text-anchor="middle"><tspan font-style="italic">i</tspan> + 1</text>
+
+    <!-- spacing -->
+    <line x1="480" y1="150" x2="550" y2="150" stroke="#000" stroke-width="1.3"/>
+    <line x1="480" y1="142" x2="480" y2="158" stroke="#000" stroke-width="1.3"/>
+    <line x1="550" y1="142" x2="550" y2="158" stroke="#000" stroke-width="1.3"/>
+    <text x="515" y="182" text-anchor="middle">Δ<tspan font-style="italic">x</tspan></text>
+  </g>
+</svg>
