@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 380" width="560" height="380" role="img" aria-labelledby="blob-t blob-d">
+<title id="blob-t">A fluid element displaced upwards in a stratified medium</title>
+<desc id="blob-d">A small circle at the bottom, with density rho and pressure p, is displaced upwards by a distance delta z, along a curved arrow, to a larger circle with density rho star and pressure p star. Next to the upper circle, the background has density rho(z + delta z) and pressure p(z + delta z). An arrow on the right points down and is labelled g.</desc>
+<defs><marker id="ah-k" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#000" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker></defs>
+<rect width="560" height="380" fill="#fff"/>
+<g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif">
+<circle cx="200.0" cy="300.0" r="26" fill="none" stroke="#000" stroke-width="1.6"/>
+<text x="234" y="325" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">ρ, p</text>
+<circle cx="200.0" cy="110.0" r="52" fill="none" stroke="#000" stroke-width="1.6"/>
+<text x="200" y="118" text-anchor="middle" font-size="20" font-style="italic" font-weight="normal" fill="#000">ρ<tspan dy="-8.0" font-size="14.4" font-style="normal">*</tspan><tspan dy="8">, p</tspan><tspan dy="-8" font-size="14.4" font-style="normal">*</tspan></text>
+<line x1="200.0" y1="262.0" x2="200.0" y2="178.0" stroke="#000" stroke-width="1.6" marker-end="url(#ah-k)"/>
+<text x="212" y="228" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">δz</text>
+<path d="M 170 290 C 105 250, 105 170, 145 140" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ah-k)" />
+<text x="300" y="70" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">ρ(z + δz)</text>
+<text x="300" y="102" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">p(z + δz)</text>
+<text x="300" y="150" text-anchor="start" font-size="17" font-style="normal" font-weight="normal" fill="#000">background</text>
+<line x1="500.0" y1="150.0" x2="500.0" y2="250.0" stroke="#000" stroke-width="2" marker-end="url(#ah-k)"/>
+<text x="512" y="210" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#000">g</text>
+</g>
+</svg>

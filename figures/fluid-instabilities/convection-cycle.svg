@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" width="560" height="360" role="img" aria-labelledby="cycle-t cycle-d">
+<title id="cycle-t">Schematic convection cycle</title>
+<desc id="cycle-d">Four points at the corners of a rectangle, joined by arrows that go around clockwise. On the left side, a hot fluid element rises adiabatically. At the top, it gives heat to its surroundings and moves to the right. On the right side, the cool element sinks adiabatically. At the bottom, it takes heat from its surroundings and moves back to the left.</desc>
+<defs><marker id="ah-k" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#000" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker></defs>
+<rect width="560" height="360" fill="#fff"/>
+<g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif">
+<circle cx="170.0" cy="90.0" r="8" fill="#000" stroke="#000" stroke-width="1.6"/>
+<circle cx="390.0" cy="90.0" r="8" fill="#000" stroke="#000" stroke-width="1.6"/>
+<circle cx="170.0" cy="270.0" r="8" fill="#000" stroke="#000" stroke-width="1.6"/>
+<circle cx="390.0" cy="270.0" r="8" fill="#000" stroke="#000" stroke-width="1.6"/>
+<path d="M 170 256 C 120 210, 120 150, 170 104" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ah-k)" />
+<path d="M 184 90 C 250 50, 310 50, 376 90" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ah-k)" />
+<path d="M 390 104 C 440 150, 440 210, 390 256" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ah-k)" />
+<path d="M 376 270 C 310 310, 250 310, 184 270" fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ah-k)" />
+<text x="122" y="186.0" text-anchor="end" font-size="18" font-style="normal" font-weight="normal" fill="#000">adiabatic</text>
+<text x="122" y="208.0" text-anchor="end" font-size="18" font-style="normal" font-weight="normal" fill="#000">rise</text>
+<text x="438" y="186.0" text-anchor="start" font-size="18" font-style="normal" font-weight="normal" fill="#000">adiabatic</text>
+<text x="438" y="208.0" text-anchor="start" font-size="18" font-style="normal" font-weight="normal" fill="#000">sinking</text>
+<text x="280.0" y="36" text-anchor="middle" font-size="18" font-style="normal" font-weight="normal" fill="#000">hot element heats its surroundings</text>
+<text x="280.0" y="336" text-anchor="middle" font-size="18" font-style="normal" font-weight="normal" fill="#000">cool element takes heat from its surroundings</text>
+</g>
+</svg>

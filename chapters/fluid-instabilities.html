@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.12.1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>14&nbsp; Fluid Instabilities – Astrophysical Fluid Dynamics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/viscous-flows.html" rel="next">
+<link href="../chapters/winds-and-accretion.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-6f4d992786adc40a866529610d8cdb02.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-bde43b3963eedfc4c37e32ce3ff88830.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-6f4d992786adc40a866529610d8cdb02.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/quarto-axe/axe.min.js"></script>
+<script src="../site_libs/quarto-axe/axe-check.js" type="module"></script>
+<script id="quarto-axe-checker-options" type="text/plain">dHJ1ZQ==</script>
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-1b98dd23240c9c19cf7f5804f818ede7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+  // MathJax 4 configuration (Quarto loads MathJax without one).
+  // Long display equations are broken across lines to fit the text column
+  // instead of scrolling sideways; the CSS scroll box remains as a fallback.
+  window.MathJax = {
+    output: {
+      displayOverflow: "linebreak",
+      linebreaks: { inline: true, width: "100%" }
+    }
+  };
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          toggle.setAttribute("aria-checked", alternate ? "true" : "false");
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455).
+    // Not run on load: stylesheets are set before first paint there, and
+    // scrolling would undo the scroll to a URL fragment (#14973).
+    // The one pixel nudge keeps the reader where they were.
+    const refreshSafariScrollbar = () => {
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        const scrollY = window.scrollY;
+        window.scrollTo(0, scrollY > 0 ? scrollY - 1 : 1);
+        setTimeout(() => {
+          window.scrollTo(0, scrollY);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      refreshSafariScrollbar();
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/fluid-instabilities.html">Instabilities, Viscosity, Disks, and Turbulence</a></li><li class="breadcrumb-item"><a href="../chapters/fluid-instabilities.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Fluid Instabilities</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Site">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Astrophysical Fluid Dynamics</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/dradice/astrofluids" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <button type="button" role="switch" aria-checked="false" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode" aria-label="Toggle dark mode"><i class="bi"></i></button>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Foundations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/fluids-as-continua.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fluids as Continua</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/thermodynamics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Thermodynamics Refresher</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/supernovae.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Supernovae</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/euler-equation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Euler Equation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/eulerian-lagrangian.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Eulerian and Lagrangian Descriptions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/conservation-laws.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conservation Laws</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/gravitational-potential.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">The Gravitational Potential</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/hydrostatic-equilibrium.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hydrostatic Equilibrium and the Virial Theorem</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Waves, Shocks, and Outflows</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/sound-waves.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Sound Waves and the Doppler Effect</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/stratified-atmospheres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Waves in Stratified Atmospheres</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/shock-waves.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Shock Waves</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/blast-waves.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Blast Waves</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/winds-and-accretion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Stellar Winds and Spherical Accretion</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Instabilities, Viscosity, Disks, and Turbulence</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/fluid-instabilities.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Fluid Instabilities</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/viscous-flows.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Diffusion and Viscous Flows</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/accretion-disks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Accretion Disks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/turbulence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Turbulence</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Plasma and Magneto­hydrodynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/plasma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Introduction to Plasma</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/mhd-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">The MHD Equations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/flux-freezing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Flux Freezing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/magnetic-tension.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Magnetic Tension and Hydromagnetic Equilibria</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/mhd-waves.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">MHD Waves</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/mri.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">The Magnetorotational Instability</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Appendices</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/vector-calculus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Vector Calculus</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#sec-inst-convection" id="toc-sec-inst-convection" class="nav-link active" data-scroll-target="#sec-inst-convection"><span class="header-section-number">14.1</span> Convective instability</a></li>
+  <li><a href="#sec-inst-rt" id="toc-sec-inst-rt" class="nav-link" data-scroll-target="#sec-inst-rt"><span class="header-section-number">14.2</span> The Rayleigh–Taylor instability</a></li>
+  <li><a href="#sec-inst-kh" id="toc-sec-inst-kh" class="nav-link" data-scroll-target="#sec-inst-kh"><span class="header-section-number">14.3</span> The Kelvin–Helmholtz instability</a></li>
+  <li><a href="#sec-inst-worksheet" id="toc-sec-inst-worksheet" class="nav-link" data-scroll-target="#sec-inst-worksheet"><span class="header-section-number">14.4</span> In-class worksheet</a></li>
+  <li><a href="#sec-inst-exercises" id="toc-sec-inst-exercises" class="nav-link" data-scroll-target="#sec-inst-exercises"><span class="header-section-number">14.5</span> Exercises</a></li>
+  <li><a href="#sec-inst-reading" id="toc-sec-inst-reading" class="nav-link" data-scroll-target="#sec-inst-reading"><span class="header-section-number">14.6</span> Further reading</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/fluid-instabilities.html">Instabilities, Viscosity, Disks, and Turbulence</a></li><li class="breadcrumb-item"><a href="../chapters/fluid-instabilities.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Fluid Instabilities</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-inst" class="quarto-section-identifier"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Fluid Instabilities</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This chapter is a draft. Sections on other instabilities, such as the thermal and the gravitational (Jeans) instabilities, are in preparation.</p>
+</div>
+</div>
+<p>A flow is <strong>unstable</strong> when small perturbations can grow exponentially. We have already seen in <a href="sound-waves.html" class="quarto-xref"><span>Chapter 9</span></a> that the normal modes of a fluid at rest have real <span class="math inline">\(\omega^2\)</span> (<a href="sound-waves.html#eq-sound-29" class="quarto-xref">Equation&nbsp;<span>9.29</span></a>), so each mode either oscillates or grows exponentially. This is no longer true when the fluid is moving, as we will see for the Kelvin–Helmholtz instability. In this chapter we will look at a few examples of instabilities that are particularly useful in astrophysics. There are many more instabilities, each with its own dimensionless numbers. The definitive reference is <span class="citation" data-cites="chandrasekhar1961">Chandrasekhar (<a href="#ref-chandrasekhar1961" role="doc-biblioref">1961</a>)</span>.</p>
+<section id="sec-inst-convection" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="sec-inst-convection"><span class="header-section-number">14.1</span> Convective instability</h2>
+<p>Consider a stratified medium in a uniform gravitational field <span class="math inline">\(\mathbf{g} = - g \hat{\mathbf{z}}\)</span>, in hydrostatic equilibrium, <span class="math inline">\(\partial_z p = - \rho g\)</span>. We displace a small fluid element upwards by a distance <span class="math inline">\(\delta z\)</span>, as shown in <a href="#fig-inst-displaced" class="quarto-xref">Figure&nbsp;<span>14.1</span></a>. Initially, the fluid element has the same density <span class="math inline">\(\rho\)</span> and pressure <span class="math inline">\(p\)</span> as its surroundings. After the displacement, its density and pressure are <span class="math inline">\(\rho^*\)</span> and <span class="math inline">\(p^*\)</span>, while the background at the new location has density <span class="math inline">\(\rho (z + \delta z)\)</span> and pressure <span class="math inline">\(p (z + \delta z)\)</span>. What will the fluid element do?</p>
+<div id="fig-inst-displaced" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A small circle at the bottom, labelled rho and p, is displaced upwards by a distance delta z to a larger circle labelled rho star and p star. Next to it, the background has density rho(z + delta z) and pressure p(z + delta z). An arrow pointing down is labelled g.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-inst-displaced-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/fluid-instabilities/displaced-element.svg" class="img-fluid figure-img" alt="A small circle at the bottom, labelled rho and p, is displaced upwards by a distance delta z to a larger circle labelled rho star and p star. Next to it, the background has density rho(z + delta z) and pressure p(z + delta z). An arrow pointing down is labelled g.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-inst-displaced-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.1: A fluid element is displaced upwards by <span class="math inline">\(\delta z\)</span>. Its density and pressure change from <span class="math inline">\(\rho\)</span> and <span class="math inline">\(p\)</span> to <span class="math inline">\(\rho^*\)</span> and <span class="math inline">\(p^*\)</span>. The background at the new location has density <span class="math inline">\(\rho (z + \delta z)\)</span> and pressure <span class="math inline">\(p (z + \delta z)\)</span>.
+</figcaption>
+</figure>
+</div>
+<p>As in <a href="stratified-atmospheres.html#sec-strat-gravity" class="quarto-xref"><span>Section 10.2</span></a>, we assume that the displacement is slow enough for the fluid element to stay in pressure equilibrium with its surroundings, <span class="math inline">\(p^* = p (z + \delta z)\)</span>, and that it is adiabatic. The force per unit volume experienced by the fluid element in the vertical direction is <span id="eq-inst-buoyancy-force"><span class="math display">\[
+f_z = - \partial_z p - \rho^* g = g \left[ \rho (z + \delta z) - \rho^* \right] .
+\tag{14.1}\]</span></span> So, if <span class="math inline">\(\rho^* &lt; \rho (z + \delta z)\)</span>, the fluid element is lighter than its surroundings and it is pushed further upwards. In this case we say that the fluid is <strong>convectively unstable</strong>. Otherwise, the fluid element is pushed back down.</p>
+<p>For an adiabatic displacement, <span class="math inline">\((\partial p / \partial \rho)_s = \Gamma p / \rho\)</span>, so, to linear order, <span id="eq-inst-element-density"><span class="math display">\[
+\rho^* = \rho + \left( \frac{\partial \rho}{\partial p} \right)_s \frac{\mathrm{d} p}{\mathrm{d} z} \delta z = \rho \left[ 1 + \frac{1}{\Gamma p} \frac{\mathrm{d} p}{\mathrm{d} z} \delta z \right] .
+\tag{14.2}\]</span></span> On the other hand, the density of the background at the new location is <span id="eq-inst-background-density"><span class="math display">\[
+\rho (z + \delta z) = \rho + \frac{\mathrm{d} \rho}{\mathrm{d} z} \delta z .
+\tag{14.3}\]</span></span> The fluid is stable if <span class="math inline">\(\rho^* \geq \rho (z + \delta z)\)</span> for <span class="math inline">\(\delta z &gt; 0\)</span>, that is if <span class="math inline">\((\rho / \Gamma p) \, \mathrm{d} p / \mathrm{d} z \geq \mathrm{d} \rho / \mathrm{d} z\)</span>. Since both the pressure and the density decrease with height, the condition for stability is <span id="eq-inst-stability"><span class="math display">\[
+\boxed{\frac{\rho}{\Gamma p} \left| \frac{\mathrm{d} p}{\mathrm{d} z} \right| \leq \left| \frac{\mathrm{d} \rho}{\mathrm{d} z} \right| .}
+\tag{14.4}\]</span></span> Note that <span class="math inline">\(\rho / \Gamma p = c_s^{- 2}\)</span>. In words, the density of the background has to decrease with height at least as fast as the density of a fluid element that is moved up adiabatically.</p>
+<section id="the-schwarzschild-criterion" class="level3" data-number="14.1.1">
+<h3 data-number="14.1.1" class="anchored" data-anchor-id="the-schwarzschild-criterion"><span class="header-section-number">14.1.1</span> The Schwarzschild criterion</h3>
+<p>For an ideal gas with uniform composition (constant <span class="math inline">\(\mu\)</span>), <span class="math inline">\(p = \rho k_B T / (\mu m_u)\)</span>, so <span id="eq-inst-ideal-gas"><span class="math display">\[
+\begin{aligned}
+\rho = \frac{\mu m_u p}{k_B T} \Longrightarrow \mathrm{d} \rho &amp;= \frac{\mu m_u}{k_B T} \mathrm{d} p - \frac{\mu m_u p}{k_B T^2} \mathrm{d} T \\
+&amp;= \frac{\rho}{p} \mathrm{d} p - \frac{\rho}{T} \mathrm{d} T .
+\end{aligned}
+\tag{14.5}\]</span></span> Combining <a href="#eq-inst-element-density" class="quarto-xref">Equation&nbsp;<span>14.2</span></a>, <a href="#eq-inst-background-density" class="quarto-xref">Equation&nbsp;<span>14.3</span></a>, and <a href="#eq-inst-ideal-gas" class="quarto-xref">Equation&nbsp;<span>14.5</span></a>, we find <span id="eq-inst-density-difference"><span class="math display">\[
+\begin{aligned}
+&amp; \rho^* - \rho (z + \delta z) \\
+&amp; \quad = \left[ - \left( 1 - \frac{1}{\Gamma} \right) \frac{\rho}{p} \frac{\mathrm{d} p}{\mathrm{d} z} + \frac{\rho}{T} \frac{\mathrm{d} T}{\mathrm{d} z} \right] \delta z .
+\end{aligned}
+\tag{14.6}\]</span></span> So the condition for instability is that <span id="eq-inst-instability-T"><span class="math display">\[
+\frac{\mathrm{d} T}{\mathrm{d} z} &lt; \left( 1 - \frac{1}{\Gamma} \right) \frac{T}{p} \frac{\mathrm{d} p}{\mathrm{d} z} .
+\tag{14.7}\]</span></span> What is the meaning of the right-hand side? Suppose that the background is isentropic, <span class="math inline">\(p = p_0 (\rho / \rho_0)^{\Gamma}\)</span>. Then <span class="math inline">\(\mathrm{d} \rho = \rho \, \mathrm{d} p / (\Gamma p)\)</span> and <span id="eq-inst-adiabatic-gradient"><span class="math display">\[
+\begin{aligned}
+\mathrm{d} p &amp;= \frac{k_B T}{\mu m_u} \mathrm{d} \rho + \frac{\rho k_B}{\mu m_u} \mathrm{d} T = \frac{1}{\Gamma} \mathrm{d} p + \frac{p}{T} \mathrm{d} T \\
+\Longrightarrow \mathrm{d} T &amp;= \left( 1 - \frac{1}{\Gamma} \right) \frac{T}{p} \mathrm{d} p .
+\end{aligned}
+\tag{14.8}\]</span></span> So the right-hand side of <a href="#eq-inst-instability-T" class="quarto-xref">Equation&nbsp;<span>14.7</span></a> is the <strong>adiabatic temperature gradient</strong>, <span class="math inline">\((\mathrm{d} T / \mathrm{d} z)_{\mathrm{ad}}\)</span>, that is the temperature gradient that the fluid would have if it were isentropic, with the same pressure gradient. Since the temperature decreases with height, the condition for instability is <span id="eq-inst-schwarzschild"><span class="math display">\[
+\boxed{\left| \frac{\mathrm{d} T}{\mathrm{d} z} \right| &gt; \left| \frac{\mathrm{d} T}{\mathrm{d} z} \right|_{\mathrm{ad}} .}
+\tag{14.9}\]</span></span> This is the <strong>Schwarzschild criterion</strong>: a fluid is convectively unstable if its temperature decreases with height faster than it would in an isentropic fluid.</p>
+<p>When the fluid is unstable, hot fluid elements rise, give heat to their surroundings, sink, and take heat from their surroundings at the bottom (<a href="#fig-inst-cycle" class="quarto-xref">Figure&nbsp;<span>14.2</span></a>). So convection transports heat upwards. The convective heat flux grows with the difference <span class="math inline">\(|\mathrm{d} T / \mathrm{d} z| - |\mathrm{d} T / \mathrm{d} z|_{\mathrm{ad}}\)</span>; in the mixing-length theory used in stellar evolution codes, <span class="math inline">\(F_{\mathrm{conv}} \propto (|\mathrm{d} T / \mathrm{d} z| - |\mathrm{d} T / \mathrm{d} z|_{\mathrm{ad}})^{3 / 2}\)</span>. Convection is very efficient, so a small excess over the adiabatic gradient is enough to carry a large heat flux. In well developed convection, the average temperature gradient is very close to the adiabatic one: <span id="eq-inst-well-developed"><span class="math display">\[
+\left\langle \left| \frac{\mathrm{d} T}{\mathrm{d} z} \right| \right\rangle \approx \left| \frac{\mathrm{d} T}{\mathrm{d} z} \right|_{\mathrm{ad}} .
+\tag{14.10}\]</span></span></p>
+<div id="fig-inst-cycle" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Four points at the corners of a rectangle, joined by arrows that go around clockwise. On the left, a hot element rises adiabatically. At the top it heats its surroundings and moves to the right. On the right, the cool element sinks adiabatically. At the bottom it takes heat from its surroundings and moves back to the left.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-inst-cycle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/fluid-instabilities/convection-cycle.svg" class="img-fluid figure-img" alt="Four points at the corners of a rectangle, joined by arrows that go around clockwise. On the left, a hot element rises adiabatically. At the top it heats its surroundings and moves to the right. On the right, the cool element sinks adiabatically. At the bottom it takes heat from its surroundings and moves back to the left.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-inst-cycle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.2: Schematic convection cycle. Hot fluid elements rise adiabatically and heat their surroundings at the top; cool fluid elements sink adiabatically and take heat from their surroundings at the bottom.
+</figcaption>
+</figure>
+</div>
+<p>Convection transports energy in the cores of massive stars and in the envelopes of low-mass stars like the Sun. Three-dimensional simulations of convection in stars, such as those of <span class="citation" data-cites="herwig2023">Herwig et al. (<a href="#ref-herwig2023" role="doc-biblioref">2023</a>)</span>, show a turbulent flow, with fluid elements moving on a wide range of scales. Convection is also important in core-collapse supernovae (<a href="supernovae.html" class="quarto-xref"><span>Chapter 3</span></a>). After core bounce, the gas behind the stalled shock is heated from below by the neutrinos emitted by the proto-neutron star, so it becomes convectively unstable. This <em>neutrino-driven convection</em> helps the shock to revive <span class="citation" data-cites="abdikamalov2020">(<a href="#ref-abdikamalov2020" role="doc-biblioref">Abdikamalov et al. 2022</a>)</span>.</p>
+</section>
+<section id="the-bruntväisälä-frequency" class="level3" data-number="14.1.2">
+<h3 data-number="14.1.2" class="anchored" data-anchor-id="the-bruntväisälä-frequency"><span class="header-section-number">14.1.2</span> The Brunt–Väisälä frequency</h3>
+<p>The equation of motion of the displaced fluid element is <span id="eq-inst-element-motion"><span class="math display">\[
+\begin{aligned}
+\rho \frac{\mathrm{d}^2 \delta z}{\mathrm{d} t^2} &amp;= - g \left[ \rho^* - \rho (z + \delta z) \right] \\
+&amp;= - g \rho \left[ - \left( 1 - \frac{1}{\Gamma} \right) \frac{1}{p} \frac{\mathrm{d} p}{\mathrm{d} z} + \frac{1}{T} \frac{\mathrm{d} T}{\mathrm{d} z} \right] \delta z ,
+\end{aligned}
+\tag{14.11}\]</span></span> where we have used <a href="#eq-inst-buoyancy-force" class="quarto-xref">Equation&nbsp;<span>14.1</span></a> and <a href="#eq-inst-density-difference" class="quarto-xref">Equation&nbsp;<span>14.6</span></a>. This can be written as <span id="eq-inst-oscillator"><span class="math display">\[
+\frac{\mathrm{d}^2 \delta z}{\mathrm{d} t^2} + N^2 \delta z = 0 ,
+\tag{14.12}\]</span></span> where <span class="math inline">\(N\)</span> is the Brunt–Väisälä frequency <span id="eq-inst-brunt-vaisala"><span class="math display">\[
+\boxed{
+\begin{aligned}
+N^2 &amp;= \frac{g}{T} \left[ \frac{\mathrm{d} T}{\mathrm{d} z} - \left( 1 - \frac{1}{\Gamma} \right) \frac{T}{p} \frac{\mathrm{d} p}{\mathrm{d} z} \right] \\
+&amp;= \frac{g}{T} \left[ \frac{\mathrm{d} T}{\mathrm{d} z} - \left( \frac{\mathrm{d} T}{\mathrm{d} z} \right)_{\mathrm{ad}} \right] .
+\end{aligned}
+}
+\tag{14.13}\]</span></span> This generalizes <a href="stratified-atmospheres.html#eq-strat-brunt-vaisala" class="quarto-xref">Equation&nbsp;<span>10.32</span></a>, which we derived for an isothermal atmosphere, to an arbitrary stratification.</p>
+<ul>
+<li><p>If <span class="math inline">\(N^2 &gt; 0\)</span>, the fluid element oscillates with frequency <span class="math inline">\(N\)</span>: <span id="eq-inst-stable-oscillation"><span class="math display">\[
+\delta z (t) = A \sin (N t) + B \cos (N t) .
+\tag{14.14}\]</span></span> The fluid is stable against convection.</p></li>
+<li><p>If <span class="math inline">\(N^2 &lt; 0\)</span>, the displacement grows exponentially: <span id="eq-inst-unstable-growth"><span class="math display">\[
+\delta z (t) = A \exp \left( \sqrt{- N^2} \, t \right) + B \exp \left( - \sqrt{- N^2} \, t \right) .
+\tag{14.15}\]</span></span> The fluid is unstable against convection, and the growth rate of the instability is <span class="math inline">\(\lambda = \sqrt{- N^2}\)</span>.</p></li>
+</ul>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider the atmosphere of the Earth, with <span class="math inline">\(\mu \approx 29\)</span> and <span class="math inline">\(\Gamma = 7/5\)</span> (<a href="stratified-atmospheres.html" class="quarto-xref"><span>Chapter 10</span></a>), and neglect the water vapour. Using hydrostatic equilibrium, <span class="math inline">\(\mathrm{d} p / \mathrm{d} z = - \rho g\)</span>, the adiabatic temperature gradient is <span id="eq-inst-earth-lapse"><span class="math display">\[
+\left( \frac{\mathrm{d} T}{\mathrm{d} z} \right)_{\mathrm{ad}} = - \left( 1 - \frac{1}{\Gamma} \right) \frac{\mu m_u g}{k_B} \approx - 9.8\,\mathrm{K\,km^{-1}} .
+\tag{14.16}\]</span></span> The average temperature gradient in the lower atmosphere is about <span class="math inline">\(- 6.5\,\mathrm{K\,km^{-1}}\)</span>, so the atmosphere is, on average, stable against convection. With <span class="math inline">\(T \approx 288\,\mathrm{K}\)</span>, we find <span class="math inline">\(N^2 \approx (g / T) \times 3.3\,\mathrm{K\,km^{-1}} \approx 1.1 \times 10^{-4}\,\mathrm{s^{-2}}\)</span>, so a displaced parcel of air oscillates with a period <span class="math inline">\(2 \pi / N \approx 10\,\mathrm{min}\)</span>. On a sunny day, however, the ground heats the air above it, the temperature gradient near the ground becomes steeper than the adiabatic one, and the air starts to convect. The rising bubbles of warm air, called thermals, are used by birds and glider pilots to gain altitude.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-inst-rt" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="sec-inst-rt"><span class="header-section-number">14.2</span> The Rayleigh–Taylor instability</h2>
+<p>Suppose now that the density changes over a distance much shorter than the pressure scale height, for example at the interface between two layers with different composition or temperature. Then the change in the density of the fluid element in <a href="#eq-inst-element-density" class="quarto-xref">Equation&nbsp;<span>14.2</span></a>, which is of order <span class="math inline">\(\rho \, \delta z / (\Gamma H)\)</span>, with <span class="math inline">\(H\)</span> the pressure scale height, is negligible compared with the change in the density of the background in <a href="#eq-inst-background-density" class="quarto-xref">Equation&nbsp;<span>14.3</span></a>. The fluid element keeps its density as it moves, <span class="math inline">\(\rho^* \approx \rho\)</span>, as if the fluid were incompressible, so <span class="math inline">\(\rho^* - \rho (z + \delta z) = - (\mathrm{d} \rho / \mathrm{d} z) \, \delta z\)</span>, and <span id="eq-inst-rt"><span class="math display">\[
+\boxed{N^2 = - \frac{g}{\rho} \frac{\mathrm{d} \rho}{\mathrm{d} z} .}
+\tag{14.17}\]</span></span> For an ideal gas with uniform composition, at nearly constant pressure, <span class="math inline">\(\mathrm{d} \rho / \rho \approx - \mathrm{d} T / T\)</span>, so this agrees with <a href="#eq-inst-brunt-vaisala" class="quarto-xref">Equation&nbsp;<span>14.13</span></a> without the <span class="math inline">\(\mathrm{d} p / \mathrm{d} z\)</span> term. <a href="#eq-inst-rt" class="quarto-xref">Equation&nbsp;<span>14.17</span></a> tells us that a heavy fluid on top of a light fluid is unstable. This is the <strong>Rayleigh–Taylor instability</strong>. The heavy fluid sinks in fingers, while the light fluid rises in bubbles that take the shape of mushrooms (<a href="#fig-inst-rt-simulation" class="quarto-xref">Figure&nbsp;<span>14.3</span></a>). The fingers slide past the surrounding fluid, so their sides are in turn unstable to the Kelvin–Helmholtz instability (<a href="#sec-inst-kh" class="quarto-xref"><span>Section 14.3</span></a>), which rolls them up into vortices. In the in-class worksheet (<a href="#sec-inst-worksheet" class="quarto-xref"><span>Section 14.4</span></a>), we estimate the growth rate of the instability for a sharp interface between two fluids.</p>
+<div id="fig-inst-rt-simulation" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Three panels showing the tracer in the square region from minus 0.5 to 0.5 in x and z, at t equal to 0, 1.5 and 3. Red is the heavy fluid on top, blue the light fluid below. At t equal to 0 the interface is almost flat, with a small wave. At t equal to 1.5 the wave has grown: two troughs of heavy fluid push down and the light fluid bulges up between them. At t equal to 3 the heavy fluid falls in two long fingers that reach z equal to minus 0.35 and spread into mushroom caps, while the light fluid rises in bubbles up to z equal to 0.25. The sides of the fingers roll up into small swirling vortices.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-inst-rt-simulation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/fluid-instabilities/rt-simulation.png" class="img-fluid figure-img" alt="Three panels showing the tracer in the square region from minus 0.5 to 0.5 in x and z, at t equal to 0, 1.5 and 3. Red is the heavy fluid on top, blue the light fluid below. At t equal to 0 the interface is almost flat, with a small wave. At t equal to 1.5 the wave has grown: two troughs of heavy fluid push down and the light fluid bulges up between them. At t equal to 3 the heavy fluid falls in two long fingers that reach z equal to minus 0.35 and spread into mushroom caps, while the light fluid rises in bubbles up to z equal to 0.25. The sides of the fingers roll up into small swirling vortices.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-inst-rt-simulation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.3: Development of the Rayleigh–Taylor instability in a two-dimensional simulation with <span class="math inline">\(1024 \times 2048\)</span> grid points, at three times (in code units). The colour shows a passive tracer, equal to 1 in the heavy fluid, initially on top, and to 0 in the light fluid below. The interface is initially perturbed with a small sinusoidal displacement.
+</figcaption>
+</figure>
+</div>
+<p>What matters is the gravitational acceleration felt by the fluid. In a fluid that is accelerated with acceleration <span class="math inline">\(\mathbf{a}\)</span>, the effective gravity, in the frame of the fluid, is <span class="math inline">\(\mathbf{g} - \mathbf{a}\)</span>. So a fluid that is stable in a gravitational field can become Rayleigh–Taylor unstable when it is accelerated. This happens in supernovae. When the shock launched by a core-collapse supernova (<a href="supernovae.html" class="quarto-xref"><span>Chapter 3</span></a>) passes through the layers of the star, it sets them in motion outwards. The gas behind the shock is then decelerated, for example when the shock reaches the hydrogen envelope and has to sweep up more mass. In the frame of the decelerating gas, the effective gravity points outwards, so the interfaces between layers with different composition, where the density drops outwards, have heavy fluid “on top” of light fluid and become unstable. The instability mixes the heavy elements produced in the explosion, including hot bubbles of radioactive <span class="math inline">\(^{56}\)</span>Ni, into the outer layers of the star <span class="citation" data-cites="wongwathanarat2015">(<a href="#ref-wongwathanarat2015" role="doc-biblioref">Wongwathanarat et al. 2015</a>)</span>. When the acceleration is impulsive, as when a shock crosses the interface between two fluids (for example between the oxygen and the carbon layers of a star), the corresponding instability is called the <strong>Richtmyer–Meshkov instability</strong> <span class="citation" data-cites="richtmyer1960 meshkov1969">(<a href="#ref-richtmyer1960" role="doc-biblioref">Richtmyer 1960</a>; <a href="#ref-meshkov1969" role="doc-biblioref">Meshkov 1969</a>)</span>.</p>
+</section>
+<section id="sec-inst-kh" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="sec-inst-kh"><span class="header-section-number">14.3</span> The Kelvin–Helmholtz instability</h2>
+<p>Consider an incompressible fluid with uniform density and a shear flow <span id="eq-inst-shear-flow"><span class="math display">\[
+\mathbf{v}_0 (x) = V (x) \hat{\mathbf{y}} .
+\tag{14.18}\]</span></span> We perturb it with a small velocity field in the <span class="math inline">\((x, y)\)</span> plane, <span id="eq-inst-stream-function"><span class="math display">\[
+\mathbf{v}_1 (t, x, y) = \hat{\mathbf{z}} \times \nabla \phi (t, x, y) = \partial_x \phi \, \hat{\mathbf{y}} - \partial_y \phi \, \hat{\mathbf{x}} ,
+\tag{14.19}\]</span></span> where <span class="math inline">\(\phi\)</span> is called the <em>stream function</em>. Note that <span class="math inline">\(\nabla \cdot \mathbf{v}_1 = - \partial_x \partial_y \phi + \partial_y \partial_x \phi = 0\)</span>, so the perturbation is automatically incompressible.</p>
+<p>We study the stability of this flow using the vorticity equation (<a href="winds-and-accretion.html#eq-wind-vorticity-barotropic" class="quarto-xref">Equation&nbsp;<span>13.6</span></a>) together with <span class="math inline">\(\nabla \cdot \mathbf{v}_1 = 0\)</span>: <span id="eq-inst-vorticity"><span class="math display">\[
+\frac{\partial \boldsymbol{\omega}}{\partial t} + \nabla \times (\boldsymbol{\omega} \times \mathbf{v}) = 0 .
+\tag{14.20}\]</span></span> The vorticity of the background and of the perturbation are <span id="eq-inst-vorticities"><span class="math display">\[
+\begin{aligned}
+\boldsymbol{\omega}_0 &amp;= \nabla \times \mathbf{v}_0 = \frac{\mathrm{d} V}{\mathrm{d} x} \hat{\mathbf{z}} , \\
+\boldsymbol{\omega}_1 &amp;= \nabla \times \mathbf{v}_1 = (\partial_x^2 \phi + \partial_y^2 \phi) \, \hat{\mathbf{z}} = \nabla^2 \phi \, \hat{\mathbf{z}} .
+\end{aligned}
+\tag{14.21}\]</span></span> Inserting <span class="math inline">\(\boldsymbol{\omega} = \boldsymbol{\omega}_0 + \boldsymbol{\omega}_1\)</span> and <span class="math inline">\(\mathbf{v} = \mathbf{v}_0 + \mathbf{v}_1\)</span> in <a href="#eq-inst-vorticity" class="quarto-xref">Equation&nbsp;<span>14.20</span></a> and keeping only the terms of first order, we find <span id="eq-inst-vorticity-linear"><span class="math display">\[
+\frac{\partial \boldsymbol{\omega}_1}{\partial t} + \nabla \times (\boldsymbol{\omega}_0 \times \mathbf{v}_1) + \nabla \times (\boldsymbol{\omega}_1 \times \mathbf{v}_0) = 0 .
+\tag{14.22}\]</span></span> The zeroth-order term vanishes: <span class="math inline">\(\boldsymbol{\omega}_0 \times \mathbf{v}_0 = - V \, (\mathrm{d} V / \mathrm{d} x) \, \hat{\mathbf{x}}\)</span> depends only on <span class="math inline">\(x\)</span>, so its curl is zero. Since <span class="math inline">\(\boldsymbol{\omega}_1\)</span> is parallel to <span class="math inline">\(\hat{\mathbf{z}}\)</span>, we need only the <span class="math inline">\(z\)</span>-component of <a href="#eq-inst-vorticity-linear" class="quarto-xref">Equation&nbsp;<span>14.22</span></a>. We have <span id="eq-inst-curls"><span class="math display">\[
+\begin{aligned}
+\boldsymbol{\omega}_1 \times \mathbf{v}_0 &amp;= \nabla^2 \phi \, \hat{\mathbf{z}} \times V \hat{\mathbf{y}} = - V \nabla^2 \phi \, \hat{\mathbf{x}} , \\
+\left\{ \nabla \times [\boldsymbol{\omega}_1 \times \mathbf{v}_0] \right\} \cdot \hat{\mathbf{z}} &amp;= V \partial_y \nabla^2 \phi , \\
+\boldsymbol{\omega}_0 \times \mathbf{v}_1 &amp;= - \frac{\mathrm{d} V}{\mathrm{d} x} (\partial_x \phi \, \hat{\mathbf{x}} + \partial_y \phi \, \hat{\mathbf{y}}) , \\
+\left\{ \nabla \times [\boldsymbol{\omega}_0 \times \mathbf{v}_1] \right\} \cdot \hat{\mathbf{z}} &amp;= - \frac{\mathrm{d}^2 V}{\mathrm{d} x^2} \partial_y \phi .
+\end{aligned}
+\tag{14.23}\]</span></span> In the last line, the terms with <span class="math inline">\(\partial_x \partial_y \phi\)</span> cancel. So <span id="eq-inst-phi"><span class="math display">\[
+\partial_t \nabla^2 \phi + V \partial_y \nabla^2 \phi - \frac{\mathrm{d}^2 V}{\mathrm{d} x^2} \partial_y \phi = 0 .
+\tag{14.24}\]</span></span> The coefficients of this equation depend only on <span class="math inline">\(x\)</span>, so we look for solutions of the form <span id="eq-inst-ansatz"><span class="math display">\[
+\phi (t, x, y) = \Psi (x) \, \mathrm{e}^{\mathrm{i} (k y - \omega t)} ,
+\tag{14.25}\]</span></span> with <span class="math inline">\(k &gt; 0\)</span>. Then <span class="math inline">\(\partial_t \phi = - \mathrm{i} \omega \phi\)</span>, <span class="math inline">\(\partial_y \phi = \mathrm{i} k \phi\)</span>, and <span class="math inline">\(\nabla^2 \phi = (\mathrm{d}^2 \Psi / \mathrm{d} x^2 - k^2 \Psi) \, \mathrm{e}^{\mathrm{i} (k y - \omega t)}\)</span>. Inserting these in <a href="#eq-inst-phi" class="quarto-xref">Equation&nbsp;<span>14.24</span></a> and dividing by <span class="math inline">\(- \mathrm{i} k\)</span>, we obtain <span id="eq-inst-rayleigh"><span class="math display">\[
+\boxed{(c - V) \left( \frac{\mathrm{d}^2 \Psi}{\mathrm{d} x^2} - k^2 \Psi \right) + \frac{\mathrm{d}^2 V}{\mathrm{d} x^2} \Psi = 0 ,}
+\tag{14.26}\]</span></span> where <span class="math inline">\(c = \omega / k\)</span>, with boundary conditions <span class="math inline">\(\Psi (\pm \infty) = 0\)</span>. This is <em>Rayleigh’s stability equation</em>. It is an eigenvalue problem: for a given <span class="math inline">\(V (x)\)</span> and <span class="math inline">\(k\)</span>, it has non-trivial solutions only for some values of <span class="math inline">\(c\)</span>. The flow is unstable if one of these has a positive imaginary part. Writing <span class="math inline">\(\omega = \omega_r + \mathrm{i} \omega_i\)</span>, the perturbation grows as <span class="math inline">\(\mathrm{e}^{\omega_i t}\)</span>, so the growth rate of the instability is <span class="math inline">\(\omega_i\)</span>.</p>
+<section id="a-vortex-sheet" class="level3" data-number="14.3.1">
+<h3 data-number="14.3.1" class="anchored" data-anchor-id="a-vortex-sheet"><span class="header-section-number">14.3.1</span> A vortex sheet</h3>
+<p>As an example, consider a shear layer of zero thickness, a <em>vortex sheet</em>, in which <span id="eq-inst-vortex-sheet"><span class="math display">\[
+\mathbf{v}_0 (x) = V (x) \hat{\mathbf{y}} = \begin{cases}
+V_1 \hat{\mathbf{y}}, &amp; x &lt; 0, \\
+V_2 \hat{\mathbf{y}}, &amp; x &gt; 0 .
+\end{cases}
+\tag{14.27}\]</span></span> Let <span class="math inline">\(\xi (t, x, y) = X (x) \, \mathrm{e}^{\mathrm{i} (k y - \omega t)}\)</span> be the displacement of the fluid elements in the <span class="math inline">\(x\)</span>-direction (<a href="#fig-inst-sheet" class="quarto-xref">Figure&nbsp;<span>14.4</span></a>). The <span class="math inline">\(x\)</span>-component of the velocity perturbation is the rate of change of <span class="math inline">\(\xi\)</span> following the fluid: <span id="eq-inst-sheet-velocity"><span class="math display">\[
+v_{1 x} = \frac{\mathrm{d} \xi}{\mathrm{d} t} = \partial_t \xi + V (x) \, \partial_y \xi = \mathrm{i} \left[ - \omega + V (x) k \right] \xi = - \mathrm{i} k \phi ,
+\tag{14.28}\]</span></span> where the last equality follows from <a href="#eq-inst-stream-function" class="quarto-xref">Equation&nbsp;<span>14.19</span></a>. So <span id="eq-inst-sheet-phi"><span class="math display">\[
+\phi = \begin{cases}
+(c - V_1) \, \xi, &amp; x &lt; 0, \\
+(c - V_2) \, \xi, &amp; x &gt; 0 .
+\end{cases}
+\tag{14.29}\]</span></span></p>
+<div id="fig-inst-sheet" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A horizontal sinusoidal curve separates two regions. Above it the fluid moves to the right with velocity V_2, below it with velocity V_1. A vertical arrow from the unperturbed position of the sheet, a dashed line, to the crest of the curve is labelled xi. Axes in the corner: x points up and y to the right.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-inst-sheet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/fluid-instabilities/vortex-sheet.svg" class="img-fluid figure-img" alt="A horizontal sinusoidal curve separates two regions. Above it the fluid moves to the right with velocity V_2, below it with velocity V_1. A vertical arrow from the unperturbed position of the sheet, a dashed line, to the crest of the curve is labelled xi. Axes in the corner: x points up and y to the right.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-inst-sheet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.4: A perturbed vortex sheet. The fluid moves with velocity <span class="math inline">\(V_2\)</span> above the sheet (<span class="math inline">\(x &gt; 0\)</span>) and <span class="math inline">\(V_1\)</span> below it (<span class="math inline">\(x &lt; 0\)</span>). The sheet is displaced by <span class="math inline">\(\xi\)</span>.
+</figcaption>
+</figure>
+</div>
+<p>Away from the vortex sheet, <span class="math inline">\(V\)</span> is constant, so <span class="math inline">\(\mathrm{d}^2 V / \mathrm{d} x^2 = 0\)</span>, and <a href="#eq-inst-rayleigh" class="quarto-xref">Equation&nbsp;<span>14.26</span></a> becomes <span id="eq-inst-sheet-psi"><span class="math display">\[
+\frac{\mathrm{d}^2 \Psi}{\mathrm{d} x^2} - k^2 \Psi = 0 \Longrightarrow \Psi (x) = \begin{cases}
+A_- \mathrm{e}^{k x}, &amp; x &lt; 0, \\
+A_+ \mathrm{e}^{- k x}, &amp; x &gt; 0,
+\end{cases}
+\tag{14.30}\]</span></span> where we have used the boundary conditions at <span class="math inline">\(\pm \infty\)</span>. Using <a href="#eq-inst-sheet-phi" class="quarto-xref">Equation&nbsp;<span>14.29</span></a>, with <span class="math inline">\(X = X (0)\)</span> the displacement of the sheet, which is the same on both sides (otherwise a gap would open between the two fluids), <span class="math inline">\(A_- = (c - V_1) X\)</span> and <span class="math inline">\(A_+ = (c - V_2) X\)</span>. So, just below and just above the sheet, <span id="eq-inst-sheet-dpsi"><span class="math display">\[
+\frac{\mathrm{d} \Psi}{\mathrm{d} x} = \begin{cases}
+k (c - V_1) X, &amp; x = 0^-, \\
+- k (c - V_2) X, &amp; x = 0^+ .
+\end{cases}
+\tag{14.31}\]</span></span> To find the dispersion relation, we integrate <a href="#eq-inst-rayleigh" class="quarto-xref">Equation&nbsp;<span>14.26</span></a> across the vortex sheet. It is convenient to note that <span id="eq-inst-total-derivative"><span class="math display">\[
+(c - V) \frac{\mathrm{d}^2 \Psi}{\mathrm{d} x^2} + \frac{\mathrm{d}^2 V}{\mathrm{d} x^2} \Psi = \frac{\mathrm{d}}{\mathrm{d} x} \left[ (c - V) \frac{\mathrm{d} \Psi}{\mathrm{d} x} + \frac{\mathrm{d} V}{\mathrm{d} x} \Psi \right] ,
+\tag{14.32}\]</span></span> so that <span id="eq-inst-sheet-jump"><span class="math display">\[
+\begin{aligned}
+0 &amp;= \int_{- \epsilon}^{\epsilon} \left[ (c - V) \left( \frac{\mathrm{d}^2 \Psi}{\mathrm{d} x^2} - k^2 \Psi \right) + \frac{\mathrm{d}^2 V}{\mathrm{d} x^2} \Psi \right] \mathrm{d} x \\
+&amp;= \left[ (c - V) \frac{\mathrm{d} \Psi}{\mathrm{d} x} + \frac{\mathrm{d} V}{\mathrm{d} x} \Psi \right]_{- \epsilon}^{\epsilon} \\
+&amp; \qquad - k^2 \int_{- \epsilon}^{\epsilon} (c - V) \Psi \, \mathrm{d} x \\
+&amp;\xrightarrow{\epsilon \to 0} - k X \left[ (c - V_1)^2 + (c - V_2)^2 \right] ,
+\end{aligned}
+\tag{14.33}\]</span></span> where we have used <span class="math inline">\(\mathrm{d} V / \mathrm{d} x = 0\)</span> at <span class="math inline">\(x = \pm \epsilon\)</span> and the fact that the last integral vanishes as <span class="math inline">\(\epsilon \to 0\)</span>. So the dispersion relation is <span id="eq-inst-sheet-dispersion"><span class="math display">\[
+2 c^2 - 2 c (V_1 + V_2) + V_1^2 + V_2^2 = 0 \Longrightarrow
+\boxed{c = \frac{1}{2} (V_1 + V_2) \pm \frac{\mathrm{i}}{2} |V_1 - V_2| .}
+\tag{14.34}\]</span></span> The real part of <span class="math inline">\(c\)</span> tells us that the perturbations are carried along at the average velocity of the two layers. One of the two solutions has a positive imaginary part, so the vortex sheet is always unstable. This is the <strong>Kelvin–Helmholtz instability</strong>. Its growth rate is <span id="eq-inst-kh-growth"><span class="math display">\[
+\omega_i = \frac{k}{2} |V_1 - V_2| .
+\tag{14.35}\]</span></span> Note that smaller scales grow <strong>faster</strong>. If the shear layer has a finite thickness <span class="math inline">\(\delta\)</span>, <a href="#eq-inst-kh-growth" class="quarto-xref">Equation&nbsp;<span>14.35</span></a> is valid only for <span class="math inline">\(k \lesssim 1 / \delta\)</span>. The fastest-growing modes have <span class="math inline">\(k \sim 1 / \delta\)</span>, and <span id="eq-inst-kh-max"><span class="math display">\[
+\omega_{i, \max} \sim \frac{|V_1 - V_2|}{\delta} \sim \left| \frac{\mathrm{d} V}{\mathrm{d} x} \right| .
+\tag{14.36}\]</span></span> Viscosity can also damp the instability at large <span class="math inline">\(k\)</span>.</p>
+<p>We have assumed the fluid to be incompressible, which is a good approximation if <span class="math inline">\(|V_1 - V_2|\)</span> is much smaller than the sound speed. Compressibility reduces the growth rate. For two fluids with the same sound speed <span class="math inline">\(c_s\)</span>, a vortex sheet is stable against perturbations along the flow if <span class="math inline">\(|V_1 - V_2| &gt; 2 \sqrt{2} \, c_s\)</span> <span class="citation" data-cites="landau1987">(<a href="#ref-landau1987" role="doc-biblioref">Landau and Lifshitz 1987, sec. 84</a>)</span>. A perturbation with a wave vector at an angle to the flow only feels the component of the velocity jump along <span class="math inline">\(\mathbf{k}\)</span>, so in three dimensions a supersonic shear layer is never completely stable, but it is much less unstable than a subsonic one. This is one of the reasons why supersonic astrophysical jets can travel large distances without being disrupted.</p>
+</section>
+<section id="effect-of-viscosity" class="level3" data-number="14.3.2">
+<h3 data-number="14.3.2" class="anchored" data-anchor-id="effect-of-viscosity"><span class="header-section-number">14.3.2</span> Effect of viscosity</h3>
+<p>With the inclusion of viscosity, which we will discuss in <a href="viscous-flows.html" class="quarto-xref"><span>Chapter 15</span></a>, the vorticity equation acquires a diffusion term, and Rayleigh’s equation becomes the <strong>Orr–Sommerfeld equation</strong>: <span id="eq-inst-orr-sommerfeld"><span class="math display">\[
+(c - V) \tilde{\nabla}^2 \Psi + \frac{\mathrm{d}^2 V}{\mathrm{d} x^2} \Psi = \frac{\mathrm{i}}{k \mathrm{Re}} \tilde{\nabla}^4 \Psi , \qquad \tilde{\nabla}^2 = \frac{\mathrm{d}^2}{\mathrm{d} x^2} - k^2 .
+\tag{14.37}\]</span></span> Here we have measured lengths in units of a characteristic length <span class="math inline">\(L\)</span> of the flow (for example the thickness of the shear layer) and velocities in units of a characteristic velocity <span class="math inline">\(U\)</span> (for example <span class="math inline">\(|V_1 - V_2|\)</span>), and introduced the <strong>Reynolds number</strong> <span id="eq-inst-reynolds"><span class="math display">\[
+\mathrm{Re} = \frac{U L}{\nu} ,
+\tag{14.38}\]</span></span> where <span class="math inline">\(\nu\)</span> is the kinematic viscosity. The Reynolds number is the most important parameter describing the stability of a flow.</p>
+<p>In the limit of small Reynolds number, viscosity dominates and we can neglect the terms with <span class="math inline">\(V\)</span>. For a perturbation with <span class="math inline">\(\tilde{\nabla}^2 \Psi \approx - k^2 \Psi\)</span>, <a href="#eq-inst-orr-sommerfeld" class="quarto-xref">Equation&nbsp;<span>14.37</span></a> gives <span id="eq-inst-viscous-damping"><span class="math display">\[
+\begin{aligned}
+- c k^2 = \mathrm{i} \frac{k^3}{\mathrm{Re}} &amp;\Longrightarrow \omega = - \frac{\mathrm{i}}{\mathrm{Re}} k^2 \\
+&amp;\Longrightarrow \phi (t, x, y) \sim \mathrm{e}^{\mathrm{i} k y} \mathrm{e}^{- k^2 t / \mathrm{Re}} .
+\end{aligned}
+\tag{14.39}\]</span></span> The perturbation decays: viscosity has a stabilizing effect. In physical units, <span class="math inline">\(\mathrm{e}^{- k^2 t / \mathrm{Re}}\)</span> is <span class="math inline">\(\mathrm{e}^{- \nu k^2 t}\)</span>, so the vorticity of the perturbation diffuses away in a time <span class="math inline">\(1 / (\nu k^2)\)</span>. In general, a flow becomes unstable when the Reynolds number exceeds a critical value, <span class="math inline">\(\mathrm{Re} &gt; \mathrm{Re}_{\mathrm{crit}}\)</span>, which depends on the flow. As <span class="math inline">\(\mathrm{Re}\)</span> increases, the eigenvalues <span class="math inline">\(\omega\)</span> move upwards in the complex plane, and some of them cross into the upper half plane (<a href="#fig-inst-eigen" class="quarto-xref">Figure&nbsp;<span>14.5</span></a>, left). For a shear layer, all sufficiently long wavelengths are unstable. For small <span class="math inline">\(k\)</span> the modes behave as for the vortex sheet, with <span class="math inline">\(\omega_r \propto k\)</span> and <span class="math inline">\(\omega_i \propto k\)</span>, while the modes with large <span class="math inline">\(k\)</span> are damped by viscosity (<a href="#fig-inst-eigen" class="quarto-xref">Figure&nbsp;<span>14.5</span></a>, right).</p>
+<div id="fig-inst-eigen" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two panels, each with the real part of omega on the horizontal axis and the imaginary part on the vertical axis. Left: six crosses below the horizontal axis, in the region of stable modes, each with an arrow pointing upwards into the region of unstable modes, labelled Re increasing. Right: dots for modes with increasing wave number start at the origin and rise along a straight line, reach a maximum, and then bend down, crossing the horizontal axis; the last dots, below the axis, are labelled damped by viscosity. Arrows show the dots with large wave number moving upwards as the Reynolds number increases.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-inst-eigen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/fluid-instabilities/eigenvalues.svg" class="img-fluid figure-img" alt="Two panels, each with the real part of omega on the horizontal axis and the imaginary part on the vertical axis. Left: six crosses below the horizontal axis, in the region of stable modes, each with an arrow pointing upwards into the region of unstable modes, labelled Re increasing. Right: dots for modes with increasing wave number start at the origin and rise along a straight line, reach a maximum, and then bend down, crossing the horizontal axis; the last dots, below the axis, are labelled damped by viscosity. Arrows show the dots with large wave number moving upwards as the Reynolds number increases.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-inst-eigen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.5: Sketch of the eigenvalues <span class="math inline">\(\omega = \omega_r + \mathrm{i} \omega_i\)</span> in the complex plane. Left: as the Reynolds number increases, the eigenvalues move upwards, and the flow becomes unstable when one of them crosses the real axis. Right: the modes of a shear layer for increasing wave number <span class="math inline">\(k\)</span>, starting from the origin. Long wavelengths are unstable, while short wavelengths are damped by viscosity.
+</figcaption>
+</figure>
+</div>
+<p>The Kelvin–Helmholtz instability is everywhere: it produces the billows that we sometimes see in clouds, and it makes jets and the boundaries of astrophysical outflows turbulent. It also plays an important role in turbulence (<a href="turbulence.html" class="quarto-xref"><span>Chapter 17</span></a>): large eddies are destroyed by the Kelvin–Helmholtz instability and generate smaller eddies.</p>
+</section>
+</section>
+<section id="sec-inst-worksheet" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="sec-inst-worksheet"><span class="header-section-number">14.4</span> In-class worksheet</h2>
+<ol type="1">
+<li><p>Is an isothermal atmosphere stable against convection? Why?</p></li>
+<li><p>A heavy fluid with density <span class="math inline">\(\rho_2\)</span> is layered on top of a lighter fluid with density <span class="math inline">\(\rho_1\)</span> in a constant vertical gravitational field <span class="math inline">\(g\)</span> (<span class="math inline">\(\rho_2 &gt; \rho_1\)</span>). The system is perturbed by rotating a cylinder of fluid of radius <span class="math inline">\(r\)</span>, as shown in <a href="#fig-inst-rotated-cylinder" class="quarto-xref">Figure&nbsp;<span>14.6</span></a>.</p>
+<div id="fig-inst-rotated-cylinder" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A darker upper region (heavy fluid, density rho_2) lies above a lighter lower region (light fluid, density rho_1), separated by a horizontal line. A circular region of radius r is centred on the line; the heavy fluid fills its upper half and the light fluid its lower half. A thin ring around the circle has been rotated counterclockwise by an angle theta: heavy fluid has moved down on the left, light fluid has moved up on the right.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-inst-rotated-cylinder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/fluid-instabilities/rotated-cylinder.svg" class="img-fluid figure-img" alt="A darker upper region (heavy fluid, density rho_2) lies above a lighter lower region (light fluid, density rho_1), separated by a horizontal line. A circular region of radius r is centred on the line; the heavy fluid fills its upper half and the light fluid its lower half. A thin ring around the circle has been rotated counterclockwise by an angle theta: heavy fluid has moved down on the left, light fluid has moved up on the right.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-inst-rotated-cylinder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.6: A cylinder of fluid of radius <span class="math inline">\(r\)</span> straddling the interface between the heavy fluid (density <span class="math inline">\(\rho_2\)</span>, above) and the light fluid (density <span class="math inline">\(\rho_1\)</span>, below). The ring around the cylinder has been rotated rigidly by an angle <span class="math inline">\(\theta\)</span>.
+</figcaption>
+</figure>
+</div>
+<p>Assume that the fluid is incompressible and that the fluid ring rotates rigidly.</p>
+<ol type="1">
+<li><p>Derive an equation for <span class="math inline">\(\ddot{\theta}\)</span>.</p></li>
+<li><p>Show that the growth rate of the instability is <span id="eq-inst-rt-growth-ws"><span class="math display">\[
+\lambda \sim \sqrt{\frac{Ag}{r}},
+\tag{14.40}\]</span></span> where <span class="math inline">\(A\)</span> is the Atwood number <span id="eq-inst-atwood"><span class="math display">\[
+A = \frac{\rho_2 - \rho_1}{\rho_2 + \rho_1} .
+\tag{14.41}\]</span></span></p></li>
+</ol></li>
+</ol>
+</section>
+<section id="sec-inst-exercises" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="sec-inst-exercises"><span class="header-section-number">14.5</span> Exercises</h2>
+<div id="exr-inst-thin-disk" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 14.1 (Vertical structure and convective stability of a thin disk)</strong></span> A thin disk of gas orbits an object of mass <span class="math inline">\(M\)</span>. In the vertical (<span class="math inline">\(z\)</span>) direction, the disk is held up by a balance between the pressure gradient and the <span class="math inline">\(z\)</span>-component of the gravitational force exerted by the central object.</p>
+<ol type="1">
+<li><p>Write down the equation of hydrostatic equilibrium in the <span class="math inline">\(z\)</span>-direction.</p></li>
+<li><p>Suppose that the density profile is <span class="math inline">\(\rho (z) \propto (z_m^2 - z^2)^2\)</span>. Determine the corresponding pressure profile and the polytropic index <span class="math inline">\(n\)</span> of the disk.</p></li>
+<li><p>Is the disk stable against convection if it consists of ionized hydrogen?</p></li>
+</ol>
+<p>Adapted from <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Problem 40.</p>
+</div>
+<div id="exr-inst-pipe" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 14.2 (Instability in a pipe)</strong></span> A smooth pipe of square cross-section, with side <span class="math inline">\(a\)</span>, lies on a horizontal surface in a uniform vertical gravitational field <span class="math inline">\(g\)</span>. The pipe is filled with incompressible fluid: the upper half of the pipe contains fluid of density <span class="math inline">\(\rho_1\)</span> and the lower half contains fluid of density <span class="math inline">\(\rho_0\)</span>, with <span class="math inline">\(\rho_1 &gt; \rho_0\)</span>.</p>
+<ol type="1">
+<li><p>Name the instability that develops, and identify the energy source that powers it.</p></li>
+<li><p>Compute the energy <span class="math inline">\(E_1\)</span> per unit length of the pipe that is available to the instability.</p></li>
+</ol>
+<p>Adapted from <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Problem 41.</p>
+</div>
+<div id="exr-inst-slab" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 14.3 (Thermal balance of a slab)</strong></span> A slab of gas held together by its own gravity is heated by cosmic rays, at a constant rate per unit mass. It cools by optically thin thermal bremsstrahlung, with a cooling rate per unit mass proportional to <span class="math inline">\(\rho T^{1 / 2}\)</span>.</p>
+<ol type="1">
+<li><p>Using the discussion of thermal instability in <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span> (Section 10.4), analyse the thermal stability of the slab.</p></li>
+<li><p>Is the slab stable against the Rayleigh–Taylor instability?</p></li>
+</ol>
+<p>Adapted from <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Problem 36.</p>
+</div>
+</section>
+<section id="sec-inst-reading" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="sec-inst-reading"><span class="header-section-number">14.6</span> Further reading</h2>
+<ul>
+<li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Chapter 10 (fluid instabilities).</li>
+<li><span class="citation" data-cites="chandrasekhar1961">Chandrasekhar (<a href="#ref-chandrasekhar1961" role="doc-biblioref">1961</a>)</span>, the classic reference on hydrodynamic stability.</li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-abdikamalov2020" class="csl-entry" role="listitem">
+Abdikamalov, Ernazar, Giulia Pagliaroli, and David Radice. 2022. <span>“Gravitational Waves from Core-Collapse Supernovae.”</span> In <em>Handbook of Gravitational Wave Astronomy</em>. Springer.
+</div>
+<div id="ref-chandrasekhar1961" class="csl-entry" role="listitem">
+Chandrasekhar, S. 1961. <em>Hydrodynamic and Hydromagnetic Stability</em>. Clarendon Press.
+</div>
+<div id="ref-clarke2007" class="csl-entry" role="listitem">
+Clarke, Cathie, and Bob Carswell. 2007. <em>Principles of Astrophysical Fluid Dynamics</em>. Cambridge University Press.
+</div>
+<div id="ref-herwig2023" class="csl-entry" role="listitem">
+Herwig, Falk, Paul R. Woodward, Huaqing Mao, et al. 2023. <span>“<span>3D</span> Hydrodynamic Simulations of Massive Main-Sequence Stars – <span>I</span>. <span>D</span>ynamics and Mixing of Convection and Internal Gravity Waves.”</span> <em>Monthly Notices of the Royal Astronomical Society</em> 525: 1601–29. <a href="https://doi.org/10.1093/mnras/stad2157">https://doi.org/10.1093/mnras/stad2157</a>.
+</div>
+<div id="ref-landau1987" class="csl-entry" role="listitem">
+Landau, L. D., and E. M. Lifshitz. 1987. <em>Fluid Mechanics</em>. 2nd ed. Vol. 6. Course of Theoretical Physics. Pergamon Press.
+</div>
+<div id="ref-meshkov1969" class="csl-entry" role="listitem">
+Meshkov, E. E. 1969. <span>“Instability of the Interface of Two Gases Accelerated by a Shock Wave.”</span> <em>Fluid Dynamics</em> 4: 101–4. <a href="https://doi.org/10.1007/BF01015969">https://doi.org/10.1007/BF01015969</a>.
+</div>
+<div id="ref-richtmyer1960" class="csl-entry" role="listitem">
+Richtmyer, Robert D. 1960. <span>“Taylor Instability in Shock Acceleration of Compressible Fluids.”</span> <em>Communications on Pure and Applied Mathematics</em> 13: 297–319. <a href="https://doi.org/10.1002/cpa.3160130207">https://doi.org/10.1002/cpa.3160130207</a>.
+</div>
+<div id="ref-wongwathanarat2015" class="csl-entry" role="listitem">
+Wongwathanarat, A., E. Müller, and H.-Th. Janka. 2015. <span>“Three-Dimensional Simulations of Core-Collapse Supernovae: From Shock Revival to Shock Breakout.”</span> <em>Astronomy &amp; Astrophysics</em> 577: A48. <a href="https://doi.org/10.1051/0004-6361/201425025">https://doi.org/10.1051/0004-6361/201425025</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const toggle = window.document.createElement('button');
+      toggle.type = "button";
+      toggle.setAttribute("role", "switch");
+      toggle.setAttribute("aria-checked", "false");
+      toggle.classList.add('top-right');
+      toggle.classList.add('quarto-color-scheme-toggle');
+      toggle.setAttribute("aria-label", "Toggle dark mode");
+      toggle.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      toggle.appendChild(i);
+      // Put the toggle in a landmark of its own, so that landmark navigation
+      // can reach it.
+      //
+      // The container is always a fresh direct child of body, and the toggle is
+      // never moved into page furniture that the theme or the author controls.
+      // The toggle is positioned against the page, so any ancestor that
+      // establishes a containing block captures it: a positioned element or a
+      // grid for position: absolute, and transform, filter, will-change or
+      // contain for position: fixed. A direct child of body has none of these
+      // to inherit, and the shift when one appears is silent and visual.
+      //
+      // ARIA says a document should have at most one banner, and axe reports a
+      // duplicate whether or not the banners carry distinct labels. So use a
+      // header when the page has no banner yet, and a named region otherwise.
+      //
+      // A header is a banner wherever it sits, unless it is inside sectioning
+      // content, so this cannot just look at the children of body: a custom
+      // page layout wraps the title block header in a plain div. An explicit
+      // role="banner" always counts.
+      const sectioning = 'article, aside, main, nav, section, [role="article"], [role="complementary"], [role="main"], [role="navigation"], [role="region"]';
+      const hasBanner = Array.from(
+        window.document.querySelectorAll('header:not([role]), [role="banner"]')
+      ).some(function(el) {
+        return el.hasAttribute("role") || el.closest(sectioning) === null;
+      });
+      const container = window.document.createElement(hasBanner ? "div" : "header");
+      if (hasBanner) {
+        container.setAttribute("role", "region");
+        container.setAttribute("aria-label", "Toggle dark mode");
+      }
+      container.classList.add('quarto-color-scheme-toggle-container');
+      container.appendChild(toggle);
+      window.document.body.appendChild(container);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/dradice\.github\.io\/astrofluids\/");
+      const newWindowLabel = "(opens in a new tab)";
+      const newWindowNoteId = "quarto-ext-newwindow-label";
+      // Links reference one hidden label through aria-describedby, so the
+      // announcement never changes their accessible name.
+      var describeNewWindow = (link) => {
+        if (!window.document.getElementById(newWindowNoteId)) {
+          var newWindowNote = window.document.createElement("span");
+          newWindowNote.id = newWindowNoteId;
+          newWindowNote.hidden = true;
+          newWindowNote.textContent = newWindowLabel;
+          window.document.body.appendChild(newWindowNote);
+        }
+        var describedBy = (link.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean);
+        if (!describedBy.includes(newWindowNoteId)) {
+          describedBy.push(newWindowNoteId);
+          link.setAttribute("aria-describedby", describedBy.join(" "));
+        }
+      }
+      var opensNewContext = (link) => {
+        var target = (link.getAttribute("target") || "").toLowerCase();
+        return target !== "" && !["_self", "_parent", "_top"].includes(target);
+      }
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+        if (opensNewContext(link)) {
+          describeNewWindow(link);
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/winds-and-accretion.html" class="pagination-link" aria-label="Stellar Winds and Spherical Accretion">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Stellar Winds and Spherical Accretion</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/viscous-flows.html" class="pagination-link" aria-label="Diffusion and Viscous Flows">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Diffusion and Viscous Flows</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© David Radice · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
