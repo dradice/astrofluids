@@ -37,8 +37,7 @@ PARTS = [
     ("Instabilities, Viscosity, Disks, and Turbulence", [
         ("fluid-instabilities", "inst", "Fluid Instabilities", "new"),
         ("viscous-flows", "visc", "Diffusion and Viscous Flows", "new"),
-        ("accretion-disks-structure", "disk", "Accretion Disks I: Structure and Viscous Evolution", "new"),
-        ("accretion-disks-spectra", "diskspec", "Accretion Disks II: Steady Disks and Spectra", "new"),
+        ("accretion-disks", "disk", "Accretion Disks", "new"),
         ("turbulence", "turb", "Turbulence", "port"),
     ]),
     ("Plasma and Magnetohydrodynamics", [

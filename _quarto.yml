@@ -38,8 +38,7 @@ book:
       chapters:
         - chapters/fluid-instabilities.qmd
         - chapters/viscous-flows.qmd
-        - chapters/accretion-disks-structure.qmd
-        - chapters/accretion-disks-spectra.qmd
+        - chapters/accretion-disks.qmd
         - chapters/turbulence.qmd
     - part: "Plasma and Magneto\u00ADhydrodynamics"
       chapters:
