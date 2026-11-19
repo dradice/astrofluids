@@ -25,7 +25,7 @@ $$
 \right)  \hat{\nabla}^2 \vb{B}= \hat{\nabla} \times (\hat{\vb{v}}
 \times \vb{B}) + \frac{1}{\mathrm{R}_M}  \hat{\nabla}^2 \vb{B}.
 $$ {#eq-flux-4}
-We have introduced the *magnetic Reynolds number*, by analogy with the Reynolds number of @eq-turb-10,
+We have introduced the *magnetic Reynolds number*, by analogy with the Reynolds number of @eq-turb-16,
 $$
 \mathrm{R}_M = \frac{LV}{\eta} .
 $$ {#eq-flux-5}

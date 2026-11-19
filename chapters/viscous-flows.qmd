@@ -158,7 +158,7 @@ about $10^5$ times the age of the Universe. On the other hand, the gas in molecu
 $$
 \frac{t_{\mathrm{visc}}}{t_{\mathrm{dyn}}} = \frac{L v}{\nu} \sim 3 \times 10^8
 $$ {#eq-visc-cloud-ratio}
-is the Reynolds number of the flow, which we will meet again in @sec-turb (@eq-turb-10). Such large values are typical of astrophysical flows, which are almost always turbulent. Viscosity becomes important only on much smaller scales, where $L^2 / \nu$ is comparable to $L / v$.
+is the Reynolds number of the flow, which we will meet again in @sec-turb (@eq-turb-16). Such large values are typical of astrophysical flows, which are almost always turbulent. Viscosity becomes important only on much smaller scales, where $L^2 / \nu$ is comparable to $L / v$.
 :::
 
 ## Kinetic energy dissipation {#sec-visc-dissipation}
@@ -179,7 +179,7 @@ $$
 &= \int_V \rho \nu \nabla \cdot \left[ (\nabla \vb{v}) \cdot \vb{v} \right] \dd V - \rho \nu \int_V | \nabla \vb{v} |^2 \dd V .
 \end{aligned}
 $$ {#eq-visc-dissipation-shear}
-The first term on the RHS can be written as a surface integral using the divergence theorem, and it vanishes if, for example, the fluid is at rest on the boundary of $V$. So the shear viscosity always decreases the kinetic energy of the flow, and it does so at a rate proportional to $\int_V | \nabla \vb{v} |^2 \dd V$. For an incompressible flow, and if the boundary terms vanish, this integral is equal to $\int_V | \vb{\omega} |^2 \dd V$, where $\vb{\omega} = \nabla \times \vb{v}$ is the vorticity (@eq-wind-vorticity-def). This is the **enstrophy** of the flow. We will use this result in @sec-turb (@eq-turb-5).
+The first term on the RHS can be written as a surface integral using the divergence theorem, and it vanishes if, for example, the fluid is at rest on the boundary of $V$. So the shear viscosity always decreases the kinetic energy of the flow, and it does so at a rate proportional to $\int_V | \nabla \vb{v} |^2 \dd V$. For an incompressible flow, and if the boundary terms vanish, this integral is equal to $\int_V | \vb{\omega} |^2 \dd V$, where $\vb{\omega} = \nabla \times \vb{v}$ is the vorticity (@eq-wind-vorticity-def). This is the **enstrophy** of the flow. We will use this result in @sec-turb (@eq-turb-11).
 
 If instead the flow is compressible and $\nu = 0$, we find
 $$

@@ -8,17 +8,53 @@ Turbulence is the chaotic, complex motion observed in fluids across all scales, 
 
 Despite its importance for a number of applications, including many of practical, industrial impact, and despite the fact that turbulence has been studied for more than 500 years, we still lack a rigorous theory of turbulence. The closest thing we have to a theory is Kolmogorov's 1941 theory (K41). These notes contain an introductory-level description of K41 and some example applications. For a more in depth description, I would recommend Landau–Lifshitz Vol. 6 [@landau1987] and Pope, *Turbulent Flows*, 2000 [@pope2000].
 
-## Kolmogorov's Theory
+## Mean Flow and Fluctuations
 
-Fluid motion is driven by external forces, such as gravity, which have a characteristic scale $\ell_0$ comparable to the size of the system of interest. For example, for a star $\ell_0 \sim R_*$, the radius of the star. The starting point of Kolmogorov's theory is to decompose the flow velocity in some patch of the fluid $\vb{v}$ into a mean flow $\langle \vb{v} \rangle$ and a fluctuating component $\vb{v}'$, not necessarily assumed to be small. The theory then assumes that, if the size $\ell$ of the region under consideration is sufficiently small, $\ell \ll \ell_0$, $\vb{v}'$ is *universal*, at least in a statistical sense, meaning that it does not depend on the particular system, but that is set by the equations of motion.
-
-To keep our notation simple, we set $\langle \vb{v} \rangle = 0$, meaning that $\vb{v}' =\vb{v}$. Note that we can always set $\langle \vb{v} \rangle = 0$ by working in the appropriate reference frame, so this is not a restriction on the theory we are developing. We are also going to assume that the flow is incompressible, which is a good approximation if the velocity fluctuations are small compared to the sound speed (@sec-sound). As we will see, the velocity fluctuations become smaller at smaller scales, so this is always true at sufficiently small scales, except in shocks. The flow is then described by the Navier–Stokes equations (@sec-visc)
+We will assume that the flow is incompressible, which is a good approximation if the velocity fluctuations are small compared to the sound speed (@sec-sound). As we will see, the velocity fluctuations become smaller at smaller scales, so this is always true at sufficiently small scales, except in shocks. The flow is then described by the Navier–Stokes equations (@sec-visc)
 $$
 \partial_t \vb{v}+ (\vb{v} \cdot \nabla) \vb{v}=\vb{g}-
 \frac{\nabla p}{\rho} + \nu \nabla^2 \vb{v}, \qquad \nabla \cdot
 \vb{v}= 0,
 $$ {#eq-turb-navier-stokes}
 where $\vb{g}$ is some external acceleration field, typically gravity in astrophysical applications.
+
+A turbulent flow has structure on many scales (@fig-turb-filter). To separate the large-scale motion from the small-scale fluctuations, we decompose the velocity into an average and a fluctuating component:
+$$
+\vb{v} = \bar{\vb{v}} + \delta\vb{v}, \qquad \bar{\vb{v}} (\vb{x}) = \int K (\vb{x} - \vb{x}') \, \vb{v} (\vb{x}') \dd^3 x',
+$$ {#eq-turb-filter}
+where the *filter* $K$ is a smooth function of width $\ell$, with integral equal to one. In other words, $\bar{\vb{v}}$ is the average of $\vb{v}$ over a region of size $\ell$, and $\delta\vb{v}$ contains the motions on scales smaller than $\ell$. The filter is such that
+$$
+\overline{\delta\vb{v}} = 0 \Longrightarrow \bar{\bar{\vb{v}}} = \bar{\vb{v}} .
+$$ {#eq-turb-filter-mean}
+Strictly speaking, this is true for averages over time or over many realizations of the flow. For a filter like the one in @fig-turb-filter, it is a good approximation if $\bar{\vb{v}}$ varies on scales much larger than $\ell$ and $\delta\vb{v}$ on scales much smaller than $\ell$.
+
+![Filtering a turbulent velocity field. Left: the filter $K$, of width $\ell$. Right: the velocity $\vb{v}$ (black), its average $\bar{\vb{v}}$ (blue), and the fluctuations $\delta\vb{v}$ (red).](../figures/turbulence/filtering.svg){#fig-turb-filter fig-alt="Two panels. Left: a bell-shaped curve, the filter K, plotted against x minus x prime, with a double arrow marking its width l. Right: a black curve, the velocity v, follows a smooth wave but has many small, fast wiggles; a smooth blue curve, the average v bar, follows the wave; a red curve, the fluctuations delta v, oscillates rapidly around zero near the horizontal axis."}
+
+Since $\nabla \cdot \vb{v} = 0$, we can write $(\vb{v} \cdot \nabla) \vb{v} = \nabla \cdot (\vb{v} \otimes \vb{v})$. The filter is linear and commutes with derivatives, so the average of @eq-turb-navier-stokes is
+$$
+\partial_t \bar{\vb{v}} + \nabla \cdot \overline{\vb{v} \otimes \vb{v}} = \bar{\vb{g}} - \frac{\nabla \bar{p}}{\rho} + \nu \nabla^2 \bar{\vb{v}},
+$$ {#eq-turb-4}
+with $\nabla \cdot \bar{\vb{v}} = 0$. However, $\overline{\vb{v} \otimes \vb{v}} \neq \bar{\vb{v}} \otimes \bar{\vb{v}}$. Instead,
+$$
+\overline{\vb{v} \otimes \vb{v}} = \overline{(\bar{\vb{v}} + \delta\vb{v}) \otimes (\bar{\vb{v}} + \delta\vb{v})} = \bar{\vb{v}} \otimes \bar{\vb{v}} + \overline{\delta\vb{v} \otimes \delta\vb{v}},
+$$ {#eq-turb-5}
+where we have used $\overline{\bar{\vb{v}} \otimes \delta\vb{v}} = \bar{\vb{v}} \otimes \overline{\delta\vb{v}} = 0$. The last term is the *Reynolds stress tensor*
+$$
+\vb{R} = \overline{\delta\vb{v} \otimes \delta\vb{v}} ,
+$$ {#eq-turb-reynolds-stress}
+so the filtered equations read
+$$
+\partial_t \bar{\vb{v}} + \nabla \cdot (\bar{\vb{v}} \otimes \bar{\vb{v}}) = \bar{\vb{g}} - \frac{\nabla \bar{p}}{\rho} + \nu \nabla^2 \bar{\vb{v}} - \nabla \cdot \vb{R} .
+$$ {#eq-turb-momentum-averaged}
+These are the equations for a fluid with velocity $\bar{\vb{v}}$ and pressure $\bar{p}$, with an additional stress $\vb{R}$ due to the fluctuations on scales smaller than $\ell$. They are exact, but they are not closed, because we do not have a way to compute $\vb{R}$ from $\bar{\vb{v}}$. This is the so-called turbulence closure problem. We will come back to it in @sec-turb-modeling.
+
+The simplest case is that of *homogeneous and isotropic turbulence*, which has no mean flow: $\bar{\vb{v}} = 0$ and $\delta\vb{v} = \vb{v}$. This also applies locally, in a region of size $\ell$, after we remove the mean flow by working in the frame moving with $\bar{\vb{v}}$.
+
+## Kolmogorov's Theory
+
+Fluid motion is driven by external forces, such as gravity, which have a characteristic scale $\ell_0$ comparable to the size of the system of interest. For example, for a star $\ell_0 \sim R_*$, the radius of the star. The starting point of Kolmogorov's theory is to assume that, if the size $\ell$ of the region under consideration is sufficiently small, $\ell \ll \ell_0$, the fluctuating component of the velocity $\delta\vb{v}$, not necessarily assumed to be small, is *universal*, at least in a statistical sense, meaning that it does not depend on the particular system, but that is set by the equations of motion.
+
+To keep our notation simple, we consider homogeneous and isotropic turbulence, so that $\bar{\vb{v}} = 0$ and $\delta\vb{v} = \vb{v}$. As discussed above, this is not a restriction on the theory we are developing, because we can always remove the mean flow by working in the appropriate reference frame.
 
 The equation for the evolution of the kinetic energy is obtained by multiplying @eq-turb-navier-stokes by $\vb{v}$:
 $$
@@ -28,18 +64,17 @@ $$
 $$ {#eq-turb-kinetic-energy-full}
 Consider the first term on the RHS, representing the work done by the external force on the flow. If $\ell \ll \ell_0$, then we can take $\vb{g} \sim \mathrm{const}$ over this region and
 $$
-\langle \vb{g} \cdot \vb{v} \rangle \sim \vb{g} \cdot \langle
-\vb{v} \rangle = 0.
-$$ {#eq-turb-3}
-This suggests that the evolution of $v$ for $\ell \ll \ell_0$ is independent of the details of the external force $\vb{g}$, so $v$ can be universal. Of course, if $\ell \sim \ell_0$, then $\langle \vb{g} \cdot \vb{v} \rangle > 0$ in general, meaning that kinetic energy is injected at the scale $\ell_0$ by gravity and then evolves according to @eq-turb-kinetic-energy-full.
+\overline{\vb{g} \cdot \vb{v}} \simeq \vb{g} \cdot \bar{\vb{v}} = 0.
+$$ {#eq-turb-9}
+This suggests that the evolution of $v$ for $\ell \ll \ell_0$ is independent of the details of the external force $\vb{g}$, so $v$ can be universal. Of course, if $\ell \sim \ell_0$, then $\overline{\vb{g} \cdot \vb{v}} > 0$ in general, meaning that kinetic energy is injected at the scale $\ell_0$ by gravity and then evolves according to @eq-turb-kinetic-energy-full.
 
 Let's now consider the role of pressure (note that $\rho = \mathrm{const}$):
 $$
-\langle \nabla p \cdot \vb{v} \rangle = \frac{1}{V} \int_V \nabla p
+\overline{\nabla p \cdot \vb{v}} = \frac{1}{V} \int_V \nabla p
 \cdot \vb{v} \dd V = \frac{1}{V} \int_V [\nabla \cdot (p
 \vb{v}) - p \nabla \cdot \vb{v}] \dd V = \frac{1}{V} \oint_S
 p\vb{v} \cdot \vb{n} \dd S = 0.
-$$ {#eq-turb-4}
+$$ {#eq-turb-10}
 In the last equation we have assumed that $\vb{v}$ is isotropic (no preferred direction), so $\vb{v} \cdot \vb{n}$ is zero on average.
 
 In a similar way, we can rewrite the average of the last term in the RHS of @eq-turb-kinetic-energy-full as
@@ -47,7 +82,7 @@ $$
 \int_V \nabla^2 \vb{v} \cdot \vb{v} \dd V = \oint_S \vb{n}
 \cdot (\nabla \vb{v}\vb{v}) \dd S - \int_V \nabla \vb{v}:
 \nabla \vb{v} \dd V = - \int_V | \nabla \vb{v} |^2 \dd V .
-$$ {#eq-turb-5}
+$$ {#eq-turb-11}
 This means that, on average, we can simplify the kinetic energy equation to read
 $$
 \partial_t v^2 = 2\vb{g} \cdot \vb{v}- (\vb{v} \cdot \nabla) v^2
@@ -59,10 +94,10 @@ $$
 $$ {#eq-turb-dissipation-estimate}
 where $v (\ell)$ is the characteristic velocity fluctuation on a length scale $\ell$:
 $$
-v (\ell) = \langle | \vb{v} (\vb{x}+\vb{l}) -\vb{v}
-(\vb{x}) | \rangle = \frac{1}{V} \int_V | \vb{v}
+v (\ell) = \overline{| \vb{v} (\vb{x}+\vb{l}) -\vb{v}
+(\vb{x}) |} = \frac{1}{V} \int_V | \vb{v}
 (\vb{x}+\vb{l}) -\vb{v} (\vb{x}) | \dd V.
-$$ {#eq-turb-8}
+$$ {#eq-turb-14}
 We use the notation $A \sim B$ to signify that two quantities, $A$ and $B$, are equal up to factors of order unity.
 
 The quantity on the RHS of @eq-turb-dissipation-estimate has units of power per unit mass, as expected, since it is the rate at which the kinetic energy per unit mass is dissipated. @eq-turb-dissipation-estimate suggests that the energy is dissipated at a scale $\ell_d$ (the dissipation or Kolmogorov scale) at which the dissipation rate is equal to the mean power of the global flow:
@@ -76,13 +111,13 @@ $$ {#eq-turb-ratio-of-scales-1}
 In the previous equation, we have introduced the Reynolds number
 $$
 \mathrm{Re} = \frac{\ell_0 v (\ell_0)}{\nu} .
-$$ {#eq-turb-10}
+$$ {#eq-turb-16}
 Experimental observations of fluids in pipes suggest that turbulence sets in when $\mathrm{Re} \gtrsim 10^3$. In astrophysical situations, $\mathrm{Re}$ can be much larger. For example, in the interstellar medium $\mathrm{Re} \sim 10^9$. In neutron star mergers we contend with flows having $\mathrm{Re} \sim 10^{15}$. Consequently, @eq-turb-ratio-of-scales-1 implies that $\ell_d \ll \ell_0$ for turbulent flows.
 
 Summarizing, in our analysis of @eq-turb-kinetic-energy we have found that kinetic energy is injected at large scale $\ell_0$ (first term on the RHS) and dissipated at the dissipation scale $\ell_d \ll \ell_0$ (last term on the RHS). This means that there is a range of scales $\ell_d \ll \ell \ll \ell_0$, the so-called *inertial range*, in which the dynamics is dominated by the nonlinear term $(\vb{v} \cdot \nabla) v^2$. We can estimate it as
 $$
 (\vb{v} \cdot \nabla) v^2 \sim \frac{v^3 (\ell)}{\ell} .
-$$ {#eq-turb-11}
+$$ {#eq-turb-17}
 Note that, for an incompressible flow, the nonlinear term can also be written as a divergence, $(\vb{v} \cdot \nabla) v^2 = \nabla \cdot (\vb{v} v^2)$. So, by the same argument we used for the pressure, its average over a region vanishes. In other words, the nonlinear term does not create or destroy kinetic energy. Instead, it moves kinetic energy between different scales. In a steady state, the energy per unit mass and per unit time injected at the scale $\ell_0$,
 $$
 \mathcal{P} = \frac{v^3 (\ell_0)}{\ell_0},
@@ -96,8 +131,8 @@ This result is key to the theory of turbulence and is called Kolmogorov's second
 
 Often this hypothesis is formulated in terms of the *energy spectrum* $E (k)$. This is defined so that $E (k) \dd k$ is the kinetic energy per unit mass in eddies with wave numbers between $k$ and $k + \dd k$:
 $$
-\frac{1}{2} \langle | \vb{v} |^2 \rangle = \int_0^{\infty} E (k) \dd k .
-$$ {#eq-turb-14}
+\frac{1}{2} \overline{| \vb{v} |^2} = \int_0^{\infty} E (k) \dd k .
+$$ {#eq-turb-20}
 Eddies of size $\ell$ have wave numbers $k \sim 1 / \ell$. The kinetic energy per unit mass in eddies of size $\sim \ell$ is the energy in a range of wave numbers of width $\sim k$ around $k$, so
 $$
 v^2 (\ell) \sim k E (k) \Longrightarrow E (k) \sim \frac{v^2 (1 / k)}{k} \sim \mathcal{P}^{2/3} k^{- 5 / 3} .
@@ -116,23 +151,31 @@ We can interpret $v^3 (\ell) / \ell$ as a term that controls the kinetic energy 
 $$
 \frac{v^3 (\ell)}{\ell} = \frac{v^2 (\ell)}{\tau}, \qquad \tau =
 \frac{\ell}{v (\ell)},
-$$ {#eq-turb-16}
+$$ {#eq-turb-22}
 where $\tau$ is the eddy turnover time, the time over which the specific kinetic energy $v^2 (\ell)$ is transferred to smaller scales. To see this, notice that for $\ell_d \ll \ell \ll \ell_0$, @eq-turb-kinetic-energy reduces to
 $$
 \boxed{\frac{\dd v^2 (\ell)}{\dd t} \sim - \frac{v^2 (\ell)}{\tau}
 .}
-$$ {#eq-turb-17}
+$$ {#eq-turb-23}
 The constancy of $v^3 (\ell) / \ell$ implies that **the rate at which turbulence dissipates kinetic energy is independent of $\nu$** or of the detailed form of the physical processes responsible for dissipation! Instead, it is set by the dynamics at large scale. In other words, when kinetic energy is injected by mechanical work at large scale in a turbulent flow, turbulence efficiently transports this energy to small scales (generating large velocity gradients) at which point it is dissipated. This is the reason why turbulence theory applies equally well to the flow of water around the propeller of a ship and to the motion of rarefied gas in the intergalactic medium. This finding also justifies turbulence modeling approaches used in simulations.
 
 With Kolmogorov's second similarity law, we can provide a better estimate for $\ell_d$. Using @eq-turb-kolmogorov-scaling into @eq-turb-ratio-of-scales-1, we can eliminate $v (\ell_d)$ to find
 $$
 \boxed{\ell_d \sim \left( \frac{\nu}{\ell_0 v (\ell_0)} \right)^{3 / 4}
 \ell_0 = \mathrm{Re}^{- 3 / 4} \ell_0} .
-$$ {#eq-turb-18}
-This shows that the scale separation in developed turbulence can be enormous. A direct numerical simulation needs to resolve all scales between $\ell_d$ and $\ell_0$, so it needs $(\ell_0 / \ell_d)^3$ grid cells. It also needs a number of time steps $\sim \ell_0 / \ell_d$, because the time step must be smaller than the time it takes for the flow to cross one cell. So the cost of a direct numerical simulation scales as
+$$ {#eq-turb-24}
+Equivalently, $\ell_d$ is the scale at which the dissipation term, @eq-turb-dissipation-estimate, is comparable to the transport term, @eq-turb-17:
+$$
+\nu \left( \frac{v (\ell_d)}{\ell_d} \right)^2 \sim \frac{v^3 (\ell_d)}{\ell_d} \Longrightarrow \frac{v (\ell_d) \ell_d}{\nu} \sim 1,
+$$ {#eq-turb-25}
+that is, the Reynolds number of the eddies of size $\ell_d$ is of order unity. On smaller scales the flow is smooth, so $v (\ell) \simeq | \nabla \vb{v} | \ell \propto \ell$. On scales larger than $\ell_0$, $v (\ell)$ stops growing, because the velocities at points farther apart than $\ell_0$ are uncorrelated. These results are summarized in @fig-turb-velocity-scaling.
+
+![Velocity fluctuations $v (\ell)$ as a function of the scale $\ell$ (sketch).](../figures/turbulence/velocity-scaling.svg){#fig-turb-velocity-scaling fig-alt="Log-log sketch of the velocity fluctuation v(l) against the scale l. The curve rises with slope one, labelled proportional to l, up to the dissipation scale l_d; then it rises more slowly, labelled proportional to l to the one third, up to the injection scale l_0; beyond l_0 it is flat. Dashed vertical lines mark l_d and l_0."}
+
+@eq-turb-24 shows that the scale separation in developed turbulence can be enormous. A direct numerical simulation needs to resolve all scales between $\ell_d$ and $\ell_0$, so it needs $(\ell_0 / \ell_d)^3$ grid cells. It also needs a number of time steps $\sim \ell_0 / \ell_d$, because the time step must be smaller than the time it takes for the flow to cross one cell. So the cost of a direct numerical simulation scales as
 $$
 \mathrm{cost} \sim \left( \frac{\ell_0}{\ell_d} \right)^4 \sim \mathrm{Re}^3,
-$$ {#eq-turb-19}
+$$ {#eq-turb-26}
 which makes it impossible to directly simulate very turbulent flows. The largest simulations today have about $10^4$ grid cells in each direction, so they can reach $\mathrm{Re} \sim 10^5$. To study flows with higher Reynolds numbers, it is necessary to give up the idea of simulating all scales in the flow and instead resort to modeling the dynamics below the numerical grid scale using turbulence theory.
 
 ::: {.callout-tip icon=false}
@@ -155,14 +198,14 @@ The more interesting case is when $\ell_d \ll R \ll \ell_0$. In this case, the c
 $$
 \frac{\dd R}{\dd t} \sim v \sim R^{1 / 3} \Longrightarrow \frac{\dd
 R^2}{\dd t} \sim Rv \sim R^{4 / 3} .
-$$ {#eq-turb-20}
+$$ {#eq-turb-27}
 This is *Richardson's 4/3-law*. We can use the second Kolmogorov similarity hypothesis to find the time dependence for $R$:
 $$
 \frac{\dd R}{\dd t} \sim v (\ell_0)  \left( \frac{R}{\ell_0} \right)^{1 / 3}
 \Longrightarrow R^{2 / 3} \sim \frac{v (\ell_0)}{\ell_0^{1 / 3}} t
 \Longrightarrow R^2 \sim \mathcal{P} t^3 .
-$$ {#eq-turb-21}
-In other words, $R \propto t^{3 / 2}$: the cloud grows faster and faster, because, as it grows, it is torn apart by larger and faster eddies.
+$$ {#eq-turb-28}
+In other words, $R \propto t^{3 / 2}$: the cloud grows faster and faster, because, as it grows, it is torn apart by larger and faster eddies. This is an example of *superdiffusion*: the cloud grows faster than by ordinary diffusion, for which $R \propto t^{1 / 2}$.
 
 Turbulence significantly accelerates the mixing of new elements produced in supernovae with the interstellar medium, where they can subsequently form new stars, planets, and people.
 
@@ -172,34 +215,17 @@ Turbulence significantly accelerates the mixing of new elements produced in supe
 Consider the metals ejected by a supernova into the warm interstellar medium, with $T \sim 10^4\,\mathrm{K}$ and $n \sim 1\,\mathrm{cm^{-3}}$. The turbulence in the interstellar medium is driven on scales $\ell_0 \sim 100\,\mathrm{pc}$, with $v (\ell_0) \sim 10\,\mathrm{km\,s^{-1}}$. So turbulence mixes the metals over $\sim 100\,\mathrm{pc}$ in a time $\sim \ell_0 / v (\ell_0) \sim 10\,\mathrm{Myr}$. How long would it take without turbulence? The mean free path of the particles in this gas is $\lambda \sim 10^{10}\,\mathrm{m}$, and their thermal velocity is $v_{\mathrm{th}} \sim 10\,\mathrm{km\,s^{-1}}$, so the diffusion coefficient is $D \sim \lambda v_{\mathrm{th}} / 3 \sim 3 \times 10^{13}\,\mathrm{m^2\,s^{-1}}$ (@sec-conserv). Molecular diffusion would take $\sim \ell_0^2 / D \sim 10^{16}\,\mathrm{yr}$, much longer than the age of the Universe. Note also that the ratio of the two timescales is $\ell_0 v (\ell_0) / D \sim 10^9$, which is the Reynolds number of the interstellar medium.
 :::
 
-## Turbulence Modeling: Reynolds Stress
+## Turbulence Modeling {#sec-turb-modeling}
 
-Directly simulating turbulent flows is impossible, so one of the goals of turbulence theory is to develop effective strategies to deal with unresolved turbulence in simulations. Commonly used models are the Reynolds averaged Navier–Stokes (RANS) and Large-Eddy Simulations (LES) frameworks. Without going into the details, both approaches are based on the general idea of coarse graining the fluid equations. That is, we replace $\vb{v}$ with a suitable average $\bar{\vb{v}}$ and try to come up with equations for it. If we coarse grain the Navier–Stokes equations, we find:
-$$
-\partial_t \vb{v}+ \nabla \cdot \left(\vb{v} \otimes \vb{v}+ \frac{p}{\rho} \vb{I} \right)
-=\vb{g}+ \nu \nabla^2 \vb{v} \longrightarrow \partial_t
-\bar{\vb{v}} + \nabla \cdot \overline{\left(\vb{v} \otimes
-\vb{v}+ \frac{p}{\rho} \vb{I} \right)} = \bar{\vb{g}} + \nu \nabla^2 \bar{\vb{v}}
-.
-$$ {#eq-turb-22}
-These equations are exact, but unfortunately not closed, because we do not have a way to compute $\overline{\vb{v} \otimes \vb{v}}$ from $\bar{\vb{v}}$. This is the so-called turbulence closure problem. To work around this, we define the *Reynolds stress tensor*
-$$
-\vb{R}= \overline{\vb{v} \otimes \vb{v}} - \bar{\vb{v}}
-\otimes \bar{\vb{v}}
-$$ {#eq-turb-23}
-and the momentum equation becomes:
-$$
-\partial_t  \bar{\vb{v}} + \nabla \cdot \left(\bar{\vb{v}}
-\otimes \bar{\vb{v}} +\vb{R}+ \frac{\bar{p}}{\rho} \vb{I} \right) =
-\bar{\vb{g}} + \nu \nabla^2 \bar{\vb{v}} .
-$$ {#eq-turb-momentum-averaged}
-@eq-turb-momentum-averaged is the momentum equation for a fluid that has velocity equal to $\bar{\vb{v}}$, pressure $\bar{p}$, and a new component of the stress tensor $\vb{R}$. Because $\bar{\vb{v}}$ is some average of the true velocity, @eq-turb-momentum-averaged can be solved on a coarse computational mesh. The problem of modeling turbulence is now reduced to that of finding a good model for $\vb{R}$. There are many such models in the literature.
+Directly simulating turbulent flows is impossible, so one of the goals of turbulence theory is to develop effective strategies to deal with unresolved turbulence in simulations. The idea is to solve the filtered equations, @eq-turb-momentum-averaged, instead of the Navier–Stokes equations. Because $\bar{\vb{v}}$ is smooth on scales smaller than $\ell$, @eq-turb-momentum-averaged can be solved on a coarse computational mesh. The problem of modeling turbulence is then reduced to that of finding a good model for $\vb{R}$. There are many such models in the literature.
+
+Commonly used frameworks are the Reynolds averaged Navier–Stokes (RANS) and Large-Eddy Simulations (LES). In RANS, the average is over time or over many realizations of the flow, so $\vb{R}$ describes the fluctuations on all scales. In LES, $\ell$ is comparable to the size of the grid cells, and $\vb{R}$ describes only the unresolved eddies. In this case, @eq-turb-filter-mean is only approximately true, so the Reynolds stress is defined as $\vb{R} = \overline{\vb{v} \otimes \vb{v}} - \bar{\vb{v}} \otimes \bar{\vb{v}}$. With this definition, @eq-turb-momentum-averaged follows from @eq-turb-4 for any filter.
 
 The simplest model, which is also the most commonly used for astrophysical applications, is the *turbulent* (or *eddy*) *viscosity* model. Accordingly, one takes
 $$
 \vb{R}= \frac{1}{3} (\mathrm{tr} \vb{R}) \vb{I} - \nu_T  (\nabla \bar{\vb{v}}+ \nabla^T \bar{\vb{v}}) .
-$$ {#eq-turb-25}
-The first term is needed because $\mathrm{tr} \vb{R} = \overline{|\vb{v} - \bar{\vb{v}}|^2}$ is positive, while the trace of the second term vanishes for an incompressible flow. The first term is isotropic, so it acts like an additional pressure, the *turbulent pressure* $\rho \mathrm{tr} \vb{R} / 3$, which we include in $\bar{p}$. We will meet the turbulent pressure again in the in-class worksheet. With this choice, and using $\nabla \cdot \bar{\vb{v}} = 0$, @eq-turb-momentum-averaged becomes
+$$ {#eq-turb-29}
+The first term is needed because $\mathrm{tr} \vb{R} = \overline{|\delta\vb{v}|^2}$ is positive, while the trace of the second term vanishes for an incompressible flow. The first term is isotropic, so it acts like an additional pressure, the *turbulent pressure* $\rho \mathrm{tr} \vb{R} / 3$, which we include in $\bar{p}$. We will meet the turbulent pressure again in the in-class worksheet. With this choice, and using $\nabla \cdot \bar{\vb{v}} = 0$, @eq-turb-momentum-averaged becomes
 $$
 \partial_t  \bar{\vb{v}} + \nabla \cdot \left(\bar{\vb{v}}
 \otimes \bar{\vb{v}} + \frac{\bar{p}}{\rho} \vb{I} \right) = \bar{\vb{g}} + (\nu
@@ -208,19 +234,19 @@ $$ {#eq-turb-momentum-averaged-2}
 That is, turbulence is described simply as a dissipative process and $\nu_T$ is an effective turbulent viscosity. The turbulent viscosity, in turn, is often obtained using dimensional analysis arguments:
 $$
 \nu_T = \ell_{\mathrm{mix}} V,
-$$ {#eq-turb-27}
+$$ {#eq-turb-31}
 where $\ell_{\mathrm{mix}}$ is a characteristic length, also called the *mixing length*, and $V$ is a characteristic velocity. For example, in accretion disk theory (@sec-disk), $V = c_s$ and $\ell_{\mathrm{mix}}$ is taken to be proportional to the scale-height of the disk $H$:
 $$
 \ell_{\mathrm{mix}} = \alpha H = \alpha \frac{c_s}{\Omega} \Longrightarrow
 \nu_T = \alpha \frac{c_s^2}{\Omega},
-$$ {#eq-turb-28}
+$$ {#eq-turb-32}
 where $\Omega$ is the angular velocity of the flow. This is the so-called $\alpha$-viscosity model.
 
 For shear flows along $x$ with shear in the $y$-direction, one can use the velocity gradient instead of $V$:
 $$
 \nu_T = \ell_{\mathrm{mix}}^2  \left| \frac{\partial \bar{v}_x}{\partial
 y} \right| .
-$$ {#eq-turb-29}
+$$ {#eq-turb-33}
 This is Prandtl's mixing-length model. The Smagorinsky model, which is often used in large-eddy simulations, is a generalization of this model, in which $\ell_{\mathrm{mix}}$ is proportional to the size of the grid cells and $| \partial \bar{v}_x / \partial y |$ is replaced by the magnitude of the rate of strain of $\bar{\vb{v}}$.
 
 For industrial applications, a popular strategy is to solve additional equations for $\partial_t \vb{R}$, with coefficients calibrated to experimental (wind tunnel) results. More sophisticated "subgrid" models have also been proposed for astrophysical applications, but their detailed description is beyond the scope of this course. See @brandenburg2011 for more information.
