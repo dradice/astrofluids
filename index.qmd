@@ -5,7 +5,7 @@ These are the lecture notes for ASTRO 442, an introduction to the fluid dynamics
 ::: {.callout-important}
 ## Work in progress
 
-These notes are a work in progress. I revise them as I teach the course, so you may still find typos, errors, and rough edges. Chapters marked "in preparation" will be completed before the corresponding lecture.
+These notes are a work in progress. I revise them as I teach the course, so you may still find typos, errors, and rough edges. Some of the material is still preliminary: I will review and complete each chapter before the corresponding lecture.
 
 Corrections and suggestions for improvement are welcome. You can report them by opening an [issue](https://github.com/dradice/astrofluids/issues) on GitHub, or propose a change directly with a [pull request](https://github.com/dradice/astrofluids/pulls).
 :::
