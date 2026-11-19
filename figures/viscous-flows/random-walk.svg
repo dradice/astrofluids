@@ -3,7 +3,7 @@
   <title id="title">Random walk on a one-dimensional lattice</title>
   <desc id="desc">A row of nine equally spaced sites on a horizontal line, separated by
   a distance delta x. A particle sits on site i. Two curved arrows go from site i to the
-  neighbouring sites i minus 1 and i plus 1, each labelled with the probability one half.</desc>
+  neighboring sites i minus 1 and i plus 1, each labelled with the probability one half.</desc>
   <!-- Drawn from the 2026 handwritten lecture notes (diffusion.pdf). Hand-written SVG;
        also editable in Inkscape. White background so the figure stays readable in dark mode. -->
   <defs>

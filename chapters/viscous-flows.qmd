@@ -10,9 +10,9 @@ In this chapter we first derive the diffusion equation from a simple model of a 
 
 ## Random walks and diffusion {#sec-visc-random-walk}
 
-Consider a particle moving on a one-dimensional lattice with spacing $\Delta x$, as in @fig-visc-random-walk. At each time step $\Delta t$ the particle jumps to one of the two neighbouring sites, to the left or to the right, with equal probability $1/2$. For example, the particle could be a photon traveling at the speed of light $c$ between two scatterings, in which case $\Delta x = c \Delta t$.
+Consider a particle moving on a one-dimensional lattice with spacing $\Delta x$, as in @fig-visc-random-walk. At each time step $\Delta t$ the particle jumps to one of the two neighboring sites, to the left or to the right, with equal probability $1/2$. For example, the particle could be a photon traveling at the speed of light $c$ between two scatterings, in which case $\Delta x = c \Delta t$.
 
-![A random walk on a one-dimensional lattice. At each time step, the particle jumps to the left or to the right with probability $1/2$.](../figures/viscous-flows/random-walk.svg){#fig-visc-random-walk fig-alt="A row of nine equally spaced sites on a horizontal line, separated by a distance delta x. A particle sits on site i. Two curved arrows go from site i to the neighbouring sites i minus 1 and i plus 1, each labelled with the probability one half."}
+![A random walk on a one-dimensional lattice. At each time step, the particle jumps to the left or to the right with probability $1/2$.](../figures/viscous-flows/random-walk.svg){#fig-visc-random-walk fig-alt="A row of nine equally spaced sites on a horizontal line, separated by a distance delta x. A particle sits on site i. Two curved arrows go from site i to the neighboring sites i minus 1 and i plus 1, each labelled with the probability one half."}
 
 Suppose that the particle starts at $x = 0$. After $n$ steps, its average position is still $\langle x \rangle = 0$, because each step is equally likely to go to the left or to the right. However, the mean square displacement grows with the number of steps:
 $$
@@ -49,7 +49,9 @@ where
 $$
 D = \frac{\Delta x^2}{2 \Delta t}
 $$ {#eq-visc-diffusion-coefficient}
-is the **diffusion coefficient**. This is the same combination we found in @eq-visc-random-walk-scale. In the continuum limit, $P (t, x)$ becomes a *probability distribution function* (pdf): $P (t, x) \dd x$ is the probability of finding the particle between $x$ and $x + \dd x$ at time $t$. The diffusion coefficient has units of $\mathrm{m^2\,s^{-1}}$, as in @eq-conserv-30. For the photon, $\Delta x$ is the mean free path $\lambda$ and $D = \lambda c / 2$. This agrees with @eq-conserv-ch6-eq-fick-law, apart from the factor $1/2$ in place of $1/3$. The exact factor depends on the number of dimensions and on the distribution of the distances traveled between two scatterings, which in our model are all equal to $\Delta x$.
+is the **diffusion coefficient**. This is the same combination we found in @eq-visc-random-walk-scale. In the continuum limit, $P (t, x)$ becomes a *probability distribution function* (pdf), meaning that $P (t, x) \dd x$ is the probability of finding the particle between $x$ and $x + \dd x$ at time $t$.
+
+The diffusion coefficient has units of $\mathrm{m^2\,s^{-1}}$, as in @eq-conserv-30. For the photon, $\Delta x$ is the mean free path $\lambda$ and $D = \lambda c / 2$. This agrees with @eq-conserv-ch6-eq-fick-law, apart from the factor $1/2$ in place of $1/3$. The exact factor depends on the number of dimensions and on the distribution of the distances traveled between two scatterings, which in our model are all equal to $\Delta x$.
 
 The solution of @eq-visc-diffusion for a particle that starts at $x = 0$, that is with $P (0, x) = \delta (x)$, is called the **fundamental solution**:
 $$
@@ -75,7 +77,7 @@ So far we have only considered ideal fluids, for which $\vb{T} = - p \vb{I}$. We
 $$
 \vb{T} = - p \vb{I} + \vb{\tau},
 $$ {#eq-visc-stress}
-where $\vb{\tau}$ is the **viscous stress** tensor. Viscous stresses arise when neighbouring fluid elements move with different velocities, so $\vb{\tau}$ must depend on the derivatives of the velocity, and it must vanish for a uniform flow. The simplest choice is to take $\vb{\tau}$ to be linear in $\nabla \vb{v}$. It is convenient to introduce the **rate-of-strain** (or shear) tensor
+where $\vb{\tau}$ is the **viscous stress** tensor. Viscous stresses arise when neighboring fluid elements move with different velocities, so $\vb{\tau}$ must depend on the derivatives of the velocity, and it must vanish for a uniform flow. The simplest choice is to take $\vb{\tau}$ to be linear in $\nabla \vb{v}$. It is convenient to introduce the **rate-of-strain** (or shear) tensor
 $$
 \vb{S} = \frac{1}{2} \left( \nabla \vb{v} + \nabla \vb{v}^T \right) .
 $$ {#eq-visc-strain}
@@ -87,7 +89,7 @@ $$
 &\quad + \rho \nu \left[ \left( \nabla \vb{v} + \nabla \vb{v}^T \right) - \frac{2}{3} (\nabla \cdot \vb{v}) \vb{I} \right],
 \end{aligned}}
 $$ {#eq-visc-viscous-stress}
-where $\nu$ is the kinematic **shear viscosity**, $\rho \nu$ the dynamic shear viscosity, and $\zeta$ the **bulk viscosity**. This is the form used in @clarke2007. The term in square brackets has zero trace, so the shear viscosity describes the response of the fluid to a deformation that does not change its volume, while the bulk viscosity describes the response to a compression or expansion. Some books write the coefficient of $(\nabla \cdot \vb{v}) \vb{I}$, that is $\zeta - \frac{2}{3} \rho \nu$, as a single coefficient, called the second coefficient of viscosity.
+where $\nu$ is the kinematic **shear viscosity**, $\rho \nu$ the dynamic shear viscosity, and $\zeta$ the **bulk viscosity**. This is the form used in @clarke2007. Note that $\nu$ has units of $\mathrm{m^2\,s^{-1}}$, like a diffusion coefficient, while $\rho \nu$ and $\zeta$ have units of $\mathrm{kg\,m^{-1}\,s^{-1}} = \mathrm{Pa\,s}$. The term in square brackets has zero trace, so the shear viscosity describes the response of the fluid to a deformation that does not change its volume, while the bulk viscosity describes the response to a compression or expansion. Some books write the coefficient of $(\nabla \cdot \vb{v}) \vb{I}$, that is $\zeta - \frac{2}{3} \rho \nu$, as a single coefficient, called the second coefficient of viscosity.
 
 To compute the divergence of $\vb{\tau}$, we first compute the divergence of $\vb{S}$. Writing $\vb{S}$ row by row, we have
 $$
@@ -139,6 +141,24 @@ $$
 | v_{\mathrm{eff}} | = \left| \nu \frac{\partial_x v_y}{v_y} \right| \sim \frac{\nu}{\ell} .
 $$ {#eq-visc-shear-layer-speed}
 This estimate is actually off, because the shear layer is unstable to the Kelvin–Helmholtz instability (@sec-inst-kh). The flow becomes turbulent (@sec-turb), and the two layers mix on a much shorter timescale.
+:::
+
+::: {.callout-tip icon=false}
+## Example
+
+Consider a molecular cloud with number density $n \sim 10^3\,\mathrm{cm^{-3}} = 10^9\,\mathrm{m^{-3}}$, temperature $T \sim 10\,\mathrm{K}$, and mean molecular weight $\mu \approx 2.3$. In a gas, momentum is carried from one fluid element to the next by the particles, which move with the thermal speed $v_{\mathrm{th}} \sim \sqrt{k_B T / (\mu m_u)}$ over a distance of about one mean free path $\lambda$ between collisions. So, by analogy with @eq-visc-diffusion-coefficient, we can estimate the kinematic viscosity as $\nu \sim \lambda v_{\mathrm{th}}$, up to a factor of order unity. Taking $\sigma \sim 10^{-19}\,\mathrm{m^2}$, as in @sec-continua, we find
+$$
+\lambda = \frac{1}{n \sigma} \sim 10^{10}\,\mathrm{m}, \qquad v_{\mathrm{th}} \approx 190\,\mathrm{m\,s^{-1}}, \qquad \nu \sim 2 \times 10^{12}\,\mathrm{m^2\,s^{-1}} .
+$$ {#eq-visc-cloud-viscosity}
+This is a very large viscosity compared with that of water, $\nu \approx 10^{-6}\,\mathrm{m^2\,s^{-1}}$, but the cloud is also very large. For a cloud of size $L \sim 10\,\mathrm{pc} \approx 3.1 \times 10^{17}\,\mathrm{m}$, the time needed for momentum to diffuse across the cloud is
+$$
+t_{\mathrm{visc}} \sim \frac{L^2}{\nu} \sim 5 \times 10^{22}\,\mathrm{s} \approx 2 \times 10^{15}\,\mathrm{yr},
+$$ {#eq-visc-cloud-time}
+about $10^5$ times the age of the Universe. On the other hand, the gas in molecular clouds moves with velocities $v \sim 2\,\mathrm{km\,s^{-1}}$, so the cloud changes its shape on a timescale $t_{\mathrm{dyn}} \sim L / v \approx 1.5 \times 10^{14}\,\mathrm{s}$, or about $5\,\mathrm{Myr}$. In other words, viscosity has no time to act on the scale of the cloud. Note that the ratio
+$$
+\frac{t_{\mathrm{visc}}}{t_{\mathrm{dyn}}} = \frac{L v}{\nu} \sim 3 \times 10^8
+$$ {#eq-visc-cloud-ratio}
+is the Reynolds number of the flow, which we will meet again in @sec-turb (@eq-turb-10). Such large values are typical of astrophysical flows, which are almost always turbulent. Viscosity becomes important only on much smaller scales, where $L^2 / \nu$ is comparable to $L / v$.
 :::
 
 ## Kinetic energy dissipation {#sec-visc-dissipation}
@@ -193,7 +213,7 @@ $$
 &\qquad + \nabla \cdot \left[ \left( \rho \varepsilon + \tfrac{1}{2} \rho v^2 + p \right) \vb{v} - \vb{\tau} \cdot \vb{v} + \vb{F}_{\mathrm{heat}} \right] = \vb{f} \cdot \vb{v} .
 \end{aligned}
 $$ {#eq-visc-energy-total}
-Compared with @eq-conserv-ch6-eq-energy-total, the energy flux has two new terms: $- \vb{\tau} \cdot \vb{v}$, the work done by the viscous stresses, and the heat flux $\vb{F}_{\mathrm{heat}}$.
+Compared with @eq-conserv-ch6-eq-energy-total, the energy flux has two new terms. The first, $- \vb{\tau} \cdot \vb{v}$, describes the work done by the viscous stresses, while the second is the heat flux $\vb{F}_{\mathrm{heat}}$.
 
 The equations for a viscous, heat-conducting fluid are called the **Navier–Stokes equations**. Adding a heating rate per unit mass $\dot{q}$, they read
 $$
@@ -228,7 +248,7 @@ where $| \vb{A} |^2 = \vb{A} : \vb{A}$ is the sum of the squares of the componen
     1.  Show that, under suitable assumptions,
         $$
         \frac{\dd}{\dd t} \int_V \rho \dd^3 \vb{r}= 0.
-        $$ {#eq-visc-32}
+        $$ {#eq-visc-35}
 
     2.  Assume that $\vb{v}= \mathrm{const}$, $D = \mathrm{const} > 0$, and look for solutions in the form
         $$
@@ -243,7 +263,7 @@ where $| \vb{A} |^2 = \vb{A} : \vb{A}$ is the sum of the squares of the componen
         $$
         \frac{\partial \rho}{\partial t} + \nabla \cdot \left[ \rho \left(
         \vb{v}- D \frac{\nabla \rho}{\rho} \right)  \right] = 0.
-        $$ {#eq-visc-34}
+        $$ {#eq-visc-37}
         Interpret the term in round brackets as an effective propagation velocity $\vb{v}_{\mathrm{eff}}$. How does $\vb{v}_{\mathrm{eff}}$ depend on the wave number $\vb{k}$ if $\rho$ is as in @eq-visc-ansatz?
 
 ## Exercises {#sec-visc-exercises}
