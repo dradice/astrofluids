@@ -14,6 +14,7 @@ just preview            # live preview while writing (or: just preview chapters/
 just build              # public build -> _book/ (HTML + PDF), then check for leaked solutions
 just html               # HTML only (faster); `just pdf` for the PDF only
 just solutions          # instructor build with solutions -> _book-solutions/
+just worksheets         # printable worksheet handouts -> _worksheets/ (or: just worksheets sound-waves)
 just publish "message"  # commit everything and push; GitHub Actions deploys the site
 just deploys            # status of the latest deploys
 just lint               # check labels, references, fig-alt, solution blocks
@@ -39,7 +40,7 @@ The pre-commit hook (`just setup`) blocks PDFs, spreadsheets, Word files, TeXmac
 | `figures/<slug>/`, `figures-src/<slug>/` | Published figures; their editable sources and scripts |
 | `code/<slug>/` | Public scripts and data used in chapters and worksheets |
 | `solutions/code/` | Solution scripts (only in the solutions build) |
-| `tools/` | `tm2qmd.py` (TeXmacs converter), `lint.py`, `renumber.py`, `chapters.py` (chapter list), solution-leak check, git hooks |
+| `tools/` | `tm2qmd.py` (TeXmacs converter), `worksheets.py` (worksheet handouts), `lint.py`, `renumber.py`, `chapters.py` (chapter list), solution-leak check, git hooks |
 | `justfile` | Shortcuts for common commands (`just` lists them) |
 | `styles/` | Theme customizations |
 

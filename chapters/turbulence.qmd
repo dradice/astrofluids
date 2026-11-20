@@ -261,7 +261,7 @@ Another popular approach is the Implicit Large-Eddy Simulations (ILES) method, i
 
 **Turbulence in Core-Collapse Supernovae.** We construct here a simplified model showing the role of turbulence in aiding shock revival in core-collapse supernovae.
 
-1.  Consider a steady accretion shock near the protoneutron star. Assume that the in-falling material is cold and that the velocity downstream of the shock is small. Show that the Rankine–Hugoniot conditions (@sec-shock) simplify to
+1.  Consider a steady accretion shock near the protoneutron star. Assume that the in-falling material is cold and that the velocity downstream of the shock is small. Show that the Rankine–Hugoniot conditions simplify to
     $$
     p_2 \approx \rho_1 v_1^2, \qquad \frac{\rho_2}{\rho_1} = \frac{\Gamma +
     1}{\Gamma - 1},

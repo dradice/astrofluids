@@ -39,6 +39,10 @@ pdf:
 solutions:
     quarto render --profile solutions
 
+# Printable PDF handouts of the in-class worksheets into _worksheets/ (optionally some: just worksheets sound-waves mri)
+worksheets *chapters:
+    python3 tools/worksheets.py {{chapters}}
+
 # Serve an already-built site at http://localhost:8000 (default: _book)
 serve dir="_book":
     python3 -m http.server 8000 --bind 127.0.0.1 --directory {{dir}}
