@@ -52,6 +52,7 @@ PARTS = [
 
 APPENDICES = [
     ("vector-calculus", "vec", "Vector Calculus", "new"),
+    ("equation-sheet", "eqs", "Useful Formulae", "new"),
 ]
 
 NOTE = {

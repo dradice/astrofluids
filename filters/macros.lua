@@ -11,8 +11,12 @@ Macros:
   \dd      upright differential d
   \ii      upright imaginary unit i
   \ee      upright Euler number e
+  \jump{x} jump across a discontinuity, in double square brackets.
+           MathJax has no \llbracket and Pandoc's Typst writer garbles
+           [\![ ... ]\!], so the two formats get different code.
 
 To add a macro, extend SIMPLE (no arguments) or ONEARG (one argument; #1).
+ONEARG may hold a table {html = ..., typst = ...} for format-specific code.
 ]]
 
 local SIMPLE = {
@@ -23,7 +27,19 @@ local SIMPLE = {
 
 local ONEARG = {
   -- name = "template using #1", e.g.  avg = "\\left\\langle #1 \\right\\rangle",
+  jump = {
+    html = "\\left[\\!\\left[ #1 \\right]\\!\\right]",
+    typst = "\\left\\llbracket #1 \\right\\rrbracket",
+  },
 }
+
+local function template(name)
+  local tpl = ONEARG[name]
+  if type(tpl) == "table" then
+    return FORMAT:match("typst") and tpl.typst or tpl.html
+  end
+  return tpl
+end
 
 -- Read a macro argument starting at position i (after optional spaces):
 -- either a balanced {...} group or a single token. Returns arg, next index.
@@ -71,7 +87,7 @@ local function expand(s)
         i = nxt
       elseif ONEARG[name] then
         local arg, nxt = read_arg(s, b + 1)
-        out[#out + 1] = ONEARG[name]:gsub("#1", function() return expand(arg) end)
+        out[#out + 1] = template(name):gsub("#1", function() return expand(arg) end)
         i = nxt
       elseif SIMPLE[name] then
         out[#out + 1] = SIMPLE[name]

@@ -323,7 +323,7 @@ After the recombination wave has swept through the ejecta, the supernova enters 
 
     Constants: $a = 7.6 \times 10^{-16}\,\mathrm{J\,m^{-3}\,K^{-4}}$, $k_B = 1.4 \times 10^{-23}\,\mathrm{J/K}$, $h = 6.6 \times 10^{-34}\,\mathrm{J\,s}$.
 
-    1.  Find the temperature of the gas, and determine the waveband in which the black body emission peaks.
+    1.  Find the temperature of the gas, and determine the waveband in which the black body emission peaks. Note that the black body spectrum peaks at a frequency $\nu$ such that $h \nu \approx 2.8\, k_B T$.
 
     2.  Show that the gas is radiation dominated. Compute $\beta = P_{\mathrm{rad}} / P_{\mathrm{gas}}$.
 

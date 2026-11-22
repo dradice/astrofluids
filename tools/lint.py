@@ -9,6 +9,7 @@ Errors (exit status 1):
   * a figure/image without fig-alt
   * a solutions-profile block without a .solution div inside
   * \operatorname or \rm in math (use \mathrm)
+  * [\![ ... ]\!] in math (use \jump{...}; the PDF garbles it)
   * a "Going further" box without a []{#gf-<key>-...} anchor in its title, or one
     not linked from the list in index.qmd (and links there to missing boxes)
 Warnings:
@@ -129,6 +130,8 @@ def lint(files):
         for i, line in enumerate(lines):
             for bad in re.findall(r"\\(?:operatorname|rm)(?![A-Za-z])", line):
                 errors.append(f"{rel}:{i+1}: use \\mathrm{{...}} instead of {bad}")
+            if re.search(r"\[\\!\[|\]\\!\]", line):
+                errors.append(f"{rel}:{i+1}: use \\jump{{...}} instead of [\\![ ... ]\\!]")
 
         # a block that is only "@key." (a bullet, a footnote, or a paragraph) is read by
         # Pandoc as an example-list marker, which also turns every later @key into a number

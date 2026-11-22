@@ -50,6 +50,7 @@ book:
         - chapters/mri.qmd
   appendices:
     - appendices/vector-calculus.qmd
+    - appendices/equation-sheet.qmd
 
 lang: en
 bibliography: references.bib

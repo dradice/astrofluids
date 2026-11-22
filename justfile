@@ -43,6 +43,10 @@ solutions:
 worksheets *chapters:
     python3 tools/worksheets.py {{chapters}}
 
+# Printable two-column PDF of the useful formulae (Appendix B) into _worksheets/
+useful-formulae:
+    python3 tools/useful_formulae.py
+
 # Serve an already-built site at http://localhost:8000 (default: _book)
 serve dir="_book":
     python3 -m http.server 8000 --bind 127.0.0.1 --directory {{dir}}

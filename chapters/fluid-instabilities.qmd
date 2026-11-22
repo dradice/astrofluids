@@ -407,7 +407,7 @@ Adapted from @clarke2007, Problem 41.
 
 A slab of gas held together by its own gravity is heated by cosmic rays, at a constant rate per unit mass. It cools by optically thin thermal bremsstrahlung, with a cooling rate per unit mass proportional to $\rho T^{1 / 2}$.
 
-1.  Using the discussion of thermal instability in @clarke2007 (Section 10.4), analyse the thermal stability of the slab.
+1.  Analyse the thermal stability of the slab. [Hint. Let $\dot{Q}$ be the net cooling rate per unit mass, that is the cooling rate minus the heating rate. A gas in thermal equilibrium, $\dot{Q} = 0$, is thermally unstable if $(\partial \dot{Q} / \partial T)_p < 0$. This is the Field criterion, which is discussed in @clarke2007, Section 10.4.]
 
 2.  Is the slab stable against the Rayleigh–Taylor instability?
 

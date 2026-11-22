@@ -68,6 +68,7 @@
 - Macros are provided by `filters/macros.lua`. Do not define `\newcommand` in chapters.
   - `\vb{v}`, `\vb{\xi}`: vectors in bold. Latin letters are upright (`\mathbf`); Greek letters use `\boldsymbol` (bold italic), as in the LaTeX `physics` package.
   - `\dd`, `\ii`, `\ee`: upright d, i, e.
+  - `\jump{...}`: the jump across a discontinuity, $[\![\cdot]\!]$. Do not write `[\![` directly: the PDF cannot render it.
 
   To add a macro, edit the tables at the top of the filter.
 - Use `\boxed{...}` for key results.

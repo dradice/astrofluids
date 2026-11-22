@@ -303,7 +303,7 @@ P_{\ell} (\cos \theta), \qquad r > R
 $$ {#eq-flux-37}
 where $\phi_{\ell}$ are fixed by the fact that the tangential component of the electric field should be continuous on the surface of the star[^flux-4]
 $$
-[\![ \vb{E}_{\parallel} ]\!] = 0 \Longrightarrow E_{\theta} (r =
+\jump{\vb{E}_{\parallel}} = 0 \Longrightarrow E_{\theta} (r =
 R) = - \frac{1}{R} \partial_{\theta} \Phi (r = R) .
 $$ {#eq-flux-e-field-bc}
 Inside the star, $E_{\theta} \propto \sin \theta \cos \theta \propto \partial_{\theta} P_2 (\cos \theta)$, so only the $\ell = 2$ term can match it (the $\ell = 0$ term is fixed by the total charge of the star, which we assume to be zero). So the external field is quadrupolar, meaning that

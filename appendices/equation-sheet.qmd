@@ -1,0 +1,372 @@
+# Useful Formulae {#sec-eqs}
+
+This appendix collects a list of useful equations, identities, and constants that we use throughout the notes. We use SI units throughout. See @sec-plasma for how to translate equations written in Gaussian units.
+
+## Vector Algebra and Calculus
+
+Products of vectors:
+$$
+\begin{aligned}
+\vb{a} \cdot (\vb{b} \times \vb{c}) &= \vb{b} \cdot (\vb{c} \times \vb{a}) = \vb{c} \cdot (\vb{a} \times \vb{b}), \\
+\vb{a} \times (\vb{b} \times \vb{c}) &= \vb{b} (\vb{a} \cdot \vb{c}) - \vb{c} (\vb{a} \cdot \vb{b}).
+\end{aligned}
+$$ {#eq-eqs-products}
+
+Product rules:
+$$
+\begin{aligned}
+\nabla (f g) &= f \nabla g + g \nabla f, \\
+\nabla \cdot (f \vb{A}) &= f \nabla \cdot \vb{A} + \vb{A} \cdot \nabla f, \\
+\nabla \times (f \vb{A}) &= f \nabla \times \vb{A} + \nabla f \times \vb{A}, \\
+\nabla \cdot (\vb{A} \times \vb{B}) &= \vb{B} \cdot (\nabla \times \vb{A}) - \vb{A} \cdot (\nabla \times \vb{B}),
+\end{aligned}
+$$ {#eq-eqs-product-rules}
+$$
+\begin{aligned}
+\nabla (\vb{A} \cdot \vb{B}) &= \vb{A} \times (\nabla \times \vb{B}) + \vb{B} \times (\nabla \times \vb{A}) \\
+& \qquad + (\vb{A} \cdot \nabla) \vb{B} + (\vb{B} \cdot \nabla) \vb{A}, \\
+\nabla \times (\vb{A} \times \vb{B}) &= \vb{A} (\nabla \cdot \vb{B}) - \vb{B} (\nabla \cdot \vb{A}) \\
+& \qquad + (\vb{B} \cdot \nabla) \vb{A} - (\vb{A} \cdot \nabla) \vb{B}.
+\end{aligned}
+$$ {#eq-eqs-product-rules-2}
+
+Second derivatives:
+$$
+\begin{aligned}
+\nabla \times \nabla f &= 0, \qquad \nabla \cdot (\nabla \times \vb{A}) = 0, \\
+\nabla \cdot \nabla f &= \nabla^2 f, \\
+\nabla \times (\nabla \times \vb{A}) &= \nabla (\nabla \cdot \vb{A}) - \nabla^2 \vb{A}.
+\end{aligned}
+$$ {#eq-eqs-second-derivatives}
+
+Two combinations that appear often:
+$$
+\begin{aligned}
+(\vb{v} \cdot \nabla) \vb{v} &= \nabla \left( \frac{1}{2} v^2 \right) - \vb{v} \times (\nabla \times \vb{v}), \\
+(\nabla \times \vb{B}) \times \vb{B} &= (\vb{B} \cdot \nabla) \vb{B} - \nabla \left( \frac{1}{2} B^2 \right).
+\end{aligned}
+$$ {#eq-eqs-advection-identities}
+
+Tensors. We use $(\nabla \vb{A})_{ij} = \partial_i A_j$, $(\nabla \cdot \vb{T})_i = \sum_j \partial_j T_{ij}$, $(\vb{A} \otimes \vb{B})_{ij} = A_i B_j$, and $\vb{T} : \vb{S} = \sum_{i,j} T_{ij} S_{ji}$ (@sec-vec). Then, for a symmetric tensor $\vb{T}$,
+$$
+\begin{aligned}
+\nabla \cdot (\vb{A} \otimes \vb{B}) &= \vb{A} (\nabla \cdot \vb{B}) + (\vb{B} \cdot \nabla) \vb{A}, \\
+\nabla \cdot (f \vb{I}) &= \nabla f, \\
+\nabla \cdot (\vb{T} \cdot \vb{v}) &= (\nabla \cdot \vb{T}) \cdot \vb{v} + \vb{T} : \nabla \vb{v}.
+\end{aligned}
+$$ {#eq-eqs-tensors}
+
+The position vector $\vb{r}$, with $r = |\vb{r}|$:
+$$
+\begin{aligned}
+\nabla r &= \hat{\vb{r}}, \qquad \nabla \cdot \vb{r} = 3, \qquad \nabla \times \vb{r} = 0, \qquad \nabla \vb{r} = \vb{I}, \\
+\nabla \frac{1}{r} &= - \frac{\hat{\vb{r}}}{r^2}, \qquad \nabla^2 \frac{1}{r} = - 4 \pi \delta (\vb{r}).
+\end{aligned}
+$$ {#eq-eqs-position}
+
+Integral theorems. For a region $\Omega$ with boundary $\partial \Omega$ and outward normal $\vb{n}$, and for a surface $A$ bounded by the curve $\partial A$:
+$$
+\begin{aligned}
+\int_{\Omega} \nabla \cdot \vb{F} \dd V &= \oint_{\partial \Omega} \vb{F} \cdot \vb{n} \dd A, \\
+\int_{\Omega} \nabla f \dd V &= \oint_{\partial \Omega} f \vb{n} \dd A, \\
+\int_{\Omega} \nabla \cdot \vb{T} \dd V &= \oint_{\partial \Omega} \vb{T} \cdot \vb{n} \dd A, \\
+\int_A (\nabla \times \vb{F}) \cdot \dd \vb{A} &= \oint_{\partial A} \vb{F} \cdot \dd \vb{l}.
+\end{aligned}
+$$ {#eq-eqs-gauss-stokes}
+For a region $\Omega (t)$ moving with the fluid (Reynolds transport theorem):
+$$
+\frac{\dd}{\dd t} \int_{\Omega (t)} f \dd V = \int_{\Omega (t)} \frac{\partial f}{\partial t} \dd V + \oint_{\partial \Omega (t)} f \vb{v} \cdot \vb{n} \dd A.
+$$ {#eq-eqs-reynolds}
+
+## Curvilinear Coordinates
+
+### Cylindrical coordinates $(R, \phi, z)$
+
+$x = R \cos \phi$, $y = R \sin \phi$, $\dd V = R \dd R \dd \phi \dd z$, $\partial_{\phi} \hat{\vb{R}} = \hat{\vb{\phi}}$, $\partial_{\phi} \hat{\vb{\phi}} = - \hat{\vb{R}}$.
+$$
+\begin{aligned}
+\nabla f &= \partial_R f \, \hat{\vb{R}} + \frac{1}{R} \partial_{\phi} f \, \hat{\vb{\phi}} + \partial_z f \, \hat{\vb{z}}, \\
+\nabla \cdot \vb{A} &= \frac{1}{R} \partial_R (R A_R) + \frac{1}{R} \partial_{\phi} A_{\phi} + \partial_z A_z, \\
+\nabla^2 f &= \frac{1}{R} \partial_R (R \, \partial_R f) + \frac{1}{R^2} \partial_{\phi}^2 f + \partial_z^2 f,
+\end{aligned}
+$$ {#eq-eqs-cyl-grad}
+$$
+\begin{aligned}
+\nabla \times \vb{A} &= \left[ \frac{1}{R} \partial_{\phi} A_z - \partial_z A_{\phi} \right] \hat{\vb{R}} \\
+& \qquad + [\partial_z A_R - \partial_R A_z] \hat{\vb{\phi}} \\
+& \qquad + \frac{1}{R} [\partial_R (R A_{\phi}) - \partial_{\phi} A_R] \hat{\vb{z}}.
+\end{aligned}
+$$ {#eq-eqs-cyl-curl}
+With $\vb{A} \cdot \nabla = A_R \partial_R + \frac{A_{\phi}}{R} \partial_{\phi} + A_z \partial_z$ acting on the components:
+$$
+\begin{aligned}
+[(\vb{A} \cdot \nabla) \vb{B}]_R &= \vb{A} \cdot \nabla B_R - \frac{A_{\phi} B_{\phi}}{R}, \\
+[(\vb{A} \cdot \nabla) \vb{B}]_{\phi} &= \vb{A} \cdot \nabla B_{\phi} + \frac{A_{\phi} B_R}{R}, \\
+[(\vb{A} \cdot \nabla) \vb{B}]_z &= \vb{A} \cdot \nabla B_z,
+\end{aligned}
+$$ {#eq-eqs-cyl-advection}
+$$
+\begin{aligned}
+(\nabla^2 \vb{A})_R &= \nabla^2 A_R - \frac{A_R}{R^2} - \frac{2}{R^2} \partial_{\phi} A_{\phi}, \\
+(\nabla^2 \vb{A})_{\phi} &= \nabla^2 A_{\phi} - \frac{A_{\phi}}{R^2} + \frac{2}{R^2} \partial_{\phi} A_R, \\
+(\nabla^2 \vb{A})_z &= \nabla^2 A_z.
+\end{aligned}
+$$ {#eq-eqs-cyl-vector-laplacian}
+
+### Spherical coordinates $(r, \theta, \phi)$
+
+$x = r \sin \theta \cos \phi$, $y = r \sin \theta \sin \phi$, $z = r \cos \theta$, $\dd V = r^2 \sin \theta \dd r \dd \theta \dd \phi$, $\hat{\vb{z}} = \cos \theta \, \hat{\vb{r}} - \sin \theta \, \hat{\vb{\theta}}$.
+$$
+\begin{aligned}
+\nabla f &= \partial_r f \, \hat{\vb{r}} + \frac{1}{r} \partial_{\theta} f \, \hat{\vb{\theta}} + \frac{1}{r \sin \theta} \partial_{\phi} f \, \hat{\vb{\phi}}, \\
+\nabla \cdot \vb{A} &= \frac{1}{r^2} \partial_r (r^2 A_r) + \frac{1}{r \sin \theta} \partial_{\theta} (\sin \theta A_{\theta}) \\
+& \qquad + \frac{1}{r \sin \theta} \partial_{\phi} A_{\phi}, \\
+\nabla^2 f &= \frac{1}{r^2} \partial_r (r^2 \partial_r f) + \frac{1}{r^2 \sin \theta} \partial_{\theta} (\sin \theta \, \partial_{\theta} f) \\
+& \qquad + \frac{1}{r^2 \sin^2 \theta} \partial_{\phi}^2 f,
+\end{aligned}
+$$ {#eq-eqs-sph-grad}
+$$
+\begin{aligned}
+\nabla \times \vb{A} &= \frac{1}{r \sin \theta} [\partial_{\theta} (\sin \theta A_{\phi}) - \partial_{\phi} A_{\theta}] \hat{\vb{r}} \\
+& \qquad + \frac{1}{r} \left[ \frac{1}{\sin \theta} \partial_{\phi} A_r - \partial_r (r A_{\phi}) \right] \hat{\vb{\theta}} \\
+& \qquad + \frac{1}{r} [\partial_r (r A_{\theta}) - \partial_{\theta} A_r] \hat{\vb{\phi}}.
+\end{aligned}
+$$ {#eq-eqs-sph-curl}
+With $\vb{A} \cdot \nabla = A_r \partial_r + \frac{A_{\theta}}{r} \partial_{\theta} + \frac{A_{\phi}}{r \sin \theta} \partial_{\phi}$ acting on the components:
+$$
+\begin{aligned}
+[(\vb{A} \cdot \nabla) \vb{B}]_r &= \vb{A} \cdot \nabla B_r - \frac{A_{\theta} B_{\theta} + A_{\phi} B_{\phi}}{r}, \\
+[(\vb{A} \cdot \nabla) \vb{B}]_{\theta} &= \vb{A} \cdot \nabla B_{\theta} + \frac{A_{\theta} B_r}{r} - \frac{A_{\phi} B_{\phi} \cot \theta}{r}, \\
+[(\vb{A} \cdot \nabla) \vb{B}]_{\phi} &= \vb{A} \cdot \nabla B_{\phi} + \frac{A_{\phi} B_r}{r} + \frac{A_{\phi} B_{\theta} \cot \theta}{r}.
+\end{aligned}
+$$ {#eq-eqs-sph-advection}
+
+## Thermodynamics
+
+Composition: mass density, mean molecular weight, and mass fractions, with $Y_i = n_i / n$ the particle number fractions,
+$$
+\rho = \mu m_u n, \qquad \mu = \sum_i Y_i \frac{m_i}{m_u}, \qquad X_i = \frac{\rho_i}{\rho}.
+$$ {#eq-eqs-composition}
+First law, also per unit mass with $v = 1/\rho$, and the specific enthalpy $h$:
+$$
+\begin{aligned}
+\dd E &= T \dd S - p \dd V, \\
+\dd \varepsilon &= T \dd s - p \dd v = T \dd s + \frac{p}{\rho^2} \dd \rho, \\
+h &= \varepsilon + \frac{p}{\rho}, \qquad \dd h = T \dd s + \frac{\dd p}{\rho}.
+\end{aligned}
+$$ {#eq-eqs-first-law}
+Ideal gas and $\Gamma$-law equation of state, with $u = \rho \varepsilon$ the internal energy density ($\Gamma = 5/3$ for a monatomic gas, $7/5$ for a diatomic gas, $4/3$ for radiation):
+$$
+p = n k_B T = \frac{\rho k_B T}{\mu m_u}, \qquad p = (\Gamma - 1) \rho \varepsilon = (\Gamma - 1) u.
+$$ {#eq-eqs-eos}
+Adiabatic changes, with $K$ a function of the entropy only, and the polytropic equation of state:
+$$
+p = K \rho^{\Gamma}, \qquad p = K \rho^{1 + 1 / n}.
+$$ {#eq-eqs-adiabatic}
+Adiabatic and isothermal sound speeds:
+$$
+c_s^2 = \left( \frac{\partial p}{\partial \rho} \right)_s, \qquad c_{\mathrm{iso}}^2 = \left( \frac{\partial p}{\partial \rho} \right)_T.
+$$ {#eq-eqs-sound-speeds}
+Radiation: energy density, pressure, the flux from a blackbody, and the Planck function:
+$$
+\begin{aligned}
+u &= a T^4, \qquad p = \frac{1}{3} u, \\
+a &= \frac{4 \sigma}{c}, \qquad F = \sigma T^4, \\
+B_{\nu} &= \frac{2 h \nu^3}{c^2} \frac{1}{\ee^{h \nu / k_B T} - 1}.
+\end{aligned}
+$$ {#eq-eqs-radiation}
+Mean free path, with $\sigma$ the cross section and $\kappa$ the opacity:
+$$
+\lambda = \frac{1}{n \sigma} = \frac{1}{\kappa \rho}.
+$$ {#eq-eqs-mfp}
+
+## Hydrodynamics and Gravity
+
+Rate of change following a fluid element:
+$$
+\frac{\dd}{\dd t} = \frac{\partial}{\partial t} + \vb{v} \cdot \nabla.
+$$ {#eq-eqs-advective}
+Equations of hydrodynamics in Lagrangian form, with $\vb{f}$ the external force per unit volume and $\dot{q}$ the heating rate per unit mass:
+$$
+\begin{aligned}
+\frac{1}{\rho} \frac{\dd \rho}{\dd t} &= - \nabla \cdot \vb{v}, \\
+\rho \frac{\dd \vb{v}}{\dd t} &= - \nabla p + \vb{f}, \\
+\rho \frac{\dd \varepsilon}{\dd t} &= \rho \dot{q} - p \nabla \cdot \vb{v}.
+\end{aligned}
+$$ {#eq-eqs-lagrangian}
+In conservation form, $\partial_t U + \nabla \cdot \vb{F} = S$:
+$$
+\begin{aligned}
+& \frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vb{v}) = 0, \\
+& \frac{\partial (\rho \vb{v})}{\partial t} + \nabla \cdot [\rho \vb{v} \otimes \vb{v} + p \vb{I}] = \vb{f}, \\
+& \frac{\partial}{\partial t} \left[ \rho \left( \varepsilon + \frac{1}{2} v^2 \right) \right] \\
+& \qquad + \nabla \cdot \left[ \left( \rho \varepsilon + \frac{1}{2} \rho v^2 + p \right) \vb{v} \right] = \rho \dot{q} + \vb{f} \cdot \vb{v}.
+\end{aligned}
+$$ {#eq-eqs-conservative}
+Gravity: potential, Poisson equation, and gravitational energy:
+$$
+\begin{aligned}
+\vb{g} &= - \nabla \Psi, \qquad \nabla^2 \Psi = 4 \pi G \rho, \\
+\Psi (\vb{r}) &= - G \int \frac{\rho (\vb{r}')}{|\vb{r} - \vb{r}'|} \dd^3 r', \qquad W = \frac{1}{2} \int \rho \Psi \dd V.
+\end{aligned}
+$$ {#eq-eqs-gravity}
+Hydrostatic equilibrium, and the virial theorem for a system in equilibrium, with $K$ the kinetic energy:
+$$
+\nabla p = - \rho \nabla \Psi, \qquad 2 K + W + 3 \int p \dd V = 0.
+$$ {#eq-eqs-hydrostatic-virial}
+Vorticity equation and Bernoulli's constant, with $\mathcal{H} = \int \dd p / \rho$ for a barotropic gas:
+$$
+\begin{aligned}
+\vb{\omega} &= \nabla \times \vb{v}, \qquad \mathcal{B} = \frac{1}{2} v^2 + \mathcal{H} + \Psi, \\
+\frac{\partial \vb{\omega}}{\partial t} &= \nabla \times (\vb{v} \times \vb{\omega}) + \frac{1}{\rho^2} \nabla \rho \times \nabla p.
+\end{aligned}
+$$ {#eq-eqs-vorticity}
+
+Linear perturbations. The Eulerian perturbation $q'$ and the Lagrangian perturbation $\delta q$ of a quantity $q$ are related by $q' = \delta q - \vb{\xi} \cdot \nabla q_0$, where $\vb{\xi}$ is the displacement. Plane waves go as $\ee^{\ii (\vb{k} \cdot \vb{x} - \omega t)}$, so that
+$$
+\begin{aligned}
+& \nabla \to \ii \vb{k}, \qquad \frac{\partial}{\partial t} \to - \ii \omega, \\
+& v_{\mathrm{ph}} = \frac{\omega}{k}, \qquad \vb{v}_g = \frac{\partial \omega}{\partial \vb{k}}.
+\end{aligned}
+$$ {#eq-eqs-fourier}
+
+Jump conditions for a conservation law $\partial_t U + \partial_x F = 0$ across a discontinuity moving with speed $s$, with $\mathrm{L}$ and $\mathrm{R}$ the states on its left and right:
+$$
+s (U_{\mathrm{L}} - U_{\mathrm{R}}) = F (U_{\mathrm{L}}) - F (U_{\mathrm{R}}).
+$$ {#eq-eqs-jump}
+Across a steady shock, in the shock frame, with 1 and 2 the upstream and downstream states:
+$$
+\begin{aligned}
+\rho_1 u_1 &= \rho_2 u_2, \\
+p_1 + \rho_1 u_1^2 &= p_2 + \rho_2 u_2^2, \\
+h_1 + \frac{1}{2} u_1^2 &= h_2 + \frac{1}{2} u_2^2.
+\end{aligned}
+$$ {#eq-eqs-rankine-hugoniot}
+
+## Diffusion and Viscosity
+
+Diffusion equation:
+$$
+\frac{\partial P}{\partial t} = \nabla \cdot (D \nabla P).
+$$ {#eq-eqs-diffusion}
+Rate-of-strain tensor, viscous stress tensor, and Navier–Stokes equation:
+$$
+\begin{aligned}
+\vb{S} &= \frac{1}{2} (\nabla \vb{v} + \nabla \vb{v}^T), \\
+\vb{\tau} &= \zeta (\nabla \cdot \vb{v}) \vb{I} \\
+& \qquad + \rho \nu \left[ \nabla \vb{v} + \nabla \vb{v}^T - \frac{2}{3} (\nabla \cdot \vb{v}) \vb{I} \right], \\
+\rho \frac{\dd \vb{v}}{\dd t} &= - \nabla p + \nabla \cdot \vb{\tau} + \vb{f}.
+\end{aligned}
+$$ {#eq-eqs-navier-stokes}
+Reynolds number, for a flow with velocity $V$ on a scale $L$:
+$$
+\mathrm{Re} = \frac{L V}{\nu}.
+$$ {#eq-eqs-reynolds-number}
+Thin disks: surface density, Keplerian angular velocity, scale height, and $\alpha$ viscosity:
+$$
+\begin{aligned}
+& \Sigma = \int \rho \dd z, \qquad \Omega = \left( \frac{G M}{R^3} \right)^{1 / 2}, \\
+& H = \frac{c_s}{\Omega}, \qquad \nu = \alpha c_s H.
+\end{aligned}
+$$ {#eq-eqs-disks}
+
+## Electromagnetism and Magnetohydrodynamics
+
+Maxwell's equations, with $q$ the charge density and $\vb{j}$ the current density, and the Lorentz force on a particle of charge $Q$:
+$$
+\begin{aligned}
+\nabla \cdot \vb{E} &= \frac{q}{\epsilon_0}, \qquad \nabla \cdot \vb{B} = 0, \qquad \nabla \times \vb{E} = - \frac{\partial \vb{B}}{\partial t}, \\
+\nabla \times \vb{B} &= \mu_0 \vb{j} + \mu_0 \epsilon_0 \frac{\partial \vb{E}}{\partial t}, \\
+\vb{F} &= Q (\vb{E} + \vb{v} \times \vb{B}), \qquad \mu_0 \epsilon_0 = \frac{1}{c^2}.
+\end{aligned}
+$$ {#eq-eqs-maxwell}
+Debye length, plasma frequency, and Larmor radius:
+$$
+\lambda_D = \sqrt{\frac{\epsilon_0 k_B T}{n e^2}}, \qquad \omega_p = \sqrt{\frac{n e^2}{\epsilon_0 m_e}}, \qquad r_L = \frac{m v_{\perp}}{|Q| B}.
+$$ {#eq-eqs-plasma}
+Ohm's law, Ampère's law without displacement current, magnetic diffusivity, and the induction equation:
+$$
+\begin{aligned}
+\vb{j} &= \sigma (\vb{E} + \vb{v} \times \vb{B}), \qquad \nabla \times \vb{B} = \mu_0 \vb{j}, \\
+\eta &= \frac{1}{\mu_0 \sigma}, \\
+\frac{\partial \vb{B}}{\partial t} &= \nabla \times (\vb{v} \times \vb{B}) - \nabla \times (\eta \nabla \times \vb{B}).
+\end{aligned}
+$$ {#eq-eqs-induction}
+Magnetic Reynolds number:
+$$
+\mathrm{R}_M = \frac{L V}{\eta}.
+$$ {#eq-eqs-magnetic-reynolds}
+Equations of ideal MHD ($\eta = 0$, so that $\vb{E} = - \vb{v} \times \vb{B}$) in conservation form:
+$$
+\begin{aligned}
+& \frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vb{v}) = 0, \\
+& \frac{\partial (\rho \vb{v})}{\partial t} \\
+& \qquad + \nabla \cdot \biggl[ \rho \vb{v} \otimes \vb{v} + \left( p + \frac{B^2}{2 \mu_0} \right) \vb{I} \\
+& \qquad\qquad - \frac{\vb{B} \otimes \vb{B}}{\mu_0} \biggr] = \vb{f}, \\
+& \frac{\partial}{\partial t} \left[ \rho \left( \varepsilon + \frac{1}{2} v^2 \right) + \frac{B^2}{2 \mu_0} \right] \\
+& \qquad + \nabla \cdot \biggl[ \left( \rho \varepsilon + \frac{1}{2} \rho v^2 + p \right) \vb{v} + \frac{\vb{B} \times (\vb{v} \times \vb{B})}{\mu_0} \biggr] \\
+& \qquad = \rho \dot{q} + \vb{f} \cdot \vb{v}, \\
+& \frac{\partial \vb{B}}{\partial t} = \nabla \times (\vb{v} \times \vb{B}).
+\end{aligned}
+$$ {#eq-eqs-ideal-mhd}
+The momentum equation in Lagrangian form, and the magnetic force split into tension and pressure:
+$$
+\rho \frac{\dd \vb{v}}{\dd t} = \vb{j} \times \vb{B} - \nabla p + \vb{f}, \qquad \vb{j} \times \vb{B} = \frac{(\vb{B} \cdot \nabla) \vb{B}}{\mu_0} - \nabla \frac{B^2}{2 \mu_0}.
+$$ {#eq-eqs-lorentz-force}
+Plasma beta and Alfvén speed:
+$$
+\beta = \frac{2 \mu_0 p}{B^2}, \qquad v_A = \frac{B}{\sqrt{\mu_0 \rho}}.
+$$ {#eq-eqs-beta-alfven}
+
+## Mathematics
+
+Expansions for $|x| \ll 1$:
+$$
+\begin{aligned}
+(1 + x)^{\alpha} &\approx 1 + \alpha x, \qquad \ee^x \approx 1 + x + \frac{x^2}{2}, \\
+\ln (1 + x) &\approx x - \frac{x^2}{2}, \qquad \sin x \approx x - \frac{x^3}{6}, \\
+\cos x &\approx 1 - \frac{x^2}{2}, \qquad \tanh x \approx x.
+\end{aligned}
+$$ {#eq-eqs-taylor}
+Roots of a quadratic, and the solution of the harmonic oscillator:
+$$
+\begin{aligned}
+a x^2 + b x + c = 0 & \quad \Rightarrow \quad x = \frac{- b \pm \sqrt{b^2 - 4 a c}}{2 a}, \\
+\ddot{x} = - \omega^2 x & \quad \Rightarrow \quad x = A \cos \omega t + B \sin \omega t.
+\end{aligned}
+$$ {#eq-eqs-quadratic}
+Some integrals:
+$$
+\begin{aligned}
+& \int_{- \infty}^{\infty} \ee^{- x^2} \dd x = \sqrt{\pi}, \qquad \int \frac{\dd x}{\cosh^2 x} = \tanh x, \\
+& \int_0^{\pi} \sin \theta \cos^2 \theta \dd \theta = \frac{2}{3}.
+\end{aligned}
+$$ {#eq-eqs-integrals}
+
+## Constants and Units
+
+| Quantity | Value |
+|---|---|
+| Gravitational constant | $G = 6.67 \times 10^{-11}\,\mathrm{m^3\,kg^{-1}\,s^{-2}}$ |
+| Speed of light | $c = 3.00 \times 10^{8}\,\mathrm{m\,s^{-1}}$ |
+| Planck constant | $h = 6.63 \times 10^{-34}\,\mathrm{J\,s}$ |
+| Boltzmann constant | $k_B = 1.38 \times 10^{-23}\,\mathrm{J\,K^{-1}}$ |
+| Atomic mass unit | $m_u = 1.66 \times 10^{-27}\,\mathrm{kg}$ |
+| Proton mass | $m_p = 1.67 \times 10^{-27}\,\mathrm{kg}$ |
+| Electron mass | $m_e = 9.11 \times 10^{-31}\,\mathrm{kg}$ |
+| Elementary charge | $e = 1.60 \times 10^{-19}\,\mathrm{C}$ |
+| Vacuum permittivity | $\epsilon_0 = 8.85 \times 10^{-12}\,\mathrm{F\,m^{-1}}$ |
+| Vacuum permeability | $\mu_0 \approx 4 \pi \times 10^{-7}\,\mathrm{N\,A^{-2}}$ |
+| Stefan–Boltzmann constant | $\sigma = 5.67 \times 10^{-8}\,\mathrm{W\,m^{-2}\,K^{-4}}$ |
+| Radiation constant | $a = 7.57 \times 10^{-16}\,\mathrm{J\,m^{-3}\,K^{-4}}$ |
+| Solar mass | $M_{\odot} = 1.99 \times 10^{30}\,\mathrm{kg}$ |
+| Solar radius | $R_{\odot} = 6.96 \times 10^{8}\,\mathrm{m}$ |
+| Solar luminosity | $L_{\odot} = 3.83 \times 10^{26}\,\mathrm{W}$ |
+| Astronomical unit | $1\,\mathrm{AU} = 1.50 \times 10^{11}\,\mathrm{m}$ |
+| Parsec | $1\,\mathrm{pc} = 3.09 \times 10^{16}\,\mathrm{m}$ |
+| Year | $1\,\mathrm{yr} = 3.16 \times 10^{7}\,\mathrm{s}$ |
+| Electronvolt | $1\,\mathrm{eV} = 1.60 \times 10^{-19}\,\mathrm{J}$, $\ (1\,\mathrm{eV}) / k_B = 1.16 \times 10^{4}\,\mathrm{K}$ |
+| Erg | $1\,\mathrm{erg} = 10^{-7}\,\mathrm{J}$ |
+| Gauss | $1\,\mathrm{G} = 10^{-4}\,\mathrm{T}$ |
+
+: Physical constants, astronomical constants, and units. {#tbl-eqs-constants}

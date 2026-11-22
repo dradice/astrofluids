@@ -369,7 +369,7 @@ Two identical clouds, each of radius $3 \times 10^{16}\, \mathrm{m}$ (about 1 pc
 
 3.  Suppose the collision produces an isothermal shock. How thick is the shocked layer, $x$, at the moment when the whole of each cloud has been shocked?
 
-4.  At later times the layer settles into a structure that can be approximated by a hydrostatic isothermal slab with column density $10^{- 2}\, \mathrm{g} \, \mathrm{cm}^{- 2} = 0.1\, \mathrm{kg} \, \mathrm{m}^{- 2}$. In this hydrostatic structure, what fraction of the clouds' mass lies within the thickness $x$? Neglect edge effects and variations of the column density across the plane of the slab. [Hint. The density profile of an isothermal slab is given in @clarke2007, Section 5.2.]
+4.  At later times the layer settles into a structure that can be approximated by a hydrostatic isothermal slab with column density $10^{- 2}\, \mathrm{g} \, \mathrm{cm}^{- 2} = 0.1\, \mathrm{kg} \, \mathrm{m}^{- 2}$. In this hydrostatic structure, what fraction of the clouds' mass lies within the thickness $x$? Neglect edge effects and variations of the column density across the plane of the slab. [Hint. The density of a self-gravitating isothermal slab is $\rho (z) = \rho_0 / \cosh^2 (z / H)$, where $\rho_0$ is the density in the midplane and $H = c_{\mathrm{iso}} / \sqrt{2 \pi G \rho_0}$ [@clarke2007, Section 5.2].]
 
 Adapted from @clarke2007, Problem 24.
 :::
