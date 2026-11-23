@@ -1,9 +1,5 @@
 # Vector Calculus {#sec-vec}
 
-::: {.callout-note}
-This chapter is in preparation.
-:::
-
 Fluid mechanics is most concisely and generally written in the language
 of vector calculus. This appendix gives key definitions and theorems used
 throughout the rest of these notes. A more extended, but still concise
