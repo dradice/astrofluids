@@ -569,9 +569,10 @@ window.Quarto = {
   <li><a href="#sec-inst-convection" id="toc-sec-inst-convection" class="nav-link active" data-scroll-target="#sec-inst-convection"><span class="header-section-number">14.1</span> Convective instability</a></li>
   <li><a href="#sec-inst-rt" id="toc-sec-inst-rt" class="nav-link" data-scroll-target="#sec-inst-rt"><span class="header-section-number">14.2</span> The Rayleigh–Taylor instability</a></li>
   <li><a href="#sec-inst-kh" id="toc-sec-inst-kh" class="nav-link" data-scroll-target="#sec-inst-kh"><span class="header-section-number">14.3</span> The Kelvin–Helmholtz instability</a></li>
-  <li><a href="#sec-inst-worksheet" id="toc-sec-inst-worksheet" class="nav-link" data-scroll-target="#sec-inst-worksheet"><span class="header-section-number">14.4</span> In-class worksheet</a></li>
-  <li><a href="#sec-inst-exercises" id="toc-sec-inst-exercises" class="nav-link" data-scroll-target="#sec-inst-exercises"><span class="header-section-number">14.5</span> Exercises</a></li>
-  <li><a href="#sec-inst-reading" id="toc-sec-inst-reading" class="nav-link" data-scroll-target="#sec-inst-reading"><span class="header-section-number">14.6</span> Further reading</a></li>
+  <li><a href="#sec-inst-jeans" id="toc-sec-inst-jeans" class="nav-link" data-scroll-target="#sec-inst-jeans"><span class="header-section-number">14.4</span> The Jeans instability</a></li>
+  <li><a href="#sec-inst-worksheet" id="toc-sec-inst-worksheet" class="nav-link" data-scroll-target="#sec-inst-worksheet"><span class="header-section-number">14.5</span> In-class worksheet</a></li>
+  <li><a href="#sec-inst-exercises" id="toc-sec-inst-exercises" class="nav-link" data-scroll-target="#sec-inst-exercises"><span class="header-section-number">14.6</span> Exercises</a></li>
+  <li><a href="#sec-inst-reading" id="toc-sec-inst-reading" class="nav-link" data-scroll-target="#sec-inst-reading"><span class="header-section-number">14.7</span> Further reading</a></li>
   </ul>
 </nav>
     </div>
@@ -608,10 +609,10 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This chapter is a draft. Sections on other instabilities, such as the thermal and the gravitational (Jeans) instabilities, are in preparation.</p>
+<p>This chapter is a draft. Sections on other instabilities, such as the thermal instability, are in preparation.</p>
 </div>
 </div>
-<p>A flow is <strong>unstable</strong> when small perturbations can grow exponentially. We have already seen in <a href="sound-waves.html" class="quarto-xref"><span>Chapter 9</span></a> that the normal modes of a fluid at rest have real <span class="math inline">\(\omega^2\)</span> (<a href="sound-waves.html#eq-sound-29" class="quarto-xref">Equation&nbsp;<span>9.29</span></a>), so each mode either oscillates or grows exponentially. This is no longer true when the fluid is moving, as we will see for the Kelvin–Helmholtz instability. In this chapter we will look at a few examples of instabilities that are particularly useful in astrophysics. There are many more instabilities, each with its own dimensionless numbers. The definitive reference is <span class="citation" data-cites="chandrasekhar1961">Chandrasekhar (<a href="#ref-chandrasekhar1961" role="doc-biblioref">1961</a>)</span>.</p>
+<p>A flow is <strong>unstable</strong> when small perturbations can grow exponentially. We have already seen in <a href="sound-waves.html" class="quarto-xref"><span>Chapter 9</span></a> that the normal modes of a fluid at rest have real <span class="math inline">\(\omega^2\)</span> (<a href="sound-waves.html#eq-sound-29" class="quarto-xref">Equation&nbsp;<span>9.29</span></a>), so each mode either oscillates or grows exponentially. We will see an example of the latter in <a href="#sec-inst-jeans" class="quarto-xref"><span>Section 14.4</span></a>. This is no longer true when the fluid is moving, as we will see for the Kelvin–Helmholtz instability. In this chapter we will look at a few examples of instabilities that are particularly useful in astrophysics. There are many more instabilities, each with its own dimensionless numbers. The definitive reference is <span class="citation" data-cites="chandrasekhar1961">Chandrasekhar (<a href="#ref-chandrasekhar1961" role="doc-biblioref">1961</a>)</span>.</p>
 <section id="sec-inst-convection" class="level2" data-number="14.1">
 <h2 data-number="14.1" class="anchored" data-anchor-id="sec-inst-convection"><span class="header-section-number">14.1</span> Convective instability</h2>
 <p>Consider a stratified medium in a uniform gravitational field <span class="math inline">\(\mathbf{g} = - g \hat{\mathbf{z}}\)</span>, in hydrostatic equilibrium, <span class="math inline">\(\partial_z p = - \rho g\)</span>. We displace a small fluid element upwards by a distance <span class="math inline">\(\delta z\)</span>, as shown in <a href="#fig-inst-displaced" class="quarto-xref">Figure&nbsp;<span>14.1</span></a>. Initially, the fluid element has the same density <span class="math inline">\(\rho\)</span> and pressure <span class="math inline">\(p\)</span> as its surroundings. After the displacement, its density and pressure are <span class="math inline">\(\rho^*\)</span> and <span class="math inline">\(p^*\)</span>, while the background at the new location has density <span class="math inline">\(\rho (z + \delta z)\)</span> and pressure <span class="math inline">\(p (z + \delta z)\)</span>. What will the fluid element do?</p>
@@ -719,7 +720,7 @@ N^2 &amp;= \frac{g}{T} \left[ \frac{\mathrm{d} T}{\mathrm{d} z} - \left( 1 - \fr
 <h2 data-number="14.2" class="anchored" data-anchor-id="sec-inst-rt"><span class="header-section-number">14.2</span> The Rayleigh–Taylor instability</h2>
 <p>Suppose now that the density changes over a distance much shorter than the pressure scale height, for example at the interface between two layers with different composition or temperature. Then the change in the density of the fluid element in <a href="#eq-inst-element-density" class="quarto-xref">Equation&nbsp;<span>14.2</span></a>, which is of order <span class="math inline">\(\rho \, \delta z / (\Gamma H)\)</span>, with <span class="math inline">\(H\)</span> the pressure scale height, is negligible compared with the change in the density of the background in <a href="#eq-inst-background-density" class="quarto-xref">Equation&nbsp;<span>14.3</span></a>. The fluid element keeps its density as it moves, <span class="math inline">\(\rho^* \approx \rho\)</span>, as if the fluid were incompressible, so <span class="math inline">\(\rho^* - \rho (z + \delta z) = - (\mathrm{d} \rho / \mathrm{d} z) \, \delta z\)</span>, and <span id="eq-inst-rt"><span class="math display">\[
 \boxed{N^2 = - \frac{g}{\rho} \frac{\mathrm{d} \rho}{\mathrm{d} z} .}
-\tag{14.17}\]</span></span> For an ideal gas with uniform composition, at nearly constant pressure, <span class="math inline">\(\mathrm{d} \rho / \rho \approx - \mathrm{d} T / T\)</span>, so this agrees with <a href="#eq-inst-brunt-vaisala" class="quarto-xref">Equation&nbsp;<span>14.13</span></a> without the <span class="math inline">\(\mathrm{d} p / \mathrm{d} z\)</span> term. <a href="#eq-inst-rt" class="quarto-xref">Equation&nbsp;<span>14.17</span></a> tells us that a heavy fluid on top of a light fluid is unstable. This is the <strong>Rayleigh–Taylor instability</strong>. The heavy fluid sinks in fingers, while the light fluid rises in bubbles that take the shape of mushrooms (<a href="#fig-inst-rt-simulation" class="quarto-xref">Figure&nbsp;<span>14.3</span></a>). The fingers slide past the surrounding fluid, so their sides are in turn unstable to the Kelvin–Helmholtz instability (<a href="#sec-inst-kh" class="quarto-xref"><span>Section 14.3</span></a>), which rolls them up into vortices. In the in-class worksheet (<a href="#sec-inst-worksheet" class="quarto-xref"><span>Section 14.4</span></a>), we estimate the growth rate of the instability for a sharp interface between two fluids.</p>
+\tag{14.17}\]</span></span> For an ideal gas with uniform composition, at nearly constant pressure, <span class="math inline">\(\mathrm{d} \rho / \rho \approx - \mathrm{d} T / T\)</span>, so this agrees with <a href="#eq-inst-brunt-vaisala" class="quarto-xref">Equation&nbsp;<span>14.13</span></a> without the <span class="math inline">\(\mathrm{d} p / \mathrm{d} z\)</span> term. <a href="#eq-inst-rt" class="quarto-xref">Equation&nbsp;<span>14.17</span></a> tells us that a heavy fluid on top of a light fluid is unstable. This is the <strong>Rayleigh–Taylor instability</strong>. The heavy fluid sinks in fingers, while the light fluid rises in bubbles that take the shape of mushrooms (<a href="#fig-inst-rt-simulation" class="quarto-xref">Figure&nbsp;<span>14.3</span></a>). The fingers slide past the surrounding fluid, so their sides are in turn unstable to the Kelvin–Helmholtz instability (<a href="#sec-inst-kh" class="quarto-xref"><span>Section 14.3</span></a>), which rolls them up into vortices. In the in-class worksheet (<a href="#sec-inst-worksheet" class="quarto-xref"><span>Section 14.5</span></a>), we estimate the growth rate of the instability for a sharp interface between two fluids.</p>
 <div id="fig-inst-rt-simulation" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Three panels showing the tracer in the square region from minus 0.5 to 0.5 in x and z, at t equal to 0, 1.5 and 3. Red is the heavy fluid on top, blue the light fluid below. At t equal to 0 the interface is almost flat, with a small wave. At t equal to 1.5 the wave has grown: two troughs of heavy fluid push down and the light fluid bulges up between them. At t equal to 3 the heavy fluid falls in two long fingers that reach z equal to minus 0.35 and spread into mushroom caps, while the light fluid rises in bubbles up to z equal to 0.25. The sides of the fingers roll up into small swirling vortices.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-inst-rt-simulation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -844,8 +845,35 @@ Figure&nbsp;14.5: Sketch of the eigenvalues <span class="math inline">\(\omega =
 <p>The Kelvin–Helmholtz instability is everywhere: it produces the billows that we sometimes see in clouds, and it makes jets and the boundaries of astrophysical outflows turbulent. It also plays an important role in turbulence (<a href="turbulence.html" class="quarto-xref"><span>Chapter 17</span></a>): large eddies are destroyed by the Kelvin–Helmholtz instability and generate smaller eddies.</p>
 </section>
 </section>
-<section id="sec-inst-worksheet" class="level2" data-number="14.4">
-<h2 data-number="14.4" class="anchored" data-anchor-id="sec-inst-worksheet"><span class="header-section-number">14.4</span> In-class worksheet</h2>
+<section id="sec-inst-jeans" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="sec-inst-jeans"><span class="header-section-number">14.4</span> The Jeans instability</h2>
+<p>We have already encountered the Jeans instability in <a href="hydrostatic-equilibrium.html#sec-hydro-jeans" class="quarto-xref"><span>Section 8.3</span></a>. Here, we re-derive the instability following the same argument as James Jeans. We consider an initially homogeneous, self-gravitating gas region, subject to a density perturbation. We expand density, velocity, and gravitational potential as <span id="eq-inst-jeans-setup"><span class="math display">\[
+    \rho = \rho_0 + \rho_1, \qquad \mathbf{v} = \mathbf{v}_0 + \mathbf{v}_1, \qquad \phi = \phi_0 + \phi_1.
+\tag{14.40}\]</span></span> For a homogeneous background, we have <span class="math inline">\(\rho_0 = \mathrm{const}\)</span>, <span class="math inline">\(\mathbf{v}_0 = 0\)</span>, and <span class="math inline">\(\phi_0 = \mathrm{const}\)</span>. Strictly speaking, this background is not consistent, because a constant potential does not satisfy the Poisson equation, <span class="math inline">\(\nabla^2 \phi_0 = 4 \pi G \rho_0\)</span>. Following Jeans, we ignore this problem, which is why this argument is sometimes called the <em>Jeans swindle</em>. The swindle can be justified for perturbations on scales much smaller than the size of the region, or in an expanding universe. The continuity equation reads, to first order <span id="eq-inst-jeans-continuity"><span class="math display">\[
+    \frac{\partial \rho_1}{\partial t} + \rho_0 \nabla \cdot \mathbf{v}_1 = 0.
+\tag{14.41}\]</span></span> The linearized momentum equation reads <span id="eq-inst-jeans-momentum"><span class="math display">\[
+    \frac{\partial \mathbf{v}_1}{\partial t} = - \nabla \phi_1 - \frac{c_s^2}{\rho_0} \nabla \rho_1,
+\tag{14.42}\]</span></span> where we have used <span class="math inline">\(\nabla p_1 = c_s^2 \nabla \rho_1\)</span>. For adiabatic perturbations <span class="math inline">\(c_s\)</span> is the adiabatic sound speed. For a gas that can efficiently cool, as in molecular clouds, the perturbations are isothermal, and we should use the isothermal sound speed <span class="math inline">\(c_{\mathrm{iso}}\)</span> instead. Finally, the gravitational potential satisfies <span id="eq-inst-jeans-poisson"><span class="math display">\[
+    \nabla^2 \phi_1 = 4 \pi G \rho_1.
+\tag{14.43}\]</span></span> If we take all perturbations to be proportional to <span class="math inline">\(\exp\big[\mathrm{i} (\mathbf{k}\cdot\mathbf{x}-\omega t ) \big]\)</span>, then we can solve for the potential perturbation as <span id="eq-inst-jeans-potential"><span class="math display">\[
+    \phi_1 = -\frac{4 \pi G}{k^2} \rho_1.
+\tag{14.44}\]</span></span> Inserting this into the momentum equation gives <span id="eq-inst-jeans-velocity"><span class="math display">\[
+    \mathbf{v}_1 = \frac{\mathbf{k}}{\omega} \left( - \frac{4\pi G}{k^2} + \frac{c_s^2}{\rho_0} \right) \rho_1.
+\tag{14.45}\]</span></span> Using <a href="#eq-inst-jeans-continuity" class="quarto-xref">Equation&nbsp;<span>14.41</span></a>, we obtain <span id="eq-inst-jeans-density"><span class="math display">\[
+    \omega^2 \rho_1 = k^2 \left( - \frac{4\pi G \rho_0}{k^2} + c_s^2 \right) \rho_1.
+\tag{14.46}\]</span></span> The dispersion relation is thus <span id="eq-inst-jeans-dispersion"><span class="math display">\[
+    \omega^2 = c_s^2 k^2 - 4 \pi G \rho_0 .
+\tag{14.47}\]</span></span> This dispersion relation is formally very similar to the dispersion relation of electromagnetic waves in cold plasma, which we will derive in <a href="plasma.html#eq-plasma-52" class="quarto-xref">Equation&nbsp;<span>18.52</span></a>: <span id="eq-inst-jeans-plasma-preview"><span class="math display">\[
+    \omega^2 = c^2 k^2 + \omega_p^2 , \qquad \omega_p^2 = \frac{n e^2}{\epsilon_0 m_e} ,
+\tag{14.48}\]</span></span> with the important difference of the minus sign, which swaps electrostatic repulsion for gravitational attraction.</p>
+<p>From <a href="#eq-inst-jeans-dispersion" class="quarto-xref">Equation&nbsp;<span>14.47</span></a> we infer that modes with large wavenumbers <span class="math inline">\(k\)</span> (small scales) behave like sound waves. However, modes with wavenumber smaller than <span id="eq-inst-jeans-kj"><span class="math display">\[
+    k_J = \frac{\sqrt{4 \pi G \rho_0}}{c_s},
+\tag{14.49}\]</span></span> that is, with wavelength larger than <span id="eq-inst-jeans-jeans"><span class="math display">\[
+    R_J = \frac{2 \pi}{k_J} = c_s \sqrt{\frac{\pi}{G \rho_0}},
+\tag{14.50}\]</span></span> have <span class="math inline">\(\omega^2 &lt; 0\)</span>, so they are unstable and grow exponentially. For <span class="math inline">\(k \ll k_J\)</span>, the growth rate is <span class="math inline">\(\lambda = - \mathrm{i} \omega \simeq \sqrt{4 \pi G \rho_0}\)</span>, which is of the order of the inverse of the free-fall time of the gas. Apart from factors of order unity, this is the same Jeans length we found in <a href="hydrostatic-equilibrium.html#eq-hydro-33" class="quarto-xref">Equation&nbsp;<span>8.33</span></a>.</p>
+</section>
+<section id="sec-inst-worksheet" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="sec-inst-worksheet"><span class="header-section-number">14.5</span> In-class worksheet</h2>
 <ol type="1">
 <li><p>Is an isothermal atmosphere stable against convection? Why?</p></li>
 <li><p>A heavy fluid with density <span class="math inline">\(\rho_2\)</span> is layered on top of a lighter fluid with density <span class="math inline">\(\rho_1\)</span> in a constant vertical gravitational field <span class="math inline">\(g\)</span> (<span class="math inline">\(\rho_2 &gt; \rho_1\)</span>). The system is perturbed by rotating a cylinder of fluid of radius <span class="math inline">\(r\)</span>, as shown in <a href="#fig-inst-rotated-cylinder" class="quarto-xref">Figure&nbsp;<span>14.6</span></a>.</p>
@@ -864,14 +892,14 @@ Figure&nbsp;14.6: A cylinder of fluid of radius <span class="math inline">\(r\)<
 <li><p>Derive an equation for <span class="math inline">\(\ddot{\theta}\)</span>.</p></li>
 <li><p>Show that the growth rate of the instability is <span id="eq-inst-rt-growth-ws"><span class="math display">\[
 \lambda \sim \sqrt{\frac{Ag}{r}},
-\tag{14.40}\]</span></span> where <span class="math inline">\(A\)</span> is the Atwood number <span id="eq-inst-atwood"><span class="math display">\[
+\tag{14.51}\]</span></span> where <span class="math inline">\(A\)</span> is the Atwood number <span id="eq-inst-atwood"><span class="math display">\[
 A = \frac{\rho_2 - \rho_1}{\rho_2 + \rho_1} .
-\tag{14.41}\]</span></span></p></li>
+\tag{14.52}\]</span></span></p></li>
 </ol></li>
 </ol>
 </section>
-<section id="sec-inst-exercises" class="level2" data-number="14.5">
-<h2 data-number="14.5" class="anchored" data-anchor-id="sec-inst-exercises"><span class="header-section-number">14.5</span> Exercises</h2>
+<section id="sec-inst-exercises" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="sec-inst-exercises"><span class="header-section-number">14.6</span> Exercises</h2>
 <div id="exr-inst-thin-disk" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 14.1 (Vertical structure and convective stability of a thin disk)</strong></span> A thin disk of gas orbits an object of mass <span class="math inline">\(M\)</span>. In the vertical (<span class="math inline">\(z\)</span>) direction, the disk is held up by a balance between the pressure gradient and the <span class="math inline">\(z\)</span>-component of the gravitational force exerted by the central object.</p>
 <ol type="1">
@@ -898,8 +926,8 @@ A = \frac{\rho_2 - \rho_1}{\rho_2 + \rho_1} .
 <p>Adapted from <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Problem 36.</p>
 </div>
 </section>
-<section id="sec-inst-reading" class="level2" data-number="14.6">
-<h2 data-number="14.6" class="anchored" data-anchor-id="sec-inst-reading"><span class="header-section-number">14.6</span> Further reading</h2>
+<section id="sec-inst-reading" class="level2" data-number="14.7">
+<h2 data-number="14.7" class="anchored" data-anchor-id="sec-inst-reading"><span class="header-section-number">14.7</span> Further reading</h2>
 <ul>
 <li><span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Chapter 10 (fluid instabilities).</li>
 <li><span class="citation" data-cites="chandrasekhar1961">Chandrasekhar (<a href="#ref-chandrasekhar1961" role="doc-biblioref">1961</a>)</span>, the classic reference on hydrodynamic stability.</li>
