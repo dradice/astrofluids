@@ -48,7 +48,7 @@ In equilibrium, the centrifugal force balances gravity, $R \Omega^2 = G M / R^2$
 $$
 \begin{alignedat}{2}
 (\vb{v} \cdot \nabla) \vb{v} &{}\rightarrow{} && (R \Omega)
-\hat{\vb{\phi}} \cdot \nabla \vb{u}+\vb{u} \cdot \nabla (R
+(\hat{\vb{\phi}} \cdot \nabla) \vb{u}+(\vb{u} \cdot \nabla) (R
 \Omega \hat{\vb{\phi}}) \\
 &{}={} && - 2 \Omega u_{\phi}  \hat{\vb{R}} + \left( R \frac{\dd
 \Omega}{\dd R} + 2 \Omega \right) u_R \hat{\vb{\phi}} \\
@@ -59,8 +59,8 @@ $$ {#eq-mri-7}
 Similarly,
 $$
 \begin{alignedat}{2}
-(\vb{B} \cdot \nabla) \vb{B} &{}\rightarrow{} && B_0  \hat{\vb{z}}
-\cdot \nabla \vb{b}+\vb{b} \cdot \nabla (B_0  \hat{\vb{z}}) =
+(\vb{B} \cdot \nabla) \vb{B} &{}\rightarrow{} && B_0  (\hat{\vb{z}}
+\cdot \nabla) \vb{b}+(\vb{b} \cdot \nabla) (B_0  \hat{\vb{z}}) =
 \\
 & && B_0  \dfrac{\partial b_R}{\partial z}  \hat{\vb{R}} + B_0
 \frac{\partial b_{\phi}}{\partial z}  \hat{\vb{\phi}} + B_0

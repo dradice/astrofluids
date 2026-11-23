@@ -80,7 +80,8 @@ The equation of motion of the displaced fluid element is
 $$
 \begin{aligned}
 \rho \frac{\dd^2 \delta z}{\dd t^2} &= - g \left[ \rho^* - \rho (z + \delta z) \right] \\
-&= - g \rho \left[ - \left( 1 - \frac{1}{\Gamma} \right) \frac{1}{p} \frac{\dd p}{\dd z} + \frac{1}{T} \frac{\dd T}{\dd z} \right] \delta z ,
+&= - g \rho \biggl[ - \left( 1 - \frac{1}{\Gamma} \right) \frac{1}{p} \frac{\dd p}{\dd z} \\
+&\qquad {} + \frac{1}{T} \frac{\dd T}{\dd z} \biggr] \delta z ,
 \end{aligned}
 $$ {#eq-inst-element-motion}
 where we have used @eq-inst-buoyancy-force and @eq-inst-density-difference. This can be written as
@@ -162,9 +163,10 @@ $$ {#eq-inst-vorticity-linear}
 The zeroth-order term vanishes: $\vb{\omega}_0 \times \vb{v}_0 = - V \, (\dd V / \dd x) \, \hat{\vb{x}}$ depends only on $x$, so its curl is zero. Since $\vb{\omega}_1$ is parallel to $\hat{\vb{z}}$, we need only the $z$-component of @eq-inst-vorticity-linear. We have
 $$
 \begin{aligned}
-\vb{\omega}_1 \times \vb{v}_0 &= \nabla^2 \phi \, \hat{\vb{z}} \times V \hat{\vb{y}} = - V \nabla^2 \phi \, \hat{\vb{x}} , \\
+\vb{\omega}_1 \times \vb{v}_0 &= \nabla^2 \phi \, \hat{\vb{z}} \times V \hat{\vb{y}} \\
+&= - V \nabla^2 \phi \, \hat{\vb{x}} , \\
 \left\{ \nabla \times [\vb{\omega}_1 \times \vb{v}_0] \right\} \cdot \hat{\vb{z}} &= V \partial_y \nabla^2 \phi , \\
-\vb{\omega}_0 \times \vb{v}_1 &= - \frac{\dd V}{\dd x} (\partial_x \phi \, \hat{\vb{x}} + \partial_y \phi \, \hat{\vb{y}}) , \\
+\vb{\omega}_0 \times \vb{v}_1 &= - \frac{\dd V}{\dd x} (\partial_x \phi \hat{\vb{x}} + \partial_y \phi \hat{\vb{y}}) , \\
 \left\{ \nabla \times [\vb{\omega}_0 \times \vb{v}_1] \right\} \cdot \hat{\vb{z}} &= - \frac{\dd^2 V}{\dd x^2} \partial_y \phi .
 \end{aligned}
 $$ {#eq-inst-curls}
@@ -226,9 +228,10 @@ $$ {#eq-inst-total-derivative}
 so that
 $$
 \begin{aligned}
-0 &= \int_{- \epsilon}^{\epsilon} \left[ (c - V) \left( \frac{\dd^2 \Psi}{\dd x^2} - k^2 \Psi \right) + \frac{\dd^2 V}{\dd x^2} \Psi \right] \dd x \\
+0 &= \int_{- \epsilon}^{\epsilon} \biggl[ (c - V) \left( \frac{\dd^2 \Psi}{\dd x^2} - k^2 \Psi \right) \\
+&\qquad {} + \frac{\dd^2 V}{\dd x^2} \Psi \biggr] \dd x \\
 &= \left[ (c - V) \frac{\dd \Psi}{\dd x} + \frac{\dd V}{\dd x} \Psi \right]_{- \epsilon}^{\epsilon} \\
-& \qquad - k^2 \int_{- \epsilon}^{\epsilon} (c - V) \Psi \, \dd x \\
+&\qquad {} - k^2 \int_{- \epsilon}^{\epsilon} (c - V) \Psi \, \dd x \\
 &\xrightarrow{\epsilon \to 0} - k X \left[ (c - V_1)^2 + (c - V_2)^2 \right] ,
 \end{aligned}
 $$ {#eq-inst-sheet-jump}

@@ -112,7 +112,10 @@ $$
 $$ {#eq-wind-momentum-bernoulli}
 For an isentropic flow, $\mathcal{H}$ is the specific enthalpy $h$ of @sec-shock; for other barotropic flows, such as isothermal ones, it is not. For a pressureless fluid, $\mathcal{H} = 0$, and $\mathcal{B}$ is just the mechanical energy (kinetic plus potential) per unit mass. In a steady state, $\partial_t \vb{v} = 0$. Taking the dot product of @eq-wind-momentum-bernoulli with $\vb{v}$, we find $\vb{v} \cdot \nabla \mathcal{B} = 0$, that is (*Bernoulli's theorem*)
 $$
-\boxed{\mathcal{B} = \frac{1}{2} v^2 + \mathcal{H} + \Psi = \text{const along streamlines.}}
+\boxed{\begin{aligned}
+\mathcal{B} &= \frac{1}{2} v^2 + \mathcal{H} + \Psi \\
+&= \text{const along streamlines.}
+\end{aligned}}
 $$ {#eq-wind-bernoulli}
 This theorem generalizes the conservation of mechanical energy, which is so useful to solve problems in mechanics, to the domain of fluids. As we will see, Bernoulli's theorem can be used to solve many fluid-related problems with minimal effort. If the flow is also irrotational, then $\nabla \mathcal{B} = 0$, and $\mathcal{B}$ has the same value everywhere.
 
@@ -167,7 +170,10 @@ c_{\mathrm{iso}} \ee^{- 1 / 2} = \frac{C}{r_c^2} \ee^{- 2} \Longrightarrow C = c
 $$ {#eq-wind-constant}
 so
 $$
-\boxed{v \exp \left( - \frac{v^2}{2 c_{\mathrm{iso}}^2} \right) = c_{\mathrm{iso}} \left( \frac{r_c}{r} \right)^2 \exp \left( - \frac{2 r_c}{r} + \frac{3}{2} \right) .}
+\boxed{\begin{aligned}
+v \exp \left( - \frac{v^2}{2 c_{\mathrm{iso}}^2} \right) &= c_{\mathrm{iso}} \left( \frac{r_c}{r} \right)^2 \\
+&\quad {} \times \exp \left( - \frac{2 r_c}{r} + \frac{3}{2} \right) .
+\end{aligned}}
 $$ {#eq-wind-parker}
 
 ![Solutions of the isothermal wind equation, @eq-wind-family, for different values of the integration constant $C$. Thick lines: the two solutions that pass through the critical point.](../figures/winds-and-accretion/parker-solutions.svg){#fig-wind-solutions fig-alt="Curves of v over c_iso against r over r_c, from 0 to 4, for different values of the integration constant. Two critical solutions cross at r = r_c, v = c_iso, marked by a dot. The wind, a thick black line, starts subsonic near the star, accelerates, becomes supersonic at r_c, and keeps accelerating slowly. The accretion solution, a thick red dashed line, is subsonic at large radii and supersonic inside r_c. Thin grey curves show the other solutions: some are subsonic everywhere, with a maximum of v at r_c; some are supersonic everywhere, with a minimum of v at r_c; others are double valued, either at small radii, where the velocity reaches c_iso with an infinite slope before r_c, or at large radii, where they never reach r_c."}

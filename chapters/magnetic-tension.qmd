@@ -6,9 +6,12 @@ Up to now we have been primarily concerned with the consequences of the inductio
 
 A first somewhat obvious, but important remark is that the magnetic force $\vb{j} \times \vb{B}$ is always perpendicular to the magnetic field, as is obvious from the cross product. In other words, there is no impediment to the plasma flow along field lines. On the other hand, the field might resist or drive plasma motion perpendicular to the field lines. The latter, in turn, causes the field lines to move, in accordance with the induction equation. It is important to keep this in mind, because we are now going to rewrite the Lorentz force in a form in which this constraint is not manifest. Using the vector identity
 $$
-\nabla (\vb{A} \cdot \vb{B}) =\vb{A} \times (\nabla \times
-\vb{B}) +\vb{B} \times (\nabla \times \vb{A}) + (\vb{A}
+\begin{aligned}
+\nabla (\vb{A} \cdot \vb{B}) &= \vb{A} \times (\nabla \times
+\vb{B}) +\vb{B} \times (\nabla \times \vb{A}) \\
+&\quad {} + (\vb{A}
 \cdot \nabla) \vb{B}+ (\vb{B} \cdot \nabla) \vb{A}
+\end{aligned}
 $$ {#eq-tension-1}
 (see also @eq-mhd-curl-identity) and Ampère's law ($\mu_0 \vb{j}= \nabla \times \vb{B}$), we can rewrite the Lorentz force as
 $$
@@ -133,8 +136,10 @@ We will make two simplifying assumptions.
     $$ {#eq-tension-15}
     This means that there exists a vector potential $\vb{A}= A (y, z) \hat{\vb{x}}$ such that $\nabla \times \vb{A}=\vb{B}$. In particular,
     $$
-    B_y = \partial_z A, \quad B_z = - \partial_y A \qquad \Longleftrightarrow
-    \qquad \vb{B}= \nabla A \times \hat{\vb{x}} .
+    \begin{aligned}
+    & B_y = \partial_z A, \quad B_z = - \partial_y A \\
+    & \quad \Longleftrightarrow \quad \vb{B}= \nabla A \times \hat{\vb{x}} .
+    \end{aligned}
     $$ {#eq-tension-16}
     Note that $\vb{A} \perp \vb{B}$ and that the function $A (y, z)$ is constant along the field lines, because $\vb{B} \cdot \nabla A = 0$. So the isocontours of $A (y, z)$ are the field lines.
 

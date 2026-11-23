@@ -180,7 +180,8 @@ $$ {#eq-blast-snowplough}
 where $M_{\mathrm{sh}} = (4 \pi / 3) \rho_1 r_{\mathrm{sh}}^3$ is the swept-up mass. We assume $r_{\mathrm{sh}} \propto t^{\eta}$. Then $U_{\mathrm{sh}} \propto t^{\eta - 1}$, $M_{\mathrm{sh}} \propto t^{3 \eta}$, and
 $$
 \begin{gathered}
-\frac{\dd}{\dd t} (M_{\mathrm{sh}} U_{\mathrm{sh}}) \propto t^{4 \eta - 2}, \qquad r_{\mathrm{sh}}^2 p_{\mathrm{hot}} \propto r_{\mathrm{sh}}^{- 3} \propto t^{- 3 \eta} \\
+\frac{\dd}{\dd t} (M_{\mathrm{sh}} U_{\mathrm{sh}}) \propto t^{4 \eta - 2}, \\
+r_{\mathrm{sh}}^2 p_{\mathrm{hot}} \propto r_{\mathrm{sh}}^{- 3} \propto t^{- 3 \eta} \\
 \Longrightarrow \quad \eta = \frac{2}{7} .
 \end{gathered}
 $$ {#eq-blast-22}

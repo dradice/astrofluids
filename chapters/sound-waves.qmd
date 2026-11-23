@@ -261,9 +261,10 @@ The first few normal modes are plotted in @fig-sound-normal-modes.
 
 This means that all sound waves propagating along the pipe are in the form
 $$
-\xi (t, z) = \sum_{n = 1}^{\infty} \left[ A_n \sin \left( \frac{n \pi c_s
-t}{L} \right) + B_n \cos \left( \frac{n \pi c_s t}{L} \right) \right] \sin
-\left( \frac{n \pi z}{L} \right),
+\begin{aligned}
+\xi (t, z) = \sum_{n = 1}^{\infty} \biggl[ & A_n \sin \left( \frac{n \pi c_s t}{L} \right) \\
+& {} + B_n \cos \left( \frac{n \pi c_s t}{L} \right) \biggr] \sin \left( \frac{n \pi z}{L} \right),
+\end{aligned}
 $$ {#eq-sound-36}
 where $A_n$ and $B_n$ are determined by the initial velocity $\partial_t \xi (0, z)$ and displacement $\xi (0, z)$, respectively.
 :::

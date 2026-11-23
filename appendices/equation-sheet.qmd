@@ -24,9 +24,9 @@ $$ {#eq-eqs-product-rules}
 $$
 \begin{aligned}
 \nabla (\vb{A} \cdot \vb{B}) &= \vb{A} \times (\nabla \times \vb{B}) + \vb{B} \times (\nabla \times \vb{A}) \\
-& \qquad + (\vb{A} \cdot \nabla) \vb{B} + (\vb{B} \cdot \nabla) \vb{A}, \\
+& \qquad {} + (\vb{A} \cdot \nabla) \vb{B} + (\vb{B} \cdot \nabla) \vb{A}, \\
 \nabla \times (\vb{A} \times \vb{B}) &= \vb{A} (\nabla \cdot \vb{B}) - \vb{B} (\nabla \cdot \vb{A}) \\
-& \qquad + (\vb{B} \cdot \nabla) \vb{A} - (\vb{A} \cdot \nabla) \vb{B}.
+& \qquad {} + (\vb{B} \cdot \nabla) \vb{A} - (\vb{A} \cdot \nabla) \vb{B}.
 \end{aligned}
 $$ {#eq-eqs-product-rules-2}
 
@@ -47,7 +47,7 @@ $$
 \end{aligned}
 $$ {#eq-eqs-advection-identities}
 
-Tensors. We use $(\nabla \vb{A})_{ij} = \partial_i A_j$, $(\nabla \cdot \vb{T})_i = \sum_j \partial_j T_{ij}$, $(\vb{A} \otimes \vb{B})_{ij} = A_i B_j$, and $\vb{T} : \vb{S} = \sum_{i,j} T_{ij} S_{ji}$ (@sec-vec). Then, for a symmetric tensor $\vb{T}$,
+Tensors. We use $(\nabla \vb{A})_{ij} = \partial_j A_i$, $(\nabla \cdot \vb{T})_i = \sum_j \partial_j T_{ij}$, $(\vb{A} \otimes \vb{B})_{ij} = A_i B_j$, and $\vb{T} : \vb{S} = \sum_{i,j} T_{ij} S_{ji}$ (@sec-vec). Then, for a symmetric tensor $\vb{T}$,
 $$
 \begin{aligned}
 \nabla \cdot (\vb{A} \otimes \vb{B}) &= \vb{A} (\nabla \cdot \vb{B}) + (\vb{B} \cdot \nabla) \vb{A}, \\
@@ -59,7 +59,8 @@ $$ {#eq-eqs-tensors}
 The position vector $\vb{r}$, with $r = |\vb{r}|$:
 $$
 \begin{aligned}
-\nabla r &= \hat{\vb{r}}, \qquad \nabla \cdot \vb{r} = 3, \qquad \nabla \times \vb{r} = 0, \qquad \nabla \vb{r} = \vb{I}, \\
+\nabla r &= \hat{\vb{r}}, \qquad \nabla \cdot \vb{r} = 3, \\
+\nabla \times \vb{r} &= 0, \qquad \nabla \vb{r} = \vb{I}, \\
 \nabla \frac{1}{r} &= - \frac{\hat{\vb{r}}}{r^2}, \qquad \nabla^2 \frac{1}{r} = - 4 \pi \delta (\vb{r}).
 \end{aligned}
 $$ {#eq-eqs-position}
@@ -93,8 +94,8 @@ $$ {#eq-eqs-cyl-grad}
 $$
 \begin{aligned}
 \nabla \times \vb{A} &= \left[ \frac{1}{R} \partial_{\phi} A_z - \partial_z A_{\phi} \right] \hat{\vb{R}} \\
-& \qquad + [\partial_z A_R - \partial_R A_z] \hat{\vb{\phi}} \\
-& \qquad + \frac{1}{R} [\partial_R (R A_{\phi}) - \partial_{\phi} A_R] \hat{\vb{z}}.
+& \qquad {} + [\partial_z A_R - \partial_R A_z] \hat{\vb{\phi}} \\
+& \qquad {} + \frac{1}{R} [\partial_R (R A_{\phi}) - \partial_{\phi} A_R] \hat{\vb{z}}.
 \end{aligned}
 $$ {#eq-eqs-cyl-curl}
 With $\vb{A} \cdot \nabla = A_R \partial_R + \frac{A_{\phi}}{R} \partial_{\phi} + A_z \partial_z$ acting on the components:
@@ -120,24 +121,26 @@ $$
 \begin{aligned}
 \nabla f &= \partial_r f \, \hat{\vb{r}} + \frac{1}{r} \partial_{\theta} f \, \hat{\vb{\theta}} + \frac{1}{r \sin \theta} \partial_{\phi} f \, \hat{\vb{\phi}}, \\
 \nabla \cdot \vb{A} &= \frac{1}{r^2} \partial_r (r^2 A_r) + \frac{1}{r \sin \theta} \partial_{\theta} (\sin \theta A_{\theta}) \\
-& \qquad + \frac{1}{r \sin \theta} \partial_{\phi} A_{\phi}, \\
+& \qquad {} + \frac{1}{r \sin \theta} \partial_{\phi} A_{\phi}, \\
 \nabla^2 f &= \frac{1}{r^2} \partial_r (r^2 \partial_r f) + \frac{1}{r^2 \sin \theta} \partial_{\theta} (\sin \theta \, \partial_{\theta} f) \\
-& \qquad + \frac{1}{r^2 \sin^2 \theta} \partial_{\phi}^2 f,
+& \qquad {} + \frac{1}{r^2 \sin^2 \theta} \partial_{\phi}^2 f,
 \end{aligned}
 $$ {#eq-eqs-sph-grad}
 $$
 \begin{aligned}
 \nabla \times \vb{A} &= \frac{1}{r \sin \theta} [\partial_{\theta} (\sin \theta A_{\phi}) - \partial_{\phi} A_{\theta}] \hat{\vb{r}} \\
-& \qquad + \frac{1}{r} \left[ \frac{1}{\sin \theta} \partial_{\phi} A_r - \partial_r (r A_{\phi}) \right] \hat{\vb{\theta}} \\
-& \qquad + \frac{1}{r} [\partial_r (r A_{\theta}) - \partial_{\theta} A_r] \hat{\vb{\phi}}.
+& \qquad {} + \frac{1}{r} \left[ \frac{1}{\sin \theta} \partial_{\phi} A_r - \partial_r (r A_{\phi}) \right] \hat{\vb{\theta}} \\
+& \qquad {} + \frac{1}{r} [\partial_r (r A_{\theta}) - \partial_{\theta} A_r] \hat{\vb{\phi}}.
 \end{aligned}
 $$ {#eq-eqs-sph-curl}
 With $\vb{A} \cdot \nabla = A_r \partial_r + \frac{A_{\theta}}{r} \partial_{\theta} + \frac{A_{\phi}}{r \sin \theta} \partial_{\phi}$ acting on the components:
 $$
 \begin{aligned}
 [(\vb{A} \cdot \nabla) \vb{B}]_r &= \vb{A} \cdot \nabla B_r - \frac{A_{\theta} B_{\theta} + A_{\phi} B_{\phi}}{r}, \\
-[(\vb{A} \cdot \nabla) \vb{B}]_{\theta} &= \vb{A} \cdot \nabla B_{\theta} + \frac{A_{\theta} B_r}{r} - \frac{A_{\phi} B_{\phi} \cot \theta}{r}, \\
-[(\vb{A} \cdot \nabla) \vb{B}]_{\phi} &= \vb{A} \cdot \nabla B_{\phi} + \frac{A_{\phi} B_r}{r} + \frac{A_{\phi} B_{\theta} \cot \theta}{r}.
+[(\vb{A} \cdot \nabla) \vb{B}]_{\theta} &= \vb{A} \cdot \nabla B_{\theta} + \frac{A_{\theta} B_r}{r} \\
+& \qquad {} - \frac{A_{\phi} B_{\phi} \cot \theta}{r}, \\
+[(\vb{A} \cdot \nabla) \vb{B}]_{\phi} &= \vb{A} \cdot \nabla B_{\phi} + \frac{A_{\phi} B_r}{r} \\
+& \qquad {} + \frac{A_{\phi} B_{\theta} \cot \theta}{r}.
 \end{aligned}
 $$ {#eq-eqs-sph-advection}
 
@@ -200,14 +203,15 @@ $$
 & \frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vb{v}) = 0, \\
 & \frac{\partial (\rho \vb{v})}{\partial t} + \nabla \cdot [\rho \vb{v} \otimes \vb{v} + p \vb{I}] = \vb{f}, \\
 & \frac{\partial}{\partial t} \left[ \rho \left( \varepsilon + \frac{1}{2} v^2 \right) \right] \\
-& \qquad + \nabla \cdot \left[ \left( \rho \varepsilon + \frac{1}{2} \rho v^2 + p \right) \vb{v} \right] = \rho \dot{q} + \vb{f} \cdot \vb{v}.
+& \quad {} + \nabla \cdot \left[ \left( \rho \varepsilon + \frac{1}{2} \rho v^2 + p \right) \vb{v} \right] = \rho \dot{q} + \vb{f} \cdot \vb{v}.
 \end{aligned}
 $$ {#eq-eqs-conservative}
 Gravity: potential, Poisson equation, and gravitational energy:
 $$
 \begin{aligned}
 \vb{g} &= - \nabla \Psi, \qquad \nabla^2 \Psi = 4 \pi G \rho, \\
-\Psi (\vb{r}) &= - G \int \frac{\rho (\vb{r}')}{|\vb{r} - \vb{r}'|} \dd^3 r', \qquad W = \frac{1}{2} \int \rho \Psi \dd V.
+\Psi (\vb{r}) &= - G \int \frac{\rho (\vb{r}')}{|\vb{r} - \vb{r}'|} \dd^3 r', \\
+W &= \frac{1}{2} \int \rho \Psi \dd V.
 \end{aligned}
 $$ {#eq-eqs-gravity}
 Hydrostatic equilibrium, and the virial theorem for a system in equilibrium, with $K$ the kinetic energy:
@@ -254,7 +258,7 @@ $$
 \begin{aligned}
 \vb{S} &= \frac{1}{2} (\nabla \vb{v} + \nabla \vb{v}^T), \\
 \vb{\tau} &= \zeta (\nabla \cdot \vb{v}) \vb{I} \\
-& \qquad + \rho \nu \left[ \nabla \vb{v} + \nabla \vb{v}^T - \frac{2}{3} (\nabla \cdot \vb{v}) \vb{I} \right], \\
+& \qquad {} + \rho \nu \left[ \nabla \vb{v} + \nabla \vb{v}^T - \frac{2}{3} (\nabla \cdot \vb{v}) \vb{I} \right], \\
 \rho \frac{\dd \vb{v}}{\dd t} &= - \nabla p + \nabla \cdot \vb{\tau} + \vb{f}.
 \end{aligned}
 $$ {#eq-eqs-navier-stokes}
@@ -275,7 +279,8 @@ $$ {#eq-eqs-disks}
 Maxwell's equations, with $q$ the charge density and $\vb{j}$ the current density, and the Lorentz force on a particle of charge $Q$:
 $$
 \begin{aligned}
-\nabla \cdot \vb{E} &= \frac{q}{\epsilon_0}, \qquad \nabla \cdot \vb{B} = 0, \qquad \nabla \times \vb{E} = - \frac{\partial \vb{B}}{\partial t}, \\
+\nabla \cdot \vb{E} &= \frac{q}{\epsilon_0}, \qquad \nabla \cdot \vb{B} = 0, \\
+\nabla \times \vb{E} &= - \frac{\partial \vb{B}}{\partial t}, \\
 \nabla \times \vb{B} &= \mu_0 \vb{j} + \mu_0 \epsilon_0 \frac{\partial \vb{E}}{\partial t}, \\
 \vb{F} &= Q (\vb{E} + \vb{v} \times \vb{B}), \qquad \mu_0 \epsilon_0 = \frac{1}{c^2}.
 \end{aligned}
@@ -301,17 +306,21 @@ $$
 \begin{aligned}
 & \frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vb{v}) = 0, \\
 & \frac{\partial (\rho \vb{v})}{\partial t} \\
-& \qquad + \nabla \cdot \biggl[ \rho \vb{v} \otimes \vb{v} + \left( p + \frac{B^2}{2 \mu_0} \right) \vb{I} \\
-& \qquad\qquad - \frac{\vb{B} \otimes \vb{B}}{\mu_0} \biggr] = \vb{f}, \\
+& \qquad {} + \nabla \cdot \biggl[ \rho \vb{v} \otimes \vb{v} + \left( p + \frac{B^2}{2 \mu_0} \right) \vb{I} \\
+& \qquad\qquad {} - \frac{\vb{B} \otimes \vb{B}}{\mu_0} \biggr] = \vb{f}, \\
 & \frac{\partial}{\partial t} \left[ \rho \left( \varepsilon + \frac{1}{2} v^2 \right) + \frac{B^2}{2 \mu_0} \right] \\
-& \qquad + \nabla \cdot \biggl[ \left( \rho \varepsilon + \frac{1}{2} \rho v^2 + p \right) \vb{v} + \frac{\vb{B} \times (\vb{v} \times \vb{B})}{\mu_0} \biggr] \\
+& \qquad {} + \nabla \cdot \biggl[ \left( \rho \varepsilon + \frac{1}{2} \rho v^2 + p \right) \vb{v} \\
+& \qquad\qquad {} + \frac{\vb{B} \times (\vb{v} \times \vb{B})}{\mu_0} \biggr] \\
 & \qquad = \rho \dot{q} + \vb{f} \cdot \vb{v}, \\
 & \frac{\partial \vb{B}}{\partial t} = \nabla \times (\vb{v} \times \vb{B}).
 \end{aligned}
 $$ {#eq-eqs-ideal-mhd}
 The momentum equation in Lagrangian form, and the magnetic force split into tension and pressure:
 $$
-\rho \frac{\dd \vb{v}}{\dd t} = \vb{j} \times \vb{B} - \nabla p + \vb{f}, \qquad \vb{j} \times \vb{B} = \frac{(\vb{B} \cdot \nabla) \vb{B}}{\mu_0} - \nabla \frac{B^2}{2 \mu_0}.
+\begin{aligned}
+\rho \frac{\dd \vb{v}}{\dd t} &= \vb{j} \times \vb{B} - \nabla p + \vb{f}, \\
+\vb{j} \times \vb{B} &= \frac{(\vb{B} \cdot \nabla) \vb{B}}{\mu_0} - \nabla \frac{B^2}{2 \mu_0}.
+\end{aligned}
 $$ {#eq-eqs-lorentz-force}
 Plasma beta and Alfvén speed:
 $$
@@ -331,8 +340,8 @@ $$ {#eq-eqs-taylor}
 Roots of a quadratic, and the solution of the harmonic oscillator:
 $$
 \begin{aligned}
-a x^2 + b x + c = 0 & \quad \Rightarrow \quad x = \frac{- b \pm \sqrt{b^2 - 4 a c}}{2 a}, \\
-\ddot{x} = - \omega^2 x & \quad \Rightarrow \quad x = A \cos \omega t + B \sin \omega t.
+a x^2 + b x + c = 0 & \;\Rightarrow\; x = \frac{- b \pm \sqrt{b^2 - 4 a c}}{2 a}, \\
+\ddot{x} = - \omega^2 x & \;\Rightarrow\; x = A \cos \omega t + B \sin \omega t.
 \end{aligned}
 $$ {#eq-eqs-quadratic}
 Some integrals:

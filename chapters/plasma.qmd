@@ -187,9 +187,12 @@ $$
 $$ {#eq-plasma-maxwell-vacuum}
 We look for solutions in the form
 $$
-\vb{E} (t, \vb{x}) = \hat{\vb{E}}_0 \ee^{\ii (\vb{k}
-\cdot \vb{x}- \omega t)}, \qquad \vb{B} (t, \vb{x}) =
+\begin{aligned}
+\vb{E} (t, \vb{x}) &= \hat{\vb{E}}_0 \ee^{\ii (\vb{k}
+\cdot \vb{x}- \omega t)}, \\
+\vb{B} (t, \vb{x}) &=
 \hat{\vb{B}}_0 \ee^{\ii (\vb{k} \cdot \vb{x}- \omega t)} .
+\end{aligned}
 $$ {#eq-plasma-29}
 Inserting this ansatz into the first row of @eq-plasma-maxwell-vacuum, we obtain
 $$

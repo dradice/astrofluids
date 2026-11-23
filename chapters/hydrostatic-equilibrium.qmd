@@ -47,16 +47,19 @@ $$
 $$ {#eq-hydro-6}
 where the notation $\vb{A}: \vb{B}$ denotes the inner product between two tensors:
 $$
-\vb{A}: \vb{B}= \sum_{i = 1}^3 \sum_{k = 1}^3 A_{i k} B_{k i} =
-\mathrm{Trace} \left[ \left(\begin{array}{ccc}
+\begin{aligned}
+\vb{A}: \vb{B} &= \sum_{i = 1}^3 \sum_{k = 1}^3 A_{i k} B_{k i} \\
+&= \mathrm{Trace} \Biggl[ \begin{pmatrix}
 A_{x x} & A_{x y} & A_{x z}\\
 A_{y x} & A_{y y} & A_{y z}\\
 A_{z x} & A_{z y} & A_{z z}
-\end{array}\right)  \left(\begin{array}{ccc}
+\end{pmatrix} \\
+&\qquad \begin{pmatrix}
 B_{x x} & B_{x y} & B_{x z}\\
 B_{y x} & B_{y y} & B_{y z}\\
 B_{z x} & B_{z y} & B_{z z}
-\end{array}\right) \right] .
+\end{pmatrix} \Biggr] .
+\end{aligned}
 $$ {#eq-hydro-7}
 Once again, we can drop the total divergence terms, since, by the divergence theorem, they are equal to boundary integrals that vanish because $\rho$ and $p$ vanish at the boundary of $V$. We find
 $$
@@ -78,9 +81,10 @@ $$
 $$ {#eq-hydro-9}
 So everything simplifies to
 $$
-\int_V [\rho \vb{v} \otimes \vb{v}+ p\vb{I}] : \nabla \vb{r}
-\dd V = \int_V \rho v^2 \dd V + 3 \int_V p \dd V =: 2 K +
-3 \Pi,
+\begin{aligned}
+& \int_V [\rho \vb{v} \otimes \vb{v}+ p\vb{I}] : \nabla \vb{r} \dd V \\
+& \quad = \int_V \rho v^2 \dd V + 3 \int_V p \dd V =: 2 K + 3 \Pi,
+\end{aligned}
 $$ {#eq-hydro-10}
 where $K$ is the kinetic energy of the gas and $\Pi$ is the integrated pressure.
 

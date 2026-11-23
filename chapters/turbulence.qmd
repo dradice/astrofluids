@@ -81,9 +81,12 @@ In the last equation we have assumed that $\vb{v}$ is isotropic (no preferred di
 
 In a similar way, we can rewrite the average of the last term in the RHS of @eq-turb-kinetic-energy-full as
 $$
-\int_V \nabla^2 \vb{v} \cdot \vb{v} \dd V = \oint_S \vb{n}
-\cdot (\nabla \vb{v}\vb{v}) \dd S - \int_V \nabla \vb{v}:
-\nabla \vb{v} \dd V = - \int_V | \nabla \vb{v} |^2 \dd V .
+\begin{aligned}
+\int_V \nabla^2 \vb{v} \cdot \vb{v} \dd V
+&= \oint_S \vb{n} \cdot \nabla \left( \tfrac{1}{2} v^2 \right) \dd S \\
+&\quad {} - \int_V | \nabla \vb{v} |^2 \dd V \\
+&= - \int_V | \nabla \vb{v} |^2 \dd V .
+\end{aligned}
 $$ {#eq-turb-11}
 This means that, on average, we can simplify the kinetic energy equation to read
 $$

@@ -262,7 +262,10 @@ The flows produced by many types of astronomical explosions can be described wel
 
 Consider a supernova that ejects $M = 10\,M_\odot$ of gas, with the outer layers moving at $v = 5000\,\mathrm{km\,s^{-1}}$. After one year, the radius of the ejecta is $R \approx v t \approx 1.6 \times 10^{14}\,\mathrm{m}$, or about $1000\,\mathrm{AU}$, so their mean density is
 $$
-\bar{\rho} = \frac{3 M}{4 \pi R^3} \approx 1 \times 10^{-12}\,\mathrm{kg\,m^{-3}} = 1 \times 10^{-15}\,\mathrm{g\,cm^{-3}}.
+\begin{aligned}
+\bar{\rho} = \frac{3 M}{4 \pi R^3} &\approx 1 \times 10^{-12}\,\mathrm{kg\,m^{-3}} \\
+&= 1 \times 10^{-15}\,\mathrm{g\,cm^{-3}}.
+\end{aligned}
 $$ {#eq-continua-sn-density}
 This corresponds to about $10^9$ particles per $\mathrm{cm^3}$. Since $R \propto t$ at late times, the density decreases as $t^{-3}$, so after ten years it is a thousand times smaller.
 :::

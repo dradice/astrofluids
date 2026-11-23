@@ -2,9 +2,15 @@
   // MathJax 4 configuration (Quarto loads MathJax without one).
   // Long display equations are broken across lines to fit the text column
   // instead of scrolling sideways; the CSS scroll box remains as a fallback.
+  // On phones, display equations are left-aligned: a centred numbered
+  // equation reserves an empty margin on the left as wide as its number,
+  // about 70 px of a 320 px column. Decided once, when the page loads.
+  var narrow = window.matchMedia("(max-width: 575.98px)").matches;
   window.MathJax = {
     output: {
       displayOverflow: "linebreak",
+      displayAlign: narrow ? "left" : "center",
+      displayIndent: "0",
       linebreaks: { inline: true, width: "100%" }
     }
   };

@@ -38,7 +38,7 @@ The equations of hydrodynamics in one dimension, without external forces and hea
 $$
 \begin{gathered}
 \partial_t \vb{U} + \partial_x \vb{F} (\vb{U}) = 0, \\
-\vb{U} = \begin{pmatrix} \rho \\ \rho v \\ \rho \varepsilon + \frac{1}{2} \rho v^2 \end{pmatrix}, \qquad
+\vb{U} = \begin{pmatrix} \rho \\ \rho v \\ \rho \varepsilon + \frac{1}{2} \rho v^2 \end{pmatrix}, \\
 \vb{F} (\vb{U}) = \begin{pmatrix} \rho v \\ \rho v^2 + p \\ \rho h v + \frac{1}{2} \rho v^3 \end{pmatrix},
 \end{gathered}
 $$ {#eq-shock-5}
@@ -210,7 +210,8 @@ $$
 \begin{aligned}
 \rho u &= \rho_1 u_1, \\
 p + \rho u^2 - \sigma &= p_1 + \rho_1 u_1^2, \\
-\rho u \left( h + \frac{u^2}{2} \right) - u \sigma + F_{\mathrm{heat}} &= \rho_1 u_1 \left( h_1 + \frac{u_1^2}{2} \right) .
+\rho u \left( h + \frac{u^2}{2} \right) &- u \sigma + F_{\mathrm{heat}} \\
+&= \rho_1 u_1 \left( h_1 + \frac{u_1^2}{2} \right) .
 \end{aligned}
 $$ {#eq-shock-25}
 The solution of these equations determines the structure of the shock (@fig-shock-viscous). Far downstream the diffusive terms disappear again, and we recover the Rankine–Hugoniot conditions.
@@ -287,12 +288,12 @@ where the Mach number is now defined with the isothermal sound speed. Note the d
 
     This data can be fitted to infer the following parameters for the upstream and downstream electron density and temperature:
     $$
-    \begin{gathered}
-    n_1 = 3.7 \times 10^{- 3}\, \mathrm{cm}^{- 3}, \enspace T_1 = 9.3 \times 10^7
-    \,\mathrm{K}, \\
-    n_2 = 9.3 \times  10^{- 3}\, \mathrm{cm}^{- 3}, \enspace T_2 =
-    2.2 \times  10^8 \,\mathrm{K}.
-    \end{gathered}
+    \begin{aligned}
+    n_1 &= 3.7 \times 10^{- 3}\, \mathrm{cm}^{- 3}, \\
+    T_1 &= 9.3 \times 10^7 \,\mathrm{K}, \\
+    n_2 &= 9.3 \times 10^{- 3}\, \mathrm{cm}^{- 3}, \\
+    T_2 &= 2.2 \times 10^8 \,\mathrm{K}.
+    \end{aligned}
     $$ {#eq-shock-31}
     Estimate
 

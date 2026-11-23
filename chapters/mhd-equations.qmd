@@ -266,11 +266,15 @@ This equation highlights the fact that magnetic and fluid energies are not separ
     $$ {#eq-mhd-angular-momentum}
     subject to an external force per unit volume $\vb{f}$, satisfies
     $$
-    \frac{\dd \vb{J}}{\dd t} = \int_V \vb{r} \times \vb{f} \dd V
-    - \oint_S \left[ (\vb{v} \cdot \dd \vb{S})  (\vb{r} \times
-    \rho \vb{v}) + (p + B^2 / 2 \mu_0) \vb{r}
-    \times \dd \vb{S}- (\vb{r} \times
-    \vb{B})  (\vb{B} \cdot \dd \vb{S}) / \mu_0 \right] .
+    \begin{aligned}
+    \frac{\dd \vb{J}}{\dd t} &= \int_V \vb{r} \times \vb{f} \dd V \\
+    &\quad {} - \oint_S \biggl[ (\vb{v} \cdot \dd \vb{S}) (\vb{r} \times
+    \rho \vb{v}) \\
+    &\qquad\quad {} + (p + B^2 / 2 \mu_0) \vb{r}
+    \times \dd \vb{S} \\
+    &\qquad\quad {} - (\vb{r} \times
+    \vb{B}) (\vb{B} \cdot \dd \vb{S}) / \mu_0 \biggr] .
+    \end{aligned}
     $$ {#eq-mhd-angular-momentum-balance}
     \[Hint. Follow the steps of @exr-conserv-angular-momentum.\]
 

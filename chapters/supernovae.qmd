@@ -60,9 +60,11 @@ $$
 $$ {#eq-sn-9}
 where we have approximated $n$ with the average number density, $n = \rho / (\mu m_u)$ (@eq-continua-5), and $M$ is the mass of the progenitor. We find $\beta$:
 $$
-\beta \approx 4.8 \times 10^3 \mu  \left( \frac{1
-M_{\odot}}{M} \right)  \left( \frac{R_0}{10^{12} \, \mathrm{m}} \right)^{3 / 4}
+\begin{aligned}
+\beta &\approx 4.8 \times 10^3 \mu \left( \frac{1 M_{\odot}}{M} \right) \\
+&\quad \times \left( \frac{R_0}{10^{12} \, \mathrm{m}} \right)^{3 / 4}
 \left( \frac{E}{10^{51}\,\mathrm{erg}} \right)^{3 / 4},
+\end{aligned}
 $$ {#eq-sn-10}
 confirming that radiation dominates at early times. As we will see later, for homologous expansion, $E \sim R^{- 1}$, so $\beta$ is independent of the radius to which the ejecta has expanded, and matter remains radiation dominated.
 
@@ -130,9 +132,11 @@ $$
 $$ {#eq-sn-20}
 This is the peak time of the *bolometric luminosity*. For Thomson scattering in a hydrogen-rich, ionized gas $\kappa = 0.4\,\mathrm{cm}^2\,\mathrm{g}^{- 1}$, that is, $0.04\,\mathrm{m^2\,kg^{-1}}$ (as is customary, we quote opacities in $\mathrm{cm^2\,g^{-1}}$), so
 $$
-t_p = 1.4 \times 10^6\,\mathrm{s} \left( \frac{M}{M_{\odot}} \right)^{1 / 2}
-\left( \frac{\kappa}{0.4\,\mathrm{cm}^2\,\mathrm{g}^{- 1}} \right)^{1 / 2}
+\begin{aligned}
+t_p &= 1.4 \times 10^6\,\mathrm{s} \left( \frac{M}{M_{\odot}} \right)^{1 / 2} \\
+&\quad \times \left( \frac{\kappa}{0.4\,\mathrm{cm}^2\,\mathrm{g}^{- 1}} \right)^{1 / 2}
 \left( \frac{v}{10^4 \, \mathrm{km} \, \mathrm{s}^{- 1}} \right)^{- 1 / 2} .
+\end{aligned}
 $$ {#eq-sn-21}
 The characteristic radius of the supernova at this time is
 $$
