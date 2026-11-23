@@ -72,9 +72,9 @@ div.csl-indent {
 <script id="quarto-axe-checker-options" type="text/plain">dHJ1ZQ==</script>
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1b98dd23240c9c19cf7f5804f818ede7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c1bcdac81c6bc25be869bc58a487a70b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -106,9 +106,15 @@ div.csl-indent {
   // MathJax 4 configuration (Quarto loads MathJax without one).
   // Long display equations are broken across lines to fit the text column
   // instead of scrolling sideways; the CSS scroll box remains as a fallback.
+  // On phones, display equations are left-aligned: a centred numbered
+  // equation reserves an empty margin on the left as wide as its number,
+  // about 70 px of a 320 px column. Decided once, when the page loads.
+  var narrow = window.matchMedia("(max-width: 575.98px)").matches;
   window.MathJax = {
     output: {
       displayOverflow: "linebreak",
+      displayAlign: narrow ? "left" : "center",
+      displayIndent: "0",
       linebreaks: { inline: true, width: "100%" }
     }
   };
@@ -542,6 +548,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Vector Calculus</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/equation-sheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Useful Formulae</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -655,9 +667,12 @@ Figure&nbsp;17.2: Filtering a turbulent velocity field. Left: the filter <span c
 p\mathbf{v} \cdot \mathbf{n} \mathrm{d} S = 0.
 \tag{17.10}\]</span></span> In the last equation we have assumed that <span class="math inline">\(\mathbf{v}\)</span> is isotropic (no preferred direction), so <span class="math inline">\(\mathbf{v} \cdot \mathbf{n}\)</span> is zero on average.</p>
 <p>In a similar way, we can rewrite the average of the last term in the RHS of <a href="#eq-turb-kinetic-energy-full" class="quarto-xref">Equation&nbsp;<span>17.8</span></a> as <span id="eq-turb-11"><span class="math display">\[
-\int_V \nabla^2 \mathbf{v} \cdot \mathbf{v} \mathrm{d} V = \oint_S \mathbf{n}
-\cdot (\nabla \mathbf{v}\mathbf{v}) \mathrm{d} S - \int_V \nabla \mathbf{v}:
-\nabla \mathbf{v} \mathrm{d} V = - \int_V | \nabla \mathbf{v} |^2 \mathrm{d} V .
+\begin{aligned}
+\int_V \nabla^2 \mathbf{v} \cdot \mathbf{v} \mathrm{d} V
+&amp;= \oint_S \mathbf{n} \cdot \nabla \left( \tfrac{1}{2} v^2 \right) \mathrm{d} S \\
+&amp;\quad {} - \int_V | \nabla \mathbf{v} |^2 \mathrm{d} V \\
+&amp;= - \int_V | \nabla \mathbf{v} |^2 \mathrm{d} V .
+\end{aligned}
 \tag{17.11}\]</span></span> This means that, on average, we can simplify the kinetic energy equation to read <span id="eq-turb-kinetic-energy"><span class="math display">\[
 \partial_t v^2 = 2\mathbf{g} \cdot \mathbf{v}- (\mathbf{v} \cdot \nabla) v^2
 - 2 \nu | \nabla \mathbf{v} |^2 .

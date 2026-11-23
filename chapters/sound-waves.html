@@ -72,9 +72,9 @@ div.csl-indent {
 <script id="quarto-axe-checker-options" type="text/plain">dHJ1ZQ==</script>
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1b98dd23240c9c19cf7f5804f818ede7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c1bcdac81c6bc25be869bc58a487a70b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -106,9 +106,15 @@ div.csl-indent {
   // MathJax 4 configuration (Quarto loads MathJax without one).
   // Long display equations are broken across lines to fit the text column
   // instead of scrolling sideways; the CSS scroll box remains as a fallback.
+  // On phones, display equations are left-aligned: a centred numbered
+  // equation reserves an empty margin on the left as wide as its number,
+  // about 70 px of a 320 px column. Decided once, when the page loads.
+  var narrow = window.matchMedia("(max-width: 575.98px)").matches;
   window.MathJax = {
     output: {
       displayOverflow: "linebreak",
+      displayAlign: narrow ? "left" : "center",
+      displayIndent: "0",
       linebreaks: { inline: true, width: "100%" }
     }
   };
@@ -542,6 +548,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Vector Calculus</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/equation-sheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Useful Formulae</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -827,9 +839,10 @@ Figure&nbsp;9.4: Normal modes for gas in a cylindrical pipe.
 </figure>
 </div>
 <p>This means that all sound waves propagating along the pipe are in the form <span id="eq-sound-36"><span class="math display">\[
-\xi (t, z) = \sum_{n = 1}^{\infty} \left[ A_n \sin \left( \frac{n \pi c_s
-t}{L} \right) + B_n \cos \left( \frac{n \pi c_s t}{L} \right) \right] \sin
-\left( \frac{n \pi z}{L} \right),
+\begin{aligned}
+\xi (t, z) = \sum_{n = 1}^{\infty} \biggl[ &amp; A_n \sin \left( \frac{n \pi c_s t}{L} \right) \\
+&amp; {} + B_n \cos \left( \frac{n \pi c_s t}{L} \right) \biggr] \sin \left( \frac{n \pi z}{L} \right),
+\end{aligned}
 \tag{9.36}\]</span></span> where <span class="math inline">\(A_n\)</span> and <span class="math inline">\(B_n\)</span> are determined by the initial velocity <span class="math inline">\(\partial_t \xi (0, z)\)</span> and displacement <span class="math inline">\(\xi (0, z)\)</span>, respectively.</p>
 </div>
 </div>

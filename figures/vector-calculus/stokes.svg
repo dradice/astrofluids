@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 300" width="440" height="300" role="img" aria-labelledby="vec-stokes-t vec-stokes-d">
+<title id="vec-stokes-t">Stokes' theorem</title>
+<desc id="vec-stokes-d">A curved surface S, shaded grey, shaped like a dome, whose edge is the closed curve C, drawn as an ellipse. Arrows along C show the direction of the line element dl, counterclockwise when seen from above. At the top of the dome a small patch of the surface carries the area element dA, an arrow pointing up and away from the surface. The direction of C and that of dA are related by the right-hand rule: with the thumb along dA, the fingers curl along C.</desc>
+<defs><marker id="ah-k" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#000" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker><marker id="ah-1f4fbf" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#1f4fbf" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker><marker id="ah-b3202a" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#b3202a" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker></defs>
+<rect width="440" height="300" fill="#fff"/>
+<g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif">
+<path d="M 50 225 C 50 60, 380 60, 380 225 A 165 48 0 0 1 50 225 Z" fill="#d9d9d9" stroke="#000" stroke-width="0" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 50 225 C 50 60, 380 60, 380 225" fill="none" stroke="#000" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 50 225 A 165 48 0 0 1 380 225" fill="none" stroke="#1f4fbf" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 5" />
+<path d="M 380 225 A 165 48 0 0 1 50 225" fill="none" stroke="#1f4fbf" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="195.0" y1="273.0" x2="237.0" y2="273.0" stroke="#1f4fbf" stroke-width="2.4" marker-end="url(#ah-1f4fbf)"/>
+<text x="215" y="299" text-anchor="middle" font-size="20" fill="#1f4fbf">d<tspan font-weight="bold">l</tspan></text>
+<text x="388" y="247" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#1f4fbf">C</text>
+<ellipse cx="215.0" cy="140.0" rx="26.0" ry="7.0" transform="rotate(0.0 215.0 140.0)" fill="#fff" stroke="#000" stroke-width="1.4"/>
+<line x1="215.0" y1="140.0" x2="215.0" y2="78.0" stroke="#b3202a" stroke-width="2.4" marker-end="url(#ah-b3202a)"/>
+<text x="225" y="96" text-anchor="start" font-size="20" fill="#b3202a">d<tspan font-weight="bold">A</tspan></text>
+<text x="120" y="175" text-anchor="start" font-size="22" font-style="italic" font-weight="normal" fill="#000">S</text>
+</g>
+</svg>

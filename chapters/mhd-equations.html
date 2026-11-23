@@ -72,9 +72,9 @@ div.csl-indent {
 <script id="quarto-axe-checker-options" type="text/plain">dHJ1ZQ==</script>
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1b98dd23240c9c19cf7f5804f818ede7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c1bcdac81c6bc25be869bc58a487a70b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -106,9 +106,15 @@ div.csl-indent {
   // MathJax 4 configuration (Quarto loads MathJax without one).
   // Long display equations are broken across lines to fit the text column
   // instead of scrolling sideways; the CSS scroll box remains as a fallback.
+  // On phones, display equations are left-aligned: a centred numbered
+  // equation reserves an empty margin on the left as wide as its number,
+  // about 70 px of a 320 px column. Decided once, when the page loads.
+  var narrow = window.matchMedia("(max-width: 575.98px)").matches;
   window.MathJax = {
     output: {
       displayOverflow: "linebreak",
+      displayAlign: narrow ? "left" : "center",
+      displayIndent: "0",
       linebreaks: { inline: true, width: "100%" }
     }
   };
@@ -542,6 +548,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Vector Calculus</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/equation-sheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Useful Formulae</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -773,11 +785,15 @@ u_{\mathrm{B}},
 <li><p>Starting from the equations of ideal MHD, show that the angular momentum of the plasma, <span id="eq-mhd-angular-momentum"><span class="math display">\[
 \mathbf{J} = \int_V \mathbf{r} \times \rho \mathbf{v} \mathrm{d} V,
 \tag{19.34}\]</span></span> subject to an external force per unit volume <span class="math inline">\(\mathbf{f}\)</span>, satisfies <span id="eq-mhd-angular-momentum-balance"><span class="math display">\[
-\frac{\mathrm{d} \mathbf{J}}{\mathrm{d} t} = \int_V \mathbf{r} \times \mathbf{f} \mathrm{d} V
-- \oint_S \left[ (\mathbf{v} \cdot \mathrm{d} \mathbf{S})  (\mathbf{r} \times
-\rho \mathbf{v}) + (p + B^2 / 2 \mu_0) \mathbf{r}
-\times \mathrm{d} \mathbf{S}- (\mathbf{r} \times
-\mathbf{B})  (\mathbf{B} \cdot \mathrm{d} \mathbf{S}) / \mu_0 \right] .
+\begin{aligned}
+\frac{\mathrm{d} \mathbf{J}}{\mathrm{d} t} &amp;= \int_V \mathbf{r} \times \mathbf{f} \mathrm{d} V \\
+&amp;\quad {} - \oint_S \biggl[ (\mathbf{v} \cdot \mathrm{d} \mathbf{S}) (\mathbf{r} \times
+\rho \mathbf{v}) \\
+&amp;\qquad\quad {} + (p + B^2 / 2 \mu_0) \mathbf{r}
+\times \mathrm{d} \mathbf{S} \\
+&amp;\qquad\quad {} - (\mathbf{r} \times
+\mathbf{B}) (\mathbf{B} \cdot \mathrm{d} \mathbf{S}) / \mu_0 \biggr] .
+\end{aligned}
 \tag{19.35}\]</span></span> [Hint. Follow the steps of <a href="conservation-laws.html#exr-conserv-angular-momentum" class="quarto-xref">Exercise&nbsp;<span>6.1</span></a>.]</p></li>
 <li><p>Assume that the magnetic field is stationary in a frame rotating with the angular velocity of the Sun. Show that if the solar wind is infinitely conducting, then (in cylindrical coordinates <span class="math inline">\(R, \phi, z\)</span>) <span id="eq-mhd-corotation"><span class="math display">\[
 B_{\phi} v_R = (v_{\phi} - \Omega R) B_R,

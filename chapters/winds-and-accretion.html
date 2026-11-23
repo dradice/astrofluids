@@ -72,9 +72,9 @@ div.csl-indent {
 <script id="quarto-axe-checker-options" type="text/plain">dHJ1ZQ==</script>
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1b98dd23240c9c19cf7f5804f818ede7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c1bcdac81c6bc25be869bc58a487a70b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -106,9 +106,15 @@ div.csl-indent {
   // MathJax 4 configuration (Quarto loads MathJax without one).
   // Long display equations are broken across lines to fit the text column
   // instead of scrolling sideways; the CSS scroll box remains as a fallback.
+  // On phones, display equations are left-aligned: a centred numbered
+  // equation reserves an empty margin on the left as wide as its number,
+  // about 70 px of a 320 px column. Decided once, when the page loads.
+  var narrow = window.matchMedia("(max-width: 575.98px)").matches;
   window.MathJax = {
     output: {
       displayOverflow: "linebreak",
+      displayAlign: narrow ? "left" : "center",
+      displayIndent: "0",
       linebreaks: { inline: true, width: "100%" }
     }
   };
@@ -542,6 +548,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Vector Calculus</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/equation-sheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Useful Formulae</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -698,7 +710,10 @@ Figure&nbsp;13.4: Streamlines of the potential flow around a cylinder.
 \tag{13.15}\]</span></span> and write <a href="#eq-wind-momentum" class="quarto-xref">Equation&nbsp;<span>13.4</span></a> as <span id="eq-wind-momentum-bernoulli"><span class="math display">\[
 \frac{\partial \mathbf{v}}{\partial t} + \nabla \mathcal{B} + \boldsymbol{\omega} \times \mathbf{v} = 0, \qquad \mathcal{B} = \frac{1}{2} v^2 + \mathcal{H} + \Psi .
 \tag{13.16}\]</span></span> For an isentropic flow, <span class="math inline">\(\mathcal{H}\)</span> is the specific enthalpy <span class="math inline">\(h\)</span> of <a href="shock-waves.html" class="quarto-xref"><span>Chapter 11</span></a>; for other barotropic flows, such as isothermal ones, it is not. For a pressureless fluid, <span class="math inline">\(\mathcal{H} = 0\)</span>, and <span class="math inline">\(\mathcal{B}\)</span> is just the mechanical energy (kinetic plus potential) per unit mass. In a steady state, <span class="math inline">\(\partial_t \mathbf{v} = 0\)</span>. Taking the dot product of <a href="#eq-wind-momentum-bernoulli" class="quarto-xref">Equation&nbsp;<span>13.16</span></a> with <span class="math inline">\(\mathbf{v}\)</span>, we find <span class="math inline">\(\mathbf{v} \cdot \nabla \mathcal{B} = 0\)</span>, that is (<em>Bernoulli’s theorem</em>) <span id="eq-wind-bernoulli"><span class="math display">\[
-\boxed{\mathcal{B} = \frac{1}{2} v^2 + \mathcal{H} + \Psi = \text{const along streamlines.}}
+\boxed{\begin{aligned}
+\mathcal{B} &amp;= \frac{1}{2} v^2 + \mathcal{H} + \Psi \\
+&amp;= \text{const along streamlines.}
+\end{aligned}}
 \tag{13.17}\]</span></span> This theorem generalizes the conservation of mechanical energy, which is so useful to solve problems in mechanics, to the domain of fluids. As we will see, Bernoulli’s theorem can be used to solve many fluid-related problems with minimal effort. If the flow is also irrotational, then <span class="math inline">\(\nabla \mathcal{B} = 0\)</span>, and <span class="math inline">\(\mathcal{B}\)</span> has the same value everywhere.</p>
 </section>
 </section>
@@ -730,7 +745,10 @@ v \exp \left( - \frac{v^2}{2 c_{\mathrm{iso}}^2} \right) = \frac{C}{r^2} \exp \l
 \tag{13.26}\]</span></span> where <span class="math inline">\(C\)</span> is an integration constant. <a href="#fig-wind-solutions" class="quarto-xref">Figure&nbsp;<span>13.5</span></a> shows the solutions for different values of <span class="math inline">\(C\)</span>. The solution that passes through the critical point, <span class="math inline">\(v = c_{\mathrm{iso}}\)</span> at <span class="math inline">\(r = r_c\)</span>, has <span id="eq-wind-constant"><span class="math display">\[
 c_{\mathrm{iso}} \mathrm{e}^{- 1 / 2} = \frac{C}{r_c^2} \mathrm{e}^{- 2} \Longrightarrow C = c_{\mathrm{iso}} r_c^2 \mathrm{e}^{3 / 2},
 \tag{13.27}\]</span></span> so <span id="eq-wind-parker"><span class="math display">\[
-\boxed{v \exp \left( - \frac{v^2}{2 c_{\mathrm{iso}}^2} \right) = c_{\mathrm{iso}} \left( \frac{r_c}{r} \right)^2 \exp \left( - \frac{2 r_c}{r} + \frac{3}{2} \right) .}
+\boxed{\begin{aligned}
+v \exp \left( - \frac{v^2}{2 c_{\mathrm{iso}}^2} \right) &amp;= c_{\mathrm{iso}} \left( \frac{r_c}{r} \right)^2 \\
+&amp;\quad {} \times \exp \left( - \frac{2 r_c}{r} + \frac{3}{2} \right) .
+\end{aligned}}
 \tag{13.28}\]</span></span></p>
 <div id="fig-wind-solutions" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Curves of v over c_iso against r over r_c, from 0 to 4, for different values of the integration constant. Two critical solutions cross at r = r_c, v = c_iso, marked by a dot. The wind, a thick black line, starts subsonic near the star, accelerates, becomes supersonic at r_c, and keeps accelerating slowly. The accretion solution, a thick red dashed line, is subsonic at large radii and supersonic inside r_c. Thin grey curves show the other solutions: some are subsonic everywhere, with a maximum of v at r_c; some are supersonic everywhere, with a minimum of v at r_c; others are double valued, either at small radii, where the velocity reaches c_iso with an infinite slope before r_c, or at large radii, where they never reach r_c.">
 <figure class="quarto-float quarto-float-fig figure">

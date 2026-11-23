@@ -72,9 +72,9 @@ div.csl-indent {
 <script id="quarto-axe-checker-options" type="text/plain">dHJ1ZQ==</script>
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1b98dd23240c9c19cf7f5804f818ede7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c1bcdac81c6bc25be869bc58a487a70b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -106,9 +106,15 @@ div.csl-indent {
   // MathJax 4 configuration (Quarto loads MathJax without one).
   // Long display equations are broken across lines to fit the text column
   // instead of scrolling sideways; the CSS scroll box remains as a fallback.
+  // On phones, display equations are left-aligned: a centred numbered
+  // equation reserves an empty margin on the left as wide as its number,
+  // about 70 px of a 320 px column. Decided once, when the page loads.
+  var narrow = window.matchMedia("(max-width: 575.98px)").matches;
   window.MathJax = {
     output: {
       displayOverflow: "linebreak",
+      displayAlign: narrow ? "left" : "center",
+      displayIndent: "0",
       linebreaks: { inline: true, width: "100%" }
     }
   };
@@ -542,6 +548,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Vector Calculus</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/equation-sheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Useful Formulae</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -688,10 +700,13 @@ k_{1, 2} \approx - \frac{\mathrm{i}}{2 H} \pm \frac{\omega}{c_s} .
 \eta_z \exp \left[ \mathrm{i} \omega \left( \pm \frac{z}{c_s} - t \right)
 \right] \exp \left( \frac{z}{2 H} \right) .
 \tag{10.23}\]</span></span> This makes sense, because the energy flux carried by the wave, which is the energy density (<a href="sound-waves.html#eq-sound-43" class="quarto-xref">Equation&nbsp;<span>9.43</span></a>) times <span class="math inline">\(c_s\)</span>, <span class="math inline">\(\sim \rho_0 \omega^2 |\boldsymbol{\xi}|^2 c_s\)</span>, must be the same at all heights. Since <span class="math inline">\(\rho_0\)</span> decreases with height, <span class="math inline">\(|\boldsymbol{\xi}|\)</span> must increase as <span class="math inline">\(\rho_0^{-1/2} \propto \mathrm{e}^{z / 2 H}\)</span>. The density perturbation of the wave propagating upward is <span id="eq-strat-24"><span class="math display">\[
-\delta \rho = - \rho_0 \nabla \cdot \boldsymbol{\xi}= - \tilde{\rho} \eta_z
-\left( \frac{\mathrm{i} \omega}{c_s} + \frac{1}{2 H} \right) \exp \left[
-\mathrm{i} \omega \left( \frac{z}{c_s} - t \right) \right] \exp \left( -
-\frac{z}{2 H} \right) .
+\begin{aligned}
+\delta \rho &amp;= - \rho_0 \nabla \cdot \boldsymbol{\xi} \\
+&amp;= - \tilde{\rho} \eta_z
+\left( \frac{\mathrm{i} \omega}{c_s} + \frac{1}{2 H} \right) \\
+&amp;\quad {} \times \exp \left[ \mathrm{i} \omega \left( \frac{z}{c_s} - t \right) \right] \\
+&amp;\quad {} \times \exp \left( - \frac{z}{2 H} \right) .
+\end{aligned}
 \tag{10.24}\]</span></span> Note that the density perturbation itself decreases with height. However, the background density decreases faster, so the relative perturbation <span class="math inline">\(\delta \rho / \rho_0 \propto \mathrm{e}^{z / 2 H}\)</span> grows. This means that waves propagating upward through an isothermal atmosphere eventually become nonlinear, <span class="math inline">\(\delta \rho \sim \rho_0\)</span>, and break, forming shocks (<a href="shock-waves.html" class="quarto-xref"><span>Chapter 11</span></a>). Waves breaking in this way are thought to contribute to the heating of the solar chromosphere.</p></li>
 <li><p>If <span class="math inline">\(\omega &lt; \omega_{\mathrm{ac}}\)</span>, then <span class="math inline">\(k\)</span> is purely imaginary and the waves do not propagate. In the limit <span class="math inline">\(\omega \ll \omega_{\mathrm{ac}}\)</span>, we find <span id="eq-strat-25"><span class="math display">\[
 k_{1, 2} \approx 0, - \frac{\mathrm{i}}{H} \qquad \Longrightarrow \qquad
@@ -707,9 +722,12 @@ k_{1, 2} \approx 0, - \frac{\mathrm{i}}{H} \qquad \Longrightarrow \qquad
 \tag{10.27}\]</span></span> The <span class="math inline">\(z\)</span>-component of <a href="#eq-strat-lamb" class="quarto-xref">Equation&nbsp;<span>10.26</span></a> is <span id="eq-strat-28"><span class="math display">\[
 k_z = - \mathrm{i} \left( 1 - \frac{c_{\mathrm{iso}}^2}{c_s^2} \right)  \frac{1}{H} .
 \tag{10.28}\]</span></span> The corresponding displacement is <span id="eq-strat-29"><span class="math display">\[
-\boldsymbol{\xi} (t, \mathbf{x}) = \eta \exp \left[ \mathrm{i} \omega \left( \pm
-\frac{x}{c_s} - t \right) \right] \exp \left[ \left( 1 - \frac{c_{\mathrm{iso}}^2}{c_s^2}
-\right)  \frac{z}{H} \right]  \hat{\mathbf{x}} .
+\begin{aligned}
+\boldsymbol{\xi} (t, \mathbf{x}) &amp;= \eta \exp \left[ \mathrm{i} \omega \left( \pm
+\frac{x}{c_s} - t \right) \right] \\
+&amp;\quad {} \times \exp \left[ \left( 1 - \frac{c_{\mathrm{iso}}^2}{c_s^2}
+\right) \frac{z}{H} \right] \hat{\mathbf{x}} .
+\end{aligned}
 \tag{10.29}\]</span></span> These are called <strong>Lamb waves</strong>. They are sound waves that propagate horizontally and are trapped near the bottom of the atmosphere. Indeed, their energy density <span class="math inline">\(\rho_0 |\boldsymbol{\xi}|^2 \propto \mathrm{e}^{(1 - 2 / \Gamma) z / H}\)</span> decreases with height for <span class="math inline">\(\Gamma &lt; 2\)</span>. Lamb waves generated by the eruption of the Hunga Tonga volcano in 2022 were observed to travel around the Earth several times. In the limit in which <span class="math inline">\(c_s \rightarrow c_{\mathrm{iso}}\)</span>, that is <span class="math inline">\(\Gamma \rightarrow 1\)</span> (isothermal perturbations), these waves reduce to horizontal sound waves.</p></li>
 </ul>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">

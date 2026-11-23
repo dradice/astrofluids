@@ -72,9 +72,9 @@ div.csl-indent {
 <script id="quarto-axe-checker-options" type="text/plain">dHJ1ZQ==</script>
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1b98dd23240c9c19cf7f5804f818ede7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c1bcdac81c6bc25be869bc58a487a70b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -106,9 +106,15 @@ div.csl-indent {
   // MathJax 4 configuration (Quarto loads MathJax without one).
   // Long display equations are broken across lines to fit the text column
   // instead of scrolling sideways; the CSS scroll box remains as a fallback.
+  // On phones, display equations are left-aligned: a centred numbered
+  // equation reserves an empty margin on the left as wide as its number,
+  // about 70 px of a 320 px column. Decided once, when the page loads.
+  var narrow = window.matchMedia("(max-width: 575.98px)").matches;
   window.MathJax = {
     output: {
       displayOverflow: "linebreak",
+      displayAlign: narrow ? "left" : "center",
+      displayIndent: "0",
       linebreaks: { inline: true, width: "100%" }
     }
   };
@@ -542,6 +548,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Vector Calculus</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/equation-sheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Useful Formulae</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -839,15 +851,15 @@ Figure&nbsp;22.7: Isothermal shock propagating in a medium with perpendicular ma
 </figure>
 </div>
 <p>The shock conditions for the shock shown in <a href="#fig-mhdwaves-shock" class="quarto-xref">Figure&nbsp;<span>22.7</span></a> are: <span id="eq-mhdwaves-25"><span class="math display">\[
-[\![ \rho u ]\!] = 0, \quad [\![ Bu ]\!] = 0,
+\left[\!\left[ \rho u \right]\!\right] = 0, \quad \left[\!\left[ Bu \right]\!\right] = 0,
 \quad \left[\!\left[ p + \rho u^2 + \frac{B^2}{2 \mu_0} \right]\!\right]
 = 0,
-\tag{22.25}\]</span></span> where <span class="math inline">\([\![ \cdot ]\!]\)</span> denotes the jump across the shock.</p>
+\tag{22.25}\]</span></span> where <span class="math inline">\(\left[\!\left[ \cdot \right]\!\right]\)</span> denotes the jump across the shock.</p>
 <p>In the absence of a magnetic field, the shock conditions for an isothermal gas, <span class="math inline">\(p = c_{\mathrm{iso}}^2 \rho\)</span>, are <span class="math inline">\(\rho_1 u_1 = \rho_2 u_2\)</span> and <span class="math inline">\(c_{\mathrm{iso}}^2 \rho_1 + \rho_1 u_1^2 = c_{\mathrm{iso}}^2 \rho_2 + \rho_2 u_2^2\)</span>. Using the first condition to eliminate <span class="math inline">\(u_2\)</span> from the second, we find <span class="math inline">\(c_{\mathrm{iso}}^2 (\rho_2 - \rho_1) = \rho_1 u_1^2 (1 - \rho_1 / \rho_2) = \rho_1 u_1^2 (\rho_2 - \rho_1) / \rho_2\)</span>. So the compression factor of an isothermal shock is <span id="eq-mhdwaves-26"><span class="math display">\[
 \frac{\rho_2}{\rho_1} = \left( \frac{u_1}{c_{\mathrm{iso}}} \right)^2,
 \tag{22.26}\]</span></span> which can become arbitrarily large for large upstream Mach numbers. We discuss isothermal shocks in more detail in <a href="shock-waves.html#sec-shock-isothermal" class="quarto-xref"><span>Section 11.5.3</span></a>. This is dramatically different when a magnetic field is present, as long as it is sufficiently strong: <span id="eq-mhdwaves-27"><span class="math display">\[
 u_1 \gg v_A = \frac{B_1}{\sqrt{\mu_0 \rho_1}} \gg c_{\mathrm{iso}}.
-\tag{22.27}\]</span></span> In this case, from <span class="math inline">\([\![ \rho u ]\!] = [\![ Bu ]\!] = 0\)</span>, we conclude that <span id="eq-mhdwaves-28"><span class="math display">\[
+\tag{22.27}\]</span></span> In this case, from <span class="math inline">\(\left[\!\left[ \rho u \right]\!\right] = \left[\!\left[ Bu \right]\!\right] = 0\)</span>, we conclude that <span id="eq-mhdwaves-28"><span class="math display">\[
 \frac{B_1}{\rho_1} = \frac{B_2}{\rho_2} .
 \tag{22.28}\]</span></span> From the conservation of momentum, we have (using <span class="math inline">\(u_1 \gg v_A \gg c_{\mathrm{iso}}\)</span>) <span id="eq-mhdwaves-29"><span class="math display">\[
 \begin{aligned}

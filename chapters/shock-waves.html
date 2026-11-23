@@ -72,9 +72,9 @@ div.csl-indent {
 <script id="quarto-axe-checker-options" type="text/plain">dHJ1ZQ==</script>
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1b98dd23240c9c19cf7f5804f818ede7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c1bcdac81c6bc25be869bc58a487a70b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -106,9 +106,15 @@ div.csl-indent {
   // MathJax 4 configuration (Quarto loads MathJax without one).
   // Long display equations are broken across lines to fit the text column
   // instead of scrolling sideways; the CSS scroll box remains as a fallback.
+  // On phones, display equations are left-aligned: a centred numbered
+  // equation reserves an empty margin on the left as wide as its number,
+  // about 70 px of a 320 px column. Decided once, when the page loads.
+  var narrow = window.matchMedia("(max-width: 575.98px)").matches;
   window.MathJax = {
     output: {
       displayOverflow: "linebreak",
+      displayAlign: narrow ? "left" : "center",
+      displayIndent: "0",
       linebreaks: { inline: true, width: "100%" }
     }
   };
@@ -542,6 +548,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Vector Calculus</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/equation-sheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Useful Formulae</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -632,7 +644,7 @@ Figure&nbsp;11.2: A discontinuity moving with speed <span class="math inline">\(
 <p>The equations of hydrodynamics in one dimension, without external forces and heating or cooling, can be written as (<a href="conservation-laws.html#tbl-conserv-summary" class="quarto-xref">Table&nbsp;<span>6.1</span></a>) <span id="eq-shock-5"><span class="math display">\[
 \begin{gathered}
 \partial_t \mathbf{U} + \partial_x \mathbf{F} (\mathbf{U}) = 0, \\
-\mathbf{U} = \begin{pmatrix} \rho \\ \rho v \\ \rho \varepsilon + \frac{1}{2} \rho v^2 \end{pmatrix}, \qquad
+\mathbf{U} = \begin{pmatrix} \rho \\ \rho v \\ \rho \varepsilon + \frac{1}{2} \rho v^2 \end{pmatrix}, \\
 \mathbf{F} (\mathbf{U}) = \begin{pmatrix} \rho v \\ \rho v^2 + p \\ \rho h v + \frac{1}{2} \rho v^3 \end{pmatrix},
 \end{gathered}
 \tag{11.5}\]</span></span> where <span class="math inline">\(h = \varepsilon + p / \rho\)</span> is the specific enthalpy and <span class="math inline">\(p = p (\rho, \varepsilon)\)</span> is given by the equation of state. Each component of <a href="#eq-shock-5" class="quarto-xref">Equation&nbsp;<span>11.5</span></a> satisfies the jump condition <a href="#eq-shock-jump" class="quarto-xref">Equation&nbsp;<span>11.4</span></a>. It is easiest to write them in the frame of the shock, where <span class="math inline">\(s = 0\)</span> and the fluid velocity is <span class="math inline">\(u = v - s\)</span> (<a href="#fig-shock-frame" class="quarto-xref">Figure&nbsp;<span>11.3</span></a>). We denote with <span class="math inline">\(1\)</span> the <em>upstream</em> state, from which the gas flows into the shock, and with <span class="math inline">\(2\)</span> the <em>downstream</em> state. We obtain the <strong>Rankine–Hugoniot conditions</strong>: <span id="eq-shock-rh"><span class="math display">\[
@@ -812,7 +824,8 @@ Figure&nbsp;11.6: Small perturbations of a shock, in its rest frame, for <span c
 \begin{aligned}
 \rho u &amp;= \rho_1 u_1, \\
 p + \rho u^2 - \sigma &amp;= p_1 + \rho_1 u_1^2, \\
-\rho u \left( h + \frac{u^2}{2} \right) - u \sigma + F_{\mathrm{heat}} &amp;= \rho_1 u_1 \left( h_1 + \frac{u_1^2}{2} \right) .
+\rho u \left( h + \frac{u^2}{2} \right) &amp;- u \sigma + F_{\mathrm{heat}} \\
+&amp;= \rho_1 u_1 \left( h_1 + \frac{u_1^2}{2} \right) .
 \end{aligned}
 \tag{11.25}\]</span></span> The solution of these equations determines the structure of the shock (<a href="#fig-shock-viscous" class="quarto-xref">Figure&nbsp;<span>11.7</span></a>). Far downstream the diffusive terms disappear again, and we recover the Rankine–Hugoniot conditions.</p>
 <div id="fig-shock-viscous" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two panels. Left: the velocity u as a function of x decreases smoothly from u_1 to u_2 over a width delta; a dotted line shows the corresponding discontinuity. Right: the pressure p increases smoothly from p_1 to p_2 over the same width.">
@@ -911,12 +924,12 @@ Figure&nbsp;11.10: Chandra/ACIS 0.5–5 keV image of the Bullet Cluster. From <s
 </figure>
 </div>
 <p>This data can be fitted to infer the following parameters for the upstream and downstream electron density and temperature: <span id="eq-shock-31"><span class="math display">\[
-\begin{gathered}
-n_1 = 3.7 \times 10^{- 3}\, \mathrm{cm}^{- 3}, \enspace T_1 = 9.3 \times 10^7
-\,\mathrm{K}, \\
-n_2 = 9.3 \times  10^{- 3}\, \mathrm{cm}^{- 3}, \enspace T_2 =
-2.2 \times  10^8 \,\mathrm{K}.
-\end{gathered}
+\begin{aligned}
+n_1 &amp;= 3.7 \times 10^{- 3}\, \mathrm{cm}^{- 3}, \\
+T_1 &amp;= 9.3 \times 10^7 \,\mathrm{K}, \\
+n_2 &amp;= 9.3 \times 10^{- 3}\, \mathrm{cm}^{- 3}, \\
+T_2 &amp;= 2.2 \times 10^8 \,\mathrm{K}.
+\end{aligned}
 \tag{11.31}\]</span></span> Estimate</p>
 <ol type="1">
 <li><p>the Mach number of the shock (defined as the Mach number of the upstream flow);</p></li>
@@ -943,7 +956,7 @@ p = (\Gamma - 1) \rho \varepsilon .
 <li><p><em>Estimate</em> the time <span class="math inline">\(t_{\mathrm{coll}}\)</span> that each cloud needs to run entirely into the shock.</p></li>
 <li><p>The shocked gas cools at a rate <span class="math inline">\(\dot{Q} = 10^{- 7}\, \mathrm{W} \, \mathrm{kg}^{- 1}\)</span>. Decide whether the shock is approximately adiabatic or isothermal.</p></li>
 <li><p>Suppose the collision produces an isothermal shock. How thick is the shocked layer, <span class="math inline">\(x\)</span>, at the moment when the whole of each cloud has been shocked?</p></li>
-<li><p>At later times the layer settles into a structure that can be approximated by a hydrostatic isothermal slab with column density <span class="math inline">\(10^{- 2}\, \mathrm{g} \, \mathrm{cm}^{- 2} = 0.1\, \mathrm{kg} \, \mathrm{m}^{- 2}\)</span>. In this hydrostatic structure, what fraction of the clouds’ mass lies within the thickness <span class="math inline">\(x\)</span>? Neglect edge effects and variations of the column density across the plane of the slab. <span class="citation" data-cites="clarke2007">(Hint. The density profile of an isothermal slab is given in <a href="#ref-clarke2007" role="doc-biblioref">Clarke and Carswell 2007, sec. 5.2</a>.)</span></p></li>
+<li><p>At later times the layer settles into a structure that can be approximated by a hydrostatic isothermal slab with column density <span class="math inline">\(10^{- 2}\, \mathrm{g} \, \mathrm{cm}^{- 2} = 0.1\, \mathrm{kg} \, \mathrm{m}^{- 2}\)</span>. In this hydrostatic structure, what fraction of the clouds’ mass lies within the thickness <span class="math inline">\(x\)</span>? Neglect edge effects and variations of the column density across the plane of the slab. [Hint. The density of a self-gravitating isothermal slab is <span class="math inline">\(\rho (z) = \rho_0 / \cosh^2 (z / H)\)</span>, where <span class="math inline">\(\rho_0\)</span> is the density in the midplane and <span class="math inline">\(H = c_{\mathrm{iso}} / \sqrt{2 \pi G \rho_0}\)</span> <span class="citation" data-cites="clarke2007">(<a href="#ref-clarke2007" role="doc-biblioref">Clarke and Carswell 2007, sec. 5.2</a>)</span>.]</p></li>
 </ol>
 <p>Adapted from <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Problem 24.</p>
 </div>

@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -36,6 +55,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../appendices/equation-sheet.html" rel="next">
 <link href="../chapters/mri.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -52,9 +72,9 @@ ul.task-list li input[type="checkbox"] {
 <script id="quarto-axe-checker-options" type="text/plain">dHJ1ZQ==</script>
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1b98dd23240c9c19cf7f5804f818ede7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c1bcdac81c6bc25be869bc58a487a70b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -86,9 +106,15 @@ ul.task-list li input[type="checkbox"] {
   // MathJax 4 configuration (Quarto loads MathJax without one).
   // Long display equations are broken across lines to fit the text column
   // instead of scrolling sideways; the CSS scroll box remains as a fallback.
+  // On phones, display equations are left-aligned: a centred numbered
+  // equation reserves an empty margin on the left as wide as its number,
+  // about 70 px of a 320 px column. Decided once, when the page loads.
+  var narrow = window.matchMedia("(max-width: 575.98px)").matches;
   window.MathJax = {
     output: {
       displayOverflow: "linebreak",
+      displayAlign: narrow ? "left" : "center",
+      displayIndent: "0",
       linebreaks: { inline: true, width: "100%" }
     }
   };
@@ -522,6 +548,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Vector Calculus</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/equation-sheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Useful Formulae</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -534,7 +566,13 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul class="collapse">
-  <li><a href="#sec-vec-worksheet" id="toc-sec-vec-worksheet" class="nav-link active" data-scroll-target="#sec-vec-worksheet"><span class="header-section-number">A.1</span> In-class worksheet</a></li>
+  <li><a href="#vector-fields" id="toc-vector-fields" class="nav-link active" data-scroll-target="#vector-fields"><span class="header-section-number">A.1</span> Vector fields</a></li>
+  <li><a href="#gradient" id="toc-gradient" class="nav-link" data-scroll-target="#gradient"><span class="header-section-number">A.2</span> Gradient</a></li>
+  <li><a href="#curl" id="toc-curl" class="nav-link" data-scroll-target="#curl"><span class="header-section-number">A.3</span> Curl</a></li>
+  <li><a href="#divergence" id="toc-divergence" class="nav-link" data-scroll-target="#divergence"><span class="header-section-number">A.4</span> Divergence</a></li>
+  <li><a href="#laplacian" id="toc-laplacian" class="nav-link" data-scroll-target="#laplacian"><span class="header-section-number">A.5</span> Laplacian</a></li>
+  <li><a href="#vector-identities" id="toc-vector-identities" class="nav-link" data-scroll-target="#vector-identities"><span class="header-section-number">A.6</span> Vector identities</a></li>
+  <li><a href="#sec-vec-worksheet" id="toc-sec-vec-worksheet" class="nav-link" data-scroll-target="#sec-vec-worksheet"><span class="header-section-number">A.7</span> In-class worksheet</a></li>
   </ul>
 </nav>
     </div>
@@ -574,56 +612,213 @@ Note
 <p>This chapter is in preparation.</p>
 </div>
 </div>
-<section id="sec-vec-worksheet" class="level2" data-number="A.1">
-<h2 data-number="A.1" class="anchored" data-anchor-id="sec-vec-worksheet"><span class="header-section-number">A.1</span> In-class worksheet</h2>
+<p>Fluid mechanics is most concisely and generally written in the language of vector calculus. This appendix gives key definitions and theorems used throughout the rest of these notes. A more extended, but still concise treatment can be found in <span class="citation" data-cites="griffiths2023">Griffiths (<a href="#ref-griffiths2023" role="doc-biblioref">2023, chap. 1</a> and Appendix A)</span>. The point of view we follow in these notes is geometrical: we will introduce the elements of vector calculus in terms of geometrical/physical quantities without reference to any coordinate system.</p>
+<section id="vector-fields" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="vector-fields"><span class="header-section-number">A.1</span> Vector fields</h2>
+<div id="def-vec-point" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition A.1 (Point)</strong></span> We define a point to be an element of three-dimensional Euclidean space <span class="math inline">\(\mathbb{E}^3\)</span>. We will denote points with capital letters, <span class="math inline">\(A, B, C \in \mathbb{E}^3\)</span>.</p>
+</div>
+<p>In a given coordinate system, the position of a point is given by three numbers <span class="math inline">\(x_1, x_2, x_3\)</span> and we will write, with slight abuse of notation, <span class="math inline">\(A = (x_1, x_2, x_3)\)</span>. For example, in Cartesian coordinates each point will be associated to one triple <span class="math inline">\(A = (x,y,z)\)</span>, while in spherical coordinates the same point will be written as <span class="math inline">\(A = (r,\theta,\phi)\)</span>.</p>
+<div id="def-vec-vector" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition A.2 (Vector)</strong></span> A vector is a translation of Euclidean space, that is, a shift that moves every point by the same distance in the same direction. For any two points <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> there is exactly one translation that moves <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>. We denote it by <span class="math inline">\(\overrightarrow{AB} = B - A\)</span>.</p>
+</div>
+<p>We can picture <span class="math inline">\(\overrightarrow{AB}\)</span> as an arrow connecting <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>, and pointing from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>. Since a translation moves all points in the same way, the arrow can be moved parallel to itself without changing the vector: <span class="math inline">\(\overrightarrow{AB} = \overrightarrow{CD}\)</span> whenever <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(D\)</span>, and <span class="math inline">\(C\)</span> are the vertices of a parallelogram. We will choose a special point in Euclidean space called the origin <span class="math inline">\(O\)</span> and define as the <em>position vector</em> of a point <span class="math inline">\(P\)</span> the vector <span class="math inline">\(\mathbf{r}_P :=
+\overrightarrow{OP}\)</span>.</p>
+<p>Most frequently, we deal with <em>vector fields</em> in these notes. An example is the fluid velocity <span class="math inline">\(\mathbf{v}\)</span>. Vector fields associate to each point in Euclidean space a vector in <em>another</em> Euclidean space, e.g., the space of velocities in the case of <span class="math inline">\(\mathbf{v}\)</span>.</p>
+<p>Vector fields can be decomposed over a vector basis as <span id="eq-vec-decomp"><span class="math display">\[
+    \mathbf{v} = v_1(x_1,x_2,x_3) \mathbf{e}_1 + v_2(x_1,x_2,x_3) \mathbf{e}_2 + v_3(x_1,x_2,x_3) \mathbf{e}_3,
+\tag{A.1}\]</span></span> where <span class="math inline">\(\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3\)</span> are, at each point, linearly independent vectors. For example, the Cartesian basis is <span class="math inline">\(\mathbf{e}_1 =
+\hat{\mathbf{x}}\)</span>, <span class="math inline">\(\mathbf{e}_2 = \hat{\mathbf{y}}\)</span>, and <span class="math inline">\(\mathbf{e}_3 = \hat{\mathbf{z}}\)</span>. Alternatively, we might take a spherical basis <span class="math inline">\(\mathbf{e}_1 = \hat{\mathbf{r}}\)</span>, <span class="math inline">\(\mathbf{e}_2 = \hat{\boldsymbol{\theta}}\)</span>, and <span class="math inline">\(\mathbf{e}_3 = \hat{\boldsymbol{\phi}}\)</span>. Note that, in the latter case, the basis vectors are themselves position dependent, since, e.g., the radial direction is different for different <span class="math inline">\((\theta,\phi)\)</span>. This must be taken into account when computing derivatives of vector fields in the spherical basis. Note that, because vector fields live in a different space from the coordinates, we can, in principle, combine vector basis and coordinate choices in an arbitrary way. For example, we could work in spherical coordinates, but still consider the <span class="math inline">\(\hat{\mathbf{x}}\)</span>, <span class="math inline">\(\hat{\mathbf{y}}\)</span>, and <span class="math inline">\(\hat{\mathbf{z}}\)</span> components of vector fields. In practice, throughout these notes we will use the vector basis naturally associated with the chosen coordinate system. For a coordinate system <span class="math inline">\((x_1, x_2, x_3)\)</span>, the natural vector basis is chosen so that the unit vector <span class="math inline">\(\mathbf{e}_i\)</span> points along the direction in which <span class="math inline">\(x_i\)</span> increases, while all other coordinates are kept constant. In other words, the natural basis is formed by unit vectors that are tangent to the coordinate lines.</p>
+</section>
+<section id="gradient" class="level2" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="gradient"><span class="header-section-number">A.2</span> Gradient</h2>
+<div id="def-vec-gradient" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition A.3 (Gradient)</strong></span> If <span class="math inline">\(f\)</span> is a scalar function, we define its gradient <span class="math inline">\(\nabla f\)</span> as being the only vector field such that, for every pair of points <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> and any (smooth) curve connecting them <span id="eq-vec-gradient"><span class="math display">\[
+    f(B) - f(A) = \int_A^B \nabla f \cdot \mathrm{d} \mathbf{l}.
+\tag{A.2}\]</span></span></p>
+</div>
+<p>In Cartesian coordinates, we can find the expression of the gradient by considering two points <span class="math inline">\(A = (x,y,z)\)</span> and <span class="math inline">\(B = (x+\mathrm{d} x, y+\mathrm{d} y, z + \mathrm{d}
+z)\)</span>. Taylor expanding to first order, the LHS of <a href="#eq-vec-gradient" class="quarto-xref">Equation&nbsp;<span>A.2</span></a> is <span id="eq-vec-gradient-lhs"><span class="math display">\[
+    f(B) - f(A) = f(x+\mathrm{d} x, y+\mathrm{d} y, z + \mathrm{d} z) - f(x,y,z) =
+    \partial_x f \mathrm{d} x + \partial_y f \mathrm{d} y + \partial_z f \mathrm{d} z .
+\tag{A.3}\]</span></span> The RHS is <span id="eq-vec-gradient-rhs"><span class="math display">\[
+    \int_A^B \nabla f \cdot \mathrm{d} \mathbf{l} = (\nabla f)_x {} \mathrm{d} x + (\nabla f)_y {} \mathrm{d} y + (\nabla f)_z {} \mathrm{d} z ,
+\tag{A.4}\]</span></span> so we conclude that <span id="eq-vec-gradient-cartesian"><span class="math display">\[
+    \nabla f = \left(\begin{array}{c}
+        \partial_x f \\
+        \partial_y f \\
+        \partial_z f
+    \end{array}
+    \right).
+\tag{A.5}\]</span></span> For the generalization to curvilinear coordinates, see <span class="citation" data-cites="griffiths2023">Griffiths (<a href="#ref-griffiths2023" role="doc-biblioref">2023</a>, Appendix A)</span>.</p>
+<p>Note that the definition of gradient can be extended to vectors. In this case the gradient is a matrix <span class="math inline">\(\nabla \mathbf{v}\)</span> such that <span id="eq-vec-gradient-vec"><span class="math display">\[
+    \mathbf{v}(B) - \mathbf{v}(A) = \int_A^B (\nabla\mathbf{v}) \cdot \mathrm{d} \mathbf{l}.
+\tag{A.6}\]</span></span> The dot in the integral denotes a matrix–vector multiplication, <span class="math inline">\([(\nabla\mathbf{v}) \cdot \mathrm{d}\mathbf{l}]_i = \sum_j (\nabla\mathbf{v})_{ij}\, \mathrm{d} l_j\)</span>. Repeating the calculation done for <a href="#eq-vec-gradient-cartesian" class="quarto-xref">Equation&nbsp;<span>A.5</span></a> for each component of <span class="math inline">\(\mathbf{v}\)</span>, we find that, in Cartesian coordinates, <span id="eq-vec-gradient-vec-cartesian"><span class="math display">\[
+    (\nabla\mathbf{v})_{ij} = \partial_j v_i ,
+\tag{A.7}\]</span></span> that is, the <span class="math inline">\(i\)</span>-th row of <span class="math inline">\(\nabla\mathbf{v}\)</span> is the gradient of <span class="math inline">\(v_i\)</span>. Be aware that some textbooks use the transposed convention, <span class="math inline">\((\nabla\mathbf{v})_{ij} = \partial_i v_j\)</span>. The derivative of <span class="math inline">\(\mathbf{v}\)</span> along a vector <span class="math inline">\(\mathbf{a}\)</span> is written as <span id="eq-vec-directional"><span class="math display">\[
+    (\mathbf{a}\cdot\nabla)\mathbf{v} = (\nabla\mathbf{v}) \cdot \mathbf{a} , \qquad
+    \left[ (\mathbf{a}\cdot\nabla)\mathbf{v} \right]_i = \sum_j a_j \partial_j v_i .
+\tag{A.8}\]</span></span></p>
+</section>
+<section id="curl" class="level2" data-number="A.3">
+<h2 data-number="A.3" class="anchored" data-anchor-id="curl"><span class="header-section-number">A.3</span> Curl</h2>
+<div id="def-vec-curl" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition A.4 (Curl)</strong></span> Given a vector field <span class="math inline">\(\mathbf{v}\)</span>, we define its curl <span class="math inline">\(\nabla\times\mathbf{v}\)</span> as being the only vector field such that, for every smooth two-dimensional surface <span class="math inline">\(S\)</span> bounded by a closed curve <span class="math inline">\(C\)</span>, we have <span id="eq-vec-curl"><span class="math display">\[
+    \oint_C \mathbf{v} \cdot \mathrm{d}\mathbf{l} = \int_S (\nabla\times\mathbf{v}) \cdot \mathrm{d} \mathbf{A},
+\tag{A.9}\]</span></span> where <span class="math inline">\(\mathrm{d}\mathbf{A} = \hat{\mathbf{n}}\, \mathrm{d} A\)</span>, <span class="math inline">\(\hat{\mathbf{n}}\)</span> is the unit normal to <span class="math inline">\(S\)</span>, and the direction in which <span class="math inline">\(C\)</span> is traversed is related to <span class="math inline">\(\hat{\mathbf{n}}\)</span> by the right-hand rule (<a href="#fig-vec-stokes" class="quarto-xref">Figure&nbsp;<span>A.1</span></a>).</p>
+</div>
+<div id="fig-vec-stokes" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A dome-shaped grey surface S whose rim is the closed curve C, drawn as an ellipse. An arrow on the front of C shows the direction of the line element dl, counterclockwise when seen from above. A small patch on top of the dome carries the area element dA, an arrow pointing up, away from the surface.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vec-stokes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/vector-calculus/stokes.svg" class="img-fluid figure-img" alt="A dome-shaped grey surface S whose rim is the closed curve C, drawn as an ellipse. An arrow on the front of C shows the direction of the line element dl, counterclockwise when seen from above. A small patch on top of the dome carries the area element dA, an arrow pointing up, away from the surface.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vec-stokes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;A.1: Stokes’ theorem. With the thumb of the right hand along <span class="math inline">\(\mathrm{d}\mathbf{A}\)</span>, the fingers curl in the direction of <span class="math inline">\(\mathrm{d}\mathbf{l}\)</span> along <span class="math inline">\(C\)</span>.
+</figcaption>
+</figure>
+</div>
+<p>The expression in <a href="#eq-vec-curl" class="quarto-xref">Equation&nbsp;<span>A.9</span></a> is known as Stokes’ theorem. We take it as the operational definition of the curl. In Cartesian coordinates, the curl can be written as the following formal determinant <span id="eq-vec-curl-determinant"><span class="math display">\[
+    \nabla\times\mathbf{v} = \left|
+        \begin{array}{ccc}
+            \hat{\mathbf{x}} &amp; \hat{\mathbf{y}} &amp; \hat{\mathbf{z}} \\
+            \partial_x &amp; \partial_y &amp; \partial_z \\
+            v_x &amp; v_y &amp; v_z
+        \end{array}
+        \right| =
+        \left( \partial_y v_z - \partial_z v_y \right) \hat{\mathbf{x}} +
+        \left( \partial_z v_x - \partial_x v_z \right) \hat{\mathbf{y}} +
+        \left( \partial_x v_y - \partial_y v_x \right) \hat{\mathbf{z}}.
+\tag{A.10}\]</span></span> This is formally the same expression as the vector product between the “vector” <span class="math inline">\(\nabla = \partial_x \hat{\mathbf{x}} + \partial_y \hat{\mathbf{y}} +
+\partial_z \hat{\mathbf{z}}\)</span> and <span class="math inline">\(\mathbf{v}\)</span>. However, note that this equivalence breaks down in curvilinear coordinates.</p>
+</section>
+<section id="divergence" class="level2" data-number="A.4">
+<h2 data-number="A.4" class="anchored" data-anchor-id="divergence"><span class="header-section-number">A.4</span> Divergence</h2>
+<div id="def-vec-div" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition A.5 (Divergence)</strong></span> Given a vector field <span class="math inline">\(\mathbf{v}\)</span>, we define its divergence <span class="math inline">\(\nabla\cdot\mathbf{v}\)</span> as being the only scalar field such that, for every closed surface <span class="math inline">\(S\)</span> enclosing a volume <span class="math inline">\(V\)</span>, we have <span id="eq-vec-div"><span class="math display">\[
+    \oint_S \mathbf{v} \cdot \mathrm{d} \mathbf{A} = \int_V \nabla \cdot \mathbf{v}\, \mathrm{d} V,
+\tag{A.11}\]</span></span> where <span class="math inline">\(\mathrm{d}\mathbf{A} = \hat{\mathbf{n}}\, \mathrm{d} A\)</span> and <span class="math inline">\(\hat{\mathbf{n}}\)</span> is the outward-pointing unit normal to <span class="math inline">\(S\)</span> (<a href="#fig-vec-gauss" class="quarto-xref">Figure&nbsp;<span>A.2</span></a>).</p>
+</div>
+<div id="fig-vec-gauss" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A closed, irregular grey region V bounded by the surface S, drawn as a thick outline. Arrows labelled dA at six points of S are perpendicular to it and point outwards.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vec-gauss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/vector-calculus/gauss.svg" class="img-fluid figure-img" alt="A closed, irregular grey region V bounded by the surface S, drawn as a thick outline. Arrows labelled dA at six points of S are perpendicular to it and point outwards.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vec-gauss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;A.2: The divergence theorem. The area elements <span class="math inline">\(\mathrm{d}\mathbf{A}\)</span> are normal to the closed surface <span class="math inline">\(S\)</span> and point out of the volume <span class="math inline">\(V\)</span>.
+</figcaption>
+</figure>
+</div>
+<p>The expression in <a href="#eq-vec-div" class="quarto-xref">Equation&nbsp;<span>A.11</span></a> is known as Gauss’ theorem, or the divergence theorem. In Cartesian coordinates, we can find the expression for the divergence by considering <a href="#eq-vec-div" class="quarto-xref">Equation&nbsp;<span>A.11</span></a> applied to a rectangular region centered at <span class="math inline">\((x,y,z)\)</span> with sides of length <span class="math inline">\(\mathrm{d} x\)</span>, <span class="math inline">\(\mathrm{d} y\)</span>, and <span class="math inline">\(\mathrm{d} z\)</span>. The derivation is analogous to the calculation leading to <a href="../chapters/fluids-as-continua.html#eq-continua-volume" class="quarto-xref">Equation&nbsp;<span>1.12</span></a> in <a href="../chapters/fluids-as-continua.html" class="quarto-xref"><span>Chapter 1</span></a> and will not be repeated here. The result is that <span id="eq-vec-div-cartesian"><span class="math display">\[
+    \nabla\cdot\mathbf{v} = \partial_x v_x + \partial_y v_y + \partial_z v_z.
+\tag{A.12}\]</span></span> This is formally the same expression as if we were to take the dot product between <span class="math inline">\(\nabla\)</span> and <span class="math inline">\(\mathbf{v}\)</span>. However, once again, this equivalence breaks down in curvilinear coordinates.</p>
+<p>The divergence can be extended to tensor fields, such as the stress tensors that appear in the equations of fluid dynamics.</p>
+<div id="def-vec-div-tensor" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition A.6 (Divergence of a tensor)</strong></span> Given a tensor field <span class="math inline">\(\mathbf{T}\)</span>, we define its divergence <span class="math inline">\(\nabla\cdot\mathbf{T}\)</span> as being the only vector field such that, for every closed surface <span class="math inline">\(S\)</span> enclosing a volume <span class="math inline">\(V\)</span>, we have <span id="eq-vec-div-tensor"><span class="math display">\[
+    \oint_S \mathbf{T} \cdot \mathrm{d} \mathbf{A} = \int_V \nabla \cdot \mathbf{T}\, \mathrm{d} V,
+\tag{A.13}\]</span></span> where <span class="math inline">\((\mathbf{T}\cdot\mathrm{d}\mathbf{A})_i = \sum_j T_{ij}\, \mathrm{d} A_j\)</span>.</p>
+</div>
+<p>In Cartesian coordinates, the <span class="math inline">\(i\)</span>-th component of the LHS of <a href="#eq-vec-div-tensor" class="quarto-xref">Equation&nbsp;<span>A.13</span></a> is the flux of the vector field formed by the <span class="math inline">\(i\)</span>-th row of <span class="math inline">\(\mathbf{T}\)</span>, <span class="math inline">\((T_{ix}, T_{iy}, T_{iz})\)</span>. Applying <a href="#eq-vec-div" class="quarto-xref">Equation&nbsp;<span>A.11</span></a> to each row, we find <span id="eq-vec-div-tensor-cartesian"><span class="math display">\[
+    (\nabla\cdot\mathbf{T})_i = \partial_x T_{ix} + \partial_y T_{iy} + \partial_z T_{iz} .
+\tag{A.14}\]</span></span> For a symmetric tensor, <span class="math inline">\(T_{ij} = T_{ji}\)</span>, it does not matter which index is summed over. All the stress tensors in these notes are symmetric.</p>
+</section>
+<section id="laplacian" class="level2" data-number="A.5">
+<h2 data-number="A.5" class="anchored" data-anchor-id="laplacian"><span class="header-section-number">A.5</span> Laplacian</h2>
+<div id="def-vec-laplacian" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition A.7 (Laplacian)</strong></span> If <span class="math inline">\(f\)</span> is a scalar function, we define its Laplacian as <span class="math inline">\(\nabla^2 f = \nabla\cdot(\nabla f)\)</span>. If <span class="math inline">\(\mathbf{v}\)</span> is a vector field, we define its Laplacian as <span class="math inline">\(\nabla^2 \mathbf{v} = \nabla\cdot(\nabla \mathbf{v})\)</span>.</p>
+</div>
+<p>In Cartesian coordinates <span id="eq-vec-laplacian-cartesian"><span class="math display">\[
+    \nabla^2 f = \partial_x^2 f + \partial_y^2 f + \partial_z^2 f.
+\tag{A.15}\]</span></span></p>
+<p>From <a href="#eq-vec-gradient-vec-cartesian" class="quarto-xref">Equation&nbsp;<span>A.7</span></a> and <a href="#eq-vec-div-tensor-cartesian" class="quarto-xref">Equation&nbsp;<span>A.14</span></a>, the Cartesian components of <span class="math inline">\(\nabla^2\mathbf{v}\)</span> are the Laplacians of the components of <span class="math inline">\(\mathbf{v}\)</span>, <span class="math inline">\((\nabla^2\mathbf{v})_i = \nabla^2 v_i\)</span>. This is not true for the components in a curvilinear basis.</p>
+</section>
+<section id="vector-identities" class="level2" data-number="A.6">
+<h2 data-number="A.6" class="anchored" data-anchor-id="vector-identities"><span class="header-section-number">A.6</span> Vector identities</h2>
+<p>The identities involving derivatives of vector fields that we use in these notes, such as the product rules (<a href="equation-sheet.html#eq-eqs-product-rules" class="quarto-xref">Equation&nbsp;<span>B.2</span></a>) and the expression for the advective term (<a href="equation-sheet.html#eq-eqs-advection-identities" class="quarto-xref">Equation&nbsp;<span>B.5</span></a>), are collected in <a href="equation-sheet.html" class="quarto-xref"><span>Appendix B</span></a>. They can all be verified by writing them out in Cartesian components. However, because gradient, curl, and divergence are geometrical objects, these identities hold in any coordinate system. Here, we prove two particularly important identities.</p>
+<div id="thm-vec-second-derivatives" class="theorem">
+<p><span class="theorem-title"><strong>Theorem A.1 (Curl of a gradient and divergence of a curl)</strong></span> For any smooth scalar field <span class="math inline">\(f\)</span> and vector field <span class="math inline">\(\mathbf{a}\)</span>, <span id="eq-vec-second-derivatives"><span class="math display">\[
+\nabla \times (\nabla f) = 0 , \qquad \nabla \cdot (\nabla \times \mathbf{a}) = 0 .
+\tag{A.16}\]</span></span></p>
+</div>
+<div id="fig-vec-div-curl" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A closed surface cut along a closed curve C into two pieces, drawn pulled apart. The upper piece S_1 is a dome with its area element dA pointing up, and an arrow shows C traversed counterclockwise seen from above. The lower piece S_2 is a bowl with its area element dA pointing down, and an arrow shows C traversed clockwise seen from above, the opposite direction.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vec-div-curl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/vector-calculus/div-curl.svg" class="img-fluid figure-img" alt="A closed surface cut along a closed curve C into two pieces, drawn pulled apart. The upper piece S_1 is a dome with its area element dA pointing up, and an arrow shows C traversed counterclockwise seen from above. The lower piece S_2 is a bowl with its area element dA pointing down, and an arrow shows C traversed clockwise seen from above, the opposite direction.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vec-div-curl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;A.3: Proof that <span class="math inline">\(\nabla \cdot (\nabla \times \mathbf{a}) = 0\)</span>. A closed surface is cut along the curve <span class="math inline">\(C\)</span> into <span class="math inline">\(S_1\)</span> and <span class="math inline">\(S_2\)</span>, here pulled apart. On both pieces <span class="math inline">\(\mathrm{d}\mathbf{A}\)</span> points out of the enclosed volume, so, by the right-hand rule, <span class="math inline">\(C\)</span> is traversed in opposite directions for the two pieces.
+</figcaption>
+</figure>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>For the first identity, consider any surface <span class="math inline">\(S\)</span> bounded by a closed curve <span class="math inline">\(C\)</span>. By <a href="#eq-vec-curl" class="quarto-xref">Equation&nbsp;<span>A.9</span></a> and <a href="#eq-vec-gradient" class="quarto-xref">Equation&nbsp;<span>A.2</span></a>, <span id="eq-vec-curl-grad-proof"><span class="math display">\[
+\int_S [\nabla \times (\nabla f)] \cdot \mathrm{d}\mathbf{A}
+= \oint_C \nabla f \cdot \mathrm{d}\mathbf{l} = f(P) - f(P) = 0 ,
+\tag{A.17}\]</span></span> because a closed curve starts and ends at the same point <span class="math inline">\(P\)</span>. Since this holds for every surface, <span class="math inline">\(\nabla \times (\nabla f) = 0\)</span>.</p>
+<p>For the second identity, consider a closed surface <span class="math inline">\(S\)</span> enclosing a volume <span class="math inline">\(V\)</span>, and cut it along a closed curve <span class="math inline">\(C\)</span> into two pieces <span class="math inline">\(S_1\)</span> and <span class="math inline">\(S_2\)</span> (<a href="#fig-vec-div-curl" class="quarto-xref">Figure&nbsp;<span>A.3</span></a>). Applying <a href="#eq-vec-curl" class="quarto-xref">Equation&nbsp;<span>A.9</span></a> to each piece, with <span class="math inline">\(\mathrm{d}\mathbf{A}\)</span> pointing out of <span class="math inline">\(V\)</span>, we find <span id="eq-vec-div-curl-proof"><span class="math display">\[
+\begin{aligned}
+\oint_S (\nabla \times \mathbf{a}) \cdot \mathrm{d}\mathbf{A}
+&amp;= \int_{S_1} (\nabla \times \mathbf{a}) \cdot \mathrm{d}\mathbf{A} \\
+&amp;\quad {} + \int_{S_2} (\nabla \times \mathbf{a}) \cdot \mathrm{d}\mathbf{A} \\
+&amp;= \oint_C \mathbf{a} \cdot \mathrm{d}\mathbf{l} - \oint_C \mathbf{a} \cdot \mathrm{d}\mathbf{l} = 0 .
+\end{aligned}
+\tag{A.18}\]</span></span> The two line integrals have opposite signs because the outward normals of <span class="math inline">\(S_1\)</span> and <span class="math inline">\(S_2\)</span> lie on opposite sides of <span class="math inline">\(C\)</span>, so the right-hand rule traverses <span class="math inline">\(C\)</span> in opposite directions. By <a href="#eq-vec-div" class="quarto-xref">Equation&nbsp;<span>A.11</span></a>, the integral of <span class="math inline">\(\nabla \cdot (\nabla \times \mathbf{a})\)</span> then vanishes over every volume, so <span class="math inline">\(\nabla \cdot (\nabla \times \mathbf{a}) = 0\)</span>.</p>
+</div>
+</section>
+<section id="sec-vec-worksheet" class="level2" data-number="A.7">
+<h2 data-number="A.7" class="anchored" data-anchor-id="sec-vec-worksheet"><span class="header-section-number">A.7</span> In-class worksheet</h2>
 <ol type="1">
 <li><p>Compute the gradient of the function <span id="eq-vec-1"><span class="math display">\[
 f (x, y, z) = \frac{x}{\sqrt{x^2 + y^2 + z^2}} .
-\tag{A.1}\]</span></span></p></li>
+\tag{A.19}\]</span></span></p></li>
 <li><p>Consider the vector field <span id="eq-vec-2"><span class="math display">\[
 \mathbf{E}= \hat{\mathbf{r}} = \left(\begin{array}{c}
 \frac{x}{\sqrt{x^2 + y^2 + z^2}}\\
 \frac{y}{\sqrt{x^2 + y^2 + z^2}}\\
 \frac{z}{\sqrt{x^2 + y^2 + z^2}}
 \end{array}\right) .
-\tag{A.2}\]</span></span> Compute</p>
+\tag{A.20}\]</span></span> Its gradient <span class="math inline">\(\nabla \mathbf{E}\)</span> is the matrix <span id="eq-vec-3"><span class="math display">\[
+\begin{pmatrix}
+\partial_x E_x &amp; \partial_y E_x &amp; \partial_z E_x\\
+\partial_x E_y &amp; \partial_y E_y &amp; \partial_z E_y\\
+\partial_x E_z &amp; \partial_y E_z &amp; \partial_z E_z
+\end{pmatrix} .
+\tag{A.21}\]</span></span> Compute</p>
 <ol type="1">
-<li><p>the gradient <span id="eq-vec-3"><span class="math display">\[
-\nabla \mathbf{E}= \left(\begin{array}{ccc}
-\partial_x E_x &amp; \partial_x E_y &amp; \partial_x E_z\\
-\partial_y E_x &amp; \partial_y E_y &amp; \partial_y E_z\\
-\partial_z E_x &amp; \partial_z E_y &amp; \partial_z E_z
-\end{array}\right) ;
-\tag{A.3}\]</span></span></p></li>
+<li><p>the gradient <span class="math inline">\(\nabla \mathbf{E}\)</span>;</p></li>
 <li><p><span class="math inline">\(\nabla \cdot \mathbf{E}\)</span>;</p></li>
 <li><p><span class="math inline">\(\nabla \times \mathbf{E}\)</span>.</p></li>
 </ol></li>
 <li><p>Prove that <span id="eq-vec-4"><span class="math display">\[
 \nabla \cdot \nabla f = \nabla^2 f = \frac{\partial^2 f}{\partial x^2} +
 \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2} .
-\tag{A.4}\]</span></span></p></li>
+\tag{A.22}\]</span></span></p></li>
 <li><p>The divergence of a tensor field <span id="eq-vec-5"><span class="math display">\[
 \mathbf{T}= \left(\begin{array}{ccc}
 T_{x x} &amp; T_{x y} &amp; T_{x z}\\
 T_{y x} &amp; T_{y y} &amp; T_{y z}\\
 T_{z x} &amp; T_{z y} &amp; T_{z z}
 \end{array}\right)
-\tag{A.5}\]</span></span> is defined as <span id="eq-vec-6"><span class="math display">\[
-\nabla \cdot \mathbf{T}= \left(\begin{array}{c}
-\partial_x T_{x x} + \partial_y T_{x y} + \partial_z T_{x z}\\
-\partial_x T_{y x} + \partial_y T_{y y} + \partial_z T_{y z}\\
-\partial_x T_{z x} + \partial_y T_{z y} + \partial_z T_{z z}
-\end{array}\right) .
-\tag{A.6}\]</span></span> Prove that <span id="eq-vec-7"><span class="math display">\[
+\tag{A.23}\]</span></span> is the vector with components <span id="eq-vec-6"><span class="math display">\[
+\begin{aligned}
+(\nabla \cdot \mathbf{T})_x &amp;= \partial_x T_{x x} + \partial_y T_{x y} + \partial_z T_{x z} , \\
+(\nabla \cdot \mathbf{T})_y &amp;= \partial_x T_{y x} + \partial_y T_{y y} + \partial_z T_{y z} , \\
+(\nabla \cdot \mathbf{T})_z &amp;= \partial_x T_{z x} + \partial_y T_{z y} + \partial_z T_{z z} .
+\end{aligned}
+\tag{A.24}\]</span></span> Prove that <span id="eq-vec-7"><span class="math display">\[
 \nabla \cdot (p\mathbf{I}) = \nabla \cdot \left(\begin{array}{ccc}
 p &amp;  &amp; \\
 &amp; p &amp; \\
 &amp;  &amp; p
 \end{array}\right) = \nabla p.
-\tag{A.7}\]</span></span></p></li>
+\tag{A.25}\]</span></span></p></li>
 </ol>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-griffiths2023" class="csl-entry" role="listitem">
+Griffiths, David J. 2023. <em>Introduction to Electrodynamics</em>. 5th ed. Cambridge University Press.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -1183,6 +1378,9 @@ p &amp;  &amp; \\
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../appendices/equation-sheet.html" class="pagination-link" aria-label="Useful Formulae">
+        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Useful Formulae</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

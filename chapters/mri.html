@@ -72,9 +72,9 @@ div.csl-indent {
 <script id="quarto-axe-checker-options" type="text/plain">dHJ1ZQ==</script>
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1b98dd23240c9c19cf7f5804f818ede7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c1bcdac81c6bc25be869bc58a487a70b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -106,9 +106,15 @@ div.csl-indent {
   // MathJax 4 configuration (Quarto loads MathJax without one).
   // Long display equations are broken across lines to fit the text column
   // instead of scrolling sideways; the CSS scroll box remains as a fallback.
+  // On phones, display equations are left-aligned: a centred numbered
+  // equation reserves an empty margin on the left as wide as its number,
+  // about 70 px of a 320 px column. Decided once, when the page loads.
+  var narrow = window.matchMedia("(max-width: 575.98px)").matches;
   window.MathJax = {
     output: {
       displayOverflow: "linebreak",
+      displayAlign: narrow ? "left" : "center",
+      displayIndent: "0",
       linebreaks: { inline: true, width: "100%" }
     }
   };
@@ -542,6 +548,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Vector Calculus</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/equation-sheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Useful Formulae</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -624,7 +636,7 @@ B_0  \hat{\mathbf{z}} +\mathbf{b}, \qquad p + \frac{B^2}{2 \mu_0} = P_0 + P.
 \tag{23.6}\]</span></span> In equilibrium, the centrifugal force balances gravity, <span class="math inline">\(R \Omega^2 = G M / R^2\)</span>, and <span class="math inline">\(P_0\)</span> is constant. We neglect the self-gravity of the disk, so that <span class="math inline">\(\mathbf{g}\)</span> is not perturbed. To first order in <span class="math inline">\(\mathbf{u}\)</span>, and using Kepler’s law, we have <span id="eq-mri-7"><span class="math display">\[
 \begin{alignedat}{2}
 (\mathbf{v} \cdot \nabla) \mathbf{v} &amp;{}\rightarrow{} &amp;&amp; (R \Omega)
-\hat{\boldsymbol{\phi}} \cdot \nabla \mathbf{u}+\mathbf{u} \cdot \nabla (R
+(\hat{\boldsymbol{\phi}} \cdot \nabla) \mathbf{u}+(\mathbf{u} \cdot \nabla) (R
 \Omega \hat{\boldsymbol{\phi}}) \\
 &amp;{}={} &amp;&amp; - 2 \Omega u_{\phi}  \hat{\mathbf{R}} + \left( R \frac{\mathrm{d}
 \Omega}{\mathrm{d} R} + 2 \Omega \right) u_R \hat{\boldsymbol{\phi}} \\
@@ -633,8 +645,8 @@ B_0  \hat{\mathbf{z}} +\mathbf{b}, \qquad p + \frac{B^2}{2 \mu_0} = P_0 + P.
 \end{alignedat}
 \tag{23.7}\]</span></span> Similarly, <span id="eq-mri-8"><span class="math display">\[
 \begin{alignedat}{2}
-(\mathbf{B} \cdot \nabla) \mathbf{B} &amp;{}\rightarrow{} &amp;&amp; B_0  \hat{\mathbf{z}}
-\cdot \nabla \mathbf{b}+\mathbf{b} \cdot \nabla (B_0  \hat{\mathbf{z}}) =
+(\mathbf{B} \cdot \nabla) \mathbf{B} &amp;{}\rightarrow{} &amp;&amp; B_0  (\hat{\mathbf{z}}
+\cdot \nabla) \mathbf{b}+(\mathbf{b} \cdot \nabla) (B_0  \hat{\mathbf{z}}) =
 \\
 &amp; &amp;&amp; B_0  \dfrac{\partial b_R}{\partial z}  \hat{\mathbf{R}} + B_0
 \frac{\partial b_{\phi}}{\partial z}  \hat{\boldsymbol{\phi}} + B_0

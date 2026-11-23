@@ -72,9 +72,9 @@ div.csl-indent {
 <script id="quarto-axe-checker-options" type="text/plain">dHJ1ZQ==</script>
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1b98dd23240c9c19cf7f5804f818ede7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c1bcdac81c6bc25be869bc58a487a70b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -106,9 +106,15 @@ div.csl-indent {
   // MathJax 4 configuration (Quarto loads MathJax without one).
   // Long display equations are broken across lines to fit the text column
   // instead of scrolling sideways; the CSS scroll box remains as a fallback.
+  // On phones, display equations are left-aligned: a centred numbered
+  // equation reserves an empty margin on the left as wide as its number,
+  // about 70 px of a 320 px column. Decided once, when the page loads.
+  var narrow = window.matchMedia("(max-width: 575.98px)").matches;
   window.MathJax = {
     output: {
       displayOverflow: "linebreak",
+      displayAlign: narrow ? "left" : "center",
+      displayIndent: "0",
       linebreaks: { inline: true, width: "100%" }
     }
   };
@@ -542,6 +548,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Vector Calculus</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/equation-sheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Useful Formulae</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -634,9 +646,11 @@ T \approx 4.2 \times 10^5\,\mathrm{K} \left( \frac{R_0}{10^{12} \, \mathrm{m}}
 \beta = \frac{\frac{1}{3} aT^4}{nk_B T} = \frac{a}{3 k_B}  \frac{T^3}{n}
 \approx \frac{a}{3 k_B}  \frac{4 \pi R^3_0}{3}  \frac{\mu m_u}{M} T^3,
 \tag{3.9}\]</span></span> where we have approximated <span class="math inline">\(n\)</span> with the average number density, <span class="math inline">\(n = \rho / (\mu m_u)\)</span> (<a href="fluids-as-continua.html#eq-continua-5" class="quarto-xref">Equation&nbsp;<span>1.5</span></a>), and <span class="math inline">\(M\)</span> is the mass of the progenitor. We find <span class="math inline">\(\beta\)</span>: <span id="eq-sn-10"><span class="math display">\[
-\beta \approx 4.8 \times 10^3 \mu  \left( \frac{1
-M_{\odot}}{M} \right)  \left( \frac{R_0}{10^{12} \, \mathrm{m}} \right)^{3 / 4}
+\begin{aligned}
+\beta &amp;\approx 4.8 \times 10^3 \mu \left( \frac{1 M_{\odot}}{M} \right) \\
+&amp;\quad \times \left( \frac{R_0}{10^{12} \, \mathrm{m}} \right)^{3 / 4}
 \left( \frac{E}{10^{51}\,\mathrm{erg}} \right)^{3 / 4},
+\end{aligned}
 \tag{3.10}\]</span></span> confirming that radiation dominates at early times. As we will see later, for homologous expansion, <span class="math inline">\(E \sim R^{- 1}\)</span>, so <span class="math inline">\(\beta\)</span> is independent of the radius to which the ejecta has expanded, and matter remains radiation dominated.</p>
 </section>
 <section id="radiation-diffusion" class="level2" data-number="3.3">
@@ -687,9 +701,11 @@ N = \left( \frac{R}{\lambda} \right)^2 .
 <p>Note that, since <span class="math inline">\(R = R_0 + vt \approx vt\)</span>, the diffusion time scale decays with time. On the other hand, the hydrodynamic time scale <span class="math inline">\(\tau_h = R / \dot{R} \approx t\)</span> increases with time. Most of the radiation will escape at the time at which <span class="math inline">\(t_p = \tau_d (t_p)\)</span>, which is also the time at which diffusion and hydrodynamic time scales become equal: <span id="eq-sn-20"><span class="math display">\[
 \boxed{t_p = \left( \frac{\kappa M}{\beta cv} \right)^{1 / 2} .}
 \tag{3.20}\]</span></span> This is the peak time of the <em>bolometric luminosity</em>. For Thomson scattering in a hydrogen-rich, ionized gas <span class="math inline">\(\kappa = 0.4\,\mathrm{cm}^2\,\mathrm{g}^{- 1}\)</span>, that is, <span class="math inline">\(0.04\,\mathrm{m^2\,kg^{-1}}\)</span> (as is customary, we quote opacities in <span class="math inline">\(\mathrm{cm^2\,g^{-1}}\)</span>), so <span id="eq-sn-21"><span class="math display">\[
-t_p = 1.4 \times 10^6\,\mathrm{s} \left( \frac{M}{M_{\odot}} \right)^{1 / 2}
-\left( \frac{\kappa}{0.4\,\mathrm{cm}^2\,\mathrm{g}^{- 1}} \right)^{1 / 2}
+\begin{aligned}
+t_p &amp;= 1.4 \times 10^6\,\mathrm{s} \left( \frac{M}{M_{\odot}} \right)^{1 / 2} \\
+&amp;\quad \times \left( \frac{\kappa}{0.4\,\mathrm{cm}^2\,\mathrm{g}^{- 1}} \right)^{1 / 2}
 \left( \frac{v}{10^4 \, \mathrm{km} \, \mathrm{s}^{- 1}} \right)^{- 1 / 2} .
+\end{aligned}
 \tag{3.21}\]</span></span> The characteristic radius of the supernova at this time is <span id="eq-sn-22"><span class="math display">\[
 R_p = R_0 + t_p v \approx t_p v \sim 10^{13} \, \mathrm{m} .
 \tag{3.22}\]</span></span> This time scale and characteristic radius are in good agreement with observations. These formulae also show that the typical duration of the rise time of the supernova is proportional to the square root of the mass and of the opacity, and inversely proportional to the square root of the velocity. This implies that the explosion of less massive stars produces faster transients, while more massive stars produce light curves that evolve over longer timescales. These relations are key to interpret not only supernovae, but also other explosive transients, such as kilonovae. For SN 1987A the inferred velocity from spectroscopy is <span class="math inline">\(v \sim 3000\,\mathrm{km\,s^{-1}}\)</span> and the peak time is <span class="math inline">\(t_p \approx 100\,\mathrm{days}\)</span> (<a href="#fig-sn-sn1987a" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>), so we can estimate <span class="math inline">\(M \approx 10 M_{\odot}\)</span>. This gives an explosion energy of <span class="math inline">\(\mathcal{E}= \frac{1}{2} Mv^2 \sim 10^{51}\,\mathrm{erg}\)</span>. These estimates are only correct to within an order of magnitude, since they neglect important effects, such as recombination, which we discuss below.</p>
@@ -847,7 +863,7 @@ Figure&nbsp;3.5: Bolometric light curve for SN 1999em, a classical example of a 
 <li><p>Consider the explosion of a red supergiant with radius <span class="math inline">\(R_0 = 10^{12}\,\mathrm{m}\)</span> and mass <span class="math inline">\(M \sim 10\,M_\odot\)</span>. At time <span class="math inline">\(t = 0\)</span>, we inject a large amount of energy into the star, <span class="math inline">\(\sim 10^{51}\,\mathrm{erg} = 10^{44}\,\mathrm{J}\)</span>.</p>
 <p>Constants: <span class="math inline">\(a = 7.6 \times 10^{-16}\,\mathrm{J\,m^{-3}\,K^{-4}}\)</span>, <span class="math inline">\(k_B = 1.4 \times 10^{-23}\,\mathrm{J/K}\)</span>, <span class="math inline">\(h = 6.6 \times 10^{-34}\,\mathrm{J\,s}\)</span>.</p>
 <ol type="1">
-<li><p>Find the temperature of the gas, and determine the waveband in which the black body emission peaks.</p></li>
+<li><p>Find the temperature of the gas, and determine the waveband in which the black body emission peaks. Note that the black body spectrum peaks at a frequency <span class="math inline">\(\nu\)</span> such that <span class="math inline">\(h \nu \approx 2.8\, k_B T\)</span>.</p></li>
 <li><p>Show that the gas is radiation dominated. Compute <span class="math inline">\(\beta = P_{\mathrm{rad}} / P_{\mathrm{gas}}\)</span>.</p></li>
 </ol></li>
 <li><p>Given the mean free path <span class="math inline">\(\lambda = 1 / (\kappa \rho)\)</span>, and the definition of the photon diffusion time through a system of size <span class="math inline">\(R\)</span>, <span class="math inline">\(\tau_d = R^2 / \lambda c\)</span>, find the time needed for a photon to escape the Sun, after being created in the core. Take <span class="math inline">\(\kappa \sim 25\,\mathrm{cm^2\,g^{-1}}\)</span>.</p></li>

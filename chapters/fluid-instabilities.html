@@ -72,9 +72,9 @@ div.csl-indent {
 <script id="quarto-axe-checker-options" type="text/plain">dHJ1ZQ==</script>
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1b98dd23240c9c19cf7f5804f818ede7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-dabe92624fd18d66128fe69718a37239.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c1bcdac81c6bc25be869bc58a487a70b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-09765bc7177842cc228ad62f20052a67.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -106,9 +106,15 @@ div.csl-indent {
   // MathJax 4 configuration (Quarto loads MathJax without one).
   // Long display equations are broken across lines to fit the text column
   // instead of scrolling sideways; the CSS scroll box remains as a fallback.
+  // On phones, display equations are left-aligned: a centred numbered
+  // equation reserves an empty margin on the left as wide as its number,
+  // about 70 px of a 320 px column. Decided once, when the page loads.
+  var narrow = window.matchMedia("(max-width: 575.98px)").matches;
   window.MathJax = {
     output: {
       displayOverflow: "linebreak",
+      displayAlign: narrow ? "left" : "center",
+      displayIndent: "0",
       linebreaks: { inline: true, width: "100%" }
     }
   };
@@ -542,6 +548,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Vector Calculus</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/equation-sheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Useful Formulae</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -665,7 +677,8 @@ Figure&nbsp;14.2: Schematic convection cycle. Hot fluid elements rise adiabatica
 <p>The equation of motion of the displaced fluid element is <span id="eq-inst-element-motion"><span class="math display">\[
 \begin{aligned}
 \rho \frac{\mathrm{d}^2 \delta z}{\mathrm{d} t^2} &amp;= - g \left[ \rho^* - \rho (z + \delta z) \right] \\
-&amp;= - g \rho \left[ - \left( 1 - \frac{1}{\Gamma} \right) \frac{1}{p} \frac{\mathrm{d} p}{\mathrm{d} z} + \frac{1}{T} \frac{\mathrm{d} T}{\mathrm{d} z} \right] \delta z ,
+&amp;= - g \rho \biggl[ - \left( 1 - \frac{1}{\Gamma} \right) \frac{1}{p} \frac{\mathrm{d} p}{\mathrm{d} z} \\
+&amp;\qquad {} + \frac{1}{T} \frac{\mathrm{d} T}{\mathrm{d} z} \biggr] \delta z ,
 \end{aligned}
 \tag{14.11}\]</span></span> where we have used <a href="#eq-inst-buoyancy-force" class="quarto-xref">Equation&nbsp;<span>14.1</span></a> and <a href="#eq-inst-density-difference" class="quarto-xref">Equation&nbsp;<span>14.6</span></a>. This can be written as <span id="eq-inst-oscillator"><span class="math display">\[
 \frac{\mathrm{d}^2 \delta z}{\mathrm{d} t^2} + N^2 \delta z = 0 ,
@@ -737,9 +750,10 @@ Figure&nbsp;14.3: Development of the Rayleigh–Taylor instability in a two-dime
 \frac{\partial \boldsymbol{\omega}_1}{\partial t} + \nabla \times (\boldsymbol{\omega}_0 \times \mathbf{v}_1) + \nabla \times (\boldsymbol{\omega}_1 \times \mathbf{v}_0) = 0 .
 \tag{14.22}\]</span></span> The zeroth-order term vanishes: <span class="math inline">\(\boldsymbol{\omega}_0 \times \mathbf{v}_0 = - V \, (\mathrm{d} V / \mathrm{d} x) \, \hat{\mathbf{x}}\)</span> depends only on <span class="math inline">\(x\)</span>, so its curl is zero. Since <span class="math inline">\(\boldsymbol{\omega}_1\)</span> is parallel to <span class="math inline">\(\hat{\mathbf{z}}\)</span>, we need only the <span class="math inline">\(z\)</span>-component of <a href="#eq-inst-vorticity-linear" class="quarto-xref">Equation&nbsp;<span>14.22</span></a>. We have <span id="eq-inst-curls"><span class="math display">\[
 \begin{aligned}
-\boldsymbol{\omega}_1 \times \mathbf{v}_0 &amp;= \nabla^2 \phi \, \hat{\mathbf{z}} \times V \hat{\mathbf{y}} = - V \nabla^2 \phi \, \hat{\mathbf{x}} , \\
+\boldsymbol{\omega}_1 \times \mathbf{v}_0 &amp;= \nabla^2 \phi \, \hat{\mathbf{z}} \times V \hat{\mathbf{y}} \\
+&amp;= - V \nabla^2 \phi \, \hat{\mathbf{x}} , \\
 \left\{ \nabla \times [\boldsymbol{\omega}_1 \times \mathbf{v}_0] \right\} \cdot \hat{\mathbf{z}} &amp;= V \partial_y \nabla^2 \phi , \\
-\boldsymbol{\omega}_0 \times \mathbf{v}_1 &amp;= - \frac{\mathrm{d} V}{\mathrm{d} x} (\partial_x \phi \, \hat{\mathbf{x}} + \partial_y \phi \, \hat{\mathbf{y}}) , \\
+\boldsymbol{\omega}_0 \times \mathbf{v}_1 &amp;= - \frac{\mathrm{d} V}{\mathrm{d} x} (\partial_x \phi \hat{\mathbf{x}} + \partial_y \phi \hat{\mathbf{y}}) , \\
 \left\{ \nabla \times [\boldsymbol{\omega}_0 \times \mathbf{v}_1] \right\} \cdot \hat{\mathbf{z}} &amp;= - \frac{\mathrm{d}^2 V}{\mathrm{d} x^2} \partial_y \phi .
 \end{aligned}
 \tag{14.23}\]</span></span> In the last line, the terms with <span class="math inline">\(\partial_x \partial_y \phi\)</span> cancel. So <span id="eq-inst-phi"><span class="math display">\[
@@ -788,9 +802,10 @@ k (c - V_1) X, &amp; x = 0^-, \\
 (c - V) \frac{\mathrm{d}^2 \Psi}{\mathrm{d} x^2} + \frac{\mathrm{d}^2 V}{\mathrm{d} x^2} \Psi = \frac{\mathrm{d}}{\mathrm{d} x} \left[ (c - V) \frac{\mathrm{d} \Psi}{\mathrm{d} x} + \frac{\mathrm{d} V}{\mathrm{d} x} \Psi \right] ,
 \tag{14.32}\]</span></span> so that <span id="eq-inst-sheet-jump"><span class="math display">\[
 \begin{aligned}
-0 &amp;= \int_{- \epsilon}^{\epsilon} \left[ (c - V) \left( \frac{\mathrm{d}^2 \Psi}{\mathrm{d} x^2} - k^2 \Psi \right) + \frac{\mathrm{d}^2 V}{\mathrm{d} x^2} \Psi \right] \mathrm{d} x \\
+0 &amp;= \int_{- \epsilon}^{\epsilon} \biggl[ (c - V) \left( \frac{\mathrm{d}^2 \Psi}{\mathrm{d} x^2} - k^2 \Psi \right) \\
+&amp;\qquad {} + \frac{\mathrm{d}^2 V}{\mathrm{d} x^2} \Psi \biggr] \mathrm{d} x \\
 &amp;= \left[ (c - V) \frac{\mathrm{d} \Psi}{\mathrm{d} x} + \frac{\mathrm{d} V}{\mathrm{d} x} \Psi \right]_{- \epsilon}^{\epsilon} \\
-&amp; \qquad - k^2 \int_{- \epsilon}^{\epsilon} (c - V) \Psi \, \mathrm{d} x \\
+&amp;\qquad {} - k^2 \int_{- \epsilon}^{\epsilon} (c - V) \Psi \, \mathrm{d} x \\
 &amp;\xrightarrow{\epsilon \to 0} - k X \left[ (c - V_1)^2 + (c - V_2)^2 \right] ,
 \end{aligned}
 \tag{14.33}\]</span></span> where we have used <span class="math inline">\(\mathrm{d} V / \mathrm{d} x = 0\)</span> at <span class="math inline">\(x = \pm \epsilon\)</span> and the fact that the last integral vanishes as <span class="math inline">\(\epsilon \to 0\)</span>. So the dispersion relation is <span id="eq-inst-sheet-dispersion"><span class="math display">\[
@@ -877,7 +892,7 @@ A = \frac{\rho_2 - \rho_1}{\rho_2 + \rho_1} .
 <div id="exr-inst-slab" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 14.3 (Thermal balance of a slab)</strong></span> A slab of gas held together by its own gravity is heated by cosmic rays, at a constant rate per unit mass. It cools by optically thin thermal bremsstrahlung, with a cooling rate per unit mass proportional to <span class="math inline">\(\rho T^{1 / 2}\)</span>.</p>
 <ol type="1">
-<li><p>Using the discussion of thermal instability in <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span> (Section 10.4), analyse the thermal stability of the slab.</p></li>
+<li><p>Analyse the thermal stability of the slab. <span class="citation" data-cites="clarke2007">(Hint. Let <span class="math inline">\(\dot{Q}\)</span> be the net cooling rate per unit mass, that is the cooling rate minus the heating rate. A gas in thermal equilibrium, <span class="math inline">\(\dot{Q} = 0\)</span>, is thermally unstable if <span class="math inline">\((\partial \dot{Q} / \partial T)_p &lt; 0\)</span>. This is the Field criterion, which is discussed in <a href="#ref-clarke2007" role="doc-biblioref">Clarke and Carswell 2007, sec. 10.4</a>.)</span></p></li>
 <li><p>Is the slab stable against the Rayleigh–Taylor instability?</p></li>
 </ol>
 <p>Adapted from <span class="citation" data-cites="clarke2007">Clarke and Carswell (<a href="#ref-clarke2007" role="doc-biblioref">2007</a>)</span>, Problem 36.</p>
