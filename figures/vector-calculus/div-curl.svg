@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 470" width="440" height="470" role="img" aria-labelledby="vec-div-curl-t vec-div-curl-d">
+<title id="vec-div-curl-t">Divergence of a curl</title>
+<desc id="vec-div-curl-d">A closed surface cut along a closed curve C into two pieces, drawn pulled apart. The upper piece S_1 is a dome whose rim is C; its area element dA points up, out of the enclosed volume, and the arrow on its rim shows that C is traversed counterclockwise when seen from above. The lower piece S_2 is a bowl with the same rim C; its area element dA points down, again out of the volume, and the arrow on its rim shows that C is traversed clockwise when seen from above, opposite to the upper piece. The two circulations along C therefore cancel.</desc>
+<defs><marker id="ah-k" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#000" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker><marker id="ah-1f4fbf" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#1f4fbf" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker><marker id="ah-b3202a" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#b3202a" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker><marker id="ah-007a7a" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1.5 1.5 L 10.5 6 L 1.5 10.5" fill="none" stroke="#007a7a" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></marker></defs>
+<rect width="440" height="470" fill="#fff"/>
+<g font-family="'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif">
+<path d="M 60 165 C 60 45, 380 45, 380 165 A 160 40 0 0 1 60 165 Z" fill="#d9d9d9" stroke="#000" stroke-width="0" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 60 165 C 60 45, 380 45, 380 165" fill="none" stroke="#000" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 60 165 A 160 40 0 0 1 380 165" fill="none" stroke="#1f4fbf" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 5" />
+<path d="M 380 165 A 160 40 0 0 1 60 165" fill="none" stroke="#1f4fbf" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" />
+<line x1="198.0" y1="205.0" x2="242.0" y2="205.0" stroke="#1f4fbf" stroke-width="2.4" marker-end="url(#ah-1f4fbf)"/>
+<text x="220" y="231" text-anchor="middle" font-size="20" fill="#1f4fbf">d<tspan font-weight="bold">l</tspan></text>
+<line x1="220.0" y1="83.0" x2="220.0" y2="25.0" stroke="#b3202a" stroke-width="2.4" marker-end="url(#ah-b3202a)"/>
+<text x="230" y="43" text-anchor="start" font-size="20" fill="#b3202a">d<tspan font-weight="bold">A</tspan></text>
+<text x="110" y="125" text-anchor="start" font-size="22" font-style="italic" font-weight="normal" fill="#000">S<tspan dy="5.0" font-size="15.8" font-style="normal">1</tspan></text>
+<text x="388" y="187" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#1f4fbf">C</text>
+<path d="M 60 300 C 60 435, 380 435, 380 300 A 160 40 0 0 0 60 300 Z" fill="#d9d9d9" stroke="#000" stroke-width="0" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 60 300 C 60 435, 380 435, 380 300" fill="none" stroke="#000" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" />
+<ellipse cx="220.0" cy="300.0" rx="160.0" ry="40.0" transform="rotate(0.0 220.0 300.0)" fill="#ececec" stroke="#007a7a" stroke-width="2.4"/>
+<line x1="242.0" y1="340.0" x2="198.0" y2="340.0" stroke="#007a7a" stroke-width="2.4" marker-end="url(#ah-007a7a)"/>
+<text x="220" y="366" text-anchor="middle" font-size="20" fill="#007a7a">d<tspan font-weight="bold">l</tspan></text>
+<line x1="311.0" y1="385.0" x2="333.0" y2="427.0" stroke="#b3202a" stroke-width="2.4" marker-end="url(#ah-b3202a)"/>
+<text x="342" y="420" text-anchor="start" font-size="20" fill="#b3202a">d<tspan font-weight="bold">A</tspan></text>
+<text x="150" y="385" text-anchor="start" font-size="22" font-style="italic" font-weight="normal" fill="#000">S<tspan dy="5.0" font-size="15.8" font-style="normal">2</tspan></text>
+<text x="388" y="322" text-anchor="start" font-size="20" font-style="italic" font-weight="normal" fill="#007a7a">C</text>
+</g>
+</svg>
