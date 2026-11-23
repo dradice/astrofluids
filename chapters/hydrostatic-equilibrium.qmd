@@ -207,7 +207,7 @@ $$ {#eq-hydro-cluster-temperature}
 or $T \sim 6 \times 10^7\,\mathrm{K}$, where we have taken $\mu \approx 0.6$ for fully ionized gas. This is why galaxy clusters are bright X-ray sources, as in the case of the Bullet cluster (@fig-continua-bullet-cluster).
 :::
 
-## Application to star formation
+## Application to star formation {#sec-hydro-jeans}
 
 Consider a spherical cloud of radius $R$. For simplicity, we take its density $\bar{\rho}$ to be uniform. Then the gravitational potential energy is
 $$

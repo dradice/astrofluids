@@ -1,10 +1,10 @@
 # Fluid Instabilities {#sec-inst}
 
 ::: {.callout-note}
-This chapter is a draft. Sections on other instabilities, such as the thermal and the gravitational (Jeans) instabilities, are in preparation.
+This chapter is a draft. Sections on other instabilities, such as the thermal instability, are in preparation.
 :::
 
-A flow is **unstable** when small perturbations can grow exponentially. We have already seen in @sec-sound that the normal modes of a fluid at rest have real $\omega^2$ (@eq-sound-29), so each mode either oscillates or grows exponentially. This is no longer true when the fluid is moving, as we will see for the Kelvin–Helmholtz instability. In this chapter we will look at a few examples of instabilities that are particularly useful in astrophysics. There are many more instabilities, each with its own dimensionless numbers. The definitive reference is @chandrasekhar1961.
+A flow is **unstable** when small perturbations can grow exponentially. We have already seen in @sec-sound that the normal modes of a fluid at rest have real $\omega^2$ (@eq-sound-29), so each mode either oscillates or grows exponentially. We will see an example of the latter in @sec-inst-jeans. This is no longer true when the fluid is moving, as we will see for the Kelvin–Helmholtz instability. In this chapter we will look at a few examples of instabilities that are particularly useful in astrophysics. There are many more instabilities, each with its own dimensionless numbers. The definitive reference is @chandrasekhar1961.
 
 ## Convective instability {#sec-inst-convection}
 
@@ -276,6 +276,57 @@ The perturbation decays: viscosity has a stabilizing effect. In physical units, 
 ![Sketch of the eigenvalues $\omega = \omega_r + \ii \omega_i$ in the complex plane. Left: as the Reynolds number increases, the eigenvalues move upwards, and the flow becomes unstable when one of them crosses the real axis. Right: the modes of a shear layer for increasing wave number $k$, starting from the origin. Long wavelengths are unstable, while short wavelengths are damped by viscosity.](../figures/fluid-instabilities/eigenvalues.svg){#fig-inst-eigen fig-alt="Two panels, each with the real part of omega on the horizontal axis and the imaginary part on the vertical axis. Left: six crosses below the horizontal axis, in the region of stable modes, each with an arrow pointing upwards into the region of unstable modes, labelled Re increasing. Right: dots for modes with increasing wave number start at the origin and rise along a straight line, reach a maximum, and then bend down, crossing the horizontal axis; the last dots, below the axis, are labelled damped by viscosity. Arrows show the dots with large wave number moving upwards as the Reynolds number increases."}
 
 The Kelvin–Helmholtz instability is everywhere: it produces the billows that we sometimes see in clouds, and it makes jets and the boundaries of astrophysical outflows turbulent. It also plays an important role in turbulence (@sec-turb): large eddies are destroyed by the Kelvin–Helmholtz instability and generate smaller eddies.
+
+## The Jeans instability {#sec-inst-jeans}
+
+We have already encountered the Jeans instability in @sec-hydro-jeans. Here, we re-derive the instability following the same argument as James Jeans. We consider an initially homogeneous, self-gravitating gas region, subject to a density perturbation. We expand density, velocity, and gravitational potential as
+$$
+    \rho = \rho_0 + \rho_1, \qquad \vb{v} = \vb{v}_0 + \vb{v}_1, \qquad \phi = \phi_0 + \phi_1.
+$$ {#eq-inst-jeans-setup}
+For a homogeneous background, we have $\rho_0 = \mathrm{const}$, $\vb{v}_0 = 0$, and $\phi_0 = \mathrm{const}$. Strictly speaking, this background is not consistent, because a constant potential does not satisfy the Poisson equation, $\nabla^2 \phi_0 = 4 \pi G \rho_0$. Following Jeans, we ignore this problem, which is why this argument is sometimes called the *Jeans swindle*. The swindle can be justified for perturbations on scales much smaller than the size of the region, or in an expanding universe. The continuity equation reads, to first order
+$$
+    \frac{\partial \rho_1}{\partial t} + \rho_0 \nabla \cdot \vb{v}_1 = 0.
+$$ {#eq-inst-jeans-continuity}
+The linearized momentum equation reads
+$$
+    \frac{\partial \vb{v}_1}{\partial t} = - \nabla \phi_1 - \frac{c_s^2}{\rho_0} \nabla \rho_1,
+$$ {#eq-inst-jeans-momentum}
+where we have used $\nabla p_1 = c_s^2 \nabla \rho_1$. For adiabatic perturbations $c_s$ is the adiabatic sound speed. For a gas that can efficiently cool, as in molecular clouds, the perturbations are isothermal, and we should use the isothermal sound speed $c_{\mathrm{iso}}$ instead.
+Finally, the gravitational potential satisfies
+$$
+    \nabla^2 \phi_1 = 4 \pi G \rho_1.
+$$ {#eq-inst-jeans-poisson}
+If we take all perturbations to be proportional to $\exp\big[\ii (\vb{k}\cdot\vb{x}-\omega t ) \big]$, then we can solve for the potential perturbation as
+$$
+    \phi_1 = -\frac{4 \pi G}{k^2} \rho_1.
+$$ {#eq-inst-jeans-potential}
+Inserting this into the momentum equation gives
+$$
+    \vb{v}_1 = \frac{\vb{k}}{\omega} \left( - \frac{4\pi G}{k^2} + \frac{c_s^2}{\rho_0} \right) \rho_1.
+$$ {#eq-inst-jeans-velocity}
+Using @eq-inst-jeans-continuity, we obtain
+$$
+    \omega^2 \rho_1 = k^2 \left( - \frac{4\pi G \rho_0}{k^2} + c_s^2 \right) \rho_1.
+$$ {#eq-inst-jeans-density}
+The dispersion relation is thus
+$$
+    \omega^2 = c_s^2 k^2 - 4 \pi G \rho_0 .
+$$ {#eq-inst-jeans-dispersion}
+This dispersion relation is formally very similar to the dispersion relation of electromagnetic waves in cold plasma, which we will derive in @eq-plasma-52:
+$$
+    \omega^2 = c^2 k^2 + \omega_p^2 , \qquad \omega_p^2 = \frac{n e^2}{\epsilon_0 m_e} ,
+$$ {#eq-inst-jeans-plasma-preview}
+with the important difference of the minus sign, which swaps electrostatic repulsion for gravitational attraction.
+
+From @eq-inst-jeans-dispersion we infer that modes with large wavenumbers $k$ (small scales) behave like sound waves. However, modes with wavenumber smaller than
+$$
+    k_J = \frac{\sqrt{4 \pi G \rho_0}}{c_s},
+$$ {#eq-inst-jeans-kj}
+that is, with wavelength larger than
+$$
+    R_J = \frac{2 \pi}{k_J} = c_s \sqrt{\frac{\pi}{G \rho_0}},
+$$ {#eq-inst-jeans-jeans}
+have $\omega^2 < 0$, so they are unstable and grow exponentially. For $k \ll k_J$, the growth rate is $\lambda = - \ii \omega \simeq \sqrt{4 \pi G \rho_0}$, which is of the order of the inverse of the free-fall time of the gas. Apart from factors of order unity, this is the same Jeans length we found in @eq-hydro-33.
 
 ## In-class worksheet {#sec-inst-worksheet}
 
