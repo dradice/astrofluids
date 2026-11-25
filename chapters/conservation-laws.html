@@ -681,7 +681,7 @@ v_z
 </section>
 <section id="energy-equation" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="energy-equation"><span class="header-section-number">6.2</span> Energy equation</h2>
-<p>The energy equation (<a href="thermodynamics.html#eq-thermo-energy-lagrangian" class="quarto-xref">Equation&nbsp;<span>2.39</span></a>) reads <span id="eq-conserv-ch6-eq-energy-lagrangian"><span class="math display">\[
+<p>The energy equation (<a href="thermodynamics.html#eq-thermo-energy-lagrangian" class="quarto-xref">Equation&nbsp;<span>2.41</span></a>) reads <span id="eq-conserv-ch6-eq-energy-lagrangian"><span class="math display">\[
 \rho \frac{\mathrm{d} \varepsilon}{\mathrm{d} t} = \rho \dot{q} - p \nabla \cdot
 \mathbf{v}.
 \tag{6.11}\]</span></span> We can expand the advective derivative in <a href="#eq-conserv-ch6-eq-energy-lagrangian" class="quarto-xref">Equation&nbsp;<span>6.11</span></a> to obtain the energy equation in the Eulerian frame (<a href="eulerian-lagrangian.html#eq-lagrange-energy" class="quarto-xref">Equation&nbsp;<span>5.19</span></a>): <span id="eq-conserv-12"><span class="math display">\[
@@ -809,7 +809,7 @@ v^2 + \rho \varepsilon + p \right) \mathbf{v}+\mathbf{F}_{\mathrm{heat}} \right]
 \end{aligned}
 \tag{6.25}\]</span></span> In many astrophysical applications, energy is transported mostly by photons, and the heat flux can be approximated as <span id="eq-conserv-ch6-eq-heat-flux"><span class="math display">\[
 \mathbf{F}_{\mathrm{heat}}= - \frac{c}{3 \rho \kappa_R} \nabla (aT^4),
-\tag{6.26}\]</span></span> where <span class="math inline">\(c\)</span> is the speed of light, <span class="math inline">\(a\)</span> the radiation constant (<a href="thermodynamics.html#eq-thermo-33" class="quarto-xref">Equation&nbsp;<span>2.33</span></a>), and <span class="math inline">\(\kappa_R\)</span> is the so-called <em>Rosseland mean opacity</em>. The term in parentheses is an energy density. Indeed, it is the energy density of radiation for a black body (<a href="thermodynamics.html#eq-thermo-32" class="quarto-xref">Equation&nbsp;<span>2.32</span></a>): <span id="eq-conserv-27"><span class="math display">\[
+\tag{6.26}\]</span></span> where <span class="math inline">\(c\)</span> is the speed of light, <span class="math inline">\(a\)</span> the radiation constant (<a href="thermodynamics.html#eq-thermo-33" class="quarto-xref">Equation&nbsp;<span>2.35</span></a>), and <span class="math inline">\(\kappa_R\)</span> is the so-called <em>Rosseland mean opacity</em>. The term in parentheses is an energy density. Indeed, it is the energy density of radiation for a black body (<a href="thermodynamics.html#eq-thermo-32" class="quarto-xref">Equation&nbsp;<span>2.34</span></a>): <span id="eq-conserv-27"><span class="math display">\[
 u_{\mathrm{rad}} = aT^4 .
 \tag{6.27}\]</span></span> The opacity has units of <span class="math inline">\(\mathrm{m}^2 \, \mathrm{kg}^{- 1}\)</span> (we quote it in <span class="math inline">\(\mathrm{cm^2\,g^{-1}}\)</span>, as is customary), so <span class="math inline">\(\lambda = 1 / (\rho \kappa_R)\)</span> has units of a length. Indeed, <span class="math inline">\(\lambda\)</span> is the photon mean free path. Combining these two facts, we can write <a href="#eq-conserv-ch6-eq-heat-flux" class="quarto-xref">Equation&nbsp;<span>6.26</span></a> as <span id="eq-conserv-ch6-eq-fick-law"><span class="math display">\[
 \mathbf{F}_{\mathrm{heat}}= - \frac{1}{3} \lambda c \nabla u_{\mathrm{rad}} = -\mathcal{D} \nabla
