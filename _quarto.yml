@@ -9,6 +9,7 @@ book:
   site-url: https://dradice.github.io/astrofluids/
   repo-url: https://github.com/dradice/astrofluids
   search: true
+  downloads: [pdf]
   page-footer:
     center: >-
       © David Radice ·

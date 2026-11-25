@@ -10,6 +10,10 @@ These notes are a work in progress. I revise them as I teach the course, so you 
 Corrections and suggestions for improvement are welcome. You can report them by opening an [issue](https://github.com/dradice/astrofluids/issues) on GitHub, or propose a change directly with a [pull request](https://github.com/dradice/astrofluids/pulls).
 :::
 
+::: {.content-visible when-format="html"}
+The notes are also available as a single [PDF file](Astrophysical-Fluid-Dynamics.pdf), for printing or reading offline. It is updated together with the web version. You can download it from any page with the icon at the top of the sidebar.
+:::
+
 ## How to use these notes {.unnumbered}
 
 - **One chapter per lecture topic.** Canvas lists which chapter goes with each lecture.
