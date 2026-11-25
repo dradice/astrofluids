@@ -109,6 +109,17 @@ $$
 \dd \varepsilon = \delta q - \delta w = T \dd s - p \dd v = T
 \dd s + \frac{p}{\rho^2} \dd \rho .
 $$ {#eq-thermo-first-law2}
+The **specific heats** at constant volume and at constant pressure are the amounts of heat per unit mass needed to raise the temperature by one kelvin, while holding the volume or the pressure fixed:
+$$
+c_v = \left( \frac{\delta q}{\delta T} \right)_v = \left( \frac{\partial \varepsilon}{\partial T} \right)_v , \qquad
+c_p = \left( \frac{\delta q}{\delta T} \right)_p .
+$$ {#eq-thermo-specific-heats}
+For an ideal gas with a $\Gamma$-law equation of state, $\varepsilon = k_B T / [(\Gamma - 1) \mu m_u]$ depends only on the temperature, so $\dd \varepsilon = c_v \dd T$ with $c_v = k_B / [(\Gamma - 1) \mu m_u]$. Using $p v = k_B T / (\mu m_u)$, we can write $p \dd v = \frac{k_B}{\mu m_u} \dd T - v \dd p$, so @eq-thermo-first-law2 gives $\delta q = \big( c_v + \frac{k_B}{\mu m_u} \big) \dd T - v \dd p$, and
+$$
+c_p = c_v + \frac{k_B}{\mu m_u}, \qquad \frac{c_p}{c_v} = \Gamma .
+$$ {#eq-thermo-mayer}
+For a monoatomic gas, $c_v = \frac{3}{2} \frac{k_B}{\mu m_u}$ and $c_p = \frac{5}{2} \frac{k_B}{\mu m_u}$.
+
 In the case of adiabatic flows $\delta q = 0$, the first law simplifies to
 $$
 \dd \varepsilon = \frac{p}{\rho^2} \dd \rho .
